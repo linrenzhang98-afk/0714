@@ -1,0 +1,19 @@
+[Unit]
+Description=Safe GitHub-controlled analysis runner
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=analysis-runner
+Group=analysis-runner
+WorkingDirectory=/srv/github-analysis-control
+ExecStart=/usr/bin/python3 /srv/github-analysis-control/runner/runner.py --config /srv/github-analysis-control/config.json
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/srv/github-analysis-control /data/analysis
+
+[Install]
+WantedBy=multi-user.target

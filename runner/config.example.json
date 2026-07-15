@@ -1,0 +1,28 @@
+{
+  "repo_path": "/srv/github-analysis-control/repo",
+  "jobs_glob": "jobs/*.json",
+  "state_path": "/srv/github-analysis-control/state/runner_state.json",
+  "log_path": "/srv/github-analysis-control/logs/runner.jsonl",
+  "lock_path": "/srv/github-analysis-control/state/runner.lock",
+  "results_root": "/srv/github-analysis-control/results",
+  "allowed_data_roots": [
+    "/data/analysis",
+    "/srv/github-analysis-control/example-data"
+  ],
+  "git_timeout_seconds": 120,
+  "default_task_timeout_seconds": 3600,
+  "tasks": {
+    "run_metabolomics_analysis": {
+      "script": "/srv/github-analysis-control/scripts/run_metabolomics_analysis.py",
+      "timeout_seconds": 7200
+    },
+    "generate_report": {
+      "script": "/srv/github-analysis-control/scripts/generate_report.py",
+      "timeout_seconds": 1800
+    },
+    "backup_results": {
+      "script": "/srv/github-analysis-control/scripts/backup_results.py",
+      "timeout_seconds": 1800
+    }
+  }
+}
