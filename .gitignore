@@ -1,0 +1,6 @@
+
+# Local runner files
+runner/config.local.json
+.runner_state/
+.runner_logs/
+results/
