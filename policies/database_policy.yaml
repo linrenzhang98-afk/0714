@@ -1,0 +1,50 @@
+database_modes:
+  test:
+    purpose: Validate pipeline mechanics with mini or demo databases.
+    may_use_mini_database: true
+    may_generate_final_scientific_conclusions: false
+    allow_large_database_download: false
+    missing_database_action: stop_with_decision_request
+  pilot:
+    purpose: Generate preliminary results with pre-existing project-appropriate databases.
+    may_use_mini_database: false
+    may_generate_final_scientific_conclusions: false
+    allow_large_database_download: false
+    missing_database_action: stop_with_decision_request
+  production:
+    purpose: Final analysis with user-confirmed database path, version, and scope.
+    may_use_mini_database: false
+    may_generate_final_scientific_conclusions: true
+    allow_large_database_download: false
+    missing_database_action: stop_with_decision_request
+
+large_database_policy:
+  default_allow_download: false
+  require_human_confirmation:
+    - download_full_humann_database
+    - download_uniref_database
+    - download_chocophlan_database
+    - download_gtdb_database
+    - download_eggnog_database
+    - download_card_database
+    - download_vfdb_database
+    - replace_existing_database
+    - delete_database
+    - switch_from_mini_to_production_database
+
+required_decision_request_fields:
+  - job_id
+  - requested_database
+  - requested_mode
+  - existing_path
+  - estimated_size_if_known
+  - why_needed
+  - safe_alternative
+  - consequence_of_not_running
+
+default_behavior:
+  missing_test_database: stop_with_decision_request
+  missing_pilot_database: stop_with_decision_request
+  missing_production_database: stop_with_decision_request
+  mini_database_in_production_job: reject
+  production_database_in_test_job: allow_read_only
