@@ -4,3 +4,7 @@ runner/config.local.json
 .runner_state/
 .runner_logs/
 results/
+
+# Python runtime artifacts
+__pycache__/
+*.pyc
