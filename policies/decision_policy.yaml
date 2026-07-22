@@ -1,0 +1,76 @@
+auto_decision_default: safe
+
+levels:
+  safe:
+    description: Automatically resolve low-risk engineering and runtime issues only.
+  guided:
+    description: Automatically resolve known scientific workflow choices only when policy and job parameters agree.
+  manual:
+    description: Stop on any non-trivial issue and write a decision request.
+
+auto_allowed:
+  engineering:
+    - create_missing_output_dir
+    - create_missing_log_dir
+    - retry_git_pull
+    - retry_transient_network_failure
+    - reduce_threads_to_available_cpu
+    - switch_git_remote_to_ssh_443_when_configured
+    - force_git_http_1_1_for_https_remote
+    - skip_already_completed_job
+    - write_timestamped_output_dir_when_target_exists
+  qiime2_amplicon:
+    - run_manifest_validation_before_import
+    - stop_if_manifest_or_metadata_missing
+    - stop_if_sample_ids_do_not_match
+    - use_paired_end_import_when_forward_and_reverse_exist
+    - use_single_end_import_when_only_single_reads_exist
+    - summarize_demux_before_dada2
+    - choose_dada2_threads_from_available_cpu
+  metagenome:
+    - run_fastq_presence_check_before_classification
+    - use_kraken2_bracken_as_default_taxonomy_pipeline
+    - lower_threads_when_memory_pressure_detected
+    - stop_if_database_path_missing
+    - write_per_sample_failure_and_continue_when_policy_allows
+
+require_human:
+  data_integrity:
+    - delete_raw_fastq
+    - overwrite_existing_results
+    - move_or_rename_bulk_raw_data
+    - edit_original_metadata
+    - exclude_primary_sample
+    - merge_or_split_sample_groups
+  scientific_interpretation:
+    - change_group_design
+    - change_primary_comparison
+    - change_biological_conclusion
+    - choose_truncation_length_without_demux_summary
+    - choose_taxonomic_database_without_user_or_config_preference
+  system:
+    - install_or_uninstall_software
+    - modify_system_service
+    - modify_environment_variables
+    - change_paths_outside_allowed_roots
+
+pipeline_defaults:
+  amplicon_qiime2:
+    preferred_engine: qiime2
+    first_pass_steps:
+      - validate_manifest
+      - import_fastq
+      - summarize_demux
+      - dada2_denoise
+      - taxonomy_assignment
+      - feature_table_summary
+      - diversity_exports
+    decision_mode: safe
+  metagenome:
+    preferred_first_pass: kraken2_bracken
+    adaptive_options:
+      - metaphlan_for_marker_based_taxonomy
+      - humann_for_functional_profiling
+      - assembly_when_depth_and_goal_support_it
+      - host_depletion_when_host_fraction_is_high
+    decision_mode: safe

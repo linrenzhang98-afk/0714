@@ -1,0 +1,19 @@
+{
+  "job_id": "YYYYMMDDTHHMMSSZ-metagenome-project",
+  "task": "metagenome_adaptive",
+  "created_at": "2026-07-22T00:00:00+00:00",
+  "params": {
+    "project_name": "replace_with_project_name",
+    "input_dir": "/mnt/disk1/projects/project_name/fastq",
+    "output_dir": "/mnt/disk1/results/project_name_metagenome",
+    "read_type": "paired",
+    "threads": 24,
+    "first_pass": "kraken2_bracken",
+    "kraken2_db": "/mnt/disk1/db/kraken2",
+    "bracken_db": "/mnt/disk1/db/kraken2",
+    "optional_functional_profile": "auto",
+    "optional_host_depletion": "auto",
+    "auto_decision_level": "safe",
+    "notes": "Start with Kraken2/Bracken. Escalate to HUMAnN/MetaPhlAn/assembly only when data and policy support it."
+  }
+}

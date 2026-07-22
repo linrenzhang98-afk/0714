@@ -1,0 +1,17 @@
+{
+  "job_id": "YYYYMMDDTHHMMSSZ-amplicon-qiime2-project",
+  "task": "amplicon_qiime2",
+  "created_at": "2026-07-22T00:00:00+00:00",
+  "params": {
+    "project_name": "replace_with_project_name",
+    "manifest": "/mnt/disk1/projects/project_name/manifest.csv",
+    "metadata": "/mnt/disk1/projects/project_name/metadata.tsv",
+    "output_dir": "/mnt/disk1/results/project_name_amplicon",
+    "marker": "16S_V3V4",
+    "read_type": "paired",
+    "taxonomy_classifier": "/mnt/disk1/db/qiime2/classifier.qza",
+    "threads": 16,
+    "auto_decision_level": "safe",
+    "notes": "QIIME2 is the default amplicon workflow. DADA2 truncation should stop for review unless preset in params."
+  }
+}
