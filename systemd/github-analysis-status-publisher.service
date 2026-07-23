@@ -1,0 +1,9 @@
+[Unit]
+Description=Publish public GitHub analysis status summary
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/mnt/disk1/db/kraken2/0714
+ExecStart=/usr/bin/bash /mnt/disk1/db/kraken2/0714/scripts/publish_status_to_github.sh

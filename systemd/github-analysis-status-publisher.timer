@@ -1,0 +1,10 @@
+[Unit]
+Description=Publish public GitHub analysis status summary twice daily
+
+[Timer]
+OnCalendar=*-*-* 08:50:00
+OnCalendar=*-*-* 20:50:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
