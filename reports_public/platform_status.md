@@ -1,19 +1,19 @@
 # Platform Status
 
-Generated at: 2026-07-23T02:58:45+00:00
+Generated at: 2026-07-23T03:21:42+00:00
 
 ## Job Status Counts
 
-- done: 4
+- done: 5
 - rejected: 1
 
 ## Recent Event Counts
 
 - job_dry_run_ok: 2
-- job_finish: 2
-- job_rejected: 9
-- job_start: 4
-- scan: 9
+- job_finish: 3
+- job_rejected: 10
+- job_start: 5
+- scan: 10
 
 ## Decision Requests
 
@@ -21,18 +21,15 @@ Generated at: 2026-07-23T02:58:45+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-07-23T02:51:43+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-07-23T03:21:36+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
 - 20260723T022506Z-prjna1056765-travel-batch-001: done (metagenome_sra_kraken2), updated 2026-07-23T02:51:43+00:00
+- 20260723T022506Z-prjna1056765-travel-batch-002: done (metagenome_sra_kraken2), updated 2026-07-23T03:21:36+00:00
 
 ## Last Events
 
-- 2026-07-22T11:34:37+00:00 scan
-- 2026-07-22T11:34:37+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-22T13:37:34+00:00 scan
-- 2026-07-22T13:37:34+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-07-23T00:56:54+00:00 scan
 - 2026-07-23T00:56:54+00:00 job_start job=2026-07-23-prjna1056765-safe-test
 - 2026-07-23T00:56:54+00:00 job_dry_run_ok job=2026-07-23-prjna1056765-safe-test
@@ -49,6 +46,10 @@ Generated at: 2026-07-23T02:58:45+00:00
 - 2026-07-23T02:42:32+00:00 job_start job=20260723T022506Z-prjna1056765-travel-batch-001
 - 2026-07-23T02:51:43+00:00 job_finish job=20260723T022506Z-prjna1056765-travel-batch-001 status=done
 - 2026-07-23T02:51:43+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-07-23T03:10:59+00:00 scan
+- 2026-07-23T03:10:59+00:00 job_start job=20260723T022506Z-prjna1056765-travel-batch-002
+- 2026-07-23T03:21:36+00:00 job_finish job=20260723T022506Z-prjna1056765-travel-batch-002 status=done
+- 2026-07-23T03:21:36+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 
