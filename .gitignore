@@ -8,3 +8,6 @@ results/
 # Python runtime artifacts
 __pycache__/
 *.pyc
+
+# Local status summaries
+reports/
