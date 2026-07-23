@@ -1,0 +1,19 @@
+{
+  "job_id": "2026-07-23-prjna1056765-safe-test",
+  "task": "metagenome_adaptive",
+  "created_at": "2026-07-23T00:00:00+00:00",
+  "params": {
+    "project_name": "prjna1056765_safe_test",
+    "input_dir": "/mnt/disk1/public_datasets/prjna1056765_test/fastq",
+    "output_dir": "/mnt/disk1/public_datasets/prjna1056765_test/results",
+    "read_type": "single",
+    "threads": 4,
+    "first_pass": "kraken2_bracken",
+    "kraken2_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "bracken_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "database_mode": "test",
+    "allow_large_database_download": false,
+    "auto_decision_level": "safe",
+    "notes": "Two small DNA metagenomic runs from PRJNA1056765 for travel-mode pipeline validation."
+  }
+}
