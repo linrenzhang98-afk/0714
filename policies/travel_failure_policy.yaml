@@ -1,0 +1,65 @@
+default_mode: safe
+
+retry_policy:
+  git_pull:
+    attempts: 3
+    sleep_seconds: 60
+  prefetch:
+    attempts: 3
+    sleep_seconds: 120
+  fasterq_dump:
+    attempts: 2
+    sleep_seconds: 60
+  kraken2:
+    attempts: 2
+    sleep_seconds: 60
+  bracken:
+    attempts: 1
+    sleep_seconds: 0
+
+skip_policy:
+  single_run_download_failed: skip_run_and_continue
+  single_run_fastq_failed: skip_run_and_continue
+  single_run_kraken2_failed: skip_run_and_continue
+  bracken_failed_after_kraken2_success: keep_kraken2_and_continue
+  existing_fastq_gz: reuse
+  existing_kraken2_report: reuse
+
+stop_policy:
+  missing_database: stop_with_decision_request
+  missing_required_software: stop_with_decision_request
+  missing_run_accessions: stop_with_decision_request
+  failed_run_fraction_greater_than: 0.2
+  failed_run_count_greater_than: 10
+  disk_free_gb_less_than: 500
+  production_database_missing: stop_with_decision_request
+  metadata_missing_for_group_comparison: stop_before_statistics
+
+analysis_depth:
+  travel_safe:
+    metagenome:
+      - download_selected_runs
+      - convert_to_fastq
+      - gzip_fastq
+      - kraken2
+      - bracken_if_available
+      - per_run_status
+      - merged_species_table
+      - compact_public_status
+    amplicon:
+      - download_selected_runs
+      - qiime2_import
+      - demux_summary
+      - stop_for_truncation_if_not_preset
+      - dada2_if_truncation_preset
+      - taxonomy_if_classifier_present
+
+human_required:
+  - full_dataset_download
+  - large_database_download
+  - database_replacement
+  - raw_data_deletion
+  - overwrite_results
+  - metadata_editing
+  - changing_biological_grouping
+  - production_conclusion
