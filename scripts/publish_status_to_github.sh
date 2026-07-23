@@ -24,7 +24,7 @@ mkdir -p "$PUBLIC_STATUS_DIR"
   echo "This summary is intentionally compact. Raw FASTQ files, databases, full results, local runner config, and private logs are not committed."
 } >> "$PUBLIC_STATUS_FILE"
 
-git add "$PUBLIC_STATUS_FILE"
+git add "$PUBLIC_STATUS_DIR"
 
 if [ -d decision_requests ]; then
   find decision_requests -maxdepth 1 -type f -name "*.md" -print0 | xargs -0 --no-run-if-empty git add

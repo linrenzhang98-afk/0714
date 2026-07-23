@@ -26,9 +26,8 @@ def read_status_tsv(path: Path) -> list[dict[str, str]]:
 
 
 def parse_kreport(path: Path) -> dict[str, Any]:
-    total = None
+    root_classified = 0
     unclassified = 0
-    classified = 0
     species_count = 0
     for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
         match = KREPORT_RE.match(line)
@@ -39,12 +38,11 @@ def parse_kreport(path: Path) -> dict[str, Any]:
         if taxid == "0" and "unclassified" in name.lower():
             unclassified = reads
         elif rank == "R":
-            total = reads
+            root_classified = reads
         elif rank == "S":
             species_count += 1
-    if total is None:
-        total = unclassified + classified
-    classified = max(0, total - unclassified)
+    classified = root_classified
+    total = unclassified + classified
     pct = classified / total * 100 if total else 0
     return {
         "total_reads": total,
