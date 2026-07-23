@@ -16,7 +16,7 @@ Priority:
 - Metagenome upper bound during travel: 50-100 runs only after the first batch succeeds.
 - Amplicon: 30-80 samples preferred; 100-150 acceptable if metadata and read quality are clean.
 
-Do not run all 868 `PRJNA1056765` runs during travel.
+Do not run all 868 `PRJNA1056765` runs during travel. After the successful 30-run pilot, expansion is authorized up to 100 DNA WGS metagenomic runs in 10-run batches.
 
 ## Main Project
 

@@ -1,0 +1,50 @@
+authorized_at: "2026-07-23"
+mode: travel_unattended_pilot_to_focused
+
+allowed_scope:
+  primary_dataset:
+    accession: PRJNA1056765
+    data_type: DNA WGS METAGENOMIC SINGLE
+    max_total_runs: 100
+    batch_size: 10
+    analysis: Kraken2_Bracken_first_pass
+    database: /mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209
+    database_mode: pilot
+  backup_dataset_search:
+    allowed: true
+    priority:
+      - pediatric_or_respiratory_16s
+      - pneumonia_or_clinical_infection_16s
+      - precocious_puberty_gut_16s
+    analysis: QIIME2_safe_stages
+
+codex_allowed_actions:
+  - inspect_public_status_summary
+  - inspect_decision_requests
+  - modify_github_scripts_jobs_and_policies_for_low_risk_bug_fixes
+  - create_new_job_json_for_allowed_scope
+  - recommend_skip_or_retry_for_failed_runs
+  - write_compact_action_instructions_for_linux
+
+codex_forbidden_actions:
+  - delete_raw_data
+  - overwrite_existing_results
+  - install_or_uninstall_software
+  - modify_system_configuration
+  - download_large_databases
+  - change_metadata_or_grouping_design
+  - make_final_biological_or_clinical_conclusions
+  - upload_raw_fastq_or_full_result_directories
+
+automatic_stop_conditions:
+  - failed_run_fraction_greater_than_0_2
+  - failed_run_count_greater_than_10
+  - disk_free_less_than_500gb
+  - database_missing
+  - required_software_missing
+  - github_push_or_pull_repeatedly_fails
+
+notes:
+  - "The 30-run PRJNA1056765 pilot completed successfully and may be expanded to a focused 100-run first pass."
+  - "This authorization does not cover production/full-cohort scientific analysis."
+  - "Production analysis requires full metadata review, sampling plan, QC plan, and explicit confirmation."
