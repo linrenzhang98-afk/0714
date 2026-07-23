@@ -1,9 +1,8 @@
 [Unit]
-Description=Publish public GitHub analysis status summary twice daily
+Description=Publish public GitHub analysis status summary hourly
 
 [Timer]
-OnCalendar=*-*-* 08:50:00
-OnCalendar=*-*-* 20:50:00
+OnCalendar=hourly
 Persistent=true
 
 [Install]

@@ -46,6 +46,8 @@ sudo systemctl enable --now github-analysis-status-publisher.timer
 systemctl list-timers --all | grep github-analysis-status-publisher
 ```
 
+The timer publishes a compact public status summary hourly. Codex checks GitHub every two hours during travel.
+
 ## Emergency Stop
 
 ```bash
