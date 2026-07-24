@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-07-24T16:12:04+00:00",
+  "total_runinfo_rows": 868,
+  "candidate_dna_wgs_runs": 400,
+  "unique_biosamples_in_candidates": 400,
+  "representative_runs": 400,
+  "duplicate_biosample_run_rows": 0,
+  "excluded_runs": 468,
+  "size_bins": {
+    "001_lt25mb": 356,
+    "002_25_99mb": 36,
+    "003_100_249mb": 6,
+    "005_500mb_plus": 2
+  },
+  "max_size_mb_filter": 1000.0,
+  "min_size_mb_filter": 1
+}
