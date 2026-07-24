@@ -7,6 +7,7 @@ PUBLIC_STATUS_DIR="${PUBLIC_STATUS_DIR:-reports_public}"
 PUBLIC_STATUS_FILE="$PUBLIC_STATUS_DIR/platform_status.md"
 ENABLE_PRODUCTION_PLANNING="${ENABLE_PRODUCTION_PLANNING:-1}"
 PRJNA1056765_RUNINFO="${PRJNA1056765_RUNINFO:-/mnt/disk1/public_datasets/prjna1056765_metadata/runinfo.csv}"
+ENABLE_PRODUCTION_AUTOPILOT="${ENABLE_PRODUCTION_AUTOPILOT:-1}"
 
 cd "$REPO_DIR"
 
@@ -19,6 +20,10 @@ if [ "$ENABLE_PRODUCTION_PLANNING" = "1" ] && [ -f "$PRJNA1056765_RUNINFO" ]; th
     --runinfo "$PRJNA1056765_RUNINFO" \
     --out-dir "$PUBLIC_STATUS_DIR/production_planning/prjna1056765" \
     --max-size-mb 1000
+fi
+
+if [ "$ENABLE_PRODUCTION_AUTOPILOT" = "1" ] && [ -x scripts/autopilot_production_batches.sh ]; then
+  MAX_BATCH="${PRODUCTION_AUTOPILOT_MAX_BATCH:-3}" scripts/autopilot_production_batches.sh
 fi
 
 "$PYTHON_BIN" scripts/write_status_summary.py \
