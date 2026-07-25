@@ -22,8 +22,8 @@ if [ "$ENABLE_PRODUCTION_PLANNING" = "1" ] && [ -f "$PRJNA1056765_RUNINFO" ]; th
     --max-size-mb 1000
 fi
 
-if [ "$ENABLE_PRODUCTION_AUTOPILOT" = "1" ] && [ -x scripts/autopilot_production_batches.sh ]; then
-  MAX_BATCH="${PRODUCTION_AUTOPILOT_MAX_BATCH:-3}" scripts/autopilot_production_batches.sh
+if [ "$ENABLE_PRODUCTION_AUTOPILOT" = "1" ] && [ -f scripts/autopilot_production_batches.sh ]; then
+  MAX_BATCH="${PRODUCTION_AUTOPILOT_MAX_BATCH:-3}" bash scripts/autopilot_production_batches.sh
 fi
 
 "$PYTHON_BIN" scripts/write_status_summary.py \
