@@ -1,3 +1,7 @@
 2026-07-25T16:18:59+08:00 activated jobs/20260724T170118Z-prjna1056765-production-descriptive-batch-001.json
 2026-07-25T16:19:01+08:00 starting runner for 20260724T170118Z-prjna1056765-production-descriptive-batch-001
 2026-07-25T17:08:58+08:00 runner finished for 20260724T170118Z-prjna1056765-production-descriptive-batch-001
+2026-07-26T09:28:06+08:00 batch-001 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-001
+2026-07-26T09:28:06+08:00 activated jobs/20260724T170118Z-prjna1056765-production-descriptive-batch-002.json
+2026-07-26T09:28:08+08:00 starting runner for 20260724T170118Z-prjna1056765-production-descriptive-batch-002
+2026-07-26T09:58:15+08:00 runner finished for 20260724T170118Z-prjna1056765-production-descriptive-batch-002
