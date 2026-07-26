@@ -33,7 +33,7 @@ if [ ! -f "$CONDA_SH" ]; then
   exit 0
 fi
 
-next_job=""
+started_any=0
 for batch in $(seq -f "%03g" 1 "$MAX_BATCH"); do
   planned="$(find "$PLAN_DIR" -maxdepth 1 -type f -name "*batch-${batch}.json" | sort | head -n 1)"
   if [ -z "$planned" ]; then
@@ -63,17 +63,16 @@ PY
     cp "$planned" "$active"
     log "activated $active"
   fi
-  next_job="$job_id"
-  break
+
+  source "$CONDA_SH"
+  conda activate "$CONDA_ENV"
+  log "starting runner for $job_id"
+  python runner/runner.py --config "$CONFIG_FILE" --no-pull
+  log "runner finished for $job_id"
+  started_any=1
 done
 
-if [ -z "$next_job" ]; then
+if [ "$started_any" = "0" ]; then
   log "no eligible production batch to run up to MAX_BATCH=$MAX_BATCH"
   exit 0
 fi
-
-source "$CONDA_SH"
-conda activate "$CONDA_ENV"
-log "starting runner for $next_job"
-python runner/runner.py --config "$CONFIG_FILE" --no-pull
-log "runner finished for $next_job"

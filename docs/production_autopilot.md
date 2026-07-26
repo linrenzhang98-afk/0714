@@ -5,7 +5,7 @@ The hourly status publisher can activate and run production descriptive batches 
 Default safety settings:
 
 - Autopilot is enabled by `ENABLE_PRODUCTION_AUTOPILOT=1`.
-- It runs at most one batch per hourly timer invocation.
+- It runs eligible batches sequentially up to `MAX_BATCH`.
 - It will not start a second runner if one is already active.
 - It only runs planned jobs under `jobs/planned_production_prjna1056765`.
 - Default cap is `MAX_BATCH=3`, so it starts only production batches 001-003 until reviewed.
