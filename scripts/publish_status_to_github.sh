@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_DIR="${REPO_DIR:-/mnt/disk1/db/kraken2/0714}"
-PYTHON_BIN="${PYTHON_BIN:-python}"
+PYTHON_BIN="${PYTHON_BIN:-/home/suma/anaconda3/bin/python3}"
 PUBLIC_STATUS_DIR="${PUBLIC_STATUS_DIR:-reports_public}"
 PUBLIC_STATUS_FILE="$PUBLIC_STATUS_DIR/platform_status.md"
 ENABLE_PRODUCTION_PLANNING="${ENABLE_PRODUCTION_PLANNING:-1}"

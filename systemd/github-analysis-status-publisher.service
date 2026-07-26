@@ -8,6 +8,7 @@ Type=oneshot
 User=suma
 Group=suma
 Environment=HOME=/home/suma
+Environment=PYTHON_BIN=/home/suma/anaconda3/bin/python3
 WorkingDirectory=/mnt/disk1/db/kraken2/0714
 ExecStart=/usr/bin/bash /mnt/disk1/db/kraken2/0714/scripts/publish_status_to_github.sh
 TimeoutStartSec=0
