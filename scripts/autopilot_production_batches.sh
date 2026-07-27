@@ -8,7 +8,7 @@ PLAN_DIR="${PLAN_DIR:-jobs/planned_production_prjna1056765}"
 ACTIVE_DIR="${ACTIVE_DIR:-jobs}"
 STATE_FILE="${STATE_FILE:-.runner_state/runner_state.json}"
 CONFIG_FILE="${CONFIG_FILE:-runner/config.local.json}"
-MAX_BATCH="${MAX_BATCH:-3}"
+MAX_BATCH="${MAX_BATCH:-10}"
 LOG_FILE="${LOG_FILE:-reports_public/autopilot_production.log}"
 
 cd "$REPO_DIR"
