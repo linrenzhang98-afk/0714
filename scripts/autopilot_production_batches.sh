@@ -4,6 +4,7 @@ set -euo pipefail
 REPO_DIR="${REPO_DIR:-/mnt/disk1/db/kraken2/0714}"
 CONDA_SH="${CONDA_SH:-/home/suma/anaconda3/etc/profile.d/conda.sh}"
 CONDA_ENV="${CONDA_ENV:-mgshotgun}"
+PYTHON_BIN="${PYTHON_BIN:-/home/suma/anaconda3/bin/python3}"
 PLAN_DIR="${PLAN_DIR:-jobs/planned_production_prjna1056765}"
 ACTIVE_DIR="${ACTIVE_DIR:-jobs}"
 STATE_FILE="${STATE_FILE:-.runner_state/runner_state.json}"
@@ -40,13 +41,13 @@ for batch in $(seq -f "%03g" 1 "$MAX_BATCH"); do
     log "no planned job found for batch-$batch"
     continue
   fi
-  job_id="$(python - "$planned" <<'PY'
+  job_id="$("$PYTHON_BIN" - "$planned" <<'PY'
 import json, sys
 with open(sys.argv[1], encoding="utf-8") as f:
     print(json.load(f)["job_id"])
 PY
 )"
-  if [ -f "$STATE_FILE" ] && python - "$STATE_FILE" "$job_id" <<'PY'
+  if [ -f "$STATE_FILE" ] && "$PYTHON_BIN" - "$STATE_FILE" "$job_id" <<'PY'
 import json, sys
 state_path, job_id = sys.argv[1], sys.argv[2]
 with open(state_path, encoding="utf-8") as f:
