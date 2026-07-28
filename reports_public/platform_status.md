@@ -1,19 +1,18 @@
 # Platform Status
 
-Generated at: 2026-07-28T12:00:20+00:00
+Generated at: 2026-07-28T20:54:45+00:00
 
 ## Job Status Counts
 
-- done: 23
+- done: 33
 - rejected: 1
 
 ## Recent Event Counts
 
-- job_dry_run_ok: 1
-- job_finish: 21
-- job_rejected: 19
-- job_start: 21
-- scan: 18
+- job_finish: 20
+- job_rejected: 20
+- job_start: 20
+- scan: 20
 
 ## Decision Requests
 
@@ -21,7 +20,7 @@ Generated at: 2026-07-28T12:00:20+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-07-27T18:32:08+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-07-28T20:54:45+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
@@ -45,29 +44,39 @@ Generated at: 2026-07-28T12:00:20+00:00
 - 20260724T170118Z-prjna1056765-production-descriptive-batch-008: done (metagenome_sra_kraken2), updated 2026-07-27T18:12:17+00:00
 - 20260724T170118Z-prjna1056765-production-descriptive-batch-009: done (metagenome_sra_kraken2), updated 2026-07-27T18:22:01+00:00
 - 20260724T170118Z-prjna1056765-production-descriptive-batch-010: done (metagenome_sra_kraken2), updated 2026-07-27T18:32:08+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-011: done (metagenome_sra_kraken2), updated 2026-07-28T17:38:34+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-012: done (metagenome_sra_kraken2), updated 2026-07-28T18:14:11+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-013: done (metagenome_sra_kraken2), updated 2026-07-28T18:30:00+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-014: done (metagenome_sra_kraken2), updated 2026-07-28T18:43:35+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-015: done (metagenome_sra_kraken2), updated 2026-07-28T18:55:46+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-016: done (metagenome_sra_kraken2), updated 2026-07-28T19:08:54+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-017: done (metagenome_sra_kraken2), updated 2026-07-28T19:21:38+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-018: done (metagenome_sra_kraken2), updated 2026-07-28T19:36:17+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-019: done (metagenome_sra_kraken2), updated 2026-07-28T19:55:42+00:00
+- 20260724T170118Z-prjna1056765-production-descriptive-batch-020: done (metagenome_sra_kraken2), updated 2026-07-28T20:54:45+00:00
 
 ## Last Events
 
-- 2026-07-27T15:51:14+00:00 scan
-- 2026-07-27T15:51:14+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-006
-- 2026-07-27T17:27:05+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-006 status=done
-- 2026-07-27T17:27:05+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-27T17:27:07+00:00 scan
-- 2026-07-27T17:27:07+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-007
-- 2026-07-27T17:56:36+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-007 status=done
-- 2026-07-27T17:56:36+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-27T17:56:38+00:00 scan
-- 2026-07-27T17:56:38+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-008
-- 2026-07-27T18:12:17+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-008 status=done
-- 2026-07-27T18:12:17+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-27T18:12:19+00:00 scan
-- 2026-07-27T18:12:19+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-009
-- 2026-07-27T18:22:01+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-009 status=done
-- 2026-07-27T18:22:01+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-27T18:22:03+00:00 scan
-- 2026-07-27T18:22:03+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-010
-- 2026-07-27T18:32:08+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-010 status=done
-- 2026-07-27T18:32:08+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-07-28T18:55:48+00:00 scan
+- 2026-07-28T18:55:48+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-016
+- 2026-07-28T19:08:54+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-016 status=done
+- 2026-07-28T19:08:54+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-07-28T19:08:56+00:00 scan
+- 2026-07-28T19:08:56+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-017
+- 2026-07-28T19:21:38+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-017 status=done
+- 2026-07-28T19:21:38+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-07-28T19:21:40+00:00 scan
+- 2026-07-28T19:21:40+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-018
+- 2026-07-28T19:36:17+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-018 status=done
+- 2026-07-28T19:36:17+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-07-28T19:36:19+00:00 scan
+- 2026-07-28T19:36:19+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-019
+- 2026-07-28T19:55:42+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-019 status=done
+- 2026-07-28T19:55:42+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-07-28T19:55:44+00:00 scan
+- 2026-07-28T19:55:44+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-020
+- 2026-07-28T20:54:45+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-020 status=done
+- 2026-07-28T20:54:45+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 
