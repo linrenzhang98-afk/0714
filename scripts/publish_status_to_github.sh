@@ -26,6 +26,14 @@ if [ "$ENABLE_PRODUCTION_AUTOPILOT" = "1" ] && [ -f scripts/autopilot_production
   MAX_BATCH=20 bash scripts/autopilot_production_batches.sh
 fi
 
+if [ -f scripts/summarize_metagenome_pilot.py ] && find results -maxdepth 1 -type d -name "20260724T170118Z-prjna1056765-production-descriptive-batch-*" | grep -q .; then
+  "$PYTHON_BIN" scripts/summarize_metagenome_pilot.py \
+    --results-root results \
+    --pattern "20260724T170118Z-prjna1056765-production-descriptive-batch-*" \
+    --out-dir "$PUBLIC_STATUS_DIR/metagenome_production" \
+    --title "PRJNA1056765 Production First-Pass Summary"
+fi
+
 "$PYTHON_BIN" scripts/write_status_summary.py \
   --state .runner_state/runner_state.json \
   --log .runner_logs/runner.jsonl \

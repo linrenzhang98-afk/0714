@@ -14,6 +14,40 @@ from typing import Any
 
 KREPORT_RE = re.compile(r"^\s*([\d.]+)\s+(\d+)\s+(\d+)\s+([A-Z0-9-]+)\s+(\d+)\s+(.+?)\s*$")
 
+CLINICAL_PATHOGEN_KEYWORDS = [
+    "acinetobacter",
+    "burkholderia",
+    "candida",
+    "chlamydia",
+    "citrobacter",
+    "cryptococcus",
+    "enterobacter",
+    "enterococcus",
+    "escherichia coli",
+    "haemophilus",
+    "klebsiella",
+    "legionella",
+    "mycobacter",
+    "mycobacteroides",
+    "nocardia",
+    "pneumocystis",
+    "prevotella",
+    "pseudomonas",
+    "rothia",
+    "staphylococcus",
+    "stenotrophomonas",
+    "streptococcus",
+    "toxoplasma",
+    "veillonella",
+]
+
+LIKELY_BACKGROUND_KEYWORDS = [
+    "homo sapiens",
+    "arabidopsis",
+    "benincasa",
+    "cucurbita",
+]
+
 
 def read_summary(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as f:
@@ -73,11 +107,43 @@ def parse_bracken(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def pathogen_hits(bracken_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    hits = []
+    for row in bracken_rows:
+        name = str(row.get("name", ""))
+        name_l = name.lower()
+        if any(bg in name_l for bg in LIKELY_BACKGROUND_KEYWORDS):
+            continue
+        if any(key in name_l for key in CLINICAL_PATHOGEN_KEYWORDS):
+            hits.append(row)
+    return sorted(hits, key=lambda r: float(r.get("fraction_total_reads", 0) or 0), reverse=True)
+
+
+def priority_for(row: dict[str, Any]) -> tuple[int, str]:
+    status = row.get("status", "")
+    if status != "done":
+        return 0, "not_done"
+    pathogen_fraction = float(row.get("top_pathogen_fraction", 0) or 0)
+    classified_pct = float(row.get("classified_pct", 0) or 0)
+    species_count = int(row.get("bracken_species_count", 0) or 0)
+    if pathogen_fraction >= 0.01:
+        return 1, "high_pathogen_fraction"
+    if pathogen_fraction >= 0.001:
+        return 2, "moderate_pathogen_fraction"
+    if classified_pct >= 5 and species_count >= 5:
+        return 3, "high_classified_fraction"
+    if pathogen_fraction > 0:
+        return 4, "low_fraction_clinical_pathogen"
+    return 0, "not_selected"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Summarize metagenome pilot result batches")
     parser.add_argument("--results-root", default="results")
     parser.add_argument("--pattern", default="20260723T022506Z-prjna1056765-travel-batch-*")
     parser.add_argument("--out-dir", default="reports_public/metagenome_pilot")
+    parser.add_argument("--title", default="Metagenome Pilot Summary")
+    parser.add_argument("--candidate-limit", type=int, default=80)
     args = parser.parse_args()
 
     results_root = Path(args.results_root)
@@ -122,6 +188,16 @@ def main() -> int:
                     top = max(bracken_rows, key=lambda r: r["fraction_total_reads"])
                     row["top_species"] = top["name"]
                     row["top_species_fraction"] = top["fraction_total_reads"]
+                    hits = pathogen_hits(bracken_rows)
+                    if hits:
+                        top_hit = hits[0]
+                        row["top_pathogen"] = top_hit["name"]
+                        row["top_pathogen_fraction"] = top_hit["fraction_total_reads"]
+                        row["top_pathogen_reads"] = top_hit["new_est_reads"]
+                        row["clinical_pathogen_hits"] = ";".join(h["name"] for h in hits[:5])
+            priority, reason = priority_for(row)
+            row["second_stage_priority"] = priority if priority else ""
+            row["second_stage_reason"] = reason if priority else ""
             run_rows.append(row)
 
     run_fields = [
@@ -137,6 +213,12 @@ def main() -> int:
         "bracken_species_count",
         "top_species",
         "top_species_fraction",
+        "top_pathogen",
+        "top_pathogen_fraction",
+        "top_pathogen_reads",
+        "clinical_pathogen_hits",
+        "second_stage_priority",
+        "second_stage_reason",
         "error",
     ]
     with (out_dir / "run_qc_summary.tsv").open("w", encoding="utf-8", newline="") as f:
@@ -152,9 +234,42 @@ def main() -> int:
         for sp in species:
             writer.writerow([sp, species_seen[sp], *[species_matrix[sp].get(run, 0) for run in runs]])
 
+    candidates = [
+        row
+        for row in run_rows
+        if row.get("second_stage_priority") not in {"", None}
+    ]
+    candidates = sorted(
+        candidates,
+        key=lambda row: (
+            int(row.get("second_stage_priority", 99) or 99),
+            -float(row.get("top_pathogen_fraction", 0) or 0),
+            -float(row.get("classified_pct", 0) or 0),
+            str(row.get("run", "")),
+        ),
+    )[: args.candidate_limit]
+    candidate_fields = [
+        "second_stage_priority",
+        "second_stage_reason",
+        "run",
+        "batch",
+        "classified_pct",
+        "total_reads",
+        "top_pathogen",
+        "top_pathogen_fraction",
+        "top_pathogen_reads",
+        "clinical_pathogen_hits",
+        "top_species",
+        "top_species_fraction",
+    ]
+    with (out_dir / "second_stage_candidates.tsv").open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=candidate_fields, delimiter="\t", extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(candidates)
+
     top_species = species[:30]
     lines = [
-        "# Metagenome Pilot Summary",
+        f"# {args.title}",
         "",
         f"Batches summarized: {len(batch_dirs)}",
         f"Runs summarized: {len(run_rows)}",
@@ -187,6 +302,7 @@ def main() -> int:
             "",
             "- `run_qc_summary.tsv`",
             "- `bracken_species_fraction_matrix.tsv`",
+            "- `second_stage_candidates.tsv`",
         ]
     )
     (out_dir / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
