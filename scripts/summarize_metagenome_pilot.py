@@ -37,7 +37,6 @@ CLINICAL_PATHOGEN_KEYWORDS = [
     "staphylococcus",
     "stenotrophomonas",
     "streptococcus",
-    "toxoplasma",
     "veillonella",
 ]
 
@@ -46,6 +45,7 @@ LIKELY_BACKGROUND_KEYWORDS = [
     "arabidopsis",
     "benincasa",
     "cucurbita",
+    "toxoplasma",
 ]
 
 
