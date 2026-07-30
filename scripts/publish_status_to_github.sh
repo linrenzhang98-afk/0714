@@ -40,6 +40,12 @@ if [ -f scripts/plan_second_stage_metagenome.py ] && [ -f "$PUBLIC_STATUS_DIR/me
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_second_stage"
 fi
 
+if [ -f scripts/select_deep_review_metagenome_samples.py ] && [ -f "$PUBLIC_STATUS_DIR/metagenome_second_stage/shortlist.tsv" ]; then
+  "$PYTHON_BIN" scripts/select_deep_review_metagenome_samples.py \
+    --shortlist "$PUBLIC_STATUS_DIR/metagenome_second_stage/shortlist.tsv" \
+    --out-dir "$PUBLIC_STATUS_DIR/metagenome_deep_review"
+fi
+
 "$PYTHON_BIN" scripts/write_status_summary.py \
   --state .runner_state/runner_state.json \
   --log .runner_logs/runner.jsonl \
