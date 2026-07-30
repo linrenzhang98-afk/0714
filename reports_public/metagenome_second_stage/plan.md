@@ -3,7 +3,7 @@
 ## Scope
 
 - Input candidate rows: 80
-- Shortlisted rows: 28
+- Shortlisted rows: 61
 - Source: PRJNA1056765 production first-pass Kraken2/Bracken output
 - No new data download is required for this planning step.
 
@@ -11,15 +11,16 @@
 
 - Acinetobacter: 4 selected / 4 candidates
 - Burkholderia: 1 selected / 1 candidates
-- Candida: 1 selected / 1 candidates
-- Enterobacterales: 4 selected / 4 candidates
+- Candida: 2 selected / 2 candidates
+- Enterobacterales: 7 selected / 7 candidates
 - Enterococcus: 1 selected / 1 candidates
-- Haemophilus: 3 selected / 3 candidates
-- Other: 0 selected / 45 candidates
-- Pseudomonas: 8 selected / 15 candidates
-- Staphylococcus: 4 selected / 4 candidates
-- Stenotrophomonas: 1 selected / 1 candidates
-- Streptococcus: 1 selected / 1 candidates
+- Haemophilus: 6 selected / 6 candidates
+- Mycobacteria: 8 selected / 9 candidates
+- Other: 8 selected / 13 candidates
+- Pseudomonas: 8 selected / 21 candidates
+- Staphylococcus: 5 selected / 5 candidates
+- Stenotrophomonas: 4 selected / 4 candidates
+- Streptococcus: 7 selected / 7 candidates
 
 ## Top Shortlist Examples
 
