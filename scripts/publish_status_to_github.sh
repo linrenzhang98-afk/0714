@@ -34,6 +34,12 @@ if [ -f scripts/summarize_metagenome_pilot.py ] && find results -maxdepth 1 -typ
     --title "PRJNA1056765 Production First-Pass Summary"
 fi
 
+if [ -f scripts/plan_second_stage_metagenome.py ] && [ -f "$PUBLIC_STATUS_DIR/metagenome_production/second_stage_candidates.tsv" ]; then
+  "$PYTHON_BIN" scripts/plan_second_stage_metagenome.py \
+    --candidates "$PUBLIC_STATUS_DIR/metagenome_production/second_stage_candidates.tsv" \
+    --out-dir "$PUBLIC_STATUS_DIR/metagenome_second_stage"
+fi
+
 "$PYTHON_BIN" scripts/write_status_summary.py \
   --state .runner_state/runner_state.json \
   --log .runner_logs/runner.jsonl \
