@@ -46,6 +46,26 @@ if [ -f scripts/select_deep_review_metagenome_samples.py ] && [ -f "$PUBLIC_STAT
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_deep_review"
 fi
 
+if [ -f jobs/20260731T000000Z-prjna1056765-metagenome-deep-review-plan.json ]; then
+  mkdir -p decision_requests
+  cat > decision_requests/metagenome_deep_review_allowlist.md <<'EOF'
+# Allowlist metagenome_deep_review
+
+The next deep-review step is a guarded planning job. It validates the 30 selected runs and writes `run_plan.sh`; it does not execute heavy analysis.
+
+If this task is not yet in `runner/config.local.json`, add:
+
+```json
+"metagenome_deep_review": {
+  "script": "/mnt/disk1/db/kraken2/0714/pipelines/metagenome_deep_review_runner.py",
+  "timeout_seconds": 3600
+}
+```
+
+This is required before `jobs/20260731T000000Z-prjna1056765-metagenome-deep-review-plan.json` can run.
+EOF
+fi
+
 "$PYTHON_BIN" scripts/write_status_summary.py \
   --state .runner_state/runner_state.json \
   --log .runner_logs/runner.jsonl \

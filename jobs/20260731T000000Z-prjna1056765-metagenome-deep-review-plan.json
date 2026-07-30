@@ -1,0 +1,16 @@
+{
+  "job_id": "20260731T000000Z-prjna1056765-metagenome-deep-review-plan",
+  "task": "metagenome_deep_review",
+  "created_at": "2026-07-31T00:00:00+00:00",
+  "params": {
+    "shortlist_path": "/mnt/disk1/db/kraken2/0714/reports_public/metagenome_deep_review/deep_review_samples.tsv",
+    "selected_limit": 30,
+    "work_dir": "/mnt/disk1/public_datasets/prjna1056765_deep_review",
+    "threads": 4,
+    "kraken2_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "bracken_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "host_index": "",
+    "execute_mode": "plan_only",
+    "auto_decision_level": "safe"
+  }
+}
