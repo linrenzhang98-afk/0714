@@ -1,6 +1,6 @@
 # Platform Status
 
-Generated at: 2026-07-31T07:00:31+00:00
+Generated at: 2026-07-31T08:00:35+00:00
 
 ## Job Status Counts
 
@@ -16,7 +16,7 @@ Generated at: 2026-07-31T07:00:31+00:00
 
 ## Decision Requests
 
-- decision_requests/metagenome_deep_review_allowlist.md
+- None.
 
 ## Recent Jobs
 
