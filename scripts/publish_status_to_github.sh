@@ -46,9 +46,27 @@ if [ -f scripts/select_deep_review_metagenome_samples.py ] && [ -f "$PUBLIC_STAT
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_deep_review"
 fi
 
-if [ -f jobs/20260731T000000Z-prjna1056765-metagenome-deep-review-plan.json ]; then
-  mkdir -p decision_requests
-  cat > decision_requests/metagenome_deep_review_allowlist.md <<'EOF'
+DEEP_REVIEW_JOB_ID="20260731T000000Z-prjna1056765-metagenome-deep-review-plan"
+DEEP_REVIEW_ALLOWLIST_REQUEST="decision_requests/metagenome_deep_review_allowlist.md"
+if [ -f "jobs/${DEEP_REVIEW_JOB_ID}.json" ]; then
+  if "$PYTHON_BIN" - .runner_state/runner_state.json "$DEEP_REVIEW_JOB_ID" <<'PY'
+import json
+import sys
+
+state_path, job_id = sys.argv[1], sys.argv[2]
+try:
+    with open(state_path, encoding="utf-8") as f:
+        state = json.load(f)
+except FileNotFoundError:
+    sys.exit(1)
+job = state.get("jobs", {}).get(job_id, {})
+sys.exit(0 if job.get("status") == "done" else 1)
+PY
+  then
+    rm -f "$DEEP_REVIEW_ALLOWLIST_REQUEST"
+  else
+    mkdir -p decision_requests
+    cat > "$DEEP_REVIEW_ALLOWLIST_REQUEST" <<'EOF'
 # Allowlist metagenome_deep_review
 
 The next deep-review step is a guarded planning job. It validates the 30 selected runs and writes `run_plan.sh`; it does not execute heavy analysis.
@@ -64,6 +82,7 @@ If this task is not yet in `runner/config.local.json`, add:
 
 This is required before `jobs/20260731T000000Z-prjna1056765-metagenome-deep-review-plan.json` can run.
 EOF
+  fi
 fi
 
 "$PYTHON_BIN" scripts/write_status_summary.py \
