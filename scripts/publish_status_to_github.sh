@@ -52,6 +52,14 @@ if [ -f scripts/publish_deep_review_run_status.py ] && [ -d results/20260731T000
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_deep_review_run"
 fi
 
+if [ -f scripts/summarize_deep_review_results.py ] && [ -f "$PUBLIC_STATUS_DIR/metagenome_deep_review_run/run_status.tsv" ]; then
+  "$PYTHON_BIN" scripts/summarize_deep_review_results.py \
+    --result-dir results/20260731T000000Z-prjna1056765-metagenome-deep-review-plan \
+    --baseline "$PUBLIC_STATUS_DIR/metagenome_deep_review/deep_review_samples.tsv" \
+    --run-status "$PUBLIC_STATUS_DIR/metagenome_deep_review_run/run_status.tsv" \
+    --out-dir "$PUBLIC_STATUS_DIR/metagenome_deep_review_summary"
+fi
+
 DEEP_REVIEW_JOB_ID="20260731T000000Z-prjna1056765-metagenome-deep-review-plan"
 DEEP_REVIEW_ALLOWLIST_REQUEST="decision_requests/metagenome_deep_review_allowlist.md"
 if [ -f "jobs/${DEEP_REVIEW_JOB_ID}.json" ]; then
