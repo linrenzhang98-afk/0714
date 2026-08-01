@@ -1,0 +1,20 @@
+{
+  "runs_summarized": 30,
+  "stable_same_top": 30,
+  "changed_top": 0,
+  "missing_confirm": 0,
+  "consistency_counts": {
+    "stable_same_top": 30
+  },
+  "group_counts": {
+    "Staphylococcus": 4,
+    "Enterobacterales": 4,
+    "Pseudomonas": 4,
+    "Stenotrophomonas": 1,
+    "Acinetobacter": 4,
+    "Candida": 1,
+    "Haemophilus": 4,
+    "Streptococcus": 4,
+    "Mycobacteria": 4
+  }
+}
