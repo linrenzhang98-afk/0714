@@ -1,6 +1,6 @@
 # Platform Status
 
-Generated at: 2026-08-04T12:00:08+00:00
+Generated at: 2026-08-04T12:40:24+00:00
 
 ## Job Status Counts
 
@@ -16,7 +16,7 @@ Generated at: 2026-08-04T12:00:08+00:00
 
 ## Decision Requests
 
-- None.
+- decision_requests/metagenome_host_amr_requirements.md
 
 ## Recent Jobs
 

@@ -1,0 +1,10 @@
+command	available	path
+fastp	no	
+bowtie2	no	
+samtools	no	
+kraken2	no	
+bracken	no	
+abricate	no	
+rgi	no	
+amrfinder	no	
+diamond	no	
