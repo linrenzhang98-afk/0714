@@ -1,23 +1,20 @@
 # Metagenome Next-Stage Readiness
 
-Generated at: 2026-08-04T13:20:34+00:00
+Generated at: 2026-08-04T14:00:45+00:00
 Deep-review samples: 30
-Recommended stage: `report_interpretation_only`
+Recommended stage: `qc_kraken_bracken_completed_or_available`
 
 ## Readiness
 
-- QC ready: False
-- Host-removal tools ready: False
+- QC ready: True
+- Host-removal tools ready: True
 - Host index ready: False
-- AMR tool ready: False
+- AMR tool ready: True
 - AMR database ready: False
 
 ## Blockers
 
-- fastp is not available.
-- bowtie2 and/or samtools are not available.
 - HOST_INDEX_PREFIX is not configured or Bowtie2 host index files are missing.
-- No AMR tool detected among abricate, rgi, amrfinder, diamond.
 - AMR_DB_DIR is not configured or does not exist.
 
 ## Decision

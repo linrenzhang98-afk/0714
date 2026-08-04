@@ -1,10 +1,10 @@
 command	available	path
-fastp	no	
-bowtie2	no	
-samtools	no	
-kraken2	no	
-bracken	no	
+fastp	yes	/home/suma/anaconda3/envs/mgshotgun/bin/fastp
+bowtie2	yes	/home/suma/anaconda3/envs/mgshotgun/bin/bowtie2
+samtools	yes	/home/suma/anaconda3/envs/mgshotgun/bin/samtools
+kraken2	yes	/home/suma/anaconda3/envs/mgshotgun/bin/kraken2
+bracken	yes	/home/suma/anaconda3/envs/mgshotgun/bin/bracken
 abricate	no	
 rgi	no	
 amrfinder	no	
-diamond	no	
+diamond	yes	/home/suma/anaconda3/envs/mgshotgun/bin/diamond
