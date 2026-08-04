@@ -1,6 +1,6 @@
 # Metagenome Next-Stage Readiness
 
-Generated at: 2026-08-04T14:00:45+00:00
+Generated at: 2026-08-04T15:21:14+00:00
 Deep-review samples: 30
 Recommended stage: `qc_kraken_bracken_completed_or_available`
 
