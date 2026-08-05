@@ -1,26 +1,25 @@
 # Metagenome Next-Stage Database Setup
 
-Generated at: 2026-08-05T07:13:06+00:00
+Generated at: 2026-08-05T07:32:35+00:00
 
 ## Status
 
-- Setup state: error
+- Setup state: running
 - Host index ready: True
 - Host index prefix: `/mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as`
 - AMRFinderPlus DB ready: False
 
 ## Actions
 
-- Downloaded valid host index archive: /mnt/disk1/db/host_indexes/GRCh38_noalt_as.zip
-- Host index ready: /mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as
+- Database setup started.
 
 ## Warnings
 
-- AMRFinderPlus database still not ready after update/check.
+- None.
 
 ## Errors
 
-- amrfinder command not found; cannot update AMRFinderPlus DB.
+- None.
 
 ## Output Files
 
