@@ -47,6 +47,38 @@ def bowtie2_index_ready(prefix: Path) -> bool:
     return all(path.exists() for path in bt2) or all(path.exists() for path in bt2l)
 
 
+def zip_archive_ready(zip_path: Path, log_path: Path) -> bool:
+    if not zip_path.exists():
+        return False
+    unzip = shutil.which("unzip")
+    if unzip is None:
+        return True
+    result = run([unzip, "-t", str(zip_path)], log_path, timeout=None)
+    return result.returncode == 0
+
+
+def download_host_index(zip_path: Path, log_path: Path) -> subprocess.CompletedProcess[str]:
+    tmp_path = zip_path.with_suffix(zip_path.suffix + ".download")
+    downloader = shutil.which("curl")
+    if downloader:
+        return run([
+            downloader,
+            "-L",
+            "--fail",
+            "--retry",
+            "3",
+            "--continue-at",
+            "-",
+            "-o",
+            str(tmp_path),
+            HOST_INDEX_URL,
+        ], log_path, timeout=None)
+    downloader = shutil.which("wget")
+    if downloader:
+        return run([downloader, "-c", "-O", str(tmp_path), HOST_INDEX_URL], log_path, timeout=None)
+    return subprocess.CompletedProcess([], 127, "", "curl/wget not found")
+
+
 def amrfinder_db_ready(log_path: Path) -> tuple[bool, str]:
     if shutil.which("amrfinder") is None:
         return False, "amrfinder command not found"
@@ -131,18 +163,19 @@ def main() -> int:
         actions.append(f"Host index already present: {host_prefix}")
     else:
         zip_path = host_root / f"{HOST_INDEX_NAME}.zip"
-        if not zip_path.exists():
-            downloader = shutil.which("curl")
-            if downloader:
-                result = run(["curl", "-L", "--fail", "--retry", "3", "-o", str(zip_path), HOST_INDEX_URL], log_path, timeout=None)
-            else:
-                downloader = shutil.which("wget")
-                if downloader:
-                    result = run(["wget", "-O", str(zip_path), HOST_INDEX_URL], log_path, timeout=None)
-                else:
-                    result = subprocess.CompletedProcess([], 127, "", "curl/wget not found")
+        if not zip_archive_ready(zip_path, log_path):
+            result = download_host_index(zip_path, log_path)
             if result.returncode != 0:
                 errors.append("Failed to download GRCh38 Bowtie2 index.")
+            else:
+                tmp_path = zip_path.with_suffix(zip_path.suffix + ".download")
+                if zip_archive_ready(tmp_path, log_path):
+                    os.replace(tmp_path, zip_path)
+                    actions.append(f"Downloaded valid host index archive: {zip_path}")
+                else:
+                    errors.append("Downloaded GRCh38 Bowtie2 index archive failed zip validation.")
+        else:
+            actions.append(f"Host index archive is valid: {zip_path}")
         if zip_path.exists() and not bowtie2_index_ready(host_prefix):
             host_dir.mkdir(parents=True, exist_ok=True)
             unzip = shutil.which("unzip")
