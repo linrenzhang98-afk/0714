@@ -1,15 +1,20 @@
 {
-  "generated_at": "2026-08-05T10:13:26+00:00",
-  "setup_state": "running",
+  "generated_at": "2026-08-05T11:13:45+00:00",
+  "setup_state": "error",
   "host_index_url": "https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_as.zip",
   "host_index_prefix": "/mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as",
   "host_index_ready": true,
   "amrfinder_db_ready": false,
-  "amrfinder_version_before": "",
-  "amrfinder_version_after": "",
+  "amrfinder_version_before": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V\nWARNING: This was compiled for running under bioconda, but $CONDA_PREFIX was not found\nReverting to hard coded directory: /home/suma/anaconda3/envs/mgshotgun/share/amrfinderplus/data/latest\n*** ERROR ***\nNo valid AMRFinder database is found.\nThis directory (or symbolic link to directory) is not found: /home/suma/anaconda3/envs/mgshotgun/share/amrfinderplus/data/latest\nTo download the latest version to the default directory run: amrfinder -u",
+  "amrfinder_version_after": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V\nWARNING: This was compiled for running under bioconda, but $CONDA_PREFIX was not found\nReverting to hard coded directory: /home/suma/anaconda3/envs/mgshotgun/share/amrfinderplus/data/latest\n*** ERROR ***\nNo valid AMRFinder database is found.\nThis directory (or symbolic link to directory) is not found: /home/suma/anaconda3/envs/mgshotgun/share/amrfinderplus/data/latest\nTo download the latest version to the default directory run: amrfinder -u",
   "actions": [
-    "Database setup started."
+    "Host index already present: /mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as",
+    "AMRFinderPlus command available: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder"
   ],
-  "warnings": [],
-  "errors": []
+  "warnings": [
+    "AMRFinderPlus database still not ready after update/check."
+  ],
+  "errors": [
+    "AMRFinderPlus database update failed."
+  ]
 }
