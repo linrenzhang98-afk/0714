@@ -21,6 +21,7 @@ from typing import Any
 
 HOST_INDEX_URL = "https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_as.zip"
 HOST_INDEX_NAME = "GRCh38_noalt_as"
+AMRFINDER_ENV_PREFIX = "/home/suma/anaconda3/envs/mgshotgun"
 AMRFINDER_CANDIDATE_PATHS = [
     "/home/suma/anaconda3/envs/mgshotgun/bin/amrfinder",
     "/home/suma/anaconda3/envs/clinical_meta/bin/amrfinder",
@@ -29,14 +30,45 @@ AMRFINDER_CANDIDATE_PATHS = [
     "/usr/local/bin/amrfinder",
     "/usr/bin/amrfinder",
 ]
+AMRFINDER_UPDATE_CANDIDATE_PATHS = [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/amrfinder_update",
+    "/home/suma/anaconda3/envs/clinical_meta/bin/amrfinder_update",
+    "/home/suma/anaconda3/envs/metag_env/bin/amrfinder_update",
+    "/home/suma/anaconda3/bin/amrfinder_update",
+    "/usr/local/bin/amrfinder_update",
+    "/usr/bin/amrfinder_update",
+]
 
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def run(args: list[str], log_path: Path, timeout: int | None = None) -> subprocess.CompletedProcess[str]:
-    result = subprocess.run(args, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout, check=False)
+def command_env(command_path: str | None = None) -> dict[str, str]:
+    env = os.environ.copy()
+    prefix = AMRFINDER_ENV_PREFIX
+    if command_path and "/envs/mgshotgun/" not in command_path:
+        return env
+    env.setdefault("CONDA_PREFIX", prefix)
+    env["PATH"] = f"{prefix}/bin:/home/suma/anaconda3/bin:" + env.get("PATH", "")
+    return env
+
+
+def run(
+    args: list[str],
+    log_path: Path,
+    timeout: int | None = None,
+    env: dict[str, str] | None = None,
+) -> subprocess.CompletedProcess[str]:
+    result = subprocess.run(
+        args,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        timeout=timeout,
+        check=False,
+        env=env,
+    )
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with log_path.open("a", encoding="utf-8") as f:
         f.write(json.dumps({
@@ -98,11 +130,11 @@ def download_host_index(zip_path: Path, log_path: Path) -> subprocess.CompletedP
     return subprocess.CompletedProcess([], 127, "", "curl/wget not found")
 
 
-def amrfinder_db_ready(log_path: Path) -> tuple[bool, str]:
+def amrfinder_db_ready(log_path: Path, db_dir: Path) -> tuple[bool, str]:
     amrfinder = find_command("amrfinder", AMRFINDER_CANDIDATE_PATHS)
     if amrfinder is None:
         return False, "amrfinder command not found"
-    result = run([amrfinder, "-V"], log_path)
+    result = run([amrfinder, "-V", "-d", str(db_dir)], log_path, env=command_env(amrfinder))
     text = result.stdout + "\n" + result.stderr
     ready = result.returncode == 0 and "database" in text.lower()
     return ready, text.strip()[-1000:]
@@ -130,6 +162,14 @@ def ensure_amrfinder_command(log_path: Path) -> str | None:
     if result.returncode != 0:
         return None
     return find_command("amrfinder", AMRFINDER_CANDIDATE_PATHS)
+
+
+def update_amrfinder_database(amrfinder: str, db_dir: Path, log_path: Path) -> subprocess.CompletedProcess[str]:
+    db_dir.mkdir(parents=True, exist_ok=True)
+    updater = find_command("amrfinder_update", AMRFINDER_UPDATE_CANDIDATE_PATHS)
+    if updater:
+        return run([updater, "-d", str(db_dir)], log_path, timeout=None, env=command_env(updater))
+    return run([amrfinder, "-u", "-d", str(db_dir)], log_path, timeout=None, env=command_env(amrfinder))
 
 
 def write_status(out_dir: Path, summary: dict[str, Any]) -> None:
@@ -176,6 +216,7 @@ def main() -> int:
     host_dir = host_root / HOST_INDEX_NAME
     host_prefix = host_dir / HOST_INDEX_NAME
     amr_root = Path(args.amr_root)
+    amrfinder_db_dir = amr_root / "amrfinderplus"
     host_root.mkdir(parents=True, exist_ok=True)
     amr_root.mkdir(parents=True, exist_ok=True)
 
@@ -184,8 +225,8 @@ def main() -> int:
     actions: list[str] = []
     env_lines = [
         f"export HOST_INDEX_PREFIX={host_prefix}",
-        "# AMRFinderPlus uses its installed/default database after `amrfinder -u`.",
-        "# AMR_DB_DIR is not required when AMRFinderPlus reports a valid database via `amrfinder -V`.",
+        f"export AMR_DB_DIR={amrfinder_db_dir}",
+        "# AMRFinderPlus should be run with `-d $AMR_DB_DIR` for this platform.",
     ]
     (out_dir / "env_recommendations.sh").write_text("\n".join(env_lines) + "\n", encoding="utf-8")
     write_status(out_dir, {
@@ -234,7 +275,7 @@ def main() -> int:
         else:
             warnings.append(f"Host index not ready yet: {host_prefix}")
 
-    amr_ready_before, amr_version_before = amrfinder_db_ready(log_path)
+    amr_ready_before, amr_version_before = amrfinder_db_ready(log_path, amrfinder_db_dir)
     if amr_ready_before:
         actions.append("AMRFinderPlus database already available.")
     else:
@@ -243,10 +284,10 @@ def main() -> int:
             errors.append("amrfinder command not found and automatic ncbi-amrfinderplus install failed.")
         else:
             actions.append(f"AMRFinderPlus command available: {amrfinder}")
-            result = run([amrfinder, "-u"], log_path, timeout=None)
+            result = update_amrfinder_database(amrfinder, amrfinder_db_dir, log_path)
             if result.returncode != 0:
                 errors.append("AMRFinderPlus database update failed.")
-    amr_ready_after, amr_version_after = amrfinder_db_ready(log_path)
+    amr_ready_after, amr_version_after = amrfinder_db_ready(log_path, amrfinder_db_dir)
     if amr_ready_after:
         actions.append("AMRFinderPlus database ready after update/check.")
     else:

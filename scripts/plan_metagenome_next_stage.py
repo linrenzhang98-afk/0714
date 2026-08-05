@@ -23,6 +23,7 @@ AMRFINDER_CANDIDATE_PATHS = [
     "/usr/local/bin/amrfinder",
     "/usr/bin/amrfinder",
 ]
+AMRFINDER_ENV_PREFIX = "/home/suma/anaconda3/envs/mgshotgun"
 
 
 def utc_now() -> str:
@@ -55,11 +56,29 @@ def bowtie2_index_exists(prefix: str) -> bool:
     return all(Path(p).exists() for p in expected) or all(Path(p).exists() for p in expected_large)
 
 
-def amrfinder_database_ready() -> bool:
+def amrfinder_env(command_path: str) -> dict[str, str]:
+    env = os.environ.copy()
+    if "/envs/mgshotgun/" in command_path:
+        env.setdefault("CONDA_PREFIX", AMRFINDER_ENV_PREFIX)
+        env["PATH"] = f"{AMRFINDER_ENV_PREFIX}/bin:/home/suma/anaconda3/bin:" + env.get("PATH", "")
+    return env
+
+
+def amrfinder_database_ready(db_dir: str = "") -> bool:
     amrfinder = command_row("amrfinder")["path"]
     if not amrfinder:
         return False
-    result = subprocess.run([amrfinder, "-V"], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
+    args = [amrfinder, "-V"]
+    if db_dir:
+        args.extend(["-d", db_dir])
+    result = subprocess.run(
+        args,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+        env=amrfinder_env(amrfinder),
+    )
     text = (result.stdout + "\n" + result.stderr).lower()
     return result.returncode == 0 and "database" in text
 
@@ -89,6 +108,7 @@ def main() -> int:
     rows = read_tsv(Path(args.deep_review))
     setup_env = setup_recommendations(Path("reports_public/metagenome_next_stage_setup/env_recommendations.sh"))
     host_index_prefix = args.host_index_prefix or setup_env.get("HOST_INDEX_PREFIX", "")
+    amr_db_dir = args.amr_db_dir or setup_env.get("AMR_DB_DIR", "")
 
     commands = [
         command_row(name)
@@ -110,7 +130,7 @@ def main() -> int:
         writer.writerows(commands)
 
     host_ready = bowtie2_index_exists(host_index_prefix)
-    amr_db_ready = bool(args.amr_db_dir and Path(args.amr_db_dir).exists()) or amrfinder_database_ready()
+    amr_db_ready = amrfinder_database_ready(amr_db_dir)
     command_map = {row["command"]: row["available"] == "yes" for row in commands}
     qc_ready = command_map.get("fastp", False)
     host_tool_ready = command_map.get("bowtie2", False) and command_map.get("samtools", False)
@@ -128,7 +148,7 @@ def main() -> int:
     if not amr_tool_ready:
         blockers.append("No AMR tool detected among abricate, rgi, amrfinder, diamond.")
     if not amr_db_ready:
-        blockers.append("AMR_DB_DIR is not configured or does not exist.")
+        blockers.append("AMR_DB_DIR is not configured or AMRFinderPlus cannot validate the database.")
 
     recommended_stage = "report_interpretation_only"
     if qc_ready and command_map.get("kraken2", False) and command_map.get("bracken", False):
