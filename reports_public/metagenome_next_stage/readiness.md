@@ -1,6 +1,6 @@
 # Metagenome Next-Stage Readiness
 
-Generated at: 2026-08-05T01:25:07+00:00
+Generated at: 2026-08-05T02:05:35+00:00
 Deep-review samples: 30
 Recommended stage: `qc_kraken_bracken_completed_or_available`
 
@@ -11,6 +11,7 @@ Recommended stage: `qc_kraken_bracken_completed_or_available`
 - Host index ready: False
 - AMR tool ready: True
 - AMR database ready: False
+- Host index prefix: `not configured`
 
 ## Blockers
 
@@ -19,7 +20,7 @@ Recommended stage: `qc_kraken_bracken_completed_or_available`
 
 ## Decision
 
-Do not start AMR or host-removal execution until host index and AMR database paths are explicitly configured.
+Do not start AMR or host-removal execution until the setup status reports host index and AMRFinderPlus database ready.
 The completed deep-review Kraken2/Bracken results are stable enough for report interpretation now.
 
 ## Output Files
