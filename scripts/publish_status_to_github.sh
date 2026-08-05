@@ -13,7 +13,7 @@ export PATH
 
 cd "$REPO_DIR"
 
-git pull --ff-only
+git pull --ff-only || git pull --rebase
 
 mkdir -p "$PUBLIC_STATUS_DIR"
 
@@ -60,6 +60,14 @@ if [ -f scripts/summarize_deep_review_results.py ] && [ -f "$PUBLIC_STATUS_DIR/m
     --baseline "$PUBLIC_STATUS_DIR/metagenome_deep_review/deep_review_samples.tsv" \
     --run-status "$PUBLIC_STATUS_DIR/metagenome_deep_review_run/run_status.tsv" \
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_deep_review_summary"
+fi
+
+if [ "${ENABLE_NEXT_STAGE_DB_SETUP:-1}" = "1" ] && [ -f scripts/setup_metagenome_next_stage_databases.py ]; then
+  "$PYTHON_BIN" scripts/setup_metagenome_next_stage_databases.py \
+    --host-index-root /mnt/disk1/db/host_indexes \
+    --amr-root /mnt/disk1/db/amr \
+    --out-dir "$PUBLIC_STATUS_DIR/metagenome_next_stage_setup" \
+    || echo "Next-stage database setup reported errors; continuing status publication."
 fi
 
 if [ -f scripts/plan_metagenome_next_stage.py ] && [ -f "$PUBLIC_STATUS_DIR/metagenome_deep_review/deep_review_samples.tsv" ]; then
@@ -132,4 +140,5 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "Update public analysis status"
+git pull --rebase
 git push
