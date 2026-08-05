@@ -1,21 +1,20 @@
 # Metagenome Next-Stage Readiness
 
-Generated at: 2026-08-05T02:05:35+00:00
+Generated at: 2026-08-05T07:13:06+00:00
 Deep-review samples: 30
-Recommended stage: `qc_kraken_bracken_completed_or_available`
+Recommended stage: `host_removal_validation_ready`
 
 ## Readiness
 
 - QC ready: True
 - Host-removal tools ready: True
-- Host index ready: False
+- Host index ready: True
 - AMR tool ready: True
 - AMR database ready: False
-- Host index prefix: `not configured`
+- Host index prefix: `/mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as`
 
 ## Blockers
 
-- HOST_INDEX_PREFIX is not configured or Bowtie2 host index files are missing.
 - AMR_DB_DIR is not configured or does not exist.
 
 ## Decision

@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-08-05T07:13:06+00:00",
+  "setup_state": "error",
+  "host_index_url": "https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_as.zip",
+  "host_index_prefix": "/mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as",
+  "host_index_ready": true,
+  "amrfinder_db_ready": false,
+  "amrfinder_version_before": "amrfinder command not found",
+  "amrfinder_version_after": "amrfinder command not found",
+  "actions": [
+    "Downloaded valid host index archive: /mnt/disk1/db/host_indexes/GRCh38_noalt_as.zip",
+    "Host index ready: /mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as"
+  ],
+  "warnings": [
+    "AMRFinderPlus database still not ready after update/check."
+  ],
+  "errors": [
+    "amrfinder command not found; cannot update AMRFinderPlus DB."
+  ]
+}
