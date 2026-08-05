@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-05T12:28:05+00:00",
+  "generated_at": "2026-08-05T12:34:09+00:00",
   "setup_state": "done",
   "host_index_url": "https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_as.zip",
   "host_index_prefix": "/mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as",
   "host_index_ready": true,
   "amrfinder_db_ready": false,
-  "amrfinder_version_before": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V -d /mnt/disk1/db/amr/amrfinderplus\n*** ERROR ***\nNo valid AMRFinder database is found.\nThis directory (or symbolic link to directory) is not found: /mnt/disk1/db/amr/amrfinderplus\nTo download the latest version to the default directory run: amrfinder -u",
+  "amrfinder_version_before": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\nDatabase directory: '/mnt/disk1/db/amr/amrfinderplus'\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V -d /mnt/disk1/db/amr/amrfinderplus\n*** ERROR ***\nThe BLAST database for AMRProt.fa (/mnt/disk1/db/amr/amrfinderplus/AMRProt.fa.phr) was not found.\nUse amrfinder -u or amrfinder --force_update to download and prepare database for AMRFinderPlus",
   "amrfinder_version_after": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\nDatabase directory: '/mnt/disk1/db/amr/amrfinderplus'\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V -d /mnt/disk1/db/amr/amrfinderplus\n*** ERROR ***\nThe BLAST database for AMRProt.fa (/mnt/disk1/db/amr/amrfinderplus/AMRProt.fa.phr) was not found.\nUse amrfinder -u or amrfinder --force_update to download and prepare database for AMRFinderPlus",
   "actions": [
     "Host index already present: /mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as",
