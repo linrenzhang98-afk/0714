@@ -6,5 +6,5 @@ kraken2	yes	/home/suma/anaconda3/envs/mgshotgun/bin/kraken2
 bracken	yes	/home/suma/anaconda3/envs/mgshotgun/bin/bracken
 abricate	no	
 rgi	no	
-amrfinder	no	
+amrfinder	yes	/home/suma/anaconda3/envs/mgshotgun/bin/amrfinder
 diamond	yes	/home/suma/anaconda3/envs/mgshotgun/bin/diamond
