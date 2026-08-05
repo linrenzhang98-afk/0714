@@ -21,6 +21,14 @@ from typing import Any
 
 HOST_INDEX_URL = "https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_as.zip"
 HOST_INDEX_NAME = "GRCh38_noalt_as"
+AMRFINDER_CANDIDATE_PATHS = [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/amrfinder",
+    "/home/suma/anaconda3/envs/clinical_meta/bin/amrfinder",
+    "/home/suma/anaconda3/envs/metag_env/bin/amrfinder",
+    "/home/suma/anaconda3/bin/amrfinder",
+    "/usr/local/bin/amrfinder",
+    "/usr/bin/amrfinder",
+]
 
 
 def utc_now() -> str:
@@ -39,6 +47,17 @@ def run(args: list[str], log_path: Path, timeout: int | None = None) -> subproce
             "stderr_tail": result.stderr[-2000:],
         }, ensure_ascii=False) + "\n")
     return result
+
+
+def find_command(name: str, candidates: list[str] | None = None) -> str | None:
+    resolved = shutil.which(name)
+    if resolved:
+        return resolved
+    for candidate in candidates or []:
+        path = Path(candidate)
+        if path.exists() and os.access(path, os.X_OK):
+            return str(path)
+    return None
 
 
 def bowtie2_index_ready(prefix: Path) -> bool:
@@ -80,12 +99,37 @@ def download_host_index(zip_path: Path, log_path: Path) -> subprocess.CompletedP
 
 
 def amrfinder_db_ready(log_path: Path) -> tuple[bool, str]:
-    if shutil.which("amrfinder") is None:
+    amrfinder = find_command("amrfinder", AMRFINDER_CANDIDATE_PATHS)
+    if amrfinder is None:
         return False, "amrfinder command not found"
-    result = run(["amrfinder", "-V"], log_path)
+    result = run([amrfinder, "-V"], log_path)
     text = result.stdout + "\n" + result.stderr
     ready = result.returncode == 0 and "database" in text.lower()
     return ready, text.strip()[-1000:]
+
+
+def ensure_amrfinder_command(log_path: Path) -> str | None:
+    amrfinder = find_command("amrfinder", AMRFINDER_CANDIDATE_PATHS)
+    if amrfinder:
+        return amrfinder
+    conda = find_command("conda", ["/home/suma/anaconda3/bin/conda"])
+    if conda is None:
+        return None
+    result = run([
+        conda,
+        "install",
+        "-y",
+        "-n",
+        "mgshotgun",
+        "-c",
+        "bioconda",
+        "-c",
+        "conda-forge",
+        "ncbi-amrfinderplus",
+    ], log_path, timeout=None)
+    if result.returncode != 0:
+        return None
+    return find_command("amrfinder", AMRFINDER_CANDIDATE_PATHS)
 
 
 def write_status(out_dir: Path, summary: dict[str, Any]) -> None:
@@ -194,10 +238,12 @@ def main() -> int:
     if amr_ready_before:
         actions.append("AMRFinderPlus database already available.")
     else:
-        if shutil.which("amrfinder") is None:
-            errors.append("amrfinder command not found; cannot update AMRFinderPlus DB.")
+        amrfinder = ensure_amrfinder_command(log_path)
+        if amrfinder is None:
+            errors.append("amrfinder command not found and automatic ncbi-amrfinderplus install failed.")
         else:
-            result = run(["amrfinder", "-u"], log_path, timeout=None)
+            actions.append(f"AMRFinderPlus command available: {amrfinder}")
+            result = run([amrfinder, "-u"], log_path, timeout=None)
             if result.returncode != 0:
                 errors.append("AMRFinderPlus database update failed.")
     amr_ready_after, amr_version_after = amrfinder_db_ready(log_path)

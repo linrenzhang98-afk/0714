@@ -15,6 +15,15 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
+AMRFINDER_CANDIDATE_PATHS = [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/amrfinder",
+    "/home/suma/anaconda3/envs/clinical_meta/bin/amrfinder",
+    "/home/suma/anaconda3/envs/metag_env/bin/amrfinder",
+    "/home/suma/anaconda3/bin/amrfinder",
+    "/usr/local/bin/amrfinder",
+    "/usr/bin/amrfinder",
+]
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -29,6 +38,12 @@ def read_tsv(path: Path) -> list[dict[str, str]]:
 
 def command_row(name: str) -> dict[str, str]:
     path = shutil.which(name) or ""
+    if not path and name == "amrfinder":
+        for candidate in AMRFINDER_CANDIDATE_PATHS:
+            candidate_path = Path(candidate)
+            if candidate_path.exists() and os.access(candidate_path, os.X_OK):
+                path = str(candidate_path)
+                break
     return {"command": name, "available": "yes" if path else "no", "path": path}
 
 
@@ -41,9 +56,10 @@ def bowtie2_index_exists(prefix: str) -> bool:
 
 
 def amrfinder_database_ready() -> bool:
-    if shutil.which("amrfinder") is None:
+    amrfinder = command_row("amrfinder")["path"]
+    if not amrfinder:
         return False
-    result = subprocess.run(["amrfinder", "-V"], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
+    result = subprocess.run([amrfinder, "-V"], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
     text = (result.stdout + "\n" + result.stderr).lower()
     return result.returncode == 0 and "database" in text
 
