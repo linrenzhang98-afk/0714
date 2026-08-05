@@ -140,6 +140,35 @@ def amrfinder_db_ready(log_path: Path, db_dir: Path) -> tuple[bool, str]:
     return ready, text.strip()[-1000:]
 
 
+def amrfinder_db_candidates(db_root: Path) -> list[Path]:
+    candidates: list[Path] = []
+    latest = db_root / "latest"
+    if latest.exists():
+        candidates.append(latest)
+    if db_root.exists():
+        children = [path for path in db_root.iterdir() if path.is_dir() and (path / "version.txt").exists()]
+        candidates.extend(sorted(children, reverse=True))
+    candidates.append(db_root)
+    deduped: list[Path] = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        key = str(candidate)
+        if key not in seen:
+            deduped.append(candidate)
+            seen.add(key)
+    return deduped
+
+
+def validated_amrfinder_db_dir(log_path: Path, db_root: Path) -> tuple[Path, bool, str]:
+    last_text = ""
+    for candidate in amrfinder_db_candidates(db_root):
+        ready, text = amrfinder_db_ready(log_path, candidate)
+        last_text = text
+        if ready:
+            return candidate, True, text
+    return db_root, False, last_text
+
+
 def ensure_amrfinder_command(log_path: Path) -> str | None:
     amrfinder = find_command("amrfinder", AMRFINDER_CANDIDATE_PATHS)
     if amrfinder:
@@ -170,6 +199,15 @@ def update_amrfinder_database(amrfinder: str, db_dir: Path, log_path: Path) -> s
     if updater:
         return run([updater, "-d", str(db_dir)], log_path, timeout=None, env=command_env(updater))
     return run([amrfinder, "-u", "-d", str(db_dir)], log_path, timeout=None, env=command_env(amrfinder))
+
+
+def write_env_recommendations(out_dir: Path, host_prefix: Path, amr_db_dir: Path) -> None:
+    env_lines = [
+        f"export HOST_INDEX_PREFIX={host_prefix}",
+        f"export AMR_DB_DIR={amr_db_dir}",
+        "# AMRFinderPlus should be run with `-d $AMR_DB_DIR` for this platform.",
+    ]
+    (out_dir / "env_recommendations.sh").write_text("\n".join(env_lines) + "\n", encoding="utf-8")
 
 
 def write_status(out_dir: Path, summary: dict[str, Any]) -> None:
@@ -223,12 +261,7 @@ def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
     actions: list[str] = []
-    env_lines = [
-        f"export HOST_INDEX_PREFIX={host_prefix}",
-        f"export AMR_DB_DIR={amrfinder_db_dir}",
-        "# AMRFinderPlus should be run with `-d $AMR_DB_DIR` for this platform.",
-    ]
-    (out_dir / "env_recommendations.sh").write_text("\n".join(env_lines) + "\n", encoding="utf-8")
+    write_env_recommendations(out_dir, host_prefix, amrfinder_db_dir)
     write_status(out_dir, {
         "generated_at": utc_now(),
         "setup_state": "running",
@@ -275,7 +308,7 @@ def main() -> int:
         else:
             warnings.append(f"Host index not ready yet: {host_prefix}")
 
-    amr_ready_before, amr_version_before = amrfinder_db_ready(log_path, amrfinder_db_dir)
+    active_amr_db_dir, amr_ready_before, amr_version_before = validated_amrfinder_db_dir(log_path, amrfinder_db_dir)
     if amr_ready_before:
         actions.append("AMRFinderPlus database already available.")
     else:
@@ -287,17 +320,19 @@ def main() -> int:
             result = update_amrfinder_database(amrfinder, amrfinder_db_dir, log_path)
             if result.returncode != 0:
                 errors.append("AMRFinderPlus database update failed.")
-    amr_ready_after, amr_version_after = amrfinder_db_ready(log_path, amrfinder_db_dir)
+    active_amr_db_dir, amr_ready_after, amr_version_after = validated_amrfinder_db_dir(log_path, amrfinder_db_dir)
     if amr_ready_after:
         actions.append("AMRFinderPlus database ready after update/check.")
     else:
         warnings.append("AMRFinderPlus database still not ready after update/check.")
+    write_env_recommendations(out_dir, host_prefix, active_amr_db_dir)
 
     summary: dict[str, Any] = {
         "generated_at": utc_now(),
         "setup_state": "done" if not errors else "error",
         "host_index_url": HOST_INDEX_URL,
         "host_index_prefix": str(host_prefix),
+        "amrfinder_db_dir": str(active_amr_db_dir),
         "host_index_ready": bowtie2_index_ready(host_prefix),
         "amrfinder_db_ready": amr_ready_after,
         "amrfinder_version_before": amr_version_before,
