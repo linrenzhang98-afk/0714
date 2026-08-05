@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-08-05T13:14:18+00:00",
+  "generated_at": "2026-08-05T13:54:25+00:00",
   "setup_state": "done",
   "host_index_url": "https://genome-idx.s3.amazonaws.com/bt/GRCh38_noalt_as.zip",
   "host_index_prefix": "/mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as",
+  "amrfinder_db_dir": "/mnt/disk1/db/amr/amrfinderplus/latest",
   "host_index_ready": true,
-  "amrfinder_db_ready": false,
-  "amrfinder_version_before": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\nDatabase directory: '/mnt/disk1/db/amr/amrfinderplus'\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V -d /mnt/disk1/db/amr/amrfinderplus\n*** ERROR ***\nThe BLAST database for AMRProt.fa (/mnt/disk1/db/amr/amrfinderplus/AMRProt.fa.phr) was not found.\nUse amrfinder -u or amrfinder --force_update to download and prepare database for AMRFinderPlus",
-  "amrfinder_version_after": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\nDatabase directory: '/mnt/disk1/db/amr/amrfinderplus'\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V -d /mnt/disk1/db/amr/amrfinderplus\n*** ERROR ***\nThe BLAST database for AMRProt.fa (/mnt/disk1/db/amr/amrfinderplus/AMRProt.fa.phr) was not found.\nUse amrfinder -u or amrfinder --force_update to download and prepare database for AMRFinderPlus",
+  "amrfinder_db_ready": true,
+  "amrfinder_version_before": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\nDatabase directory: '/mnt/disk1/db/amr/amrfinderplus/2026-05-15.1'\nDatabase version: 2026-05-15.1\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V -d /mnt/disk1/db/amr/amrfinderplus/latest\namrfinder took 0 seconds to complete",
+  "amrfinder_version_after": "Software directory: '/home/suma/anaconda3/envs/mgshotgun/bin/'\nSoftware version: 4.2.7\nDatabase directory: '/mnt/disk1/db/amr/amrfinderplus/2026-05-15.1'\nDatabase version: 2026-05-15.1\n\nRunning: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder -V -d /mnt/disk1/db/amr/amrfinderplus/latest\namrfinder took 0 seconds to complete",
   "actions": [
     "Host index already present: /mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as",
-    "AMRFinderPlus command available: /home/suma/anaconda3/envs/mgshotgun/bin/amrfinder"
+    "AMRFinderPlus database already available.",
+    "AMRFinderPlus database ready after update/check."
   ],
-  "warnings": [
-    "AMRFinderPlus database still not ready after update/check."
-  ],
+  "warnings": [],
   "errors": []
 }
