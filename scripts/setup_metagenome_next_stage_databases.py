@@ -56,6 +56,35 @@ def amrfinder_db_ready(log_path: Path) -> tuple[bool, str]:
     return ready, text.strip()[-1000:]
 
 
+def write_status(out_dir: Path, summary: dict[str, Any]) -> None:
+    (out_dir / "setup_status.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    lines = [
+        "# Metagenome Next-Stage Database Setup",
+        "",
+        f"Generated at: {summary['generated_at']}",
+        "",
+        "## Status",
+        "",
+        f"- Setup state: {summary.get('setup_state', 'unknown')}",
+        f"- Host index ready: {summary['host_index_ready']}",
+        f"- Host index prefix: `{summary['host_index_prefix']}`",
+        f"- AMRFinderPlus DB ready: {summary['amrfinder_db_ready']}",
+        "",
+        "## Actions",
+        "",
+    ]
+    actions = summary.get("actions", [])
+    warnings = summary.get("warnings", [])
+    errors = summary.get("errors", [])
+    lines.extend(f"- {item}" for item in actions) if actions else lines.append("- None.")
+    lines.extend(["", "## Warnings", ""])
+    lines.extend(f"- {item}" for item in warnings) if warnings else lines.append("- None.")
+    lines.extend(["", "## Errors", ""])
+    lines.extend(f"- {item}" for item in errors) if errors else lines.append("- None.")
+    lines.extend(["", "## Output Files", "", "- `setup_status.json`", "- `env_recommendations.sh`", "- `setup_log.jsonl`"])
+    (out_dir / "setup_status.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Set up metagenome next-stage DB resources")
     parser.add_argument("--host-index-root", default="/mnt/disk1/db/host_indexes")
@@ -77,6 +106,25 @@ def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
     actions: list[str] = []
+    env_lines = [
+        f"export HOST_INDEX_PREFIX={host_prefix}",
+        "# AMRFinderPlus uses its installed/default database after `amrfinder -u`.",
+        "# AMR_DB_DIR is not required when AMRFinderPlus reports a valid database via `amrfinder -V`.",
+    ]
+    (out_dir / "env_recommendations.sh").write_text("\n".join(env_lines) + "\n", encoding="utf-8")
+    write_status(out_dir, {
+        "generated_at": utc_now(),
+        "setup_state": "running",
+        "host_index_url": HOST_INDEX_URL,
+        "host_index_prefix": str(host_prefix),
+        "host_index_ready": bowtie2_index_ready(host_prefix),
+        "amrfinder_db_ready": False,
+        "amrfinder_version_before": "",
+        "amrfinder_version_after": "",
+        "actions": ["Database setup started."],
+        "warnings": [],
+        "errors": [],
+    })
 
     host_ready_before = bowtie2_index_ready(host_prefix)
     if host_ready_before:
@@ -125,15 +173,9 @@ def main() -> int:
     else:
         warnings.append("AMRFinderPlus database still not ready after update/check.")
 
-    env_lines = [
-        f"export HOST_INDEX_PREFIX={host_prefix}",
-        "# AMRFinderPlus uses its installed/default database after `amrfinder -u`.",
-        "# AMR_DB_DIR is not required when AMRFinderPlus reports a valid database via `amrfinder -V`.",
-    ]
-    (out_dir / "env_recommendations.sh").write_text("\n".join(env_lines) + "\n", encoding="utf-8")
-
     summary: dict[str, Any] = {
         "generated_at": utc_now(),
+        "setup_state": "done" if not errors else "error",
         "host_index_url": HOST_INDEX_URL,
         "host_index_prefix": str(host_prefix),
         "host_index_ready": bowtie2_index_ready(host_prefix),
@@ -144,28 +186,7 @@ def main() -> int:
         "warnings": warnings,
         "errors": errors,
     }
-    (out_dir / "setup_status.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    lines = [
-        "# Metagenome Next-Stage Database Setup",
-        "",
-        f"Generated at: {summary['generated_at']}",
-        "",
-        "## Status",
-        "",
-        f"- Host index ready: {summary['host_index_ready']}",
-        f"- Host index prefix: `{summary['host_index_prefix']}`",
-        f"- AMRFinderPlus DB ready: {summary['amrfinder_db_ready']}",
-        "",
-        "## Actions",
-        "",
-    ]
-    lines.extend(f"- {item}" for item in actions) if actions else lines.append("- None.")
-    lines.extend(["", "## Warnings", ""])
-    lines.extend(f"- {item}" for item in warnings) if warnings else lines.append("- None.")
-    lines.extend(["", "## Errors", ""])
-    lines.extend(f"- {item}" for item in errors) if errors else lines.append("- None.")
-    lines.extend(["", "## Output Files", "", "- `setup_status.json`", "- `env_recommendations.sh`", "- `setup_log.jsonl`"])
-    (out_dir / "setup_status.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    write_status(out_dir, summary)
     print(out_dir)
     return 0 if not errors else 2
 

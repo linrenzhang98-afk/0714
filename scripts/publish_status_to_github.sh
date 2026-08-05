@@ -63,11 +63,23 @@ if [ -f scripts/summarize_deep_review_results.py ] && [ -f "$PUBLIC_STATUS_DIR/m
 fi
 
 if [ "${ENABLE_NEXT_STAGE_DB_SETUP:-1}" = "1" ] && [ -f scripts/setup_metagenome_next_stage_databases.py ]; then
-  "$PYTHON_BIN" scripts/setup_metagenome_next_stage_databases.py \
-    --host-index-root /mnt/disk1/db/host_indexes \
-    --amr-root /mnt/disk1/db/amr \
-    --out-dir "$PUBLIC_STATUS_DIR/metagenome_next_stage_setup" \
-    || echo "Next-stage database setup reported errors; continuing status publication."
+  SETUP_OUT_DIR="$PUBLIC_STATUS_DIR/metagenome_next_stage_setup"
+  mkdir -p "$SETUP_OUT_DIR"
+  if [ -f "$SETUP_OUT_DIR/setup_status.json" ] \
+    && grep -q '"host_index_ready": true' "$SETUP_OUT_DIR/setup_status.json" \
+    && grep -q '"amrfinder_db_ready": true' "$SETUP_OUT_DIR/setup_status.json"; then
+    echo "$(date -Is) next-stage database setup already complete" > "$SETUP_OUT_DIR/setup_runner_status.txt"
+  elif pgrep -f "setup_metagenome_next_stage_databases.py" >/dev/null 2>&1; then
+    echo "$(date -Is) next-stage database setup already running" > "$SETUP_OUT_DIR/setup_runner_status.txt"
+  else
+    nohup "$PYTHON_BIN" scripts/setup_metagenome_next_stage_databases.py \
+      --host-index-root /mnt/disk1/db/host_indexes \
+      --amr-root /mnt/disk1/db/amr \
+      --out-dir "$SETUP_OUT_DIR" \
+      --log "$SETUP_OUT_DIR/setup_log.jsonl" \
+      > "$SETUP_OUT_DIR/setup_nohup.log" 2>&1 &
+    echo "$(date -Is) next-stage database setup started in background pid=$!" > "$SETUP_OUT_DIR/setup_runner_status.txt"
+  fi
 fi
 
 if [ -f scripts/plan_metagenome_next_stage.py ] && [ -f "$PUBLIC_STATUS_DIR/metagenome_deep_review/deep_review_samples.tsv" ]; then
