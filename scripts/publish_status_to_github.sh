@@ -13,7 +13,7 @@ export PATH
 
 cd "$REPO_DIR"
 
-git pull --ff-only || git pull --rebase
+git pull --ff-only || git pull --rebase --autostash
 
 mkdir -p "$PUBLIC_STATUS_DIR"
 
@@ -161,5 +161,5 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "Update public analysis status"
-git pull --rebase
+git pull --rebase --autostash
 git push
