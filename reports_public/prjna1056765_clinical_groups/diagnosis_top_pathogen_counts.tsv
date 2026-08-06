@@ -1,0 +1,61 @@
+diagnosis	top_pathogen	runs
+Bacterial infection	NA	23
+Bacterial infection	Pseudomonas aeruginosa	20
+Bacterial infection	Prevotella melaninogenica	10
+Bacterial infection	Prevotella intermedia	7
+Bacterial infection	Haemophilus influenzae	6
+Bacterial infection	Staphylococcus aureus	6
+Bacterial infection	Streptococcus mitis	5
+Bacterial infection	Klebsiella pneumoniae	4
+Bacterial infection	Prevotella jejuni	3
+Bacterial infection	Acinetobacter baumannii	3
+Bacterial infection	Burkholderia cenocepacia	2
+Bacterial infection	Streptococcus oralis	2
+Bacterial infection	Burkholderia multivorans	2
+Bacterial infection	Prevotella enoeca	2
+Bacterial infection	Prevotella nigrescens	2
+Fungal infection	NA	35
+Fungal infection	Prevotella melaninogenica	8
+Fungal infection	Rothia mucilaginosa	6
+Fungal infection	Cryptococcus neoformans	4
+Fungal infection	Candida albicans	2
+Fungal infection	Haemophilus influenzae	2
+Fungal infection	Staphylococcus epidermidis	2
+Fungal infection	Streptococcus salivarius	2
+Fungal infection	Stenotrophomonas maltophilia	2
+Fungal infection	Acinetobacter baumannii	2
+Fungal infection	Streptococcus mitis	2
+Fungal infection	Acinetobacter johnsonii	2
+Fungal infection	Prevotella jejuni	2
+Fungal infection	Enterococcus faecium	1
+Fungal infection	Staphylococcus aureus	1
+Lung cancer	NA	35
+Lung cancer	Rothia mucilaginosa	12
+Lung cancer	Prevotella melaninogenica	11
+Lung cancer	Streptococcus mitis	7
+Lung cancer	Prevotella jejuni	5
+Lung cancer	Klebsiella pneumoniae	5
+Lung cancer	Pseudomonas aeruginosa	5
+Lung cancer	Streptococcus salivarius	4
+Lung cancer	Acinetobacter johnsonii	4
+Lung cancer	Staphylococcus aureus	3
+Lung cancer	Prevotella intermedia	3
+Lung cancer	Prevotella nigrescens	3
+Lung cancer	Staphylococcus epidermidis	3
+Lung cancer	Staphylococcus haemolyticus	3
+Lung cancer	Streptococcus sanguinis	2
+Pulmonary tuberculosis	NA	36
+Pulmonary tuberculosis	Prevotella melaninogenica	15
+Pulmonary tuberculosis	Mycobacterium tuberculosis	9
+Pulmonary tuberculosis	Rothia mucilaginosa	4
+Pulmonary tuberculosis	Prevotella jejuni	3
+Pulmonary tuberculosis	Streptococcus pneumoniae	3
+Pulmonary tuberculosis	Prevotella nigrescens	2
+Pulmonary tuberculosis	Streptococcus mitis	2
+Pulmonary tuberculosis	Acinetobacter johnsonii	2
+Pulmonary tuberculosis	Acinetobacter nosocomialis	1
+Pulmonary tuberculosis	Veillonella parvula	1
+Pulmonary tuberculosis	Haemophilus influenzae	1
+Pulmonary tuberculosis	Klebsiella aerogenes	1
+Pulmonary tuberculosis	Staphylococcus hominis	1
+Pulmonary tuberculosis	Acinetobacter baumannii	1

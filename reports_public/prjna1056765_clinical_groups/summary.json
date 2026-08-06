@@ -1,0 +1,42 @@
+{
+  "analyzed_runs": 400,
+  "diagnosis_counts": {
+    "Lung cancer": 122,
+    "Bacterial infection": 114,
+    "Pulmonary tuberculosis": 86,
+    "Fungal infection": 78
+  },
+  "deep_review_runs": 30,
+  "deep_review_diagnosis_counts": {
+    "Bacterial infection": 14,
+    "Lung cancer": 10,
+    "Pulmonary tuberculosis": 5,
+    "Fungal infection": 1
+  },
+  "deep_review_stable_same_top_by_diagnosis": {
+    "Bacterial infection": 14,
+    "Lung cancer": 10,
+    "Pulmonary tuberculosis": 5,
+    "Fungal infection": 1
+  },
+  "clinical_wgs_runs_not_analyzed": [
+    {
+      "run": "SRR27343810",
+      "patient_id": "20210709MCX011",
+      "diagnosis": "Fungal infection",
+      "size_mb": "0"
+    },
+    {
+      "run": "SRR27343463",
+      "patient_id": "20211125MCX012",
+      "diagnosis": "Lung cancer",
+      "size_mb": "0"
+    }
+  ],
+  "sources": {
+    "runinfo": "https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/runinfo?acc=PRJNA1056765",
+    "supplement": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41746-025-01977-5/MediaObjects/41746_2025_1977_MOESM2_ESM.xlsx",
+    "npj_digital_medicine_article": "https://www.nature.com/articles/s41746-025-01977-5",
+    "scientific_data_article": "https://www.nature.com/articles/s41597-025-06171-6"
+  }
+}

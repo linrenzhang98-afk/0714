@@ -1,0 +1,5 @@
+diagnosis	runs	median_classified_pct	median_top_pathogen_fraction	high_confidence_runs
+Bacterial infection	114	1.9034	0.10494	26
+Fungal infection	78	1.5793	0.02936	1
+Lung cancer	122	2.0530	0.02913	14
+Pulmonary tuberculosis	86	1.6587	0.02071	1
