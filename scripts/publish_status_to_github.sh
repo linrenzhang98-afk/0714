@@ -98,6 +98,11 @@ if [ -f scripts/plan_metagenome_next_stage.py ] && [ -f "$PUBLIC_STATUS_DIR/meta
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_next_stage"
 fi
 
+if [ "${ENABLE_GENERAL_RUNNER:-1}" = "1" ] && [ -f runner/config.local.json ] && [ -f runner/runner.py ]; then
+  "$PYTHON_BIN" runner/runner.py --config runner/config.local.json --no-pull \
+    || echo "General runner reported errors; continuing status publication."
+fi
+
 DEEP_REVIEW_JOB_ID="20260731T000000Z-prjna1056765-metagenome-deep-review-plan"
 DEEP_REVIEW_ALLOWLIST_REQUEST="decision_requests/metagenome_deep_review_allowlist.md"
 if [ -f "jobs/${DEEP_REVIEW_JOB_ID}.json" ]; then

@@ -9,8 +9,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import json
 import shutil
+import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -37,6 +40,286 @@ def shell_quote(value: str) -> str:
 def command_status(command: str) -> dict[str, Any]:
     path = shutil.which(command)
     return {"command": command, "available": path is not None, "path": path or ""}
+
+
+def run_command(args: list[str], cwd: Path | None = None, timeout: int | None = None) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        args,
+        cwd=str(cwd) if cwd else None,
+        check=False,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        timeout=timeout,
+    )
+
+
+def write_json(path: Path, data: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def fastq_gz_to_fasta_subset(fastq_gz: Path, fasta: Path, max_reads: int) -> int:
+    count = 0
+    fasta.parent.mkdir(parents=True, exist_ok=True)
+    with gzip.open(fastq_gz, "rt", encoding="utf-8", errors="replace") as src, fasta.open("w", encoding="utf-8") as dst:
+        while count < max_reads:
+            header = src.readline()
+            if not header:
+                break
+            seq = src.readline().strip()
+            src.readline()
+            src.readline()
+            if not seq:
+                continue
+            count += 1
+            dst.write(f">{header[1:].strip() or 'read_' + str(count)}\n{seq}\n")
+    return count
+
+
+def file_nonempty(path: Path) -> bool:
+    return path.exists() and path.stat().st_size > 0
+
+
+def execute_host_removal_amr(
+    rows: list[dict[str, str]],
+    out_dir: Path,
+    params: dict[str, Any],
+    work_dir: Path,
+    fastq_dir: Path,
+    qc_dir: Path,
+    host_removed_dir: Path,
+    kraken_dir: Path,
+    kraken2_db: Path,
+    bracken_db: Path,
+    host_index: str,
+    threads: int,
+) -> dict[str, Any]:
+    sra_dir = work_dir / "sra"
+    amr_dir = out_dir / "amr_screen"
+    logs_dir = out_dir / "logs"
+    for directory in [sra_dir, fastq_dir, qc_dir, host_removed_dir, kraken_dir, amr_dir, logs_dir]:
+        directory.mkdir(parents=True, exist_ok=True)
+
+    amr_db = Path(str(params.get("amr_db", ""))).expanduser()
+    amr_max_reads = int(params.get("amr_max_reads", 200000))
+    per_command_timeout = int(params.get("per_command_timeout_seconds", 7200))
+    continue_on_run_error = bool(params.get("continue_on_run_error", True))
+    run_status: list[dict[str, Any]] = []
+
+    for row in rows:
+        run = row.get("run", "").strip()
+        if not run:
+            continue
+        status = {
+            "run": run,
+            "pathogen_group": row.get("pathogen_group", ""),
+            "baseline_top_pathogen": row.get("top_pathogen", ""),
+            "status": "running",
+            "error": "",
+        }
+        try:
+            sra_path = sra_dir / run / f"{run}.sra"
+            fastq = fastq_dir / f"{run}.fastq"
+            fastq_gz = fastq_dir / f"{run}.fastq.gz"
+            qc_fastq = qc_dir / f"{run}.fastq.gz"
+            host_removed_fastq = host_removed_dir / f"{run}.fastq.gz"
+            kreport = kraken_dir / f"{run}.kreport"
+            kout = kraken_dir / f"{run}.kraken2.out"
+            bracken_out = kraken_dir / f"{run}.bracken"
+            fasta_subset = amr_dir / f"{run}.host_removed_subset.fasta"
+            amr_out = amr_dir / f"{run}.amrfinder.tsv"
+
+            if not file_nonempty(sra_path):
+                result = run_command(["prefetch", run, "--output-directory", str(sra_dir)], timeout=per_command_timeout)
+                (logs_dir / f"{run}.prefetch.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+                if result.returncode != 0:
+                    raise RuntimeError(f"prefetch failed rc={result.returncode}")
+
+            if not file_nonempty(fastq_gz):
+                if not file_nonempty(fastq):
+                    result = run_command(
+                        ["fasterq-dump", str(sra_path), "--outdir", str(fastq_dir), "--threads", str(threads)],
+                        timeout=per_command_timeout,
+                    )
+                    (logs_dir / f"{run}.fasterq-dump.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+                    if result.returncode != 0:
+                        raise RuntimeError(f"fasterq-dump failed rc={result.returncode}")
+                result = run_command(["gzip", "-f", str(fastq)], timeout=per_command_timeout)
+                (logs_dir / f"{run}.gzip.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+                if result.returncode != 0:
+                    raise RuntimeError(f"gzip failed rc={result.returncode}")
+
+            if not file_nonempty(qc_fastq):
+                result = run_command(
+                    [
+                        "fastp",
+                        "-i",
+                        str(fastq_gz),
+                        "-o",
+                        str(qc_fastq),
+                        "--thread",
+                        str(threads),
+                        "--json",
+                        str(qc_dir / f"{run}.fastp.json"),
+                        "--html",
+                        str(qc_dir / f"{run}.fastp.html"),
+                    ],
+                    timeout=per_command_timeout,
+                )
+                (logs_dir / f"{run}.fastp.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+                if result.returncode != 0:
+                    raise RuntimeError(f"fastp failed rc={result.returncode}")
+
+            if not file_nonempty(host_removed_fastq):
+                result = run_command(
+                    [
+                        "bowtie2",
+                        "-x",
+                        host_index,
+                        "-U",
+                        str(qc_fastq),
+                        "--threads",
+                        str(threads),
+                        "--un-gz",
+                        str(host_removed_fastq),
+                        "-S",
+                        "/dev/null",
+                    ],
+                    timeout=per_command_timeout,
+                )
+                (logs_dir / f"{run}.bowtie2_host_removal.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+                if result.returncode != 0:
+                    raise RuntimeError(f"bowtie2 host-removal failed rc={result.returncode}")
+
+            if not file_nonempty(kreport) or not file_nonempty(kout):
+                result = run_command(
+                    [
+                        "kraken2",
+                        "--db",
+                        str(kraken2_db),
+                        "--threads",
+                        str(threads),
+                        "--report",
+                        str(kreport),
+                        "--output",
+                        str(kout),
+                        str(host_removed_fastq),
+                    ],
+                    timeout=per_command_timeout,
+                )
+                (logs_dir / f"{run}.kraken2.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+                if result.returncode != 0:
+                    raise RuntimeError(f"kraken2 failed rc={result.returncode}")
+
+            if not file_nonempty(bracken_out):
+                result = run_command(
+                    ["bracken", "-d", str(bracken_db), "-i", str(kreport), "-o", str(bracken_out)],
+                    timeout=per_command_timeout,
+                )
+                (logs_dir / f"{run}.bracken.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+                if result.returncode != 0:
+                    raise RuntimeError(f"bracken failed rc={result.returncode}")
+
+            amr_status = "skipped_no_db"
+            amr_records = 0
+            if amr_db.exists() and shutil.which("amrfinder"):
+                if not file_nonempty(fasta_subset):
+                    subset_reads = fastq_gz_to_fasta_subset(host_removed_fastq, fasta_subset, amr_max_reads)
+                else:
+                    subset_reads = amr_max_reads
+                if not file_nonempty(amr_out):
+                    result = run_command(
+                        ["amrfinder", "-n", str(fasta_subset), "-d", str(amr_db), "-o", str(amr_out)],
+                        timeout=per_command_timeout,
+                    )
+                    (logs_dir / f"{run}.amrfinder.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
+                    if result.returncode != 0:
+                        amr_status = f"failed_rc_{result.returncode}"
+                    else:
+                        amr_status = "done_short_read_subset"
+                else:
+                    amr_status = "done_short_read_subset"
+                if amr_out.exists():
+                    with amr_out.open(encoding="utf-8", errors="replace") as f:
+                        amr_records = max(0, sum(1 for _ in f) - 1)
+                status["amr_subset_reads"] = subset_reads
+            status.update(
+                {
+                    "status": "done",
+                    "host_removed_fastq": str(host_removed_fastq),
+                    "kreport": str(kreport),
+                    "bracken": str(bracken_out),
+                    "amr_status": amr_status,
+                    "amr_records": amr_records,
+                }
+            )
+        except Exception as exc:  # noqa: BLE001 - per-run failure is recorded and the job continues.
+            status["status"] = "failed"
+            status["error"] = str(exc)
+            if not continue_on_run_error:
+                run_status.append(status)
+                break
+        run_status.append(status)
+
+    fieldnames = [
+        "run",
+        "pathogen_group",
+        "baseline_top_pathogen",
+        "status",
+        "error",
+        "amr_status",
+        "amr_records",
+        "amr_subset_reads",
+        "host_removed_fastq",
+        "kreport",
+        "bracken",
+    ]
+    with (out_dir / "run_status.tsv").open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, delimiter="\t", fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows({key: row.get(key, "") for key in fieldnames} for row in run_status)
+
+    done_count = sum(1 for row in run_status if row["status"] == "done")
+    failed = [row for row in run_status if row["status"] != "done"]
+    summary = {
+        "checked_at": utc_now(),
+        "execute_mode": "host_removal_amr_screen",
+        "run_count": len(run_status),
+        "done_count": done_count,
+        "failed_count": len(failed),
+        "final_status": "done" if not failed else "partial_failed",
+        "amr_note": (
+            "AMRFinderPlus was run only on a capped host-removed short-read FASTA subset. "
+            "Use as exploratory AMR signal only, not as phenotypic resistance evidence."
+        ),
+    }
+    write_json(out_dir / "summary.json", summary)
+    (out_dir / "summary.md").write_text(
+        "\n".join(
+            [
+                "# Host-Removal and AMR Screen Summary",
+                "",
+                f"- Runs: {len(run_status)}",
+                f"- Done: {done_count}",
+                f"- Failed: {len(failed)}",
+                f"- Final status: {summary['final_status']}",
+                "",
+                "## AMR Interpretation Guardrail",
+                "",
+                summary["amr_note"],
+                "",
+                "## Output Files",
+                "",
+                "- `run_status.tsv`",
+                "- `kraken2_confirm/`",
+                "- `amr_screen/`",
+            ]
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return summary
 
 
 def main() -> int:
@@ -67,13 +350,14 @@ def main() -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
-    if execute_mode != "plan_only":
-        errors.append("Only execute_mode=plan_only is enabled for this guarded runner.")
+    if execute_mode not in {"plan_only", "host_removal_amr_screen"}:
+        errors.append("execute_mode must be plan_only or host_removal_amr_screen.")
     if not shortlist_path.exists():
         errors.append(f"shortlist_path not found: {shortlist_path}")
         rows: list[dict[str, str]] = []
     else:
-        rows = read_tsv(shortlist_path)[:selected_limit]
+        selected_offset = int(params.get("selected_offset", 0))
+        rows = read_tsv(shortlist_path)[selected_offset:selected_offset + selected_limit]
     if not kraken2_db.exists():
         errors.append(f"kraken2_db not found: {kraken2_db}")
     if not bracken_db.exists():
@@ -88,7 +372,9 @@ def main() -> int:
     missing_optional = [c["command"] for c in commands if c["command"] in optional and not c["available"]]
     if missing_optional:
         warnings.append("Optional QC/host-removal commands missing: " + ", ".join(missing_optional))
-    if not host_index:
+    if execute_mode == "host_removal_amr_screen" and not host_index:
+        errors.append("host_index is required for execute_mode=host_removal_amr_screen.")
+    elif not host_index:
         warnings.append("host_index not configured; host-removal commands are written as commented placeholders.")
 
     validation = {
@@ -158,6 +444,24 @@ def main() -> int:
         ]) + "\n",
         encoding="utf-8",
     )
+    if execute_mode == "host_removal_amr_screen":
+        if errors:
+            return 2
+        summary = execute_host_removal_amr(
+            rows=rows,
+            out_dir=out_dir,
+            params=params,
+            work_dir=work_dir,
+            fastq_dir=fastq_dir,
+            qc_dir=qc_dir,
+            host_removed_dir=host_removed_dir,
+            kraken_dir=kraken_dir,
+            kraken2_db=kraken2_db,
+            bracken_db=bracken_db,
+            host_index=host_index,
+            threads=threads,
+        )
+        return 0 if summary["final_status"] == "done" else 2
     return 0 if not errors else 2
 
 
