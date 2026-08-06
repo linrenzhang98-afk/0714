@@ -1,0 +1,25 @@
+{
+  "result_directories": 30,
+  "runs_summarized": 30,
+  "runs_with_amr_hits": 0,
+  "amrfinder_hit_rows": 0,
+  "runner_reported_amr_records": 0,
+  "status_counts": {
+    "done": 30
+  },
+  "amr_status_counts": {
+    "done_short_read_subset": 30
+  },
+  "pathogen_group_counts": {
+    "Staphylococcus": 4,
+    "Enterobacterales": 4,
+    "Pseudomonas": 4,
+    "Stenotrophomonas": 1,
+    "Acinetobacter": 4,
+    "Candida": 1,
+    "Haemophilus": 4,
+    "Streptococcus": 4,
+    "Mycobacteria": 4
+  },
+  "top_amr_genes": {}
+}
