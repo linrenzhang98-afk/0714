@@ -1,0 +1,12 @@
+{
+  "runs": 400,
+  "diagnosis_counts": {
+    "Bacterial infection": 114,
+    "Fungal infection": 78,
+    "Lung cancer": 122,
+    "Pulmonary tuberculosis": 86
+  },
+  "species_tested": 1236,
+  "differential_rows": 1532,
+  "wetlab_candidates": 11
+}
