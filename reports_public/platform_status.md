@@ -1,18 +1,18 @@
 # Platform Status
 
-Generated at: 2026-08-06T17:20:57+00:00
+Generated at: 2026-08-06T19:18:25+00:00
 
 ## Job Status Counts
 
-- done: 34
+- done: 64
 - rejected: 1
 
 ## Recent Event Counts
 
-- job_finish: 20
-- job_rejected: 20
-- job_start: 20
-- scan: 20
+- job_finish: 35
+- job_rejected: 6
+- job_start: 34
+- scan: 5
 
 ## Decision Requests
 
@@ -20,7 +20,7 @@ Generated at: 2026-08-06T17:20:57+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-07-31T05:47:40+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-06T19:18:25+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
@@ -55,29 +55,59 @@ Generated at: 2026-08-06T17:20:57+00:00
 - 20260724T170118Z-prjna1056765-production-descriptive-batch-019: done (metagenome_sra_kraken2), updated 2026-07-28T19:55:42+00:00
 - 20260724T170118Z-prjna1056765-production-descriptive-batch-020: done (metagenome_sra_kraken2), updated 2026-07-28T20:54:45+00:00
 - 20260731T000000Z-prjna1056765-metagenome-deep-review-plan: done (metagenome_deep_review), updated 2026-07-31T05:47:40+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-01: done (metagenome_deep_review), updated 2026-08-06T18:05:09+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-02: done (metagenome_deep_review), updated 2026-08-06T18:26:58+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-03: done (metagenome_deep_review), updated 2026-08-06T18:29:26+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-04: done (metagenome_deep_review), updated 2026-08-06T18:31:01+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-05: done (metagenome_deep_review), updated 2026-08-06T18:36:03+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-06: done (metagenome_deep_review), updated 2026-08-06T18:39:08+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-07: done (metagenome_deep_review), updated 2026-08-06T18:41:07+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-08: done (metagenome_deep_review), updated 2026-08-06T18:42:29+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-09: done (metagenome_deep_review), updated 2026-08-06T18:43:58+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-10: done (metagenome_deep_review), updated 2026-08-06T18:46:02+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-11: done (metagenome_deep_review), updated 2026-08-06T18:47:27+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-12: done (metagenome_deep_review), updated 2026-08-06T18:49:01+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-13: done (metagenome_deep_review), updated 2026-08-06T18:50:54+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-14: done (metagenome_deep_review), updated 2026-08-06T18:52:27+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-15: done (metagenome_deep_review), updated 2026-08-06T18:53:50+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-16: done (metagenome_deep_review), updated 2026-08-06T18:55:36+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-17: done (metagenome_deep_review), updated 2026-08-06T18:57:03+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-18: done (metagenome_deep_review), updated 2026-08-06T18:58:28+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-19: done (metagenome_deep_review), updated 2026-08-06T19:01:17+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-20: done (metagenome_deep_review), updated 2026-08-06T19:02:50+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-21: done (metagenome_deep_review), updated 2026-08-06T19:04:14+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-22: done (metagenome_deep_review), updated 2026-08-06T19:05:36+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-23: done (metagenome_deep_review), updated 2026-08-06T19:07:10+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-24: done (metagenome_deep_review), updated 2026-08-06T19:08:36+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-25: done (metagenome_deep_review), updated 2026-08-06T19:10:03+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-26: done (metagenome_deep_review), updated 2026-08-06T19:11:22+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-27: done (metagenome_deep_review), updated 2026-08-06T19:13:00+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-28: done (metagenome_deep_review), updated 2026-08-06T19:14:19+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-29: done (metagenome_deep_review), updated 2026-08-06T19:15:36+00:00
+- 20260807T000000Z-prjna1056765-host-amr-screen-30: done (metagenome_deep_review), updated 2026-08-06T19:18:25+00:00
 
 ## Last Events
 
-- 2026-07-28T19:08:56+00:00 scan
-- 2026-07-28T19:08:56+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-017
-- 2026-07-28T19:21:38+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-017 status=done
-- 2026-07-28T19:21:38+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-28T19:21:40+00:00 scan
-- 2026-07-28T19:21:40+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-018
-- 2026-07-28T19:36:17+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-018 status=done
-- 2026-07-28T19:36:17+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-28T19:36:19+00:00 scan
-- 2026-07-28T19:36:19+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-019
-- 2026-07-28T19:55:42+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-019 status=done
-- 2026-07-28T19:55:42+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-28T19:55:44+00:00 scan
-- 2026-07-28T19:55:44+00:00 job_start job=20260724T170118Z-prjna1056765-production-descriptive-batch-020
-- 2026-07-28T20:54:45+00:00 job_finish job=20260724T170118Z-prjna1056765-production-descriptive-batch-020 status=done
-- 2026-07-28T20:54:45+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-07-31T05:47:40+00:00 scan
-- 2026-07-31T05:47:40+00:00 job_start job=20260731T000000Z-prjna1056765-metagenome-deep-review-plan
-- 2026-07-31T05:47:40+00:00 job_finish job=20260731T000000Z-prjna1056765-metagenome-deep-review-plan status=done
-- 2026-07-31T05:47:40+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-08-06T19:04:14+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-21 status=done
+- 2026-08-06T19:04:14+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-22
+- 2026-08-06T19:05:36+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-22 status=done
+- 2026-08-06T19:05:36+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-23
+- 2026-08-06T19:07:10+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-23 status=done
+- 2026-08-06T19:07:10+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-24
+- 2026-08-06T19:08:36+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-24 status=done
+- 2026-08-06T19:08:36+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-25
+- 2026-08-06T19:10:03+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-25 status=done
+- 2026-08-06T19:10:03+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-26
+- 2026-08-06T19:11:22+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-26 status=done
+- 2026-08-06T19:11:22+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-27
+- 2026-08-06T19:13:00+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-27 status=done
+- 2026-08-06T19:13:00+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-28
+- 2026-08-06T19:14:19+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-28 status=done
+- 2026-08-06T19:14:19+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-29
+- 2026-08-06T19:15:36+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-29 status=done
+- 2026-08-06T19:15:36+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-30
+- 2026-08-06T19:18:25+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-30 status=done
+- 2026-08-06T19:18:25+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 
