@@ -99,8 +99,54 @@ if [ -f scripts/plan_metagenome_next_stage.py ] && [ -f "$PUBLIC_STATUS_DIR/meta
 fi
 
 if [ "${ENABLE_GENERAL_RUNNER:-1}" = "1" ] && [ -f runner/config.local.json ] && [ -f runner/runner.py ]; then
+  GENERAL_RUNNER_STATUS="$PUBLIC_STATUS_DIR/general_runner_status.txt"
+  GENERAL_RUNNER_LOG="$PUBLIC_STATUS_DIR/general_runner_last.log"
+  {
+    echo "generated_at=$(date -Is)"
+    echo "enabled=true"
+    echo "config_exists=true"
+    echo "runner_exists=true"
+    echo "host_amr_job_files=$(find jobs -maxdepth 1 -type f -name '20260807T000000Z-prjna1056765-host-amr-screen-*.json' | wc -l)"
+    if "$PYTHON_BIN" - <<'PY'
+import json
+from pathlib import Path
+
+config = json.loads(Path("runner/config.local.json").read_text(encoding="utf-8"))
+tasks = config.get("tasks", {})
+print("metagenome_deep_review_allowlisted=" + str("metagenome_deep_review" in tasks).lower())
+print("jobs_glob=" + str(config.get("jobs_glob", "")))
+print("results_root=" + str(config.get("results_root", "")))
+PY
+    then
+      :
+    else
+      echo "config_parse_ok=false"
+    fi
+  } > "$GENERAL_RUNNER_STATUS"
+
+  set +e
   "$PYTHON_BIN" runner/runner.py --config runner/config.local.json --no-pull \
-    || echo "General runner reported errors; continuing status publication."
+    > "$GENERAL_RUNNER_LOG" 2>&1
+  GENERAL_RUNNER_RC=$?
+  set -e
+  {
+    echo "runner_return_code=$GENERAL_RUNNER_RC"
+    echo "runner_log_tail_start"
+    tail -n 40 "$GENERAL_RUNNER_LOG" 2>/dev/null || true
+    echo "runner_log_tail_end"
+  } >> "$GENERAL_RUNNER_STATUS"
+  if [ "$GENERAL_RUNNER_RC" -ne 0 ]; then
+    echo "General runner reported errors; continuing status publication."
+  fi
+elif [ "${ENABLE_GENERAL_RUNNER:-1}" = "1" ]; then
+  {
+    echo "generated_at=$(date -Is)"
+    echo "enabled=true"
+    echo "config_exists=$([ -f runner/config.local.json ] && echo true || echo false)"
+    echo "runner_exists=$([ -f runner/runner.py ] && echo true || echo false)"
+    echo "host_amr_job_files=$(find jobs -maxdepth 1 -type f -name '20260807T000000Z-prjna1056765-host-amr-screen-*.json' | wc -l)"
+    echo "runner_return_code=not_run"
+  } > "$PUBLIC_STATUS_DIR/general_runner_status.txt"
 fi
 
 DEEP_REVIEW_JOB_ID="20260731T000000Z-prjna1056765-metagenome-deep-review-plan"
