@@ -149,6 +149,14 @@ elif [ "${ENABLE_GENERAL_RUNNER:-1}" = "1" ]; then
   } > "$PUBLIC_STATUS_DIR/general_runner_status.txt"
 fi
 
+if [ -f scripts/summarize_host_amr_screen.py ] \
+  && find results -maxdepth 1 -type d -name "20260807T000000Z-prjna1056765-host-amr-screen-*" | grep -q .; then
+  "$PYTHON_BIN" scripts/summarize_host_amr_screen.py \
+    --results-root results \
+    --pattern "20260807T000000Z-prjna1056765-host-amr-screen-*" \
+    --out-dir "$PUBLIC_STATUS_DIR/metagenome_host_amr_screen"
+fi
+
 DEEP_REVIEW_JOB_ID="20260731T000000Z-prjna1056765-metagenome-deep-review-plan"
 DEEP_REVIEW_ALLOWLIST_REQUEST="decision_requests/metagenome_deep_review_allowlist.md"
 if [ -f "jobs/${DEEP_REVIEW_JOB_ID}.json" ]; then
