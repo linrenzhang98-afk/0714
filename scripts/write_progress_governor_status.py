@@ -88,6 +88,9 @@ def main() -> int:
     full_manuscript_exists = (
         public_dir / "manuscript_evidence_package" / "journal_neutral_full_manuscript_draft.md"
     ).exists()
+    target_strategy_exists = (
+        public_dir / "manuscript_evidence_package" / "target_journal_and_short_validation_strategy.md"
+    ).exists()
 
     if pending:
         progress_state = "running_or_queued"
@@ -106,6 +109,29 @@ def main() -> int:
         next_action = (
             "Codex should move from workstation compute to interpretation: integrate clinical groups, "
             "group differentials, deep-review stability, and host-AMR negatives into a manuscript-ready evidence package."
+        )
+    elif (
+        host_amr_done
+        and differential_summary_exists
+        and clinical_summary_exists
+        and evidence_package_exists
+        and manuscript_outline_exists
+        and wetlab_plan_exists
+        and full_results_exists
+        and figure_caption_exists
+        and discussion_abstract_exists
+        and manuscript_skeleton_exists
+        and reproducible_methods_exists
+        and journal_readiness_exists
+        and full_manuscript_exists
+        and target_strategy_exists
+    ):
+        progress_state = "target_strategy_ready"
+        reason = (
+            "Compute jobs are final; full manuscript draft and target-journal/short-validation strategy are available."
+        )
+        next_action = (
+            "Codex should prepare two manuscript variants: public-data-only and public-data-plus-minimal-qPCR."
         )
     elif (
         host_amr_done
@@ -273,6 +299,7 @@ def main() -> int:
         "reproducible_methods_exists": reproducible_methods_exists,
         "journal_readiness_exists": journal_readiness_exists,
         "full_manuscript_exists": full_manuscript_exists,
+        "target_strategy_exists": target_strategy_exists,
     }
     (out_dir / "status.json").write_text(json.dumps(status, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
