@@ -1,6 +1,6 @@
 # PRJNA511633 Amplicon Status
 
-Generated at: 2026-08-07T21:28:38+00:00
+Generated at: 2026-08-07T22:08:04+00:00
 
 Progress state: `failed_needs_patch`
 
@@ -32,4 +32,4 @@ Progress state: `failed_needs_patch`
 
 ## Errors
 
-- command failed: '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T010000Z-prjna511633-icpp-16s-full-auto/manifest.csv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T010000Z-prjna511633-icpp-16s-full-auto/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2
+- command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry/manifest.csv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2
