@@ -157,12 +157,51 @@ if [ -f scripts/summarize_host_amr_screen.py ] \
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_host_amr_screen"
 fi
 
+PROGRESS_GOVERNOR_DIR="$PUBLIC_STATUS_DIR/progress_governor"
+mkdir -p "$PROGRESS_GOVERNOR_DIR"
 if [ -f scripts/write_progress_governor_status.py ]; then
+  set +e
   "$PYTHON_BIN" scripts/write_progress_governor_status.py \
     --jobs-dir jobs \
     --state .runner_state/runner_state.json \
     --public-dir "$PUBLIC_STATUS_DIR" \
-    --out-dir "$PUBLIC_STATUS_DIR/progress_governor"
+    --out-dir "$PROGRESS_GOVERNOR_DIR" \
+    > "$PROGRESS_GOVERNOR_DIR/runner.log" 2>&1
+  PROGRESS_GOVERNOR_RC=$?
+  set -e
+else
+  PROGRESS_GOVERNOR_RC=127
+  echo "scripts/write_progress_governor_status.py not found" > "$PROGRESS_GOVERNOR_DIR/runner.log"
+fi
+{
+  echo "generated_at=$(date -Is)"
+  echo "runner_return_code=$PROGRESS_GOVERNOR_RC"
+  echo "status_md_exists=$([ -f "$PROGRESS_GOVERNOR_DIR/status.md" ] && echo true || echo false)"
+  echo "status_json_exists=$([ -f "$PROGRESS_GOVERNOR_DIR/status.json" ] && echo true || echo false)"
+} > "$PROGRESS_GOVERNOR_DIR/runner_status.txt"
+if [ ! -f "$PROGRESS_GOVERNOR_DIR/status.md" ]; then
+  cat > "$PROGRESS_GOVERNOR_DIR/status.md" <<'EOF'
+# Progress Governor Status
+
+Progress state: `stalled_status_generation_failed`
+
+## Reason
+
+- Progress governor status generation did not produce `status.md`.
+
+## Required Next Action
+
+- Codex should inspect `reports_public/progress_governor/runner_status.txt` and `runner.log`, then patch the smallest repository-side cause.
+EOF
+fi
+if [ ! -f "$PROGRESS_GOVERNOR_DIR/status.json" ]; then
+  cat > "$PROGRESS_GOVERNOR_DIR/status.json" <<'EOF'
+{
+  "progress_state": "stalled_status_generation_failed",
+  "reason": "Progress governor status generation did not produce status.json.",
+  "next_action": "Inspect runner_status.txt and runner.log, then patch the smallest repository-side cause."
+}
+EOF
 fi
 
 DEEP_REVIEW_JOB_ID="20260731T000000Z-prjna1056765-metagenome-deep-review-plan"
