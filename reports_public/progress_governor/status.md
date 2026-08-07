@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T13:25:10+00:00
-Progress state: `full_manuscript_draft_ready`
+Generated at: 2026-08-07T14:05:26+00:00
+Progress state: `submission_variants_ready`
 
 ## Reason
 
-- Compute jobs are final; a journal-neutral full manuscript draft and supporting readiness files are available.
+- Compute jobs are final; public-data-only and minimal-qPCR manuscript variants are available.
 
 ## Required Next Action
 
-- Author should choose target journal or provide wet-lab validation status; Codex can then format and polish the draft.
+- Author should choose whether to submit the public-data-only version now or add short qPCR validation first.
 
 ## Operational Counts
 

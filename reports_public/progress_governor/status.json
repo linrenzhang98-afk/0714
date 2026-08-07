@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-07T13:25:10+00:00",
-  "progress_state": "full_manuscript_draft_ready",
-  "reason": "Compute jobs are final; a journal-neutral full manuscript draft and supporting readiness files are available.",
-  "next_action": "Author should choose target journal or provide wet-lab validation status; Codex can then format and polish the draft.",
+  "generated_at": "2026-08-07T14:05:26+00:00",
+  "progress_state": "submission_variants_ready",
+  "reason": "Compute jobs are final; public-data-only and minimal-qPCR manuscript variants are available.",
+  "next_action": "Author should choose whether to submit the public-data-only version now or add short qPCR validation first.",
   "job_files": 65,
   "pending_jobs": [],
   "failed_jobs": [],
@@ -20,5 +20,8 @@
   "manuscript_skeleton_exists": true,
   "reproducible_methods_exists": true,
   "journal_readiness_exists": true,
-  "full_manuscript_exists": true
+  "full_manuscript_exists": true,
+  "target_strategy_exists": true,
+  "public_data_variant_exists": true,
+  "qpcr_variant_exists": true
 }
