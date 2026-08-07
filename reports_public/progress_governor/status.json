@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-07T11:24:35+00:00",
-  "progress_state": "journal_readiness_ready",
-  "reason": "Compute jobs are final; manuscript skeleton, reproducible Methods, and target-journal readiness checklist are available.",
-  "next_action": "Codex should prepare a journal-neutral full manuscript draft; author should later choose a target journal for final formatting.",
+  "generated_at": "2026-08-07T12:04:38+00:00",
+  "progress_state": "full_manuscript_draft_ready",
+  "reason": "Compute jobs are final; a journal-neutral full manuscript draft and supporting readiness files are available.",
+  "next_action": "Author should choose target journal or provide wet-lab validation status; Codex can then format and polish the draft.",
   "job_files": 65,
   "pending_jobs": [],
   "failed_jobs": [],
@@ -19,5 +19,6 @@
   "discussion_abstract_exists": true,
   "manuscript_skeleton_exists": true,
   "reproducible_methods_exists": true,
-  "journal_readiness_exists": true
+  "journal_readiness_exists": true,
+  "full_manuscript_exists": true
 }

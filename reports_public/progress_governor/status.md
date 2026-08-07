@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T11:24:35+00:00
-Progress state: `journal_readiness_ready`
+Generated at: 2026-08-07T12:04:38+00:00
+Progress state: `full_manuscript_draft_ready`
 
 ## Reason
 
-- Compute jobs are final; manuscript skeleton, reproducible Methods, and target-journal readiness checklist are available.
+- Compute jobs are final; a journal-neutral full manuscript draft and supporting readiness files are available.
 
 ## Required Next Action
 
-- Codex should prepare a journal-neutral full manuscript draft; author should later choose a target journal for final formatting.
+- Author should choose target journal or provide wet-lab validation status; Codex can then format and polish the draft.
 
 ## Operational Counts
 
