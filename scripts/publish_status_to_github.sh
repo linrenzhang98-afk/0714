@@ -157,6 +157,14 @@ if [ -f scripts/summarize_host_amr_screen.py ] \
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_host_amr_screen"
 fi
 
+if [ -f scripts/write_progress_governor_status.py ]; then
+  "$PYTHON_BIN" scripts/write_progress_governor_status.py \
+    --jobs-dir jobs \
+    --state .runner_state/runner_state.json \
+    --public-dir "$PUBLIC_STATUS_DIR" \
+    --out-dir "$PUBLIC_STATUS_DIR/progress_governor"
+fi
+
 DEEP_REVIEW_JOB_ID="20260731T000000Z-prjna1056765-metagenome-deep-review-plan"
 DEEP_REVIEW_ALLOWLIST_REQUEST="decision_requests/metagenome_deep_review_allowlist.md"
 if [ -f "jobs/${DEEP_REVIEW_JOB_ID}.json" ]; then
