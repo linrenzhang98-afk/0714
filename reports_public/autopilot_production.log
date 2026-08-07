@@ -5639,3 +5639,24 @@
 2026-08-07T23:25:34+08:00 batch-019 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-019
 2026-08-07T23:25:34+08:00 batch-020 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-020
 2026-08-07T23:25:34+08:00 no eligible production batch to run up to MAX_BATCH=20
+2026-08-08T00:05:35+08:00 batch-001 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-001
+2026-08-08T00:05:35+08:00 batch-002 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-002
+2026-08-08T00:05:35+08:00 batch-003 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-003
+2026-08-08T00:05:35+08:00 batch-004 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-004
+2026-08-08T00:05:35+08:00 batch-005 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-005
+2026-08-08T00:05:35+08:00 batch-006 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-006
+2026-08-08T00:05:35+08:00 batch-007 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-007
+2026-08-08T00:05:35+08:00 batch-008 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-008
+2026-08-08T00:05:35+08:00 batch-009 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-009
+2026-08-08T00:05:36+08:00 batch-010 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-010
+2026-08-08T00:05:36+08:00 batch-011 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-011
+2026-08-08T00:05:36+08:00 batch-012 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-012
+2026-08-08T00:05:36+08:00 batch-013 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-013
+2026-08-08T00:05:36+08:00 batch-014 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-014
+2026-08-08T00:05:36+08:00 batch-015 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-015
+2026-08-08T00:05:36+08:00 batch-016 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-016
+2026-08-08T00:05:36+08:00 batch-017 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-017
+2026-08-08T00:05:36+08:00 batch-018 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-018
+2026-08-08T00:05:36+08:00 batch-019 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-019
+2026-08-08T00:05:36+08:00 batch-020 already final: 20260724T170118Z-prjna1056765-production-descriptive-batch-020
+2026-08-08T00:05:36+08:00 no eligible production batch to run up to MAX_BATCH=20
