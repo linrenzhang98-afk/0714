@@ -160,6 +160,12 @@ if [ -f scripts/summarize_host_amr_screen.py ] \
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_host_amr_screen"
 fi
 
+if [ -f scripts/summarize_amplicon_prjna511633_status.py ]; then
+  "$PYTHON_BIN" scripts/summarize_amplicon_prjna511633_status.py \
+    --result-dir results/20260808T010000Z-prjna511633-icpp-16s-full-auto \
+    --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
+fi
+
 PROGRESS_GOVERNOR_DIR="$PUBLIC_STATUS_DIR/progress_governor"
 mkdir -p "$PROGRESS_GOVERNOR_DIR"
 if [ -f scripts/write_progress_governor_status.py ]; then

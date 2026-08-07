@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-08-07T19:57:11+00:00",
+  "project": "PRJNA511633 ICPP gut 16S",
+  "result_dir": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto",
+  "progress_state": "not_started",
+  "next_action": "Ensure the job is allowlisted and picked up by the general runner.",
+  "missing_outputs": [
+    "validation_report",
+    "manifest",
+    "command_log",
+    "demux_artifact",
+    "demux_visualization",
+    "feature_table",
+    "rep_seqs",
+    "taxonomy",
+    "taxa_barplot",
+    "genus_relative_table",
+    "species_relative_table",
+    "core_metrics",
+    "shannon_group_significance",
+    "bray_curtis_group_significance",
+    "genus_export",
+    "species_export"
+  ],
+  "validation_errors": [],
+  "validation_warnings": [],
+  "failed_recent_commands": [],
+  "outputs": {
+    "validation_report": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\validation_report.json"
+    },
+    "manifest": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\manifest.csv"
+    },
+    "command_log": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\command_log.jsonl"
+    },
+    "demux_artifact": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\demux.qza"
+    },
+    "demux_visualization": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\demux.qzv"
+    },
+    "feature_table": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\table.qza"
+    },
+    "rep_seqs": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\rep-seqs.qza"
+    },
+    "taxonomy": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\taxonomy.qza"
+    },
+    "taxa_barplot": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\taxa-bar-plots.qzv"
+    },
+    "genus_relative_table": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\genus-relative-table.qza"
+    },
+    "species_relative_table": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\species-relative-table.qza"
+    },
+    "core_metrics": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\core-metrics"
+    },
+    "shannon_group_significance": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\shannon-group-significance.qzv"
+    },
+    "bray_curtis_group_significance": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\qiime2\\bray-curtis-group-significance.qzv"
+    },
+    "genus_export": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\exports\\genus_relative_table"
+    },
+    "species_export": {
+      "exists": false,
+      "path": "results\\20260808T010000Z-prjna511633-icpp-16s-full-auto\\exports\\species_relative_table"
+    }
+  }
+}
