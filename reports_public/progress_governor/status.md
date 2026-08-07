@@ -1,11 +1,11 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T22:48:26+00:00
+Generated at: 2026-08-07T23:29:03+00:00
 Progress state: `stalled_failed_jobs`
 
 ## Reason
 
-- 3 failed and 0 rejected non-demo job(s) require repair.
+- 4 failed and 0 rejected non-demo job(s) require repair.
 
 ## Required Next Action
 
@@ -13,9 +13,9 @@ Progress state: `stalled_failed_jobs`
 
 ## Operational Counts
 
-- Job files: 68
+- Job files: 69
 - Pending/non-final jobs: 0
-- Failed jobs: 3
+- Failed jobs: 4
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
@@ -25,3 +25,4 @@ Progress state: `stalled_failed_jobs`
 - 20260808T000000Z-prjna511633-icpp-16s-demux
 - 20260808T010000Z-prjna511633-icpp-16s-full-auto
 - 20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry
+- 20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry
