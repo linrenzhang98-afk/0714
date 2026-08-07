@@ -162,7 +162,7 @@ fi
 
 if [ -f scripts/summarize_amplicon_prjna511633_status.py ]; then
   "$PYTHON_BIN" scripts/summarize_amplicon_prjna511633_status.py \
-    --result-dir results/20260808T010000Z-prjna511633-icpp-16s-full-auto \
+    --result-dir results/20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry \
     --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
 fi
 

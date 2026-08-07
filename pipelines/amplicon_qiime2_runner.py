@@ -37,6 +37,14 @@ def command_exists(command: str) -> bool:
     return subprocess.run(["bash", "-lc", f"command -v {sh_quote(command)}"], check=False).returncode == 0
 
 
+def qiime_shell_command(qiime_bin: str) -> str:
+    cleanup = "unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH"
+    if Path(qiime_bin).is_absolute():
+        qiime_dir = str(Path(qiime_bin).parent)
+        return f"{cleanup}; export PATH={sh_quote(qiime_dir)}:${{PATH:-}}; {sh_quote(qiime_bin)}"
+    return f"{cleanup}; {sh_quote(qiime_bin)}"
+
+
 def require_file(path: Path, label: str, errors: list[str]) -> None:
     if not path.exists() or not path.is_file():
         errors.append(f"{label} not found: {path}")
@@ -158,6 +166,7 @@ def main() -> int:
     sampling_depth = int(params.get("diversity_sampling_depth", 1000))
     metadata_column = str(params.get("metadata_group_column", "analysis_group"))
     full_modes = {"full_auto", "publication_full"}
+    qiime_cmd = qiime_shell_command(qiime_bin)
 
     errors: list[str] = []
     if not manifest_value and params.get("run_accessions"):
@@ -216,14 +225,14 @@ def main() -> int:
         "#!/usr/bin/env bash",
         "set -euo pipefail",
         f"mkdir -p {sh_quote(str(out_dir / 'qiime2'))}",
-        f"{sh_quote(qiime_bin)} tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path {sh_quote(str(manifest))} --output-path {sh_quote(str(out_dir / 'qiime2' / 'demux.qza'))} --input-format PairedEndFastqManifestPhred33V2"
+        f"{qiime_cmd} tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path {sh_quote(str(manifest))} --output-path {sh_quote(str(out_dir / 'qiime2' / 'demux.qza'))} --input-format PairedEndFastqManifestPhred33V2"
         if read_type == "paired"
-        else f"{sh_quote(qiime_bin)} tools import --type 'SampleData[SequencesWithQuality]' --input-path {sh_quote(str(manifest))} --output-path {sh_quote(str(out_dir / 'qiime2' / 'demux.qza'))} --input-format SingleEndFastqManifestPhred33V2",
-        f"{sh_quote(qiime_bin)} demux summarize --i-data {sh_quote(str(out_dir / 'qiime2' / 'demux.qza'))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'demux.qzv'))}",
+        else f"{qiime_cmd} tools import --type 'SampleData[SequencesWithQuality]' --input-path {sh_quote(str(manifest))} --output-path {sh_quote(str(out_dir / 'qiime2' / 'demux.qza'))} --input-format SingleEndFastqManifestPhred33V2",
+        f"{qiime_cmd} demux summarize --i-data {sh_quote(str(out_dir / 'qiime2' / 'demux.qza'))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'demux.qzv'))}",
     ]
     if read_type == "paired" and trunc_len_f is not None and trunc_len_r is not None:
         commands.append(
-            f"{sh_quote(qiime_bin)} dada2 denoise-paired "
+            f"{qiime_cmd} dada2 denoise-paired "
             f"--i-demultiplexed-seqs {sh_quote(str(out_dir / 'qiime2' / 'demux.qza'))} "
             f"--p-trim-left-f {trim_left_f} --p-trim-left-r {trim_left_r} "
             f"--p-trunc-len-f {int(trunc_len_f)} --p-trunc-len-r {int(trunc_len_r)} "
@@ -233,30 +242,30 @@ def main() -> int:
             f"--o-denoising-stats {sh_quote(str(out_dir / 'qiime2' / 'denoising-stats.qza'))}"
         )
         commands.append(
-            f"{sh_quote(qiime_bin)} feature-classifier classify-sklearn "
+            f"{qiime_cmd} feature-classifier classify-sklearn "
             f"--i-classifier {sh_quote(str(classifier))} "
             f"--i-reads {sh_quote(str(out_dir / 'qiime2' / 'rep-seqs.qza'))} "
             f"--o-classification {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))}"
         )
         commands.extend([
-            f"{sh_quote(qiime_bin)} feature-table summarize --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --m-sample-metadata-file {sh_quote(str(metadata))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'table.qzv'))}",
-            f"{sh_quote(qiime_bin)} feature-table tabulate-seqs --i-data {sh_quote(str(out_dir / 'qiime2' / 'rep-seqs.qza'))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'rep-seqs.qzv'))}",
-            f"{sh_quote(qiime_bin)} metadata tabulate --m-input-file {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qzv'))}",
-            f"{sh_quote(qiime_bin)} taxa barplot --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --i-taxonomy {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --m-metadata-file {sh_quote(str(metadata))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'taxa-bar-plots.qzv'))}",
-            f"{sh_quote(qiime_bin)} taxa collapse --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --i-taxonomy {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --p-level 6 --o-collapsed-table {sh_quote(str(out_dir / 'qiime2' / 'genus-table.qza'))}",
-            f"{sh_quote(qiime_bin)} taxa collapse --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --i-taxonomy {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --p-level 7 --o-collapsed-table {sh_quote(str(out_dir / 'qiime2' / 'species-table.qza'))}",
-            f"{sh_quote(qiime_bin)} feature-table relative-frequency --i-table {sh_quote(str(out_dir / 'qiime2' / 'genus-table.qza'))} --o-relative-frequency-table {sh_quote(str(out_dir / 'qiime2' / 'genus-relative-table.qza'))}",
-            f"{sh_quote(qiime_bin)} feature-table relative-frequency --i-table {sh_quote(str(out_dir / 'qiime2' / 'species-table.qza'))} --o-relative-frequency-table {sh_quote(str(out_dir / 'qiime2' / 'species-relative-table.qza'))}",
-            f"{sh_quote(qiime_bin)} diversity core-metrics --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --p-sampling-depth {sampling_depth} --m-metadata-file {sh_quote(str(metadata))} --output-dir {sh_quote(str(out_dir / 'qiime2' / 'core-metrics'))}",
-            f"{sh_quote(qiime_bin)} diversity alpha-group-significance --i-alpha-diversity {sh_quote(str(out_dir / 'qiime2' / 'core-metrics' / 'shannon_vector.qza'))} --m-metadata-file {sh_quote(str(metadata))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'shannon-group-significance.qzv'))}",
-            f"{sh_quote(qiime_bin)} diversity beta-group-significance --i-distance-matrix {sh_quote(str(out_dir / 'qiime2' / 'core-metrics' / 'bray_curtis_distance_matrix.qza'))} --m-metadata-file {sh_quote(str(metadata))} --m-metadata-column {sh_quote(metadata_column)} --p-pairwise --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'bray-curtis-group-significance.qzv'))}",
+            f"{qiime_cmd} feature-table summarize --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --m-sample-metadata-file {sh_quote(str(metadata))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'table.qzv'))}",
+            f"{qiime_cmd} feature-table tabulate-seqs --i-data {sh_quote(str(out_dir / 'qiime2' / 'rep-seqs.qza'))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'rep-seqs.qzv'))}",
+            f"{qiime_cmd} metadata tabulate --m-input-file {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qzv'))}",
+            f"{qiime_cmd} taxa barplot --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --i-taxonomy {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --m-metadata-file {sh_quote(str(metadata))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'taxa-bar-plots.qzv'))}",
+            f"{qiime_cmd} taxa collapse --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --i-taxonomy {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --p-level 6 --o-collapsed-table {sh_quote(str(out_dir / 'qiime2' / 'genus-table.qza'))}",
+            f"{qiime_cmd} taxa collapse --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --i-taxonomy {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --p-level 7 --o-collapsed-table {sh_quote(str(out_dir / 'qiime2' / 'species-table.qza'))}",
+            f"{qiime_cmd} feature-table relative-frequency --i-table {sh_quote(str(out_dir / 'qiime2' / 'genus-table.qza'))} --o-relative-frequency-table {sh_quote(str(out_dir / 'qiime2' / 'genus-relative-table.qza'))}",
+            f"{qiime_cmd} feature-table relative-frequency --i-table {sh_quote(str(out_dir / 'qiime2' / 'species-table.qza'))} --o-relative-frequency-table {sh_quote(str(out_dir / 'qiime2' / 'species-relative-table.qza'))}",
+            f"{qiime_cmd} diversity core-metrics --i-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} --p-sampling-depth {sampling_depth} --m-metadata-file {sh_quote(str(metadata))} --output-dir {sh_quote(str(out_dir / 'qiime2' / 'core-metrics'))}",
+            f"{qiime_cmd} diversity alpha-group-significance --i-alpha-diversity {sh_quote(str(out_dir / 'qiime2' / 'core-metrics' / 'shannon_vector.qza'))} --m-metadata-file {sh_quote(str(metadata))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'shannon-group-significance.qzv'))}",
+            f"{qiime_cmd} diversity beta-group-significance --i-distance-matrix {sh_quote(str(out_dir / 'qiime2' / 'core-metrics' / 'bray_curtis_distance_matrix.qza'))} --m-metadata-file {sh_quote(str(metadata))} --m-metadata-column {sh_quote(metadata_column)} --p-pairwise --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'bray-curtis-group-significance.qzv'))}",
             f"mkdir -p {sh_quote(str(out_dir / 'exports'))}",
-            f"{sh_quote(qiime_bin)} tools export --input-path {sh_quote(str(out_dir / 'qiime2' / 'genus-relative-table.qza'))} --output-path {sh_quote(str(out_dir / 'exports' / 'genus_relative_table'))}",
-            f"{sh_quote(qiime_bin)} tools export --input-path {sh_quote(str(out_dir / 'qiime2' / 'species-relative-table.qza'))} --output-path {sh_quote(str(out_dir / 'exports' / 'species_relative_table'))}",
-            f"{sh_quote(qiime_bin)} tools export --input-path {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --output-path {sh_quote(str(out_dir / 'exports' / 'taxonomy'))}",
-            f"if {sh_quote(qiime_bin)} composition ancombc --help >/dev/null 2>&1; then "
-            f"{sh_quote(qiime_bin)} composition ancombc --i-table {sh_quote(str(out_dir / 'qiime2' / 'genus-table.qza'))} --m-metadata-file {sh_quote(str(metadata))} --p-formula {sh_quote(metadata_column)} --o-differentials {sh_quote(str(out_dir / 'qiime2' / 'genus-ancombc.qza'))} "
-            f"&& {sh_quote(qiime_bin)} composition tabulate --i-data {sh_quote(str(out_dir / 'qiime2' / 'genus-ancombc.qza'))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'genus-ancombc.qzv'))}; "
+            f"{qiime_cmd} tools export --input-path {sh_quote(str(out_dir / 'qiime2' / 'genus-relative-table.qza'))} --output-path {sh_quote(str(out_dir / 'exports' / 'genus_relative_table'))}",
+            f"{qiime_cmd} tools export --input-path {sh_quote(str(out_dir / 'qiime2' / 'species-relative-table.qza'))} --output-path {sh_quote(str(out_dir / 'exports' / 'species_relative_table'))}",
+            f"{qiime_cmd} tools export --input-path {sh_quote(str(out_dir / 'qiime2' / 'taxonomy.qza'))} --output-path {sh_quote(str(out_dir / 'exports' / 'taxonomy'))}",
+            f"if {qiime_cmd} composition ancombc --help >/dev/null 2>&1; then "
+            f"{qiime_cmd} composition ancombc --i-table {sh_quote(str(out_dir / 'qiime2' / 'genus-table.qza'))} --m-metadata-file {sh_quote(str(metadata))} --p-formula {sh_quote(metadata_column)} --o-differentials {sh_quote(str(out_dir / 'qiime2' / 'genus-ancombc.qza'))} "
+            f"&& {qiime_cmd} composition tabulate --i-data {sh_quote(str(out_dir / 'qiime2' / 'genus-ancombc.qza'))} --o-visualization {sh_quote(str(out_dir / 'qiime2' / 'genus-ancombc.qzv'))}; "
             "else echo 'QIIME2 composition ancombc unavailable; skipping ANCOM-BC.'; fi",
         ])
     (out_dir / "run_plan.sh").write_text("\n".join(commands) + "\n", encoding="utf-8")
