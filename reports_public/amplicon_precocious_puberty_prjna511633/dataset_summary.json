@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-08-07T19:37:41+00:00",
+  "bioproject": "PRJNA511633",
+  "study": "The Association of Gut Microbiota With Idiopathic Central Precocious Puberty in Girls",
+  "source_url": "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2019.00941/full",
+  "run_count": 48,
+  "total_size_MB": 622.0,
+  "groups": {
+    "healthy_control": 23,
+    "idiopathic_central_precocious_puberty": 25
+  },
+  "library_strategy": [
+    "WGS"
+  ],
+  "library_layout": [
+    "PAIRED"
+  ],
+  "model": [
+    "Illumina MiSeq"
+  ],
+  "analysis_stage": "sra_to_qiime2_demux_summary_first"
+}

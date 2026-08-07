@@ -107,6 +107,7 @@ if [ "${ENABLE_GENERAL_RUNNER:-1}" = "1" ] && [ -f runner/config.local.json ] &&
     echo "config_exists=true"
     echo "runner_exists=true"
     echo "host_amr_job_files=$(find jobs -maxdepth 1 -type f -name '20260807T000000Z-prjna1056765-host-amr-screen-*.json' | wc -l)"
+    echo "prjna511633_amplicon_job_files=$(find jobs -maxdepth 1 -type f -name '*prjna511633*16s*.json' | wc -l)"
     if "$PYTHON_BIN" - <<'PY'
 import json
 from pathlib import Path
@@ -114,6 +115,7 @@ from pathlib import Path
 config = json.loads(Path("runner/config.local.json").read_text(encoding="utf-8"))
 tasks = config.get("tasks", {})
 print("metagenome_deep_review_allowlisted=" + str("metagenome_deep_review" in tasks).lower())
+print("amplicon_qiime2_allowlisted=" + str("amplicon_qiime2" in tasks).lower())
 print("jobs_glob=" + str(config.get("jobs_glob", "")))
 print("results_root=" + str(config.get("results_root", "")))
 PY
@@ -145,6 +147,7 @@ elif [ "${ENABLE_GENERAL_RUNNER:-1}" = "1" ]; then
     echo "config_exists=$([ -f runner/config.local.json ] && echo true || echo false)"
     echo "runner_exists=$([ -f runner/runner.py ] && echo true || echo false)"
     echo "host_amr_job_files=$(find jobs -maxdepth 1 -type f -name '20260807T000000Z-prjna1056765-host-amr-screen-*.json' | wc -l)"
+    echo "prjna511633_amplicon_job_files=$(find jobs -maxdepth 1 -type f -name '*prjna511633*16s*.json' | wc -l)"
     echo "runner_return_code=not_run"
   } > "$PUBLIC_STATUS_DIR/general_runner_status.txt"
 fi
