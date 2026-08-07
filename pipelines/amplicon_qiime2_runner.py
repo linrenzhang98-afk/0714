@@ -104,8 +104,8 @@ def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[
     if not isinstance(run_to_sample, dict):
         run_to_sample = {}
 
-    manifest = out_dir / "manifest.csv"
-    rows = ["sample-id,absolute-filepath,direction"]
+    manifest = out_dir / "manifest.tsv"
+    rows = ["sample-id\tabsolute-filepath\tdirection"]
     for run in [str(r).strip() for r in run_accessions if str(r).strip()]:
         sample_id = str(run_to_sample.get(run, run))
         sra_path = sra_dir / run / f"{run}.sra"
@@ -129,8 +129,8 @@ def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[
         if not forward.exists() or not reverse.exists():
             errors.append(f"paired FASTQ files missing for {run}")
             continue
-        rows.append(f"{sample_id},{forward.resolve()},forward")
-        rows.append(f"{sample_id},{reverse.resolve()},reverse")
+        rows.append(f"{sample_id}\t{forward.resolve()}\tforward")
+        rows.append(f"{sample_id}\t{reverse.resolve()}\treverse")
 
     manifest.write_text("\n".join(rows) + "\n", encoding="utf-8")
     return manifest
