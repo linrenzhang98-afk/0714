@@ -70,6 +70,7 @@ def main() -> int:
 
     differential_summary_exists = (public_dir / "prjna1056765_group_differentials" / "summary.md").exists()
     clinical_summary_exists = (public_dir / "prjna1056765_clinical_groups" / "summary.md").exists()
+    evidence_package_exists = (public_dir / "manuscript_evidence_package" / "short_project_plan.md").exists()
 
     if pending:
         progress_state = "running_or_queued"
@@ -79,7 +80,7 @@ def main() -> int:
         progress_state = "stalled_failed_jobs"
         reason = f"{len(failed)} failed and {len(rejected)} rejected non-demo job(s) require repair."
         next_action = "Codex should inspect failed job metadata and patch the minimal repository-side cause."
-    elif host_amr_done and differential_summary_exists and clinical_summary_exists:
+    elif host_amr_done and differential_summary_exists and clinical_summary_exists and not evidence_package_exists:
         progress_state = "stalled_no_next_step"
         reason = (
             "All current compute jobs are final and host-AMR summary is complete; "
@@ -88,6 +89,13 @@ def main() -> int:
         next_action = (
             "Codex should move from workstation compute to interpretation: integrate clinical groups, "
             "group differentials, deep-review stability, and host-AMR negatives into a manuscript-ready evidence package."
+        )
+    elif host_amr_done and differential_summary_exists and clinical_summary_exists and evidence_package_exists:
+        progress_state = "interpretation_package_ready"
+        reason = "Compute jobs and core public summaries are final; a short-project manuscript evidence package is available."
+        next_action = (
+            "Codex should draft the manuscript outline/results narrative and convert validation targets "
+            "into a minimal wet-lab assay plan."
         )
     else:
         progress_state = "idle_with_missing_summary"
@@ -107,6 +115,7 @@ def main() -> int:
         "host_amr_hits": amr_hits,
         "clinical_summary_exists": clinical_summary_exists,
         "differential_summary_exists": differential_summary_exists,
+        "evidence_package_exists": evidence_package_exists,
     }
     (out_dir / "status.json").write_text(json.dumps(status, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
