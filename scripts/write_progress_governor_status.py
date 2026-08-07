@@ -97,6 +97,9 @@ def main() -> int:
     qpcr_variant_exists = (
         public_dir / "manuscript_evidence_package" / "manuscript_variant_minimal_qpcr_validation.md"
     ).exists()
+    qpcr_template_exists = (
+        public_dir / "manuscript_evidence_package" / "minimal_qpcr_validation_data_template.md"
+    ).exists()
 
     if pending:
         progress_state = "running_or_queued"
@@ -115,6 +118,32 @@ def main() -> int:
         next_action = (
             "Codex should move from workstation compute to interpretation: integrate clinical groups, "
             "group differentials, deep-review stability, and host-AMR negatives into a manuscript-ready evidence package."
+        )
+    elif (
+        host_amr_done
+        and differential_summary_exists
+        and clinical_summary_exists
+        and evidence_package_exists
+        and manuscript_outline_exists
+        and wetlab_plan_exists
+        and full_results_exists
+        and figure_caption_exists
+        and discussion_abstract_exists
+        and manuscript_skeleton_exists
+        and reproducible_methods_exists
+        and journal_readiness_exists
+        and full_manuscript_exists
+        and target_strategy_exists
+        and public_data_variant_exists
+        and qpcr_variant_exists
+        and qpcr_template_exists
+    ):
+        progress_state = "minimal_qpcr_validation_ready"
+        reason = (
+            "Compute jobs are final; submission variants and minimal qPCR validation data template are available."
+        )
+        next_action = (
+            "Author can collect local qPCR validation results using the template; no workstation compute is pending."
         )
     elif (
         host_amr_done
@@ -333,6 +362,7 @@ def main() -> int:
         "target_strategy_exists": target_strategy_exists,
         "public_data_variant_exists": public_data_variant_exists,
         "qpcr_variant_exists": qpcr_variant_exists,
+        "qpcr_template_exists": qpcr_template_exists,
     }
     (out_dir / "status.json").write_text(json.dumps(status, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
