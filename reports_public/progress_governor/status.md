@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T14:45:33+00:00
-Progress state: `submission_variants_ready`
+Generated at: 2026-08-07T15:25:35+00:00
+Progress state: `minimal_qpcr_validation_ready`
 
 ## Reason
 
-- Compute jobs are final; public-data-only and minimal-qPCR manuscript variants are available.
+- Compute jobs are final; submission variants and minimal qPCR validation data template are available.
 
 ## Required Next Action
 
-- Author should choose whether to submit the public-data-only version now or add short qPCR validation first.
+- Author can collect local qPCR validation results using the template; no workstation compute is pending.
 
 ## Operational Counts
 
