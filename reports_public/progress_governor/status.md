@@ -1,21 +1,26 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T19:26:44+00:00
-Progress state: `public_data_submission_ready`
+Generated at: 2026-08-07T20:15:28+00:00
+Progress state: `stalled_failed_jobs`
 
 ## Reason
 
-- Compute jobs are final; the public-data-only manuscript route is selected and the submission package is available.
+- 2 failed and 0 rejected non-demo job(s) require repair.
 
 ## Required Next Action
 
-- Proceed with public-data manuscript polishing, figure/table finalization, and target-journal formatting; qPCR validation is optional follow-up, not a current blocker.
+- Codex should inspect failed job metadata and patch the minimal repository-side cause.
 
 ## Operational Counts
 
-- Job files: 65
+- Job files: 67
 - Pending/non-final jobs: 0
-- Failed jobs: 0
+- Failed jobs: 2
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
+
+## Failed Jobs
+
+- 20260808T000000Z-prjna511633-icpp-16s-demux
+- 20260808T010000Z-prjna511633-icpp-16s-full-auto
