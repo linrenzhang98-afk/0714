@@ -1,13 +1,14 @@
 {
-  "generated_at": "2026-08-07T20:47:34+00:00",
+  "generated_at": "2026-08-07T21:28:38+00:00",
   "progress_state": "stalled_failed_jobs",
-  "reason": "2 failed and 0 rejected non-demo job(s) require repair.",
+  "reason": "3 failed and 0 rejected non-demo job(s) require repair.",
   "next_action": "Codex should inspect failed job metadata and patch the minimal repository-side cause.",
-  "job_files": 67,
+  "job_files": 68,
   "pending_jobs": [],
   "failed_jobs": [
     "20260808T000000Z-prjna511633-icpp-16s-demux",
-    "20260808T010000Z-prjna511633-icpp-16s-full-auto"
+    "20260808T010000Z-prjna511633-icpp-16s-full-auto",
+    "20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry"
   ],
   "rejected_non_demo_jobs": [],
   "host_amr_done": true,

@@ -1,21 +1,21 @@
 # PRJNA511633 Amplicon Status
 
-Generated at: 2026-08-07T21:02:53+00:00
+Generated at: 2026-08-07T21:28:38+00:00
 
-Progress state: `not_started`
+Progress state: `failed_needs_patch`
 
 ## Current Interpretation
 
-- Next action: Ensure the job is allowlisted and picked up by the general runner.
-- Validation errors: 0
+- Next action: Inspect validation_report.json and command_log.jsonl, then patch the smallest reproducible cause.
+- Validation errors: 1
 - Validation warnings: 0
-- Missing expected outputs: 16
+- Missing expected outputs: 13
 
 ## Required Outputs
 
-- validation_report: no
-- manifest: no
-- command_log: no
+- validation_report: yes
+- manifest: yes
+- command_log: yes
 - demux_artifact: no
 - demux_visualization: no
 - feature_table: no
@@ -29,3 +29,7 @@ Progress state: `not_started`
 - bray_curtis_group_significance: no
 - genus_export: no
 - species_export: no
+
+## Errors
+
+- command failed: '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T010000Z-prjna511633-icpp-16s-full-auto/manifest.csv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T010000Z-prjna511633-icpp-16s-full-auto/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2

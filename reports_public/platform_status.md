@@ -1,19 +1,19 @@
 # Platform Status
 
-Generated at: 2026-08-07T20:47:34+00:00
+Generated at: 2026-08-07T21:28:38+00:00
 
 ## Job Status Counts
 
 - done: 64
-- failed: 2
+- failed: 3
 - rejected: 1
 
 ## Recent Event Counts
 
-- job_finish: 2
-- job_rejected: 38
-- job_start: 2
-- scan: 38
+- job_finish: 3
+- job_rejected: 37
+- job_start: 3
+- scan: 37
 
 ## Decision Requests
 
@@ -21,7 +21,7 @@ Generated at: 2026-08-07T20:47:34+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-07T20:47:34+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-07T21:28:38+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
@@ -88,13 +88,10 @@ Generated at: 2026-08-07T20:47:34+00:00
 - 20260807T000000Z-prjna1056765-host-amr-screen-30: done (metagenome_deep_review), updated 2026-08-06T19:18:25+00:00
 - 20260808T000000Z-prjna511633-icpp-16s-demux: failed (amplicon_qiime2), updated 2026-08-07T20:14:44+00:00
 - 20260808T010000Z-prjna511633-icpp-16s-full-auto: failed (amplicon_qiime2), updated 2026-08-07T20:15:27+00:00
+- 20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry: failed (amplicon_qiime2), updated 2026-08-07T21:28:38+00:00
 
 ## Last Events
 
-- 2026-08-07T16:05:37+00:00 scan
-- 2026-08-07T16:05:37+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-08-07T16:45:50+00:00 scan
-- 2026-08-07T16:45:50+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-07T17:25:56+00:00 scan
 - 2026-08-07T17:25:56+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-07T18:06:30+00:00 scan
@@ -111,6 +108,10 @@ Generated at: 2026-08-07T20:47:34+00:00
 - 2026-08-07T20:15:27+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-07T20:47:34+00:00 scan
 - 2026-08-07T20:47:34+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-08-07T21:28:01+00:00 scan
+- 2026-08-07T21:28:01+00:00 job_start job=20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry
+- 2026-08-07T21:28:38+00:00 job_finish job=20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry status=failed
+- 2026-08-07T21:28:38+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 
