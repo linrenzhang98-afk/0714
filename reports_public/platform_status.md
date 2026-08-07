@@ -1,6 +1,6 @@
 # Platform Status
 
-Generated at: 2026-08-06T23:20:00+00:00
+Generated at: 2026-08-07T00:00:04+00:00
 
 ## Job Status Counts
 
@@ -10,8 +10,8 @@ Generated at: 2026-08-06T23:20:00+00:00
 ## Recent Event Counts
 
 - job_finish: 31
-- job_rejected: 9
-- job_start: 31
+- job_rejected: 10
+- job_start: 30
 - scan: 9
 
 ## Decision Requests
@@ -20,7 +20,7 @@ Generated at: 2026-08-06T23:20:00+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-06T23:20:00+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-07T00:00:04+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
@@ -88,8 +88,6 @@ Generated at: 2026-08-06T23:20:00+00:00
 
 ## Last Events
 
-- 2026-08-06T19:14:19+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-28 status=done
-- 2026-08-06T19:14:19+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-29
 - 2026-08-06T19:15:36+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-29 status=done
 - 2026-08-06T19:15:36+00:00 job_start job=20260807T000000Z-prjna1056765-host-amr-screen-30
 - 2026-08-06T19:18:25+00:00 job_finish job=20260807T000000Z-prjna1056765-host-amr-screen-30 status=done
@@ -108,6 +106,8 @@ Generated at: 2026-08-06T23:20:00+00:00
 - 2026-08-06T22:39:34+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-06T23:20:00+00:00 scan
 - 2026-08-06T23:20:00+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-08-07T00:00:04+00:00 scan
+- 2026-08-07T00:00:04+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 
