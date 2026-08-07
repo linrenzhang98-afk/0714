@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T16:45:50+00:00",
+  "generated_at": "2026-08-07T17:25:56+00:00",
   "progress_state": "minimal_qpcr_validation_ready",
   "reason": "Compute jobs are final; submission variants and minimal qPCR validation data template are available.",
   "next_action": "Author can collect local qPCR validation results using the template; no workstation compute is pending.",
