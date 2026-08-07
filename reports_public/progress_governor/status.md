@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T09:23:57+00:00
-Progress state: `manuscript_skeleton_ready`
+Generated at: 2026-08-07T10:04:19+00:00
+Progress state: `methods_reproducibility_ready`
 
 ## Reason
 
-- Compute jobs are final; manuscript skeleton, Results, Discussion/Limitations, abstract drafts, table/figure captions, and wet-lab plan are available.
+- Compute jobs are final; manuscript skeleton and reproducible Methods detail are available.
 
 ## Required Next Action
 
-- Codex should refine Methods for reproducibility and prepare target-journal formatting once a journal is selected.
+- Codex should prepare a target-journal readiness checklist and identify remaining author decisions.
 
 ## Operational Counts
 

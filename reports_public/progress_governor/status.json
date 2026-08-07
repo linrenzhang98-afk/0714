@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-07T09:23:57+00:00",
-  "progress_state": "manuscript_skeleton_ready",
-  "reason": "Compute jobs are final; manuscript skeleton, Results, Discussion/Limitations, abstract drafts, table/figure captions, and wet-lab plan are available.",
-  "next_action": "Codex should refine Methods for reproducibility and prepare target-journal formatting once a journal is selected.",
+  "generated_at": "2026-08-07T10:04:19+00:00",
+  "progress_state": "methods_reproducibility_ready",
+  "reason": "Compute jobs are final; manuscript skeleton and reproducible Methods detail are available.",
+  "next_action": "Codex should prepare a target-journal readiness checklist and identify remaining author decisions.",
   "job_files": 65,
   "pending_jobs": [],
   "failed_jobs": [],
@@ -17,5 +17,6 @@
   "full_results_exists": true,
   "figure_caption_exists": true,
   "discussion_abstract_exists": true,
-  "manuscript_skeleton_exists": true
+  "manuscript_skeleton_exists": true,
+  "reproducible_methods_exists": true
 }
