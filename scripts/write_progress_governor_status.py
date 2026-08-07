@@ -73,6 +73,8 @@ def main() -> int:
     evidence_package_exists = (public_dir / "manuscript_evidence_package" / "short_project_plan.md").exists()
     manuscript_outline_exists = (public_dir / "manuscript_evidence_package" / "manuscript_outline_and_results.md").exists()
     wetlab_plan_exists = (public_dir / "manuscript_evidence_package" / "minimal_wetlab_validation_plan.md").exists()
+    full_results_exists = (public_dir / "manuscript_evidence_package" / "full_results_section.md").exists()
+    figure_caption_exists = (public_dir / "manuscript_evidence_package" / "tables_and_figure_captions.md").exists()
 
     if pending:
         progress_state = "running_or_queued"
@@ -91,6 +93,24 @@ def main() -> int:
         next_action = (
             "Codex should move from workstation compute to interpretation: integrate clinical groups, "
             "group differentials, deep-review stability, and host-AMR negatives into a manuscript-ready evidence package."
+        )
+    elif (
+        host_amr_done
+        and differential_summary_exists
+        and clinical_summary_exists
+        and evidence_package_exists
+        and manuscript_outline_exists
+        and wetlab_plan_exists
+        and full_results_exists
+        and figure_caption_exists
+    ):
+        progress_state = "results_draft_ready"
+        reason = (
+            "Compute jobs are final; evidence package, manuscript outline, full Results draft, "
+            "table/figure captions, and wet-lab plan are available."
+        )
+        next_action = (
+            "Codex should draft Discussion/Limitations and then prepare an abstract tailored to the target journal."
         )
     elif (
         host_amr_done
@@ -131,6 +151,8 @@ def main() -> int:
         "evidence_package_exists": evidence_package_exists,
         "manuscript_outline_exists": manuscript_outline_exists,
         "wetlab_plan_exists": wetlab_plan_exists,
+        "full_results_exists": full_results_exists,
+        "figure_caption_exists": figure_caption_exists,
     }
     (out_dir / "status.json").write_text(json.dumps(status, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
