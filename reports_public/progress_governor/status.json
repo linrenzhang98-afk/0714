@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-07T04:42:17+00:00",
-  "progress_state": "interpretation_package_ready",
-  "reason": "Compute jobs and core public summaries are final; a short-project manuscript evidence package is available.",
-  "next_action": "Codex should draft the manuscript outline/results narrative and convert validation targets into a minimal wet-lab assay plan.",
+  "generated_at": "2026-08-07T05:22:36+00:00",
+  "progress_state": "manuscript_planning_ready",
+  "reason": "Compute jobs are final; evidence package, manuscript outline, results narrative, and wet-lab plan are available.",
+  "next_action": "Codex should draft the full Results section and prepare publication-ready tables/figure captions.",
   "job_files": 65,
   "pending_jobs": [],
   "failed_jobs": [],
@@ -11,5 +11,7 @@
   "host_amr_hits": 0,
   "clinical_summary_exists": true,
   "differential_summary_exists": true,
-  "evidence_package_exists": true
+  "evidence_package_exists": true,
+  "manuscript_outline_exists": true,
+  "wetlab_plan_exists": true
 }
