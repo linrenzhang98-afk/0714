@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T14:05:26+00:00",
+  "generated_at": "2026-08-07T14:45:33+00:00",
   "progress_state": "submission_variants_ready",
   "reason": "Compute jobs are final; public-data-only and minimal-qPCR manuscript variants are available.",
   "next_action": "Author should choose whether to submit the public-data-only version now or add short qPCR validation first.",
