@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T08:43:34+00:00
-Progress state: `discussion_draft_ready`
+Generated at: 2026-08-07T09:23:57+00:00
+Progress state: `manuscript_skeleton_ready`
 
 ## Reason
 
-- Compute jobs are final; Results, Discussion/Limitations, abstract drafts, table/figure captions, and wet-lab plan are available.
+- Compute jobs are final; manuscript skeleton, Results, Discussion/Limitations, abstract drafts, table/figure captions, and wet-lab plan are available.
 
 ## Required Next Action
 
-- Codex should assemble a manuscript skeleton with Methods and explicit figure/table callouts.
+- Codex should refine Methods for reproducibility and prepare target-journal formatting once a journal is selected.
 
 ## Operational Counts
 
