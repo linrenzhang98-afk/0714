@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-07T01:20:56+00:00",
-  "progress_state": "stalled_no_next_step",
-  "reason": "All current compute jobs are final and host-AMR summary is complete; no downstream analysis/manuscript job is queued.",
-  "next_action": "Codex should move from workstation compute to interpretation: integrate clinical groups, group differentials, deep-review stability, and host-AMR negatives into a manuscript-ready evidence package.",
+  "generated_at": "2026-08-07T02:01:05+00:00",
+  "progress_state": "interpretation_package_ready",
+  "reason": "Compute jobs and core public summaries are final; a short-project manuscript evidence package is available.",
+  "next_action": "Codex should draft the manuscript outline/results narrative and convert validation targets into a minimal wet-lab assay plan.",
   "job_files": 65,
   "pending_jobs": [],
   "failed_jobs": [],
@@ -10,5 +10,6 @@
   "host_amr_done": true,
   "host_amr_hits": 0,
   "clinical_summary_exists": true,
-  "differential_summary_exists": true
+  "differential_summary_exists": true,
+  "evidence_package_exists": true
 }
