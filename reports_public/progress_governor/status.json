@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-07T18:06:30+00:00",
-  "progress_state": "minimal_qpcr_validation_ready",
-  "reason": "Compute jobs are final; submission variants and minimal qPCR validation data template are available.",
-  "next_action": "Author can collect local qPCR validation results using the template; no workstation compute is pending.",
+  "generated_at": "2026-08-07T18:46:34+00:00",
+  "progress_state": "public_data_submission_ready",
+  "reason": "Compute jobs are final; the public-data-only manuscript route is selected and the submission package is available.",
+  "next_action": "Proceed with public-data manuscript polishing, figure/table finalization, and target-journal formatting; qPCR validation is optional follow-up, not a current blocker.",
   "job_files": 65,
   "pending_jobs": [],
   "failed_jobs": [],
@@ -24,5 +24,6 @@
   "target_strategy_exists": true,
   "public_data_variant_exists": true,
   "qpcr_variant_exists": true,
-  "qpcr_template_exists": true
+  "qpcr_template_exists": true,
+  "public_data_submission_package_exists": true
 }
