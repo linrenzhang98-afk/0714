@@ -85,6 +85,9 @@ def main() -> int:
     journal_readiness_exists = (
         public_dir / "manuscript_evidence_package" / "target_journal_readiness_checklist.md"
     ).exists()
+    full_manuscript_exists = (
+        public_dir / "manuscript_evidence_package" / "journal_neutral_full_manuscript_draft.md"
+    ).exists()
 
     if pending:
         progress_state = "running_or_queued"
@@ -103,6 +106,28 @@ def main() -> int:
         next_action = (
             "Codex should move from workstation compute to interpretation: integrate clinical groups, "
             "group differentials, deep-review stability, and host-AMR negatives into a manuscript-ready evidence package."
+        )
+    elif (
+        host_amr_done
+        and differential_summary_exists
+        and clinical_summary_exists
+        and evidence_package_exists
+        and manuscript_outline_exists
+        and wetlab_plan_exists
+        and full_results_exists
+        and figure_caption_exists
+        and discussion_abstract_exists
+        and manuscript_skeleton_exists
+        and reproducible_methods_exists
+        and journal_readiness_exists
+        and full_manuscript_exists
+    ):
+        progress_state = "full_manuscript_draft_ready"
+        reason = (
+            "Compute jobs are final; a journal-neutral full manuscript draft and supporting readiness files are available."
+        )
+        next_action = (
+            "Author should choose target journal or provide wet-lab validation status; Codex can then format and polish the draft."
         )
     elif (
         host_amr_done
@@ -247,6 +272,7 @@ def main() -> int:
         "manuscript_skeleton_exists": manuscript_skeleton_exists,
         "reproducible_methods_exists": reproducible_methods_exists,
         "journal_readiness_exists": journal_readiness_exists,
+        "full_manuscript_exists": full_manuscript_exists,
     }
     (out_dir / "status.json").write_text(json.dumps(status, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
