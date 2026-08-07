@@ -1,6 +1,6 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T06:03:08+00:00
+Generated at: 2026-08-07T06:43:12+00:00
 Progress state: `manuscript_planning_ready`
 
 ## Reason
