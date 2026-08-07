@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-07T06:43:12+00:00",
-  "progress_state": "manuscript_planning_ready",
-  "reason": "Compute jobs are final; evidence package, manuscript outline, results narrative, and wet-lab plan are available.",
-  "next_action": "Codex should draft the full Results section and prepare publication-ready tables/figure captions.",
+  "generated_at": "2026-08-07T07:23:09+00:00",
+  "progress_state": "results_draft_ready",
+  "reason": "Compute jobs are final; evidence package, manuscript outline, full Results draft, table/figure captions, and wet-lab plan are available.",
+  "next_action": "Codex should draft Discussion/Limitations and then prepare an abstract tailored to the target journal.",
   "job_files": 65,
   "pending_jobs": [],
   "failed_jobs": [],
@@ -13,5 +13,7 @@
   "differential_summary_exists": true,
   "evidence_package_exists": true,
   "manuscript_outline_exists": true,
-  "wetlab_plan_exists": true
+  "wetlab_plan_exists": true,
+  "full_results_exists": true,
+  "figure_caption_exists": true
 }

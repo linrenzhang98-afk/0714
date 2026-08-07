@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-07T06:43:12+00:00
-Progress state: `manuscript_planning_ready`
+Generated at: 2026-08-07T07:23:09+00:00
+Progress state: `results_draft_ready`
 
 ## Reason
 
-- Compute jobs are final; evidence package, manuscript outline, results narrative, and wet-lab plan are available.
+- Compute jobs are final; evidence package, manuscript outline, full Results draft, table/figure captions, and wet-lab plan are available.
 
 ## Required Next Action
 
-- Codex should draft the full Results section and prepare publication-ready tables/figure captions.
+- Codex should draft Discussion/Limitations and then prepare an abstract tailored to the target journal.
 
 ## Operational Counts
 
