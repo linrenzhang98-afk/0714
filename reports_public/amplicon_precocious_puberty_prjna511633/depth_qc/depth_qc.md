@@ -1,23 +1,23 @@
 # PRJNA511633 Amplicon Depth QC
 
-Generated at: 2026-08-08T16:03:31+00:00
+Generated at: 2026-08-08T16:12:26+00:00
 
-QC state: `not_publication_ready`
+QC state: `candidate_depth_possible`
 
 ## Interpretation
 
-- Median post-DADA2 depth is below 1000 reads; diversity statistics should not be used as formal conclusions. Optimize DADA2 trimming/merging before final alpha/beta diversity analysis.
+- Post-DADA2 depth may support diversity analysis after selecting a depth that preserves most samples in both groups and checking rarefaction stability.
 - The `depth=10` retry is treated as an engineering fallback, not a publication-grade diversity depth.
 - Formal alpha/beta diversity requires an independently justified rarefaction depth and sensitivity analysis.
 
 ## Post-DADA2 Depth Distribution
 
 - Samples summarized: 48
-- Min final reads: 0
-- Q25 final reads: 0.0
-- Median final reads: 0.0
-- Q75 final reads: 0.0
-- Max final reads: 50570
+- Min final reads: 6513
+- Q25 final reads: 28288.0
+- Median final reads: 38818.0
+- Q75 final reads: 49843.2
+- Max final reads: 55466
 
 ## Files
 
