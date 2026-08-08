@@ -1,4 +1,4 @@
-sample-id	run	BioSample	analysis_group	sample_name	library_strategy	library_layout	platform	model	size_MB	group_assignment_note
+sample-id	run	BioSample	analysis_group	public_sample_name	library_strategy	library_layout	platform	model	size_MB	group_assignment_note
 CH1	SRR8368313	SAMN10641876	healthy_control	CH1	WGS	PAIRED	ILLUMINA	Illumina MiSeq	16	CH prefix treated as healthy control; CP prefix treated as ICPP based on article cohort and public sample naming.
 CH10	SRR8368308	SAMN10641885	healthy_control	CH10	WGS	PAIRED	ILLUMINA	Illumina MiSeq	12	CH prefix treated as healthy control; CP prefix treated as ICPP based on article cohort and public sample naming.
 CH11	SRR8368321	SAMN10641886	healthy_control	CH11	WGS	PAIRED	ILLUMINA	Illumina MiSeq	14	CH prefix treated as healthy control; CP prefix treated as ICPP based on article cohort and public sample naming.
