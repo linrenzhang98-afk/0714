@@ -169,6 +169,14 @@ if [ -f scripts/summarize_amplicon_prjna511633_status.py ]; then
     --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
 fi
 
+if [ -f scripts/summarize_amplicon_qc_depth.py ]; then
+  "$PYTHON_BIN" scripts/summarize_amplicon_qc_depth.py \
+    --result-dir results/20260808T110000Z-prjna511633-icpp-16s-full-auto-depth10-optional-retry \
+    --metadata "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/sample_metadata.tsv" \
+    --qiime-bin /home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime \
+    --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/depth_qc"
+fi
+
 PROGRESS_GOVERNOR_DIR="$PUBLIC_STATUS_DIR/progress_governor"
 mkdir -p "$PROGRESS_GOVERNOR_DIR"
 if [ -f scripts/write_progress_governor_status.py ]; then
