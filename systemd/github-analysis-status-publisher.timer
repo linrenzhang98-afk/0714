@@ -1,9 +1,9 @@
 [Unit]
-Description=Publish public GitHub analysis status summary every 40 minutes
+Description=Publish public GitHub analysis status summary every 30 minutes
 
 [Timer]
 OnBootSec=5min
-OnUnitActiveSec=40min
+OnUnitActiveSec=30min
 Persistent=true
 
 [Install]
