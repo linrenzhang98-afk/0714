@@ -54,10 +54,15 @@ def command_log_tail(path: Path, limit: int = 5) -> list[dict]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--result-dir", required=True)
+    parser.add_argument("--result-glob", default="")
     parser.add_argument("--out-dir", required=True)
     args = parser.parse_args()
 
     result_dir = Path(args.result_dir)
+    if args.result_glob:
+        candidates = sorted(Path(".").glob(args.result_glob))
+        if candidates:
+            result_dir = candidates[-1]
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 

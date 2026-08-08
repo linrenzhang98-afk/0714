@@ -95,23 +95,19 @@ def is_gzip_file(path: Path) -> bool:
         return f.read(2) == b"\x1f\x8b"
 
 
-def ensure_gzip_fastq(path: Path, errors: list[str]) -> Path:
-    gz_path = path.with_suffix(path.suffix + ".gz")
-    if gz_path.exists() and is_gzip_file(gz_path):
-        return gz_path
-    if gz_path.exists() and not is_gzip_file(gz_path):
-        gz_path = path.with_suffix(".qiime.fastq.gz")
-        if gz_path.exists() and is_gzip_file(gz_path):
-            return gz_path
+def ensure_gzip_fastq(path: Path, destination: Path, errors: list[str]) -> Path:
+    if destination.exists() and is_gzip_file(destination):
+        return destination
     if not path.exists():
         errors.append(f"FASTQ file not found for gzip conversion: {path}")
-        return gz_path
+        return destination
+    destination.parent.mkdir(parents=True, exist_ok=True)
     try:
-        with path.open("rb") as src, gzip.open(gz_path, "wb") as dst:
+        with path.open("rb") as src, gzip.open(destination, "wb") as dst:
             shutil.copyfileobj(src, dst)
     except Exception as exc:  # noqa: BLE001
         errors.append(f"gzip conversion failed for {path}: {exc}")
-    return gz_path
+    return destination
 
 
 def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[str]) -> Path | None:
@@ -123,6 +119,7 @@ def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[
     work_dir = Path(params.get("work_dir", out_dir / "work"))
     sra_dir = work_dir / "sra"
     fastq_dir = work_dir / "fastq"
+    qiime_fastq_dir = out_dir / "input_fastq"
     sra_dir.mkdir(parents=True, exist_ok=True)
     fastq_dir.mkdir(parents=True, exist_ok=True)
     log_path = out_dir / "command_log.jsonl"
@@ -156,8 +153,8 @@ def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[
         if not forward.exists() or not reverse.exists():
             errors.append(f"paired FASTQ files missing for {run}")
             continue
-        forward_gz = ensure_gzip_fastq(forward, errors)
-        reverse_gz = ensure_gzip_fastq(reverse, errors)
+        forward_gz = ensure_gzip_fastq(forward, qiime_fastq_dir / f"{run}_1.fastq.gz", errors)
+        reverse_gz = ensure_gzip_fastq(reverse, qiime_fastq_dir / f"{run}_2.fastq.gz", errors)
         if errors:
             continue
         rows.append(f"{sample_id}\t{forward_gz.resolve()}\t{reverse_gz.resolve()}")
