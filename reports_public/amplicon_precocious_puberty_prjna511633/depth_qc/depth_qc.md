@@ -1,6 +1,6 @@
 # PRJNA511633 Amplicon Depth QC
 
-Generated at: 2026-08-08T13:53:24+00:00
+Generated at: 2026-08-08T14:11:35+00:00
 
 QC state: `not_publication_ready`
 
@@ -17,7 +17,7 @@ QC state: `not_publication_ready`
 - Q25 final reads: 0.0
 - Median final reads: 0.0
 - Q75 final reads: 0.0
-- Max final reads: 46208
+- Max final reads: 50570
 
 ## Files
 

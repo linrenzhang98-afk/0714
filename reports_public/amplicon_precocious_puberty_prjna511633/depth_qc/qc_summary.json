@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-08T13:53:24+00:00",
-  "result_dir": "results/20260808T110000Z-prjna511633-icpp-16s-full-auto-depth10-optional-retry",
+  "generated_at": "2026-08-08T14:11:35+00:00",
+  "result_dir": "results/20260808T130000Z-prjna511633-icpp-16s-single-forward-retry",
   "sample_count": 48,
   "qc_state": "not_publication_ready",
   "reason": "Median post-DADA2 depth is below 1000 reads; diversity statistics should not be used as formal conclusions. Optimize DADA2 trimming/merging before final alpha/beta diversity analysis.",
@@ -8,7 +8,7 @@
   "q25_final_reads": 0.0,
   "median_final_reads": 0.0,
   "q75_final_reads": 0.0,
-  "max_final_reads": 46208,
+  "max_final_reads": 50570,
   "depth_candidates": [
     {
       "depth": 10,

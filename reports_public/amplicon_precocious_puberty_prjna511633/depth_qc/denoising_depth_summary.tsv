@@ -11,7 +11,7 @@ CH17	healthy_control	58640	0	0	0	0	0	0.0
 CH18	healthy_control	58001	0	0	0	0	0	0.0
 CH19	healthy_control	58133	0	0	0	0	0	0.0
 CH2	healthy_control	60337	0	0	0	0	0	0.0
-CH20	healthy_control	57572	49321	48665	47663	46208	46208	0.8026123810185507
+CH20	healthy_control	57572	52311	51595	0	50570	50570	0.8783783783783784
 CH21	healthy_control	58615	0	0	0	0	0	0.0
 CH22	healthy_control	57891	0	0	0	0	0	0.0
 CH23	healthy_control	58673	0	0	0	0	0	0.0
@@ -35,7 +35,7 @@ CP18	idiopathic_central_precocious_puberty	59152	0	0	0	0	0	0.0
 CP19	idiopathic_central_precocious_puberty	57330	0	0	0	0	0	0.0
 CP2	idiopathic_central_precocious_puberty	42389	0	0	0	0	0	0.0
 CP20	idiopathic_central_precocious_puberty	58203	0	0	0	0	0	0.0
-CP21	idiopathic_central_precocious_puberty	57220	50759	49165	45718	42643	42643	0.7452464173365956
+CP21	idiopathic_central_precocious_puberty	57220	52150	50535	0	46406	46406	0.8110101363159734
 CP22	idiopathic_central_precocious_puberty	57559	0	0	0	0	0	0.0
 CP23	idiopathic_central_precocious_puberty	39958	0	0	0	0	0	0.0
 CP24	idiopathic_central_precocious_puberty	40549	0	0	0	0	0	0.0
