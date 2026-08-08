@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-08T00:09:04+00:00",
+  "generated_at": "2026-08-08T00:48:28+00:00",
   "project": "PRJNA511633 ICPP gut 16S",
-  "result_dir": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry",
+  "result_dir": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry",
   "progress_state": "failed_needs_patch",
   "next_action": "Inspect validation_report.json and command_log.jsonl, then patch the smallest reproducible cause.",
   "missing_outputs": [
@@ -21,86 +21,86 @@
     "species_export"
   ],
   "validation_errors": [
-    "command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/manifest.tsv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2"
+    "command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/manifest.tsv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2"
   ],
   "validation_warnings": [],
   "failed_recent_commands": [
     {
-      "ts": "2026-08-07T23:29:03+00:00",
+      "ts": "2026-08-08T00:09:04+00:00",
       "args": [
         "bash",
         "-lc",
-        "unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/manifest.tsv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2"
+        "unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/manifest.tsv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2"
       ],
       "returncode": 1,
       "stdout_tail": "",
-      "stderr_tail": "/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/site-packages/rescript/evaluate.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources\nThere was a problem importing /mnt/disk1/db/kraken2/0714/results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/manifest.tsv:\n\n  /mnt/disk1/db/kraken2/0714/results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/manifest.tsv is not a(n) PairedEndFastqManifestPhred33V2 file:\n\n  There was an issue with loading the metadata file:\n\n  Metadata IDs must be unique. The following IDs are duplicated: 'CH1', 'CH10', 'CH11', 'CH12', 'CH13', 'CH14', 'CH15', 'CH16', 'CH17', 'CH18', 'CH19', 'CH2', 'CH20', 'CH21', 'CH22', 'CH23', 'CH3', 'CH4', 'CH5', 'CH6', 'CH7', 'CH8', 'CH9', 'CP1', 'CP10', 'CP11', 'CP12', 'CP13', 'CP14', 'CP15', 'CP16', 'CP17', 'CP18', 'CP19', 'CP2', 'CP20', 'CP21', 'CP22', 'CP23', 'CP24', 'CP25', 'CP3', 'CP4', 'CP5', 'CP6', 'CP7', 'CP8', 'CP9'\n\n  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org\n\n  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2025.10/tutorials/metadata/\n\n"
+      "stderr_tail": "/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/site-packages/rescript/evaluate.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources\nThere was a problem importing /mnt/disk1/db/kraken2/0714/results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/manifest.tsv:\n\n  /mnt/disk1/db/kraken2/0714/results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/manifest.tsv is not a(n) PairedEndFastqManifestPhred33V2 file:\n\n  There was an issue with loading the metadata file:\n\n  Metadata IDs must be unique. The following IDs are duplicated: 'CH1', 'CH10', 'CH11', 'CH12', 'CH13', 'CH14', 'CH15', 'CH16', 'CH17', 'CH18', 'CH19', 'CH2', 'CH20', 'CH21', 'CH22', 'CH23', 'CH3', 'CH4', 'CH5', 'CH6', 'CH7', 'CH8', 'CH9', 'CP1', 'CP10', 'CP11', 'CP12', 'CP13', 'CP14', 'CP15', 'CP16', 'CP17', 'CP18', 'CP19', 'CP2', 'CP20', 'CP21', 'CP22', 'CP23', 'CP24', 'CP25', 'CP3', 'CP4', 'CP5', 'CP6', 'CP7', 'CP8', 'CP9'\n\n  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org\n\n  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2025.10/tutorials/metadata/\n\n"
     }
   ],
   "outputs": {
     "validation_report": {
       "exists": true,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/validation_report.json"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/validation_report.json"
     },
     "manifest": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/manifest.csv"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/manifest.csv"
     },
     "command_log": {
       "exists": true,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/command_log.jsonl"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/command_log.jsonl"
     },
     "demux_artifact": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/demux.qza"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/demux.qza"
     },
     "demux_visualization": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/demux.qzv"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/demux.qzv"
     },
     "feature_table": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/table.qza"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/table.qza"
     },
     "rep_seqs": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/rep-seqs.qza"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/rep-seqs.qza"
     },
     "taxonomy": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/taxonomy.qza"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/taxonomy.qza"
     },
     "taxa_barplot": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/taxa-bar-plots.qzv"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/taxa-bar-plots.qzv"
     },
     "genus_relative_table": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/genus-relative-table.qza"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/genus-relative-table.qza"
     },
     "species_relative_table": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/species-relative-table.qza"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/species-relative-table.qza"
     },
     "core_metrics": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/core-metrics"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/core-metrics"
     },
     "shannon_group_significance": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/shannon-group-significance.qzv"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/shannon-group-significance.qzv"
     },
     "bray_curtis_group_significance": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/bray-curtis-group-significance.qzv"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/bray-curtis-group-significance.qzv"
     },
     "genus_export": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/exports/genus_relative_table"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/exports/genus_relative_table"
     },
     "species_export": {
       "exists": false,
-      "path": "results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/exports/species_relative_table"
+      "path": "results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/exports/species_relative_table"
     }
   }
 }

@@ -1,6 +1,6 @@
 # PRJNA511633 Amplicon Status
 
-Generated at: 2026-08-08T00:09:04+00:00
+Generated at: 2026-08-08T00:48:28+00:00
 
 Progress state: `failed_needs_patch`
 
@@ -32,4 +32,4 @@ Progress state: `failed_needs_patch`
 
 ## Errors
 
-- command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/manifest.tsv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2
+- command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/manifest.tsv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2
