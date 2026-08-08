@@ -266,7 +266,8 @@ def main() -> int:
             f"--p-n-threads {threads} "
             f"--o-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} "
             f"--o-representative-sequences {sh_quote(str(out_dir / 'qiime2' / 'rep-seqs.qza'))} "
-            f"--o-denoising-stats {sh_quote(str(out_dir / 'qiime2' / 'denoising-stats.qza'))}"
+            f"--o-denoising-stats {sh_quote(str(out_dir / 'qiime2' / 'denoising-stats.qza'))} "
+            f"--o-base-transition-stats {sh_quote(str(out_dir / 'qiime2' / 'base-transition-stats.qza'))}"
         )
         commands.append(
             f"{qiime_cmd} feature-classifier classify-sklearn "
