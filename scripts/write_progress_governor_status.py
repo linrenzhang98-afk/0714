@@ -52,9 +52,12 @@ def main() -> int:
     pending: list[str] = []
     failed: list[str] = []
     rejected: list[str] = []
+    amplicon_retry_jobs: list[str] = []
     for job_path in job_files:
         job = load_json(job_path)
         job_id = str(job.get("job_id", job_path.stem))
+        if "prjna511633" in job_id and "16s" in job_id:
+            amplicon_retry_jobs.append(job_id)
         detail = state_jobs.get(job_id, {}) if isinstance(state_jobs.get(job_id, {}), dict) else {}
         status = str(detail.get("status", "pending"))
         if status not in FINAL_STATES:
@@ -63,6 +66,14 @@ def main() -> int:
             failed.append(job_id)
         elif status == "rejected" and not job_id.startswith("2026-07-15-demo-metabolomics"):
             rejected.append(job_id)
+
+    if amplicon_retry_jobs:
+        latest_amplicon_job = sorted(amplicon_retry_jobs)[-1]
+        failed = [
+            job_id
+            for job_id in failed
+            if not ("prjna511633" in job_id and "16s" in job_id) or job_id == latest_amplicon_job
+        ]
 
     host_amr_summary = load_json(public_dir / "metagenome_host_amr_screen" / "summary.json")
     host_amr_done = int(host_amr_summary.get("runs_summarized", 0) or 0) >= 30

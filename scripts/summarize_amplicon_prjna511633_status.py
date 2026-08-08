@@ -64,10 +64,10 @@ def main() -> int:
     args = parser.parse_args()
 
     result_dir = Path(args.result_dir)
-    if args.result_glob:
+    if args.result_glob and not result_dir.exists():
         candidates = sorted(Path(".").glob(args.result_glob))
         if candidates:
-            result_dir = candidates[-1]
+            result_dir = max(candidates, key=lambda path: path.stat().st_mtime)
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
