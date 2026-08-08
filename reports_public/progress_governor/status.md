@@ -1,35 +1,21 @@
 # Progress Governor Status
 
-Generated at: 2026-08-08T10:02:02+00:00
-Progress state: `stalled_failed_jobs`
+Generated at: 2026-08-08T10:10:15+00:00
+Progress state: `public_data_submission_ready`
 
 ## Reason
 
-- 11 failed and 0 rejected non-demo job(s) require repair.
+- Compute jobs are final; the public-data-only manuscript route is selected and the submission package is available.
 
 ## Required Next Action
 
-- Codex should inspect failed job metadata and patch the minimal repository-side cause.
+- Proceed with public-data manuscript polishing, figure/table finalization, and target-journal formatting; qPCR validation is optional follow-up, not a current blocker.
 
 ## Operational Counts
 
 - Job files: 77
 - Pending/non-final jobs: 0
-- Failed jobs: 11
+- Failed jobs: 0
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
-
-## Failed Jobs
-
-- 20260808T000000Z-prjna511633-icpp-16s-demux
-- 20260808T010000Z-prjna511633-icpp-16s-full-auto
-- 20260808T020000Z-prjna511633-icpp-16s-full-auto-r-env-retry
-- 20260808T030000Z-prjna511633-icpp-16s-full-auto-manifest-retry
-- 20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry
-- 20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry
-- 20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry
-- 20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry
-- 20260808T080000Z-prjna511633-icpp-16s-full-auto-dada2-output-retry
-- 20260808T090000Z-prjna511633-icpp-16s-full-auto-metadata-retry
-- 20260808T100000Z-prjna511633-icpp-16s-full-auto-depth100-retry

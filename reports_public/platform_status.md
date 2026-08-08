@@ -1,6 +1,6 @@
 # Platform Status
 
-Generated at: 2026-08-08T10:02:02+00:00
+Generated at: 2026-08-08T10:10:15+00:00
 
 ## Job Status Counts
 
@@ -21,7 +21,7 @@ Generated at: 2026-08-08T10:02:02+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-08T10:02:02+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-08T10:10:15+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
@@ -101,8 +101,6 @@ Generated at: 2026-08-08T10:02:02+00:00
 
 ## Last Events
 
-- 2026-08-08T05:51:54+00:00 job_finish job=20260808T080000Z-prjna511633-icpp-16s-full-auto-dada2-output-retry status=failed
-- 2026-08-08T05:51:54+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-08T06:09:31+00:00 scan
 - 2026-08-08T06:09:31+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-08T06:49:36+00:00 scan
@@ -121,6 +119,8 @@ Generated at: 2026-08-08T10:02:02+00:00
 - 2026-08-08T09:30:15+00:00 job_start job=20260808T110000Z-prjna511633-icpp-16s-full-auto-depth10-optional-retry
 - 2026-08-08T10:02:02+00:00 job_finish job=20260808T110000Z-prjna511633-icpp-16s-full-auto-depth10-optional-retry status=done
 - 2026-08-08T10:02:02+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-08-08T10:10:15+00:00 scan
+- 2026-08-08T10:10:15+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 
