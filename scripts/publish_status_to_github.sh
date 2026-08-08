@@ -165,7 +165,6 @@ if [ -f scripts/summarize_amplicon_prjna511633_status.py ]; then
         "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/status.json"
   "$PYTHON_BIN" scripts/summarize_amplicon_prjna511633_status.py \
     --result-dir results/20260808T130000Z-prjna511633-icpp-16s-single-forward-retry \
-    --result-glob "results/20260808T*-prjna511633-icpp-16s-*" \
     --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
 fi
 
