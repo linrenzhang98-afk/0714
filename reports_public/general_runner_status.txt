@@ -1,9 +1,9 @@
-generated_at=2026-08-08T22:51:23+08:00
+generated_at=2026-08-08T23:31:35+08:00
 enabled=true
 config_exists=true
 runner_exists=true
 host_amr_job_files=30
-prjna511633_amplicon_job_files=13
+prjna511633_amplicon_job_files=14
 metagenome_deep_review_allowlisted=true
 amplicon_qiime2_allowlisted=true
 jobs_glob=jobs/*.json
