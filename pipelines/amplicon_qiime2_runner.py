@@ -178,7 +178,7 @@ def main() -> int:
             if generated_manifest is not None:
                 manifest = generated_manifest
         else:
-            manifest = out_dir / "manifest.csv"
+            manifest = out_dir / "manifest.tsv"
     require_file(manifest, "manifest", errors)
     require_file(metadata, "metadata", errors)
     if read_type not in {"paired", "single"}:
