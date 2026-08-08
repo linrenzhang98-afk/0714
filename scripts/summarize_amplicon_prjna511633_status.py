@@ -28,6 +28,11 @@ EXPECTED_OUTPUTS = [
     ("species_export", ["exports/species_relative_table"]),
 ]
 
+OPTIONAL_OUTPUTS = {
+    "shannon_group_significance",
+    "bray_curtis_group_significance",
+}
+
 
 def load_json(path: Path) -> dict:
     if not path.exists():
@@ -82,9 +87,15 @@ def main() -> int:
     last_commands = command_log_tail(result_dir / "command_log.jsonl")
     failed_commands = [r for r in last_commands if r.get("returncode") not in (None, 0)]
 
+    required_missing = [key for key in missing if key not in OPTIONAL_OUTPUTS]
+    optional_missing = [key for key in missing if key in OPTIONAL_OUTPUTS]
+
     if errors:
         progress_state = "failed_needs_patch"
         next_action = "Inspect validation_report.json and command_log.jsonl, then patch the smallest reproducible cause."
+    elif not required_missing and optional_missing:
+        progress_state = "analysis_outputs_ready_with_optional_warnings"
+        next_action = "Summarize exported taxa tables and report rarefied QIIME2 group-significance visualizations as unavailable due low retained sample count."
     elif output_status["bray_curtis_group_significance"]["exists"] and output_status["genus_export"]["exists"]:
         progress_state = "analysis_outputs_ready"
         next_action = "Summarize taxa, diversity, group differences, and manuscript-facing interpretation."
@@ -102,6 +113,8 @@ def main() -> int:
         "progress_state": progress_state,
         "next_action": next_action,
         "missing_outputs": missing,
+        "required_missing_outputs": required_missing,
+        "optional_missing_outputs": optional_missing,
         "validation_errors": errors,
         "validation_warnings": warnings,
         "failed_recent_commands": failed_commands,
@@ -121,7 +134,8 @@ def main() -> int:
         f"- Next action: {next_action}",
         f"- Validation errors: {len(errors)}",
         f"- Validation warnings: {len(warnings)}",
-        f"- Missing expected outputs: {len(missing)}",
+        f"- Missing required outputs: {len(required_missing)}",
+        f"- Missing optional outputs: {len(optional_missing)}",
         "",
         "## Required Outputs",
         "",

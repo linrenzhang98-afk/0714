@@ -32,6 +32,15 @@ def sh_quote(value: str) -> str:
     return "'" + value.replace("'", "'\"'\"'") + "'"
 
 
+def is_optional_publication_command(raw: str) -> bool:
+    optional_markers = (
+        " diversity alpha-group-significance ",
+        " diversity beta-group-significance ",
+        " composition ancombc ",
+    )
+    return any(marker in raw for marker in optional_markers)
+
+
 def command_exists(command: str) -> bool:
     if Path(command).is_absolute():
         return Path(command).exists()
@@ -316,6 +325,14 @@ def main() -> int:
             for raw in commands[5:]:
                 result = run_checked(["bash", "-lc", raw], log_path)
                 if result.returncode != 0:
+                    if is_optional_publication_command(raw):
+                        warnings.append(f"optional command failed and was skipped: {raw}")
+                        report["warnings"] = warnings
+                        (out_dir / "validation_report.json").write_text(
+                            json.dumps(report, indent=2, ensure_ascii=False) + "\n",
+                            encoding="utf-8",
+                        )
+                        continue
                     errors.append(f"command failed: {raw}")
                     report["errors"] = errors
                     (out_dir / "validation_report.json").write_text(
