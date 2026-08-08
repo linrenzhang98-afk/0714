@@ -1,0 +1,4 @@
+metric	healthy_control_n	idiopathic_central_precocious_puberty_n	healthy_control_median	idiopathic_central_precocious_puberty_median	median_delta_g2_minus_g1	p_value	q_value
+shannon	23	25	4.29763	5.30847	1.01084	4.61561e-06	6.92341e-06
+observed_features	23	25	57	117	60	7.70483e-07	2.31145e-06
+evenness	23	25	0.715062	0.797282	0.0822197	0.00095994	0.00095994

@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-08-08T18:15:33+00:00",
+  "result_dir": "results/20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry",
+  "samples": 48,
+  "groups": {
+    "healthy_control": 23,
+    "idiopathic_central_precocious_puberty": 25
+  },
+  "genus_tested": 304,
+  "species_tested": 304,
+  "alpha_metrics": 3
+}
