@@ -186,11 +186,27 @@ if [ -f scripts/summarize_amplicon_qc_depth.py ]; then
 fi
 
 if [ -f scripts/summarize_amplicon_prjna511633_results.py ]; then
+  AMP_PUBLICATION_LOG="$AMP_PRJNA511633_PUBLIC_DIR/publication_summary_runner.log"
+  set +e
   "$PYTHON_BIN" scripts/summarize_amplicon_prjna511633_results.py \
     --result-dir "$AMP_PRJNA511633_RESULT_DIR" \
     --metadata "$AMP_PRJNA511633_PUBLIC_DIR/sample_metadata.tsv" \
     --qiime-bin /home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime \
-    --out-dir "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary"
+    --out-dir "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary" \
+    > "$AMP_PUBLICATION_LOG" 2>&1
+  AMP_PUBLICATION_RC=$?
+  set -e
+  {
+    echo "generated_at=$(date -Is)"
+    echo "runner_return_code=$AMP_PUBLICATION_RC"
+    echo "summary_md_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary/summary.md" ] && echo true || echo false)"
+    echo "alpha_summary_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary/alpha_diversity_group_summary.tsv" ] && echo true || echo false)"
+    echo "genus_differentials_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary/genus_group_differentials.tsv" ] && echo true || echo false)"
+    echo "species_differentials_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary/species_group_differentials.tsv" ] && echo true || echo false)"
+  } > "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary_runner_status.txt"
+  if [ "$AMP_PUBLICATION_RC" -ne 0 ]; then
+    echo "PRJNA511633 publication summary reported errors; continuing status publication."
+  fi
 fi
 
 PROGRESS_GOVERNOR_DIR="$PUBLIC_STATUS_DIR/progress_governor"
