@@ -11,6 +11,7 @@ report.
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import json
 import os
@@ -87,6 +88,32 @@ def ensure_download(path: Path, url: str, sha256: str | None, errors: list[str])
         errors.append(f"checksum mismatch after download: {path}")
 
 
+def is_gzip_file(path: Path) -> bool:
+    if not path.exists():
+        return False
+    with path.open("rb") as f:
+        return f.read(2) == b"\x1f\x8b"
+
+
+def ensure_gzip_fastq(path: Path, errors: list[str]) -> Path:
+    gz_path = path.with_suffix(path.suffix + ".gz")
+    if gz_path.exists() and is_gzip_file(gz_path):
+        return gz_path
+    if gz_path.exists() and not is_gzip_file(gz_path):
+        gz_path = path.with_suffix(".qiime.fastq.gz")
+        if gz_path.exists() and is_gzip_file(gz_path):
+            return gz_path
+    if not path.exists():
+        errors.append(f"FASTQ file not found for gzip conversion: {path}")
+        return gz_path
+    try:
+        with path.open("rb") as src, gzip.open(gz_path, "wb") as dst:
+            shutil.copyfileobj(src, dst)
+    except Exception as exc:  # noqa: BLE001
+        errors.append(f"gzip conversion failed for {path}: {exc}")
+    return gz_path
+
+
 def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[str]) -> Path | None:
     run_accessions = params.get("run_accessions", [])
     if not isinstance(run_accessions, list) or not run_accessions:
@@ -129,7 +156,11 @@ def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[
         if not forward.exists() or not reverse.exists():
             errors.append(f"paired FASTQ files missing for {run}")
             continue
-        rows.append(f"{sample_id}\t{forward.resolve()}\t{reverse.resolve()}")
+        forward_gz = ensure_gzip_fastq(forward, errors)
+        reverse_gz = ensure_gzip_fastq(reverse, errors)
+        if errors:
+            continue
+        rows.append(f"{sample_id}\t{forward_gz.resolve()}\t{reverse_gz.resolve()}")
 
     manifest.write_text("\n".join(rows) + "\n", encoding="utf-8")
     return manifest

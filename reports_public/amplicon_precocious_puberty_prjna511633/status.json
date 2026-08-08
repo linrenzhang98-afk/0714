@@ -1,10 +1,13 @@
 {
-  "generated_at": "2026-08-08T02:48:30+00:00",
+  "generated_at": "2026-08-08T03:02:02+00:00",
   "project": "PRJNA511633 ICPP gut 16S",
-  "result_dir": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry",
-  "progress_state": "failed_needs_patch",
-  "next_action": "Inspect validation_report.json and command_log.jsonl, then patch the smallest reproducible cause.",
+  "result_dir": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry",
+  "progress_state": "not_started",
+  "next_action": "Ensure the job is allowlisted and picked up by the general runner.",
   "missing_outputs": [
+    "validation_report",
+    "manifest",
+    "command_log",
     "demux_artifact",
     "demux_visualization",
     "feature_table",
@@ -19,87 +22,73 @@
     "genus_export",
     "species_export"
   ],
-  "validation_errors": [
-    "command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/manifest.tsv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2"
-  ],
+  "validation_errors": [],
   "validation_warnings": [],
-  "failed_recent_commands": [
-    {
-      "ts": "2026-08-08T01:29:07+00:00",
-      "args": [
-        "bash",
-        "-lc",
-        "unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path '/mnt/disk1/db/kraken2/0714/results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/manifest.tsv' --output-path '/mnt/disk1/db/kraken2/0714/results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/demux.qza' --input-format PairedEndFastqManifestPhred33V2"
-      ],
-      "returncode": 1,
-      "stdout_tail": "",
-      "stderr_tail": "on-2025.10/lib/python3.10/site-packages/qiime2/sdk/result.py\", line 700, in _from_view\n    result = transformation(view, validate_level)\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/site-packages/qiime2/core/transform.py\", line 68, in transformation\n    self.validate(view, level=validate_level)\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/site-packages/qiime2/core/transform.py\", line 143, in validate\n    view.validate(level)\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/site-packages/qiime2/plugin/model/file_format.py\", line 26, in validate\n    self._validate_(level)\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/site-packages/q2_types/per_sample_sequences/_formats.py\", line 119, in _validate_\n    validate_paired_ends_equal_record_count(\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/site-packages/q2_types/per_sample_sequences/_util.py\", line 390, in validate_paired_ends_equal_record_count\n    fwd_count = count_lines(file_fwd)\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/site-packages/q2_types/per_sample_sequences/_util.py\", line 386, in count_lines\n    while block := f.read(1024 * 1024):\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/gzip.py\", line 301, in read\n    return self._buffer.read(size)\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/_compression.py\", line 68, in readinto\n    data = self.read(len(byte_view))\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/gzip.py\", line 488, in read\n    if not self._read_gzip_header():\n  File \"/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/lib/python3.10/gzip.py\", line 436, in _read_gzip_header\n    raise BadGzipFile('Not a gzipped file (%r)' % magic)\ngzip.BadGzipFile: Not a gzipped file (b'@S')\n\nAn unexpected error has occurred:\n\n  Not a gzipped file (b'@S')\n\nSee above for debug info.\n"
-    }
-  ],
+  "failed_recent_commands": [],
   "outputs": {
     "validation_report": {
-      "exists": true,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/validation_report.json"
+      "exists": false,
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\validation_report.json"
     },
     "manifest": {
-      "exists": true,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/manifest.tsv"
+      "exists": false,
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\manifest.tsv"
     },
     "command_log": {
-      "exists": true,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/command_log.jsonl"
+      "exists": false,
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\command_log.jsonl"
     },
     "demux_artifact": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/demux.qza"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\demux.qza"
     },
     "demux_visualization": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/demux.qzv"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\demux.qzv"
     },
     "feature_table": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/table.qza"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\table.qza"
     },
     "rep_seqs": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/rep-seqs.qza"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\rep-seqs.qza"
     },
     "taxonomy": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/taxonomy.qza"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\taxonomy.qza"
     },
     "taxa_barplot": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/taxa-bar-plots.qzv"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\taxa-bar-plots.qzv"
     },
     "genus_relative_table": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/genus-relative-table.qza"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\genus-relative-table.qza"
     },
     "species_relative_table": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/species-relative-table.qza"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\species-relative-table.qza"
     },
     "core_metrics": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/core-metrics"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\core-metrics"
     },
     "shannon_group_significance": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/shannon-group-significance.qzv"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\shannon-group-significance.qzv"
     },
     "bray_curtis_group_significance": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/qiime2/bray-curtis-group-significance.qzv"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\qiime2\\bray-curtis-group-significance.qzv"
     },
     "genus_export": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/exports/genus_relative_table"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\exports\\genus_relative_table"
     },
     "species_export": {
       "exists": false,
-      "path": "results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry/exports/species_relative_table"
+      "path": "results\\20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry\\exports\\species_relative_table"
     }
   }
 }
