@@ -277,6 +277,11 @@ fi
 
 git add "$PUBLIC_STATUS_DIR"
 
+AMP_DEPTH_QC_DIR="$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/depth_qc"
+if [ -d "$AMP_DEPTH_QC_DIR" ]; then
+  git add -f "$AMP_DEPTH_QC_DIR"
+fi
+
 if [ -d decision_requests ]; then
   find decision_requests -maxdepth 1 -type f -name "*.md" -print0 | xargs -0 --no-run-if-empty git add
 fi
