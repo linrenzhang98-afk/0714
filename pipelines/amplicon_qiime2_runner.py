@@ -133,12 +133,17 @@ def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[
     fastq_dir.mkdir(parents=True, exist_ok=True)
     log_path = out_dir / "command_log.jsonl"
     threads = int(params.get("threads", max(1, (os.cpu_count() or 2) - 1)))
+    read_type = str(params.get("read_type", "paired"))
+    single_read_side = str(params.get("single_read_side", "forward"))
     run_to_sample = params.get("run_to_sample", {})
     if not isinstance(run_to_sample, dict):
         run_to_sample = {}
 
     manifest = out_dir / "manifest.tsv"
-    rows = ["sample-id\tforward-absolute-filepath\treverse-absolute-filepath"]
+    if read_type == "single":
+        rows = ["sample-id\tabsolute-filepath"]
+    else:
+        rows = ["sample-id\tforward-absolute-filepath\treverse-absolute-filepath"]
     for run in [str(r).strip() for r in run_accessions if str(r).strip()]:
         sample_id = str(run_to_sample.get(run, run))
         sra_path = sra_dir / run / f"{run}.sra"
@@ -159,14 +164,25 @@ def write_manifest_from_sra(params: dict[str, Any], out_dir: Path, errors: list[
             if result.returncode != 0:
                 errors.append(f"fasterq-dump failed for {run}: {result.stderr[-300:]}")
                 continue
-        if not forward.exists() or not reverse.exists():
-            errors.append(f"paired FASTQ files missing for {run}")
-            continue
-        forward_gz = ensure_gzip_fastq(forward, qiime_fastq_dir / f"{run}_1.fastq.gz", errors)
-        reverse_gz = ensure_gzip_fastq(reverse, qiime_fastq_dir / f"{run}_2.fastq.gz", errors)
-        if errors:
-            continue
-        rows.append(f"{sample_id}\t{forward_gz.resolve()}\t{reverse_gz.resolve()}")
+        if read_type == "single":
+            selected = reverse if single_read_side == "reverse" else forward
+            suffix = "_2" if single_read_side == "reverse" else "_1"
+            if not selected.exists():
+                errors.append(f"single-end FASTQ file missing for {run}: {selected}")
+                continue
+            selected_gz = ensure_gzip_fastq(selected, qiime_fastq_dir / f"{run}{suffix}.fastq.gz", errors)
+            if errors:
+                continue
+            rows.append(f"{sample_id}\t{selected_gz.resolve()}")
+        else:
+            if not forward.exists() or not reverse.exists():
+                errors.append(f"paired FASTQ files missing for {run}")
+                continue
+            forward_gz = ensure_gzip_fastq(forward, qiime_fastq_dir / f"{run}_1.fastq.gz", errors)
+            reverse_gz = ensure_gzip_fastq(reverse, qiime_fastq_dir / f"{run}_2.fastq.gz", errors)
+            if errors:
+                continue
+            rows.append(f"{sample_id}\t{forward_gz.resolve()}\t{reverse_gz.resolve()}")
 
     manifest.write_text("\n".join(rows) + "\n", encoding="utf-8")
     return manifest
@@ -239,6 +255,9 @@ def main() -> int:
         trunc_len_f = 0
         trunc_len_r = 0
         warnings.append("DADA2 full_auto used no truncation because trunc_len_f/trunc_len_r were not provided.")
+    if read_type == "single" and trunc_len_f is None and execute_mode in full_modes:
+        trunc_len_f = 0
+        warnings.append("DADA2 full_auto single-end used no truncation because trunc_len_f was not provided.")
 
     report = {
         "job_id": job.get("job_id"),
@@ -278,6 +297,22 @@ def main() -> int:
             f"--o-denoising-stats {sh_quote(str(out_dir / 'qiime2' / 'denoising-stats.qza'))} "
             f"--o-base-transition-stats {sh_quote(str(out_dir / 'qiime2' / 'base-transition-stats.qza'))}"
         )
+    if read_type == "single" and trunc_len_f is not None:
+        commands.append(
+            f"{qiime_cmd} dada2 denoise-single "
+            f"--i-demultiplexed-seqs {sh_quote(str(out_dir / 'qiime2' / 'demux.qza'))} "
+            f"--p-trim-left {trim_left_f} "
+            f"--p-trunc-len {int(trunc_len_f)} "
+            f"--p-n-threads {threads} "
+            f"--o-table {sh_quote(str(out_dir / 'qiime2' / 'table.qza'))} "
+            f"--o-representative-sequences {sh_quote(str(out_dir / 'qiime2' / 'rep-seqs.qza'))} "
+            f"--o-denoising-stats {sh_quote(str(out_dir / 'qiime2' / 'denoising-stats.qza'))} "
+            f"--o-base-transition-stats {sh_quote(str(out_dir / 'qiime2' / 'base-transition-stats.qza'))}"
+        )
+    if (
+        (read_type == "paired" and trunc_len_f is not None and trunc_len_r is not None)
+        or (read_type == "single" and trunc_len_f is not None)
+    ):
         commands.append(
             f"{qiime_cmd} feature-classifier classify-sklearn "
             f"--i-classifier {sh_quote(str(classifier))} "

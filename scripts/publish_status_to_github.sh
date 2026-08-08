@@ -164,14 +164,14 @@ if [ -f scripts/summarize_amplicon_prjna511633_status.py ]; then
   rm -f "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/status.md" \
         "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/status.json"
   "$PYTHON_BIN" scripts/summarize_amplicon_prjna511633_status.py \
-    --result-dir results/20260808T110000Z-prjna511633-icpp-16s-full-auto-depth10-optional-retry \
-    --result-glob "results/20260808T*-prjna511633-icpp-16s-full-auto*" \
+    --result-dir results/20260808T130000Z-prjna511633-icpp-16s-single-forward-retry \
+    --result-glob "results/20260808T*-prjna511633-icpp-16s-*" \
     --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
 fi
 
 if [ -f scripts/summarize_amplicon_qc_depth.py ]; then
   "$PYTHON_BIN" scripts/summarize_amplicon_qc_depth.py \
-    --result-dir results/20260808T110000Z-prjna511633-icpp-16s-full-auto-depth10-optional-retry \
+    --result-dir results/20260808T130000Z-prjna511633-icpp-16s-single-forward-retry \
     --metadata "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/sample_metadata.tsv" \
     --qiime-bin /home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime \
     --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/depth_qc"

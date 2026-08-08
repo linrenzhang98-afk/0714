@@ -123,7 +123,7 @@ def main() -> int:
     log_path = out_dir / "qc_command_log.jsonl"
 
     denoising_qza = result_dir / "qiime2" / "denoising-stats.qza"
-    export_dir = out_dir / "denoising_stats_export"
+    export_dir = out_dir / "denoising_stats_export" / result_dir.name
     stats_tsv = export_dir / "stats.tsv"
     if denoising_qza.exists() and not stats_tsv.exists() and args.qiime_bin:
         export_dir.mkdir(parents=True, exist_ok=True)
