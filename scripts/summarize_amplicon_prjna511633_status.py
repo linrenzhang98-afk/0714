@@ -10,22 +10,22 @@ from pathlib import Path
 
 
 EXPECTED_OUTPUTS = [
-    ("validation_report", "validation_report.json"),
-    ("manifest", "manifest.csv"),
-    ("command_log", "command_log.jsonl"),
-    ("demux_artifact", "qiime2/demux.qza"),
-    ("demux_visualization", "qiime2/demux.qzv"),
-    ("feature_table", "qiime2/table.qza"),
-    ("rep_seqs", "qiime2/rep-seqs.qza"),
-    ("taxonomy", "qiime2/taxonomy.qza"),
-    ("taxa_barplot", "qiime2/taxa-bar-plots.qzv"),
-    ("genus_relative_table", "qiime2/genus-relative-table.qza"),
-    ("species_relative_table", "qiime2/species-relative-table.qza"),
-    ("core_metrics", "qiime2/core-metrics"),
-    ("shannon_group_significance", "qiime2/shannon-group-significance.qzv"),
-    ("bray_curtis_group_significance", "qiime2/bray-curtis-group-significance.qzv"),
-    ("genus_export", "exports/genus_relative_table"),
-    ("species_export", "exports/species_relative_table"),
+    ("validation_report", ["validation_report.json"]),
+    ("manifest", ["manifest.tsv", "manifest.csv"]),
+    ("command_log", ["command_log.jsonl"]),
+    ("demux_artifact", ["qiime2/demux.qza"]),
+    ("demux_visualization", ["qiime2/demux.qzv"]),
+    ("feature_table", ["qiime2/table.qza"]),
+    ("rep_seqs", ["qiime2/rep-seqs.qza"]),
+    ("taxonomy", ["qiime2/taxonomy.qza"]),
+    ("taxa_barplot", ["qiime2/taxa-bar-plots.qzv"]),
+    ("genus_relative_table", ["qiime2/genus-relative-table.qza"]),
+    ("species_relative_table", ["qiime2/species-relative-table.qza"]),
+    ("core_metrics", ["qiime2/core-metrics"]),
+    ("shannon_group_significance", ["qiime2/shannon-group-significance.qzv"]),
+    ("bray_curtis_group_significance", ["qiime2/bray-curtis-group-significance.qzv"]),
+    ("genus_export", ["exports/genus_relative_table"]),
+    ("species_export", ["exports/species_relative_table"]),
 ]
 
 
@@ -64,8 +64,9 @@ def main() -> int:
     validation = load_json(result_dir / "validation_report.json")
     output_status = {}
     missing = []
-    for key, rel in EXPECTED_OUTPUTS:
-        path = result_dir / rel
+    for key, rels in EXPECTED_OUTPUTS:
+        candidates = [result_dir / rel for rel in rels]
+        path = next((candidate for candidate in candidates if candidate.exists()), candidates[0])
         exists = path.exists()
         output_status[key] = {"exists": exists, "path": str(path)}
         if not exists:
@@ -126,6 +127,13 @@ def main() -> int:
     if errors:
         lines.extend(["", "## Errors", ""])
         lines.extend(f"- {error}" for error in errors)
+    if failed_commands:
+        lines.extend(["", "## Recent Failed Command Stderr", ""])
+        for record in failed_commands[-3:]:
+            stderr = str(record.get("stderr_tail", "")).strip()
+            if stderr:
+                compact = " ".join(stderr.split())[-1200:]
+                lines.append(f"- {compact}")
     if warnings:
         lines.extend(["", "## Warnings", ""])
         lines.extend(f"- {warning}" for warning in warnings)

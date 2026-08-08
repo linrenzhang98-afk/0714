@@ -164,7 +164,7 @@ if [ -f scripts/summarize_amplicon_prjna511633_status.py ]; then
   rm -f "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/status.md" \
         "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/status.json"
   "$PYTHON_BIN" scripts/summarize_amplicon_prjna511633_status.py \
-    --result-dir results/20260808T040000Z-prjna511633-icpp-16s-full-auto-tsv-retry \
+    --result-dir results/20260808T050000Z-prjna511633-icpp-16s-full-auto-wide-manifest-retry \
     --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
 fi
 
