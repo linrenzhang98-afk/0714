@@ -211,10 +211,35 @@ fi
 
 if [ -f scripts/build_amplicon_prjna511633_manuscript_pack.py ] \
   && [ -f "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary/summary.json" ]; then
+  AMP_MANUSCRIPT_PACK_LOG="$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack_runner.log"
+  set +e
   "$PYTHON_BIN" scripts/build_amplicon_prjna511633_manuscript_pack.py \
     --summary-dir "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary" \
     --depth-qc "$AMP_PRJNA511633_PUBLIC_DIR/depth_qc" \
-    --out-dir "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack"
+    --out-dir "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack" \
+    > "$AMP_MANUSCRIPT_PACK_LOG" 2>&1
+  AMP_MANUSCRIPT_PACK_RC=$?
+  set -e
+  {
+    echo "generated_at=$(date -Is)"
+    echo "runner_return_code=$AMP_MANUSCRIPT_PACK_RC"
+    echo "manifest_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack/manifest.json" ] && echo true || echo false)"
+    echo "figure_table_plan_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack/figure_table_plan.md" ] && echo true || echo false)"
+    echo "interpretation_draft_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack/results_interpretation_draft.md" ] && echo true || echo false)"
+    echo "wetlab_targets_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack/wetlab_validation_targets.tsv" ] && echo true || echo false)"
+    echo "review_risk_notes_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack/review_risk_notes.md" ] && echo true || echo false)"
+  } > "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack_runner_status.txt"
+  if [ "$AMP_MANUSCRIPT_PACK_RC" -ne 0 ]; then
+    echo "PRJNA511633 manuscript pack reported errors; continuing status publication."
+  fi
+else
+  {
+    echo "generated_at=$(date -Is)"
+    echo "runner_return_code=not_run"
+    echo "reason=script_or_publication_summary_json_missing"
+    echo "script_exists=$([ -f scripts/build_amplicon_prjna511633_manuscript_pack.py ] && echo true || echo false)"
+    echo "summary_json_exists=$([ -f "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary/summary.json" ] && echo true || echo false)"
+  } > "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack_runner_status.txt"
 fi
 
 PROGRESS_GOVERNOR_DIR="$PUBLIC_STATUS_DIR/progress_governor"

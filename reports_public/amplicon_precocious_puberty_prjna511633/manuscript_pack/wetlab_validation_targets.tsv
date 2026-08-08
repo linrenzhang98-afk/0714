@@ -1,0 +1,5 @@
+target_taxon	direction_in_icpp	screening_q_value	wetlab_assay	priority
+[Ruminococcus]_gnavus_group	lower	0.0390868	genus-targeted qPCR on independent fecal DNA	high
+Agathobacter	higher	0.0390868	genus-targeted qPCR on independent fecal DNA	high
+[Eubacterium]_coprostanoligenes_group	higher	0.0390868	genus-targeted qPCR on independent fecal DNA	high
+Ruminococcus	higher	0.0431643	genus-targeted qPCR on independent fecal DNA	high

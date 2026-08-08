@@ -1,0 +1,7 @@
+generated_at=2026-08-09T04:40:00+08:00
+runner_return_code=0
+manifest_exists=true
+figure_table_plan_exists=true
+interpretation_draft_exists=true
+wetlab_targets_exists=true
+review_risk_notes_exists=true
