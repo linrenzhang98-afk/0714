@@ -1,15 +1,10 @@
 {
-  "generated_at": "2026-08-08T04:02:52+00:00",
+  "generated_at": "2026-08-08T04:25:49+00:00",
   "project": "PRJNA511633 ICPP gut 16S",
-  "result_dir": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry",
-  "progress_state": "not_started",
-  "next_action": "Ensure the job is allowlisted and picked up by the general runner.",
+  "result_dir": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry",
+  "progress_state": "failed_needs_patch",
+  "next_action": "Inspect validation_report.json and command_log.jsonl, then patch the smallest reproducible cause.",
   "missing_outputs": [
-    "validation_report",
-    "manifest",
-    "command_log",
-    "demux_artifact",
-    "demux_visualization",
     "feature_table",
     "rep_seqs",
     "taxonomy",
@@ -22,73 +17,87 @@
     "genus_export",
     "species_export"
   ],
-  "validation_errors": [],
+  "validation_errors": [
+    "command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' dada2 denoise-paired --i-demultiplexed-seqs '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/demux.qza' --p-trim-left-f 0 --p-trim-left-r 0 --p-trunc-len-f 280 --p-trunc-len-r 220 --p-n-threads 4 --o-table '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/table.qza' --o-representative-sequences '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/rep-seqs.qza' --o-denoising-stats '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/denoising-stats.qza'"
+  ],
   "validation_warnings": [],
-  "failed_recent_commands": [],
+  "failed_recent_commands": [
+    {
+      "ts": "2026-08-08T03:45:49+00:00",
+      "args": [
+        "bash",
+        "-lc",
+        "unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' dada2 denoise-paired --i-demultiplexed-seqs '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/demux.qza' --p-trim-left-f 0 --p-trim-left-r 0 --p-trunc-len-f 280 --p-trunc-len-r 220 --p-n-threads 4 --o-table '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/table.qza' --o-representative-sequences '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/rep-seqs.qza' --o-denoising-stats '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/denoising-stats.qza'"
+      ],
+      "returncode": 1,
+      "stdout_tail": "",
+      "stderr_tail": " listing per-sample read retention counts\n                          and percentages after each stage of the pipeline.\n                                                                    [required]\n  --o-base-transition-stats ARTIFACT DADA2BaseTransitionStats\n                          A table listing the transition rates of each\n                          ordered pair of nucleotides at each quality score.\n                                                                    [required]\nMiscellaneous:\n  --output-dir PATH       Output unspecified results to a directory\n  --verbose / --quiet     Display verbose output to stdout and/or stderr\n                          during execution of this action. Or silence output\n                          if execution is successful (silence is golden).\n  --example-data PATH     Write example data and exit.\n  --citations             Show citations and exit.\n  --use-cache DIRECTORY   Specify the cache to be used for the intermediate\n                          work of this action. If not provided, the default\n                          cache under $TMP/qiime2/<uname> will be used.\n                          IMPORTANT FOR HPC USERS: If you are on an HPC system\n                          and are using parallel execution it is important to\n                          set this to a location that is globally accessible\n                          to all nodes in the cluster.\n  --help                  Show this message and exit.\n\nExamples:\n  # ### example: denoise paired\n  qiime dada2 denoise-paired \\\n    --i-demultiplexed-seqs demux-paired.qza \\\n    --p-trunc-len-f 150 \\\n    --p-trunc-len-r 140 \\\n    --o-representative-sequences representative-sequences.qza \\\n    --o-table table.qza \\\n    --o-denoising-stats denoising-stats.qza \\\n    --o-base-transition-stats base-transition-stats.qza\n  \n\n                    There was a problem with the command:                     \n (1/1) Missing option '--o-base-transition-stats'. (\"--output-dir\" may also be\n  used)\n"
+    }
+  ],
   "outputs": {
     "validation_report": {
-      "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\validation_report.json"
+      "exists": true,
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/validation_report.json"
     },
     "manifest": {
-      "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\manifest.tsv"
+      "exists": true,
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/manifest.tsv"
     },
     "command_log": {
-      "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\command_log.jsonl"
+      "exists": true,
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/command_log.jsonl"
     },
     "demux_artifact": {
-      "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\demux.qza"
+      "exists": true,
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/demux.qza"
     },
     "demux_visualization": {
-      "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\demux.qzv"
+      "exists": true,
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/demux.qzv"
     },
     "feature_table": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\table.qza"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/table.qza"
     },
     "rep_seqs": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\rep-seqs.qza"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/rep-seqs.qza"
     },
     "taxonomy": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\taxonomy.qza"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/taxonomy.qza"
     },
     "taxa_barplot": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\taxa-bar-plots.qzv"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/taxa-bar-plots.qzv"
     },
     "genus_relative_table": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\genus-relative-table.qza"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/genus-relative-table.qza"
     },
     "species_relative_table": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\species-relative-table.qza"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/species-relative-table.qza"
     },
     "core_metrics": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\core-metrics"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/core-metrics"
     },
     "shannon_group_significance": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\shannon-group-significance.qzv"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/shannon-group-significance.qzv"
     },
     "bray_curtis_group_significance": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\qiime2\\bray-curtis-group-significance.qzv"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/bray-curtis-group-significance.qzv"
     },
     "genus_export": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\exports\\genus_relative_table"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/exports/genus_relative_table"
     },
     "species_export": {
       "exists": false,
-      "path": "results\\20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry\\exports\\species_relative_table"
+      "path": "results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/exports/species_relative_table"
     }
   }
 }
