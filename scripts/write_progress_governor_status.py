@@ -78,6 +78,10 @@ def main() -> int:
     host_amr_summary = load_json(public_dir / "metagenome_host_amr_screen" / "summary.json")
     host_amr_done = int(host_amr_summary.get("runs_summarized", 0) or 0) >= 30
     amr_hits = int(host_amr_summary.get("amrfinder_hit_rows", 0) or 0)
+    amplicon_status = load_json(public_dir / "amplicon_precocious_puberty_prjna511633" / "status.json")
+    amplicon_ready = str(amplicon_status.get("progress_state", "")).startswith("analysis_outputs_ready")
+    if amplicon_ready:
+        failed = [job_id for job_id in failed if not ("prjna511633" in job_id and "16s" in job_id)]
 
     differential_summary_exists = (public_dir / "prjna1056765_group_differentials" / "summary.md").exists()
     clinical_summary_exists = (public_dir / "prjna1056765_clinical_groups" / "summary.md").exists()
