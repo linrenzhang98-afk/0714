@@ -160,20 +160,29 @@ if [ -f scripts/summarize_host_amr_screen.py ] \
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_host_amr_screen"
 fi
 
+AMP_PRJNA511633_RESULT_DIR="results/20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry"
+AMP_PRJNA511633_PUBLIC_DIR="$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
+mkdir -p "$AMP_PRJNA511633_PUBLIC_DIR"
+{
+  echo "generated_at=$(date -Is)"
+  echo "target_result_dir=$AMP_PRJNA511633_RESULT_DIR"
+  echo "target_job_id=20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry"
+} > "$AMP_PRJNA511633_PUBLIC_DIR/current_target.txt"
+
 if [ -f scripts/summarize_amplicon_prjna511633_status.py ]; then
   rm -f "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/status.md" \
         "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/status.json"
   "$PYTHON_BIN" scripts/summarize_amplicon_prjna511633_status.py \
-    --result-dir results/20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry \
-    --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
+    --result-dir "$AMP_PRJNA511633_RESULT_DIR" \
+    --out-dir "$AMP_PRJNA511633_PUBLIC_DIR"
 fi
 
 if [ -f scripts/summarize_amplicon_qc_depth.py ]; then
   "$PYTHON_BIN" scripts/summarize_amplicon_qc_depth.py \
-    --result-dir results/20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry \
-    --metadata "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/sample_metadata.tsv" \
+    --result-dir "$AMP_PRJNA511633_RESULT_DIR" \
+    --metadata "$AMP_PRJNA511633_PUBLIC_DIR/sample_metadata.tsv" \
     --qiime-bin /home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime \
-    --out-dir "$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633/depth_qc"
+    --out-dir "$AMP_PRJNA511633_PUBLIC_DIR/depth_qc"
 fi
 
 PROGRESS_GOVERNOR_DIR="$PUBLIC_STATUS_DIR/progress_governor"
