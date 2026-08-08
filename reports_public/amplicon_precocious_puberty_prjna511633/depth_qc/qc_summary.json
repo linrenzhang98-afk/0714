@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-08-08T12:51:32+00:00",
+  "result_dir": "results/20260808T110000Z-prjna511633-icpp-16s-full-auto-depth10-optional-retry",
+  "sample_count": 48,
+  "qc_state": "not_publication_ready",
+  "reason": "Median post-DADA2 depth is below 1000 reads; diversity statistics should not be used as formal conclusions. Optimize DADA2 trimming/merging before final alpha/beta diversity analysis.",
+  "min_final_reads": 0,
+  "q25_final_reads": 0.0,
+  "median_final_reads": 0.0,
+  "q75_final_reads": 0.0,
+  "max_final_reads": 46208,
+  "depth_candidates": [
+    {
+      "depth": 10,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    },
+    {
+      "depth": 50,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    },
+    {
+      "depth": 100,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    },
+    {
+      "depth": 500,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    },
+    {
+      "depth": 1000,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    },
+    {
+      "depth": 2000,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    },
+    {
+      "depth": 5000,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    },
+    {
+      "depth": 10000,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    },
+    {
+      "depth": 20000,
+      "retained_samples": 2,
+      "retained_fraction": 0.041666666666666664,
+      "healthy_control_retained": 1,
+      "healthy_control_total": 23,
+      "idiopathic_central_precocious_puberty_retained": 1,
+      "idiopathic_central_precocious_puberty_total": 25
+    }
+  ]
+}
