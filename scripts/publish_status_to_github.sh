@@ -185,6 +185,14 @@ if [ -f scripts/summarize_amplicon_qc_depth.py ]; then
     --out-dir "$AMP_PRJNA511633_PUBLIC_DIR/depth_qc"
 fi
 
+if [ -f scripts/summarize_amplicon_prjna511633_results.py ]; then
+  "$PYTHON_BIN" scripts/summarize_amplicon_prjna511633_results.py \
+    --result-dir "$AMP_PRJNA511633_RESULT_DIR" \
+    --metadata "$AMP_PRJNA511633_PUBLIC_DIR/sample_metadata.tsv" \
+    --qiime-bin /home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime \
+    --out-dir "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary"
+fi
+
 PROGRESS_GOVERNOR_DIR="$PUBLIC_STATUS_DIR/progress_governor"
 mkdir -p "$PROGRESS_GOVERNOR_DIR"
 if [ -f scripts/write_progress_governor_status.py ]; then
