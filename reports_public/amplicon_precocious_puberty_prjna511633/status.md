@@ -1,6 +1,6 @@
 # PRJNA511633 Amplicon Status
 
-Generated at: 2026-08-08T04:25:49+00:00
+Generated at: 2026-08-08T04:48:55+00:00
 
 Progress state: `failed_needs_patch`
 
@@ -32,7 +32,7 @@ Progress state: `failed_needs_patch`
 
 ## Errors
 
-- command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' dada2 denoise-paired --i-demultiplexed-seqs '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/demux.qza' --p-trim-left-f 0 --p-trim-left-r 0 --p-trunc-len-f 280 --p-trunc-len-r 220 --p-n-threads 4 --o-table '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/table.qza' --o-representative-sequences '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/rep-seqs.qza' --o-denoising-stats '/mnt/disk1/db/kraken2/0714/results/20260808T060000Z-prjna511633-icpp-16s-full-auto-gzip-retry/qiime2/denoising-stats.qza'
+- command failed: unset R_HOME R_LIBS R_LIBS_USER R_LIBS_SITE PYTHONPATH; export PATH='/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin':${PATH:-}; '/home/suma/anaconda3/envs/qiime2-amplicon-2025.10/bin/qiime' dada2 denoise-paired --i-demultiplexed-seqs '/mnt/disk1/db/kraken2/0714/results/20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry/qiime2/demux.qza' --p-trim-left-f 0 --p-trim-left-r 0 --p-trunc-len-f 280 --p-trunc-len-r 220 --p-n-threads 4 --o-table '/mnt/disk1/db/kraken2/0714/results/20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry/qiime2/table.qza' --o-representative-sequences '/mnt/disk1/db/kraken2/0714/results/20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry/qiime2/rep-seqs.qza' --o-denoising-stats '/mnt/disk1/db/kraken2/0714/results/20260808T070000Z-prjna511633-icpp-16s-full-auto-local-gzip-retry/qiime2/denoising-stats.qza'
 
 ## Recent Failed Command Stderr
 
