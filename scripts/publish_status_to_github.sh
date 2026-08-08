@@ -209,6 +209,14 @@ if [ -f scripts/summarize_amplicon_prjna511633_results.py ]; then
   fi
 fi
 
+if [ -f scripts/build_amplicon_prjna511633_manuscript_pack.py ] \
+  && [ -f "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary/summary.json" ]; then
+  "$PYTHON_BIN" scripts/build_amplicon_prjna511633_manuscript_pack.py \
+    --summary-dir "$AMP_PRJNA511633_PUBLIC_DIR/publication_summary" \
+    --depth-qc "$AMP_PRJNA511633_PUBLIC_DIR/depth_qc" \
+    --out-dir "$AMP_PRJNA511633_PUBLIC_DIR/manuscript_pack"
+fi
+
 PROGRESS_GOVERNOR_DIR="$PUBLIC_STATUS_DIR/progress_governor"
 mkdir -p "$PROGRESS_GOVERNOR_DIR"
 if [ -f scripts/write_progress_governor_status.py ]; then
