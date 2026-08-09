@@ -82,6 +82,11 @@ def main() -> int:
     amplicon_ready = str(amplicon_status.get("progress_state", "")).startswith("analysis_outputs_ready")
     if amplicon_ready:
         failed = [job_id for job_id in failed if not ("prjna511633" in job_id and "16s" in job_id)]
+    functional_summary = load_json(public_dir / "metagenome_functional_profile" / "summary.json")
+    functional_state = str(functional_summary.get("state", "not_started") or "not_started")
+    functional_done = functional_state == "done"
+    functional_blocked = functional_state.startswith("blocked") or functional_state == "done_with_failures"
+    functional_running = functional_state in {"initializing", "running", "starting"}
 
     differential_summary_exists = (public_dir / "prjna1056765_group_differentials" / "summary.md").exists()
     clinical_summary_exists = (public_dir / "prjna1056765_clinical_groups" / "summary.md").exists()
@@ -119,7 +124,24 @@ def main() -> int:
         public_dir / "manuscript_evidence_package" / "public_data_submission_package.md"
     ).exists()
 
-    if pending:
+    if functional_running:
+        progress_state = "metagenome_functional_profile_running"
+        reason = (
+            "Shotgun functional profiling is active or being initialized; "
+            f"{functional_summary.get('done_count', 0)} of {functional_summary.get('sample_count', 0)} sample(s) are done."
+        )
+        next_action = "Let the workstation continue HUMAnN/MetaPhlAn functional profiling; Codex should inspect logs only if it becomes blocked."
+    elif functional_blocked:
+        progress_state = "stalled_metagenome_functional_profile"
+        reason = (
+            "Shotgun functional profiling did not complete: "
+            f"{functional_summary.get('reason', 'see metagenome_functional_profile summary')}"
+        )
+        next_action = (
+            "Codex should inspect reports_public/metagenome_functional_profile/summary.md, "
+            "runner_status.txt, worker.nohup.log, and patch the smallest repository-side cause."
+        )
+    elif pending:
         progress_state = "running_or_queued"
         reason = f"{len(pending)} queued/non-final job(s) remain."
         next_action = "Let workstation runner continue; inspect failed jobs only if they appear."
@@ -139,6 +161,7 @@ def main() -> int:
         )
     elif (
         host_amr_done
+        and functional_done
         and differential_summary_exists
         and clinical_summary_exists
         and evidence_package_exists
@@ -159,7 +182,8 @@ def main() -> int:
     ):
         progress_state = "public_data_submission_ready"
         reason = (
-            "Compute jobs are final; the public-data-only manuscript route is selected and the submission package is available."
+            "Compute jobs and the shotgun functional profile stage are final; "
+            "the public-data-only manuscript route is selected and the submission package is available."
         )
         next_action = (
             "Proceed with public-data manuscript polishing, figure/table finalization, and target-journal formatting; "
@@ -393,6 +417,8 @@ def main() -> int:
         "rejected_non_demo_jobs": rejected[:50],
         "host_amr_done": host_amr_done,
         "host_amr_hits": amr_hits,
+        "functional_profile_state": functional_state,
+        "functional_profile_done": functional_done,
         "clinical_summary_exists": clinical_summary_exists,
         "differential_summary_exists": differential_summary_exists,
         "evidence_package_exists": evidence_package_exists,
@@ -435,6 +461,7 @@ def main() -> int:
         f"- Rejected non-demo jobs: {len(rejected)}",
         f"- Host-AMR complete: {host_amr_done}",
         f"- Host-AMR hit rows: {amr_hits}",
+        f"- Functional profile state: {functional_state}",
     ]
     if pending:
         lines.extend(["", "## Pending Jobs", ""])

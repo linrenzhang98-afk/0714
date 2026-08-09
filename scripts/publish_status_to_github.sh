@@ -187,6 +187,28 @@ if [ -f scripts/summarize_shotgun_standard.py ] \
   fi
 fi
 
+if [ "${ENABLE_METAGENOME_FUNCTIONAL_PROFILE:-1}" = "1" ] \
+  && [ -f scripts/autopilot_metagenome_functional_profile.sh ]; then
+  FUNCTIONAL_PROFILE_PUBLIC_DIR="$PUBLIC_STATUS_DIR/metagenome_functional_profile"
+  mkdir -p "$FUNCTIONAL_PROFILE_PUBLIC_DIR"
+  set +e
+  bash scripts/autopilot_metagenome_functional_profile.sh \
+    > "$FUNCTIONAL_PROFILE_PUBLIC_DIR/autopilot_launcher.log" 2>&1
+  FUNCTIONAL_PROFILE_RC=$?
+  set -e
+  {
+    echo "generated_at=$(date -Is)"
+    echo "launcher_return_code=$FUNCTIONAL_PROFILE_RC"
+    echo "summary_md_exists=$([ -f "$FUNCTIONAL_PROFILE_PUBLIC_DIR/summary.md" ] && echo true || echo false)"
+    echo "summary_json_exists=$([ -f "$FUNCTIONAL_PROFILE_PUBLIC_DIR/summary.json" ] && echo true || echo false)"
+    echo "run_status_exists=$([ -f "$FUNCTIONAL_PROFILE_PUBLIC_DIR/run_status.tsv" ] && echo true || echo false)"
+    echo "runner_status_exists=$([ -f "$FUNCTIONAL_PROFILE_PUBLIC_DIR/runner_status.txt" ] && echo true || echo false)"
+  } > "$FUNCTIONAL_PROFILE_PUBLIC_DIR/launcher_status.txt"
+  if [ "$FUNCTIONAL_PROFILE_RC" -ne 0 ]; then
+    echo "Functional profile launcher reported errors; continuing status publication."
+  fi
+fi
+
 AMP_PRJNA511633_RESULT_DIR="results/20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry"
 AMP_PRJNA511633_PUBLIC_DIR="$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
 mkdir -p "$AMP_PRJNA511633_PUBLIC_DIR"
