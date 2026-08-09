@@ -19,6 +19,9 @@ from pathlib import Path
 from typing import Any
 
 
+TOOL_SEARCH_DIRS: list[Path] = []
+
+
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
@@ -88,6 +91,10 @@ def run_command(
 
 
 def command_path(command: str) -> str:
+    for directory in TOOL_SEARCH_DIRS:
+        candidate = directory / command
+        if candidate.exists() and os.access(candidate, os.X_OK):
+            return str(candidate)
     return shutil.which(command) or ""
 
 
@@ -216,7 +223,7 @@ def has_db_files(path: Path, suffixes: tuple[str, ...]) -> bool:
     return False
 
 
-def install_humann_if_needed(log_path: Path, conda_env: str, timeout: int) -> None:
+def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_prefix: Path, timeout: int) -> None:
     humann_ok = command_healthy("humann", ["--version"], log_path)
     databases_ok = command_healthy("humann_databases", ["--help"], log_path)
     if humann_ok and databases_ok:
@@ -224,6 +231,58 @@ def install_humann_if_needed(log_path: Path, conda_env: str, timeout: int) -> No
     installer = command_path("mamba") or command_path("conda")
     if not installer:
         raise RuntimeError("HUMAnN missing/broken and neither mamba nor conda is available for installation")
+    dedicated_bin = functional_env_prefix / "bin"
+    if dedicated_bin not in TOOL_SEARCH_DIRS:
+        TOOL_SEARCH_DIRS.insert(0, dedicated_bin)
+    if not (functional_env_prefix / "bin" / "humann").exists():
+        result = run_command(
+            [
+                installer,
+                "create",
+                "-p",
+                str(functional_env_prefix),
+                "-y",
+                "-c",
+                "conda-forge",
+                "-c",
+                "bioconda",
+                "python=3.12",
+                "humann",
+                "metaphlan",
+                "diamond",
+            ],
+            log_path,
+            timeout=timeout,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f"Dedicated HUMAnN environment creation failed rc={result.returncode}")
+    if command_healthy("humann", ["--version"], log_path) and command_healthy("humann_databases", ["--help"], log_path):
+        return
+    append_log(log_path, "dedicated HUMAnN env unhealthy; forcing reinstall in dedicated env")
+    result = run_command(
+        [
+            installer,
+            "install",
+            "-p",
+            str(functional_env_prefix),
+            "-y",
+            "--force-reinstall",
+            "-c",
+            "conda-forge",
+            "-c",
+            "bioconda",
+            "python=3.12",
+            "humann",
+            "metaphlan",
+            "diamond",
+        ],
+        log_path,
+        timeout=timeout,
+    )
+    if result.returncode == 0 and command_healthy("humann", ["--version"], log_path) and command_healthy("humann_databases", ["--help"], log_path):
+        return
+
+    append_log(log_path, "dedicated environment failed; retrying configured mgshotgun env")
     result = run_command(
         [
             installer,
@@ -406,6 +465,7 @@ def main() -> int:
     parser.add_argument("--install-timeout-seconds", type=int, default=21600)
     parser.add_argument("--db-timeout-seconds", type=int, default=172800)
     parser.add_argument("--conda-env", default="mgshotgun")
+    parser.add_argument("--functional-env-prefix", default="/home/suma/anaconda3/envs/humann-shotgun")
     parser.add_argument("--auto-install", action="store_true")
     parser.add_argument("--auto-download-dbs", action="store_true")
     args = parser.parse_args()
@@ -413,6 +473,8 @@ def main() -> int:
     result_dir = Path(args.out_dir)
     public_dir = Path(args.public_dir)
     db_root = Path(args.db_root)
+    functional_env_prefix = Path(args.functional_env_prefix)
+    TOOL_SEARCH_DIRS.insert(0, functional_env_prefix / "bin")
     logs_dir = result_dir / "logs"
     logs_dir.mkdir(parents=True, exist_ok=True)
     log_path = logs_dir / "functional_profile.log"
@@ -430,7 +492,7 @@ def main() -> int:
 
     try:
         if args.auto_install:
-            install_humann_if_needed(log_path, args.conda_env, args.install_timeout_seconds)
+            install_humann_if_needed(log_path, args.conda_env, functional_env_prefix, args.install_timeout_seconds)
         tool_status = {
             "humann": command_path("humann"),
             "humann_databases": command_path("humann_databases"),
