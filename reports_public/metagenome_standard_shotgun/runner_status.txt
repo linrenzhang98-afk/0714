@@ -1,0 +1,8 @@
+generated_at=2026-08-09T12:15:06+08:00
+runner_return_code=0
+summary_md_exists=true
+qc_summary_exists=true
+species_matrix_exists=true
+alpha_diversity_exists=true
+beta_distance_exists=true
+differentials_exists=true

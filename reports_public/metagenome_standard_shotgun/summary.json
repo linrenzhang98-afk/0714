@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-08-09T04:15:06+00:00",
+  "samples": 30,
+  "groups": {
+    "Staphylococcus": 4,
+    "Enterobacterales": 4,
+    "Pseudomonas": 4,
+    "Stenotrophomonas": 1,
+    "Acinetobacter": 4,
+    "Candida": 1,
+    "Haemophilus": 4,
+    "Streptococcus": 4,
+    "Mycobacteria": 4
+  },
+  "status_counts": {
+    "done": 30
+  },
+  "amr_status_counts": {
+    "done_short_read_subset": 30
+  },
+  "taxa": 253,
+  "parse_failures": [],
+  "differential_tests": 861,
+  "fdr_significant_species": 0,
+  "q_lt_0_10_species": 0,
+  "top_taxa": [
+    "Pseudomonas aeruginosa",
+    "Homo sapiens",
+    "Acinetobacter baumannii",
+    "Toxoplasma gondii",
+    "Staphylococcus aureus",
+    "Haemophilus influenzae",
+    "Klebsiella pneumoniae",
+    "Escherichia coli",
+    "Arabidopsis thaliana",
+    "Streptococcus pneumoniae",
+    "Stenotrophomonas maltophilia",
+    "Mycobacterium tuberculosis",
+    "Candida albicans",
+    "Streptococcus mitis",
+    "Staphylococcus haemolyticus",
+    "Rothia mucilaginosa",
+    "Streptococcus intermedius",
+    "Alcyoneusvirus K641",
+    "Corynebacterium resistens",
+    "Streptococcus oralis"
+  ]
+}
