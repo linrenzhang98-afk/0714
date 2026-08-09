@@ -48,6 +48,16 @@ def append_log(path: Path, message: str) -> None:
         f.write(f"{utc_now()}\t{message}\n")
 
 
+def copy_log_tail(src: Path, dst: Path, max_lines: int = 200) -> None:
+    if not src.exists():
+        return
+    try:
+        lines = src.read_text(encoding="utf-8", errors="replace").splitlines()
+    except OSError:
+        return
+    dst.write_text("\n".join(lines[-max_lines:]) + "\n", encoding="utf-8")
+
+
 def run_command(
     args: list[str],
     log_path: Path,
@@ -106,6 +116,7 @@ def write_public_status(
     running = sum(1 for row in rows if row.get("status") == "running")
     skipped = sum(1 for row in rows if str(row.get("status", "")).startswith("skipped"))
     public_dir.mkdir(parents=True, exist_ok=True)
+    copy_log_tail(result_dir / "logs" / "functional_profile.log", public_dir / "functional_profile_log_tail.txt")
     summary = {
         "generated_at": utc_now(),
         "state": state,
@@ -165,6 +176,7 @@ def write_public_status(
             "",
             f"- ChocoPhlAn ready: {db_status.get('chocophlan_ready', False)}",
             f"- UniRef ready: {db_status.get('uniref_ready', False)}",
+            f"- Utility mapping ready: {db_status.get('utility_mapping_ready', False)}",
             f"- Database root: `{db_status.get('db_root', '')}`",
             "",
             "## Output Files",
@@ -229,21 +241,44 @@ def download_humann_dbs(db_root: Path, log_path: Path, timeout: int) -> None:
     chocophlan = db_root / "chocophlan"
     uniref = db_root / "uniref"
     if not has_db_files(chocophlan, (".ffn.gz", ".ffn")):
-        result = run_command(
-            [humann_databases, "--download", "chocophlan", "full", str(db_root)],
+        result = run_download_with_retries(
+            [humann_databases, "--download", "chocophlan", "full", str(db_root), "--update-config", "yes"],
             log_path,
             timeout=timeout,
         )
         if result.returncode != 0:
-            raise RuntimeError(f"ChocoPhlAn download failed rc={result.returncode}")
+            raise RuntimeError(f"ChocoPhlAn download failed rc={result.returncode}; see functional_profile_log_tail.txt")
     if not has_db_files(uniref, (".dmnd", ".faa.gz", ".faa")):
-        result = run_command(
-            [humann_databases, "--download", "uniref", "uniref90_diamond", str(db_root)],
+        result = run_download_with_retries(
+            [humann_databases, "--download", "uniref", "uniref90_diamond", str(db_root), "--update-config", "yes"],
             log_path,
             timeout=timeout,
         )
         if result.returncode != 0:
-            raise RuntimeError(f"UniRef90 download failed rc={result.returncode}")
+            raise RuntimeError(f"UniRef90 download failed rc={result.returncode}; see functional_profile_log_tail.txt")
+    utility_mapping = db_root / "utility_mapping"
+    if not utility_mapping.exists() or not any(utility_mapping.iterdir()):
+        result = run_download_with_retries(
+            [humann_databases, "--download", "utility_mapping", "full", str(db_root), "--update-config", "yes"],
+            log_path,
+            timeout=timeout,
+        )
+        if result.returncode != 0:
+            append_log(log_path, f"utility_mapping_download_failed_nonfatal rc={result.returncode}")
+
+
+def run_download_with_retries(args: list[str], log_path: Path, timeout: int, attempts: int = 3) -> subprocess.CompletedProcess[str]:
+    last: subprocess.CompletedProcess[str] | None = None
+    for attempt in range(1, attempts + 1):
+        append_log(log_path, f"download_attempt={attempt}/{attempts}")
+        last = run_command(args, log_path, timeout=timeout)
+        if last.returncode == 0:
+            return last
+        if attempt < attempts:
+            time.sleep(30)
+    if last is None:
+        raise RuntimeError("download retry loop did not run")
+    return last
 
 
 def db_status(db_root: Path) -> dict[str, Any]:
@@ -253,6 +288,7 @@ def db_status(db_root: Path) -> dict[str, Any]:
         "db_root": str(db_root),
         "chocophlan_ready": has_db_files(chocophlan, (".ffn.gz", ".ffn")),
         "uniref_ready": has_db_files(uniref, (".dmnd", ".faa.gz", ".faa")),
+        "utility_mapping_ready": (db_root / "utility_mapping").exists() and any((db_root / "utility_mapping").iterdir()),
         "chocophlan": str(chocophlan),
         "uniref": str(uniref),
     }
