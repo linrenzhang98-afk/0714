@@ -1,11 +1,11 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-09T10:18:34+00:00
+Generated at: 2026-08-09T11:04:20+00:00
 State: `blocked_setup`
 
 ## Reason
 
-- ChocoPhlAn download failed rc=1; see functional_profile_log_tail.txt
+- HUMAnN commands remain unhealthy after conda/mamba installation
 
 ## Completion
 

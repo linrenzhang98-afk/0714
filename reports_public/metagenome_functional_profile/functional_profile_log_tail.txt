@@ -25,3 +25,80 @@ Traceback (most recent call last):
     from humann.tools.humann_databases import main
 ModuleNotFoundError: No module named 'humann'
 2026-08-09T10:18:34+00:00	RETURN_CODE 1
+2026-08-09T10:57:34+00:00	RUN /home/suma/anaconda3/envs/mgshotgun/bin/humann --version
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/mgshotgun/bin/humann", line 7, in <module>
+    from humann.humann import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-09T10:57:34+00:00	RETURN_CODE 1
+2026-08-09T10:57:34+00:00	health_check humann=false
+2026-08-09T10:57:34+00:00	RUN /home/suma/anaconda3/envs/mgshotgun/bin/humann_databases --help
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases", line 7, in <module>
+    from humann.tools.humann_databases import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-09T10:57:34+00:00	RETURN_CODE 1
+2026-08-09T10:57:34+00:00	health_check humann_databases=false
+2026-08-09T10:57:34+00:00	RUN /home/suma/anaconda3/bin/mamba install -n mgshotgun -y --force-reinstall -c bioconda -c conda-forge humann metaphlan diamond
+
+Pinned packages:
+
+  - python=3.13
+
+
+Transaction
+
+  Prefix: /home/suma/anaconda3/envs/mgshotgun
+
+  Updating specs:
+
+   - humann
+   - metaphlan
+   - diamond
+
+
+  Package      Version  Build            Channel        Size
+──────────────────────────────────────────────────────────────
+  Reinstall:
+──────────────────────────────────────────────────────────────
+
+  o diamond      2.2.1  he361c42_0       bioconda     Cached
+  o humann         3.9  py312hdfd78af_0  bioconda     Cached
+  o metaphlan    4.2.4  pyhdfd78af_0     bioconda     Cached
+
+  Summary:
+
+  Reinstall: 3 packages
+
+  Total download: 0 B
+
+──────────────────────────────────────────────────────────────
+
+
+
+Transaction starting
+Unlinking diamond-2.2.1-he361c42_0
+Unlinking metaphlan-4.2.4-pyhdfd78af_0
+Unlinking humann-3.9-py312hdfd78af_0
+Linking diamond-2.2.1-he361c42_0
+Linking metaphlan-4.2.4-pyhdfd78af_0
+Linking humann-3.9-py312hdfd78af_0
+
+Transaction finished
+
+warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+    
+warning  libmamba Please make sure you understand Anaconda Terms of Services.
+    
+warning  libmamba See: https://legal.anaconda.com/policies/en/
+warning  libmamba Invalid package cache, file '/home/suma/anaconda3/pkgs/humann-3.9-py312hdfd78af_0/lib/python3.12/site-packages/humann/humann.cfg' has incorrect size
+warning  libmamba [humann-3.9-py312hdfd78af_0] The following files were already present in the environment:
+    - bin/diamond
+2026-08-09T11:04:20+00:00	RETURN_CODE 0
+2026-08-09T11:04:20+00:00	RUN /home/suma/anaconda3/envs/mgshotgun/bin/humann --version
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/mgshotgun/bin/humann", line 7, in <module>
+    from humann.humann import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-09T11:04:20+00:00	RETURN_CODE 1
+2026-08-09T11:04:20+00:00	health_check humann=false
