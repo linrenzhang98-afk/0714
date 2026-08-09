@@ -1,0 +1,27 @@
+2026-08-09T09:37:05+00:00	RUN /home/suma/anaconda3/envs/mgshotgun/bin/humann_databases --download chocophlan full /mnt/disk1/db/humann
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases", line 7, in <module>
+    from humann.tools.humann_databases import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-09T09:37:05+00:00	RETURN_CODE 1
+2026-08-09T10:17:33+00:00	download_attempt=1/3
+2026-08-09T10:17:33+00:00	RUN /home/suma/anaconda3/envs/mgshotgun/bin/humann_databases --download chocophlan full /mnt/disk1/db/humann --update-config yes
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases", line 7, in <module>
+    from humann.tools.humann_databases import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-09T10:17:33+00:00	RETURN_CODE 1
+2026-08-09T10:18:03+00:00	download_attempt=2/3
+2026-08-09T10:18:03+00:00	RUN /home/suma/anaconda3/envs/mgshotgun/bin/humann_databases --download chocophlan full /mnt/disk1/db/humann --update-config yes
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases", line 7, in <module>
+    from humann.tools.humann_databases import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-09T10:18:04+00:00	RETURN_CODE 1
+2026-08-09T10:18:34+00:00	download_attempt=3/3
+2026-08-09T10:18:34+00:00	RUN /home/suma/anaconda3/envs/mgshotgun/bin/humann_databases --download chocophlan full /mnt/disk1/db/humann --update-config yes
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases", line 7, in <module>
+    from humann.tools.humann_databases import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-09T10:18:34+00:00	RETURN_CODE 1

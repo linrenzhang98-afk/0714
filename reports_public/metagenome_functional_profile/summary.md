@@ -1,11 +1,11 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-09T09:37:05+00:00
+Generated at: 2026-08-09T10:18:34+00:00
 State: `blocked_setup`
 
 ## Reason
 
-- ChocoPhlAn download failed rc=1
+- ChocoPhlAn download failed rc=1; see functional_profile_log_tail.txt
 
 ## Completion
 
@@ -28,6 +28,7 @@ State: `blocked_setup`
 
 - ChocoPhlAn ready: False
 - UniRef ready: False
+- Utility mapping ready: False
 - Database root: `/mnt/disk1/db/humann`
 
 ## Output Files

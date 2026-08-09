@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-09T09:37:05+00:00",
+  "generated_at": "2026-08-09T10:18:34+00:00",
   "state": "blocked_setup",
-  "reason": "ChocoPhlAn download failed rc=1",
+  "reason": "ChocoPhlAn download failed rc=1; see functional_profile_log_tail.txt",
   "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
   "sample_count": 30,
   "done_count": 0,
@@ -20,6 +20,7 @@
     "db_root": "/mnt/disk1/db/humann",
     "chocophlan_ready": false,
     "uniref_ready": false,
+    "utility_mapping_ready": false,
     "chocophlan": "/mnt/disk1/db/humann/chocophlan",
     "uniref": "/mnt/disk1/db/humann/uniref"
   }
