@@ -160,6 +160,33 @@ if [ -f scripts/summarize_host_amr_screen.py ] \
     --out-dir "$PUBLIC_STATUS_DIR/metagenome_host_amr_screen"
 fi
 
+if [ -f scripts/summarize_shotgun_standard.py ] \
+  && [ -f "$PUBLIC_STATUS_DIR/metagenome_host_amr_screen/run_status.tsv" ]; then
+  SHOTGUN_STANDARD_DIR="$PUBLIC_STATUS_DIR/metagenome_standard_shotgun"
+  SHOTGUN_STANDARD_LOG="$SHOTGUN_STANDARD_DIR/runner.log"
+  mkdir -p "$SHOTGUN_STANDARD_DIR"
+  set +e
+  "$PYTHON_BIN" scripts/summarize_shotgun_standard.py \
+    --run-status "$PUBLIC_STATUS_DIR/metagenome_host_amr_screen/run_status.tsv" \
+    --out-dir "$SHOTGUN_STANDARD_DIR" \
+    > "$SHOTGUN_STANDARD_LOG" 2>&1
+  SHOTGUN_STANDARD_RC=$?
+  set -e
+  {
+    echo "generated_at=$(date -Is)"
+    echo "runner_return_code=$SHOTGUN_STANDARD_RC"
+    echo "summary_md_exists=$([ -f "$SHOTGUN_STANDARD_DIR/summary.md" ] && echo true || echo false)"
+    echo "qc_summary_exists=$([ -f "$SHOTGUN_STANDARD_DIR/qc_host_removal_summary.tsv" ] && echo true || echo false)"
+    echo "species_matrix_exists=$([ -f "$SHOTGUN_STANDARD_DIR/species_relative_abundance_matrix.tsv" ] && echo true || echo false)"
+    echo "alpha_diversity_exists=$([ -f "$SHOTGUN_STANDARD_DIR/alpha_diversity.tsv" ] && echo true || echo false)"
+    echo "beta_distance_exists=$([ -f "$SHOTGUN_STANDARD_DIR/bray_curtis_distance_matrix.tsv" ] && echo true || echo false)"
+    echo "differentials_exists=$([ -f "$SHOTGUN_STANDARD_DIR/species_group_differentials.tsv" ] && echo true || echo false)"
+  } > "$SHOTGUN_STANDARD_DIR/runner_status.txt"
+  if [ "$SHOTGUN_STANDARD_RC" -ne 0 ]; then
+    echo "Standard shotgun summary reported errors; continuing status publication."
+  fi
+fi
+
 AMP_PRJNA511633_RESULT_DIR="results/20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry"
 AMP_PRJNA511633_PUBLIC_DIR="$PUBLIC_STATUS_DIR/amplicon_precocious_puberty_prjna511633"
 mkdir -p "$AMP_PRJNA511633_PUBLIC_DIR"
