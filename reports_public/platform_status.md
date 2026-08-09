@@ -1,6 +1,6 @@
 # Platform Status
 
-Generated at: 2026-08-08T23:34:25+00:00
+Generated at: 2026-08-09T00:14:29+00:00
 
 ## Job Status Counts
 
@@ -21,7 +21,7 @@ Generated at: 2026-08-08T23:34:25+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-08T23:34:24+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-09T00:14:28+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
@@ -103,8 +103,6 @@ Generated at: 2026-08-08T23:34:25+00:00
 
 ## Last Events
 
-- 2026-08-08T17:32:22+00:00 scan
-- 2026-08-08T17:32:22+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-08T18:12:26+00:00 scan
 - 2026-08-08T18:12:26+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-08T18:52:31+00:00 scan
@@ -123,6 +121,8 @@ Generated at: 2026-08-08T23:34:25+00:00
 - 2026-08-08T22:54:17+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-08T23:34:24+00:00 scan
 - 2026-08-08T23:34:24+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-08-09T00:14:28+00:00 scan
+- 2026-08-09T00:14:28+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 
