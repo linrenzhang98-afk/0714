@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-09T08:16:37+00:00
-Progress state: `public_data_submission_ready`
+Generated at: 2026-08-09T08:56:37+00:00
+Progress state: `minimal_qpcr_validation_ready`
 
 ## Reason
 
-- Compute jobs are final; the public-data-only manuscript route is selected and the submission package is available.
+- Compute jobs are final; submission variants and minimal qPCR validation data template are available.
 
 ## Required Next Action
 
-- Proceed with public-data manuscript polishing, figure/table finalization, and target-journal formatting; qPCR validation is optional follow-up, not a current blocker.
+- Author can collect local qPCR validation results using the template; no workstation compute is pending.
 
 ## Operational Counts
 
@@ -19,3 +19,4 @@ Progress state: `public_data_submission_ready`
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
+- Functional profile state: not_started
