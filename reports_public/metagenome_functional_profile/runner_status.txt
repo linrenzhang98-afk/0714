@@ -1,0 +1,8 @@
+generated_at=2026-08-09T17:37:05+08:00
+state=blocked_or_failed
+reason=functional profiling worker exited rc=2
+result_dir=results/20260809T000000Z-prjna1056765-functional-profile
+public_dir=reports_public/metagenome_functional_profile
+run_status_exists=true
+worker_script_exists=true
+lock_dir=.runner_state/metagenome_functional_profile.lock

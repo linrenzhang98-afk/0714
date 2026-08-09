@@ -1,0 +1,6 @@
+generated_at=2026-08-09T17:37:05+08:00
+launcher_return_code=0
+summary_md_exists=true
+summary_json_exists=true
+run_status_exists=true
+runner_status_exists=true

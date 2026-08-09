@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-08-09T09:37:05+00:00",
+  "state": "blocked_setup",
+  "reason": "ChocoPhlAn download failed rc=1",
+  "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
+  "sample_count": 30,
+  "done_count": 0,
+  "failed_count": 0,
+  "running_count": 0,
+  "skipped_count": 0,
+  "tool_status": {
+    "humann": "/home/suma/anaconda3/envs/mgshotgun/bin/humann",
+    "humann_databases": "/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases",
+    "humann_join_tables": "/home/suma/anaconda3/envs/mgshotgun/bin/humann_join_tables",
+    "humann_renorm_table": "/home/suma/anaconda3/envs/mgshotgun/bin/humann_renorm_table",
+    "metaphlan": "/home/suma/anaconda3/envs/mgshotgun/bin/metaphlan",
+    "diamond": "/home/suma/anaconda3/envs/mgshotgun/bin/diamond"
+  },
+  "db_status": {
+    "db_root": "/mnt/disk1/db/humann",
+    "chocophlan_ready": false,
+    "uniref_ready": false,
+    "chocophlan": "/mnt/disk1/db/humann/chocophlan",
+    "uniref": "/mnt/disk1/db/humann/uniref"
+  }
+}

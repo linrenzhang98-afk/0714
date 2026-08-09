@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-09T08:56:37+00:00
-Progress state: `minimal_qpcr_validation_ready`
+Generated at: 2026-08-09T09:37:05+00:00
+Progress state: `stalled_metagenome_functional_profile`
 
 ## Reason
 
-- Compute jobs are final; submission variants and minimal qPCR validation data template are available.
+- Shotgun functional profiling did not complete: ChocoPhlAn download failed rc=1
 
 ## Required Next Action
 
-- Author can collect local qPCR validation results using the template; no workstation compute is pending.
+- Codex should inspect reports_public/metagenome_functional_profile/summary.md, runner_status.txt, worker.nohup.log, and patch the smallest repository-side cause.
 
 ## Operational Counts
 
@@ -19,4 +19,4 @@ Progress state: `minimal_qpcr_validation_ready`
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
-- Functional profile state: not_started
+- Functional profile state: blocked_setup
