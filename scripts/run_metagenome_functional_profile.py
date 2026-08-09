@@ -91,6 +91,17 @@ def command_path(command: str) -> str:
     return shutil.which(command) or ""
 
 
+def command_healthy(command: str, args: list[str], log_path: Path) -> bool:
+    path = command_path(command)
+    if not path:
+        append_log(log_path, f"health_check {command}=missing")
+        return False
+    result = run_command([path, *args], log_path, timeout=120)
+    healthy = result.returncode == 0
+    append_log(log_path, f"health_check {command}={str(healthy).lower()}")
+    return healthy
+
+
 def file_nonempty(path: Path) -> bool:
     return path.exists() and path.stat().st_size > 0
 
@@ -206,11 +217,13 @@ def has_db_files(path: Path, suffixes: tuple[str, ...]) -> bool:
 
 
 def install_humann_if_needed(log_path: Path, conda_env: str, timeout: int) -> None:
-    if command_path("humann") and command_path("humann_databases"):
+    humann_ok = command_healthy("humann", ["--version"], log_path)
+    databases_ok = command_healthy("humann_databases", ["--help"], log_path)
+    if humann_ok and databases_ok:
         return
     installer = command_path("mamba") or command_path("conda")
     if not installer:
-        raise RuntimeError("HUMAnN missing and neither mamba nor conda is available for installation")
+        raise RuntimeError("HUMAnN missing/broken and neither mamba nor conda is available for installation")
     result = run_command(
         [
             installer,
@@ -218,18 +231,42 @@ def install_humann_if_needed(log_path: Path, conda_env: str, timeout: int) -> No
             "-n",
             conda_env,
             "-y",
+            "--force-reinstall",
             "-c",
             "bioconda",
             "-c",
             "conda-forge",
             "humann",
             "metaphlan",
+            "diamond",
         ],
         log_path,
         timeout=timeout,
     )
     if result.returncode != 0:
+        append_log(log_path, "force reinstall failed; retrying normal conda/mamba install")
+        result = run_command(
+            [
+                installer,
+                "install",
+                "-n",
+                conda_env,
+                "-y",
+                "-c",
+                "bioconda",
+                "-c",
+                "conda-forge",
+                "humann",
+                "metaphlan",
+                "diamond",
+            ],
+            log_path,
+            timeout=timeout,
+        )
+    if result.returncode != 0:
         raise RuntimeError(f"HUMAnN/MetaPhlAn installation failed rc={result.returncode}")
+    if not command_healthy("humann", ["--version"], log_path) or not command_healthy("humann_databases", ["--help"], log_path):
+        raise RuntimeError("HUMAnN commands remain unhealthy after conda/mamba installation")
 
 
 def download_humann_dbs(db_root: Path, log_path: Path, timeout: int) -> None:
