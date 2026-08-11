@@ -98,6 +98,16 @@ def command_path(command: str) -> str:
     return shutil.which(command) or ""
 
 
+def activate_functional_environment(functional_env_prefix: Path) -> None:
+    dedicated_bin = functional_env_prefix / "bin"
+    if dedicated_bin not in TOOL_SEARCH_DIRS:
+        TOOL_SEARCH_DIRS.insert(0, dedicated_bin)
+
+    current_path = os.environ.get("PATH", "")
+    path_entries = [entry for entry in current_path.split(os.pathsep) if entry and entry != str(dedicated_bin)]
+    os.environ["PATH"] = os.pathsep.join([str(dedicated_bin), *path_entries])
+
+
 def command_healthy(command: str, args: list[str], log_path: Path) -> bool:
     path = command_path(command)
     if not path:
@@ -107,6 +117,16 @@ def command_healthy(command: str, args: list[str], log_path: Path) -> bool:
     healthy = result.returncode == 0
     append_log(log_path, f"health_check {command}={str(healthy).lower()}")
     return healthy
+
+
+def functional_commands_healthy(log_path: Path) -> bool:
+    checks = (
+        ("humann", ["--version"]),
+        ("humann_databases", ["--help"]),
+        ("metaphlan", ["--version"]),
+    )
+    results = [command_healthy(command, args, log_path) for command, args in checks]
+    return all(results)
 
 
 def file_nonempty(path: Path) -> bool:
@@ -224,16 +244,12 @@ def has_db_files(path: Path, suffixes: tuple[str, ...]) -> bool:
 
 
 def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_prefix: Path, timeout: int) -> None:
-    humann_ok = command_healthy("humann", ["--version"], log_path)
-    databases_ok = command_healthy("humann_databases", ["--help"], log_path)
-    if humann_ok and databases_ok:
+    if functional_commands_healthy(log_path):
         return
     installer = command_path("mamba") or command_path("conda")
     if not installer:
         raise RuntimeError("HUMAnN missing/broken and neither mamba nor conda is available for installation")
-    dedicated_bin = functional_env_prefix / "bin"
-    if dedicated_bin not in TOOL_SEARCH_DIRS:
-        TOOL_SEARCH_DIRS.insert(0, dedicated_bin)
+    activate_functional_environment(functional_env_prefix)
     if not (functional_env_prefix / "bin" / "humann").exists():
         result = run_command(
             [
@@ -256,7 +272,7 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
         )
         if result.returncode != 0:
             raise RuntimeError(f"Dedicated HUMAnN environment creation failed rc={result.returncode}")
-    if command_healthy("humann", ["--version"], log_path) and command_healthy("humann_databases", ["--help"], log_path):
+    if functional_commands_healthy(log_path):
         return
     append_log(log_path, "dedicated HUMAnN env unhealthy; forcing reinstall in dedicated env")
     result = run_command(
@@ -279,7 +295,7 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
         log_path,
         timeout=timeout,
     )
-    if result.returncode == 0 and command_healthy("humann", ["--version"], log_path) and command_healthy("humann_databases", ["--help"], log_path):
+    if result.returncode == 0 and functional_commands_healthy(log_path):
         return
 
     append_log(log_path, "dedicated environment failed; retrying configured mgshotgun env")
@@ -324,8 +340,8 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
         )
     if result.returncode != 0:
         raise RuntimeError(f"HUMAnN/MetaPhlAn installation failed rc={result.returncode}")
-    if not command_healthy("humann", ["--version"], log_path) or not command_healthy("humann_databases", ["--help"], log_path):
-        raise RuntimeError("HUMAnN commands remain unhealthy after conda/mamba installation")
+    if not functional_commands_healthy(log_path):
+        raise RuntimeError("HUMAnN or MetaPhlAn commands remain unhealthy after conda/mamba installation")
 
 
 def download_humann_dbs(db_root: Path, log_path: Path, timeout: int) -> None:
@@ -474,7 +490,7 @@ def main() -> int:
     public_dir = Path(args.public_dir)
     db_root = Path(args.db_root)
     functional_env_prefix = Path(args.functional_env_prefix)
-    TOOL_SEARCH_DIRS.insert(0, functional_env_prefix / "bin")
+    activate_functional_environment(functional_env_prefix)
     logs_dir = result_dir / "logs"
     logs_dir.mkdir(parents=True, exist_ok=True)
     log_path = logs_dir / "functional_profile.log"
