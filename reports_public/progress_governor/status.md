@@ -1,11 +1,11 @@
 # Progress Governor Status
 
-Generated at: 2026-08-09T11:04:20+00:00
+Generated at: 2026-08-11T20:24:47+00:00
 Progress state: `stalled_metagenome_functional_profile`
 
 ## Reason
 
-- Shotgun functional profiling did not complete: HUMAnN commands remain unhealthy after conda/mamba installation
+- Shotgun functional profiling did not complete: Functional profiling finished with 30 failed sample(s).
 
 ## Required Next Action
 
@@ -19,4 +19,4 @@ Progress state: `stalled_metagenome_functional_profile`
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
-- Functional profile state: blocked_setup
+- Functional profile state: done_with_failures
