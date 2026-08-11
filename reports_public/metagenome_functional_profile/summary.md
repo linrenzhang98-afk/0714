@@ -1,6 +1,6 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-11T22:28:54+00:00
+Generated at: 2026-08-11T23:08:52+00:00
 State: `done_with_failures`
 
 ## Reason

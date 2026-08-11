@@ -1,6 +1,6 @@
 
-2026-08-11T22:27:11+00:00	RETURN_CODE 1
-2026-08-11T22:27:12+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-10/host_removed/SRR27343532.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343532 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:11+00:00	RETURN_CODE 1
+2026-08-11T23:07:12+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-10/host_removed/SRR27343532.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343532 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343532
 Decompressing gzipped file ...
 
@@ -8,8 +8,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:17+00:00	RETURN_CODE 1
-2026-08-11T22:27:18+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-11/host_removed/SRR27343868.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343868 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:17+00:00	RETURN_CODE 1
+2026-08-11T23:07:18+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-11/host_removed/SRR27343868.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343868 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343868
 Decompressing gzipped file ...
 
@@ -17,8 +17,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:21+00:00	RETURN_CODE 1
-2026-08-11T22:27:22+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-12/host_removed/SRR27343475.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343475 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:21+00:00	RETURN_CODE 1
+2026-08-11T23:07:22+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-12/host_removed/SRR27343475.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343475 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343475
 Decompressing gzipped file ...
 
@@ -26,8 +26,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:26+00:00	RETURN_CODE 1
-2026-08-11T22:27:27+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-13/host_removed/SRR27343853.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343853 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:26+00:00	RETURN_CODE 1
+2026-08-11T23:07:27+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-13/host_removed/SRR27343853.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343853 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343853
 Decompressing gzipped file ...
 
@@ -35,8 +35,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:32+00:00	RETURN_CODE 1
-2026-08-11T22:27:33+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-14/host_removed/SRR27343738.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343738 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:31+00:00	RETURN_CODE 1
+2026-08-11T23:07:32+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-14/host_removed/SRR27343738.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343738 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343738
 Decompressing gzipped file ...
 
@@ -44,8 +44,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:36+00:00	RETURN_CODE 1
-2026-08-11T22:27:37+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-15/host_removed/SRR27344035.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27344035 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:36+00:00	RETURN_CODE 1
+2026-08-11T23:07:37+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-15/host_removed/SRR27344035.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27344035 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27344035
 Decompressing gzipped file ...
 
@@ -53,8 +53,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:40+00:00	RETURN_CODE 1
-2026-08-11T22:27:41+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-16/host_removed/SRR27343494.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343494 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:39+00:00	RETURN_CODE 1
+2026-08-11T23:07:40+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-16/host_removed/SRR27343494.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343494 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343494
 Decompressing gzipped file ...
 
@@ -62,8 +62,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:46+00:00	RETURN_CODE 1
-2026-08-11T22:27:47+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-17/host_removed/SRR27343523.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343523 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:46+00:00	RETURN_CODE 1
+2026-08-11T23:07:47+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-17/host_removed/SRR27343523.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343523 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343523
 Decompressing gzipped file ...
 
@@ -71,8 +71,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:50+00:00	RETURN_CODE 1
-2026-08-11T22:27:51+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-18/host_removed/SRR27343719.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343719 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:50+00:00	RETURN_CODE 1
+2026-08-11T23:07:51+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-18/host_removed/SRR27343719.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343719 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343719
 Decompressing gzipped file ...
 
@@ -80,8 +80,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:27:54+00:00	RETURN_CODE 1
-2026-08-11T22:27:55+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-19/host_removed/SRR27343346.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343346 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:07:53+00:00	RETURN_CODE 1
+2026-08-11T23:07:54+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-19/host_removed/SRR27343346.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343346 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343346
 Decompressing gzipped file ...
 
@@ -89,8 +89,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:07+00:00	RETURN_CODE 1
-2026-08-11T22:28:08+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-20/host_removed/SRR27343993.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343993 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:06+00:00	RETURN_CODE 1
+2026-08-11T23:08:07+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-20/host_removed/SRR27343993.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343993 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343993
 Decompressing gzipped file ...
 
@@ -98,8 +98,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:12+00:00	RETURN_CODE 1
-2026-08-11T22:28:13+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-21/host_removed/SRR27343296.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343296 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:11+00:00	RETURN_CODE 1
+2026-08-11T23:08:12+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-21/host_removed/SRR27343296.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343296 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343296
 Decompressing gzipped file ...
 
@@ -107,8 +107,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:16+00:00	RETURN_CODE 1
-2026-08-11T22:28:17+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-22/host_removed/SRR27343601.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343601 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:15+00:00	RETURN_CODE 1
+2026-08-11T23:08:16+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-22/host_removed/SRR27343601.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343601 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343601
 Decompressing gzipped file ...
 
@@ -116,8 +116,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:19+00:00	RETURN_CODE 1
-2026-08-11T22:28:20+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-23/host_removed/SRR27344041.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27344041 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:18+00:00	RETURN_CODE 1
+2026-08-11T23:08:19+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-23/host_removed/SRR27344041.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27344041 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27344041
 Decompressing gzipped file ...
 
@@ -125,8 +125,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:22+00:00	RETURN_CODE 1
-2026-08-11T22:28:23+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-24/host_removed/SRR27343839.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343839 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:21+00:00	RETURN_CODE 1
+2026-08-11T23:08:22+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-24/host_removed/SRR27343839.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343839 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343839
 Decompressing gzipped file ...
 
@@ -134,8 +134,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:26+00:00	RETURN_CODE 1
-2026-08-11T22:28:27+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-25/host_removed/SRR27343734.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343734 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:25+00:00	RETURN_CODE 1
+2026-08-11T23:08:26+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-25/host_removed/SRR27343734.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343734 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343734
 Decompressing gzipped file ...
 
@@ -143,8 +143,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:30+00:00	RETURN_CODE 1
-2026-08-11T22:28:31+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-26/host_removed/SRR27343742.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343742 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:29+00:00	RETURN_CODE 1
+2026-08-11T23:08:30+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-26/host_removed/SRR27343742.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343742 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343742
 Decompressing gzipped file ...
 
@@ -152,8 +152,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:33+00:00	RETURN_CODE 1
-2026-08-11T22:28:34+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-27/host_removed/SRR27343518.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:32+00:00	RETURN_CODE 1
+2026-08-11T23:08:33+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-27/host_removed/SRR27343518.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518
 Decompressing gzipped file ...
 
@@ -161,8 +161,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:38+00:00	RETURN_CODE 1
-2026-08-11T22:28:39+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-28/host_removed/SRR27343522.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:36+00:00	RETURN_CODE 1
+2026-08-11T23:08:37+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-28/host_removed/SRR27343522.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522
 Decompressing gzipped file ...
 
@@ -170,8 +170,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:41+00:00	RETURN_CODE 1
-2026-08-11T22:28:42+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-29/host_removed/SRR27343520.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:39+00:00	RETURN_CODE 1
+2026-08-11T23:08:40+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-29/host_removed/SRR27343520.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520
 Decompressing gzipped file ...
 
@@ -179,8 +179,8 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:44+00:00	RETURN_CODE 1
-2026-08-11T22:28:45+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-30/host_removed/SRR27343835.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+2026-08-11T23:08:42+00:00	RETURN_CODE 1
+2026-08-11T23:08:43+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-30/host_removed/SRR27343835.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
 Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835
 Decompressing gzipped file ...
 
@@ -188,13 +188,13 @@ Removing spaces from identifiers in input file ...
 
 CRITICAL ERROR: Can not call software version for metaphlan
 
-2026-08-11T22:28:53+00:00	RETURN_CODE 1
-2026-08-11T22:28:54+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name genefamilies --output reports_public/metagenome_functional_profile/merged_genefamilies.tsv
+2026-08-11T23:08:51+00:00	RETURN_CODE 1
+2026-08-11T23:08:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name genefamilies --output reports_public/metagenome_functional_profile/merged_genefamilies.tsv
 Zero gene tables were found to join.
-2026-08-11T22:28:54+00:00	RETURN_CODE 0
-2026-08-11T22:28:54+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name pathabundance --output reports_public/metagenome_functional_profile/merged_pathabundance.tsv
+2026-08-11T23:08:52+00:00	RETURN_CODE 0
+2026-08-11T23:08:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name pathabundance --output reports_public/metagenome_functional_profile/merged_pathabundance.tsv
 Zero gene tables were found to join.
-2026-08-11T22:28:54+00:00	RETURN_CODE 0
-2026-08-11T22:28:54+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name pathcoverage --output reports_public/metagenome_functional_profile/merged_pathcoverage.tsv
+2026-08-11T23:08:52+00:00	RETURN_CODE 0
+2026-08-11T23:08:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name pathcoverage --output reports_public/metagenome_functional_profile/merged_pathcoverage.tsv
 Zero gene tables were found to join.
-2026-08-11T22:28:54+00:00	RETURN_CODE 0
+2026-08-11T23:08:52+00:00	RETURN_CODE 0
