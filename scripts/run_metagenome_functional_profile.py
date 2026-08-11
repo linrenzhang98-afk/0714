@@ -11,6 +11,7 @@ import argparse
 import csv
 import json
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -20,6 +21,7 @@ from typing import Any
 
 
 TOOL_SEARCH_DIRS: list[Path] = []
+METAPHLAN_PACKAGE_SPEC = "metaphlan<4.2.3"
 
 
 def utc_now() -> str:
@@ -119,14 +121,31 @@ def command_healthy(command: str, args: list[str], log_path: Path) -> bool:
     return healthy
 
 
+def metaphlan_version_output_compatible(log_path: Path) -> bool:
+    path = command_path("metaphlan")
+    if not path:
+        append_log(log_path, "health_check metaphlan_humann_version_output=missing")
+        return False
+
+    result = run_command([path, "--version"], log_path, timeout=120)
+    output_lines = [line.strip() for line in result.stdout.splitlines() if line.strip()]
+    last_fields = output_lines[-1].split() if output_lines else []
+    compatible = (
+        result.returncode == 0
+        and len(last_fields) > 2
+        and re.match(r"^v?\d+\.\d+", last_fields[2]) is not None
+    )
+    append_log(log_path, f"health_check metaphlan_humann_version_output={str(compatible).lower()}")
+    return compatible
+
+
 def functional_commands_healthy(log_path: Path) -> bool:
     checks = (
         ("humann", ["--version"]),
         ("humann_databases", ["--help"]),
-        ("metaphlan", ["--version"]),
     )
     results = [command_healthy(command, args, log_path) for command, args in checks]
-    return all(results)
+    return all(results) and metaphlan_version_output_compatible(log_path)
 
 
 def file_nonempty(path: Path) -> bool:
@@ -264,7 +283,7 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
                 "bioconda",
                 "python=3.12",
                 "humann",
-                "metaphlan",
+                METAPHLAN_PACKAGE_SPEC,
                 "diamond",
             ],
             log_path,
@@ -289,7 +308,7 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
             "bioconda",
             "python=3.12",
             "humann",
-            "metaphlan",
+            METAPHLAN_PACKAGE_SPEC,
             "diamond",
         ],
         log_path,
@@ -312,7 +331,7 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
             "-c",
             "conda-forge",
             "humann",
-            "metaphlan",
+            METAPHLAN_PACKAGE_SPEC,
             "diamond",
         ],
         log_path,
@@ -332,7 +351,7 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
                 "-c",
                 "conda-forge",
                 "humann",
-                "metaphlan",
+                METAPHLAN_PACKAGE_SPEC,
                 "diamond",
             ],
             log_path,
