@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T20:28:23+00:00",
+  "generated_at": "2026-08-11T21:08:48+00:00",
   "progress_state": "stalled_metagenome_functional_profile",
   "reason": "Shotgun functional profiling did not complete: Functional profiling finished with 30 failed sample(s).",
   "next_action": "Codex should inspect reports_public/metagenome_functional_profile/summary.md, runner_status.txt, worker.nohup.log, and patch the smallest repository-side cause.",
