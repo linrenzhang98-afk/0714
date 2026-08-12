@@ -1,6 +1,6 @@
-generated_at=2026-08-13T00:14:05+08:00
-state=stale_lock_cleared
-reason=cleared stale functional profiling lock; next timer will restart
+generated_at=2026-08-13T00:54:28+08:00
+state=blocked_or_failed
+reason=functional profiling worker exited rc=2
 result_dir=results/20260809T000000Z-prjna1056765-functional-profile
 public_dir=reports_public/metagenome_functional_profile
 run_status_exists=true

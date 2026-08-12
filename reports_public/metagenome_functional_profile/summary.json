@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-12T06:50:38+00:00",
-  "state": "initializing",
-  "reason": "Functional profiling worker started.",
+  "generated_at": "2026-08-12T16:54:28+00:00",
+  "state": "blocked_setup",
+  "reason": "MetaPhlAn smoke test failed rc=1",
   "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
   "sample_count": 30,
   "done_count": 0,
@@ -14,7 +14,8 @@
     "humann_join_tables": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_join_tables",
     "humann_renorm_table": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_renorm_table",
     "metaphlan": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan",
-    "diamond": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond"
+    "diamond": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond",
+    "bowtie2": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2"
   },
   "db_status": {
     "db_root": "/mnt/disk1/db/humann",
@@ -25,6 +26,6 @@
     "uniref": "/mnt/disk1/db/humann/uniref",
     "metaphlan_db_root": "/mnt/disk1/db/metaphlan/vJun23",
     "metaphlan_index": "mpa_vJun23_CHOCOPhlAnSGB_202403",
-    "metaphlan_db_ready": false
+    "metaphlan_db_ready": true
   }
 }

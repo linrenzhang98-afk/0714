@@ -1,11 +1,11 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-12T06:50:38+00:00
-State: `initializing`
+Generated at: 2026-08-12T16:54:28+00:00
+State: `blocked_setup`
 
 ## Reason
 
-- Functional profiling worker started.
+- MetaPhlAn smoke test failed rc=1
 
 ## Completion
 
@@ -23,6 +23,7 @@ State: `initializing`
 - humann_renorm_table: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_renorm_table`
 - metaphlan: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan`
 - diamond: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond`
+- bowtie2: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2`
 
 ## Databases
 
@@ -30,7 +31,7 @@ State: `initializing`
 - UniRef ready: True
 - Utility mapping ready: True
 - Database root: `/mnt/disk1/db/humann`
-- MetaPhlAn DB ready: False
+- MetaPhlAn DB ready: True
 - MetaPhlAn DB root: `/mnt/disk1/db/metaphlan/vJun23`
 - MetaPhlAn DB index: `mpa_vJun23_CHOCOPhlAnSGB_202403`
 
