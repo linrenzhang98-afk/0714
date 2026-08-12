@@ -1,200 +1,200 @@
-                        [--database-location DATABASE_LOCATION]
+                 [--vsc_out VSC_OUT] [--vsc_breadth VSC_BREADTH]
+                 [--long_reads] [--max_gcsd MAX_GCSD]
+                 [--minimap2_exe MINIMAP2_EXE]
+                 [--minimap2_ps minimap2 presets] [--nbases NUMBER_OF_BASES]
+                 [--split_reads] [--split_readlen SPLIT_READLEN] [--nproc N]
+                 [--subsampling SUBSAMPLING] [--mapping_subsampling]
+                 [--subsampling_seed SUBSAMPLING_SEED]
+                 [--subsampling_output SUBSAMPLING_OUTPUT]
+                 [--subsampling_paired SUBSAMPLING_PAIRED] [-1 FORWARD_READS]
+                 [-2 REVERSE_READS] [--install] [--offline] [--force_download]
+                 [--read_min_len READ_MIN_LEN] [--verbose] [-v] [-h]
+                 [INPUT_FILE]
+metaphlan: error: unrecognized arguments: --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343742/SRR27343742_humann_temp/SRR27343742_metaphlan_bowtie2.txt
 
-HUMAnN Databases
+2026-08-12T03:03:06+00:00	RETURN_CODE 1
+2026-08-12T03:03:07+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-27/host_removed/SRR27343518.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518
+Decompressing gzipped file ...
 
-options:
-  -h, --help            show this help message and exit
-  --available           print the available databases
-  --download <database> <build> <install_location>
-                        download the selected database to the install location
-  --update-config {yes,no}
-                        update the config file to set the new database as the default [DEFAULT: yes]
-  --database-location DATABASE_LOCATION
-                        location (local or remote) to pull the database
-2026-08-12T01:05:48+00:00	RETURN_CODE 0
-2026-08-12T01:05:48+00:00	health_check humann_databases=true
-2026-08-12T01:05:48+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
-MetaPhlAn version 4.2.5 (13 Jul 2026)
-No complete MetaPhlAn Bowtie2 database found
+Removing spaces from identifiers in input file ...
+
+
+Running metaphlan ........
+
+CRITICAL ERROR: Error executing: /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518/SRR27343518_humann_temp/tmpgrhvfilq/tmpmwtqn68f -t rel_ab -o /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518/SRR27343518_humann_temp/SRR27343518_metaphlan_bugs_list.tsv --input_type fastq --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518/SRR27343518_humann_temp/SRR27343518_metaphlan_bowtie2.txt --nproc 4
+
+Error message returned from metaphlan :
 /home/suma/anaconda3/envs/humann-shotgun/lib/python3.12/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
   _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-2026-08-12T01:05:49+00:00	RETURN_CODE 0
-2026-08-12T01:05:49+00:00	health_check metaphlan_humann_version_output=false
-2026-08-12T01:05:49+00:00	dedicated HUMAnN env unhealthy; forcing reinstall in dedicated env
-2026-08-12T01:05:49+00:00	RUN /home/suma/anaconda3/bin/mamba install -p /home/suma/anaconda3/envs/humann-shotgun -y --force-reinstall -c conda-forge -c bioconda python=3.12 humann metaphlan=4.2.2 diamond
+usage: metaphlan --input_type {fastq,fasta,mapout,sam} [--force]
+                 [--db_dir METAPHLAN_DB] [-x INDEX] [--mapout FILE_NAME]
+                 [--min_mapq_val MIN_MAPQ_VAL] [--no_map] [--tmp_dir]
+                 [--bt2_ps BowTie2 presets] [--bowtie2_exe BOWTIE2_EXE]
+                 [--bowtie2_build BOWTIE2_BUILD] [--tax_lev TAXONOMIC_LEVEL]
+                 [--min_alignment_len] [--ignore_eukaryotes]
+                 [--ignore_bacteria] [--ignore_archaea] [--ignore_ksgbs]
+                 [--ignore_usgbs] [--stat_q] [--perc_nonzero]
+                 [--ignore_markers IGNORE_MARKERS] [--avoid_disqm] [--stat]
+                 [-t ANALYSIS TYPE] [--nreads NUMBER_OF_READS]
+                 [--pres_th PRESENCE_THRESHOLD] [-o output file]
+                 [--sample_id_key name] [--use_group_representative]
+                 [--sample_id value] [-s sam_output_file]
+                 [--CAMI_format_output] [--skip_unclassified_estimation]
+                 [--biom_format_output] [--biom_mdelim mdelim] [--profile_vsc]
+                 [--vsc_out VSC_OUT] [--vsc_breadth VSC_BREADTH]
+                 [--long_reads] [--max_gcsd MAX_GCSD]
+                 [--minimap2_exe MINIMAP2_EXE]
+                 [--minimap2_ps minimap2 presets] [--nbases NUMBER_OF_BASES]
+                 [--split_reads] [--split_readlen SPLIT_READLEN] [--nproc N]
+                 [--subsampling SUBSAMPLING] [--mapping_subsampling]
+                 [--subsampling_seed SUBSAMPLING_SEED]
+                 [--subsampling_output SUBSAMPLING_OUTPUT]
+                 [--subsampling_paired SUBSAMPLING_PAIRED] [-1 FORWARD_READS]
+                 [-2 REVERSE_READS] [--install] [--offline] [--force_download]
+                 [--read_min_len READ_MIN_LEN] [--verbose] [-v] [-h]
+                 [INPUT_FILE]
+metaphlan: error: unrecognized arguments: --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343518/SRR27343518_humann_temp/SRR27343518_metaphlan_bowtie2.txt
+
+2026-08-12T03:03:36+00:00	RETURN_CODE 1
+2026-08-12T03:03:37+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-28/host_removed/SRR27343522.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522
+Decompressing gzipped file ...
+
+Removing spaces from identifiers in input file ...
 
 
-Transaction
+Running metaphlan ........
 
-  Prefix: /home/suma/anaconda3/envs/humann-shotgun
+CRITICAL ERROR: Error executing: /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522/SRR27343522_humann_temp/tmpsgn1tzmb/tmpnk_rywwp -t rel_ab -o /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522/SRR27343522_humann_temp/SRR27343522_metaphlan_bugs_list.tsv --input_type fastq --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522/SRR27343522_humann_temp/SRR27343522_metaphlan_bowtie2.txt --nproc 4
 
-  Updating specs:
-
-   - python=3.12
-   - humann
-   - metaphlan=4.2.2
-   - diamond
-
-
-  Package      Version  Build               Channel           Size
-────────────────────────────────────────────────────────────────────
-  Reinstall:
-────────────────────────────────────────────────────────────────────
-
-  o diamond      2.2.5  he361c42_0          bioconda        Cached
-  o humann         3.9  py312hdfd78af_0     bioconda        Cached
-  o metaphlan    4.2.6  pyhdfd78af_0        bioconda        Cached
-  o python     3.12.13  hd63d673_0_cpython  conda-forge     Cached
-
-  Summary:
-
-  Reinstall: 4 packages
-
-  Total download: 0 B
-
-────────────────────────────────────────────────────────────────────
-
-
-
-Transaction starting
-Unlinking diamond-2.2.5-he361c42_0
-Unlinking python-3.12.13-hd63d673_0_cpython
-Unlinking metaphlan-4.2.6-pyhdfd78af_0
-Unlinking humann-3.9-py312hdfd78af_0
-Linking diamond-2.2.5-he361c42_0
-Linking python-3.12.13-hd63d673_0_cpython
-Linking metaphlan-4.2.6-pyhdfd78af_0
-Linking humann-3.9-py312hdfd78af_0
-
-Transaction finished
-
-warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
-    
-warning  libmamba Please make sure you understand Anaconda Terms of Services.
-    
-warning  libmamba See: https://legal.anaconda.com/policies/en/
-warning  libmamba Invalid package cache, file '/home/suma/anaconda3/pkgs/humann-3.9-py312hdfd78af_0/lib/python3.12/site-packages/humann/humann.cfg' has incorrect size
-warning  libmamba [humann-3.9-py312hdfd78af_0] The following files were already present in the environment:
-    - bin/diamond
-2026-08-12T01:09:55+00:00	RETURN_CODE 0
-2026-08-12T01:09:55+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --version
-humann v3.9
-2026-08-12T01:09:56+00:00	RETURN_CODE 0
-2026-08-12T01:09:56+00:00	health_check humann=true
-2026-08-12T01:09:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_databases --help
-usage: humann_databases [-h] [--available]
-                        [--download <database> <build> <install_location>]
-                        [--update-config {yes,no}]
-                        [--database-location DATABASE_LOCATION]
-
-HUMAnN Databases
-
-options:
-  -h, --help            show this help message and exit
-  --available           print the available databases
-  --download <database> <build> <install_location>
-                        download the selected database to the install location
-  --update-config {yes,no}
-                        update the config file to set the new database as the default [DEFAULT: yes]
-  --database-location DATABASE_LOCATION
-                        location (local or remote) to pull the database
-2026-08-12T01:09:56+00:00	RETURN_CODE 0
-2026-08-12T01:09:56+00:00	health_check humann_databases=true
-2026-08-12T01:09:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
-MetaPhlAn version 4.2.5 (13 Jul 2026)
-No complete MetaPhlAn Bowtie2 database found
+Error message returned from metaphlan :
 /home/suma/anaconda3/envs/humann-shotgun/lib/python3.12/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
   _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-2026-08-12T01:09:56+00:00	RETURN_CODE 0
-2026-08-12T01:09:56+00:00	health_check metaphlan_humann_version_output=false
-2026-08-12T01:09:56+00:00	dedicated environment failed; retrying configured mgshotgun env
-2026-08-12T01:09:56+00:00	RUN /home/suma/anaconda3/bin/mamba install -n mgshotgun -y --force-reinstall -c bioconda -c conda-forge humann metaphlan=4.2.2 diamond
-bioconda/linux-64                                           Using cache
-bioconda/noarch                                             Using cache
-conda-forge/linux-64                                        Using cache
-conda-forge/noarch                                          Using cache
+usage: metaphlan --input_type {fastq,fasta,mapout,sam} [--force]
+                 [--db_dir METAPHLAN_DB] [-x INDEX] [--mapout FILE_NAME]
+                 [--min_mapq_val MIN_MAPQ_VAL] [--no_map] [--tmp_dir]
+                 [--bt2_ps BowTie2 presets] [--bowtie2_exe BOWTIE2_EXE]
+                 [--bowtie2_build BOWTIE2_BUILD] [--tax_lev TAXONOMIC_LEVEL]
+                 [--min_alignment_len] [--ignore_eukaryotes]
+                 [--ignore_bacteria] [--ignore_archaea] [--ignore_ksgbs]
+                 [--ignore_usgbs] [--stat_q] [--perc_nonzero]
+                 [--ignore_markers IGNORE_MARKERS] [--avoid_disqm] [--stat]
+                 [-t ANALYSIS TYPE] [--nreads NUMBER_OF_READS]
+                 [--pres_th PRESENCE_THRESHOLD] [-o output file]
+                 [--sample_id_key name] [--use_group_representative]
+                 [--sample_id value] [-s sam_output_file]
+                 [--CAMI_format_output] [--skip_unclassified_estimation]
+                 [--biom_format_output] [--biom_mdelim mdelim] [--profile_vsc]
+                 [--vsc_out VSC_OUT] [--vsc_breadth VSC_BREADTH]
+                 [--long_reads] [--max_gcsd MAX_GCSD]
+                 [--minimap2_exe MINIMAP2_EXE]
+                 [--minimap2_ps minimap2 presets] [--nbases NUMBER_OF_BASES]
+                 [--split_reads] [--split_readlen SPLIT_READLEN] [--nproc N]
+                 [--subsampling SUBSAMPLING] [--mapping_subsampling]
+                 [--subsampling_seed SUBSAMPLING_SEED]
+                 [--subsampling_output SUBSAMPLING_OUTPUT]
+                 [--subsampling_paired SUBSAMPLING_PAIRED] [-1 FORWARD_READS]
+                 [-2 REVERSE_READS] [--install] [--offline] [--force_download]
+                 [--read_min_len READ_MIN_LEN] [--verbose] [-v] [-h]
+                 [INPUT_FILE]
+metaphlan: error: unrecognized arguments: --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343522/SRR27343522_humann_temp/SRR27343522_metaphlan_bowtie2.txt
 
-Pinned packages:
+2026-08-12T03:04:00+00:00	RETURN_CODE 1
+2026-08-12T03:04:01+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-29/host_removed/SRR27343520.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520
+Decompressing gzipped file ...
 
-  - python=3.13
-
-
-Transaction
-
-  Prefix: /home/suma/anaconda3/envs/mgshotgun
-
-  Updating specs:
-
-   - humann
-   - metaphlan=4.2.2
-   - diamond
-
-
-  Package      Version  Build            Channel        Size
-──────────────────────────────────────────────────────────────
-  Reinstall:
-──────────────────────────────────────────────────────────────
-
-  o diamond      2.2.1  he361c42_0       bioconda     Cached
-  o humann         3.9  py312hdfd78af_0  bioconda     Cached
-  o metaphlan    4.2.4  pyhdfd78af_0     bioconda     Cached
-
-  Summary:
-
-  Reinstall: 3 packages
-
-  Total download: 0 B
-
-──────────────────────────────────────────────────────────────
+Removing spaces from identifiers in input file ...
 
 
+Running metaphlan ........
 
-Transaction starting
-Unlinking diamond-2.2.1-he361c42_0
-Unlinking metaphlan-4.2.4-pyhdfd78af_0
-Unlinking humann-3.9-py312hdfd78af_0
-Linking diamond-2.2.1-he361c42_0
-Linking metaphlan-4.2.4-pyhdfd78af_0
-Linking humann-3.9-py312hdfd78af_0
+CRITICAL ERROR: Error executing: /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520/SRR27343520_humann_temp/tmpabumzhe8/tmp1zgbcdsc -t rel_ab -o /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520/SRR27343520_humann_temp/SRR27343520_metaphlan_bugs_list.tsv --input_type fastq --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520/SRR27343520_humann_temp/SRR27343520_metaphlan_bowtie2.txt --nproc 4
 
-Transaction finished
-
-warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
-    
-warning  libmamba Please make sure you understand Anaconda Terms of Services.
-    
-warning  libmamba See: https://legal.anaconda.com/policies/en/
-warning  libmamba Invalid package cache, file '/home/suma/anaconda3/pkgs/humann-3.9-py312hdfd78af_0/lib/python3.12/site-packages/humann/humann.cfg' has incorrect size
-warning  libmamba [humann-3.9-py312hdfd78af_0] The following files were already present in the environment:
-    - bin/diamond
-2026-08-12T01:10:28+00:00	RETURN_CODE 0
-2026-08-12T01:10:28+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --version
-humann v3.9
-2026-08-12T01:10:29+00:00	RETURN_CODE 0
-2026-08-12T01:10:29+00:00	health_check humann=true
-2026-08-12T01:10:29+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_databases --help
-usage: humann_databases [-h] [--available]
-                        [--download <database> <build> <install_location>]
-                        [--update-config {yes,no}]
-                        [--database-location DATABASE_LOCATION]
-
-HUMAnN Databases
-
-options:
-  -h, --help            show this help message and exit
-  --available           print the available databases
-  --download <database> <build> <install_location>
-                        download the selected database to the install location
-  --update-config {yes,no}
-                        update the config file to set the new database as the default [DEFAULT: yes]
-  --database-location DATABASE_LOCATION
-                        location (local or remote) to pull the database
-2026-08-12T01:10:29+00:00	RETURN_CODE 0
-2026-08-12T01:10:29+00:00	health_check humann_databases=true
-2026-08-12T01:10:29+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
-MetaPhlAn version 4.2.5 (13 Jul 2026)
-No complete MetaPhlAn Bowtie2 database found
+Error message returned from metaphlan :
 /home/suma/anaconda3/envs/humann-shotgun/lib/python3.12/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
   _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-2026-08-12T01:10:29+00:00	RETURN_CODE 0
-2026-08-12T01:10:29+00:00	health_check metaphlan_humann_version_output=false
+usage: metaphlan --input_type {fastq,fasta,mapout,sam} [--force]
+                 [--db_dir METAPHLAN_DB] [-x INDEX] [--mapout FILE_NAME]
+                 [--min_mapq_val MIN_MAPQ_VAL] [--no_map] [--tmp_dir]
+                 [--bt2_ps BowTie2 presets] [--bowtie2_exe BOWTIE2_EXE]
+                 [--bowtie2_build BOWTIE2_BUILD] [--tax_lev TAXONOMIC_LEVEL]
+                 [--min_alignment_len] [--ignore_eukaryotes]
+                 [--ignore_bacteria] [--ignore_archaea] [--ignore_ksgbs]
+                 [--ignore_usgbs] [--stat_q] [--perc_nonzero]
+                 [--ignore_markers IGNORE_MARKERS] [--avoid_disqm] [--stat]
+                 [-t ANALYSIS TYPE] [--nreads NUMBER_OF_READS]
+                 [--pres_th PRESENCE_THRESHOLD] [-o output file]
+                 [--sample_id_key name] [--use_group_representative]
+                 [--sample_id value] [-s sam_output_file]
+                 [--CAMI_format_output] [--skip_unclassified_estimation]
+                 [--biom_format_output] [--biom_mdelim mdelim] [--profile_vsc]
+                 [--vsc_out VSC_OUT] [--vsc_breadth VSC_BREADTH]
+                 [--long_reads] [--max_gcsd MAX_GCSD]
+                 [--minimap2_exe MINIMAP2_EXE]
+                 [--minimap2_ps minimap2 presets] [--nbases NUMBER_OF_BASES]
+                 [--split_reads] [--split_readlen SPLIT_READLEN] [--nproc N]
+                 [--subsampling SUBSAMPLING] [--mapping_subsampling]
+                 [--subsampling_seed SUBSAMPLING_SEED]
+                 [--subsampling_output SUBSAMPLING_OUTPUT]
+                 [--subsampling_paired SUBSAMPLING_PAIRED] [-1 FORWARD_READS]
+                 [-2 REVERSE_READS] [--install] [--offline] [--force_download]
+                 [--read_min_len READ_MIN_LEN] [--verbose] [-v] [-h]
+                 [INPUT_FILE]
+metaphlan: error: unrecognized arguments: --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343520/SRR27343520_humann_temp/SRR27343520_metaphlan_bowtie2.txt
+
+2026-08-12T03:04:29+00:00	RETURN_CODE 1
+2026-08-12T03:04:30+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --input /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-30/host_removed/SRR27343835.fastq.gz --output results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835 --threads 4 --nucleotide-database /mnt/disk1/db/humann/chocophlan --protein-database /mnt/disk1/db/humann/uniref
+Output files will be written to: /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835
+Decompressing gzipped file ...
+
+Removing spaces from identifiers in input file ...
+
+
+Running metaphlan ........
+
+CRITICAL ERROR: Error executing: /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835/SRR27343835_humann_temp/tmpn5ye81c7/tmpf6ddfnob -t rel_ab -o /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835/SRR27343835_humann_temp/SRR27343835_metaphlan_bugs_list.tsv --input_type fastq --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835/SRR27343835_humann_temp/SRR27343835_metaphlan_bowtie2.txt --nproc 4
+
+Error message returned from metaphlan :
+/home/suma/anaconda3/envs/humann-shotgun/lib/python3.12/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+usage: metaphlan --input_type {fastq,fasta,mapout,sam} [--force]
+                 [--db_dir METAPHLAN_DB] [-x INDEX] [--mapout FILE_NAME]
+                 [--min_mapq_val MIN_MAPQ_VAL] [--no_map] [--tmp_dir]
+                 [--bt2_ps BowTie2 presets] [--bowtie2_exe BOWTIE2_EXE]
+                 [--bowtie2_build BOWTIE2_BUILD] [--tax_lev TAXONOMIC_LEVEL]
+                 [--min_alignment_len] [--ignore_eukaryotes]
+                 [--ignore_bacteria] [--ignore_archaea] [--ignore_ksgbs]
+                 [--ignore_usgbs] [--stat_q] [--perc_nonzero]
+                 [--ignore_markers IGNORE_MARKERS] [--avoid_disqm] [--stat]
+                 [-t ANALYSIS TYPE] [--nreads NUMBER_OF_READS]
+                 [--pres_th PRESENCE_THRESHOLD] [-o output file]
+                 [--sample_id_key name] [--use_group_representative]
+                 [--sample_id value] [-s sam_output_file]
+                 [--CAMI_format_output] [--skip_unclassified_estimation]
+                 [--biom_format_output] [--biom_mdelim mdelim] [--profile_vsc]
+                 [--vsc_out VSC_OUT] [--vsc_breadth VSC_BREADTH]
+                 [--long_reads] [--max_gcsd MAX_GCSD]
+                 [--minimap2_exe MINIMAP2_EXE]
+                 [--minimap2_ps minimap2 presets] [--nbases NUMBER_OF_BASES]
+                 [--split_reads] [--split_readlen SPLIT_READLEN] [--nproc N]
+                 [--subsampling SUBSAMPLING] [--mapping_subsampling]
+                 [--subsampling_seed SUBSAMPLING_SEED]
+                 [--subsampling_output SUBSAMPLING_OUTPUT]
+                 [--subsampling_paired SUBSAMPLING_PAIRED] [-1 FORWARD_READS]
+                 [-2 REVERSE_READS] [--install] [--offline] [--force_download]
+                 [--read_min_len READ_MIN_LEN] [--verbose] [-v] [-h]
+                 [INPUT_FILE]
+metaphlan: error: unrecognized arguments: --bowtie2out /mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile/SRR27343835/SRR27343835_humann_temp/SRR27343835_metaphlan_bowtie2.txt
+
+2026-08-12T03:04:59+00:00	RETURN_CODE 1
+2026-08-12T03:05:00+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name genefamilies --output reports_public/metagenome_functional_profile/merged_genefamilies.tsv
+Zero gene tables were found to join.
+2026-08-12T03:05:00+00:00	RETURN_CODE 0
+2026-08-12T03:05:00+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name pathabundance --output reports_public/metagenome_functional_profile/merged_pathabundance.tsv
+Zero gene tables were found to join.
+2026-08-12T03:05:00+00:00	RETURN_CODE 0
+2026-08-12T03:05:00+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables --input results/20260809T000000Z-prjna1056765-functional-profile --file_name pathcoverage --output reports_public/metagenome_functional_profile/merged_pathcoverage.tsv
+Zero gene tables were found to join.
+2026-08-12T03:05:00+00:00	RETURN_CODE 0

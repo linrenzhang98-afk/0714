@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-12T01:10:30+00:00",
-  "state": "blocked_setup",
-  "reason": "HUMAnN or MetaPhlAn commands remain unhealthy after conda/mamba installation",
+  "generated_at": "2026-08-12T03:05:00+00:00",
+  "state": "done_with_failures",
+  "reason": "Functional profiling finished with 30 failed sample(s).",
   "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
   "sample_count": 30,
   "done_count": 0,
-  "failed_count": 0,
+  "failed_count": 30,
   "running_count": 0,
   "skipped_count": 0,
   "tool_status": {

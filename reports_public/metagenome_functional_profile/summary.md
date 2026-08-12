@@ -1,18 +1,18 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-12T01:10:30+00:00
-State: `blocked_setup`
+Generated at: 2026-08-12T03:05:00+00:00
+State: `done_with_failures`
 
 ## Reason
 
-- HUMAnN or MetaPhlAn commands remain unhealthy after conda/mamba installation
+- Functional profiling finished with 30 failed sample(s).
 
 ## Completion
 
 - Samples considered: 30
 - Done: 0
 - Running: 0
-- Failed: 0
+- Failed: 30
 - Skipped: 0
 
 ## Tools
