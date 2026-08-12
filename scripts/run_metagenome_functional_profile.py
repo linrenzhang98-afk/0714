@@ -21,7 +21,7 @@ from typing import Any
 
 
 TOOL_SEARCH_DIRS: list[Path] = []
-METAPHLAN_PACKAGE_SPEC = "metaphlan<4.2.3"
+METAPHLAN_PACKAGE_SPEC = "metaphlan=4.2.2"
 
 
 def utc_now() -> str:
