@@ -382,6 +382,15 @@ def clean_conda_cache_env() -> dict[str, str]:
     return env
 
 
+def conda_create_extra_args(conda: str, log_path: Path) -> list[str]:
+    result = run_command([conda, "create", "--help"], log_path, timeout=120, env=clean_conda_cache_env())
+    if result.returncode == 0 and "--no-use-local" in result.stdout:
+        append_log(log_path, "conda_create_supports_no_use_local=true")
+        return ["--no-use-local"]
+    append_log(log_path, "conda_create_supports_no_use_local=false")
+    return []
+
+
 def remove_clean_environment(conda: str, functional_env_prefix: Path, log_path: Path, timeout: int) -> None:
     if str(functional_env_prefix) != CLEAN_ENV_PREFIX:
         raise RuntimeError(f"Refusing to remove non-clean HUMAnN environment: {functional_env_prefix}")
@@ -425,7 +434,7 @@ def install_humann_if_needed(log_path: Path, functional_env_prefix: Path, timeou
             "conda-forge",
             "-c",
             "bioconda",
-            "--no-use-local",
+            *conda_create_extra_args(conda, log_path),
             f"python={PYTHON_MAJOR_MINOR}",
             f"humann={HUMANN_EXACT_VERSION}",
             METAPHLAN_PACKAGE_SPEC,
