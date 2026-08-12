@@ -22,6 +22,7 @@ from typing import Any
 
 TOOL_SEARCH_DIRS: list[Path] = []
 METAPHLAN_PACKAGE_SPEC = "metaphlan=4.2.2"
+METAPHLAN_EXACT_VERSION = "4.2.2"
 
 
 def utc_now() -> str:
@@ -100,6 +101,22 @@ def command_path(command: str) -> str:
     return shutil.which(command) or ""
 
 
+def installer_candidates() -> list[str]:
+    """Prefer conda's classic solver when exact package pins must be honored."""
+    candidates: list[str] = []
+    for command in ("conda", "mamba"):
+        path = command_path(command)
+        if path and path not in candidates:
+            candidates.append(path)
+    return candidates
+
+
+def installer_solver_args(installer: str) -> list[str]:
+    if Path(installer).name == "conda":
+        return ["--solver", "classic"]
+    return []
+
+
 def activate_functional_environment(functional_env_prefix: Path) -> None:
     dedicated_bin = functional_env_prefix / "bin"
     if dedicated_bin not in TOOL_SEARCH_DIRS:
@@ -137,6 +154,19 @@ def metaphlan_version_output_compatible(log_path: Path) -> bool:
     )
     append_log(log_path, f"health_check metaphlan_humann_version_output={str(compatible).lower()}")
     return compatible
+
+
+def metaphlan_exact_version_installed(log_path: Path) -> bool:
+    path = command_path("metaphlan")
+    if not path:
+        append_log(log_path, "health_check metaphlan_exact_version=missing")
+        return False
+
+    result = run_command([path, "--version"], log_path, timeout=120)
+    output = result.stdout + "\n" + result.stderr
+    exact = result.returncode == 0 and f"MetaPhlAn version {METAPHLAN_EXACT_VERSION}" in output
+    append_log(log_path, f"health_check metaphlan_exact_version={str(exact).lower()}")
+    return exact
 
 
 def functional_commands_healthy(log_path: Path) -> bool:
@@ -265,18 +295,51 @@ def has_db_files(path: Path, suffixes: tuple[str, ...]) -> bool:
 def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_prefix: Path, timeout: int) -> None:
     if functional_commands_healthy(log_path):
         return
-    installer = command_path("mamba") or command_path("conda")
-    if not installer:
+    installers = installer_candidates()
+    if not installers:
         raise RuntimeError("HUMAnN missing/broken and neither mamba nor conda is available for installation")
     activate_functional_environment(functional_env_prefix)
     if not (functional_env_prefix / "bin" / "humann").exists():
+        for installer in installers:
+            append_log(log_path, f"trying dedicated HUMAnN environment creation with {installer}")
+            result = run_command(
+                [
+                    installer,
+                    "create",
+                    "-p",
+                    str(functional_env_prefix),
+                    "-y",
+                    *installer_solver_args(installer),
+                    "-c",
+                    "conda-forge",
+                    "-c",
+                    "bioconda",
+                    "python=3.12",
+                    "humann",
+                    METAPHLAN_PACKAGE_SPEC,
+                    "diamond",
+                ],
+                log_path,
+                timeout=timeout,
+            )
+            if result.returncode == 0 and metaphlan_exact_version_installed(log_path):
+                break
+        else:
+            raise RuntimeError("Dedicated HUMAnN environment creation failed or did not install exact MetaPhlAn")
+    if functional_commands_healthy(log_path):
+        return
+    append_log(log_path, "dedicated HUMAnN env unhealthy; forcing reinstall in dedicated env")
+    for installer in installers:
+        append_log(log_path, f"trying dedicated HUMAnN force reinstall with {installer}")
         result = run_command(
             [
                 installer,
-                "create",
+                "install",
                 "-p",
                 str(functional_env_prefix),
                 "-y",
+                "--force-reinstall",
+                *installer_solver_args(installer),
                 "-c",
                 "conda-forge",
                 "-c",
@@ -289,63 +352,22 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
             log_path,
             timeout=timeout,
         )
-        if result.returncode != 0:
-            raise RuntimeError(f"Dedicated HUMAnN environment creation failed rc={result.returncode}")
-    if functional_commands_healthy(log_path):
-        return
-    append_log(log_path, "dedicated HUMAnN env unhealthy; forcing reinstall in dedicated env")
-    result = run_command(
-        [
-            installer,
-            "install",
-            "-p",
-            str(functional_env_prefix),
-            "-y",
-            "--force-reinstall",
-            "-c",
-            "conda-forge",
-            "-c",
-            "bioconda",
-            "python=3.12",
-            "humann",
-            METAPHLAN_PACKAGE_SPEC,
-            "diamond",
-        ],
-        log_path,
-        timeout=timeout,
-    )
-    if result.returncode == 0 and functional_commands_healthy(log_path):
-        return
+        if result.returncode == 0 and metaphlan_exact_version_installed(log_path) and functional_commands_healthy(log_path):
+            return
 
     append_log(log_path, "dedicated environment failed; retrying configured mgshotgun env")
-    result = run_command(
-        [
-            installer,
-            "install",
-            "-n",
-            conda_env,
-            "-y",
-            "--force-reinstall",
-            "-c",
-            "bioconda",
-            "-c",
-            "conda-forge",
-            "humann",
-            METAPHLAN_PACKAGE_SPEC,
-            "diamond",
-        ],
-        log_path,
-        timeout=timeout,
-    )
-    if result.returncode != 0:
-        append_log(log_path, "force reinstall failed; retrying normal conda/mamba install")
-        result = run_command(
+    last_result: subprocess.CompletedProcess[str] | None = None
+    for installer in installers:
+        append_log(log_path, f"trying configured env force reinstall with {installer}")
+        last_result = run_command(
             [
                 installer,
                 "install",
                 "-n",
                 conda_env,
                 "-y",
+                "--force-reinstall",
+                *installer_solver_args(installer),
                 "-c",
                 "bioconda",
                 "-c",
@@ -357,10 +379,14 @@ def install_humann_if_needed(log_path: Path, conda_env: str, functional_env_pref
             log_path,
             timeout=timeout,
         )
-    if result.returncode != 0:
-        raise RuntimeError(f"HUMAnN/MetaPhlAn installation failed rc={result.returncode}")
+        if last_result.returncode == 0 and metaphlan_exact_version_installed(log_path) and functional_commands_healthy(log_path):
+            return
+        append_log(log_path, f"configured env exact install with {installer} did not produce a healthy HUMAnN/MetaPhlAn stack")
+    if last_result is None or last_result.returncode != 0:
+        rc = last_result.returncode if last_result is not None else "not_run"
+        raise RuntimeError(f"HUMAnN/MetaPhlAn installation failed rc={rc}")
     if not functional_commands_healthy(log_path):
-        raise RuntimeError("HUMAnN or MetaPhlAn commands remain unhealthy after conda/mamba installation")
+        raise RuntimeError("HUMAnN or MetaPhlAn commands remain unhealthy after exact-version conda/mamba installation")
 
 
 def download_humann_dbs(db_root: Path, log_path: Path, timeout: int) -> None:
