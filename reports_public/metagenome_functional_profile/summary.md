@@ -1,6 +1,6 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-12T22:56:37+00:00
+Generated at: 2026-08-12T23:36:38+00:00
 State: `blocked_setup`
 
 ## Reason
