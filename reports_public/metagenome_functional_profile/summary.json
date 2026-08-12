@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T23:46:59+00:00",
+  "generated_at": "2026-08-12T00:36:55+00:00",
   "state": "blocked_setup",
   "reason": "HUMAnN or MetaPhlAn commands remain unhealthy after conda/mamba installation",
   "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
