@@ -1,11 +1,11 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-12T04:07:06+00:00
+Generated at: 2026-08-12T06:03:56+00:00
 State: `blocked_setup`
 
 ## Reason
 
-- Clean HUMAnN environment exists but failed strict version health check: /home/suma/anaconda3/envs/humann-shotgun-clean. Remove only this clean env and rerun setup.
+- Clean HUMAnN environment failed strict version health check
 
 ## Completion
 

@@ -1,6 +1,5 @@
 
 
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
 
 
 
@@ -15,10 +14,7 @@
 
 
 
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
 
 
 
@@ -37,7 +33,7 @@
 
 
 
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
 
 
 [A
@@ -52,10 +48,100 @@
 
 
 
-[A[A[A[A done
-Preparing transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
-Verifying transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
-Executing transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A done
+Preparing transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
+Verifying transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+Executing transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
 #
 # To activate this environment, use
 #
@@ -83,84 +169,26 @@ Or to minimize the number of packages updated during conda update use
      conda install conda=26.7.0
 
 
-
-SafetyError: The package for humann located at /home/suma/anaconda3/pkgs/humann-3.9-py312hdfd78af_0
-appears to be corrupted. The path 'lib/python3.12/site-packages/humann/humann.cfg'
-has an incorrect size.
-  reported size: 655 bytes
-  actual size: 701 bytes
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::diamond-2.2.5-he361c42_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/diamond'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2-align-l'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2-align-s'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2-build'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2-build-l'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2-build-s'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2-inspect'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2-inspect-l'
-
-
-ClobberError: This transaction has incompatible packages due to a shared path.
-  packages: bioconda/linux-64::bowtie2-2.5.5-ha27dd3b_0, bioconda/noarch::humann-3.9-py312hdfd78af_0
-  path: 'bin/bowtie2-inspect-s'
-
-
-
-2026-08-12T04:06:48+00:00	RETURN_CODE 0
-2026-08-12T04:06:48+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann --version
+2026-08-12T06:03:56+00:00	RETURN_CODE 0
+2026-08-12T06:03:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann --version
 Traceback (most recent call last):
   File "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann", line 7, in <module>
     from humann.humann import main
 ModuleNotFoundError: No module named 'humann'
-2026-08-12T04:06:48+00:00	RETURN_CODE 1
-2026-08-12T04:06:48+00:00	health_check humann=false
-2026-08-12T04:06:48+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases --help
+2026-08-12T06:03:56+00:00	RETURN_CODE 1
+2026-08-12T06:03:56+00:00	health_check humann=false
+2026-08-12T06:03:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases --help
 Traceback (most recent call last):
   File "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases", line 7, in <module>
     from humann.tools.humann_databases import main
 ModuleNotFoundError: No module named 'humann'
-2026-08-12T04:06:48+00:00	RETURN_CODE 1
-2026-08-12T04:06:48+00:00	health_check humann_databases=false
-2026-08-12T04:06:48+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond version
+2026-08-12T06:03:56+00:00	RETURN_CODE 1
+2026-08-12T06:03:56+00:00	health_check humann_databases=false
+2026-08-12T06:03:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond version
 diamond version 2.0.15
-2026-08-12T04:06:48+00:00	RETURN_CODE 0
-2026-08-12T04:06:48+00:00	health_check diamond=true
-2026-08-12T04:06:48+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2 --version
+2026-08-12T06:03:56+00:00	RETURN_CODE 0
+2026-08-12T06:03:56+00:00	health_check diamond=true
+2026-08-12T06:03:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2 --version
 /home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2-align-s version 2.2.3
 64-bit
 Built on do-dmxp-mac.win.ad.jhu.edu
@@ -168,33 +196,5 @@ Thu May 29 17:14:09 EDT 2014
 Compiler: gcc version 4.1.2 20080704 (Red Hat 4.1.2-54)
 Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
 Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
-2026-08-12T04:06:48+00:00	RETURN_CODE 0
-2026-08-12T04:06:48+00:00	health_check bowtie2=true
-2026-08-12T04:07:06+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann --version
-Traceback (most recent call last):
-  File "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann", line 7, in <module>
-    from humann.humann import main
-ModuleNotFoundError: No module named 'humann'
-2026-08-12T04:07:06+00:00	RETURN_CODE 1
-2026-08-12T04:07:06+00:00	health_check humann=false
-2026-08-12T04:07:06+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases --help
-Traceback (most recent call last):
-  File "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases", line 7, in <module>
-    from humann.tools.humann_databases import main
-ModuleNotFoundError: No module named 'humann'
-2026-08-12T04:07:06+00:00	RETURN_CODE 1
-2026-08-12T04:07:06+00:00	health_check humann_databases=false
-2026-08-12T04:07:06+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond version
-diamond version 2.0.15
-2026-08-12T04:07:06+00:00	RETURN_CODE 0
-2026-08-12T04:07:06+00:00	health_check diamond=true
-2026-08-12T04:07:06+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2 --version
-/home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2-align-s version 2.2.3
-64-bit
-Built on do-dmxp-mac.win.ad.jhu.edu
-Thu May 29 17:14:09 EDT 2014
-Compiler: gcc version 4.1.2 20080704 (Red Hat 4.1.2-54)
-Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
-Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
-2026-08-12T04:07:06+00:00	RETURN_CODE 0
-2026-08-12T04:07:06+00:00	health_check bowtie2=true
+2026-08-12T06:03:56+00:00	RETURN_CODE 0
+2026-08-12T06:03:56+00:00	health_check bowtie2=true

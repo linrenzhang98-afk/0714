@@ -1,11 +1,11 @@
 # Progress Governor Status
 
-Generated at: 2026-08-12T04:07:06+00:00
+Generated at: 2026-08-12T06:03:56+00:00
 Progress state: `stalled_metagenome_functional_profile`
 
 ## Reason
 
-- Shotgun functional profiling did not complete: Clean HUMAnN environment exists but failed strict version health check: /home/suma/anaconda3/envs/humann-shotgun-clean. Remove only this clean env and rerun setup.
+- Shotgun functional profiling did not complete: Clean HUMAnN environment failed strict version health check
 
 ## Required Next Action
 

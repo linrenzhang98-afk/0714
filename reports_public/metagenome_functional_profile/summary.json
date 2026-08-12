@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-12T04:07:06+00:00",
+  "generated_at": "2026-08-12T06:03:56+00:00",
   "state": "blocked_setup",
-  "reason": "Clean HUMAnN environment exists but failed strict version health check: /home/suma/anaconda3/envs/humann-shotgun-clean. Remove only this clean env and rerun setup.",
+  "reason": "Clean HUMAnN environment failed strict version health check",
   "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
   "sample_count": 30,
   "done_count": 0,
