@@ -11,17 +11,17 @@ options:
                         update the config file to set the new database as the default [DEFAULT: yes]
   --database-location DATABASE_LOCATION
                         location (local or remote) to pull the database
-2026-08-12T00:25:38+00:00	RETURN_CODE 0
-2026-08-12T00:25:38+00:00	health_check humann_databases=true
-2026-08-12T00:25:38+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
+2026-08-12T01:05:48+00:00	RETURN_CODE 0
+2026-08-12T01:05:48+00:00	health_check humann_databases=true
+2026-08-12T01:05:48+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
 MetaPhlAn version 4.2.5 (13 Jul 2026)
 No complete MetaPhlAn Bowtie2 database found
 /home/suma/anaconda3/envs/humann-shotgun/lib/python3.12/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
   _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-2026-08-12T00:25:39+00:00	RETURN_CODE 0
-2026-08-12T00:25:39+00:00	health_check metaphlan_humann_version_output=false
-2026-08-12T00:25:39+00:00	dedicated HUMAnN env unhealthy; forcing reinstall in dedicated env
-2026-08-12T00:25:39+00:00	RUN /home/suma/anaconda3/bin/mamba install -p /home/suma/anaconda3/envs/humann-shotgun -y --force-reinstall -c conda-forge -c bioconda python=3.12 humann metaphlan=4.2.2 diamond
+2026-08-12T01:05:49+00:00	RETURN_CODE 0
+2026-08-12T01:05:49+00:00	health_check metaphlan_humann_version_output=false
+2026-08-12T01:05:49+00:00	dedicated HUMAnN env unhealthy; forcing reinstall in dedicated env
+2026-08-12T01:05:49+00:00	RUN /home/suma/anaconda3/bin/mamba install -p /home/suma/anaconda3/envs/humann-shotgun -y --force-reinstall -c conda-forge -c bioconda python=3.12 humann metaphlan=4.2.2 diamond
 
 
 Transaction
@@ -76,12 +76,12 @@ warning  libmamba See: https://legal.anaconda.com/policies/en/
 warning  libmamba Invalid package cache, file '/home/suma/anaconda3/pkgs/humann-3.9-py312hdfd78af_0/lib/python3.12/site-packages/humann/humann.cfg' has incorrect size
 warning  libmamba [humann-3.9-py312hdfd78af_0] The following files were already present in the environment:
     - bin/diamond
-2026-08-12T00:36:23+00:00	RETURN_CODE 0
-2026-08-12T00:36:23+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --version
+2026-08-12T01:09:55+00:00	RETURN_CODE 0
+2026-08-12T01:09:55+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --version
 humann v3.9
-2026-08-12T00:36:23+00:00	RETURN_CODE 0
-2026-08-12T00:36:23+00:00	health_check humann=true
-2026-08-12T00:36:23+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_databases --help
+2026-08-12T01:09:56+00:00	RETURN_CODE 0
+2026-08-12T01:09:56+00:00	health_check humann=true
+2026-08-12T01:09:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_databases --help
 usage: humann_databases [-h] [--available]
                         [--download <database> <build> <install_location>]
                         [--update-config {yes,no}]
@@ -98,17 +98,17 @@ options:
                         update the config file to set the new database as the default [DEFAULT: yes]
   --database-location DATABASE_LOCATION
                         location (local or remote) to pull the database
-2026-08-12T00:36:23+00:00	RETURN_CODE 0
-2026-08-12T00:36:23+00:00	health_check humann_databases=true
-2026-08-12T00:36:23+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
+2026-08-12T01:09:56+00:00	RETURN_CODE 0
+2026-08-12T01:09:56+00:00	health_check humann_databases=true
+2026-08-12T01:09:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
 MetaPhlAn version 4.2.5 (13 Jul 2026)
 No complete MetaPhlAn Bowtie2 database found
 /home/suma/anaconda3/envs/humann-shotgun/lib/python3.12/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
   _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-2026-08-12T00:36:24+00:00	RETURN_CODE 0
-2026-08-12T00:36:24+00:00	health_check metaphlan_humann_version_output=false
-2026-08-12T00:36:24+00:00	dedicated environment failed; retrying configured mgshotgun env
-2026-08-12T00:36:24+00:00	RUN /home/suma/anaconda3/bin/mamba install -n mgshotgun -y --force-reinstall -c bioconda -c conda-forge humann metaphlan=4.2.2 diamond
+2026-08-12T01:09:56+00:00	RETURN_CODE 0
+2026-08-12T01:09:56+00:00	health_check metaphlan_humann_version_output=false
+2026-08-12T01:09:56+00:00	dedicated environment failed; retrying configured mgshotgun env
+2026-08-12T01:09:56+00:00	RUN /home/suma/anaconda3/bin/mamba install -n mgshotgun -y --force-reinstall -c bioconda -c conda-forge humann metaphlan=4.2.2 diamond
 bioconda/linux-64                                           Using cache
 bioconda/noarch                                             Using cache
 conda-forge/linux-64                                        Using cache
@@ -167,12 +167,12 @@ warning  libmamba See: https://legal.anaconda.com/policies/en/
 warning  libmamba Invalid package cache, file '/home/suma/anaconda3/pkgs/humann-3.9-py312hdfd78af_0/lib/python3.12/site-packages/humann/humann.cfg' has incorrect size
 warning  libmamba [humann-3.9-py312hdfd78af_0] The following files were already present in the environment:
     - bin/diamond
-2026-08-12T00:36:54+00:00	RETURN_CODE 0
-2026-08-12T00:36:54+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --version
+2026-08-12T01:10:28+00:00	RETURN_CODE 0
+2026-08-12T01:10:28+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann --version
 humann v3.9
-2026-08-12T00:36:54+00:00	RETURN_CODE 0
-2026-08-12T00:36:54+00:00	health_check humann=true
-2026-08-12T00:36:54+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_databases --help
+2026-08-12T01:10:29+00:00	RETURN_CODE 0
+2026-08-12T01:10:29+00:00	health_check humann=true
+2026-08-12T01:10:29+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/humann_databases --help
 usage: humann_databases [-h] [--available]
                         [--download <database> <build> <install_location>]
                         [--update-config {yes,no}]
@@ -189,12 +189,12 @@ options:
                         update the config file to set the new database as the default [DEFAULT: yes]
   --database-location DATABASE_LOCATION
                         location (local or remote) to pull the database
-2026-08-12T00:36:54+00:00	RETURN_CODE 0
-2026-08-12T00:36:54+00:00	health_check humann_databases=true
-2026-08-12T00:36:54+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
+2026-08-12T01:10:29+00:00	RETURN_CODE 0
+2026-08-12T01:10:29+00:00	health_check humann_databases=true
+2026-08-12T01:10:29+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan --version
 MetaPhlAn version 4.2.5 (13 Jul 2026)
 No complete MetaPhlAn Bowtie2 database found
 /home/suma/anaconda3/envs/humann-shotgun/lib/python3.12/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
   _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-2026-08-12T00:36:55+00:00	RETURN_CODE 0
-2026-08-12T00:36:55+00:00	health_check metaphlan_humann_version_output=false
+2026-08-12T01:10:29+00:00	RETURN_CODE 0
+2026-08-12T01:10:29+00:00	health_check metaphlan_humann_version_output=false
