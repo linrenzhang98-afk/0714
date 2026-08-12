@@ -86,7 +86,8 @@ def main() -> int:
     functional_state = str(functional_summary.get("state", "not_started") or "not_started")
     functional_done = functional_state == "done"
     functional_blocked = functional_state.startswith("blocked") or functional_state == "done_with_failures"
-    functional_running = functional_state in {"initializing", "running", "starting"}
+    functional_setup_ready = functional_state == "setup_ready"
+    functional_running = functional_state in {"initializing", "running", "starting", "setup_ready"}
 
     differential_summary_exists = (public_dir / "prjna1056765_group_differentials" / "summary.md").exists()
     clinical_summary_exists = (public_dir / "prjna1056765_clinical_groups" / "summary.md").exists()
@@ -124,7 +125,11 @@ def main() -> int:
         public_dir / "manuscript_evidence_package" / "public_data_submission_package.md"
     ).exists()
 
-    if functional_running:
+    if functional_setup_ready:
+        progress_state = "metagenome_functional_profile_setup_ready"
+        reason = "Shotgun functional profiling setup and smoke tests passed; formal 30-sample HUMAnN run is released for the next workstation pass."
+        next_action = "Let the workstation continue; Codex should inspect logs only if the next pass becomes blocked."
+    elif functional_running:
         progress_state = "metagenome_functional_profile_running"
         reason = (
             "Shotgun functional profiling is active or being initialized; "

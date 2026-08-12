@@ -8,7 +8,9 @@ RUN_STATUS="${FUNCTIONAL_RUN_STATUS:-$PUBLIC_STATUS_DIR/metagenome_host_amr_scre
 RESULT_DIR="${FUNCTIONAL_RESULT_DIR:-results/20260809T000000Z-prjna1056765-functional-profile}"
 PUBLIC_DIR="${FUNCTIONAL_PUBLIC_DIR:-$PUBLIC_STATUS_DIR/metagenome_functional_profile}"
 DB_ROOT="${HUMANN_DB_ROOT:-/mnt/disk1/db/humann}"
-FUNCTIONAL_ENV_PREFIX="${HUMANN_FUNCTIONAL_ENV_PREFIX:-/home/suma/anaconda3/envs/humann-shotgun}"
+FUNCTIONAL_ENV_PREFIX="${HUMANN_FUNCTIONAL_ENV_PREFIX:-/home/suma/anaconda3/envs/humann-shotgun-clean}"
+METAPHLAN_DB_ROOT="${METAPHLAN_DB_ROOT:-/mnt/disk1/db/metaphlan/vJun23}"
+METAPHLAN_INDEX="${METAPHLAN_INDEX:-mpa_vJun23_CHOCOPhlAnSGB_202403}"
 THREADS="${FUNCTIONAL_THREADS:-4}"
 MAX_SAMPLES="${FUNCTIONAL_MAX_SAMPLES:-30}"
 LOCK_DIR="${FUNCTIONAL_LOCK_DIR:-.runner_state/metagenome_functional_profile.lock}"
@@ -65,6 +67,8 @@ if mkdir "$LOCK_DIR" 2>/dev/null; then
     --public-dir "$PUBLIC_DIR" \
     --db-root "$DB_ROOT" \
     --functional-env-prefix "$FUNCTIONAL_ENV_PREFIX" \
+    --metaphlan-db-root "$METAPHLAN_DB_ROOT" \
+    --metaphlan-index "$METAPHLAN_INDEX" \
     --threads "$THREADS" \
     --max-samples "$MAX_SAMPLES" \
     "${AUTO_FLAGS[@]}" \
