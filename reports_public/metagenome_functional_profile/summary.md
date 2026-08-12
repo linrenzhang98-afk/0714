@@ -1,11 +1,11 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-12T04:06:48+00:00
+Generated at: 2026-08-12T04:07:06+00:00
 State: `blocked_setup`
 
 ## Reason
 
-- Clean HUMAnN environment failed strict version health check
+- Clean HUMAnN environment exists but failed strict version health check: /home/suma/anaconda3/envs/humann-shotgun-clean. Remove only this clean env and rerun setup.
 
 ## Completion
 
@@ -17,12 +17,12 @@ State: `blocked_setup`
 
 ## Tools
 
-- humann: `/home/suma/anaconda3/envs/mgshotgun/bin/humann`
-- humann_databases: `/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases`
-- humann_join_tables: `/home/suma/anaconda3/envs/mgshotgun/bin/humann_join_tables`
-- humann_renorm_table: `/home/suma/anaconda3/envs/mgshotgun/bin/humann_renorm_table`
-- metaphlan: `/home/suma/anaconda3/envs/mgshotgun/bin/metaphlan`
-- diamond: `/home/suma/anaconda3/envs/mgshotgun/bin/diamond`
+- humann: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann`
+- humann_databases: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases`
+- humann_join_tables: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_join_tables`
+- humann_renorm_table: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_renorm_table`
+- metaphlan: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan`
+- diamond: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond`
 
 ## Databases
 

@@ -1,33 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                                      [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
 
 
@@ -198,3 +170,31 @@ Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
 Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
 2026-08-12T04:06:48+00:00	RETURN_CODE 0
 2026-08-12T04:06:48+00:00	health_check bowtie2=true
+2026-08-12T04:07:06+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann --version
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann", line 7, in <module>
+    from humann.humann import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-12T04:07:06+00:00	RETURN_CODE 1
+2026-08-12T04:07:06+00:00	health_check humann=false
+2026-08-12T04:07:06+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases --help
+Traceback (most recent call last):
+  File "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases", line 7, in <module>
+    from humann.tools.humann_databases import main
+ModuleNotFoundError: No module named 'humann'
+2026-08-12T04:07:06+00:00	RETURN_CODE 1
+2026-08-12T04:07:06+00:00	health_check humann_databases=false
+2026-08-12T04:07:06+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond version
+diamond version 2.0.15
+2026-08-12T04:07:06+00:00	RETURN_CODE 0
+2026-08-12T04:07:06+00:00	health_check diamond=true
+2026-08-12T04:07:06+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2 --version
+/home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2-align-s version 2.2.3
+64-bit
+Built on do-dmxp-mac.win.ad.jhu.edu
+Thu May 29 17:14:09 EDT 2014
+Compiler: gcc version 4.1.2 20080704 (Red Hat 4.1.2-54)
+Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
+2026-08-12T04:07:06+00:00	RETURN_CODE 0
+2026-08-12T04:07:06+00:00	health_check bowtie2=true
