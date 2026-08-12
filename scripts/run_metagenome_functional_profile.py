@@ -199,6 +199,65 @@ def python_metadata_versions(functional_env_prefix: Path, log_path: Path) -> dic
     return versions
 
 
+def python_import_package(functional_env_prefix: Path, package: str, log_path: Path) -> bool:
+    python = env_command_path(functional_env_prefix, "python")
+    if not python:
+        append_log(log_path, f"python_import_{package}=missing_python")
+        return False
+    result = run_command(
+        [python, "-c", f"import {package}; print({package}.__file__)"],
+        log_path,
+        timeout=120,
+    )
+    ok = result.returncode == 0
+    append_log(log_path, f"python_import_{package}={str(ok).lower()}")
+    return ok
+
+
+def repair_humann_module_if_needed(functional_env_prefix: Path, log_path: Path, timeout: int) -> None:
+    if python_import_package(functional_env_prefix, "humann", log_path):
+        return
+
+    python = env_command_path(functional_env_prefix, "python")
+    if not python:
+        raise RuntimeError("Clean HUMAnN environment has no Python executable")
+
+    append_log(log_path, "repair_humann_module=pip_no_deps")
+    result = run_command(
+        [
+            python,
+            "-m",
+            "pip",
+            "install",
+            "--no-cache-dir",
+            "--no-deps",
+            f"humann=={HUMANN_EXACT_VERSION}",
+        ],
+        log_path,
+        timeout=timeout,
+        env=clean_conda_cache_env(),
+    )
+    if result.returncode != 0:
+        append_log(log_path, "repair_humann_module=ensurepip_then_retry")
+        run_command([python, "-m", "ensurepip", "--upgrade"], log_path, timeout=300)
+        result = run_command(
+            [
+                python,
+                "-m",
+                "pip",
+                "install",
+                "--no-cache-dir",
+                "--no-deps",
+                f"humann=={HUMANN_EXACT_VERSION}",
+            ],
+            log_path,
+            timeout=timeout,
+            env=clean_conda_cache_env(),
+        )
+    if result.returncode != 0 or not python_import_package(functional_env_prefix, "humann", log_path):
+        raise RuntimeError(f"HUMAnN Python module repair failed rc={result.returncode}")
+
+
 def metaphlan_exact_version_installed(log_path: Path, functional_env_prefix: Path | None = None) -> bool:
     path = env_command_path(functional_env_prefix, "metaphlan") if functional_env_prefix is not None else command_path("metaphlan")
     if not path:
@@ -411,6 +470,11 @@ def install_humann_if_needed(log_path: Path, functional_env_prefix: Path, timeou
         raise RuntimeError("Conda is unavailable; clean HUMAnN environment cannot be created")
 
     activate_functional_environment(functional_env_prefix)
+    if functional_env_prefix.exists():
+        try:
+            repair_humann_module_if_needed(functional_env_prefix, log_path, timeout)
+        except RuntimeError as exc:
+            append_log(log_path, f"existing_clean_env_repair_failed={exc}")
     if functional_env_prefix.exists() and clean_env_versions_ok(functional_env_prefix, log_path):
         write_persistent_pins(functional_env_prefix, log_path)
         return
@@ -446,6 +510,7 @@ def install_humann_if_needed(log_path: Path, functional_env_prefix: Path, timeou
     if result.returncode != 0:
         raise RuntimeError(f"Clean HUMAnN environment creation failed rc={result.returncode}")
     activate_functional_environment(functional_env_prefix)
+    repair_humann_module_if_needed(functional_env_prefix, log_path, timeout)
     if not clean_env_versions_ok(functional_env_prefix, log_path):
         raise RuntimeError("Clean HUMAnN environment failed strict version health check")
     write_persistent_pins(functional_env_prefix, log_path)
