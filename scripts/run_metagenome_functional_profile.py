@@ -755,6 +755,18 @@ def main() -> int:
         "metaphlan": command_path("metaphlan"),
         "diamond": command_path("diamond"),
     }
+    if str(functional_env_prefix) != CLEAN_ENV_PREFIX:
+        reason = f"Refusing unsafe HUMAnN environment: {functional_env_prefix}; expected {CLEAN_ENV_PREFIX}"
+        write_public_status(
+            public_dir,
+            result_dir,
+            "blocked_setup",
+            reason,
+            rows,
+            tool_status,
+            db_status(db_root, metaphlan_db_root, args.metaphlan_index),
+        )
+        return 2
     write_public_status(
         public_dir,
         result_dir,
