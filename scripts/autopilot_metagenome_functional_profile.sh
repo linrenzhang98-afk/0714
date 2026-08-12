@@ -15,7 +15,7 @@ THREADS="${FUNCTIONAL_THREADS:-4}"
 MAX_SAMPLES="${FUNCTIONAL_MAX_SAMPLES:-30}"
 LOCK_DIR="${FUNCTIONAL_LOCK_DIR:-.runner_state/metagenome_functional_profile.lock}"
 AUTO_INSTALL="${ENABLE_FUNCTIONAL_AUTO_INSTALL:-1}"
-AUTO_DOWNLOAD_DBS="${ENABLE_FUNCTIONAL_AUTO_DOWNLOAD_DBS:-1}"
+AUTO_DOWNLOAD_DBS="${ENABLE_FUNCTIONAL_AUTO_DOWNLOAD_DBS:-0}"
 
 cd "$REPO_DIR"
 mkdir -p "$PUBLIC_DIR" "$RESULT_DIR" .runner_state
@@ -81,6 +81,7 @@ if mkdir "$LOCK_DIR" 2>/dev/null; then
     write_status "done" "functional profiling worker completed"
   else
     write_status "blocked_or_failed" "functional profiling worker exited rc=$WORKER_RC"
+    exit "$WORKER_RC"
   fi
 else
   if [ -f "$LOCK_DIR/pid" ]; then

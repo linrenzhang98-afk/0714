@@ -450,69 +450,19 @@ def conda_create_extra_args(conda: str, log_path: Path) -> list[str]:
     return []
 
 
-def remove_clean_environment(conda: str, functional_env_prefix: Path, log_path: Path, timeout: int) -> None:
-    if str(functional_env_prefix) != CLEAN_ENV_PREFIX:
-        raise RuntimeError(f"Refusing to remove non-clean HUMAnN environment: {functional_env_prefix}")
-    append_log(log_path, f"removing incomplete clean HUMAnN environment at {functional_env_prefix}")
-    result = run_command(
-        [conda, "env", "remove", "-p", str(functional_env_prefix), "-y"],
-        log_path,
-        timeout=timeout,
-        env=clean_conda_cache_env(),
-    )
-    if result.returncode != 0 and functional_env_prefix.exists():
-        raise RuntimeError(f"Failed to remove incomplete clean HUMAnN environment rc={result.returncode}")
-
-
 def install_humann_if_needed(log_path: Path, functional_env_prefix: Path, timeout: int) -> None:
-    conda = conda_path()
-    if not conda:
-        raise RuntimeError("Conda is unavailable; clean HUMAnN environment cannot be created")
-
     activate_functional_environment(functional_env_prefix)
-    if functional_env_prefix.exists():
-        try:
-            repair_humann_module_if_needed(functional_env_prefix, log_path, timeout)
-        except RuntimeError as exc:
-            append_log(log_path, f"existing_clean_env_repair_failed={exc}")
-    if functional_env_prefix.exists() and clean_env_versions_ok(functional_env_prefix, log_path):
-        write_persistent_pins(functional_env_prefix, log_path)
-        return
-
-    if functional_env_prefix.exists():
-        remove_clean_environment(conda, functional_env_prefix, log_path, timeout)
-
-    append_log(log_path, f"creating clean HUMAnN environment at {functional_env_prefix}")
-    result = run_command(
-        [
-            conda,
-            "create",
-            "-p",
-            str(functional_env_prefix),
-            "-y",
-            "--solver",
-            "classic",
-            "--override-channels",
-            "--strict-channel-priority",
-            "-c",
-            "conda-forge",
-            "-c",
-            "bioconda",
-            *conda_create_extra_args(conda, log_path),
-            f"python={PYTHON_MAJOR_MINOR}",
-            f"humann={HUMANN_EXACT_VERSION}",
-            METAPHLAN_PACKAGE_SPEC,
-        ],
-        log_path,
-        timeout=timeout,
-        env=clean_conda_cache_env(),
-    )
-    if result.returncode != 0:
-        raise RuntimeError(f"Clean HUMAnN environment creation failed rc={result.returncode}")
-    activate_functional_environment(functional_env_prefix)
+    if not functional_env_prefix.exists():
+        raise RuntimeError(
+            f"Existing HUMAnN environment is missing: {functional_env_prefix}; "
+            "environment creation is disabled"
+        )
     repair_humann_module_if_needed(functional_env_prefix, log_path, timeout)
     if not clean_env_versions_ok(functional_env_prefix, log_path):
-        raise RuntimeError("Clean HUMAnN environment failed strict version health check")
+        raise RuntimeError(
+            "Existing HUMAnN environment failed strict import/version health check after in-place repair; "
+            "environment recreation is disabled"
+        )
     write_persistent_pins(functional_env_prefix, log_path)
 
 
@@ -887,7 +837,20 @@ def main() -> int:
         current_db_status = db_status(db_root, metaphlan_db_root, args.metaphlan_index)
         if not current_db_status["chocophlan_ready"] or not current_db_status["uniref_ready"]:
             raise RuntimeError("HUMAnN databases are not ready after database check/download stage")
-        ensure_metaphlan_db(functional_env_prefix, metaphlan_db_root, args.metaphlan_index, log_path, args.db_timeout_seconds)
+        if not current_db_status["metaphlan_db_ready"]:
+            if args.auto_download_dbs:
+                ensure_metaphlan_db(
+                    functional_env_prefix,
+                    metaphlan_db_root,
+                    args.metaphlan_index,
+                    log_path,
+                    args.db_timeout_seconds,
+                )
+            else:
+                raise RuntimeError(
+                    "Existing MetaPhlAn database is not ready at the configured path/index; "
+                    "database download and path/version changes are disabled"
+                )
         if not setup_gate_passed(result_dir):
             smoke_run, smoke_fastq = run_metaphlan_smoke_test(
                 functional_env_prefix,
