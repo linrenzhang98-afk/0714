@@ -1,11 +1,11 @@
 # Progress Governor Status
 
-Generated at: 2026-08-12T03:05:01+00:00
+Generated at: 2026-08-12T04:06:49+00:00
 Progress state: `stalled_metagenome_functional_profile`
 
 ## Reason
 
-- Shotgun functional profiling did not complete: Functional profiling finished with 30 failed sample(s).
+- Shotgun functional profiling did not complete: Clean HUMAnN environment failed strict version health check
 
 ## Required Next Action
 
@@ -19,4 +19,4 @@ Progress state: `stalled_metagenome_functional_profile`
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
-- Functional profile state: done_with_failures
+- Functional profile state: blocked_setup

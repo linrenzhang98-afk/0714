@@ -1,28 +1,28 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-12T03:05:00+00:00
-State: `done_with_failures`
+Generated at: 2026-08-12T04:06:48+00:00
+State: `blocked_setup`
 
 ## Reason
 
-- Functional profiling finished with 30 failed sample(s).
+- Clean HUMAnN environment failed strict version health check
 
 ## Completion
 
 - Samples considered: 30
 - Done: 0
 - Running: 0
-- Failed: 30
+- Failed: 0
 - Skipped: 0
 
 ## Tools
 
-- humann: `/home/suma/anaconda3/envs/humann-shotgun/bin/humann`
-- humann_databases: `/home/suma/anaconda3/envs/humann-shotgun/bin/humann_databases`
-- humann_join_tables: `/home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables`
-- humann_renorm_table: `/home/suma/anaconda3/envs/humann-shotgun/bin/humann_renorm_table`
-- metaphlan: `/home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan`
-- diamond: `/home/suma/anaconda3/envs/humann-shotgun/bin/diamond`
+- humann: `/home/suma/anaconda3/envs/mgshotgun/bin/humann`
+- humann_databases: `/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases`
+- humann_join_tables: `/home/suma/anaconda3/envs/mgshotgun/bin/humann_join_tables`
+- humann_renorm_table: `/home/suma/anaconda3/envs/mgshotgun/bin/humann_renorm_table`
+- metaphlan: `/home/suma/anaconda3/envs/mgshotgun/bin/metaphlan`
+- diamond: `/home/suma/anaconda3/envs/mgshotgun/bin/diamond`
 
 ## Databases
 
@@ -30,6 +30,9 @@ State: `done_with_failures`
 - UniRef ready: True
 - Utility mapping ready: True
 - Database root: `/mnt/disk1/db/humann`
+- MetaPhlAn DB ready: False
+- MetaPhlAn DB root: `/mnt/disk1/db/metaphlan/vJun23`
+- MetaPhlAn DB index: `mpa_vJun23_CHOCOPhlAnSGB_202403`
 
 ## Output Files
 

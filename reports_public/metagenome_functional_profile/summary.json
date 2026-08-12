@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-08-12T03:05:00+00:00",
-  "state": "done_with_failures",
-  "reason": "Functional profiling finished with 30 failed sample(s).",
+  "generated_at": "2026-08-12T04:06:48+00:00",
+  "state": "blocked_setup",
+  "reason": "Clean HUMAnN environment failed strict version health check",
   "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
   "sample_count": 30,
   "done_count": 0,
-  "failed_count": 30,
+  "failed_count": 0,
   "running_count": 0,
   "skipped_count": 0,
   "tool_status": {
-    "humann": "/home/suma/anaconda3/envs/humann-shotgun/bin/humann",
-    "humann_databases": "/home/suma/anaconda3/envs/humann-shotgun/bin/humann_databases",
-    "humann_join_tables": "/home/suma/anaconda3/envs/humann-shotgun/bin/humann_join_tables",
-    "humann_renorm_table": "/home/suma/anaconda3/envs/humann-shotgun/bin/humann_renorm_table",
-    "metaphlan": "/home/suma/anaconda3/envs/humann-shotgun/bin/metaphlan",
-    "diamond": "/home/suma/anaconda3/envs/humann-shotgun/bin/diamond"
+    "humann": "/home/suma/anaconda3/envs/mgshotgun/bin/humann",
+    "humann_databases": "/home/suma/anaconda3/envs/mgshotgun/bin/humann_databases",
+    "humann_join_tables": "/home/suma/anaconda3/envs/mgshotgun/bin/humann_join_tables",
+    "humann_renorm_table": "/home/suma/anaconda3/envs/mgshotgun/bin/humann_renorm_table",
+    "metaphlan": "/home/suma/anaconda3/envs/mgshotgun/bin/metaphlan",
+    "diamond": "/home/suma/anaconda3/envs/mgshotgun/bin/diamond"
   },
   "db_status": {
     "db_root": "/mnt/disk1/db/humann",
@@ -22,6 +22,9 @@
     "uniref_ready": true,
     "utility_mapping_ready": true,
     "chocophlan": "/mnt/disk1/db/humann/chocophlan",
-    "uniref": "/mnt/disk1/db/humann/uniref"
+    "uniref": "/mnt/disk1/db/humann/uniref",
+    "metaphlan_db_root": "/mnt/disk1/db/metaphlan/vJun23",
+    "metaphlan_index": "mpa_vJun23_CHOCOPhlAnSGB_202403",
+    "metaphlan_db_ready": false
   }
 }
