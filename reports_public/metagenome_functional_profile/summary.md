@@ -1,11 +1,11 @@
 # PRJNA1056765 Functional Shotgun Profile
 
-Generated at: 2026-08-12T06:50:13+00:00
-State: `blocked_setup`
+Generated at: 2026-08-12T06:50:38+00:00
+State: `initializing`
 
 ## Reason
 
-- Clean HUMAnN environment failed strict version health check
+- Functional profiling worker started.
 
 ## Completion
 

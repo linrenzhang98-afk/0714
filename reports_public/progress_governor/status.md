@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-12T06:50:13+00:00
-Progress state: `stalled_metagenome_functional_profile`
+Generated at: 2026-08-12T16:14:05+00:00
+Progress state: `metagenome_functional_profile_running`
 
 ## Reason
 
-- Shotgun functional profiling did not complete: Clean HUMAnN environment failed strict version health check
+- Shotgun functional profiling is active or being initialized; 0 of 30 sample(s) are done.
 
 ## Required Next Action
 
-- Codex should inspect reports_public/metagenome_functional_profile/summary.md, runner_status.txt, worker.nohup.log, and patch the smallest repository-side cause.
+- Let the workstation continue HUMAnN/MetaPhlAn functional profiling; Codex should inspect logs only if it becomes blocked.
 
 ## Operational Counts
 
@@ -19,4 +19,4 @@ Progress state: `stalled_metagenome_functional_profile`
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
-- Functional profile state: blocked_setup
+- Functional profile state: initializing

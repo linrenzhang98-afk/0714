@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-12T06:50:13+00:00",
-  "state": "blocked_setup",
-  "reason": "Clean HUMAnN environment failed strict version health check",
+  "generated_at": "2026-08-12T06:50:38+00:00",
+  "state": "initializing",
+  "reason": "Functional profiling worker started.",
   "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
   "sample_count": 30,
   "done_count": 0,
