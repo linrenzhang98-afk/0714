@@ -376,6 +376,26 @@ def write_persistent_pins(functional_env_prefix: Path, log_path: Path) -> None:
     append_log(log_path, f"persistent_pins_written={pin_path}")
 
 
+def clean_conda_cache_env() -> dict[str, str]:
+    env = os.environ.copy()
+    env["CONDA_PKGS_DIRS"] = str(Path(".runner_state") / "conda_pkgs_humann_clean")
+    return env
+
+
+def remove_clean_environment(conda: str, functional_env_prefix: Path, log_path: Path, timeout: int) -> None:
+    if str(functional_env_prefix) != CLEAN_ENV_PREFIX:
+        raise RuntimeError(f"Refusing to remove non-clean HUMAnN environment: {functional_env_prefix}")
+    append_log(log_path, f"removing incomplete clean HUMAnN environment at {functional_env_prefix}")
+    result = run_command(
+        [conda, "env", "remove", "-p", str(functional_env_prefix), "-y"],
+        log_path,
+        timeout=timeout,
+        env=clean_conda_cache_env(),
+    )
+    if result.returncode != 0 and functional_env_prefix.exists():
+        raise RuntimeError(f"Failed to remove incomplete clean HUMAnN environment rc={result.returncode}")
+
+
 def install_humann_if_needed(log_path: Path, functional_env_prefix: Path, timeout: int) -> None:
     conda = conda_path()
     if not conda:
@@ -387,10 +407,7 @@ def install_humann_if_needed(log_path: Path, functional_env_prefix: Path, timeou
         return
 
     if functional_env_prefix.exists():
-        raise RuntimeError(
-            f"Clean HUMAnN environment exists but failed strict version health check: {functional_env_prefix}. "
-            "Remove only this clean env and rerun setup."
-        )
+        remove_clean_environment(conda, functional_env_prefix, log_path, timeout)
 
     append_log(log_path, f"creating clean HUMAnN environment at {functional_env_prefix}")
     result = run_command(
@@ -408,14 +425,14 @@ def install_humann_if_needed(log_path: Path, functional_env_prefix: Path, timeou
             "conda-forge",
             "-c",
             "bioconda",
+            "--no-use-local",
             f"python={PYTHON_MAJOR_MINOR}",
             f"humann={HUMANN_EXACT_VERSION}",
             METAPHLAN_PACKAGE_SPEC,
-            "diamond",
-            "bowtie2",
         ],
         log_path,
         timeout=timeout,
+        env=clean_conda_cache_env(),
     )
     if result.returncode != 0:
         raise RuntimeError(f"Clean HUMAnN environment creation failed rc={result.returncode}")
