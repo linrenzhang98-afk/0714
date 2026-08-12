@@ -1,6 +1,6 @@
 # PRJNA511633 Review Risk Notes
 
-Generated at: 2026-08-12T17:34:52+00:00
+Generated at: 2026-08-12T18:14:50+00:00
 
 - The biggest methods risk is the need to justify reverse-read-only analysis. Explain that paired and forward-only DADA2 retained only 2/48 samples, whereas reverse reads retained analyzable depth across the cohort.
 - The rarefaction choice should be presented with sensitivity: 5000 for all samples, 10000 for 47/48 samples.
