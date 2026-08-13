@@ -1,31 +1,22 @@
 {
-  "generated_at": "2026-08-13T08:18:55+00:00",
-  "state": "blocked_setup",
-  "reason": "MetaPhlAn smoke test failed rc=1",
-  "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",
+  "generated_at": "2026-08-13T09:43:45+00:00",
+  "state": "running",
+  "reason": "HUMAnN running for SRR27343272",
+  "route": "short_read_shared_index",
+  "method": "Bracken-derived 30-sample joint ChocoPhlAn selection; MetaPhlAn raw-read prescreen bypassed",
   "sample_count": 30,
-  "done_count": 0,
+  "done_count": 2,
   "failed_count": 0,
-  "running_count": 0,
-  "skipped_count": 0,
-  "tool_status": {
-    "humann": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann",
-    "humann_databases": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases",
-    "humann_join_tables": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_join_tables",
-    "humann_renorm_table": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_renorm_table",
-    "metaphlan": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan",
-    "diamond": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond",
-    "bowtie2": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2"
-  },
-  "db_status": {
-    "db_root": "/mnt/disk1/db/humann",
-    "chocophlan_ready": true,
-    "uniref_ready": true,
-    "utility_mapping_ready": true,
-    "chocophlan": "/mnt/disk1/db/humann/chocophlan",
-    "uniref": "/mnt/disk1/db/humann/uniref",
-    "metaphlan_db_root": "/mnt/disk1/db/metaphlan/vJun23",
-    "metaphlan_index": "mpa_vJun23_CHOCOPhlAnSGB_202403",
-    "metaphlan_db_ready": true
+  "running_count": 1,
+  "queued_count": 27,
+  "smoke_sample": "SRR27343490",
+  "shared_index_dir": "/mnt/disk1/db/kraken2/0714/results/humann_taxprofile_smoke2_20260813_100933/SRR27343490_humann_temp",
+  "joint_profile": "/mnt/disk1/db/kraken2/0714/results/humann_taxprofile_smoke2_20260813_100933/joint_30sample_taxonomic_profile.metaphlan3.tsv",
+  "threads_per_sample": 4,
+  "versions": {
+    "humann": "humann v3.9",
+    "bowtie2": "/home/suma/anaconda3/envs/metag_env/bin/bowtie2-align-s version 2.5.5",
+    "bowtie2_build": "/home/suma/anaconda3/envs/metag_env/bin/bowtie2-build-s version 2.5.5",
+    "diamond": "diamond version 2.0.15"
   }
 }

@@ -1,49 +1,8 @@
-# PRJNA1056765 Functional Shotgun Profile
+# PRJNA1056765 HUMAnN short-read functional profile
 
-Generated at: 2026-08-13T08:18:55+00:00
-State: `blocked_setup`
-
-## Reason
-
-- MetaPhlAn smoke test failed rc=1
-
-## Completion
-
-- Samples considered: 30
-- Done: 0
-- Running: 0
-- Failed: 0
-- Skipped: 0
-
-## Tools
-
-- humann: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann`
-- humann_databases: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases`
-- humann_join_tables: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_join_tables`
-- humann_renorm_table: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_renorm_table`
-- metaphlan: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan`
-- diamond: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond`
-- bowtie2: `/home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2`
-
-## Databases
-
-- ChocoPhlAn ready: True
-- UniRef ready: True
-- Utility mapping ready: True
-- Database root: `/mnt/disk1/db/humann`
-- MetaPhlAn DB ready: True
-- MetaPhlAn DB root: `/mnt/disk1/db/metaphlan/vJun23`
-- MetaPhlAn DB index: `mpa_vJun23_CHOCOPhlAnSGB_202403`
-
-## Output Files
-
-- `run_status.tsv`
-- `summary.json`
-- `merged_genefamilies.tsv` if HUMAnN join succeeds
-- `merged_pathabundance.tsv` if HUMAnN join succeeds
-- `merged_pathabundance_relab.tsv` if HUMAnN renormalization succeeds
-
-## Guardrails
-
-- This stage uses existing host-removed FASTQ files from the deep-review set.
-- Functional profiling is exploratory until sample metadata and clinical grouping are strengthened.
+- State: `running`
+- Reason: HUMAnN running for SRR27343272
+- Progress: 2/30 done, 1 running, 0 failed, 27 queued
+- Route: shared Bowtie2 index from the validated SRR27343490 smoke test
+- MetaPhlAn raw-read prescreen: bypassed
+- Database downloads/environment rebuilds: disabled by design

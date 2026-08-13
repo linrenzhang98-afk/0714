@@ -1,8 +1,10 @@
-generated_at=2026-08-13T16:18:55+08:00
-state=blocked_or_failed
-reason=functional profiling worker exited rc=2
+generated_at=2026-08-13T16:59:20+08:00
+state=running
+reason=functional profiling worker running in foreground pid=3861027
+route=short_read_shared_index
 result_dir=results/20260809T000000Z-prjna1056765-functional-profile
 public_dir=reports_public/metagenome_functional_profile
 run_status_exists=true
+worker_script=scripts/run_prjna1056765_humann_short_reads_production.py
 worker_script_exists=true
 lock_dir=.runner_state/metagenome_functional_profile.lock

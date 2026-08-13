@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-08-13T08:59:20+00:00",
+  "route": "short_read_shared_index",
+  "cohort_matrix": "reports_public/metagenome_standard_shotgun/species_relative_abundance_matrix.tsv",
+  "cohort_matrix_sha256": "03f1e040902de1670e6e9d6863629401b154ad7ea80f19dd095510af86ca059d",
+  "host_amr_run_status": "reports_public/metagenome_host_amr_screen/run_status.tsv",
+  "host_amr_run_status_sha256": "ac0db484489e998c3f8d1755ed81110567296e505246a65aef6747b988b6ec1d",
+  "smoke_sample": "SRR27343490",
+  "smoke_output_dir": "/mnt/disk1/db/kraken2/0714/results/humann_taxprofile_smoke2_20260813_100933",
+  "joint_profile": "/mnt/disk1/db/kraken2/0714/results/humann_taxprofile_smoke2_20260813_100933/joint_30sample_taxonomic_profile.metaphlan3.tsv",
+  "joint_profile_sha256": "795e2e4e775499b3889c0cee919e2f1c66fa8178c0fa6897174ed8d8fce1ee1b",
+  "shared_index_dir": "/mnt/disk1/db/kraken2/0714/results/humann_taxprofile_smoke2_20260813_100933/SRR27343490_humann_temp",
+  "shared_index_shards": [
+    {
+      "name": "SRR27343490_bowtie2_index.1.bt2",
+      "size": 972366956
+    },
+    {
+      "name": "SRR27343490_bowtie2_index.2.bt2",
+      "size": 407133920
+    },
+    {
+      "name": "SRR27343490_bowtie2_index.3.bt2",
+      "size": 18022337
+    },
+    {
+      "name": "SRR27343490_bowtie2_index.4.bt2",
+      "size": 407133912
+    },
+    {
+      "name": "SRR27343490_bowtie2_index.rev.1.bt2",
+      "size": 972366956
+    },
+    {
+      "name": "SRR27343490_bowtie2_index.rev.2.bt2",
+      "size": 407133920
+    }
+  ],
+  "taxonomy_policy": "validated 30-sample joint profile; no fuzzy taxonomic remapping in production runner",
+  "metaphlan_raw_read_prescreen": false,
+  "index_rebuilt_per_sample": false,
+  "software_or_database_downloads": false,
+  "environment_rebuild": false,
+  "versions": {
+    "humann": "humann v3.9",
+    "bowtie2": "/home/suma/anaconda3/envs/metag_env/bin/bowtie2-align-s version 2.5.5",
+    "bowtie2_build": "/home/suma/anaconda3/envs/metag_env/bin/bowtie2-build-s version 2.5.5",
+    "diamond": "diamond version 2.0.15"
+  }
+}
