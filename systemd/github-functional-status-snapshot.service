@@ -1,0 +1,11 @@
+[Unit]
+Description=Publish 0714 HUMAnN functional progress snapshot to GitHub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/mnt/disk1/db/kraken2/0714
+Environment=REPO_DIR=/mnt/disk1/db/kraken2/0714
+ExecStart=/usr/bin/bash /mnt/disk1/db/kraken2/0714/scripts/publish_functional_progress_snapshot.sh
+Nice=10
