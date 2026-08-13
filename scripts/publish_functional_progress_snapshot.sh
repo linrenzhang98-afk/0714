@@ -10,6 +10,7 @@ STATUS_DIR="${FUNCTIONAL_PUBLIC_DIR:-reports_public/metagenome_functional_profil
 LOCK_DIR="${FUNCTIONAL_STATUS_SNAPSHOT_LOCK_DIR:-.runner_state/functional_status_snapshot.lock}"
 REMOTE="${FUNCTIONAL_STATUS_REMOTE:-origin}"
 BRANCH="${FUNCTIONAL_STATUS_BRANCH:-main}"
+PYTHON_BIN="${PYTHON_BIN:-/home/suma/anaconda3/bin/python3}"
 
 cd "$REPO_DIR"
 mkdir -p .runner_state
@@ -52,7 +53,7 @@ if [ ! -s "$SUMMARY" ]; then
 fi
 
 # Never publish a partially written JSON summary.
-python3 - "$SUMMARY" <<'PY'
+"$PYTHON_BIN" - "$SUMMARY" <<'PY'
 import json
 import sys
 from pathlib import Path
