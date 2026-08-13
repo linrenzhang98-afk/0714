@@ -1,6 +1,7 @@
 import json
 import os
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -54,6 +55,7 @@ class FunctionalProgressSnapshotPublisherTests(unittest.TestCase):
 
             env = os.environ.copy()
             env["REPO_DIR"] = str(work)
+            env["PYTHON_BIN"] = sys.executable
             result = run(["bash", str(SCRIPT)], work, env=env)
             self.assertEqual(result.returncode, 0, result.stdout)
             self.assertIn("functional_status_snapshot=published", result.stdout)
@@ -61,7 +63,7 @@ class FunctionalProgressSnapshotPublisherTests(unittest.TestCase):
             local_head_after = run(["git", "rev-parse", "HEAD"], work).stdout.strip()
             self.assertEqual(local_head_before, local_head_after)
             porcelain = run(["git", "status", "--porcelain"], work).stdout
-            self.assertIn("reports_public/metagenome_functional_profile/", porcelain)
+            self.assertTrue(porcelain.strip().startswith("?? reports_public"), porcelain)
 
             published = run(
                 ["git", f"--git-dir={remote}", "show", "main:reports_public/metagenome_functional_profile/summary.json"],
