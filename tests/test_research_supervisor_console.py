@@ -37,5 +37,57 @@ class SupervisorConsoleParsingTests(unittest.TestCase):
         self.assertEqual(MOD.compact("123456", 5), "12...")
 
 
+    def test_watcher_error_tail_only_for_nonzero_unexplained_exit(self):
+        self.assertEqual(
+            MOD.watcher_error_tail(
+                1,
+                "first line\nfinal failure",
+                active=False,
+                ask_user=False,
+            ),
+            ["first line", "final failure"],
+        )
+        self.assertEqual(
+            MOD.watcher_error_tail(
+                0,
+                "irrelevant",
+                active=False,
+                ask_user=False,
+            ),
+            [],
+        )
+        self.assertEqual(
+            MOD.watcher_error_tail(
+                1,
+                "decision=ASK_USER",
+                active=False,
+                ask_user=True,
+            ),
+            [],
+        )
+        self.assertEqual(
+            MOD.watcher_error_tail(
+                1,
+                "still running",
+                active=True,
+                ask_user=False,
+            ),
+            [],
+        )
+
+    def test_windows_launcher_has_single_instance_guard(self):
+        launcher_text = (
+            ROOT / "windows" / "Start-AIResearchSupervisor.ps1"
+        ).read_text(encoding="utf-8")
+        self.assertIn(
+            "pgrep -f '[r]esearch_supervisor_console.py'",
+            launcher_text,
+        )
+        self.assertIn(
+            "duplicate launch skipped",
+            launcher_text,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

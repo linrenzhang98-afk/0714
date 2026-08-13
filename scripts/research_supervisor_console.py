@@ -93,6 +93,25 @@ def contains_ask_user(text: str) -> bool:
     return bool(ASK_RE.search(text))
 
 
+def watcher_error_tail(
+    rc: int | None,
+    output: str,
+    *,
+    active: bool,
+    ask_user: bool,
+    n: int = 5,
+) -> list[str]:
+    """Return compact watcher diagnostics only for an unexplained non-zero exit."""
+    if rc in (None, 0) or active or ask_user:
+        return []
+    lines = [
+        compact(line, 136)
+        for line in tail(output, n).splitlines()
+        if line.strip()
+    ]
+    return lines or ["(watcher produced no output)"]
+
+
 class GitRemoteReader:
     def __init__(self, repo: Path) -> None:
         self.repo = repo
@@ -280,9 +299,20 @@ class SupervisorConsole:
             "[ DEEPSEEK SUPERVISOR ]",
             f"  watcher: {'RUNNING' if watcher_active else 'idle'}  last_rc={self.last_watcher_rc if self.last_watcher_rc is not None else 'n/a'}",
             "  " + compact(self.last_supervisor_status, 140),
-            "",
-            "[ CODEX / LOCAL EXECUTOR ]",
         ]
+
+        watcher_error = watcher_error_tail(
+            self.last_watcher_rc,
+            self.last_watcher_output,
+            active=watcher_active,
+            ask_user=ask_from_watcher,
+        )
+        if watcher_error:
+            lines.append("  ⚠ watcher ended non-zero; last output:")
+            for line in watcher_error:
+                lines.append("    " + line)
+
+        lines += ["", "[ CODEX / LOCAL EXECUTOR ]"]
         for line in (self.codex_state().splitlines() or ["unknown"]):
             lines.append("  " + compact(line, 140))
 
