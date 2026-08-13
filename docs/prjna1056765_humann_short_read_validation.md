@@ -14,14 +14,22 @@ Each Bracken fraction is multiplied by 100 for the HUMAnN/MetaPhlAn profile
 percent unit. Taxa pass only when abundance is strictly greater than `0.01`,
 preserving HUMAnN's prescreen semantics. Profiles have the HUMAnN-3.9-compatible
 four fields `#clade_name`, `NCBI_tax_id`, `relative_abundance`, and
-`additional_species`. Names and taxids come directly from Bracken. Converting
-spaces to underscores is profile serialization only; no unmatched name is
-looked up, guessed, or silently remapped.
+`additional_species`. The clade field is serialized as
+`g__Genus|s__Genus_species`, matching the successful `SRR27343490` smoke
+workflow and HUMAnN 3.9's MetaPhlAn profile expectations. Names and taxids come
+directly from Bracken. Splitting the exact name at its first word for the genus
+and converting spaces to underscores are serialization only; no unmatched name
+is looked up, guessed, or silently remapped.
 
 The explicit `--taxonomic-profile` route bypasses MetaPhlAn raw-read prescreening.
 No MetaPhlAn read-length option is changed. Preflight requires the existing
 HUMAnN 3.9, Bowtie2 2.5.5, DIAMOND, ChocoPhlAn, and UniRef90 paths and never
 installs, downloads, updates configuration, or mutates an environment.
+Executable version gates inspect `humann`, `bowtie2`, `bowtie2-build`, and
+`diamond` files directly. HUMAnN receives the containing directories required
+by its `--bowtie2` and `--diamond` options: Bowtie2 from
+`/home/suma/anaconda3/envs/metag_env/bin` and DIAMOND from
+`/home/suma/anaconda3/envs/humann-shotgun-clean/bin`.
 
 Two reference modes are prepared per validation sample:
 

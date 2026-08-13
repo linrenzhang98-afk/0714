@@ -10,6 +10,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -50,16 +51,23 @@ def command_output(args: list[str]) -> str:
 
 
 def version_gate(cfg: dict[str, Any]) -> dict[str, str]:
+    executables = {
+        "humann": (Path(cfg["humann"]), ["--version"]),
+        "bowtie2": (Path(cfg["bowtie2_dir"]) / "bowtie2", ["--version"]),
+        "bowtie2_build": (Path(cfg["bowtie2_dir"]) / "bowtie2-build", ["--version"]),
+        "diamond": (Path(cfg["diamond_dir"]) / "diamond", ["version"]),
+    }
     versions: dict[str, str] = {}
-    for tool in ("humann", "bowtie2", "bowtie2_build", "diamond"):
-        path = Path(cfg[tool])
-        if not path.is_file():
-            raise RuntimeError(f"required existing executable is missing: {path}")
-        versions[tool] = command_output([str(path), "--version"]).splitlines()[0]
+    for tool, (path, version_args) in executables.items():
+        if not path.is_file() or not os.access(path, os.X_OK):
+            raise RuntimeError(f"required existing executable is missing or not executable: {path}")
+        versions[tool] = command_output([str(path), *version_args]).splitlines()[0]
     if cfg["required_versions"]["humann"] not in versions["humann"]:
         raise RuntimeError(f"HUMAnN version mismatch: {versions['humann']}")
     if cfg["required_versions"]["bowtie2"] not in versions["bowtie2"]:
         raise RuntimeError(f"Bowtie2 version mismatch: {versions['bowtie2']}")
+    if cfg["required_versions"]["bowtie2"] not in versions["bowtie2_build"]:
+        raise RuntimeError(f"bowtie2-build version mismatch: {versions['bowtie2_build']}")
     return versions
 
 
@@ -95,9 +103,13 @@ def clade_name(name: str) -> str:
     exact = name.strip()
     if not exact or "|" in exact or "\t" in exact:
         raise RuntimeError(f"unsafe/unrepresentable exact taxonomy name: {name!r}")
-    # A species-only MetaPhlAn clade avoids inventing higher ranks (the cohort
-    # includes non-bacterial taxa) while retaining the exact Bracken label.
-    return f"s__{exact.replace(' ', '_')}"
+    words = exact.split()
+    if len(words) < 2:
+        raise RuntimeError(f"exact Bracken species name lacks genus and species: {name!r}")
+    # This is the genus-plus-species form accepted by HUMAnN 3.9 and used by
+    # the successful SRR27343490 profile. Both fields derive mechanically from
+    # the exact Bracken label; there is no lookup, correction, or remapping.
+    return f"g__{words[0]}|s__{exact.replace(' ', '_')}"
 
 
 def profile_rows(bracken_rows: list[dict[str, str]], threshold_percent: float) -> list[list[str]]:
@@ -164,6 +176,20 @@ def index_shards(directory: Path) -> list[Path]:
     return sorted([*directory.glob("*_bowtie2_index*.bt2"), *directory.glob("*_bowtie2_index*.bt2l")])
 
 
+def humann_command(cfg: dict[str, Any], fastq: Path, target: Path, profile: Path,
+                   joint_index: Path | None = None) -> list[str]:
+    cmd = [cfg["humann"], "--input", str(fastq), "--output", str(target), "--threads", "4",
+           "--protein-database", cfg["uniref90"], "--bowtie2", cfg["bowtie2_dir"],
+           "--diamond", cfg["diamond_dir"], "--prescreen-threshold", "0.01"]
+    if joint_index is not None:
+        if len(index_shards(joint_index)) not in (6, 8):
+            raise RuntimeError(f"joint index is incomplete and unsafe to reuse: {joint_index}")
+        cmd += ["--nucleotide-database", str(joint_index), "--bypass-nucleotide-index"]
+    else:
+        cmd += ["--nucleotide-database", cfg["chocophlan"], "--taxonomic-profile", str(profile)]
+    return cmd
+
+
 def run_humann(cfg: dict[str, Any], out: Path, execute: bool) -> list[list[str]]:
     versions = version_gate(cfg)
     for db_key in ("chocophlan", "uniref90"):
@@ -181,16 +207,8 @@ def run_humann(cfg: dict[str, Any], out: Path, execute: bool) -> list[list[str]]
             if target.exists() and any(target.iterdir()):
                 raise RuntimeError(f"refusing to overwrite existing validation output: {target}")
             profile = out / "profiles" / ("joint_union_30_samples.tsv" if mode == "joint_union" else f"{run}.sample_specific.tsv")
-            cmd = [cfg["humann"], "--input", str(fastq), "--output", str(target), "--threads", "4",
-                   "--protein-database", cfg["uniref90"], "--bowtie2", cfg["bowtie2"],
-                   "--diamond", cfg["diamond"], "--prescreen-threshold", "0.01"]
-            if mode == "joint_union" and joint_index is not None:
-                shards = index_shards(joint_index)
-                if len(shards) not in (6, 8):
-                    raise RuntimeError(f"joint index is incomplete and unsafe to reuse: {joint_index}")
-                cmd += ["--nucleotide-database", str(joint_index), "--bypass-nucleotide-index"]
-            else:
-                cmd += ["--nucleotide-database", cfg["chocophlan"], "--taxonomic-profile", str(profile)]
+            reusable_index = joint_index if mode == "joint_union" else None
+            cmd = humann_command(cfg, fastq, target, profile, reusable_index)
             commands.append(cmd)
             if execute:
                 target.mkdir(parents=True, exist_ok=False)
