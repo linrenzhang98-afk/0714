@@ -17,17 +17,13 @@ if ($CheckRc -ne 1) {
 $WslCommand = "cd ~/projects/0714 && exec python3 scripts/research_supervisor_console.py --auto-watcher"
 
 if (Get-Command wt.exe -ErrorAction SilentlyContinue) {
-    Start-Process -FilePath "wt.exe" -ArgumentList @(
-        "-w", "-1",
-        "new-tab",
-        "--title", "AI Research Supervisor",
-        "wsl.exe", "--",
-        "bash", "-lc", $WslCommand
-    )
+    & wt.exe `
+        -w -1 `
+        new-tab `
+        --title "AI Research Supervisor" `
+        wsl.exe -- bash -lc $WslCommand
+    exit $LASTEXITCODE
 }
-else {
-    Start-Process -FilePath "wsl.exe" -ArgumentList @(
-        "--",
-        "bash", "-lc", $WslCommand
-    )
-}
+
+& wsl.exe -- bash -lc $WslCommand
+exit $LASTEXITCODE
