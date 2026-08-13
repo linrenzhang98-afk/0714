@@ -1,4 +1,4 @@
-generated_at=2026-08-13T08:57:02+08:00
+generated_at=2026-08-13T09:36:52+08:00
 state=blocked_or_failed
 reason=functional profiling worker exited rc=2
 result_dir=results/20260809T000000Z-prjna1056765-functional-profile
