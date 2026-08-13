@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-08-13T00:00:00+08:00",
+  "state": "repository_route_prepared",
+  "cohort_count": 30,
+  "smoke_sample": "SRR27343490",
+  "smoke_result_action": "preserve",
+  "validation_samples": ["SRR27343495", "SRR27343566"],
+  "validation_sample_cap": 2,
+  "reference_modes": ["joint_union_30_samples", "sample_specific"],
+  "prescreen_threshold_percent": 0.01,
+  "metaphlan_raw_read_prescreen": false,
+  "workstation_preflight_completed": false,
+  "workstation_execution_started": false,
+  "downstream_validation_results_produced": false,
+  "remaining_cohort_released": false
+}
