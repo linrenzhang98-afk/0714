@@ -1,0 +1,22 @@
+{
+  "cohort_matrix": "reports_public/metagenome_standard_shotgun/species_relative_abundance_matrix.tsv",
+  "run_status": "reports_public/metagenome_host_amr_screen/run_status.tsv",
+  "smoke_sample": "SRR27343490",
+  "smoke_output_dir": "/mnt/disk1/db/kraken2/0714/results/humann_taxprofile_smoke2_20260813_100933",
+  "joint_profile": "/mnt/disk1/db/kraken2/0714/results/humann_taxprofile_smoke2_20260813_100933/joint_30sample_taxonomic_profile.metaphlan3.tsv",
+  "shared_index_dir": "/mnt/disk1/db/kraken2/0714/results/humann_taxprofile_smoke2_20260813_100933/SRR27343490_humann_temp",
+  "humann": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann",
+  "humann_env_bin": "/home/suma/anaconda3/envs/humann-shotgun-clean/bin",
+  "bowtie2_dir": "/home/suma/anaconda3/envs/metag_env/bin",
+  "required_versions": {
+    "humann": "3.9",
+    "bowtie2": "2.5.5",
+    "diamond": "2.0.15"
+  },
+  "uniref90": "/mnt/disk1/db/humann/uniref",
+  "threads": 4,
+  "remaining_sample_cap": 29,
+  "output_root": "results/20260809T000000Z-prjna1056765-functional-profile",
+  "public_status": "reports_public/metagenome_functional_profile",
+  "method_note": "Validated short-read route: Bracken-derived 30-sample joint ChocoPhlAn selection, shared Bowtie2 index, MetaPhlAn raw-read prescreen bypassed."
+}

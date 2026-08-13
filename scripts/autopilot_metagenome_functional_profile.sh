@@ -16,9 +16,21 @@ MAX_SAMPLES="${FUNCTIONAL_MAX_SAMPLES:-30}"
 LOCK_DIR="${FUNCTIONAL_LOCK_DIR:-.runner_state/metagenome_functional_profile.lock}"
 AUTO_INSTALL="${ENABLE_FUNCTIONAL_AUTO_INSTALL:-1}"
 AUTO_DOWNLOAD_DBS="${ENABLE_FUNCTIONAL_AUTO_DOWNLOAD_DBS:-0}"
+SHORT_READ_MODE="${FUNCTIONAL_SHORT_READ_MODE:-1}"
+SHORT_READ_CONFIG="${FUNCTIONAL_SHORT_READ_CONFIG:-config/prjna1056765_humann_short_read_production.json}"
+SHORT_READ_WORKER="scripts/run_prjna1056765_humann_short_reads_production.py"
+LEGACY_WORKER="scripts/run_metagenome_functional_profile.py"
 
 cd "$REPO_DIR"
 mkdir -p "$PUBLIC_DIR" "$RESULT_DIR" .runner_state
+
+if [ "$SHORT_READ_MODE" = "1" ]; then
+  WORKER_SCRIPT="$SHORT_READ_WORKER"
+  ROUTE="short_read_shared_index"
+else
+  WORKER_SCRIPT="$LEGACY_WORKER"
+  ROUTE="legacy_metaphlan_first"
+fi
 
 write_status() {
   local state="$1"
@@ -27,12 +39,23 @@ write_status() {
     echo "generated_at=$(date -Is)"
     echo "state=$state"
     echo "reason=$reason"
+    echo "route=$ROUTE"
     echo "result_dir=$RESULT_DIR"
     echo "public_dir=$PUBLIC_DIR"
     echo "run_status_exists=$([ -f "$RUN_STATUS" ] && echo true || echo false)"
-    echo "worker_script_exists=$([ -f scripts/run_metagenome_functional_profile.py ] && echo true || echo false)"
+    echo "worker_script=$WORKER_SCRIPT"
+    echo "worker_script_exists=$([ -f "$WORKER_SCRIPT" ] && echo true || echo false)"
     echo "lock_dir=$LOCK_DIR"
   } > "$PUBLIC_DIR/runner_status.txt"
+}
+
+clear_own_lock() {
+  if [ -d "$LOCK_DIR" ]; then
+    if [ -f "$LOCK_DIR/pid" ]; then
+      rm -f "$LOCK_DIR/pid"
+    fi
+    rmdir "$LOCK_DIR" 2>/dev/null || true
+  fi
 }
 
 if [ -f "$PUBLIC_DIR/summary.json" ] && grep -q '"state": "done"' "$PUBLIC_DIR/summary.json"; then
@@ -45,38 +68,50 @@ if [ ! -f "$RUN_STATUS" ]; then
   exit 0
 fi
 
-if [ ! -f scripts/run_metagenome_functional_profile.py ]; then
-  write_status "blocked" "worker script missing"
+if [ ! -f "$WORKER_SCRIPT" ]; then
+  write_status "blocked" "selected functional worker script missing"
+  exit 0
+fi
+
+if [ "$SHORT_READ_MODE" = "1" ] && [ ! -f "$SHORT_READ_CONFIG" ]; then
+  write_status "blocked" "short-read production config missing"
   exit 0
 fi
 
 if mkdir "$LOCK_DIR" 2>/dev/null; then
   echo "$$" > "$LOCK_DIR/pid"
-  AUTO_FLAGS=()
-  if [ "$AUTO_INSTALL" = "1" ]; then
-    AUTO_FLAGS+=(--auto-install)
-  fi
-  if [ "$AUTO_DOWNLOAD_DBS" = "1" ]; then
-    AUTO_FLAGS+=(--auto-download-dbs)
-  fi
   write_status "running" "functional profiling worker running in foreground pid=$$"
   set +e
-  "$PYTHON_BIN" scripts/run_metagenome_functional_profile.py \
-    --run-status "$RUN_STATUS" \
-    --out-dir "$RESULT_DIR" \
-    --public-dir "$PUBLIC_DIR" \
-    --db-root "$DB_ROOT" \
-    --functional-env-prefix "$FUNCTIONAL_ENV_PREFIX" \
-    --metaphlan-db-root "$METAPHLAN_DB_ROOT" \
-    --metaphlan-index "$METAPHLAN_INDEX" \
-    --threads "$THREADS" \
-    --max-samples "$MAX_SAMPLES" \
-    "${AUTO_FLAGS[@]}" \
-    > "$PUBLIC_DIR/worker.nohup.log" 2>&1
+  if [ "$SHORT_READ_MODE" = "1" ]; then
+    "$PYTHON_BIN" "$SHORT_READ_WORKER" \
+      --config "$SHORT_READ_CONFIG" \
+      --execute \
+      > "$PUBLIC_DIR/worker.nohup.log" 2>&1
+  else
+    AUTO_FLAGS=()
+    if [ "$AUTO_INSTALL" = "1" ]; then
+      AUTO_FLAGS+=(--auto-install)
+    fi
+    if [ "$AUTO_DOWNLOAD_DBS" = "1" ]; then
+      AUTO_FLAGS+=(--auto-download-dbs)
+    fi
+    "$PYTHON_BIN" "$LEGACY_WORKER" \
+      --run-status "$RUN_STATUS" \
+      --out-dir "$RESULT_DIR" \
+      --public-dir "$PUBLIC_DIR" \
+      --db-root "$DB_ROOT" \
+      --functional-env-prefix "$FUNCTIONAL_ENV_PREFIX" \
+      --metaphlan-db-root "$METAPHLAN_DB_ROOT" \
+      --metaphlan-index "$METAPHLAN_INDEX" \
+      --threads "$THREADS" \
+      --max-samples "$MAX_SAMPLES" \
+      "${AUTO_FLAGS[@]}" \
+      > "$PUBLIC_DIR/worker.nohup.log" 2>&1
+  fi
   WORKER_RC=$?
   set -e
   echo "$WORKER_RC" > "$PUBLIC_DIR/worker_return_code.txt"
-  rm -rf "$LOCK_DIR"
+  clear_own_lock
   if [ "$WORKER_RC" -eq 0 ]; then
     write_status "done" "functional profiling worker completed"
   else
@@ -91,6 +126,6 @@ else
       exit 0
     fi
   fi
-  rm -rf "$LOCK_DIR"
+  clear_own_lock
   write_status "stale_lock_cleared" "cleared stale functional profiling lock; next timer will restart"
 fi
