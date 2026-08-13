@@ -1,8 +1,8 @@
 # PRJNA1056765 HUMAnN short-read functional profile
 
 - State: `running`
-- Reason: HUMAnN running for SRR27343495
-- Progress: 8/30 done, 1 running, 0 failed, 21 queued
+- Reason: HUMAnN running for SRR27343518
+- Progress: 9/30 done, 1 running, 0 failed, 20 queued
 - Route: shared Bowtie2 index from the validated SRR27343490 smoke test
 - MetaPhlAn raw-read prescreen: bypassed
 - Database downloads/environment rebuilds: disabled by design
