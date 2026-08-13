@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T00:16:43+00:00",
+  "generated_at": "2026-08-13T00:57:02+00:00",
   "state": "blocked_setup",
   "reason": "MetaPhlAn smoke test failed rc=1",
   "result_dir": "results/20260809T000000Z-prjna1056765-functional-profile",

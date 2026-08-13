@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T00:16:43+00:00",
+  "generated_at": "2026-08-13T00:57:08+00:00",
   "progress_state": "stalled_metagenome_functional_profile",
   "reason": "Shotgun functional profiling did not complete: MetaPhlAn smoke test failed rc=1",
   "next_action": "Codex should inspect reports_public/metagenome_functional_profile/summary.md, runner_status.txt, worker.nohup.log, and patch the smallest repository-side cause.",

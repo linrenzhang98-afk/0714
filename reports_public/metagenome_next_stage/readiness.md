@@ -1,8 +1,8 @@
 # Metagenome Next-Stage Readiness
 
-Generated at: 2026-08-13T00:16:30+00:00
+Generated at: 2026-08-13T00:56:41+00:00
 Deep-review samples: 30
-Recommended stage: `host_removal_and_amr_ready`
+Recommended stage: `host_removal_validation_ready`
 
 ## Readiness
 
@@ -10,12 +10,12 @@ Recommended stage: `host_removal_and_amr_ready`
 - Host-removal tools ready: True
 - Host index ready: True
 - AMR tool ready: True
-- AMR database ready: True
+- AMR database ready: False
 - Host index prefix: `/mnt/disk1/db/host_indexes/GRCh38_noalt_as/GRCh38_noalt_as`
 
 ## Blockers
 
-- None.
+- AMR_DB_DIR is not configured or AMRFinderPlus cannot validate the database.
 
 ## Decision
 
