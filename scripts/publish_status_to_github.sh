@@ -340,6 +340,7 @@ fi
 
 DEEP_REVIEW_JOB_ID="20260731T000000Z-prjna1056765-metagenome-deep-review-plan"
 DEEP_REVIEW_ALLOWLIST_REQUEST="decision_requests/metagenome_deep_review_allowlist.md"
+HOST_AMR_DECISION_REQUEST="decision_requests/metagenome_host_amr_requirements.md"
 if [ -f "jobs/${DEEP_REVIEW_JOB_ID}.json" ]; then
   if "$PYTHON_BIN" - .runner_state/runner_state.json "$DEEP_REVIEW_JOB_ID" <<'PY'
 import json
@@ -398,6 +399,9 @@ fi
 
 if [ -d decision_requests ]; then
   find decision_requests -maxdepth 1 -type f -name "*.md" -print0 | xargs -0 --no-run-if-empty git add
+fi
+if git ls-files --error-unmatch -- "$HOST_AMR_DECISION_REQUEST" >/dev/null 2>&1; then
+  git add -- "$HOST_AMR_DECISION_REQUEST"
 fi
 
 if git diff --cached --quiet; then
