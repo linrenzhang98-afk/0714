@@ -1,4 +1,5 @@
 import importlib.util
+import sys
 import unittest
 from pathlib import Path
 
@@ -8,6 +9,7 @@ SPEC = importlib.util.spec_from_file_location(
 )
 MOD = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
+sys.modules[SPEC.name] = MOD
 SPEC.loader.exec_module(MOD)
 
 
