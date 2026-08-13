@@ -1,0 +1,11 @@
+[Unit]
+Description=Publish 0714 HUMAnN functional progress every 5 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Persistent=true
+Unit=github-functional-status-snapshot.service
+
+[Install]
+WantedBy=timers.target
