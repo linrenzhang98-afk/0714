@@ -1,93 +1,3 @@
-2026-08-13T02:16:56+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan --version
-MetaPhlAn version 4.1.1 (11 Mar 2024)
-/home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
-  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-2026-08-13T02:16:57+00:00	RETURN_CODE 0
-2026-08-13T02:16:57+00:00	health_check metaphlan_exact_version=true
-2026-08-13T02:16:57+00:00	health_check python=true
-2026-08-13T02:16:57+00:00	health_check humann_conda=true
-2026-08-13T02:16:57+00:00	health_check humann_metadata=true
-2026-08-13T02:16:57+00:00	health_check metaphlan_conda=true
-2026-08-13T02:16:57+00:00	health_check metaphlan_metadata=true
-2026-08-13T02:16:57+00:00	health_check metaphlan_cli=true
-2026-08-13T02:16:57+00:00	persistent_pins_written=/home/suma/anaconda3/envs/humann-shotgun-clean/conda-meta/pinned
-2026-08-13T02:16:57+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-01/host_removed/SRR27343490.fastq.gz --input_type fastq --bowtie2db /mnt/disk1/db/metaphlan/vJun23 --index mpa_vJun23_CHOCOPhlAnSGB_202403 --nproc 4 -o results/20260809T000000Z-prjna1056765-functional-profile/smoke_tests/metaphlan_smoke_test.tsv
-/home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
-  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-Error: Unable to find the mpa_pkl file at: mpa_pklExiting...
-
-2026-08-13T02:16:58+00:00	RETURN_CODE 1
-2026-08-13T02:16:58+00:00	metaphlan_smoke_test_index=mpa_vJun23_CHOCOPhlAnSGB_202403
-2026-08-13T02:57:14+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/python -c import humann; print(humann.__file__)
-/home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/humann/__init__.py
-2026-08-13T02:57:14+00:00	RETURN_CODE 0
-2026-08-13T02:57:14+00:00	python_import_humann=true
-2026-08-13T02:57:14+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann --version
-humann v3.9
-2026-08-13T02:57:14+00:00	RETURN_CODE 0
-2026-08-13T02:57:14+00:00	health_check humann=true
-2026-08-13T02:57:14+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases --help
-usage: humann_databases [-h] [--available]
-                        [--download <database> <build> <install_location>]
-                        [--update-config {yes,no}]
-                        [--database-location DATABASE_LOCATION]
-
-HUMAnN Databases
-
-options:
-  -h, --help            show this help message and exit
-  --available           print the available databases
-  --download <database> <build> <install_location>
-                        download the selected database to the install location
-  --update-config {yes,no}
-                        update the config file to set the new database as the default [DEFAULT: yes]
-  --database-location DATABASE_LOCATION
-                        location (local or remote) to pull the database
-2026-08-13T02:57:14+00:00	RETURN_CODE 0
-2026-08-13T02:57:14+00:00	health_check humann_databases=true
-2026-08-13T02:57:14+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond version
-diamond version 2.0.15
-2026-08-13T02:57:14+00:00	RETURN_CODE 0
-2026-08-13T02:57:14+00:00	health_check diamond=true
-2026-08-13T02:57:14+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2 --version
-/home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2-align-s version 2.2.3
-64-bit
-Built on do-dmxp-mac.win.ad.jhu.edu
-Thu May 29 17:14:09 EDT 2014
-Compiler: gcc version 4.1.2 20080704 (Red Hat 4.1.2-54)
-Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
-Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
-2026-08-13T02:57:14+00:00	RETURN_CODE 0
-2026-08-13T02:57:14+00:00	health_check bowtie2=true
-2026-08-13T02:57:14+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan --version
-MetaPhlAn version 4.1.1 (11 Mar 2024)
-/home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
-  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
-2026-08-13T02:57:15+00:00	RETURN_CODE 0
-2026-08-13T02:57:15+00:00	health_check metaphlan_humann_version_output=true
-2026-08-13T02:57:15+00:00	RUN /home/suma/anaconda3/bin/conda list -p /home/suma/anaconda3/envs/humann-shotgun-clean metaphlan
-# packages in environment at /home/suma/anaconda3/envs/humann-shotgun-clean:
-#
-# Name                     Version          Build            Channel
-metaphlan                  4.1.1            pyhdfd78af_0     bioconda
-2026-08-13T02:57:20+00:00	RETURN_CODE 0
-2026-08-13T02:57:20+00:00	RUN /home/suma/anaconda3/bin/conda list -p /home/suma/anaconda3/envs/humann-shotgun-clean humann
-# packages in environment at /home/suma/anaconda3/envs/humann-shotgun-clean:
-#
-# Name                     Version          Build            Channel
-humann                     3.9              pypi_0           pypi
-2026-08-13T02:57:25+00:00	RETURN_CODE 0
-2026-08-13T02:57:25+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/python -c import importlib.metadata, sys
-print('python=' + sys.version.split()[0])
-for name in ('humann', 'metaphlan'):
-    try:
-        print(name + '=' + importlib.metadata.version(name))
-    except Exception as exc:
-        print(name + '=ERROR:' + str(exc))
-python=3.10.20
-humann=3.9
-metaphlan=4.1.1
-2026-08-13T02:57:25+00:00	RETURN_CODE 0
 2026-08-13T02:57:25+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan --version
 MetaPhlAn version 4.1.1 (11 Mar 2024)
 /home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
@@ -198,3 +108,93 @@ Error: Unable to find the mpa_pkl file at: mpa_pklExiting...
 
 2026-08-13T03:37:51+00:00	RETURN_CODE 1
 2026-08-13T03:37:51+00:00	metaphlan_smoke_test_index=mpa_vJun23_CHOCOPhlAnSGB_202403
+2026-08-13T04:17:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/python -c import humann; print(humann.__file__)
+/home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/humann/__init__.py
+2026-08-13T04:17:52+00:00	RETURN_CODE 0
+2026-08-13T04:17:52+00:00	python_import_humann=true
+2026-08-13T04:17:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann --version
+humann v3.9
+2026-08-13T04:17:52+00:00	RETURN_CODE 0
+2026-08-13T04:17:52+00:00	health_check humann=true
+2026-08-13T04:17:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/humann_databases --help
+usage: humann_databases [-h] [--available]
+                        [--download <database> <build> <install_location>]
+                        [--update-config {yes,no}]
+                        [--database-location DATABASE_LOCATION]
+
+HUMAnN Databases
+
+options:
+  -h, --help            show this help message and exit
+  --available           print the available databases
+  --download <database> <build> <install_location>
+                        download the selected database to the install location
+  --update-config {yes,no}
+                        update the config file to set the new database as the default [DEFAULT: yes]
+  --database-location DATABASE_LOCATION
+                        location (local or remote) to pull the database
+2026-08-13T04:17:52+00:00	RETURN_CODE 0
+2026-08-13T04:17:52+00:00	health_check humann_databases=true
+2026-08-13T04:17:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/diamond version
+diamond version 2.0.15
+2026-08-13T04:17:52+00:00	RETURN_CODE 0
+2026-08-13T04:17:52+00:00	health_check diamond=true
+2026-08-13T04:17:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2 --version
+/home/suma/anaconda3/envs/humann-shotgun-clean/bin/bowtie2-align-s version 2.2.3
+64-bit
+Built on do-dmxp-mac.win.ad.jhu.edu
+Thu May 29 17:14:09 EDT 2014
+Compiler: gcc version 4.1.2 20080704 (Red Hat 4.1.2-54)
+Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
+2026-08-13T04:17:52+00:00	RETURN_CODE 0
+2026-08-13T04:17:52+00:00	health_check bowtie2=true
+2026-08-13T04:17:52+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan --version
+MetaPhlAn version 4.1.1 (11 Mar 2024)
+/home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+2026-08-13T04:17:53+00:00	RETURN_CODE 0
+2026-08-13T04:17:53+00:00	health_check metaphlan_humann_version_output=true
+2026-08-13T04:17:53+00:00	RUN /home/suma/anaconda3/bin/conda list -p /home/suma/anaconda3/envs/humann-shotgun-clean metaphlan
+# packages in environment at /home/suma/anaconda3/envs/humann-shotgun-clean:
+#
+# Name                     Version          Build            Channel
+metaphlan                  4.1.1            pyhdfd78af_0     bioconda
+2026-08-13T04:17:58+00:00	RETURN_CODE 0
+2026-08-13T04:17:58+00:00	RUN /home/suma/anaconda3/bin/conda list -p /home/suma/anaconda3/envs/humann-shotgun-clean humann
+# packages in environment at /home/suma/anaconda3/envs/humann-shotgun-clean:
+#
+# Name                     Version          Build            Channel
+humann                     3.9              pypi_0           pypi
+2026-08-13T04:18:03+00:00	RETURN_CODE 0
+2026-08-13T04:18:03+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/python -c import importlib.metadata, sys
+print('python=' + sys.version.split()[0])
+for name in ('humann', 'metaphlan'):
+    try:
+        print(name + '=' + importlib.metadata.version(name))
+    except Exception as exc:
+        print(name + '=ERROR:' + str(exc))
+python=3.10.20
+humann=3.9
+metaphlan=4.1.1
+2026-08-13T04:18:03+00:00	RETURN_CODE 0
+2026-08-13T04:18:03+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan --version
+MetaPhlAn version 4.1.1 (11 Mar 2024)
+/home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+2026-08-13T04:18:04+00:00	RETURN_CODE 0
+2026-08-13T04:18:04+00:00	health_check metaphlan_exact_version=true
+2026-08-13T04:18:04+00:00	health_check python=true
+2026-08-13T04:18:04+00:00	health_check humann_conda=true
+2026-08-13T04:18:04+00:00	health_check humann_metadata=true
+2026-08-13T04:18:04+00:00	health_check metaphlan_conda=true
+2026-08-13T04:18:04+00:00	health_check metaphlan_metadata=true
+2026-08-13T04:18:04+00:00	health_check metaphlan_cli=true
+2026-08-13T04:18:04+00:00	persistent_pins_written=/home/suma/anaconda3/envs/humann-shotgun-clean/conda-meta/pinned
+2026-08-13T04:18:04+00:00	RUN /home/suma/anaconda3/envs/humann-shotgun-clean/bin/metaphlan /mnt/disk1/db/kraken2/0714/results/20260807T000000Z-prjna1056765-host-amr-screen-01/host_removed/SRR27343490.fastq.gz --input_type fastq --bowtie2db /mnt/disk1/db/metaphlan/vJun23 --index mpa_vJun23_CHOCOPhlAnSGB_202403 --nproc 4 -o results/20260809T000000Z-prjna1056765-functional-profile/smoke_tests/metaphlan_smoke_test.tsv
+/home/suma/anaconda3/envs/humann-shotgun-clean/lib/python3.10/site-packages/h5py/__init__.py:36: UserWarning: h5py is running against HDF5 2.2.0 when it was built against 2.1.0, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+Error: Unable to find the mpa_pkl file at: mpa_pklExiting...
+
+2026-08-13T04:18:05+00:00	RETURN_CODE 1
+2026-08-13T04:18:05+00:00	metaphlan_smoke_test_index=mpa_vJun23_CHOCOPhlAnSGB_202403
