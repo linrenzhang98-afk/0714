@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650">
+<rect width="100%" height="100%" fill="white"/>
+<text x="50" y="35" font-size="22" font-family="sans-serif">HUMAnN pathway abundance PCoA (fixed selected n=30)</text>
+<circle cx="78.40" cy="374.68" r="6" fill="#000000"><title>SRR27343266 | Stenotrophomonas</title></circle>
+<circle cx="85.10" cy="570.00" r="6" fill="#228833"><title>SRR27343272 | Enterobacterales</title></circle>
+<circle cx="179.25" cy="115.44" r="6" fill="#AA3377"><title>SRR27343276 | Pseudomonas</title></circle>
+<circle cx="366.73" cy="181.84" r="6" fill="#BBBBBB"><title>SRR27343296 | Staphylococcus</title></circle>
+<circle cx="79.56" cy="564.40" r="6" fill="#228833"><title>SRR27343346 | Enterobacterales</title></circle>
+<circle cx="183.04" cy="156.15" r="6" fill="#EE6677"><title>SRR27343475 | Candida</title></circle>
+<circle cx="73.55" cy="535.61" r="6" fill="#BBBBBB"><title>SRR27343490 | Staphylococcus</title></circle>
+<circle cx="85.76" cy="560.86" r="6" fill="#228833"><title>SRR27343494 | Enterobacterales</title></circle>
+<circle cx="73.71" cy="439.53" r="6" fill="#AA3377"><title>SRR27343495 | Pseudomonas</title></circle>
+<circle cx="680.00" cy="482.69" r="6" fill="#66CCEE"><title>SRR27343518 | Mycobacteria</title></circle>
+<circle cx="680.00" cy="482.69" r="6" fill="#66CCEE"><title>SRR27343520 | Mycobacteria</title></circle>
+<circle cx="680.00" cy="482.69" r="6" fill="#66CCEE"><title>SRR27343522 | Mycobacteria</title></circle>
+<circle cx="75.37" cy="522.42" r="6" fill="#44AA99"><title>SRR27343523 | Streptococcus</title></circle>
+<circle cx="70.11" cy="434.64" r="6" fill="#4477AA"><title>SRR27343532 | Acinetobacter</title></circle>
+<circle cx="89.36" cy="566.02" r="6" fill="#228833"><title>SRR27343566 | Enterobacterales</title></circle>
+<circle cx="680.00" cy="482.69" r="6" fill="#CCBB44"><title>SRR27343601 | Haemophilus</title></circle>
+<circle cx="92.68" cy="446.99" r="6" fill="#CCBB44"><title>SRR27343719 | Haemophilus</title></circle>
+<circle cx="76.90" cy="519.21" r="6" fill="#BBBBBB"><title>SRR27343725 | Staphylococcus</title></circle>
+<circle cx="106.73" cy="426.61" r="6" fill="#44AA99"><title>SRR27343734 | Streptococcus</title></circle>
+<circle cx="80.76" cy="445.69" r="6" fill="#4477AA"><title>SRR27343738 | Acinetobacter</title></circle>
+<circle cx="680.00" cy="482.69" r="6" fill="#66CCEE"><title>SRR27343742 | Mycobacteria</title></circle>
+<circle cx="74.80" cy="526.34" r="6" fill="#44AA99"><title>SRR27343835 | Streptococcus</title></circle>
+<circle cx="90.02" cy="435.08" r="6" fill="#44AA99"><title>SRR27343839 | Streptococcus</title></circle>
+<circle cx="70.00" cy="437.51" r="6" fill="#4477AA"><title>SRR27343853 | Acinetobacter</title></circle>
+<circle cx="97.46" cy="319.21" r="6" fill="#AA3377"><title>SRR27343867 | Pseudomonas</title></circle>
+<circle cx="73.24" cy="430.77" r="6" fill="#4477AA"><title>SRR27343868 | Acinetobacter</title></circle>
+<circle cx="85.37" cy="485.45" r="6" fill="#BBBBBB"><title>SRR27343993 | Staphylococcus</title></circle>
+<circle cx="117.09" cy="371.43" r="6" fill="#CCBB44"><title>SRR27344035 | Haemophilus</title></circle>
+<circle cx="263.37" cy="70.00" r="6" fill="#AA3377"><title>SRR27344040 | Pseudomonas</title></circle>
+<circle cx="680.00" cy="482.69" r="6" fill="#CCBB44"><title>SRR27344041 | Haemophilus</title></circle>
+<circle cx="735" cy="80" r="6" fill="#4477AA"/><text x="750" y="85" font-size="13" font-family="sans-serif">Acinetobacter</text>
+<circle cx="735" cy="105" r="6" fill="#EE6677"/><text x="750" y="110" font-size="13" font-family="sans-serif">Candida</text>
+<circle cx="735" cy="130" r="6" fill="#228833"/><text x="750" y="135" font-size="13" font-family="sans-serif">Enterobacterales</text>
+<circle cx="735" cy="155" r="6" fill="#CCBB44"/><text x="750" y="160" font-size="13" font-family="sans-serif">Haemophilus</text>
+<circle cx="735" cy="180" r="6" fill="#66CCEE"/><text x="750" y="185" font-size="13" font-family="sans-serif">Mycobacteria</text>
+<circle cx="735" cy="205" r="6" fill="#AA3377"/><text x="750" y="210" font-size="13" font-family="sans-serif">Pseudomonas</text>
+<circle cx="735" cy="230" r="6" fill="#BBBBBB"/><text x="750" y="235" font-size="13" font-family="sans-serif">Staphylococcus</text>
+<circle cx="735" cy="255" r="6" fill="#000000"/><text x="750" y="260" font-size="13" font-family="sans-serif">Stenotrophomonas</text>
+<circle cx="735" cy="280" r="6" fill="#44AA99"/><text x="750" y="285" font-size="13" font-family="sans-serif">Streptococcus</text>
+<line x1="70" y1="570" x2="680" y2="570" stroke="#333"/>
+<line x1="70" y1="70" x2="70" y2="570" stroke="#333"/>
+</svg>

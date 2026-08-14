@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="45" y="32" font-size="21" font-family="sans-serif">Detected unstratified pathways per sample</text>
+<rect x="50" y="269.65" width="21" height="220.35" fill="#4477AA"><title>SRR27343266: 103</title></rect>
+<text transform="translate(65,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343266</text>
+<rect x="80" y="60.00" width="21" height="430.00" fill="#4477AA"><title>SRR27343272: 201</title></rect>
+<text transform="translate(95,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343272</text>
+<rect x="110" y="395.87" width="21" height="94.13" fill="#4477AA"><title>SRR27343276: 44</title></rect>
+<text transform="translate(125,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343276</text>
+<rect x="140" y="485.72" width="21" height="4.28" fill="#4477AA"><title>SRR27343296: 2</title></rect>
+<text transform="translate(155,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343296</text>
+<rect x="170" y="60.00" width="21" height="430.00" fill="#4477AA"><title>SRR27343346: 201</title></rect>
+<text transform="translate(185,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343346</text>
+<rect x="200" y="408.71" width="21" height="81.29" fill="#4477AA"><title>SRR27343475: 38</title></rect>
+<text transform="translate(215,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343475</text>
+<rect x="230" y="192.64" width="21" height="297.36" fill="#4477AA"><title>SRR27343490: 139</title></rect>
+<text transform="translate(245,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343490</text>
+<rect x="260" y="74.98" width="21" height="415.02" fill="#4477AA"><title>SRR27343494: 194</title></rect>
+<text transform="translate(275,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343494</text>
+<rect x="290" y="139.15" width="21" height="350.85" fill="#4477AA"><title>SRR27343495: 164</title></rect>
+<text transform="translate(305,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343495</text>
+<rect x="320" y="490.00" width="21" height="0.00" fill="#4477AA"><title>SRR27343518: 0</title></rect>
+<text transform="translate(335,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343518</text>
+<rect x="350" y="490.00" width="21" height="0.00" fill="#4477AA"><title>SRR27343520: 0</title></rect>
+<text transform="translate(365,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343520</text>
+<rect x="380" y="490.00" width="21" height="0.00" fill="#4477AA"><title>SRR27343522: 0</title></rect>
+<text transform="translate(395,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343522</text>
+<rect x="410" y="229.00" width="21" height="261.00" fill="#4477AA"><title>SRR27343523: 122</title></rect>
+<text transform="translate(425,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343523</text>
+<rect x="440" y="218.31" width="21" height="271.69" fill="#4477AA"><title>SRR27343532: 127</title></rect>
+<text transform="translate(455,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343532</text>
+<rect x="470" y="64.28" width="21" height="425.72" fill="#4477AA"><title>SRR27343566: 199</title></rect>
+<text transform="translate(485,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343566</text>
+<rect x="500" y="490.00" width="21" height="0.00" fill="#4477AA"><title>SRR27343601: 0</title></rect>
+<text transform="translate(515,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343601</text>
+<rect x="530" y="282.49" width="21" height="207.51" fill="#4477AA"><title>SRR27343719: 97</title></rect>
+<text transform="translate(545,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343719</text>
+<rect x="560" y="237.56" width="21" height="252.44" fill="#4477AA"><title>SRR27343725: 118</title></rect>
+<text transform="translate(575,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343725</text>
+<rect x="590" y="323.13" width="21" height="166.87" fill="#4477AA"><title>SRR27343734: 78</title></rect>
+<text transform="translate(605,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343734</text>
+<rect x="620" y="231.14" width="21" height="258.86" fill="#4477AA"><title>SRR27343738: 121</title></rect>
+<text transform="translate(635,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343738</text>
+<rect x="650" y="490.00" width="21" height="0.00" fill="#4477AA"><title>SRR27343742: 0</title></rect>
+<text transform="translate(665,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343742</text>
+<rect x="680" y="186.22" width="21" height="303.78" fill="#4477AA"><title>SRR27343835: 142</title></rect>
+<text transform="translate(695,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343835</text>
+<rect x="710" y="299.60" width="21" height="190.40" fill="#4477AA"><title>SRR27343839: 89</title></rect>
+<text transform="translate(725,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343839</text>
+<rect x="740" y="218.31" width="21" height="271.69" fill="#4477AA"><title>SRR27343853: 127</title></rect>
+<text transform="translate(755,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343853</text>
+<rect x="770" y="280.35" width="21" height="209.65" fill="#4477AA"><title>SRR27343867: 98</title></rect>
+<text transform="translate(785,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343867</text>
+<rect x="800" y="231.14" width="21" height="258.86" fill="#4477AA"><title>SRR27343868: 121</title></rect>
+<text transform="translate(815,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343868</text>
+<rect x="830" y="267.51" width="21" height="222.49" fill="#4477AA"><title>SRR27343993: 104</title></rect>
+<text transform="translate(845,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27343993</text>
+<rect x="860" y="338.11" width="21" height="151.89" fill="#4477AA"><title>SRR27344035: 71</title></rect>
+<text transform="translate(875,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27344035</text>
+<rect x="890" y="438.66" width="21" height="51.34" fill="#4477AA"><title>SRR27344040: 24</title></rect>
+<text transform="translate(905,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27344040</text>
+<rect x="920" y="490.00" width="21" height="0.00" fill="#4477AA"><title>SRR27344041: 0</title></rect>
+<text transform="translate(935,510) rotate(60)" font-size="8" font-family="sans-serif">SRR27344041</text>
+</svg>

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-14T08:53:39+00:00",
+  "cohort_n": 30,
+  "scope": "selected_deep_review_only",
+  "command": [
+    "scripts/run_humann_30_downstream.py",
+    "--input-root",
+    "/mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile",
+    "--cohort",
+    "reports_public/metagenome_functional_profile/run_status.tsv",
+    "--audit-summary",
+    "reports_public/metagenome_humann_30_downstream/audit/audit_summary.json",
+    "--species-matrix",
+    "reports_public/metagenome_standard_shotgun/species_relative_abundance_matrix.tsv",
+    "--out",
+    "results/20260814T000000Z-prjna1056765-humann-30-downstream/public"
+  ],
+  "python": "3.13.9",
+  "min_prevalence_samples": 6,
+  "filter_sensitivity_fractions": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "permutations": 199,
+  "ordination": "Bray-Curtis classical PCoA",
+  "clustering": "average_linkage",
+  "pcoa_explained_first_two": [
+    0.5109430130927534,
+    0.12260965468609739
+  ],
+  "audit_summary": "reports_public/metagenome_humann_30_downstream/audit/audit_summary.json",
+  "input_root": "/mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile",
+  "interpretation": "Exploratory only; no inference to the approximately 400-run parent cohort."
+}

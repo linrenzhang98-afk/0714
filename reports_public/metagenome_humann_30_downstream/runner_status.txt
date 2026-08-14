@@ -1,6 +1,8 @@
-state=INPUT_UNAVAILABLE
-reason=local WSL cannot access hospital /mnt/disk1; biological/data QC NOT_RUN
+generated_at=2026-08-14T17:20:52+08:00
+state=done
+reason=audited downstream outputs already complete
 input_root=/mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile
-audit_state=INPUT_UNAVAILABLE
-data_qc_state=NOT_RUN
-downstream_state=NOT_RUN
+cohort=reports_public/metagenome_functional_profile/run_status.tsv
+public_dir=reports_public/metagenome_humann_30_downstream
+work_dir=results/20260814T000000Z-prjna1056765-humann-30-downstream
+launcher_return_code=0
