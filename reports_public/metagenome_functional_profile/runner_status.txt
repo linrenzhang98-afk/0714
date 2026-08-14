@@ -1,6 +1,6 @@
-generated_at=2026-08-14T08:37:32+08:00
+generated_at=2026-08-14T12:39:01+08:00
 state=done
-reason=functional profiling worker completed
+reason=functional profile already complete
 route=short_read_shared_index
 result_dir=results/20260809T000000Z-prjna1056765-functional-profile
 public_dir=reports_public/metagenome_functional_profile
