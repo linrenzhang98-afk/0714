@@ -1,4 +1,4 @@
-generated_at=2026-08-14T21:21:34+08:00
+generated_at=2026-08-14T22:02:05+08:00
 state=done
 reason=audited downstream outputs already complete
 input_root=/mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile
