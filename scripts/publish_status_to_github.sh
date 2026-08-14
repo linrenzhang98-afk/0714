@@ -13,7 +13,7 @@ export PATH
 
 cd "$REPO_DIR"
 
-git pull --ff-only || git pull --rebase --autostash
+git pull --ff-only
 
 mkdir -p "$PUBLIC_STATUS_DIR"
 
@@ -207,6 +207,20 @@ if [ "${ENABLE_METAGENOME_FUNCTIONAL_PROFILE:-1}" = "1" ] \
   if [ "$FUNCTIONAL_PROFILE_RC" -ne 0 ]; then
     echo "Functional profile launcher reported errors; continuing status publication."
   fi
+fi
+
+# Run only the fixed-30 lightweight HUMAnN downstream stage. Its own audit gate
+# prevents analysis unless the 90 real hospital-side final files pass QC.
+if [ "${ENABLE_HUMANN_30_DOWNSTREAM:-1}" = "1" ] \
+  && [ -f scripts/autopilot_humann_30_downstream.sh ]; then
+  mkdir -p "$PUBLIC_STATUS_DIR/metagenome_humann_30_downstream"
+  set +e
+  bash scripts/autopilot_humann_30_downstream.sh \
+    > "$PUBLIC_STATUS_DIR/metagenome_humann_30_downstream/autopilot_launcher.log" 2>&1
+  HUMANN_30_DOWNSTREAM_RC=$?
+  set -e
+  echo "launcher_return_code=$HUMANN_30_DOWNSTREAM_RC" \
+    >> "$PUBLIC_STATUS_DIR/metagenome_humann_30_downstream/runner_status.txt"
 fi
 
 AMP_PRJNA511633_RESULT_DIR="results/20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry"
@@ -410,5 +424,5 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "Update public analysis status"
-git pull --rebase --autostash
-git push
+git pull --no-rebase --no-edit
+git push origin main

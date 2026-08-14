@@ -1,0 +1,6 @@
+state=INPUT_UNAVAILABLE
+reason=local WSL cannot access hospital /mnt/disk1; biological/data QC NOT_RUN
+input_root=/mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile
+audit_state=INPUT_UNAVAILABLE
+data_qc_state=NOT_RUN
+downstream_state=NOT_RUN
