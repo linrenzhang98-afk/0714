@@ -1,0 +1,20 @@
+{
+  "state": "complete",
+  "cohort_n": 400,
+  "diagnosis_counts": {
+    "Lung cancer": 122,
+    "Bacterial infection": 114,
+    "Pulmonary tuberculosis": 86,
+    "Fungal infection": 78
+  },
+  "qc_flagged_n": 281,
+  "prevalent_species_n": 30,
+  "community_state_k": 10,
+  "community_state_stability_interpretation": "No stable metric-invariant ecotypes: Bray/Aitchison ARI approximately zero across k=2..10; k=10 is a boundary silhouette maximum and descriptive only.",
+  "formal_inference_file": "statistics/permanova_permdisp.tsv",
+  "diagnosis_species_FDR_lt_0.05": 5,
+  "diagnosis_species_also_QC_sensitivity_FDR_lt_0.05": 3,
+  "deep_review_n": 30,
+  "deep_review_major_state_coverage": "3/4",
+  "interpretation": "Aitchison diagnosis inference is location-supported; Bray diagnosis result is confounded by significant dispersion. Landscape/clusters/network are descriptive or exploratory; fixed-30 HUMAnN cannot be extrapolated."
+}

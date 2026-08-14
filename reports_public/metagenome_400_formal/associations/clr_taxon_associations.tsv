@@ -1,0 +1,15 @@
+taxon_a	taxon_b	clr_pearson_r	absolute_r	interpretation
+Campylobacter rectus	Porphyromonas endodontalis	0.5524248361378336	0.5524248361378336	CLR Pearson; compositional exploratory association, not interaction
+Streptococcus pneumoniae	Streptococcus mitis	0.5049541494683116	0.5049541494683116	CLR Pearson; compositional exploratory association, not interaction
+Campylobacter rectus	Porphyromonas gingivalis	0.4903051153363518	0.4903051153363518	CLR Pearson; compositional exploratory association, not interaction
+Streptococcus oralis	Streptococcus mitis	0.47871149320705647	0.47871149320705647	CLR Pearson; compositional exploratory association, not interaction
+Staphylococcus epidermidis	Cutibacterium acnes	0.42819887265735873	0.42819887265735873	CLR Pearson; compositional exploratory association, not interaction
+Streptococcus pneumoniae	Streptococcus oralis	0.4207900647159263	0.4207900647159263	CLR Pearson; compositional exploratory association, not interaction
+Campylobacter rectus	Parvimonas micra	0.38952760885840176	0.38952760885840176	CLR Pearson; compositional exploratory association, not interaction
+Parvimonas micra	Porphyromonas endodontalis	0.38303489664050716	0.38303489664050716	CLR Pearson; compositional exploratory association, not interaction
+Campylobacter rectus	Streptococcus mitis	-0.38238363115258844	0.38238363115258844	CLR Pearson; compositional exploratory association, not interaction
+Gemella sanguinis	Gemella haemolysans	0.3710170075818565	0.3710170075818565	CLR Pearson; compositional exploratory association, not interaction
+Porphyromonas gingivalis	Porphyromonas endodontalis	0.3583561134442195	0.3583561134442195	CLR Pearson; compositional exploratory association, not interaction
+Veillonella atypica	Prevotella jejuni	0.34962840580001003	0.34962840580001003	CLR Pearson; compositional exploratory association, not interaction
+Campylobacter rectus	Rothia mucilaginosa	-0.3415948454851172	0.3415948454851172	CLR Pearson; compositional exploratory association, not interaction
+Porphyromonas endodontalis	Prevotella intermedia	0.3005068052958041	0.3005068052958041	CLR Pearson; compositional exploratory association, not interaction

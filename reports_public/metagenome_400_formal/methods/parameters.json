@@ -1,0 +1,60 @@
+{
+  "generated_at_utc": "2026-08-14T10:12:56+00:00",
+  "cohort_n": 400,
+  "species_input_features": 1236,
+  "microbial_species_features": 1230,
+  "excluded_background_features": 6,
+  "prevalence_filter_primary": "10% (40/400)",
+  "prevalence_sensitivity": {
+    "5%": 90,
+    "10%": 30,
+    "20%": 2
+  },
+  "clr_pseudocount": 1.0097644219603566e-05,
+  "qc_sensitivity_n": 119,
+  "qc_flagged_n": 281,
+  "permutations": 9999,
+  "permutation_constraint": "diagnosis labels permuted within published Training/Test cohort",
+  "community_state_k": 10,
+  "community_state_selection": "maximum Bray-Curtis average-linkage silhouette across k=2..10",
+  "major_states_ge_5pct": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "major_states_covered_by_30": 3,
+  "pcoa_explained_fraction_of_gower_trace": {
+    "bray": [
+      0.3867327731996339,
+      0.0885270210788149,
+      0.05758534738422884,
+      0.053019900386838764,
+      0.046798133348772995
+    ],
+    "aitchison": [
+      0.17276660094839497,
+      0.11035995978136874,
+      0.08592652220595955,
+      0.06145507088090549,
+      0.05778580629913754
+    ]
+  },
+  "background_keywords": [
+    "homo sapiens",
+    "arabidopsis",
+    "benincasa",
+    "camelina",
+    "cucurbita",
+    "toxoplasma"
+  ],
+  "command": [
+    "scripts/analyze_prjna1056765_metagenome_400.py",
+    "--out",
+    "reports_public/metagenome_400_formal",
+    "--permutations",
+    "9999"
+  ],
+  "python": "3.14.4",
+  "interpretation_scope": "formal diagnosis inference for available 400-run cohort; clusters/networks/descriptive landscape exploratory"
+}

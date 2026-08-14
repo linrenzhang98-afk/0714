@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430">
+<rect width="100%" height="100%" fill="white"/>
+<text x="35" y="30" font-size="20" font-family="sans-serif">Prespecified QC flags (samples retained)</text>
+<text x="255" y="68" text-anchor="end" font-size="11" font-family="sans-serif">richness_le_2</text><rect x="265" y="55" width="620.00" height="15" fill="#4477AA"><title>190</title></rect>
+<text x="255" y="90" text-anchor="end" font-size="11" font-family="sans-serif">richness_robust_outlier</text><rect x="265" y="77" width="231.68" height="15" fill="#4477AA"><title>71</title></rect>
+<text x="255" y="112" text-anchor="end" font-size="11" font-family="sans-serif">classified_fraction_robust_outlier</text><rect x="265" y="99" width="130.53" height="15" fill="#4477AA"><title>40</title></rect>
+<text x="255" y="134" text-anchor="end" font-size="11" font-family="sans-serif">classified_fraction_lt_0.5pct</text><rect x="265" y="121" width="6.53" height="15" fill="#4477AA"><title>2</title></rect>
+<text x="255" y="156" text-anchor="end" font-size="11" font-family="sans-serif">log_read_depth_robust_outlier</text><rect x="265" y="143" width="45.68" height="15" fill="#4477AA"><title>14</title></rect>
+<text x="575" y="418" text-anchor="middle" font-size="13" font-family="sans-serif">Flagged samples</text></svg>

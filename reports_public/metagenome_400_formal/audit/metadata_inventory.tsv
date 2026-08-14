@@ -1,0 +1,11 @@
+variable	source	coverage	unique_values	independence	formal_use
+run	SRA/production	400	400	identifier	sample key
+patient_id	published supplement via SRA SampleName	400	400	independent	verify one sample per patient
+diagnosis	published Supplementary Data S1/S2	400	4	independent clinical label	primary group inference
+cohort	published Supplementary Data S1/S2 Data Sets	400	2	independent study split	stratum/sensitivity; not a biological phenotype
+collection_date	published Supplementary Data S1/S2	400	227	independent temporal metadata	temporal/batch diagnostic
+bal_microbiology	published Supplementary Data S1/S2	400	32	independent clinical assay but heterogeneous/free text	descriptive/sensitivity only
+total_reads	Kraken2 production QC	400	400	technical covariate independent of relative composition	QC/sensitivity
+classified_fraction	Kraken2 production QC	400	397	derived from classifier output	QC, not independent phenotype
+dominant_species/top_pathogen/pathogen_group	same Bracken species matrix	400	varies	NOT independent; abundance-derived	descriptive ecotype characterization only
+Disease/Body_Site in RunInfo	NCBI RunInfo	0	0	unavailable	none

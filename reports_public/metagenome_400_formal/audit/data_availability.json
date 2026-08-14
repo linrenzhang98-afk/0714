@@ -1,0 +1,73 @@
+{
+  "generated_at_utc": "2026-08-14T09:59:52+00:00",
+  "analysis_cohort_runs": 400,
+  "unique_runs": 400,
+  "unique_biosamples": 400,
+  "production_status_counts": {
+    "done": 400
+  },
+  "kraken2_bracken_completion_evidence": "400/400 done in checked-in production QC; matrix membership 400/400",
+  "per_run_raw_kreport_bracken_local_recheck": "NOT_RUN_INPUT_UNAVAILABLE_LOCAL; not required because completed lightweight matrix/QC are present",
+  "species_features": 1236,
+  "species_matrix_samples": 400,
+  "matrix_duplicate_samples": 0,
+  "matrix_missing_vs_qc": [],
+  "matrix_extra_vs_qc": [],
+  "clinical_mapping_runs": 400,
+  "clinical_diagnosis_counts": {
+    "Lung cancer": 122,
+    "Bacterial infection": 114,
+    "Pulmonary tuberculosis": 86,
+    "Fungal infection": 78
+  },
+  "published_clinical_wgs_not_analyzed": [
+    {
+      "run": "SRR27343810",
+      "patient_id": "20210709MCX011",
+      "diagnosis": "Fungal infection",
+      "size_mb": "0"
+    },
+    {
+      "run": "SRR27343463",
+      "patient_id": "20211125MCX012",
+      "diagnosis": "Lung cancer",
+      "size_mb": "0"
+    }
+  ],
+  "reason_actual_n_is_400": "Two additional mapped clinical WGS SRA records have size_MB=0; no reads were available. No sample was added or removed for statistical results.",
+  "deep_review_overlap": 30,
+  "deep_review_expected": 30,
+  "inputs": [
+    {
+      "path": "reports_public/metagenome_production/run_qc_summary.tsv",
+      "bytes": 119543,
+      "sha256": "7a41359fbd551f6b16ca6f42e601e2969732081cb6fdc60c6742272074353f64"
+    },
+    {
+      "path": "reports_public/metagenome_production/bracken_species_fraction_matrix.tsv",
+      "bytes": 1071769,
+      "sha256": "0c7ad6930c4e2db5fd3ec0a58861850274eb75dd31350ab00f4428a41a6ad20d"
+    },
+    {
+      "path": "reports_public/prjna1056765_clinical_groups/run_clinical_mapping.tsv",
+      "bytes": 109260,
+      "sha256": "3de4e218e8f0e9e32545cead271e6750c39ac0dea4c47df291123175292400be"
+    },
+    {
+      "path": "reports_public/production_planning/prjna1056765/candidate_dna_wgs_runs.tsv",
+      "bytes": 65552,
+      "sha256": "514dc0e50433fbb71bd456d8f1f3e2dff6ee86cdf3bf6b96fe08e4e8bbb8238d"
+    },
+    {
+      "path": "reports_public/prjna1056765_clinical_groups/clinical_wgs_runs_not_analyzed.tsv",
+      "bytes": 120,
+      "sha256": "fc2b8fb7ceb3ee6b8831fe92bec6b087ee92933a32d67d573918402bd04d8473"
+    },
+    {
+      "path": "reports_public/metagenome_deep_review/deep_review_samples.tsv",
+      "bytes": 8505,
+      "sha256": "fbbe1560be177e7253b03272d4615d75c2730d4620c7a152a0f70ea416daee18"
+    }
+  ],
+  "audit_passed_for_checked_in_matrix_analysis": true
+}

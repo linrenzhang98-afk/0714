@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640">
+<rect width="100%" height="100%" fill="white"/>
+<text x="35" y="30" font-size="20" font-family="sans-serif">Most prevalent microbial species</text>
+<text x="255" y="68" text-anchor="end" font-size="11" font-family="sans-serif">Prevotella melaninogenica</text><rect x="265" y="55" width="620.00" height="15" fill="#4477AA"><title>0.3175</title></rect>
+<text x="255" y="90" text-anchor="end" font-size="11" font-family="sans-serif">Rothia mucilaginosa</text><rect x="265" y="77" width="522.36" height="15" fill="#4477AA"><title>0.2675</title></rect>
+<text x="255" y="112" text-anchor="end" font-size="11" font-family="sans-serif">Streptococcus mitis</text><rect x="265" y="99" width="385.67" height="15" fill="#4477AA"><title>0.1975</title></rect>
+<text x="255" y="134" text-anchor="end" font-size="11" font-family="sans-serif">Prevotella jejuni</text><rect x="265" y="121" width="371.02" height="15" fill="#4477AA"><title>0.19</title></rect>
+<text x="255" y="156" text-anchor="end" font-size="11" font-family="sans-serif">Cutibacterium acnes</text><rect x="265" y="143" width="341.73" height="15" fill="#4477AA"><title>0.175</title></rect>
+<text x="255" y="178" text-anchor="end" font-size="11" font-family="sans-serif">Prevotella intermedia</text><rect x="265" y="165" width="336.85" height="15" fill="#4477AA"><title>0.1725</title></rect>
+<text x="255" y="200" text-anchor="end" font-size="11" font-family="sans-serif">Veillonella parvula</text><rect x="265" y="187" width="331.97" height="15" fill="#4477AA"><title>0.17</title></rect>
+<text x="255" y="222" text-anchor="end" font-size="11" font-family="sans-serif">Haemophilus parainfluenzae</text><rect x="265" y="209" width="322.20" height="15" fill="#4477AA"><title>0.165</title></rect>
+<text x="255" y="244" text-anchor="end" font-size="11" font-family="sans-serif">Streptococcus oralis</text><rect x="265" y="231" width="317.32" height="15" fill="#4477AA"><title>0.1625</title></rect>
+<text x="255" y="266" text-anchor="end" font-size="11" font-family="sans-serif">Streptococcus pneumoniae</text><rect x="265" y="253" width="292.91" height="15" fill="#4477AA"><title>0.15</title></rect>
+<text x="255" y="288" text-anchor="end" font-size="11" font-family="sans-serif">Prevotella nigrescens</text><rect x="265" y="275" width="292.91" height="15" fill="#4477AA"><title>0.15</title></rect>
+<text x="255" y="310" text-anchor="end" font-size="11" font-family="sans-serif">Veillonella atypica</text><rect x="265" y="297" width="283.15" height="15" fill="#4477AA"><title>0.145</title></rect>
+<text x="255" y="332" text-anchor="end" font-size="11" font-family="sans-serif">Porphyromonas endodontalis</text><rect x="265" y="319" width="273.39" height="15" fill="#4477AA"><title>0.14</title></rect>
+<text x="255" y="354" text-anchor="end" font-size="11" font-family="sans-serif">Fusobacterium nucleatum</text><rect x="265" y="341" width="263.62" height="15" fill="#4477AA"><title>0.135</title></rect>
+<text x="255" y="376" text-anchor="end" font-size="11" font-family="sans-serif">Parvimonas micra</text><rect x="265" y="363" width="258.74" height="15" fill="#4477AA"><title>0.1325</title></rect>
+<text x="255" y="398" text-anchor="end" font-size="11" font-family="sans-serif">Schaalia odontolytica</text><rect x="265" y="385" width="258.74" height="15" fill="#4477AA"><title>0.1325</title></rect>
+<text x="255" y="420" text-anchor="end" font-size="11" font-family="sans-serif">Staphylococcus epidermidis</text><rect x="265" y="407" width="244.09" height="15" fill="#4477AA"><title>0.125</title></rect>
+<text x="255" y="442" text-anchor="end" font-size="11" font-family="sans-serif">Campylobacter concisus</text><rect x="265" y="429" width="244.09" height="15" fill="#4477AA"><title>0.125</title></rect>
+<text x="255" y="464" text-anchor="end" font-size="11" font-family="sans-serif">Porphyromonas gingivalis</text><rect x="265" y="451" width="239.21" height="15" fill="#4477AA"><title>0.1225</title></rect>
+<text x="255" y="486" text-anchor="end" font-size="11" font-family="sans-serif">Gemella haemolysans</text><rect x="265" y="473" width="234.33" height="15" fill="#4477AA"><title>0.12</title></rect>
+<text x="255" y="508" text-anchor="end" font-size="11" font-family="sans-serif">Granulicatella adiacens</text><rect x="265" y="495" width="234.33" height="15" fill="#4477AA"><title>0.12</title></rect>
+<text x="255" y="530" text-anchor="end" font-size="11" font-family="sans-serif">Prevotella veroralis</text><rect x="265" y="517" width="224.57" height="15" fill="#4477AA"><title>0.115</title></rect>
+<text x="255" y="552" text-anchor="end" font-size="11" font-family="sans-serif">Fusobacterium pseudoperiodonticum</text><rect x="265" y="539" width="219.69" height="15" fill="#4477AA"><title>0.1125</title></rect>
+<text x="255" y="574" text-anchor="end" font-size="11" font-family="sans-serif">Gemella sanguinis</text><rect x="265" y="561" width="219.69" height="15" fill="#4477AA"><title>0.1125</title></rect>
+<text x="255" y="596" text-anchor="end" font-size="11" font-family="sans-serif">Streptococcus sanguinis</text><rect x="265" y="583" width="214.80" height="15" fill="#4477AA"><title>0.11</title></rect>
+<text x="575" y="628" text-anchor="middle" font-size="13" font-family="sans-serif">Prevalence</text></svg>

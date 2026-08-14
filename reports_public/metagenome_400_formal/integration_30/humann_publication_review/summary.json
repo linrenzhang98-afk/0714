@@ -1,0 +1,21 @@
+{
+  "scope": "selected_deep_review_functional_exploration_only",
+  "gene_family_samples": 30,
+  "gene_family_primary_prevalence": "20% (6/30)",
+  "gene_family_features": 809,
+  "gene_group_FDR_lt_0.05": 635,
+  "pathogen_gene_associations_FDR_lt_0.05": 739,
+  "pathway_zero_biological_samples": [
+    "SRR27343518",
+    "SRR27343520",
+    "SRR27343522",
+    "SRR27343601",
+    "SRR27343742",
+    "SRR27344041"
+  ],
+  "pathway_extreme_sparse_sample": "SRR27343296",
+  "pathway_fixed_features": 210,
+  "pathway_stable_candidates_n30_n24_n23": 101,
+  "permutations": 9999,
+  "interpretation": "No result may be extrapolated to the 400-run cohort. Pathway signal is retained only if direction and FDR survive n=30 to n=24 to n=23."
+}

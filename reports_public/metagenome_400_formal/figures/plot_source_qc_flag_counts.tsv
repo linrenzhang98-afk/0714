@@ -1,0 +1,6 @@
+qc_flag	samples
+richness_le_2	190
+richness_robust_outlier	71
+classified_fraction_robust_outlier	40
+classified_fraction_lt_0.5pct	2
+log_read_depth_robust_outlier	14

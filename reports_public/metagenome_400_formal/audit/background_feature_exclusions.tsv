@@ -1,0 +1,7 @@
+feature	detected_samples	reason
+Homo sapiens	400	obvious non-microbial host/plant/protist label; excluded before microbial community normalization
+Toxoplasma gondii	400	obvious non-microbial host/plant/protist label; excluded before microbial community normalization
+Arabidopsis thaliana	383	obvious non-microbial host/plant/protist label; excluded before microbial community normalization
+Benincasa hispida	176	obvious non-microbial host/plant/protist label; excluded before microbial community normalization
+Camelina sativa	50	obvious non-microbial host/plant/protist label; excluded before microbial community normalization
+Cucurbita pepo	24	obvious non-microbial host/plant/protist label; excluded before microbial community normalization

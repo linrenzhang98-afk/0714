@@ -1,0 +1,13 @@
+{
+  "permutations": 9999,
+  "axes": 5,
+  "metrics": [
+    "Bray-Curtis",
+    "Aitchison"
+  ],
+  "variables": [
+    "collection_date_ordinal",
+    "log10_total_reads"
+  ],
+  "interpretation": "technical/temporal diagnostic, not disease inference"
+}

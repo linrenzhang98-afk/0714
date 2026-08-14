@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650">
+<rect width="100%" height="100%" fill="white"/>
+<text x="45" y="34" font-size="21" font-family="sans-serif">Selected 30: MetaCyc technical-reference PCoA</text>
+<circle cx="691.26" cy="375.83" r="3.5" fill="#EE6677" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="684.28" cy="575.00" r="3.5" fill="#228833" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="586.27" cy="111.57" r="3.5" fill="#AA3377" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="391.11" cy="178.74" r="3.5" fill="#4477AA" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="690.05" cy="569.26" r="3.5" fill="#228833" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="582.32" cy="152.72" r="3.5" fill="#EE6677" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="696.31" cy="538.90" r="3.5" fill="#4477AA" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="683.60" cy="565.70" r="3.5" fill="#228833" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="696.13" cy="442.37" r="3.5" fill="#AA3377" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="65.00" cy="485.51" r="3.5" fill="#66CCEE" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="65.00" cy="485.51" r="3.5" fill="#66CCEE" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="65.00" cy="485.51" r="3.5" fill="#66CCEE" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="694.41" cy="525.23" r="3.5" fill="#228833" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="699.88" cy="437.15" r="3.5" fill="#4477AA" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="679.84" cy="571.06" r="3.5" fill="#228833" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="65.00" cy="485.51" r="3.5" fill="#CCBB44" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="676.39" cy="448.35" r="3.5" fill="#CCBB44" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="692.82" cy="522.12" r="3.5" fill="#4477AA" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="661.77" cy="427.05" r="3.5" fill="#228833" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="688.80" cy="448.64" r="3.5" fill="#4477AA" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="65.00" cy="485.51" r="3.5" fill="#66CCEE" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="695.00" cy="529.19" r="3.5" fill="#228833" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="679.16" cy="435.99" r="3.5" fill="#228833" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="700.00" cy="440.10" r="3.5" fill="#4477AA" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="671.41" cy="319.68" r="3.5" fill="#AA3377" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="696.63" cy="433.27" r="3.5" fill="#4477AA" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="684.00" cy="487.56" r="3.5" fill="#4477AA" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="650.98" cy="371.11" r="3.5" fill="#CCBB44" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="498.71" cy="65.00" r="3.5" fill="#AA3377" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="65.00" cy="485.51" r="3.5" fill="#CCBB44" fill-opacity="0.72" stroke="none" stroke-width="0"/>
+<circle cx="745" cy="80" r="6" fill="#4477AA"/><text x="760" y="85" font-size="13" font-family="sans-serif">Acinetobacter</text>
+<circle cx="745" cy="105" r="6" fill="#EE6677"/><text x="760" y="110" font-size="13" font-family="sans-serif">Candida</text>
+<circle cx="745" cy="130" r="6" fill="#228833"/><text x="760" y="135" font-size="13" font-family="sans-serif">Enterobacterales</text>
+<circle cx="745" cy="155" r="6" fill="#CCBB44"/><text x="760" y="160" font-size="13" font-family="sans-serif">Haemophilus</text>
+<circle cx="745" cy="180" r="6" fill="#66CCEE"/><text x="760" y="185" font-size="13" font-family="sans-serif">Mycobacteria</text>
+<circle cx="745" cy="205" r="6" fill="#AA3377"/><text x="760" y="210" font-size="13" font-family="sans-serif">Pseudomonas</text>
+<circle cx="745" cy="230" r="6" fill="#4477AA"/><text x="760" y="235" font-size="13" font-family="sans-serif">Staphylococcus</text>
+<circle cx="745" cy="255" r="6" fill="#EE6677"/><text x="760" y="260" font-size="13" font-family="sans-serif">Stenotrophomonas</text>
+<circle cx="745" cy="280" r="6" fill="#228833"/><text x="760" y="285" font-size="13" font-family="sans-serif">Streptococcus</text>
+<line x1="65" y1="575" x2="700" y2="575" stroke="#333"/>
+<line x1="65" y1="65" x2="65" y2="575" stroke="#333"/>
+</svg>
