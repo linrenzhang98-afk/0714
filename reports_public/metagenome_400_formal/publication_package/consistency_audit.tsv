@@ -1,0 +1,32 @@
+check	status	observed	expected
+cohort rows	PASS	400	400
+unique runs	PASS	400	400
+unique BioSamples	PASS	400	400
+unique patients	PASS	400	400
+production complete	PASS	400	400
+strict QC N	PASS	119	119
+QC flagged N	PASS	281	281
+Aitchison R2	PASS	0.019409536625522597	0.0194 +/- rounding
+Aitchison P	PASS	0.0001	0.0001
+Aitchison PERMDISP P	PASS	0.487	0.487 +/- rounding
+Bray R2	PASS	0.015338956240491902	0.0153 +/- rounding
+Bray P	PASS	0.0115	0.0115
+Bray PERMDISP P	PASS	0.0013	0.0013
+full FDR species	PASS	['Parvimonas micra', 'Porphyromonas endodontalis', 'Porphyromonas gingivalis', 'Campylobacter rectus', 'Fusobacterium nucleatum']	['Parvimonas micra', 'Porphyromonas endodontalis', 'Porphyromonas gingivalis', 'Campylobacter rectus', 'Fusobacterium nucleatum']
+sensitivity-stable species	PASS	['Porphyromonas gingivalis', 'Campylobacter rectus', 'Fusobacterium nucleatum']	['Porphyromonas gingivalis', 'Campylobacter rectus', 'Fusobacterium nucleatum']
+classified_fraction selected median	PASS	0.045895000000000005	0.0459
+classified_fraction other median	PASS	0.017475499999999998	0.0175
+dominant_species_abundance selected median	PASS	0.9557134774285367	0.956
+dominant_species_abundance other median	PASS	0.3897567896666072	0.39
+two unavailable published WGS	PASS	[{'run': 'SRR27343810', 'patient_id': '20210709MCX011', 'diagnosis': 'Fungal infection', 'size_mb': '0'}, {'run': 'SRR27343463', 'patient_id': '20211125MCX012', 'diagnosis': 'Lung cancer', 'size_mb': '0'}]	2 records with size_MB=0
+prose contains 0.0194	PASS	True	True
+prose contains 0.0001	PASS	True	True
+prose contains 0.487	PASS	True	True
+prose contains 0.0153	PASS	True	True
+prose contains 0.0115	PASS	True	True
+prose contains 0.0013	PASS	True	True
+prose contains 119	PASS	True	True
+prose contains 0.0459	PASS	True	True
+prose contains 0.0175	PASS	True	True
+prose contains 0.956	PASS	True	True
+prose contains 0.390	PASS	True	True

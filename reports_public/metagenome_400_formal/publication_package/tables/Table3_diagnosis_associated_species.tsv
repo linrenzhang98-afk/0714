@@ -1,0 +1,6 @@
+species	prevalence	epsilon_squared	full_cohort_P	full_cohort_BH_FDR	strict_QC_P	strict_QC_BH_FDR	CLR_direction	evidence_class
+Parvimonas micra	0.1325	0.054736258190776495	0.0001	0.0015	0.0379	0.09900000000000002	highest Bacterial infection; lowest Fungal infection	full-cohort FDR only
+Porphyromonas endodontalis	0.14	0.05454085757233522	0.0002	0.0015	0.0522	0.12046153846153847	highest Bacterial infection; lowest Pulmonary tuberculosis	full-cohort FDR only
+Porphyromonas gingivalis	0.1225	0.05408932361051804	0.0002	0.0015	0.0079	0.03685714285714286	highest Bacterial infection; lowest Pulmonary tuberculosis	full + strict-QC FDR
+Campylobacter rectus	0.11	0.050812257251176135	0.0002	0.0015	0.002	0.0288	highest Bacterial infection; lowest Pulmonary tuberculosis	full + strict-QC FDR
+Fusobacterium nucleatum	0.135	0.029428177531785674	0.002	0.012	0.004	0.0288	highest Bacterial infection; lowest Lung cancer	full + strict-QC FDR

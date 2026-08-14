@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#222}.t{font-size:27px;font-weight:700}.p{font-size:22px;font-weight:700}.s{font-size:15px}.n{font-size:13px;fill:#555}</style>
+<text x="45" y="42" class="t">Figure 1. Cohort and taxonomic landscape</text>
+<rect x="35" y="70" width="500" height="460" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="50" y="98" class="p">A</text>
+<text x="85" y="97" class="s">Cohort workflow</text>
+<rect x="555" y="70" width="500" height="460" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="570" y="98" class="p">B</text>
+<text x="605" y="97" class="s">Classified fraction</text>
+<rect x="1075" y="70" width="490" height="460" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="1090" y="98" class="p">C</text>
+<text x="1125" y="97" class="s">Dominant species</text>
+<rect x="35" y="550" width="750" height="530" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="50" y="578" class="p">D</text>
+<text x="85" y="577" class="s">Top prevalent species</text>
+<rect x="805" y="550" width="760" height="530" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="820" y="578" class="p">E</text>
+<text x="855" y="577" class="s">Richness and Shannon</text>
+<text x="280" y="210" class="s" text-anchor="middle">402 published WGS records</text>
+<line x1="280" y1="225" x2="280" y2="285" stroke="#555" stroke-width="3"/>
+<text x="280" y="315" class="p" text-anchor="middle">400 analyzable</text>
+<text x="280" y="350" class="n" text-anchor="middle">400 runs = 400 BioSamples = 400 patients</text>
+<text x="280" y="385" class="n" text-anchor="middle">2 records had size_MB=0</text>
+<rect x="715" y="140.0" width="36.039603960396036" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="151.0" class="n" text-anchor="end">0-1%</text>
+<text x="756.039603960396" y="151.0" class="n" text-anchor="start">26</text>
+<rect x="715" y="174.0" width="280.0" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="185.0" class="n" text-anchor="end">1-2%</text>
+<text x="1000.0" y="185.0" class="n" text-anchor="start">202</text>
+<rect x="715" y="208.0" width="108.11881188118812" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="219.0" class="n" text-anchor="end">2-3%</text>
+<text x="828.1188118811881" y="219.0" class="n" text-anchor="start">78</text>
+<rect x="715" y="242.0" width="45.742574257425744" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="253.0" class="n" text-anchor="end">3-4%</text>
+<text x="765.7425742574258" y="253.0" class="n" text-anchor="start">33</text>
+<rect x="715" y="276.0" width="37.42574257425743" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="287.0" class="n" text-anchor="end">4-5%</text>
+<text x="757.4257425742575" y="287.0" class="n" text-anchor="start">27</text>
+<rect x="715" y="310.0" width="23.564356435643564" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="321.0" class="n" text-anchor="end">5-6%</text>
+<text x="743.5643564356436" y="321.0" class="n" text-anchor="start">17</text>
+<rect x="715" y="344.0" width="6.930693069306931" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="355.0" class="n" text-anchor="end">6-7%</text>
+<text x="726.9306930693069" y="355.0" class="n" text-anchor="start">5</text>
+<rect x="715" y="378.0" width="11.089108910891088" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="389.0" class="n" text-anchor="end">7-8%</text>
+<text x="731.0891089108911" y="389.0" class="n" text-anchor="start">8</text>
+<rect x="715" y="412.0" width="1.386138613861386" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="423.0" class="n" text-anchor="end">8-9%</text>
+<text x="721.3861386138614" y="423.0" class="n" text-anchor="start">1</text>
+<rect x="715" y="446.0" width="4.158415841584159" height="19.72" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="710" y="457.0" class="n" text-anchor="end">9-10%</text>
+<text x="724.1584158415842" y="457.0" class="n" text-anchor="start">3</text>
+<rect x="1235" y="140.0" width="270.0" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="151.0" class="n" text-anchor="end">None</text>
+<text x="1510.0" y="151.0" class="n" text-anchor="start">0.217</text>
+<rect x="1235" y="168.33333333333334" width="111.72413793103449" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="179.33333333333334" class="n" text-anchor="end">Prevotella melaninogenic</text>
+<text x="1351.7241379310344" y="179.33333333333334" class="n" text-anchor="start">0.09</text>
+<rect x="1235" y="196.66666666666666" width="74.48275862068965" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="207.66666666666666" class="n" text-anchor="end">Pseudomonas aeruginosa</text>
+<text x="1314.4827586206898" y="207.66666666666666" class="n" text-anchor="start">0.06</text>
+<rect x="1235" y="225.0" width="58.96551724137931" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="236.0" class="n" text-anchor="end">Rothia mucilaginosa</text>
+<text x="1298.9655172413793" y="236.0" class="n" text-anchor="start">0.0475</text>
+<rect x="1235" y="253.33333333333331" width="37.241379310344826" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="264.3333333333333" class="n" text-anchor="end">Cupriavidus sp. EM10</text>
+<text x="1277.2413793103449" y="264.3333333333333" class="n" text-anchor="start">0.03</text>
+<rect x="1235" y="281.66666666666663" width="37.241379310344826" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="292.66666666666663" class="n" text-anchor="end">Streptococcus mitis</text>
+<text x="1277.2413793103449" y="292.66666666666663" class="n" text-anchor="start">0.03</text>
+<rect x="1235" y="310.0" width="34.137931034482754" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="321.0" class="n" text-anchor="end">Haemophilus influenzae</text>
+<text x="1274.1379310344828" y="321.0" class="n" text-anchor="start">0.0275</text>
+<rect x="1235" y="338.3333333333333" width="31.03448275862069" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="349.3333333333333" class="n" text-anchor="end">Klebsiella pneumoniae</text>
+<text x="1271.0344827586207" y="349.3333333333333" class="n" text-anchor="start">0.025</text>
+<rect x="1235" y="366.66666666666663" width="31.03448275862069" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="377.66666666666663" class="n" text-anchor="end">Cutibacterium acnes</text>
+<text x="1271.0344827586207" y="377.66666666666663" class="n" text-anchor="start">0.025</text>
+<rect x="1235" y="395.0" width="27.931034482758623" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="406.0" class="n" text-anchor="end">Staphylococcus aureus</text>
+<text x="1267.9310344827586" y="406.0" class="n" text-anchor="start">0.0225</text>
+<rect x="1235" y="423.3333333333333" width="27.931034482758623" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="434.3333333333333" class="n" text-anchor="end">Mycobacterium tuberculos</text>
+<text x="1267.9310344827586" y="434.3333333333333" class="n" text-anchor="start">0.0225</text>
+<rect x="1235" y="451.66666666666663" width="24.827586206896555" height="16.43333333333333" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="1230" y="462.66666666666663" class="n" text-anchor="end">Porphyromonas endodontal</text>
+<text x="1264.8275862068965" y="462.66666666666663" class="n" text-anchor="start">0.02</text>
+<rect x="200" y="620.0" width="166.6875" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="631.0" class="n" text-anchor="end">Prevotella melaninogenica</text>
+<text x="371.6875" y="631.0" class="n" text-anchor="start">0.318</text>
+<rect x="200" y="647.0" width="140.4375" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="658.0" class="n" text-anchor="end">Rothia mucilaginosa</text>
+<text x="345.4375" y="658.0" class="n" text-anchor="start">0.268</text>
+<rect x="200" y="674.0" width="103.6875" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="685.0" class="n" text-anchor="end">Streptococcus mitis</text>
+<text x="308.6875" y="685.0" class="n" text-anchor="start">0.198</text>
+<rect x="200" y="701.0" width="99.75" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="712.0" class="n" text-anchor="end">Prevotella jejuni</text>
+<text x="304.75" y="712.0" class="n" text-anchor="start">0.19</text>
+<rect x="200" y="728.0" width="91.875" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="739.0" class="n" text-anchor="end">Cutibacterium acnes</text>
+<text x="296.875" y="739.0" class="n" text-anchor="start">0.175</text>
+<rect x="200" y="755.0" width="90.5625" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="766.0" class="n" text-anchor="end">Prevotella intermedia</text>
+<text x="295.5625" y="766.0" class="n" text-anchor="start">0.172</text>
+<rect x="200" y="782.0" width="89.25" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="793.0" class="n" text-anchor="end">Veillonella parvula</text>
+<text x="294.25" y="793.0" class="n" text-anchor="start">0.17</text>
+<rect x="200" y="809.0" width="86.625" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="820.0" class="n" text-anchor="end">Haemophilus parainfluenzae</text>
+<text x="291.625" y="820.0" class="n" text-anchor="start">0.165</text>
+<rect x="200" y="836.0" width="85.3125" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="847.0" class="n" text-anchor="end">Streptococcus oralis</text>
+<text x="290.3125" y="847.0" class="n" text-anchor="start">0.163</text>
+<rect x="200" y="863.0" width="78.75" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="874.0" class="n" text-anchor="end">Streptococcus pneumoniae</text>
+<text x="283.75" y="874.0" class="n" text-anchor="start">0.15</text>
+<rect x="200" y="890.0" width="78.75" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="901.0" class="n" text-anchor="end">Prevotella nigrescens</text>
+<text x="283.75" y="901.0" class="n" text-anchor="start">0.15</text>
+<rect x="200" y="917.0" width="76.125" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="928.0" class="n" text-anchor="end">Veillonella atypica</text>
+<text x="281.125" y="928.0" class="n" text-anchor="start">0.145</text>
+<rect x="200" y="944.0" width="73.5" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="955.0" class="n" text-anchor="end">Porphyromonas endodontalis</text>
+<text x="278.5" y="955.0" class="n" text-anchor="start">0.14</text>
+<rect x="200" y="971.0" width="70.875" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="982.0" class="n" text-anchor="end">Fusobacterium nucleatum</text>
+<text x="275.875" y="982.0" class="n" text-anchor="start">0.135</text>
+<rect x="200" y="998.0" width="69.5625" height="15.659999999999998" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="1009.0" class="n" text-anchor="end">Parvimonas micra</text>
+<text x="274.5625" y="1009.0" class="n" text-anchor="start">0.133</text>
+<rect x="835" y="640" width="20" height="20" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="865" y="655" class="s" text-anchor="start">Bacterial infection</text>
+<text x="865" y="683" class="n" text-anchor="start">richness median 4.0; Shannon 0.76</text>
+<rect x="835" y="730" width="20" height="20" fill="#009E73" stroke="none" opacity="1"/>
+<text x="865" y="745" class="s" text-anchor="start">Fungal infection</text>
+<text x="865" y="773" class="n" text-anchor="start">richness median 2.0; Shannon 0.44</text>
+<rect x="835" y="820" width="20" height="20" fill="#D55E00" stroke="none" opacity="1"/>
+<text x="865" y="835" class="s" text-anchor="start">Lung cancer</text>
+<text x="865" y="863" class="n" text-anchor="start">richness median 3.0; Shannon 0.68</text>
+<rect x="835" y="910" width="20" height="20" fill="#CC79A7" stroke="none" opacity="1"/>
+<text x="865" y="925" class="s" text-anchor="start">Pulmonary tuberculosis</text>
+<text x="865" y="953" class="n" text-anchor="start">richness median 2.0; Shannon 0.18</text>
+</svg>

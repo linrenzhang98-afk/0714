@@ -1,0 +1,3 @@
+# Figure 3 legend
+
+Five prespecified-analysis candidate species associated with published diagnosis. (A) Overall prevalence. (B) Observed zero fraction, displayed explicitly because group medians were generally zero. (C) Diagnosis-specific CLR means (red, positive; blue, negative). (D) Full-cohort and strict-QC BH FDR values from the frozen differential analysis. (E) Evidence classification. Parvimonas micra and Porphyromonas endodontalis passed full-cohort FDR only; Porphyromonas gingivalis, Campylobacter rectus, and Fusobacterium nucleatum also passed strict-QC FDR. These are candidate taxa, not diagnostic biomarkers.

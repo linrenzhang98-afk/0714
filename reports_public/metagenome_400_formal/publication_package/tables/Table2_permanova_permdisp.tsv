@@ -1,0 +1,5 @@
+distance	cohort	N	PERMANOVA_R2	PERMANOVA_F	permutation_P	PERMDISP_P	permutations	interpretation
+Bray-Curtis	full	400	0.015338956240491902	2.0562834658455835	0.0115	0.0013	9999	Secondary/qualified; dispersion differs
+Bray-Curtis	QC-sensitivity	119	0.06073937006557098	2.478909947862677	0.0001	0.0425	9999	Secondary/qualified; dispersion differs
+Aitchison	full	400	0.019409536625522597	2.612771519062346	0.0001	0.487	9999	Primary formal; small association not dispersion-driven
+Aitchison	QC-sensitivity	119	0.06958409485301514	2.8668795190872474	0.0001	0.4604	9999	Primary formal; small association not dispersion-driven

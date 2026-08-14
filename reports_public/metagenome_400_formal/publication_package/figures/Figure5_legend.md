@@ -1,0 +1,3 @@
+# Figure 5 legend
+
+The fixed deep-review subset is selected and cannot represent cohort-wide function. (A) Median classified fraction was 0.0459 in the fixed 30 versus 0.0175 in the other 370. (B) Median dominant-species abundance was 0.956 versus 0.390. (C) Fixed-30 samples highlighted in the full-cohort Aitchison PCoA. (D) Coverage of exploratory k=10 states; the subset covered 3 of 4 major states (≥5% prevalence) and missed a state containing 7.5% of all samples. (E) HUMAnN pathway sensitivity: n=30 technical reference, n=24 after excluding six zero-biological-pathway samples, and n=23 after additionally excluding extreme-sparse SRR27343296. The 101 direction- and FDR-stable candidates remain hypothesis-generating only.

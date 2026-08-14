@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#222}.t{font-size:27px;font-weight:700}.p{font-size:22px;font-weight:700}.s{font-size:15px}.n{font-size:13px;fill:#555}</style>
+<text x="45" y="42" class="t">Figure 3. Diagnosis-associated candidate species</text>
+<rect x="35" y="70" width="500" height="460" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="50" y="98" class="p">A</text>
+<text x="85" y="97" class="s">Overall prevalence</text>
+<rect x="555" y="70" width="500" height="460" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="570" y="98" class="p">B</text>
+<text x="605" y="97" class="s">Observed zeros</text>
+<rect x="1075" y="70" width="490" height="460" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="1090" y="98" class="p">C</text>
+<text x="1125" y="97" class="s">CLR group means</text>
+<rect x="35" y="550" width="750" height="530" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="50" y="578" class="p">D</text>
+<text x="85" y="577" class="s">Full and strict-QC FDR</text>
+<rect x="805" y="550" width="760" height="530" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="820" y="578" class="p">E</text>
+<text x="855" y="577" class="s">Evidence classification</text>
+<rect x="200" y="145.0" width="104.10714285714286" height="38.279999999999994" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="156.0" class="n" text-anchor="end">P. micra</text>
+<text x="309.1071428571429" y="156.0" class="n" text-anchor="start">0.133</text>
+<rect x="200" y="211.0" width="110.00000000000003" height="38.279999999999994" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="222.0" class="n" text-anchor="end">P. endodontalis</text>
+<text x="315.0" y="222.0" class="n" text-anchor="start">0.14</text>
+<rect x="200" y="277.0" width="96.25" height="38.279999999999994" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="288.0" class="n" text-anchor="end">P. gingivalis</text>
+<text x="301.25" y="288.0" class="n" text-anchor="start">0.122</text>
+<rect x="200" y="343.0" width="86.42857142857143" height="38.279999999999994" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="354.0" class="n" text-anchor="end">C. rectus</text>
+<text x="291.42857142857144" y="354.0" class="n" text-anchor="start">0.11</text>
+<rect x="200" y="409.0" width="106.07142857142858" height="38.279999999999994" fill="#009E73" stroke="none" opacity="1"/>
+<text x="195" y="420.0" class="n" text-anchor="end">F. nucleatum</text>
+<text x="311.07142857142856" y="420.0" class="n" text-anchor="start">0.135</text>
+<rect x="720" y="145.0" width="0.0" height="38.279999999999994" fill="#999999" stroke="none" opacity="1"/>
+<text x="715" y="156.0" class="n" text-anchor="end">P. micra</text>
+<text x="725.0" y="156.0" class="n" text-anchor="start">0</text>
+<rect x="720" y="211.0" width="0.0" height="38.279999999999994" fill="#999999" stroke="none" opacity="1"/>
+<text x="715" y="222.0" class="n" text-anchor="end">P. endodontalis</text>
+<text x="725.0" y="222.0" class="n" text-anchor="start">0</text>
+<rect x="720" y="277.0" width="0.0" height="38.279999999999994" fill="#999999" stroke="none" opacity="1"/>
+<text x="715" y="288.0" class="n" text-anchor="end">P. gingivalis</text>
+<text x="725.0" y="288.0" class="n" text-anchor="start">0</text>
+<rect x="720" y="343.0" width="0.0" height="38.279999999999994" fill="#999999" stroke="none" opacity="1"/>
+<text x="715" y="354.0" class="n" text-anchor="end">C. rectus</text>
+<text x="725.0" y="354.0" class="n" text-anchor="start">0</text>
+<rect x="720" y="409.0" width="0.0" height="38.279999999999994" fill="#999999" stroke="none" opacity="1"/>
+<text x="715" y="420.0" class="n" text-anchor="end">F. nucleatum</text>
+<text x="725.0" y="420.0" class="n" text-anchor="start">0</text>
+<rect x="1100" y="145" width="86" height="45" fill="#B2182B" stroke="none" opacity="0.4355021963407788"/>
+<rect x="1195" y="145" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.4894448564135875"/>
+<rect x="1290" y="145" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.32178320665062404"/>
+<rect x="1385" y="145" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.40907354852900746"/>
+<text x="1095" y="175" class="n" text-anchor="end">P. micra</text>
+<rect x="1100" y="207" width="86" height="45" fill="#B2182B" stroke="none" opacity="0.5636226813839393"/>
+<rect x="1195" y="207" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.3760652069880628"/>
+<rect x="1290" y="207" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.28338143784289294"/>
+<rect x="1385" y="207" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.4355732955130601"/>
+<text x="1095" y="237" class="n" text-anchor="end">P. endodontalis</text>
+<rect x="1100" y="269" width="86" height="45" fill="#B2182B" stroke="none" opacity="0.43651231588771"/>
+<rect x="1195" y="269" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.4417695314319"/>
+<rect x="1290" y="269" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.37574559648741823"/>
+<rect x="1385" y="269" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.4692138749572319"/>
+<text x="1095" y="299" class="n" text-anchor="end">P. gingivalis</text>
+<rect x="1100" y="331" width="86" height="45" fill="#B2182B" stroke="none" opacity="0.35319118627619395"/>
+<rect x="1195" y="331" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.4534604472430612"/>
+<rect x="1290" y="331" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.4461355754228331"/>
+<rect x="1385" y="331" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.4825525612534808"/>
+<text x="1095" y="361" class="n" text-anchor="end">C. rectus</text>
+<rect x="1100" y="393" width="86" height="45" fill="#B2182B" stroke="none" opacity="0.44152425513071236"/>
+<rect x="1195" y="393" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.28937929509606064"/>
+<rect x="1290" y="393" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.4137048501861136"/>
+<rect x="1385" y="393" width="86" height="45" fill="#2166AC" stroke="none" opacity="0.34450585057807664"/>
+<text x="1095" y="423" class="n" text-anchor="end">F. nucleatum</text>
+<text x="1143" y="455" class="n" text-anchor="middle">Bacte</text>
+<text x="1238" y="455" class="n" text-anchor="middle">Funga</text>
+<text x="1333" y="455" class="n" text-anchor="middle">Lung</text>
+<text x="1428" y="455" class="n" text-anchor="middle">Pulmo</text>
+<text x="55" y="630" class="s" text-anchor="start">P. micra</text>
+<rect x="215" y="610" width="271.0952391306546" height="22" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="705" y="627" class="n" text-anchor="end">full q=0.0015; strict q=0.099</text>
+<text x="55" y="712" class="s" text-anchor="start">P. endodontalis</text>
+<rect x="215" y="692" width="271.0952391306546" height="22" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="705" y="709" class="n" text-anchor="end">full q=0.0015; strict q=0.1205</text>
+<text x="55" y="794" class="s" text-anchor="start">P. gingivalis</text>
+<rect x="215" y="774" width="271.0952391306546" height="22" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="705" y="791" class="n" text-anchor="end">full q=0.0015; strict q=0.03686</text>
+<text x="55" y="876" class="s" text-anchor="start">C. rectus</text>
+<rect x="215" y="856" width="271.0952391306546" height="22" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="705" y="873" class="n" text-anchor="end">full q=0.0015; strict q=0.0288</text>
+<text x="55" y="958" class="s" text-anchor="start">F. nucleatum</text>
+<rect x="215" y="938" width="184.39860037942802" height="22" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="705" y="955" class="n" text-anchor="end">full q=0.012; strict q=0.0288</text>
+<text x="840" y="625" class="s" text-anchor="start">Parvimonas micra</text>
+<text x="840" y="652" class="n" text-anchor="start">full-cohort FDR only</text>
+<text x="840" y="675" class="n" text-anchor="start">candidate taxon; not a biomarker</text>
+<text x="840" y="708" class="s" text-anchor="start">Porphyromonas endodontalis</text>
+<text x="840" y="735" class="n" text-anchor="start">full-cohort FDR only</text>
+<text x="840" y="758" class="n" text-anchor="start">candidate taxon; not a biomarker</text>
+<text x="840" y="791" class="s" text-anchor="start">Porphyromonas gingivalis</text>
+<text x="840" y="818" class="p" text-anchor="start">full + strict-QC FDR</text>
+<text x="840" y="841" class="n" text-anchor="start">candidate taxon; not a biomarker</text>
+<text x="840" y="874" class="s" text-anchor="start">Campylobacter rectus</text>
+<text x="840" y="901" class="p" text-anchor="start">full + strict-QC FDR</text>
+<text x="840" y="924" class="n" text-anchor="start">candidate taxon; not a biomarker</text>
+<text x="840" y="957" class="s" text-anchor="start">Fusobacterium nucleatum</text>
+<text x="840" y="984" class="p" text-anchor="start">full + strict-QC FDR</text>
+<text x="840" y="1007" class="n" text-anchor="start">candidate taxon; not a biomarker</text>
+</svg>

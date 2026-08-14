@@ -1,0 +1,3 @@
+# Figure 1 legend
+
+Cohort construction and taxonomic landscape. (A) Of 402 mapped published WGS records, 400 had sequence data and exact production/matrix membership; two size_MB=0 records were unavailable. Each analyzable run mapped uniquely to one BioSample and patient. (B) Classified-read fraction distribution. (C) Distribution of dominant microbial species, retaining samples without a microbial dominant species as ‘None’. (D) Prevalence of the 15 most prevalent species. (E) Diagnosis-stratified descriptive summaries of observed richness and Shannon diversity. QC flags were not exclusion criteria; all 400 samples remained in the primary analysis.

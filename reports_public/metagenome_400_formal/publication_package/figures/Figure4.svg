@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#222}.t{font-size:27px;font-weight:700}.p{font-size:22px;font-weight:700}.s{font-size:15px}.n{font-size:13px;fill:#555}</style>
+<text x="45" y="42" class="t">Figure 4. Community heterogeneity and absence of stable ecotypes</text>
+<rect x="35" y="70" width="750" height="500" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="50" y="98" class="p">A</text>
+<text x="85" y="97" class="s">Silhouette k=2–10</text>
+<rect x="805" y="70" width="760" height="500" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="820" y="98" class="p">B</text>
+<text x="855" y="97" class="s">Cross-metric ARI</text>
+<rect x="35" y="590" width="490" height="490" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="50" y="618" class="p">C</text>
+<text x="85" y="617" class="s">Bray k=10 state sizes</text>
+<rect x="555" y="590" width="490" height="490" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="570" y="618" class="p">D</text>
+<text x="605" y="617" class="s">Dominant-species heterogeneity</text>
+<rect x="1075" y="590" width="490" height="490" rx="8" fill="#fff" stroke="#ccd3da"/>
+<text x="1090" y="618" class="p">E</text>
+<text x="1125" y="617" class="s">Interpretation</text>
+<line x1="85.0" y1="183.87054125775302" x2="166.25" y2="185.06882437797458" stroke="#0072B2" stroke-width="4"/>
+<line x1="166.25" y1="185.06882437797458" x2="247.5" y2="189.4688583691751" stroke="#0072B2" stroke-width="4"/>
+<line x1="247.5" y1="189.4688583691751" x2="328.75" y2="190.19623830249714" stroke="#0072B2" stroke-width="4"/>
+<line x1="328.75" y1="190.19623830249714" x2="410.0" y2="194.61954848672605" stroke="#0072B2" stroke-width="4"/>
+<line x1="410.0" y1="194.61954848672605" x2="491.25" y2="176.18755790283063" stroke="#0072B2" stroke-width="4"/>
+<line x1="491.25" y1="176.18755790283063" x2="572.5" y2="176.67427782582496" stroke="#0072B2" stroke-width="4"/>
+<line x1="572.5" y1="176.67427782582496" x2="653.75" y2="166.63841704936647" stroke="#0072B2" stroke-width="4"/>
+<line x1="653.75" y1="166.63841704936647" x2="735.0" y2="164.16583575426245" stroke="#0072B2" stroke-width="4"/>
+<circle cx="85.0" cy="183.87054125775302" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<circle cx="166.25" cy="185.06882437797458" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<circle cx="247.5" cy="189.4688583691751" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<circle cx="328.75" cy="190.19623830249714" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<circle cx="410.0" cy="194.61954848672605" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<circle cx="491.25" cy="176.18755790283063" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<circle cx="572.5" cy="176.67427782582496" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<circle cx="653.75" cy="166.63841704936647" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<circle cx="735.0" cy="164.16583575426245" r="5" fill="#0072B2" opacity="0.9" stroke="none"/>
+<line x1="85.0" y1="208.48499085795652" x2="166.25" y2="216.15429477837978" stroke="#D55E00" stroke-width="4"/>
+<line x1="166.25" y1="216.15429477837978" x2="247.5" y2="233.0488482424338" stroke="#D55E00" stroke-width="4"/>
+<line x1="247.5" y1="233.0488482424338" x2="328.75" y2="238.05433230757393" stroke="#D55E00" stroke-width="4"/>
+<line x1="328.75" y1="238.05433230757393" x2="410.0" y2="241.1609137288159" stroke="#D55E00" stroke-width="4"/>
+<line x1="410.0" y1="241.1609137288159" x2="491.25" y2="246.22966003552978" stroke="#D55E00" stroke-width="4"/>
+<line x1="491.25" y1="246.22966003552978" x2="572.5" y2="250.25559318128595" stroke="#D55E00" stroke-width="4"/>
+<line x1="572.5" y1="250.25559318128595" x2="653.75" y2="252.3157552476923" stroke="#D55E00" stroke-width="4"/>
+<line x1="653.75" y1="252.3157552476923" x2="735.0" y2="251.11676393151618" stroke="#D55E00" stroke-width="4"/>
+<circle cx="85.0" cy="208.48499085795652" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<circle cx="166.25" cy="216.15429477837978" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<circle cx="247.5" cy="233.0488482424338" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<circle cx="328.75" cy="238.05433230757393" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<circle cx="410.0" cy="241.1609137288159" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<circle cx="491.25" cy="246.22966003552978" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<circle cx="572.5" cy="250.25559318128595" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<circle cx="653.75" cy="252.3157552476923" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<circle cx="735.0" cy="251.11676393151618" r="5" fill="#D55E00" opacity="0.9" stroke="none"/>
+<text x="100" y="545" class="n" text-anchor="start">Bray (blue); Aitchison (orange). Boundary maxima are not stable subtype evidence.</text>
+<line x1="850" y1="330" x2="1500" y2="330" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+<line x1="850.0" y1="331.1736729057993" x2="931.25" y2="333.42942787786507" stroke="#6A3D9A" stroke-width="4"/>
+<line x1="931.25" y1="333.42942787786507" x2="1012.5" y2="334.5338176995316" stroke="#6A3D9A" stroke-width="4"/>
+<line x1="1012.5" y1="334.5338176995316" x2="1093.75" y2="335.55230596107685" stroke="#6A3D9A" stroke-width="4"/>
+<line x1="1093.75" y1="335.55230596107685" x2="1175.0" y2="337.59538493637797" stroke="#6A3D9A" stroke-width="4"/>
+<line x1="1175.0" y1="337.59538493637797" x2="1256.25" y2="336.5820879426053" stroke="#6A3D9A" stroke-width="4"/>
+<line x1="1256.25" y1="336.5820879426053" x2="1337.5" y2="337.23157775151725" stroke="#6A3D9A" stroke-width="4"/>
+<line x1="1337.5" y1="337.23157775151725" x2="1418.75" y2="330.1271035002664" stroke="#6A3D9A" stroke-width="4"/>
+<line x1="1418.75" y1="330.1271035002664" x2="1500.0" y2="329.79917191259165" stroke="#6A3D9A" stroke-width="4"/>
+<circle cx="850.0" cy="331.1736729057993" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<circle cx="931.25" cy="333.42942787786507" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<circle cx="1012.5" cy="334.5338176995316" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<circle cx="1093.75" cy="335.55230596107685" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<circle cx="1175.0" cy="337.59538493637797" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<circle cx="1256.25" cy="336.5820879426053" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<circle cx="1337.5" cy="337.23157775151725" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<circle cx="1418.75" cy="330.1271035002664" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<circle cx="1500.0" cy="329.79917191259165" r="5" fill="#6A3D9A" opacity="0.9" stroke="none"/>
+<rect x="200" y="670.0" width="261.2142857142857" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="681.0" class="n" text-anchor="end">state 1</text>
+<text x="466.2142857142857" y="681.0" class="n" text-anchor="start">0.345</text>
+<rect x="200" y="705.0" width="321.78571428571433" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="716.0" class="n" text-anchor="end">state 2</text>
+<text x="526.7857142857143" y="716.0" class="n" text-anchor="start">0.425</text>
+<rect x="200" y="740.0" width="56.78571428571429" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="751.0" class="n" text-anchor="end">state 3</text>
+<text x="261.7857142857143" y="751.0" class="n" text-anchor="start">0.075</text>
+<rect x="200" y="775.0" width="77.60714285714286" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="786.0" class="n" text-anchor="end">state 4</text>
+<text x="282.6071428571429" y="786.0" class="n" text-anchor="start">0.102</text>
+<rect x="200" y="810.0" width="18.92857142857143" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="821.0" class="n" text-anchor="end">state 5</text>
+<text x="223.92857142857144" y="821.0" class="n" text-anchor="start">0.025</text>
+<rect x="200" y="845.0" width="1.892857142857143" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="856.0" class="n" text-anchor="end">state 6</text>
+<text x="206.89285714285714" y="856.0" class="n" text-anchor="start">0.0025</text>
+<rect x="200" y="880.0" width="13.250000000000002" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="891.0" class="n" text-anchor="end">state 7</text>
+<text x="218.25" y="891.0" class="n" text-anchor="start">0.0175</text>
+<rect x="200" y="915.0" width="1.892857142857143" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="926.0" class="n" text-anchor="end">state 8</text>
+<text x="206.89285714285714" y="926.0" class="n" text-anchor="start">0.0025</text>
+<rect x="200" y="950.0" width="1.892857142857143" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="961.0" class="n" text-anchor="end">state 9</text>
+<text x="206.89285714285714" y="961.0" class="n" text-anchor="start">0.0025</text>
+<rect x="200" y="985.0" width="1.892857142857143" height="20.299999999999997" fill="#56B4E9" stroke="none" opacity="1"/>
+<text x="195" y="996.0" class="n" text-anchor="end">state 10</text>
+<text x="206.89285714285714" y="996.0" class="n" text-anchor="start">0.0025</text>
+<rect x="720" y="670.0" width="230.55" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="681.0" class="n" text-anchor="end">None</text>
+<text x="955.55" y="681.0" class="n" text-anchor="start">0.217</text>
+<rect x="720" y="705.0" width="95.39999999999999" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="716.0" class="n" text-anchor="end">Prevotella melanino</text>
+<text x="820.4" y="716.0" class="n" text-anchor="start">0.09</text>
+<rect x="720" y="740.0" width="63.599999999999994" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="751.0" class="n" text-anchor="end">Pseudomonas aerugin</text>
+<text x="788.6" y="751.0" class="n" text-anchor="start">0.06</text>
+<rect x="720" y="775.0" width="50.35" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="786.0" class="n" text-anchor="end">Rothia mucilaginosa</text>
+<text x="775.35" y="786.0" class="n" text-anchor="start">0.0475</text>
+<rect x="720" y="810.0" width="31.799999999999997" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="821.0" class="n" text-anchor="end">Cupriavidus sp. EM1</text>
+<text x="756.8" y="821.0" class="n" text-anchor="start">0.03</text>
+<rect x="720" y="845.0" width="31.799999999999997" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="856.0" class="n" text-anchor="end">Streptococcus mitis</text>
+<text x="756.8" y="856.0" class="n" text-anchor="start">0.03</text>
+<rect x="720" y="880.0" width="29.15" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="891.0" class="n" text-anchor="end">Haemophilus influen</text>
+<text x="754.15" y="891.0" class="n" text-anchor="start">0.0275</text>
+<rect x="720" y="915.0" width="26.5" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="926.0" class="n" text-anchor="end">Klebsiella pneumoni</text>
+<text x="751.5" y="926.0" class="n" text-anchor="start">0.025</text>
+<rect x="720" y="950.0" width="26.5" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="961.0" class="n" text-anchor="end">Cutibacterium acnes</text>
+<text x="751.5" y="961.0" class="n" text-anchor="start">0.025</text>
+<rect x="720" y="985.0" width="23.849999999999998" height="20.299999999999997" fill="#E69F00" stroke="none" opacity="1"/>
+<text x="715" y="996.0" class="n" text-anchor="end">Staphylococcus aure</text>
+<text x="748.85" y="996.0" class="n" text-anchor="start">0.0225</text>
+<text x="1110" y="700" class="p" text-anchor="start">Community states are exploratory.</text>
+<text x="1110" y="750" class="s" text-anchor="start">Silhouette depends on metric and k.</text>
+<text x="1110" y="790" class="s" text-anchor="start">Bray–Aitchison ARI is near zero.</text>
+<text x="1110" y="830" class="p" text-anchor="start">No stable diagnosis-linked ecotype.</text>
+<text x="1110" y="885" class="n" text-anchor="start">Do not call clusters clinical subtypes.</text>
+</svg>

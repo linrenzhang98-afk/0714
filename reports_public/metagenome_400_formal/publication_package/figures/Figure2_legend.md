@@ -1,0 +1,3 @@
+# Figure 2 legend
+
+Published diagnosis is associated with modest compositional differences. (A) Full-cohort Aitchison PCoA colored by published diagnosis. (B) Group centroids are shown descriptively without implying sharp separation. (C) PERMANOVA R² for full and prespecified strict-QC sensitivity cohorts. Full-cohort Aitchison R²=0.0194, p=0.0001; Bray–Curtis R²=0.0153, p=0.0115 (9,999 cohort-stratified permutations). (D) Aitchison PERMDISP was not significant (p=0.487), whereas Bray–Curtis PERMDISP was significant (p=0.0013), requiring qualification of the Bray result. (E) The 119 strict-QC samples are highlighted within the full-cohort Aitchison ordination; this is not a separately refitted ordination.

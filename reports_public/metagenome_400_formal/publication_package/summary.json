@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-08-14T11:39:34+00:00",
+  "manuscript_ready": true,
+  "consistency_gate": "PASS",
+  "cohort": 400,
+  "qc_flagged_retained": 281,
+  "strict_qc_sensitivity": 119,
+  "main_figures": 5,
+  "main_tables": 3,
+  "recommended_title": "Large-scale BALF shotgun metagenomics reveals modest diagnosis-associated shifts amid substantial inter-individual heterogeneity in respiratory microbial community structure",
+  "additional_analysis_scientifically_necessary": false,
+  "blocking_issues": []
+}
