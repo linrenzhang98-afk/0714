@@ -136,7 +136,7 @@ def main() -> int:
     args.output_dir.mkdir(parents=True, exist_ok=True)
     fields = list(rows[0])
     with (args.output_dir / "file_qc.tsv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fields, delimiter="\t")
+        writer = csv.DictWriter(handle, fields, delimiter="\t", lineterminator="\n")
         writer.writeheader(); writer.writerows(rows)
     special = [r for r in rows if r["run"] == "SRR27344041"]
     same_header_only = [r for r in rows if r["kind"] in ("pathabundance", "pathcoverage") and r["data_rows"] == 0]

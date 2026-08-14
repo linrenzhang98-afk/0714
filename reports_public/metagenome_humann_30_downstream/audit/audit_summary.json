@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-14T08:09:20+00:00",
+  "generated_at_utc": "2026-08-14T08:18:58+00:00",
   "mode": "read_only_input_audit",
   "input_root": "/mnt/disk1/db/kraken2/0714/results/20260809T000000Z-prjna1056765-functional-profile",
   "cohort_source": "/home/leonrenzhang/projects/0714/reports_public/metagenome_functional_profile/run_status.tsv",
