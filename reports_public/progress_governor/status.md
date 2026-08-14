@@ -1,15 +1,15 @@
 # Progress Governor Status
 
-Generated at: 2026-08-13T08:18:55+00:00
-Progress state: `stalled_metagenome_functional_profile`
+Generated at: 2026-08-14T00:37:33+00:00
+Progress state: `public_data_submission_ready`
 
 ## Reason
 
-- Shotgun functional profiling did not complete: MetaPhlAn smoke test failed rc=1
+- Compute jobs and the shotgun functional profile stage are final; the public-data-only manuscript route is selected and the submission package is available.
 
 ## Required Next Action
 
-- Codex should inspect reports_public/metagenome_functional_profile/summary.md, runner_status.txt, worker.nohup.log, and patch the smallest repository-side cause.
+- Proceed with public-data manuscript polishing, figure/table finalization, and target-journal formatting; qPCR validation is optional follow-up, not a current blocker.
 
 ## Operational Counts
 
@@ -19,4 +19,4 @@ Progress state: `stalled_metagenome_functional_profile`
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
-- Functional profile state: blocked_setup
+- Functional profile state: done
