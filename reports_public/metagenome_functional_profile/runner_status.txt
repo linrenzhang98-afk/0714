@@ -1,4 +1,4 @@
-generated_at=2026-08-14T15:20:14+08:00
+generated_at=2026-08-14T16:00:37+08:00
 state=done
 reason=functional profile already complete
 route=short_read_shared_index
