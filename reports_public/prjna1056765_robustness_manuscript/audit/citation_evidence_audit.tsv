@@ -1,0 +1,10 @@
+claim	type	source	status
+402-patient source cohort and n=284/118 split	external	Han et al. 2025; Tang et al. 2025	PASS
+32 DNA and 32 RNA negative controls	external	Tang et al. 2025	PASS
+Low-biomass and contamination context	external	Charlson et al. 2011; Drengenes et al. 2019	PASS
+Oral-taxa inflammatory precedent	external	Segal et al. 2013; Segal et al. 2016; Dickson et al. 2017	PASS
+Compositional and dispersion rationale	external	Fernandes et al. 2014; Anderson 2006	PASS
+Exact 30-species anchor replay	our result	v5 manifest and Table S1	PASS
+All full-cohort Bray cells dispersion-qualified	our result	Table S1 and Figure S1	PASS
+n=119 pipeline-dependent sensitivity population	our result	Table S2	PASS
+Taxon overlap/mismatch limited to pipeline/statistical interpretation	inference boundary	Table S3; original overlap audit	PASS

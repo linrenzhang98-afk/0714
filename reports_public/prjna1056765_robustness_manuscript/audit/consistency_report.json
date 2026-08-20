@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "grid rows",
+      "status": "PASS",
+      "evidence": "18"
+    },
+    {
+      "check": "grid hash",
+      "status": "PASS",
+      "evidence": "edc94c29c7542d4866dbf4bc9bc6d2785e0b8daef5db1a524affcbffc2f59e8c"
+    },
+    {
+      "check": "anchor exact",
+      "status": "PASS",
+      "evidence": "{'F': 2.612771519062346, 'R2': 0.019409536625522597, 'p': 0.0001, 'disp_F': 0.8066530620728115, 'disp_R2': 0.006073890452579873, 'disp_p': 0.487}"
+    },
+    {
+      "check": "all full Bray dispersion-qualified",
+      "status": "PASS",
+      "evidence": "3/3"
+    },
+    {
+      "check": "manuscript contains 1.94%",
+      "status": "PASS",
+      "evidence": "1.94%"
+    },
+    {
+      "check": "manuscript contains 0.0194095",
+      "status": "PASS",
+      "evidence": "0.0194095"
+    },
+    {
+      "check": "manuscript contains 0.487",
+      "status": "PASS",
+      "evidence": "0.487"
+    },
+    {
+      "check": "manuscript contains 0.0003349",
+      "status": "PASS",
+      "evidence": "0.0003349"
+    },
+    {
+      "check": "manuscript contains 0.0163698",
+      "status": "PASS",
+      "evidence": "0.0163698"
+    },
+    {
+      "check": "manuscript contains 0.0019795",
+      "status": "PASS",
+      "evidence": "0.0019795"
+    },
+    {
+      "check": "manuscript contains 0.0695841",
+      "status": "PASS",
+      "evidence": "0.0695841"
+    },
+    {
+      "check": "manuscript contains 0.0263302",
+      "status": "PASS",
+      "evidence": "0.0263302"
+    },
+    {
+      "check": "manuscript contains 0.0009",
+      "status": "PASS",
+      "evidence": "0.0009"
+    },
+    {
+      "check": "manuscript contains n=119 pipeline-dependent sensitivity population",
+      "status": "PASS",
+      "evidence": "n=119 pipeline-dependent sensitivity population"
+    },
+    {
+      "check": "forbidden phrase absent: diagnosis-associated boundary",
+      "status": "PASS",
+      "evidence": "diagnosis-associated boundary"
+    },
+    {
+      "check": "forbidden phrase absent: validation cohort",
+      "status": "PASS",
+      "evidence": "validation cohort"
+    },
+    {
+      "check": "forbidden phrase absent: cleaner cohort",
+      "status": "PASS",
+      "evidence": "cleaner cohort"
+    },
+    {
+      "check": "forbidden phrase absent: higher-quality biological cohort",
+      "status": "PASS",
+      "evidence": "higher-quality biological cohort"
+    },
+    {
+      "check": "forbidden phrase absent: replication cohort",
+      "status": "PASS",
+      "evidence": "replication cohort"
+    },
+    {
+      "check": "forbidden phrase absent: reproducibility study",
+      "status": "PASS",
+      "evidence": "reproducibility study"
+    },
+    {
+      "check": "forbidden phrase absent: reproducibility audit",
+      "status": "PASS",
+      "evidence": "reproducibility audit"
+    },
+    {
+      "check": "Figure 3 internal note excluded from submission draft",
+      "status": "PASS",
+      "evidence": "editorial artifact absent"
+    },
+    {
+      "check": "Supplement full grid",
+      "status": "PASS",
+      "evidence": "Table S1"
+    },
+    {
+      "check": "Supplement Bray",
+      "status": "PASS",
+      "evidence": "Figure S1"
+    }
+  ]
+}

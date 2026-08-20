@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#20252b}.title{font-size:28px;font-weight:700}.panel{font-size:22px;font-weight:700}.head{font-size:18px;font-weight:700}.body{font-size:15px}.small{font-size:13px;fill:#4b5563}.tiny{font-size:11px;fill:#4b5563}</style>
+<text x="45" y="45" class="title">Figure 1. Cohort provenance and analytical populations</text>
+<text x="45" y="78" class="panel" text-anchor="start">A</text>
+<text x="80" y="78" class="head" text-anchor="start">Published study</text>
+<rect x="85" y="125" width="300" height="100" fill="#eef4f8" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="235" y="165" class="head" text-anchor="middle">402 patients</text>
+<text x="235" y="193" class="small" text-anchor="middle">BALF DNA and RNA resource</text>
+<line x1="385" y1="175" x2="500" y2="175" stroke="#52606d" stroke-width="2"/>
+<polygon points="500,175 490,169 490,181" fill="#52606d"/>
+<rect x="500" y="105" width="250" height="75" fill="#f5f7fa" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="625" y="140" class="head" text-anchor="middle">Training n=284</text>
+<text x="625" y="163" class="small" text-anchor="middle">published ecology</text>
+<rect x="500" y="200" width="250" height="75" fill="#f5f7fa" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="625" y="235" class="head" text-anchor="middle">Test n=118</text>
+<text x="625" y="258" class="small" text-anchor="middle">internal model split</text>
+<text x="45" y="345" class="panel" text-anchor="start">B</text>
+<text x="80" y="345" class="head" text-anchor="start">Current analytical populations</text>
+<rect x="85" y="390" width="300" height="105" fill="#e9f5ef" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="235" y="430" class="head" text-anchor="middle">400 downloadable DNA runs</text>
+<text x="235" y="457" class="small" text-anchor="middle">four-level diagnosis omnibus</text>
+<text x="235" y="480" class="small" text-anchor="middle">same source cohort</text>
+<rect x="85" y="530" width="300" height="85" fill="#fff5e8" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="235" y="565" class="head" text-anchor="middle">2 unavailable records</text>
+<text x="235" y="590" class="small" text-anchor="middle">data-availability difference</text>
+<line x1="385" y1="442" x2="520" y2="442" stroke="#52606d" stroke-width="2"/>
+<polygon points="520,442 510,436 510,448" fill="#52606d"/>
+<rect x="520" y="390" width="350" height="105" fill="#f4ecf7" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="695" y="428" class="head" text-anchor="middle">n=119</text>
+<text x="695" y="455" class="body" text-anchor="middle">pipeline-dependent sensitivity</text>
+<text x="695" y="480" class="small" text-anchor="middle">population; changed estimand</text>
+<text x="45" y="690" class="panel" text-anchor="start">C</text>
+<text x="80" y="690" class="head" text-anchor="start">Interpretive boundary</text>
+<rect x="100" y="735" width="360" height="70" fill="#f8fafc" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="280" y="777" class="body" text-anchor="middle">No population is an independent cohort</text>
+<rect x="510" y="735" width="360" height="70" fill="#f8fafc" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="690" y="777" class="body" text-anchor="middle">n=400 is not Han et al.&#x27;s n=284 contrast</text>
+<rect x="920" y="735" width="360" height="70" fill="#f8fafc" stroke="#aeb7c2" stroke-width="1" rx="4"/>
+<text x="1100" y="777" class="body" text-anchor="middle">n=119 is not a replication population</text>
+</svg>

@@ -1,0 +1,176 @@
+# Analytical robustness of cross-disease BALF microbiome variation in PRJNA1056765
+
+## Abstract
+
+### Background
+
+Metagenomic analysis of PRJNA1056765 reported bronchoalveolar lavage fluid microbial differences among lung cancer and pulmonary infections. The same cohort offers an opportunity to assess how strongly published diagnosis structures community composition when compositional geometry, multivariate dispersion, feature filtering, and pipeline-dependent quality criteria are considered. Because upstream database versions, negative-control handling, filtering, and feature definitions remain incompletely reconstructed, this study is a secondary analytical robustness audit rather than a reproduction of the original analysis.
+
+### Methods
+
+We analyzed the 400 publicly downloadable BALF DNA runs with the frozen Kraken2/Bracken species matrix and four-level published diagnosis. The primary anchor retained 30 species detected in at least 10% of samples, applied centered log-ratio transformation with a prespecified zero replacement, and tested diagnosis by cohort-stratified PERMANOVA with 9,999 permutations. PERMDISP accompanied every distance-based test. Before computation, we froze an 18-cell grid spanning three prevalence thresholds, two Aitchison pseudocounts, Bray–Curtis distance, the full cohort, and an n=119 pipeline-dependent sensitivity population. The grid prohibited pairwise contrasts, taxon discovery, and outcome-guided parameter changes.
+
+### Results
+
+The 30-species Aitchison anchor replayed exactly from locked inputs and code. Diagnosis explained 1.94% of full-cohort variation (R²=0.01941; permutation P=0.0001), without evidence of differential dispersion (PERMDISP P=0.487). Changing the pseudocount reduced R² by 0.00033 and retained the same dispersion qualification. At 5% prevalence, 90-species Aitchison R² values were 0.01637 and 0.01583, and both cells were dispersion-qualified. At 20% prevalence, only two species remained and R² values were 0.0019795 and 0.0017942. Results in the n=119 pipeline-dependent sensitivity population ranged from R²=0.00410 to 0.06958 across Aitchison cells, but these estimates describe a selected population and are not direct replications of the full-cohort estimand. All three full-cohort Bray–Curtis cells were dispersion-qualified. The complete 18-cell grid was reported without selecting cells by P value, R², or dispersion behavior.
+
+### Conclusions
+
+Diagnosis explains a very small conditional variance component in the frozen full-cohort 30-species Aitchison analysis, and that estimate is stable to the two prespecified pseudocounts. Estimated magnitude and dispersion qualification depend on feature space, metric, and QC population. These findings do not support a stable disease fingerprint, biomarker, diagnostic signal, disease-specific taxon discovery, or mechanistic conclusion. Taxon overlap or mismatch with the original report remains pipeline/statistical concordance or discrepancy until upstream equivalence is established.
+
+## Introduction
+
+Bronchoalveolar lavage fluid provides access to the lower respiratory tract but presents a difficult microbial measurement problem. Microbial biomass is often far below that of the upper airway, and lower-airway profiles can reflect immigration, elimination, laboratory background, and processing choices (Charlson et al., 2011; Morris et al., 2013; Drengenes et al., 2019). These properties make the size and stability of an estimated diagnosis effect as important as its statistical significance.
+
+Lower-airway ecology also varies continuously across exposure, inflammation, treatment, and disease. Studies with paired supraglottic samples and host measurements have linked enrichment with oral taxa to inflammatory phenotypes, while protected-sampling studies have shown that mouth–lung resemblance cannot be reduced to a single contamination explanation (Segal et al., 2013; Segal et al., 2016; Dickson et al., 2017). Such findings establish a demanding evidence standard. Taxonomic relative abundance alone cannot distinguish immigration, persistence, activity, or host response.
+
+Han et al. analyzed BALF DNA, microbial RNA, and host features from PRJNA1056765 and reported microbial differences among lung cancer and pulmonary infections, together with internally tested diagnostic models (Han et al., 2025). Tang et al. described the same 402-patient resource, its negative controls, processed matrices, and released code (Tang et al., 2025). The published ecology analysis used the 284-patient training set. The public resource therefore enables secondary analytical scrutiny, but reuse of the same cohort does not provide independent confirmation.
+
+Microbiome community tests require additional care because sequencing profiles are compositional and distance-based group tests can be affected by multivariate dispersion (Fernandes et al., 2014; Anderson, 2006). Prevalence filtering and zero replacement define the feature geometry, while QC rules can select a different population. A robust interpretation should therefore report effect size, pair PERMANOVA with dispersion testing, prespecify sensitivity choices, and avoid treating pipeline-dependent differences as biological findings.
+
+We performed a secondary compositional robustness reanalysis of the 400 downloadable BALF DNA runs from PRJNA1056765. We asked how much variation published four-level diagnosis explained in a frozen 30-species Aitchison analysis and whether the estimate or its dispersion qualification changed across prespecified pseudocounts, feature spaces, distance metrics, and an n=119 pipeline-dependent sensitivity population. We also placed earlier frozen taxon and clustering results within the original-paper overlap audit. Our goal was an analytical robustness assessment, not a new disease fingerprint, diagnostic model, taxon discovery analysis, or reproduction of the complete Han et al. workflow.
+
+## Methods
+
+### Study design and analytical scope
+
+We conducted a secondary compositional robustness reanalysis of PRJNA1056765. The scientific question was whether published diagnosis explained a consistent share of BALF microbial community variation after prespecified checks of compositional geometry, multivariate dispersion, feature space, zero replacement, and a pipeline-dependent QC definition. The analysis did not seek new disease-associated taxa, fit diagnostic models, or test mechanisms. It did not attempt to reproduce the complete Han et al. workflow because upstream database versions, negative-control handling, parts of filtering, and feature definitions could not be established as equivalent.
+
+Before the v5 sensitivity calculation, the analysis plan, executable, anchor-species list, input hashes, and interpretation rules were committed and pushed to the repository. The initial pre-computation record was commit `cb2e971`. A subsequent run stopped before statistical calculation because three equal-prevalence species pairs appeared in a different column order. After independent DeepSeek review, a deterministic ordering correction was recorded in commit `7a1190d`. The correction preserved the 30 species, prevalence counts, pseudocount, distances, seeds, statistics, 18-cell grid, and interpretation rules. The post-computation results were recorded in commit `a4db55d`.
+
+### Source cohort and metadata
+
+Han et al. and Tang et al. described 402 patients with BALF DNA and RNA sequencing under PRJNA1056765 (Han et al., 2025; Tang et al., 2025). The present cohort comprised the 400 DNA runs with downloadable reads and complete frozen Kraken2/Bracken production records. Each run mapped to one BioSample and one patient. In the 400-run cohort, published diagnosis comprised bacterial infection (n=114), fungal infection (n=78), lung cancer (n=122), and pulmonary tuberculosis (n=86). Two additional mapped WGS records lacked downloadable reads and were not included. Published Training or Test assignment was retained as a permutation stratum. Abundance-derived labels were not treated as independent phenotypes.
+
+The original-paper audit used the published articles, supplementary materials, processed data, and released code. Han et al.'s ecological analysis used the n=284 training population and reported cancer-versus-infection and pairwise contrasts. Their diagnostic analyses used an internal 284/118 split. The current primary estimand was the four-level diagnosis omnibus among all 400 available DNA runs. These estimands were treated as non-equivalent.
+
+### Frozen taxonomic matrix and feature handling
+
+The primary input was the checked-in species-level Bracken fraction matrix. The upstream production workflow used Kraken2 followed by Bracken. Six explicit non-target labels matching *Homo sapiens*, *Arabidopsis*, *Benincasa*, *Camelina*, *Cucurbita*, or *Toxoplasma* were excluded from community analysis. The remaining values were closed to unit sum within each sample. All input and exclusion records remained available for audit.
+
+Species prevalence was defined as the number of the 400 samples with positive retained abundance. The anchor feature space comprised the 30 species detected in at least 40 samples, corresponding to 10% prevalence. The exact species names and order were locked in `frozen_anchor_species.tsv`. The frozen executable verified both membership and observed prevalence counts before any statistical calculation.
+
+### Primary Aitchison anchor
+
+For the primary anchor, zeros were replaced by half the smallest positive abundance among the 30 retained species. The resulting pseudocount was 1.0097644219603566 × 10⁻⁵. Profiles were transformed by the centered log ratio, and Euclidean distance in CLR space defined Aitchison distance. Diagnosis was tested with a pooled PERMANOVA statistic. For each of 9,999 permutations, diagnosis labels were shuffled independently within the published Training and Test strata and then reconstructed as one label vector. The PERMANOVA seed was 1056965.
+
+PERMDISP used the identical sample set, distance matrix, diagnosis groups, strata, and 9,999 permutations, with seed 1056966. The executable required exact equality with the frozen anchor PERMANOVA F, R², and P and PERMDISP F, R², and P before entering the sensitivity grid. Failure of any input hash, membership check, prevalence count, pseudocount, or expected statistic terminated the run.
+
+### Frozen v5 sensitivity grid
+
+The v5 grid contained 18 cells defined by three prevalence thresholds, three distance or zero-replacement specifications, and two populations. Prevalence thresholds were 5% (at least 20 of 400 samples), 10% (at least 40), and 20% (at least 80). Membership was defined once in the full cohort. These thresholds retained 90, 30, and 2 species, respectively.
+
+For each feature space, Aitchison analyses used either half the minimum positive retained abundance or one tenth of that minimum as the pseudocount. Bray–Curtis analyses retained observed zeros, added no pseudocount, and used relative abundances renormalized after feature filtering. Each specification was applied to the full n=400 cohort and the n=119 pipeline-dependent sensitivity population. Every non-anchor cell used an independent deterministic seed. Every PERMANOVA was paired with PERMDISP and used 9,999 Training/Test-stratified permutations.
+
+The grid was divided into non-poolable audit layers. The exact anchor replay served only as an integrity check. The 10% alternative-pseudocount cell assessed zero-replacement sensitivity within the same 30-species space. The 5% and 20% Aitchison cells assessed feature-space dependence. The n=119 cells assessed the selected QC population and were not treated as direct replications of the n=400 estimand. Bray–Curtis cells were metric and dispersion comparators. We did not pool effect sizes across these layers or classify support by a majority of cells.
+
+### Pipeline-dependent sensitivity population
+
+QC flags were defined before the v5 calculation. A sample was flagged for classified fraction below 0.5%, fewer than 1,000 Bracken-assigned reads, observed species count of two or fewer, or an absolute robust median-absolute-deviation z score above 3.5 for log10 total reads, classified fraction, richness, or dominant-species abundance. The primary analysis retained all 400 samples. The 119 samples without a flag formed the pipeline-dependent sensitivity population. Its diagnosis counts were 42 bacterial infection, 19 fungal infection, 36 lung cancer, and 22 pulmonary tuberculosis. Results in this selected population were not interpreted as an independent test, a biologically privileged group, or evidence that the pipeline was valid.
+
+### Differential taxa and exploratory clustering
+
+Taxon-level results cited in the synthesis came from the earlier frozen 400-run analysis and were not recomputed in v5. Species detected in at least 10% of the full cohort were assessed across the four diagnosis groups with Kruskal–Wallis statistics, Training/Test-stratified permutation P values, Benjamini–Hochberg correction, epsilon-squared effect sizes, group medians, and CLR group means. The same frozen feature set was assessed in the pipeline-dependent sensitivity population. Taxa selected from this outcome analysis were not used to build an oral score, and no additional discovery analysis was conducted.
+
+Exploratory community clustering used average-linkage hierarchical clustering with candidate k values from 2 through 10 in Bray–Curtis and Aitchison representations. Silhouette values described within-metric separation. Adjusted Rand indices assessed agreement between metrics at each k. Cluster labels were abundance-derived exploratory summaries and were not interpreted as clinical subtypes.
+
+### Interpretation rules and reporting
+
+PERMANOVA R² was the principal effect-size estimate. Under the frozen rule, R² below 0.05 was described as negligible or very small and values from 0.05 to below 0.10 as small. No R² below 0.10 was described as a substantively meaningful biological driver. A PERMANOVA result was dispersion-qualified when paired PERMDISP P was below 0.05. Dispersion-qualified Bray–Curtis results were described only as location and/or dispersion differences.
+
+All 18 cells were reported with sample count, retained-feature count, pseudocount where applicable, PERMANOVA F, R² and permutation P, PERMDISP F, R² and permutation P, seeds, and input, plan, and executable hashes. Cells were not selected by P value, R², or dispersion behavior. The analysis prohibited post hoc pairwise disease comparisons, subgroup contrasts, taxon discovery, oral scores, functional expansion, and diagnostic modelling.
+
+## Results
+
+### The reanalysis uses the source cohort but a different estimand
+
+Han et al. reported 402 patients with lung cancer, bacterial infection, fungal infection, or pulmonary tuberculosis. Their ecological analyses used the n=284 training set, while diagnostic modelling used a fixed 284/118 internal split. The associated data descriptor documented the same cohort and 32 DNA and 32 RNA negative controls (Han et al., 2025; Tang et al., 2025). We analyzed the 400 DNA runs with downloadable reads. The two unavailable records represent a data-availability difference rather than a new cohort (Fig. 1).
+
+The current primary test is a four-level diagnosis omnibus in all 400 runs. It is not equivalent to the published n=284 cancer-versus-infection contrast or the reported pairwise comparisons. The pipelines share fastp preprocessing, human-read removal, Kraken2, and Bracken at a broad level. Exact database builds and versions, negative-control handling, parts of sample filtering, and feature definitions remain unresolved. We therefore classify cross-study taxon overlap or mismatch only as pipeline/statistical concordance or discrepancy. We do not infer biological agreement or disagreement (Fig. 2).
+
+### Exact anchor replay recovers a very small conditional variance component
+
+The locked full-cohort anchor retained 30 species detected in at least 40 of 400 samples. Its exact replay reproduced the frozen PERMANOVA and PERMDISP values from the same input hashes, species order, pseudocount, code path, and seeds. Diagnosis explained 1.94% of Aitchison variation (R²=0.0194095; permutation P=0.0001). PERMDISP did not indicate differential dispersion (P=0.487). Only this exact anchor replay is described as reproducible. It does not reproduce Han et al.'s original ecological analysis because the population, contrast, and upstream equivalence differ (Fig. 3; Supplementary Table S1).
+
+### The pseudocount result is stable within the 30-species space
+
+Replacing zeros with half the minimum positive retained abundance gave the anchor R² of 0.0194095. Replacing zeros with one tenth of that minimum gave R²=0.0190746, an absolute difference of 0.0003349. PERMDISP remained unqualified under both choices (P=0.487 and 0.4677). The estimated diagnosis-associated variance component was therefore stable to the two prespecified pseudocounts within this feature space. Both estimates remained very small (Fig. 3; Supplementary Table S1).
+
+### Feature filtering changes magnitude and dispersion qualification
+
+The prespecified 5% prevalence threshold retained 90 species. Full-cohort Aitchison R² was 0.0163698 with the half-minimum pseudocount and 0.0158287 with the tenth-minimum pseudocount. Both cells were dispersion-qualified (PERMDISP P=0.0145 and 0.0187). The 20% threshold retained only two species. Corresponding R² values were 0.0019795 and 0.0017942, with PERMDISP P=0.1591 and 0.2173. We report these feature spaces separately and make no pooled range or majority-of-cells statement. The two-species result reflects an especially restrictive analytical space and does not adjudicate disease-specific biology (Fig. 3; Supplementary Table S1).
+
+### The QC analysis estimates a selected population
+
+The frozen QC definition retained 119 samples, including 42 bacterial infection, 19 fungal infection, 36 lung cancer, and 22 pulmonary tuberculosis cases. This n=119 set is designated only as a pipeline-dependent sensitivity population. Across its six Aitchison cells, R² ranged from 0.0041007 to 0.0695841. The 5% and 10% cells were not dispersion-qualified under either pseudocount. Both 20% cells were dispersion-qualified (PERMDISP P=0.0418 and 0.0413). Restricting the population changes the estimand, so numerical differences from n=400 do not strengthen or weaken the full-cohort effect and cannot validate the pipeline or be attributed to biology (Fig. 4; Supplementary Table S1).
+
+### Bray–Curtis results are qualified by dispersion in the full cohort
+
+At 5%, 10%, and 20% prevalence, full-cohort Bray–Curtis R² values were 0.0263302, 0.0153390, and 0.0096564. PERMDISP P values were 0.0001, 0.0009, and 0.0256. All three cells therefore represent location and/or dispersion differences rather than unqualified centroid shifts. In the pipeline-dependent sensitivity population, Bray–Curtis R² values were 0.0638835, 0.0607394, and 0.0796114. The 5% cell was not dispersion-qualified (P=0.1022), whereas the 10% and 20% cells were qualified (P=0.0414 and 0.0002). These cells are metric and population sensitivities, not evidence that one analysis recovers a truer biological separation (Supplementary Fig. S1; Supplementary Table S1).
+
+### The audit does not identify a stable disease fingerprint
+
+The exact anchor replay, pseudocount stability, and complete sensitivity grid define the supported claim. Diagnosis explains a very small conditional variance component in the frozen 30-species full-cohort Aitchison analysis. Estimated magnitude and dispersion qualification depend on prespecified feature space, metric, and QC population. Five taxa had passed FDR in the earlier frozen full-cohort analysis and three passed FDR in the pipeline-dependent sensitivity population, but key taxa overlapped the original publication, group medians were generally zero, and some directions differed. These are pipeline/statistical concordance or discrepancy findings, not new disease-specific taxa. Bray and Aitchison clustering also produced adjusted Rand indices near zero across k=2–10, and the highest Bray silhouette occurred at the k=10 search boundary. Taken together, the frozen evidence supports continuous, analysis-dependent heterogeneity. It does not support a stable disease fingerprint, biomarker, diagnostic signal, disease-specific taxon discovery, or mechanism (Fig. 5).
+
+## Discussion
+
+This analytical robustness audit narrows the interpretation of cross-disease BALF community differences in PRJNA1056765. Diagnosis explained 1.94% of Aitchison variation in the frozen full-cohort 30-species analysis. The exact anchor replay was reproducible, and its effect-size estimate changed by only 0.0003349 across the two prespecified pseudocounts. That local stability did not extend to every analytical choice. Feature filtering altered the effect-size estimate and its dispersion qualification, the selected QC population defined a different estimand, and every full-cohort Bray–Curtis cell was dispersion-qualified. The result is a small conditional variance component, not a stable disease fingerprint.
+
+The distinction between statistical compatibility and biological separation is central. PERMANOVA can detect differences in multivariate location, but unequal within-group dispersion can also influence the result. Anderson's distance-based dispersion framework was developed to separate these properties (Anderson, 2006). In our full cohort, the 30-species Aitchison cells were not dispersion-qualified under either pseudocount. In contrast, every prespecified full-cohort Bray–Curtis cell had PERMDISP P<0.05. Bray–Curtis therefore supports only location and/or dispersion language here. A significant permutation P value does not establish sharply partitioned disease communities when R² is small and dispersion differs.
+
+Feature space was more consequential than the two frozen zero replacements. The 30-species effect-size estimate remained near 0.019 under both pseudocounts. Expanding the space to 90 species produced estimates near 0.016, with differential dispersion. Restricting it to two highly prevalent species produced estimates near 0.002. These are separate analytical spaces, not repeated votes on one hypothesis. The two-species result is particularly limited because most community information has been removed. Conversely, the 90-species result shows that adding less prevalent features can change dispersion behavior even when the estimated diagnosis component remains very small. Compositional methods reduce closure-related misinterpretation, but they do not eliminate dependence on measurement and feature definition (Fernandes et al., 2014).
+
+The n=119 pipeline-dependent sensitivity population provides a QC sensitivity check with a changed estimand. Low microbial biomass makes BALF profiles especially vulnerable to laboratory background, extraction effects, and technical filtering. Protected-sampling and contamination studies have shown that lower-airway signal must be interpreted alongside biomass and controls (Charlson et al., 2011; Drengenes et al., 2019). In the present dataset, the frozen QC rule selected fewer than one third of the available runs and changed the diagnosis composition. Its larger 5% and 10% Aitchison R² values cannot be read as stronger biological effects because selection changed the estimand. Agreement with n=400 would not validate the upstream workflow, and disagreement would not identify biology.
+
+The reanalysis also does not establish biological concordance or contradiction with Han et al. Their ecological analyses used the n=284 training set and different disease contrasts. The current analysis uses a four-level omnibus in 400 downloadable DNA runs. Exact Kraken2 and Bracken database builds and versions, negative-control handling, some filtering, and feature definitions remain unresolved. Taxon overlap or mismatch is therefore limited to pipeline/statistical concordance or discrepancy. The same reasoning prevents the previously observed five FDR taxa from becoming a new discovery claim. Several taxa overlapped those highlighted in the original paper, group medians were generally zero, and some directions differed. A different statistical method does not make a biologically overlapping result novel.
+
+The clustering results reinforce a continuous-heterogeneity interpretation. Bray and Aitchison partitions had adjusted Rand indices near zero from k=2 to k=10, and the highest Bray silhouette occurred at the upper search boundary. These results do not support metric-stable community types. They also do not prove that lower-airway ecology lacks structure. Instead, the tested representation and clustering design did not recover a stable partition that could serve as a disease subtype. This distinction matters because abundance-derived clusters cannot independently validate taxa or diagnosis effects from the same matrix.
+
+Prior lower-airway studies provide a biological context but not a mechanism for these data. BAL communities often resemble supraglottic communities, and independently defined enrichment with oral taxa has been associated with inflammatory phenotypes in cohorts with paired upper-airway, control, immune, or metabolite measurements (Segal et al., 2013; Segal et al., 2016; Dickson et al., 2017). PRJNA1056765 lacks the paired evidence needed to infer microaspiration, inflammation, viability, or causal host effects from the current DNA relative-abundance analysis. The significant taxa from this same outcome analysis cannot be recycled into a post hoc oral score.
+
+This study has four main limitations. First, it reuses the source cohort and is not independent confirmation. Second, incomplete upstream equivalence prevents a full reproduction of the original workflow and limits cross-pipeline taxon interpretation. Third, low-information samples and the absence of an independently privileged QC population leave the effect-size estimate conditional on the frozen processing choices. Fourth, the four-level diagnosis label is clinically broad and may leave substantial within-group heterogeneity unexplained. These limitations are part of the analytical conclusion rather than defects that can be removed by selecting a favorable cell.
+
+The contribution is therefore bounded. The frozen anchor can be replayed exactly, the 30-species estimate is stable to the two prespecified pseudocounts, and diagnosis explains a very small conditional share of Aitchison variation. Estimated magnitude and dispersion qualification depend on feature space, metric, and QC population. All full-cohort Bray–Curtis cells are dispersion-qualified. No stable disease fingerprint, biomarker, diagnostic signal, disease-specific taxon discovery, or mechanism is supported.
+
+## References
+
+- Anderson MJ. Distance-based tests for homogeneity of multivariate dispersions. *Biometrics*. 2006. doi:10.1111/j.1541-0420.2005.00440.x.
+- Charlson ES et al. Topographical continuity of bacterial populations in the healthy human respiratory tract. *American Journal of Respiratory and Critical Care Medicine*. 2011. doi:10.1164/rccm.201104-0655OC.
+- Dickson RP et al. Bacterial topography of the healthy human lower respiratory tract. *mBio*. 2017. PMID:28196961.
+- Drengenes C et al. Laboratory contamination in airway microbiome studies. *BMC Microbiology*. 2019. doi:10.1186/s12866-019-1560-1.
+- Fernandes AD et al. Unifying the analysis of high-throughput sequencing datasets by compositional data analysis. *Microbiome*. 2014. doi:10.1186/2049-2618-2-15.
+- Han D et al. Metagenomic fingerprints in bronchoalveolar lavage differentiate pulmonary diseases. *npj Digital Medicine*. 2025. doi:10.1038/s41746-025-01977-5.
+- Morris A et al. Comparison of the respiratory microbiome in healthy nonsmokers and smokers. *American Journal of Respiratory and Critical Care Medicine*. 2013. PMID:23491408.
+- Segal LN et al. Enrichment of lung microbiome with supraglottic taxa is associated with increased pulmonary inflammation. *Microbiome*. 2013. doi:10.1186/2049-2618-1-19.
+- Segal LN et al. Enrichment of the lung microbiome with oral taxa is associated with lung inflammation of a Th17 phenotype. *Nature Microbiology*. 2016. doi:10.1038/nmicrobiol.2016.31.
+- Tang H et al. Bronchoalveolar lavage fluid metagenomic datasets. *Scientific Data*. 2025. doi:10.1038/s41597-025-06171-6.
+
+## Figure legends
+
+## Figure 1. Cohort provenance and analytical populations
+
+The published PRJNA1056765 cohort comprised 402 patients and used 284 training records for the reported ecological analyses and an internal 284/118 split for diagnostic modelling. The current secondary compositional robustness reanalysis includes the 400 DNA runs with downloadable reads. Two mapped records lacked downloadable sequence data. The n=119 set is labelled only as a pipeline-dependent sensitivity population. Counts and arrows distinguish data availability, published analytical populations, and current analytical populations; they do not represent independent cohorts. Source: Han et al. (2025), Tang et al. (2025), and the frozen cohort audit.
+
+## Figure 2. Published and current pipelines define non-equivalent analyses
+
+Side-by-side audit of the Han et al. workflow and the frozen current workflow. Shared high-level steps include read preprocessing, human-read removal, Kraken2 classification, and Bracken abundance estimation. Unresolved items include exact database builds and versions, operational negative-control handling, parts of sample filtering, and feature definitions. The published n=284 cancer-versus-infection and pairwise tests differ from the current n=400 four-level omnibus. Differences are classified as upstream processing, statistical method, robustness finding, or unresolved pipeline discrepancy. No pipeline mismatch is interpreted as biological disagreement. Source: Han et al. (2025), Tang et al. (2025), released code, `original_pipeline_reconstruction.md`, and `pipeline_difference_matrix.tsv`.
+
+## Figure 3. Prespecified Aitchison robustness audit in the full cohort
+
+All six full-cohort Aitchison cells from the frozen v5 grid. The exact 10% prevalence, half-minimum-pseudocount anchor retained 30 species and gave R²=0.0194095 with PERMDISP P=0.487. The alternative pseudocount gave R²=0.0190746 with PERMDISP P=0.4677. The 5% feature space retained 90 species; both pseudocount cells were dispersion-qualified. The 20% feature space retained two species; neither cell was dispersion-qualified. Panels separate exact replay, pseudocount sensitivity, and feature-space dependence. Cells are not ranked by P value, R², or dispersion behavior. Source: frozen v5 grid and manifest.
+
+## Figure 4. Results in the pipeline-dependent sensitivity population
+
+All six Aitchison cells in the n=119 pipeline-dependent sensitivity population. The population comprised 42 bacterial infection, 19 fungal infection, 36 lung cancer, and 22 pulmonary tuberculosis cases under the frozen QC definition. Effect-size estimates and paired PERMDISP results are shown separately for each prevalence threshold and pseudocount. No arrow or label treats numerical differences from n=400 as a same-estimand change, independent replication, or biological improvement. Source: frozen v5 grid, cohort QC table, and manifest.
+
+## Figure 5. Supported conclusions and claim limits
+
+Synthesis of the analytical robustness audit. The frozen 30-species Aitchison anchor replayed exactly and was stable to the two prespecified pseudocounts. Estimated magnitude and dispersion qualification depended on feature space, metric, and QC population. Taxon overlap or mismatch with Han et al. is classified only as pipeline/statistical concordance or discrepancy. The figure marks unsupported extensions, including a stable disease fingerprint, biomarker, diagnostic signal, disease-specific taxon discovery, and mechanism. Source: frozen v5 grid, original-paper overlap audit, frozen taxon table, and clustering diagnostics.
+
+## Supplementary Figure S1. Bray–Curtis metric and dispersion comparator
+
+All six Bray–Curtis cells from the frozen v5 grid. Full-cohort R² values were 0.0263302, 0.0153390, and 0.0096564 at 5%, 10%, and 20% prevalence; all paired PERMDISP tests were qualified. In the n=119 pipeline-dependent sensitivity population, R² values were 0.0638835, 0.0607394, and 0.0796114. The 5% cell was not dispersion-qualified, whereas the 10% and 20% cells were. Each result is described as a metric- and population-conditional location and/or dispersion result where applicable.
+
+## Supplementary Table S1. Complete frozen v5 sensitivity grid
+
+All 18 prespecified cells with population, prevalence threshold, retained-feature count, metric, pseudocount, sample count, PERMANOVA F and R², permutation P, PERMDISP F and R², permutation P, seeds, and input, plan, and executable hashes. The exact anchor replay is flagged. No cell was selected or omitted according to its statistical result.

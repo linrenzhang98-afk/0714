@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#20252b}.title{font-size:28px;font-weight:700}.panel{font-size:22px;font-weight:700}.head{font-size:18px;font-weight:700}.body{font-size:15px}.small{font-size:13px;fill:#4b5563}.tiny{font-size:11px;fill:#4b5563}</style>
+<text x="45" y="45" class="title">Figure 4. Aitchison results in the pipeline-dependent sensitivity population</text>
+<text x="55" y="82" class="head" text-anchor="start">PERMANOVA R² with paired dispersion qualification</text>
+<line x1="130" y1="125" x2="130" y2="675" stroke="#374151" stroke-width="1.5"/>
+<line x1="130" y1="675" x2="1250" y2="675" stroke="#374151" stroke-width="1.5"/>
+<line x1="125" y1="675.0" x2="1250" y2="675.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="679.0" class="small" text-anchor="end">0.00</text>
+<line x1="125" y1="537.5" x2="1250" y2="537.5" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="541.5" class="small" text-anchor="end">0.02</text>
+<line x1="125" y1="400.0" x2="1250" y2="400.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="404.0" class="small" text-anchor="end">0.04</text>
+<line x1="125" y1="262.5" x2="1250" y2="262.5" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="266.5" class="small" text-anchor="end">0.06</text>
+<line x1="125" y1="125.0" x2="1250" y2="125.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="129.0" class="small" text-anchor="end">0.08</text>
+<circle cx="280" cy="268.06899831787064" r="10" fill="#1f77b4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="280" y="250.06899831787064" class="small" text-anchor="middle">0.0592</text>
+<text x="280" y="298.06899831787064" class="tiny" text-anchor="middle">disp P=0.3906</text>
+<circle cx="670" cy="196.6093478855209" r="10" fill="#1f77b4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="670" y="178.6093478855209" class="small" text-anchor="middle">0.0696</text>
+<text x="670" y="226.6093478855209" class="tiny" text-anchor="middle">disp P=0.449</text>
+<circle cx="1060" cy="646.8079518258971" r="10" fill="#1f77b4" stroke="#b91c1c" stroke-width="4"/>
+<text x="1060" y="628.8079518258971" class="small" text-anchor="middle">0.0041</text>
+<text x="1060" y="676.8079518258971" class="tiny" text-anchor="middle">disp P=0.0418</text>
+<polyline points="280,268.06899831787064 670,196.6093478855209 1060,646.8079518258971" fill="none" stroke="#1f77b4" stroke-width="2"/>
+<circle cx="280" cy="271.6274139403468" r="10" fill="#d95f02" stroke="#ffffff" stroke-width="1.5"/>
+<text x="280" y="253.6274139403468" class="small" text-anchor="middle">0.0587</text>
+<text x="280" y="301.6274139403468" class="tiny" text-anchor="middle">disp P=0.4087</text>
+<circle cx="670" cy="199.76681714243506" r="10" fill="#d95f02" stroke="#ffffff" stroke-width="1.5"/>
+<text x="670" y="181.76681714243506" class="small" text-anchor="middle">0.0691</text>
+<text x="670" y="229.76681714243506" class="tiny" text-anchor="middle">disp P=0.5025</text>
+<circle cx="1060" cy="643.2302177712529" r="10" fill="#d95f02" stroke="#b91c1c" stroke-width="4"/>
+<text x="1060" y="625.2302177712529" class="small" text-anchor="middle">0.0046</text>
+<text x="1060" y="673.2302177712529" class="tiny" text-anchor="middle">disp P=0.0413</text>
+<polyline points="280,271.6274139403468 670,199.76681714243506 1060,643.2302177712529" fill="none" stroke="#d95f02" stroke-width="2"/>
+<text x="280" y="710" class="body" text-anchor="middle">5% prevalence</text>
+<text x="280" y="733" class="small" text-anchor="middle">90 species</text>
+<text x="670" y="710" class="body" text-anchor="middle">10% prevalence</text>
+<text x="670" y="733" class="small" text-anchor="middle">30 species</text>
+<text x="1060" y="710" class="body" text-anchor="middle">20% prevalence</text>
+<text x="1060" y="733" class="small" text-anchor="middle">2 species</text>
+<text x="130" y="755" class="body" text-anchor="start" style="fill:#1f77b4">Blue: P1 half-minimum</text>
+<text x="390" y="755" class="body" text-anchor="start" style="fill:#d95f02">Orange: P2 tenth-minimum</text>
+<circle cx="700" cy="750" r="9" fill="#ffffff" stroke="#b91c1c" stroke-width="4"/>
+<text x="720" y="755" class="body" text-anchor="start">red outline: PERMDISP P&lt;0.05</text>
+<text x="130" y="815" class="small" text-anchor="start">n=119 is a pipeline-dependent sensitivity population. Values are not direct changes from n=400.</text>
+</svg>
