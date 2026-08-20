@@ -1,0 +1,55 @@
+# Original-paper overlap audit for PRJNA1056765
+
+## Decision
+
+The frozen 400-run analysis is a reanalysis of the same patients and underlying DNA data used by Han et al. and described by Tang et al. It is not an independent cohort. Its strongest additions are inferential safeguards and a negative result: diagnosis explains little community variation, Bray evidence is dispersion-confounded, sparse taxon findings require QC qualification, and community types are not stable across metrics. Those additions can support a methodological robustness/audit paper, but they do not make the published disease ecology or taxa biologically new.
+
+Primary sources: [Han et al., npj Digital Medicine](https://doi.org/10.1038/s41746-025-01977-5), [Tang et al., Scientific Data](https://doi.org/10.1038/s41597-025-06171-6), [original repository](https://github.com/whybeeVM/Metagenomic-Analysis-of-Lung-Cancer-and-Pulmonary-Infections), [GSE252118](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE252118), and [processed-data record](https://doi.org/10.6084/m9.figshare.29388539.v1).
+
+## Scope and provenance
+
+- Han et al. enrolled 402 patients: lung cancer 123, bacterial infection 114, fungal infection 79, and pulmonary tuberculosis 86. Their ecological discovery analysis used the 284-patient training cohort and both DNA and RNA data.
+- The frozen analysis contains 400 downloadable DNA runs. Two mapped WGS records have no downloadable reads. This is a data-availability difference, not a new cohort.
+- Han et al. already tested alpha diversity, Bray–Curtis beta diversity/PERMANOVA, and disease-associated taxa. They reported P. micra and P. gingivalis enriched in cancer and F. nucleatum enriched in bacterial infection.
+- Han et al. also analyzed RNA microbial composition, host expression, immune-cell estimates, transposable elements, CNV, and diagnostic models. The integrated model reached test AUC 0.847.
+- Tang et al. subsequently described the same 402 cases, 32 DNA and 32 RNA negative controls, released processed matrices and GSE252118, and documented the pipelines. The GitHub repository includes processed DNA/RNA microbial data and machine-learning scripts.
+
+## Result-by-result overlap matrix
+
+| Frozen result | Published result | Classification | Critical judgment | Manuscript implication |
+|---|---|---|---|---|
+| Alpha diversity varies by diagnosis for some indices, but results are index- and QC-sensitive. | Han et al. tested DNA and RNA alpha diversity; DNA lung cancer versus all infections was null, selected subgroup contrasts differed, and RNA indices differed. | methodologically strengthened but biologically same | Different indices, four-group testing, FDR, and strict-QC sensitivity refine inference but do not create a new biological question. | Can appear only as robustness evidence, not a novelty lead. |
+| Aitchison PERMANOVA: diagnosis R²=0.0194, p=0.0001, PERMDISP p=0.487; QC sensitivity R²=0.0696. | Han et al. reported significant Bray–Curtis disease separation, including small R² values (0.0067–0.0283) in training comparisons. | partially overlapping | The compositional metric, all-available cohort, constrained permutations, effect size, and dispersion pairing are meaningful safeguards. The biological conclusion that diagnosis is associated with composition was already published. The genuinely useful addition is that the effect is small. | Candidate centerpiece only if framed as a reproducibility/robustness reassessment, not discovery of disease separation. |
+| Bray PERMANOVA R²=0.0153, p=0.0115; PERMDISP p=0.0013. | Han et al. used Bray–Curtis PERMANOVA but did not report a paired dispersion test in the article. | genuinely new | Demonstrating that the published distance family is dispersion-confounded changes the permissible interpretation. It does not refute every disease association, but blocks an unqualified centroid/separation claim. | Strongest distinct negative/qualifying result. |
+| Five species pass full-cohort FDR; three survive strict QC. | Han et al. used LEfSe and reported multiple disease-discriminatory taxa. | methodologically strengthened but biologically same | BH control, prevalence, sparsity display, effect sizes, CLR sensitivity, and QC replication improve reliability. Taxon discovery in this cohort is already published. | Secondary robustness result only. |
+| Parvimonas micra is diagnosis-associated but not strict-QC stable. | Han et al. explicitly reported P. micra enriched in lung cancer. | already published substantially | The frozen direction differs (highest CLR mean in bacterial infection) and may reflect cohort/method choices, which is a reproducibility discrepancy—not novelty. | Do not present as a new disease taxon or oral-lung finding. |
+| Porphyromonas gingivalis is diagnosis-associated and strict-QC stable. | Han et al. explicitly reported P. gingivalis enriched in lung cancer. | already published substantially | Stronger safeguards cannot convert the same taxon/dataset into a new biological result. The direction discrepancy with the frozen analysis requires reconciliation before any biological interpretation. | Exclude from novelty claims; use only in concordance/discordance audit. |
+| Fusobacterium nucleatum is diagnosis-associated and strict-QC stable. | Han et al. reported F. nucleatum as a bacterial-infection marker in DNA and RNA. | already published substantially | This is direct overlap. “Biomarker” remains unsupported outside their internal split and is prohibited for our reanalysis. | No novelty claim. |
+| Porphyromonas endodontalis and Campylobacter rectus pass frozen FDR. | They are not highlighted in the article text reviewed; their presence in supplementary LEfSe outputs requires row-level verification. | unclear | Even if absent from the headline paper, isolated taxa from the same cohort and same disease comparison are weak incremental novelty and vulnerable to method-dependent selection. | Do not lead a paper with them; verify supplements before describing as unreported. |
+| Five significant taxa are oral-associated. | Han et al. explicitly characterized P. micra and P. gingivalis as oral/airway commensals and interpreted disease-discriminatory taxa. | partially overlapping | The observation is post hoc because the set was selected by significance in our outcome analysis. It cannot define an oral score. | A new oral-continuum analysis requires an independent, prospective oral reference set. |
+| No metric-stable ecotype: silhouette optimum hits k=10 boundary; Bray/Aitchison ARI ~0. | Han et al. did not make a community-type/ecotype result; their “fingerprints” refer to disease profiles and models. | genuinely new | This is a defensible negative result about the absence of stable clusters under the tested design. It cannot be turned into positive “community states.” | Useful support for continuous heterogeneity; insufficient alone for a full manuscript. |
+| Descriptive dominant taxa and abundance-derived pathogen groups. | The original study used etiologic disease groups and microbial features for diagnosis. | partially overlapping | Abundance-derived labels cannot independently validate taxa from the same matrix. | Keep descriptive; never present as phenotype validation. |
+| Diagnostic modeling is not part of the frozen analysis. | Han et al. built 58/ensemble models across DNA, RNA, host, TE, and CNV modalities and reported test performance. | already published substantially | A new classifier trained/tested in the same split would be duplicative and at high leakage/optimism risk. | NO-GO without a genuinely external cohort and distinct clinical target. |
+| Fixed-30 HUMAnN subset is enriched for high classified fraction and dominance and misses a major community state. | Han/Tang provide cohort-wide processed microbial and RNA resources; Han reports functional host/pathway analyses, though not HUMAnN microbial pathways. | genuinely new as a selection-bias audit; biologically unclear | The selection-bias quantification is new, but the functional results are not representative and all tested functional PERMANOVAs have dispersion problems. | Use only to justify stopping HUMAnN expansion claims; not a functional result section. |
+| Cohort-wide microbial functional biology. | Han et al. already report RNA microbial differences and extensive host pathway results; Tang releases RNA/host resources. | unclear/not yet analyzed | No frozen evidence supports cohort-wide microbial function or activity. DNA presence is not activity; selected-30 HUMAnN cannot answer it. | New functional story requires a prespecified DNA–RNA/host question and independent evidence. |
+
+## Supplement and code audit
+
+The article supplies a 7.4 MB supplementary document and XLSX data S1–S4. The repository contains `data`, `pipeline`, and `machine_learning_scripts`; its README states that processed microbiome and host data for all 402 people are included. Kraken2/Bracken scripts cover preprocessing, host removal, taxonomic profiling, and abundance-matrix construction. RNA scripts cover hg38 mapping and feature counting. Model inputs, train/test files, and scripts for LASSO, random forest, SVM, XGBoost, and ensemble combination are present.
+
+Reproducibility strengths are explicit processed matrices, group files, scripts, deposited non-host reads, GSE252118, and negative-control metadata. Important limits are that an internal train/test split is not external validation; the frozen Kraken/Bracken database and code versions must be matched before explaining discordant taxa; and public non-host reads cannot reproduce host-removal or host-genome analyses from raw material.
+
+## Supervisor challenge log
+
+- Novelty inflation: rejected. Taxonomy, diversity, key oral taxa, and diagnosis modeling were already published.
+- Post-hoc hypothesis construction: the five significant taxa cannot be relabeled as a prospective oral ecology signature.
+- Circular validation: dominant taxa, clusters, and pathogen groups are derived from the same abundance matrix and are not validators.
+- P-hacking: no new threshold searches or alternative clustering should be used to manufacture a positive result.
+- Unsupported mechanism: no aspiration, inflammation, viability, or carcinogenesis mechanism follows from DNA relative abundance alone.
+- Biomarker inflation: no frozen taxon is a validated biomarker.
+- Forced external integration: incompatible sputum, endotracheal, disease-specific, or 16S cohorts should not be merged merely to add a cohort.
+- Unnecessary compute: do not expand HUMAnN unless a distinct functional question survives the decision gate.
+
+## Bottom line
+
+The current biological “disease fingerprint” and taxon story substantially overlaps the original paper. The scientifically distinct content is primarily a robustness and heterogeneity audit, especially the small Aitchison effect, Bray dispersion confounding, sparse/QC-sensitive taxa, and failure of metric-stable clustering. That is potentially publishable as a careful reanalysis, but its novelty is methodological and interpretive, not a new disease microbiome discovery.
