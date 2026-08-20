@@ -1,0 +1,183 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "manuscript token: 402 patients",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: n=400",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: n=284",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: 118",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: n=119",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: 90, 30, and 2 species",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: R\u00b2=0.0194095",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: P=0.0001",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: PERMDISP P=0.487",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: 9,999 permutations",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "manuscript token: four-level diagnosis",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "forbidden wording: validation cohort",
+      "status": "PASS",
+      "observed": "False",
+      "expected": "False"
+    },
+    {
+      "check": "forbidden wording: replication cohort",
+      "status": "PASS",
+      "observed": "False",
+      "expected": "False"
+    },
+    {
+      "check": "forbidden wording: cleaner cohort",
+      "status": "PASS",
+      "observed": "False",
+      "expected": "False"
+    },
+    {
+      "check": "forbidden wording: higher-quality biological cohort",
+      "status": "PASS",
+      "observed": "False",
+      "expected": "False"
+    },
+    {
+      "check": "forbidden wording: biological disagreement",
+      "status": "PASS",
+      "observed": "False",
+      "expected": "False"
+    },
+    {
+      "check": "forbidden wording: diagnosis-associated boundary",
+      "status": "PASS",
+      "observed": "False",
+      "expected": "False"
+    },
+    {
+      "check": "frozen grid rows",
+      "status": "PASS",
+      "observed": "18",
+      "expected": "18"
+    },
+    {
+      "check": "reference count",
+      "status": "PASS",
+      "observed": "31",
+      "expected": "25-40"
+    },
+    {
+      "check": "references verified",
+      "status": "PASS",
+      "observed": "31",
+      "expected": "31"
+    },
+    {
+      "check": "numbered citations complete",
+      "status": "PASS",
+      "observed": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]",
+      "expected": "1-31"
+    },
+    {
+      "check": "Figure1 SVG",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "Figure1 PNG dimensions",
+      "status": "PASS",
+      "observed": "(2400, 1600)",
+      "expected": "(2400, 1600)"
+    },
+    {
+      "check": "Figure2 SVG",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "Figure2 PNG dimensions",
+      "status": "PASS",
+      "observed": "(2400, 1600)",
+      "expected": "(2400, 1600)"
+    },
+    {
+      "check": "Figure3 SVG",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "Figure3 PNG dimensions",
+      "status": "PASS",
+      "observed": "(2400, 1600)",
+      "expected": "(2400, 1600)"
+    },
+    {
+      "check": "FigureS1 SVG",
+      "status": "PASS",
+      "observed": "True",
+      "expected": "True"
+    },
+    {
+      "check": "FigureS1 PNG dimensions",
+      "status": "PASS",
+      "observed": "(2400, 1600)",
+      "expected": "(2400, 1600)"
+    }
+  ],
+  "frozen_grid_rows": 18,
+  "reference_count": 31,
+  "new_statistics": false,
+  "figure4_decision": "Supplement only"
+}

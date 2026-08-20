@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#222}.t{font-size:27px;font-weight:700}.p{font-size:22px;font-weight:700}.s{font-size:15px}.n{font-size:13px;fill:#555}</style>
+<text x="45" y="42" class="t">Bray–Curtis and dispersion comparator</text>
+<text x="80" y="95" class="p" text-anchor="start">A</text>
+<text x="122" y="95" class="s" text-anchor="start">Primary analytical population (n=400)</text>
+<line x1="350" y1="165" x2="860" y2="165" stroke="#1F2937" stroke-width="1"/>
+<line x1="350.0" y1="160" x2="350.0" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="350.0" y="940" class="n" text-anchor="middle">0.000</text>
+<line x1="413.75" y1="160" x2="413.75" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="413.75" y="940" class="n" text-anchor="middle">0.011</text>
+<line x1="477.5" y1="160" x2="477.5" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="477.5" y="940" class="n" text-anchor="middle">0.021</text>
+<line x1="541.25" y1="160" x2="541.25" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="541.25" y="940" class="n" text-anchor="middle">0.032</text>
+<line x1="605.0" y1="160" x2="605.0" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="605.0" y="940" class="n" text-anchor="middle">0.043</text>
+<line x1="668.75" y1="160" x2="668.75" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="668.75" y="940" class="n" text-anchor="middle">0.053</text>
+<line x1="732.5" y1="160" x2="732.5" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="732.5" y="940" class="n" text-anchor="middle">0.064</text>
+<line x1="796.25" y1="160" x2="796.25" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="796.25" y="940" class="n" text-anchor="middle">0.074</text>
+<line x1="860.0" y1="160" x2="860.0" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="860.0" y="940" class="n" text-anchor="middle">0.085</text>
+<text x="605" y="985" class="s" text-anchor="middle">PERMANOVA R²</text>
+<text x="330" y="231" class="n" text-anchor="end">5% / 90 species</text>
+<circle cx="507.9810151099561" cy="225" r="8" fill="#0072B2" opacity="1" stroke="#1F2937"/>
+<text x="870" y="231" class="p" text-anchor="middle" fill="#B91C1C">†</text>
+<text x="330" y="256" class="n" text-anchor="end">R²=0.0263; PERMDISP P=0.0001</text>
+<text x="330" y="416" class="n" text-anchor="end">10% / 30 species</text>
+<circle cx="442.0337374429514" cy="410" r="8" fill="#0072B2" opacity="1" stroke="#1F2937"/>
+<text x="870" y="416" class="p" text-anchor="middle" fill="#B91C1C">†</text>
+<text x="330" y="441" class="n" text-anchor="end">R²=0.0153; PERMDISP P=0.0009</text>
+<text x="330" y="601" class="n" text-anchor="end">20% / 2 species</text>
+<circle cx="407.93849884416613" cy="595" r="8" fill="#0072B2" opacity="1" stroke="#1F2937"/>
+<text x="870" y="601" class="p" text-anchor="middle" fill="#B91C1C">†</text>
+<text x="330" y="626" class="n" text-anchor="end">R²=0.0097; PERMDISP P=0.0256</text>
+<text x="350" y="1035" class="n" text-anchor="start">† differential dispersion (P&lt;0.05)</text>
+<text x="950" y="95" class="p" text-anchor="start">B</text>
+<text x="992" y="95" class="s" text-anchor="start">Pipeline-dependent sensitivity population (n=119)</text>
+<line x1="1220" y1="165" x2="1730" y2="165" stroke="#1F2937" stroke-width="1"/>
+<line x1="1220.0" y1="160" x2="1220.0" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1220.0" y="940" class="n" text-anchor="middle">0.000</text>
+<line x1="1283.75" y1="160" x2="1283.75" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1283.75" y="940" class="n" text-anchor="middle">0.011</text>
+<line x1="1347.5" y1="160" x2="1347.5" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1347.5" y="940" class="n" text-anchor="middle">0.021</text>
+<line x1="1411.25" y1="160" x2="1411.25" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1411.25" y="940" class="n" text-anchor="middle">0.032</text>
+<line x1="1475.0" y1="160" x2="1475.0" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1475.0" y="940" class="n" text-anchor="middle">0.043</text>
+<line x1="1538.75" y1="160" x2="1538.75" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1538.75" y="940" class="n" text-anchor="middle">0.053</text>
+<line x1="1602.5" y1="160" x2="1602.5" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1602.5" y="940" class="n" text-anchor="middle">0.064</text>
+<line x1="1666.25" y1="160" x2="1666.25" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1666.25" y="940" class="n" text-anchor="middle">0.074</text>
+<line x1="1730.0" y1="160" x2="1730.0" y2="910" stroke="#E5E7EB" stroke-width="1"/>
+<text x="1730.0" y="940" class="n" text-anchor="middle">0.085</text>
+<text x="1475" y="985" class="s" text-anchor="middle">PERMANOVA R²</text>
+<text x="1200" y="231" class="n" text-anchor="end">5% / 90 species</text>
+<circle cx="1603.3009063412278" cy="225" r="8" fill="#0072B2" opacity="1" stroke="#1F2937"/>
+<text x="1200" y="256" class="n" text-anchor="end">R²=0.0639; PERMDISP P=0.1022</text>
+<text x="1200" y="416" class="n" text-anchor="end">10% / 30 species</text>
+<circle cx="1584.4362203934259" cy="410" r="8" fill="#0072B2" opacity="1" stroke="#1F2937"/>
+<text x="1740" y="416" class="p" text-anchor="middle" fill="#B91C1C">†</text>
+<text x="1200" y="441" class="n" text-anchor="end">R²=0.0607; PERMDISP P=0.0414</text>
+<text x="1200" y="601" class="n" text-anchor="end">20% / 2 species</text>
+<circle cx="1697.6681822225737" cy="595" r="8" fill="#0072B2" opacity="1" stroke="#1F2937"/>
+<text x="1740" y="601" class="p" text-anchor="middle" fill="#B91C1C">†</text>
+<text x="1200" y="626" class="n" text-anchor="end">R²=0.0796; PERMDISP P=0.0002</text>
+<text x="1220" y="1035" class="n" text-anchor="start">† differential dispersion (P&lt;0.05)</text>
+</svg>

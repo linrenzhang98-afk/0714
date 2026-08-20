@@ -1,0 +1,23 @@
+category	item	Han_original_pipeline	current_frozen_400_pipeline	evidence_status	interpretation
+upstream_processing	cohort	402 patients	400 downloadable DNA runs; 2 records size_MB=0	verified	Availability difference; not an independent cohort
+upstream_processing	analysis split	Ecology n=284; models 284/118	All n=400; permutations blocked within split	verified	Different estimand and sample population
+upstream_processing	host removal	BWA/samtools against hg38	Local production host-removal workflow	partial	Composition may differ upstream
+upstream_processing	taxonomic classifier	Kraken2 plus Bracken	Kraken2 plus Bracken	tool family only	Equivalence not established
+upstream_processing	database and versions	Not fully specified/reconstructed	Local database provenance differs or is separately recorded	unresolved	Taxon discordance may be pipeline-driven
+upstream_processing	feature domain	Bacteria, fungi, viruses, bacteriophages	Species after explicit background-label exclusions	verified difference	Distance denominators and scope differ
+upstream_processing	negative controls	32 DNA and 32 RNA controls; operational rule unresolved	No matched-control model; frozen label exclusions and QC flags	unresolved	Low-biomass authenticity remains limited
+upstream_processing	normalization	MPA combination; Homo removal; relative-abundance conversion	Bracken fractions; exclusions and renormalization	verified difference	Zeros and denominators differ
+statistical_method	primary contrast	Cancer versus infection and separate pairwise comparisons	Four-level diagnosis omnibus	verified difference	Not an exact reproduction
+statistical_method	alpha diversity	Richness, Chao1 and evenness/diversity; Mann–Whitney	Observed species, Shannon, Simpson, Pielou; Kruskal–Wallis/effect size	verified difference	Index and contrast mismatch
+statistical_method	beta diversity	Bray–Curtis	Aitchison primary; Bray comparator	verified difference	Methodological strengthening, not new biology
+statistical_method	permutation	Count and restriction not fully reconstructed	9,999 within published split	partial	Original null scheme not recreated
+statistical_method	dispersion	No paired headline PERMDISP	PERMDISP paired with every PERMANOVA	verified	Supports genuine interpretation audit
+statistical_method	prevalence and zero handling	Unresolved	10% anchor; half-minimum CLR anchor	unresolved difference	Requires prespecified sensitivity grid
+statistical_method	differential taxa	LEfSe, LDA>2, adjusted P	Kruskal–Wallis effect, blocked permutation, BH, CLR and QC sensitivity	verified difference	List mismatch may be methodological
+statistical_method	diagnostic modeling	58/ensemble configurations on fixed split	None	verified	No duplicate classifier authorized
+genuine_robustness	Aitchison diagnosis effect	Not reported	R²=0.0194 in full cohort	frozen result	Small diagnosis association
+genuine_robustness	Bray dispersion	Not reported	PERMDISP P=0.0013 in full cohort	frozen result	Bray result cannot be an unqualified centroid shift
+genuine_robustness	QC sensitivity	Not reconstructed	Strict-QC n=119; 281 flags retained in primary cohort	frozen result	Tests dependence on low-information samples
+genuine_robustness	cluster stability	No ecotype claim	Bray/Aitchison ARI approximately zero across k=2..10	frozen result	Supports continuous heterogeneity, not community types
+pipeline_discrepancy	taxon direction	Published headline directions	Some frozen directions differ	unresolved	Do not describe as biological contradiction
+pipeline_discrepancy	processed-matrix equivalence	Released matrices referenced across GitHub/Figshare	Current complete 400-run Bracken matrix	unresolved	Direct row/feature reconciliation remains required

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#222}.t{font-size:27px;font-weight:700}.p{font-size:22px;font-weight:700}.s{font-size:15px}.n{font-size:13px;fill:#555}</style>
+<text x="45" y="42" class="t">Cohort provenance and analytical design</text>
+<text x="55" y="90" class="p" text-anchor="start">A</text>
+<text x="95" y="90" class="s" text-anchor="start">Source cohort and analytical populations</text>
+<rect x="90" y="130" width="360" height="82" fill="#F3F4F6" stroke="#1F2937" opacity="1"/>
+<text x="270" y="162" class="p" text-anchor="middle">PRJNA1056765</text>
+<text x="270" y="190" class="s" text-anchor="middle">published cohort, n=402</text>
+<line x1="270" y1="212" x2="270" y2="270" stroke="#1F2937" stroke-width="2"/>
+<text x="300" y="248" class="n" text-anchor="start">2 records unavailable</text>
+<rect x="90" y="270" width="360" height="82" fill="#E8F1F8" stroke="#0072B2" opacity="1"/>
+<text x="270" y="302" class="p" text-anchor="middle">400 downloadable DNA runs</text>
+<text x="270" y="330" class="s" text-anchor="middle">current source population</text>
+<line x1="270" y1="352" x2="270" y2="420" stroke="#1F2937" stroke-width="2"/>
+<line x1="270" y1="420" x2="720" y2="420" stroke="#1F2937" stroke-width="2"/>
+<line x1="270" y1="420" x2="270" y2="480" stroke="#1F2937" stroke-width="2"/>
+<line x1="720" y1="420" x2="720" y2="480" stroke="#1F2937" stroke-width="2"/>
+<rect x="70" y="480" width="400" height="92" fill="#E8F1F8" stroke="#0072B2" opacity="1"/>
+<text x="270" y="514" class="p" text-anchor="middle">Primary analytical population</text>
+<text x="270" y="544" class="s" text-anchor="middle">n=400; four-level omnibus</text>
+<rect x="520" y="480" width="400" height="92" fill="#F3F4F6" stroke="#6B7280" opacity="1"/>
+<text x="720" y="514" class="p" text-anchor="middle">Pipeline-dependent sensitivity</text>
+<text x="720" y="544" class="s" text-anchor="middle">population, n=119</text>
+<text x="1080" y="90" class="p" text-anchor="start">B</text>
+<text x="1120" y="90" class="s" text-anchor="start">Published and current estimands</text>
+<text x="1110" y="150" class="p" text-anchor="start">Han et al.</text>
+<line x1="1110" y1="168" x2="1660" y2="168" stroke="#E5E7EB" stroke-width="2"/>
+<text x="1130" y="210" class="s" text-anchor="start">Ecology / training</text>
+<text x="1610" y="210" class="p" text-anchor="end">n=284</text>
+<text x="1130" y="260" class="s" text-anchor="start">Internal test</text>
+<text x="1610" y="260" class="p" text-anchor="end">n=118</text>
+<text x="1110" y="340" class="p" text-anchor="start">Current study</text>
+<line x1="1110" y1="358" x2="1660" y2="358" stroke="#E5E7EB" stroke-width="2"/>
+<text x="1130" y="400" class="s" text-anchor="start">Primary four-level omnibus</text>
+<text x="1610" y="400" class="p" text-anchor="end">n=400</text>
+<text x="1130" y="450" class="s" text-anchor="start">Sensitivity estimand</text>
+<text x="1610" y="450" class="p" text-anchor="end">n=119</text>
+<text x="55" y="660" class="p" text-anchor="start">C</text>
+<text x="95" y="660" class="s" text-anchor="start">Diagnosis composition</text>
+<text x="70" y="730" class="s" text-anchor="start">Primary analytical population</text>
+<rect x="520" y="706" width="313.5" height="38" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="676.75" y="732" class="s" text-anchor="middle">114</text>
+<rect x="833.5" y="706" width="214.5" height="38" fill="#009E73" stroke="none" opacity="1"/>
+<text x="940.75" y="732" class="s" text-anchor="middle">78</text>
+<rect x="1048.0" y="706" width="335.5" height="38" fill="#D55E00" stroke="none" opacity="1"/>
+<text x="1215.75" y="732" class="s" text-anchor="middle">122</text>
+<rect x="1383.5" y="706" width="236.5" height="38" fill="#CC79A7" stroke="none" opacity="1"/>
+<text x="1501.75" y="732" class="s" text-anchor="middle">86</text>
+<text x="70" y="860" class="s" text-anchor="start">Pipeline-dependent sensitivity population</text>
+<rect x="520" y="836" width="388.2352941176471" height="38" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="714.1176470588235" y="862" class="s" text-anchor="middle">42</text>
+<rect x="908.2352941176471" y="836" width="175.63025210084032" height="38" fill="#009E73" stroke="none" opacity="1"/>
+<text x="996.0504201680673" y="862" class="s" text-anchor="middle">19</text>
+<rect x="1083.8655462184875" y="836" width="332.7731092436975" height="38" fill="#D55E00" stroke="none" opacity="1"/>
+<text x="1250.2521008403362" y="862" class="s" text-anchor="middle">36</text>
+<rect x="1416.638655462185" y="836" width="203.3613445378151" height="38" fill="#CC79A7" stroke="none" opacity="1"/>
+<text x="1518.3193277310925" y="862" class="s" text-anchor="middle">22</text>
+<rect x="80" y="980" width="20" height="20" fill="#0072B2" stroke="none" opacity="1"/>
+<text x="108" y="996" class="n" text-anchor="start">Bacterial infection</text>
+<rect x="470" y="980" width="20" height="20" fill="#009E73" stroke="none" opacity="1"/>
+<text x="498" y="996" class="n" text-anchor="start">Fungal infection</text>
+<rect x="860" y="980" width="20" height="20" fill="#D55E00" stroke="none" opacity="1"/>
+<text x="888" y="996" class="n" text-anchor="start">Lung cancer</text>
+<rect x="1250" y="980" width="20" height="20" fill="#CC79A7" stroke="none" opacity="1"/>
+<text x="1278" y="996" class="n" text-anchor="start">Pulmonary tuberculosis</text>
+</svg>
