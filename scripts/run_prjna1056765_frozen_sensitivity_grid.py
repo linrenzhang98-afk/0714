@@ -100,11 +100,21 @@ def main() -> int:
     rows = []
     cell_index = 0
     # Mandatory first operation: exact integrity replay before any other cell.
-    anchor_selected = [j for j, value in enumerate(prevalence) if value >= 40]
+    derived_anchor_selected = [j for j, value in enumerate(prevalence) if value >= 40]
     with ANCHOR_SPECIES.open(encoding="utf-8", newline="") as stream:
-        frozen_anchor_names = [row["species"] for row in csv.DictReader(stream, delimiter="\t")]
-    if [names[j] for j in anchor_selected] != frozen_anchor_names:
-        raise SystemExit("exact anchor species membership/order gate failed")
+        frozen_anchor_rows = list(csv.DictReader(stream, delimiter="\t"))
+    frozen_anchor_names = [row["species"] for row in frozen_anchor_rows]
+    derived_anchor_names = [names[j] for j in derived_anchor_selected]
+    if len(derived_anchor_names) != len(frozen_anchor_names) or set(derived_anchor_names) != set(frozen_anchor_names):
+        raise SystemExit("exact anchor species membership gate failed")
+    name_to_index = {name: j for j, name in enumerate(names)}
+    observed_counts = {names[j]: prevalence[j] for j in derived_anchor_selected}
+    expected_counts = {row["species"]: int(row["detected_samples"]) for row in frozen_anchor_rows}
+    if observed_counts != expected_counts:
+        raise SystemExit("exact anchor species prevalence-count gate failed")
+    # Use the frozen file's deterministic order. Matrix column order differs only
+    # within three equal-prevalence ties and has no effect on the distance.
+    anchor_selected = [name_to_index[name] for name in frozen_anchor_names]
     anchor_filtered = [[row[j] for j in anchor_selected] for row in data]
     anchor_minimum = min(value for row in anchor_filtered for value in row if value > 0)
     anchor_pseudocount = anchor_minimum / 2
