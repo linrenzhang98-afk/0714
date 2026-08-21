@@ -10,8 +10,12 @@ from __future__ import annotations
 import argparse
 import csv
 import gzip
+import getpass
+import hashlib
 import json
+import os
 import shutil
+import socket
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -79,6 +83,108 @@ def fastq_gz_to_fasta_subset(fastq_gz: Path, fasta: Path, max_reads: int) -> int
 
 def file_nonempty(path: Path) -> bool:
     return path.exists() and path.stat().st_size > 0
+
+
+def sha256_small_file(path: Path, limit: int = 64 * 1024 * 1024) -> str:
+    if not path.is_file() or path.stat().st_size > limit:
+        return "NOT_HASHED_SIZE_LIMIT"
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def command_version(executable: str, flags: list[str]) -> dict[str, Any]:
+    path = shutil.which(executable)
+    if not path:
+        return {"path": "", "version": "UNAVAILABLE", "returncode": 127}
+    result = run_command([path, *flags], timeout=30)
+    text = (result.stdout + "\n" + result.stderr).strip()
+    return {"path": path, "version": text[:2000], "returncode": result.returncode}
+
+
+def readonly_inventory(out_dir: Path, project_path: Path, kraken2_db: Path, bracken_db: Path) -> int:
+    """Record a bounded, read-only workstation inventory."""
+    kraken = command_version("kraken2", ["--version"])
+    bracken = command_version("bracken", ["-v"])
+    database_files = []
+    if kraken2_db.is_dir():
+        for path in sorted(kraken2_db.iterdir()):
+            if not path.is_file():
+                continue
+            stat = path.stat()
+            database_files.append({
+                "name": path.name,
+                "size_bytes": stat.st_size,
+                "mtime_epoch": int(stat.st_mtime),
+                "sha256_if_small": sha256_small_file(path),
+            })
+    redistributions = []
+    if bracken_db.is_dir():
+        for path in sorted(bracken_db.glob("database*mers.kmer_distrib")):
+            match = __import__("re").match(r"database(\d+)mers\.kmer_distrib$", path.name)
+            redistributions.append({
+                "file": path.name,
+                "read_length_nt": int(match.group(1)) if match else None,
+                "size_bytes": path.stat().st_size,
+                "mtime_epoch": int(path.stat().st_mtime),
+            })
+    disk = {}
+    for label, path in {"project": project_path, "kraken2_db": kraken2_db, "bracken_db": bracken_db}.items():
+        try:
+            usage = shutil.disk_usage(path)
+            disk[label] = {"path": str(path), "total_bytes": usage.total, "used_bytes": usage.used, "free_bytes": usage.free}
+        except OSError as exc:
+            disk[label] = {"path": str(path), "error": str(exc)}
+    meminfo = {}
+    try:
+        for line in Path("/proc/meminfo").read_text(encoding="utf-8").splitlines():
+            key, value = line.split(":", 1)
+            if key in {"MemTotal", "MemAvailable", "SwapTotal", "SwapFree"}:
+                meminfo[key] = value.strip()
+    except OSError as exc:
+        meminfo["error"] = str(exc)
+    cpu_model = "UNAVAILABLE"
+    try:
+        for line in Path("/proc/cpuinfo").read_text(encoding="utf-8", errors="replace").splitlines():
+            if line.lower().startswith("model name"):
+                cpu_model = line.split(":", 1)[1].strip()
+                break
+    except OSError:
+        pass
+    manifest_identity = hashlib.sha256(json.dumps(database_files, sort_keys=True).encode("utf-8")).hexdigest()
+    payload = {
+        "inventory_type": "READ_ONLY_HOSPITAL_RUNNER",
+        "generated_at": utc_now(),
+        "hostname": socket.gethostname(),
+        "whoami": getpass.getuser(),
+        "python_executable": sys.executable,
+        "python_version": sys.version.split()[0],
+        "project_path": str(project_path),
+        "project_path_exists": project_path.is_dir(),
+        "project_parent_writable": os.access(project_path, os.W_OK),
+        "logical_threads": os.cpu_count(),
+        "cpu_model": cpu_model,
+        "load_average": list(os.getloadavg()),
+        "memory": meminfo,
+        "disk": disk,
+        "kraken2": kraken,
+        "bracken": bracken,
+        "kraken2_db": str(kraken2_db),
+        "bracken_db": str(bracken_db),
+        "database_manifest_identity_sha256": manifest_identity,
+        "database_files": database_files,
+        "bracken_redistributions": redistributions,
+        "has_40nt_redistribution": any(row["read_length_nt"] == 40 for row in redistributions),
+    }
+    write_json(out_dir / "hospital_readonly_inventory.json", payload)
+    fields = ["file", "read_length_nt", "size_bytes", "mtime_epoch"]
+    with (out_dir / "bracken_redistributions.tsv").open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields, delimiter="\t", lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(redistributions)
+    return 0
 
 
 def execute_host_removal_amr(
@@ -350,9 +456,11 @@ def main() -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
-    if execute_mode not in {"plan_only", "host_removal_amr_screen"}:
-        errors.append("execute_mode must be plan_only or host_removal_amr_screen.")
-    if not shortlist_path.exists():
+    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory"}:
+        errors.append("execute_mode must be plan_only, readonly_inventory, or host_removal_amr_screen.")
+    if execute_mode == "readonly_inventory":
+        rows: list[dict[str, str]] = []
+    elif not shortlist_path.exists():
         errors.append(f"shortlist_path not found: {shortlist_path}")
         rows: list[dict[str, str]] = []
     else:
@@ -363,7 +471,7 @@ def main() -> int:
     if not bracken_db.exists():
         warnings.append(f"bracken_db not found or not checked: {bracken_db}")
 
-    required = ["prefetch", "fasterq-dump", "kraken2", "bracken"]
+    required = ["kraken2", "bracken"] if execute_mode == "readonly_inventory" else ["prefetch", "fasterq-dump", "kraken2", "bracken"]
     optional = ["fastp", "bowtie2", "samtools"]
     commands = [command_status(cmd) for cmd in required + optional]
     missing_required = [c["command"] for c in commands if c["command"] in required and not c["available"]]
@@ -391,6 +499,12 @@ def main() -> int:
         json.dumps(validation, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+
+    if execute_mode == "readonly_inventory":
+        if errors:
+            return 2
+        project_path = Path(str(params.get("project_path", "/mnt/disk1/db/kraken2/0714")))
+        return readonly_inventory(out_dir, project_path, kraken2_db, bracken_db)
 
     plan_lines = [
         "#!/usr/bin/env bash",
