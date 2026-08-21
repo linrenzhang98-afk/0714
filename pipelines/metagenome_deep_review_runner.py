@@ -13,6 +13,7 @@ import gzip
 import getpass
 import hashlib
 import json
+import math
 import os
 import shutil
 import socket
@@ -578,6 +579,262 @@ def bounded_read_length_audit(out_dir: Path, params: dict[str, Any]) -> int:
     return 0 if summary["final_status"] == "done" else 2
 
 
+def trim_fastq_exact(path: Path, destination: Path, target_length: int) -> dict[str, Any]:
+    """Retain reads at least target_length and deterministically trim to it."""
+    total_reads = retained_reads = total_bases = retained_input_bases = output_bases = 0
+    logical_input = hashlib.sha256()
+    logical_output = hashlib.sha256()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with gzip.open(path, "rb") as source, destination.open("wb") as raw_output:
+        with gzip.GzipFile(filename="", mode="wb", fileobj=raw_output, mtime=0) as output:
+            while True:
+                header = source.readline()
+                if not header:
+                    break
+                sequence = source.readline().rstrip(b"\r\n")
+                separator = source.readline()
+                quality = source.readline().rstrip(b"\r\n")
+                if not sequence or not separator or not quality:
+                    raise RuntimeError("truncated FASTQ record during trimming")
+                if not header.startswith(b"@") or not separator.startswith(b"+") or len(sequence) != len(quality):
+                    raise RuntimeError("invalid FASTQ record during trimming")
+                canonical_input = header.rstrip(b"\r\n") + b"\n" + sequence + b"\n+\n" + quality + b"\n"
+                logical_input.update(canonical_input)
+                total_reads += 1
+                total_bases += len(sequence)
+                if len(sequence) < target_length:
+                    continue
+                retained_reads += 1
+                retained_input_bases += len(sequence)
+                trimmed_sequence = sequence[:target_length]
+                trimmed_quality = quality[:target_length]
+                canonical_output = header.rstrip(b"\r\n") + b"\n" + trimmed_sequence + b"\n+\n" + trimmed_quality + b"\n"
+                logical_output.update(canonical_output)
+                output.write(canonical_output)
+                output_bases += target_length
+    if total_reads == 0 or retained_reads == 0:
+        raise RuntimeError("trimming produced no retained reads")
+    return {
+        "total_reads": total_reads,
+        "retained_reads": retained_reads,
+        "retained_read_fraction": retained_reads / total_reads,
+        "total_bases": total_bases,
+        "retained_input_bases": retained_input_bases,
+        "retained_base_fraction": retained_input_bases / total_bases,
+        "trimmed_output_bases": output_bases,
+        "logical_input_sha256": logical_input.hexdigest(),
+        "logical_output_sha256": logical_output.hexdigest(),
+    }
+
+
+def parse_kraken_report(path: Path) -> dict[str, Any]:
+    taxa: dict[str, dict[str, Any]] = {}
+    total = classified = unclassified = 0
+    with path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            fields = line.rstrip("\n").split("\t")
+            if len(fields) < 6:
+                continue
+            clade_reads = int(fields[1])
+            rank = fields[3].strip()
+            taxid = fields[4].strip()
+            name = fields[5].strip()
+            if rank == "U":
+                unclassified = clade_reads
+            elif rank == "R":
+                classified = clade_reads
+            if rank in {"S", "G"} and clade_reads > 0:
+                taxa[f"{rank}:{taxid}"] = {"rank": rank, "taxid": taxid, "name": name, "count": clade_reads}
+    total = classified + unclassified
+    if total <= 0:
+        raise RuntimeError(f"Kraken report has no classified/unclassified total: {path}")
+    return {"total": total, "classified": classified, "unclassified": unclassified, "taxa": taxa}
+
+
+def average_ranks(values: list[float]) -> list[float]:
+    order = sorted(range(len(values)), key=lambda index: values[index])
+    ranks = [0.0] * len(values)
+    start = 0
+    while start < len(order):
+        end = start + 1
+        while end < len(order) and values[order[end]] == values[order[start]]:
+            end += 1
+        rank = (start + 1 + end) / 2
+        for position in range(start, end):
+            ranks[order[position]] = rank
+        start = end
+    return ranks
+
+
+def spearman(values_a: list[float], values_b: list[float]) -> float | None:
+    if len(values_a) < 2:
+        return None
+    ranks_a, ranks_b = average_ranks(values_a), average_ranks(values_b)
+    mean_a, mean_b = sum(ranks_a) / len(ranks_a), sum(ranks_b) / len(ranks_b)
+    numerator = sum((a - mean_a) * (b - mean_b) for a, b in zip(ranks_a, ranks_b))
+    denominator = math.sqrt(sum((a - mean_a) ** 2 for a in ranks_a) * sum((b - mean_b) ** 2 for b in ranks_b))
+    return numerator / denominator if denominator else None
+
+
+def taxonomy_stability(native: dict[str, Any], trimmed: dict[str, Any], rank: str) -> dict[str, Any]:
+    keys = sorted(set(native["taxa"]) | set(trimmed["taxa"]))
+    keys = [key for key in keys if key.startswith(rank + ":")]
+    native_values = [native["taxa"].get(key, {}).get("count", 0) / native["total"] for key in keys]
+    trimmed_values = [trimmed["taxa"].get(key, {}).get("count", 0) / trimmed["total"] for key in keys]
+    denominator = sum(native_values) + sum(trimmed_values)
+    bray = sum(abs(a - b) for a, b in zip(native_values, trimmed_values)) / denominator if denominator else 0.0
+    major_rows = []
+    for key, native_value, trimmed_value in zip(keys, native_values, trimmed_values):
+        if max(native_value, trimmed_value) < 0.01:
+            continue
+        item = native["taxa"].get(key) or trimmed["taxa"][key]
+        relative_change = None if native_value == 0 else (trimmed_value - native_value) / native_value
+        major_rows.append({
+            "taxon_key": key, "taxon_name": item["name"], "native_fraction": native_value,
+            "trimmed_fraction": trimmed_value, "absolute_change": trimmed_value - native_value,
+            "relative_change": relative_change,
+        })
+    return {
+        "rank": rank, "union_taxa": len(keys), "native_richness": sum(value > 0 for value in native_values),
+        "trimmed_richness": sum(value > 0 for value in trimmed_values), "spearman": spearman(native_values, trimmed_values),
+        "bray_curtis": bray, "major_taxa": major_rows,
+    }
+
+
+def bounded_taxonomy_method_benchmark(
+    out_dir: Path, params: dict[str, Any], kraken2_db: Path, bracken_db: Path, threads: int,
+) -> int:
+    """Zero-download, four-run technical comparison of native and Trim50 taxonomy."""
+    started = time.monotonic()
+    deadline = started + int(params.get("maximum_wall_time_seconds", 28800))
+    allowed = {"CRR2423957", "CRR2424000", "CRR2423921", "CRR2424010"}
+    manifest = params.get("benchmark_runs", [])
+    if len(manifest) != 4 or {str(row.get("run_accession")) for row in manifest} != allowed:
+        raise RuntimeError("taxonomy benchmark allowlist mismatch")
+    if int(params.get("maximum_new_download_bytes", -1)) != 0:
+        raise RuntimeError("taxonomy benchmark must use zero new download bytes")
+    if threads > 16:
+        raise RuntimeError("thread cap exceeded")
+    workspace_cap = int(params.get("maximum_working_space_bytes", 0))
+    if not 0 < workspace_cap <= 100_000_000_000:
+        raise RuntimeError("invalid workspace cap")
+    memory_cap = int(params.get("memory_cap_bytes", 0))
+    if memory_cap != 64 * 1024**3:
+        raise RuntimeError("64 GiB memory cap mismatch")
+    expected_identity = str(params.get("database_manifest_identity_sha256", ""))
+    readonly_inventory(out_dir / "database_identity", Path.cwd(), kraken2_db, bracken_db)
+    inventory = load_json(out_dir / "database_identity" / "hospital_readonly_inventory.json")
+    if inventory["database_manifest_identity_sha256"] != expected_identity:
+        raise RuntimeError("database manifest identity mismatch")
+    redistribution = bracken_db / "database50mers.kmer_distrib"
+    if not redistribution.is_file():
+        raise RuntimeError("installed 50-nt Bracken redistribution is missing")
+
+    source_root = Path(str(params.get("source_audit_result", ""))) / "fastq"
+    histogram_path = Path(str(params.get("expected_histogram_path", "")))
+    if not histogram_path.is_file():
+        raise RuntimeError("frozen audit histogram is missing")
+    expected_histograms: dict[str, dict[str, int]] = {}
+    for histogram_row in read_tsv(histogram_path):
+        accession = histogram_row["run_accession"]
+        expected_histograms.setdefault(accession, {})[histogram_row["read_length_nt"]] = int(histogram_row["read_count"])
+    trim_dir, taxonomy_dir, logs_dir = out_dir / "trim50", out_dir / "taxonomy", out_dir / "logs"
+    for directory in (trim_dir, taxonomy_dir, logs_dir):
+        directory.mkdir(parents=True, exist_ok=True)
+    run_results: list[dict[str, Any]] = []
+    comparison_rows: list[dict[str, Any]] = []
+    major_rows: list[dict[str, Any]] = []
+    stop_event = ""
+    for row in manifest:
+        run = str(row["run_accession"])
+        result: dict[str, Any] = {"run_accession": run, "architecture_role": row["architecture_role"]}
+        try:
+            source = source_root / f"{run}.fq.gz"
+            if not source.is_file() or source.stat().st_size != int(row["expected_bytes"]):
+                raise RuntimeError("retained audit FASTQ missing or byte count mismatch")
+            if sha256_small_file(source) != str(row["sha256"]):
+                raise RuntimeError("retained audit FASTQ checksum mismatch")
+            inspection = inspect_fastq_gz(source)
+            if inspection["read_length_counts"] != expected_histograms.get(run):
+                raise RuntimeError("retained audit FASTQ length histogram mismatch")
+            trimmed = trim_dir / f"{run}.trim50.fq.gz"
+            retention = trim_fastq_exact(source, trimmed, 50)
+            result["retention"] = retention
+            if run == "CRR2423957" and retention["logical_input_sha256"] != retention["logical_output_sha256"]:
+                raise RuntimeError("fixed-50 identity control failed")
+            reports = {}
+            command_results = {}
+            for label, fastq in (("native", source), ("trim50", trimmed)):
+                report = taxonomy_dir / f"{run}.{label}.kreport"
+                command = [
+                    "kraken2", "--db", str(kraken2_db), "--threads", str(threads),
+                    "--confidence", str(params.get("kraken2_confidence", 0.0)),
+                    "--minimum-hit-groups", str(params.get("kraken2_minimum_hit_groups", 2)),
+                    "--report", str(report), "--output", "/dev/null", str(fastq),
+                ]
+                command_results[label] = run_bounded_command(
+                    command, logs_dir / f"{run}.{label}.kraken2.log", out_dir, workspace_cap, deadline, memory_cap,
+                )
+                if command_results[label]["returncode"] != 0 or command_results[label]["stop_reason"] or not file_nonempty(report):
+                    raise RuntimeError(f"Kraken2 {label} failed: {command_results[label]}")
+                reports[label] = parse_kraken_report(report)
+            bracken_out = taxonomy_dir / f"{run}.trim50.bracken.species.tsv"
+            bracken_result = run_bounded_command([
+                "bracken", "-d", str(bracken_db), "-i", str(taxonomy_dir / f"{run}.trim50.kreport"),
+                "-o", str(bracken_out), "-r", "50", "-l", "S", "-t", "10",
+            ], logs_dir / f"{run}.trim50.bracken.log", out_dir, workspace_cap, deadline, memory_cap)
+            if bracken_result["returncode"] != 0 or bracken_result["stop_reason"] or not file_nonempty(bracken_out):
+                raise RuntimeError(f"Bracken trim50 failed: {bracken_result}")
+            result.update({
+                "input_bytes": source.stat().st_size, "input_sha256": str(row["sha256"]),
+                "native_classified_fraction": reports["native"]["classified"] / reports["native"]["total"],
+                "trim50_classified_fraction": reports["trim50"]["classified"] / reports["trim50"]["total"],
+                "commands": command_results, "bracken": bracken_result, "status": "done", "error": "",
+            })
+            for rank in ("S", "G"):
+                stability = taxonomy_stability(reports["native"], reports["trim50"], rank)
+                comparison_rows.append({
+                    "run_accession": run, "architecture_role": row["architecture_role"], "rank": rank,
+                    "total_reads": retention["total_reads"], "retained_reads": retention["retained_reads"],
+                    "retained_read_fraction": retention["retained_read_fraction"], "total_bases": retention["total_bases"],
+                    "retained_input_bases": retention["retained_input_bases"], "retained_base_fraction": retention["retained_base_fraction"],
+                    "native_classified_fraction": result["native_classified_fraction"],
+                    "trim50_classified_fraction": result["trim50_classified_fraction"],
+                    "native_richness": stability["native_richness"], "trim50_richness": stability["trimmed_richness"],
+                    "spearman": stability["spearman"], "bray_curtis": stability["bray_curtis"],
+                })
+                for item in stability["major_taxa"]:
+                    major_rows.append({"run_accession": run, "rank": rank, **item})
+        except Exception as exc:  # noqa: BLE001 - bounded stop is recorded.
+            result.update({"status": "stopped", "error": str(exc)})
+            stop_event = f"{run}: {exc}"
+        run_results.append(result)
+        if stop_event:
+            break
+        if directory_size(out_dir) > workspace_cap:
+            stop_event = "workspace cap exceeded between samples"
+            break
+        remaining_seconds(deadline)
+
+    for filename, rows in (("benchmark_comparisons.tsv", comparison_rows), ("major_taxon_changes.tsv", major_rows)):
+        if rows:
+            with (out_dir / filename).open("w", encoding="utf-8", newline="") as handle:
+                writer = csv.DictWriter(handle, fieldnames=list(rows[0]), delimiter="\t", lineterminator="\n")
+                writer.writeheader(); writer.writerows(rows)
+    summary = {
+        "benchmark_type": "ZERO_DOWNLOAD_TAXONOMY_METHOD_DISCRIMINATION", "generated_at": utc_now(),
+        "final_status": "done" if len(run_results) == 4 and all(row.get("status") == "done" for row in run_results) else "stopped",
+        "stop_event": stop_event, "new_downloaded_bytes": 0, "wall_time_seconds": round(time.monotonic() - started, 3),
+        "peak_ram_kib": max(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss),
+        "final_workspace_bytes": directory_size(out_dir), "database_manifest_identity_sha256": expected_identity,
+        "kraken2_confidence": params.get("kraken2_confidence", 0.0), "kraken2_minimum_hit_groups": params.get("kraken2_minimum_hit_groups", 2),
+        "bracken_redistribution": str(redistribution), "runs": run_results,
+        "host_filtering_performed": False, "biological_inference": "PROHIBITED",
+    }
+    write_json(out_dir / "benchmark_summary.json", summary)
+    return 0 if summary["final_status"] == "done" else 2
+
+
 def execute_host_removal_amr(
     rows: list[dict[str, str]],
     out_dir: Path,
@@ -847,9 +1104,9 @@ def main() -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
-    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit"}:
+    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit", "bounded_taxonomy_method_benchmark"}:
         errors.append("unsupported execute_mode")
-    if execute_mode in {"readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit"}:
+    if execute_mode in {"readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit", "bounded_taxonomy_method_benchmark"}:
         rows: list[dict[str, str]] = []
     elif not shortlist_path.exists():
         errors.append(f"shortlist_path not found: {shortlist_path}")
@@ -864,7 +1121,7 @@ def main() -> int:
 
     if execute_mode == "bounded_read_length_audit":
         required, optional = [], []
-    elif execute_mode in {"readonly_inventory", "bounded_external_pilot"}:
+    elif execute_mode in {"readonly_inventory", "bounded_external_pilot", "bounded_taxonomy_method_benchmark"}:
         required, optional = ["kraken2", "bracken"], ["fastp", "bowtie2", "samtools"]
     else:
         required, optional = ["prefetch", "fasterq-dump", "kraken2", "bracken"], ["fastp", "bowtie2", "samtools"]
@@ -908,6 +1165,10 @@ def main() -> int:
         if errors:
             return 2
         return bounded_read_length_audit(out_dir, params)
+    if execute_mode == "bounded_taxonomy_method_benchmark":
+        if errors:
+            return 2
+        return bounded_taxonomy_method_benchmark(out_dir, params, kraken2_db, bracken_db, threads)
 
     plan_lines = [
         "#!/usr/bin/env bash",

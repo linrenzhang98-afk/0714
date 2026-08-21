@@ -1,0 +1,49 @@
+{
+  "job_id": "20260822T020000Z-prjca046985-taxonomy-method-benchmark",
+  "task": "metagenome_deep_review",
+  "created_at": "2026-08-22T02:00:00+08:00",
+  "params": {
+    "execute_mode": "bounded_taxonomy_method_benchmark",
+    "kraken2_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "bracken_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "database_manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+    "source_audit_result": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit",
+    "expected_histogram_path": "/mnt/disk1/db/kraken2/0714/reports_public/prjna1056765_external_cohort_pilot_package/hospital_read_length_audit/complete_read_length_histograms.tsv",
+    "maximum_new_download_bytes": 0,
+    "maximum_working_space_bytes": 5000000000,
+    "minimum_free_disk_bytes": 5000000000,
+    "maximum_wall_time_seconds": 28800,
+    "memory_cap_bytes": 68719476736,
+    "threads": 16,
+    "host_filtering": false,
+    "kraken2_confidence": 0.0,
+    "kraken2_minimum_hit_groups": 2,
+    "biological_inference": false,
+    "benchmark_runs": [
+      {
+        "run_accession": "CRR2423957",
+        "architecture_role": "strictly_fixed_50_identity_control",
+        "expected_bytes": 2539990,
+        "sha256": "e36bb4ce63da9be85510ae6e484619e1f7d2c052a10be2406833ca25fab7c745"
+      },
+      {
+        "run_accession": "CRR2424000",
+        "architecture_role": "near_modal_50",
+        "expected_bytes": 2000450,
+        "sha256": "56acf0da5c831bc5012d0fba8da64752ff2d0980ed377c75a4a8db01ce3a63a9"
+      },
+      {
+        "run_accession": "CRR2423921",
+        "architecture_role": "near_modal_75",
+        "expected_bytes": 956156,
+        "sha256": "c5fea80145a09ed57ed563e52919f28eac2abc1e41833972717ae5e4e072e6d9"
+      },
+      {
+        "run_accession": "CRR2424010",
+        "architecture_role": "strongly_mixed_75",
+        "expected_bytes": 1237659,
+        "sha256": "94bb94d6df4fb1f6a69b57b79badbd8a154d1867eecbcadac464a1824ed72583"
+      }
+    ]
+  }
+}

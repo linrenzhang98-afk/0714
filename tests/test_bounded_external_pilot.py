@@ -105,6 +105,52 @@ class BoundedExternalPilotTests(unittest.TestCase):
             self.assertEqual(result["read_count"], 3)
             self.assertEqual(result["read_length_counts"], {"50": 2, "75": 1})
 
+    def test_taxonomy_benchmark_scope_is_zero_download_and_exact(self):
+        job = json.loads((ROOT / "jobs/20260822T020000Z-prjca046985-taxonomy-method-benchmark.json").read_text())
+        params = job["params"]
+        self.assertEqual(params["execute_mode"], "bounded_taxonomy_method_benchmark")
+        self.assertEqual(params["maximum_new_download_bytes"], 0)
+        self.assertEqual(params["threads"], 16)
+        self.assertEqual(params["memory_cap_bytes"], 64 * 1024**3)
+        self.assertFalse(params["host_filtering"])
+        self.assertFalse(params["biological_inference"])
+        self.assertEqual(
+            {row["run_accession"] for row in params["benchmark_runs"]},
+            {"CRR2423957", "CRR2424000", "CRR2423921", "CRR2424010"},
+        )
+
+    def test_trim_fastq_exact_retention_and_identity(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp) / "source.fq.gz"
+            trimmed = Path(tmp) / "trimmed.fq.gz"
+            with gzip.open(source, "wt", encoding="ascii") as handle:
+                for index, length in enumerate([50, 75, 40]):
+                    handle.write(f"@r{index}\n{'A' * length}\n+\n{'I' * length}\n")
+            result = MODULE.trim_fastq_exact(source, trimmed, 50)
+            self.assertEqual(result["total_reads"], 3)
+            self.assertEqual(result["retained_reads"], 2)
+            self.assertAlmostEqual(result["retained_read_fraction"], 2 / 3)
+            self.assertEqual(MODULE.inspect_fastq_gz(trimmed)["read_length_counts"], {"50": 2})
+
+            fixed = Path(tmp) / "fixed.fq.gz"
+            fixed_trimmed = Path(tmp) / "fixed_trimmed.fq.gz"
+            with gzip.open(fixed, "wt", encoding="ascii") as handle:
+                handle.write(f"@fixed\n{'C' * 50}\n+\n{'I' * 50}\n")
+            identity = MODULE.trim_fastq_exact(fixed, fixed_trimmed, 50)
+            self.assertEqual(identity["logical_input_sha256"], identity["logical_output_sha256"])
+
+    def test_taxonomy_stability_identity(self):
+        report = {
+            "total": 100,
+            "taxa": {
+                "S:1": {"rank": "S", "taxid": "1", "name": "one", "count": 60},
+                "S:2": {"rank": "S", "taxid": "2", "name": "two", "count": 20},
+            },
+        }
+        result = MODULE.taxonomy_stability(report, report, "S")
+        self.assertEqual(result["bray_curtis"], 0.0)
+        self.assertEqual(result["spearman"], 1.0)
+
 
 if __name__ == "__main__":
     unittest.main()

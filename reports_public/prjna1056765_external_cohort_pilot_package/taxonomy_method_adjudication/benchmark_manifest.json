@@ -1,0 +1,63 @@
+{
+  "manifest_version": "1.0",
+  "purpose": "technical taxonomy-method discrimination only",
+  "source_job": "20260821T150000Z-prjca046985-read-length-audit",
+  "new_download_bytes": 0,
+  "target_length_nt": 50,
+  "pipelines": [
+    "native_kraken2",
+    "trim50_kraken2",
+    "trim50_kraken2_bracken50"
+  ],
+  "runs": [
+    {
+      "run_accession": "CRR2423957",
+      "architecture_role": "strictly_fixed_50_identity_control",
+      "expected_bytes": 2539990,
+      "sha256": "e36bb4ce63da9be85510ae6e484619e1f7d2c052a10be2406833ca25fab7c745"
+    },
+    {
+      "run_accession": "CRR2424000",
+      "architecture_role": "near_modal_50",
+      "expected_bytes": 2000450,
+      "sha256": "56acf0da5c831bc5012d0fba8da64752ff2d0980ed377c75a4a8db01ce3a63a9"
+    },
+    {
+      "run_accession": "CRR2423921",
+      "architecture_role": "near_modal_75",
+      "expected_bytes": 956156,
+      "sha256": "c5fea80145a09ed57ed563e52919f28eac2abc1e41833972717ae5e4e072e6d9"
+    },
+    {
+      "run_accession": "CRR2424010",
+      "architecture_role": "strongly_mixed_75",
+      "expected_bytes": 1237659,
+      "sha256": "94bb94d6df4fb1f6a69b57b79badbd8a154d1867eecbcadac464a1824ed72583"
+    }
+  ],
+  "classifier": {
+    "kraken2_version": "2.17.1",
+    "database": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "database_manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+    "confidence": 0.0,
+    "minimum_hit_groups": 2,
+    "bracken_version": "3.0.1",
+    "bracken_read_length": 50,
+    "bracken_rank": "S",
+    "bracken_threshold": 10
+  },
+  "resource_caps": {
+    "maximum_new_download_bytes": 0,
+    "maximum_threads": 16,
+    "memory_cap_bytes": 68719476736,
+    "maximum_working_space_bytes": 5000000000,
+    "maximum_wall_time_seconds": 28800
+  },
+  "prohibited": [
+    "host_filtering",
+    "native_mixed_length_bracken",
+    "biological_inference",
+    "database_modification",
+    "accession_substitution"
+  ]
+}

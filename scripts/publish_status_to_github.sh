@@ -17,6 +17,33 @@ git pull --ff-only
 
 mkdir -p "$PUBLIC_STATUS_DIR"
 
+TAXONOMY_BENCHMARK_JOB="20260822T020000Z-prjca046985-taxonomy-method-benchmark"
+TAXONOMY_BENCHMARK_RESULT="results/$TAXONOMY_BENCHMARK_JOB"
+TAXONOMY_BENCHMARK_PUBLIC="$PUBLIC_STATUS_DIR/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication/hospital_benchmark"
+if [ -f "$TAXONOMY_BENCHMARK_RESULT/benchmark_summary.json" ]; then
+  mkdir -p "$TAXONOMY_BENCHMARK_PUBLIC"
+  cp "$TAXONOMY_BENCHMARK_RESULT/benchmark_summary.json" "$TAXONOMY_BENCHMARK_PUBLIC/benchmark_summary.json"
+  for source in benchmark_comparisons.tsv major_taxon_changes.tsv; do
+    if [ -f "$TAXONOMY_BENCHMARK_RESULT/$source" ]; then
+      cp "$TAXONOMY_BENCHMARK_RESULT/$source" "$TAXONOMY_BENCHMARK_PUBLIC/$source"
+    fi
+  done
+  find "$TAXONOMY_BENCHMARK_RESULT/taxonomy" -maxdepth 1 -type f \( -name '*.kreport' -o -name '*.bracken.species.tsv' \) -print0 2>/dev/null \
+    | while IFS= read -r -d '' source; do cp "$source" "$TAXONOMY_BENCHMARK_PUBLIC/$(basename "$source")"; done
+  {
+    echo "generated_at=$(date -Is)"
+    echo "state=complete"
+    echo "source_job=$TAXONOMY_BENCHMARK_JOB"
+  } > "$TAXONOMY_BENCHMARK_PUBLIC/status.txt"
+elif [ -f "jobs/$TAXONOMY_BENCHMARK_JOB.json" ]; then
+  mkdir -p "$TAXONOMY_BENCHMARK_PUBLIC"
+  {
+    echo "generated_at=$(date -Is)"
+    echo "state=pending"
+    echo "source_job=$TAXONOMY_BENCHMARK_JOB"
+  } > "$TAXONOMY_BENCHMARK_PUBLIC/status.txt"
+fi
+
 if [ "$ENABLE_PRODUCTION_PLANNING" = "1" ] && [ -f "$PRJNA1056765_RUNINFO" ]; then
   "$PYTHON_BIN" scripts/plan_prjna1056765_production_samples.py \
     --runinfo "$PRJNA1056765_RUNINFO" \
