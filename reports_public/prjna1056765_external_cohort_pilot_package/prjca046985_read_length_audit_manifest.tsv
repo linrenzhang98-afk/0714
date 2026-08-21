@@ -1,0 +1,9 @@
+run_accession	subject_id	clinical_group	nominal_length_metadata	expected_bytes	sample_role	selection_rationale	allowed_operations
+CRR2423961	M22163	Drug_Sensitive	50	1531191	nominal50_DS_1	Smallest unobserved file in nominal-50 Drug_Sensitive stratum; no taxonomic result used	download_identity;gzip_fastq_integrity;complete_length_histogram
+CRR2424000	M33926	Drug_Sensitive	50	2000450	nominal50_DS_2	Second-smallest unobserved file in nominal-50 Drug_Sensitive stratum; no taxonomic result used	download_identity;gzip_fastq_integrity;complete_length_histogram
+CRR2423957	M21672	Drug_Resistance	50	2539990	nominal50_DR_1	Smallest unobserved file in nominal-50 Drug_Resistance stratum; no taxonomic result used	download_identity;gzip_fastq_integrity;complete_length_histogram
+CRR2423986	M27041	Drug_Resistance	50	2543406	nominal50_DR_2	Second-smallest unobserved file in nominal-50 Drug_Resistance stratum; no taxonomic result used	download_identity;gzip_fastq_integrity;complete_length_histogram
+CRR2423912	M1128	Drug_Sensitive	75	841555	nominal75_DS_1	Smallest unobserved file in nominal-75 Drug_Sensitive stratum; no taxonomic result used	download_identity;gzip_fastq_integrity;complete_length_histogram
+CRR2423921	M1479	Drug_Sensitive	75	956156	nominal75_DS_2	Second-smallest unobserved file in nominal-75 Drug_Sensitive stratum; no taxonomic result used	download_identity;gzip_fastq_integrity;complete_length_histogram
+CRR2423991	M2926	Drug_Resistance	75	1216398	nominal75_DR_1	Smallest unobserved file in nominal-75 Drug_Resistance stratum; no taxonomic result used	download_identity;gzip_fastq_integrity;complete_length_histogram
+CRR2424010	M4794	Drug_Resistance	75	1237659	nominal75_DR_2	Second-smallest unobserved file in nominal-75 Drug_Resistance stratum; no taxonomic result used	download_identity;gzip_fastq_integrity;complete_length_histogram
