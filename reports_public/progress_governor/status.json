@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T09:33:26+00:00",
+  "generated_at": "2026-08-21T10:13:34+00:00",
   "progress_state": "public_data_submission_ready",
   "reason": "Compute jobs and the shotgun functional profile stage are final; the public-data-only manuscript route is selected and the submission package is available.",
   "next_action": "Proceed with public-data manuscript polishing, figure/table finalization, and target-journal formatting; qPCR validation is optional follow-up, not a current blocker.",
