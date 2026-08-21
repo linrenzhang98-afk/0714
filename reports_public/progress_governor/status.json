@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T16:15:47+00:00",
+  "generated_at": "2026-08-21T16:55:52+00:00",
   "progress_state": "stalled_failed_jobs",
   "reason": "1 failed and 0 rejected non-demo job(s) require repair.",
   "next_action": "Codex should inspect failed job metadata and patch the minimal repository-side cause.",
