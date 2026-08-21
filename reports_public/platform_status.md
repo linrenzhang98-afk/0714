@@ -1,19 +1,19 @@
 # Platform Status
 
-Generated at: 2026-08-21T17:35:53+00:00
+Generated at: 2026-08-21T18:18:57+00:00
 
 ## Job Status Counts
 
 - done: 69
-- failed: 12
+- failed: 13
 - rejected: 1
 
 ## Recent Event Counts
 
-- job_finish: 3
-- job_rejected: 37
-- job_start: 3
-- scan: 37
+- job_finish: 4
+- job_rejected: 36
+- job_start: 4
+- scan: 36
 
 ## Decision Requests
 
@@ -21,7 +21,7 @@ Generated at: 2026-08-21T17:35:53+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-21T17:35:52+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-21T18:18:56+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
@@ -103,13 +103,10 @@ Generated at: 2026-08-21T17:35:53+00:00
 - 20260821T070000Z-external-cohort-readonly-inventory: done (metagenome_deep_review), updated 2026-08-21T08:12:35+00:00
 - 20260821T100000Z-prjca046985-bounded-technical-pilot: failed (metagenome_deep_review), updated 2026-08-21T12:15:38+00:00
 - 20260821T150000Z-prjca046985-read-length-audit: done (metagenome_deep_review), updated 2026-08-21T16:15:47+00:00
+- 20260822T020000Z-prjca046985-taxonomy-method-benchmark: failed (metagenome_deep_review), updated 2026-08-21T18:18:56+00:00
 
 ## Last Events
 
-- 2026-08-21T12:14:25+00:00 scan
-- 2026-08-21T12:14:25+00:00 job_start job=20260821T100000Z-prjca046985-bounded-technical-pilot
-- 2026-08-21T12:15:38+00:00 job_finish job=20260821T100000Z-prjca046985-bounded-technical-pilot status=failed
-- 2026-08-21T12:15:38+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-21T13:34:55+00:00 scan
 - 2026-08-21T13:34:55+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-21T14:15:12+00:00 scan
@@ -126,6 +123,10 @@ Generated at: 2026-08-21T17:35:53+00:00
 - 2026-08-21T16:55:51+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-21T17:35:52+00:00 scan
 - 2026-08-21T17:35:52+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-08-21T18:16:13+00:00 scan
+- 2026-08-21T18:16:13+00:00 job_start job=20260822T020000Z-prjca046985-taxonomy-method-benchmark
+- 2026-08-21T18:18:56+00:00 job_finish job=20260822T020000Z-prjca046985-taxonomy-method-benchmark status=failed
+- 2026-08-21T18:18:56+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 

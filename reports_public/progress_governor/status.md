@@ -1,11 +1,11 @@
 # Progress Governor Status
 
-Generated at: 2026-08-21T17:35:52+00:00
+Generated at: 2026-08-21T18:18:57+00:00
 Progress state: `stalled_failed_jobs`
 
 ## Reason
 
-- 1 failed and 0 rejected non-demo job(s) require repair.
+- 2 failed and 0 rejected non-demo job(s) require repair.
 
 ## Required Next Action
 
@@ -13,9 +13,9 @@ Progress state: `stalled_failed_jobs`
 
 ## Operational Counts
 
-- Job files: 82
+- Job files: 83
 - Pending/non-final jobs: 0
-- Failed jobs: 1
+- Failed jobs: 2
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
@@ -24,3 +24,4 @@ Progress state: `stalled_failed_jobs`
 ## Failed Jobs
 
 - 20260821T100000Z-prjca046985-bounded-technical-pilot
+- 20260822T020000Z-prjca046985-taxonomy-method-benchmark
