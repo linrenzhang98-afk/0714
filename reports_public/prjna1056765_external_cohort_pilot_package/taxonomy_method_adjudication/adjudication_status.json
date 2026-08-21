@@ -1,0 +1,21 @@
+{
+  "status": "STAGE_1_CONDITIONAL_GO",
+  "stage": 1,
+  "bytes_downloaded_this_session": 0,
+  "samples_touched": 0,
+  "taxonomy_commands_run": 0,
+  "frozen_anchor_modified": false,
+  "methods": {
+    "A_kraken2_only_common_layer": "CONDITIONAL_GO_REQUIRES_BENCHMARK",
+    "B_fixed_length_harmonization": "INSUFFICIENT_EVIDENCE_REQUIRES_BENCHMARK",
+    "C_length_stratified_bracken": "NO_GO_NOT_VALIDATED",
+    "D_switch_external_cohort": "NO_GO_AT_THIS_STAGE_RESERVE"
+  },
+  "benchmark": {
+    "authorized_to_execute": true,
+    "preferred_new_download_bytes": 0,
+    "maximum_threads": 16,
+    "maximum_ram_gib": 64,
+    "maximum_temporary_space_gb": 100
+  }
+}
