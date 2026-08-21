@@ -1,0 +1,2 @@
+control_accession	control_type	matched_batch	extraction_control	library_control	blank_type	read_count_if_available	raw_data_available	paper_description	repository_description	interpretability	notes
+NONE_IDENTIFIED	UNRESOLVED	UNRESOLVED	UNRESOLVED	UNRESOLVED	UNRESOLVED	NA	NO_CONTROL_IDENTIFIED	No public run or paper statement could be identified as a negative control.	No explicitly labelled control record	LIMITATION	No threshold will be borrowed from another cohort.

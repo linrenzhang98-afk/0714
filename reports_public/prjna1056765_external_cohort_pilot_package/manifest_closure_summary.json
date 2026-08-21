@@ -1,0 +1,14 @@
+{
+  "prjca039020_runs": 233,
+  "prjca039020_bytes": 16266489345,
+  "prjca046985_dna_runs": 130,
+  "prjca046985_bytes": 2082679760,
+  "prjca046985_groups": {
+    "Drug_Resistance": 49,
+    "Drug_Sensitive": 81
+  },
+  "prjna977832_runs": 718,
+  "prjna977832_bytes": 504633902336,
+  "pilot_run": "DRR770839",
+  "pilot_bytes": 47008516
+}

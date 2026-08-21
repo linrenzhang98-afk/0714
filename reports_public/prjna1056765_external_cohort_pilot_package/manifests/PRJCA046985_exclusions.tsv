@@ -1,0 +1,2 @@
+run_accession	reason	excluded_count	excluded_modality
+NONE	All 130 DNA aliases map directly to Table S3; 130 RNA runs with R suffix are excluded by modality	130	metatranscriptomic RNA

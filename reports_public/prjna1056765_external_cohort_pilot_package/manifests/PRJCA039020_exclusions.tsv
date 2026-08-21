@@ -1,0 +1,2 @@
+scope	count	reason	status	four_extra_public_biosamples	note
+all_233_public_runs	233	No directly traceable run/BioSample -> subject -> CAP/severe-pneumonia mapping	EXCLUDE_FROM_BIOLOGICAL_GROUPING	UNIDENTIFIABLE_FROM_PUBLIC_EVIDENCE	Paper analyzed 229 after clinical-data exclusion; repository ordering was not used to guess the four records.

@@ -1,0 +1,19 @@
+{
+  "status": "FROZEN_NOT_AUTHORIZED",
+  "scope": "technical compatibility only",
+  "allowlisted_runs": [
+    "DRR770839"
+  ],
+  "max_runs": 1,
+  "manifest_download_bytes": 47008516,
+  "max_bytes_per_run": 47008516,
+  "max_total_download_bytes": 47008516,
+  "threads": 8,
+  "max_threads": 16,
+  "max_ram_gib": 128,
+  "max_wall_hours": 24,
+  "minimum_free_disk_bytes": 5000000000,
+  "resumable": true,
+  "checksum_required": true,
+  "substitution_allowed": false
+}
