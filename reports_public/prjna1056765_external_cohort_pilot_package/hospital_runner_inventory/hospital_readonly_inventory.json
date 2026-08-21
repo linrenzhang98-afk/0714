@@ -1,0 +1,176 @@
+{
+  "inventory_type": "READ_ONLY_HOSPITAL_RUNNER",
+  "generated_at": "2026-08-21T08:12:35+00:00",
+  "hostname": "ETYY",
+  "whoami": "suma",
+  "python_executable": "/home/suma/anaconda3/bin/python3",
+  "python_version": "3.13.9",
+  "project_path": "/mnt/disk1/db/kraken2/0714",
+  "project_path_exists": true,
+  "project_parent_writable": true,
+  "logical_threads": 32,
+  "cpu_model": "Hygon C86 3390  8-core Processor",
+  "load_average": [
+    1.31689453125,
+    1.33447265625,
+    1.22802734375
+  ],
+  "memory": {
+    "MemTotal": "127440240 kB",
+    "MemAvailable": "119115588 kB",
+    "SwapTotal": "8388604 kB",
+    "SwapFree": "5792352 kB"
+  },
+  "disk": {
+    "project": {
+      "path": "/mnt/disk1/db/kraken2/0714",
+      "total_bytes": 3584346660864,
+      "used_bytes": 441365999616,
+      "free_bytes": 2960829276160
+    },
+    "kraken2_db": {
+      "path": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+      "total_bytes": 3584346660864,
+      "used_bytes": 441365999616,
+      "free_bytes": 2960829276160
+    },
+    "bracken_db": {
+      "path": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+      "total_bytes": 3584346660864,
+      "used_bytes": 441365999616,
+      "free_bytes": 2960829276160
+    }
+  },
+  "kraken2": {
+    "path": "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+    "version": "Kraken version 2.17.1\nCopyright 2013-2023, Derrick Wood (dwood@cs.jhu.edu)",
+    "returncode": 0
+  },
+  "bracken": {
+    "path": "/home/suma/anaconda3/envs/mgshotgun/bin/bracken",
+    "version": "Bracken v3.0.1",
+    "returncode": 0
+  },
+  "kraken2_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+  "bracken_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+  "database_manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+  "database_files": [
+    {
+      "name": "database100mers.kmer_distrib",
+      "size_bytes": 4527123,
+      "mtime_epoch": 1670384493,
+      "sha256_if_small": "024ac52ddb07455d0a907ed441ecc6b9f547d1994d7116efbd63a7f08cbda7ec"
+    },
+    {
+      "name": "database150mers.kmer_distrib",
+      "size_bytes": 4414680,
+      "mtime_epoch": 1670399006,
+      "sha256_if_small": "beb4e7770fecd462681abe0380d58847a49416378efbbb208686ead46d6fa658"
+    },
+    {
+      "name": "database200mers.kmer_distrib",
+      "size_bytes": 4218078,
+      "mtime_epoch": 1670415798,
+      "sha256_if_small": "944fa858e73dfb24c6826f52dfdb07dda8de398294bdf78fa639c2a185e7d9f2"
+    },
+    {
+      "name": "database250mers.kmer_distrib",
+      "size_bytes": 3985555,
+      "mtime_epoch": 1670435699,
+      "sha256_if_small": "20e958c623e3e006d3491eacc1440fb5c2792de1d36e75c30263c5e3fa1e74b9"
+    },
+    {
+      "name": "database300mers.kmer_distrib",
+      "size_bytes": 3736366,
+      "mtime_epoch": 1670457398,
+      "sha256_if_small": "ac248ee6c4b6ea745ed528a60760eb59a4646f5a7ac5a145571aae8b47448986"
+    },
+    {
+      "name": "database50mers.kmer_distrib",
+      "size_bytes": 4309456,
+      "mtime_epoch": 1670362055,
+      "sha256_if_small": "f602aff61521ea3e354a2b6e8669d2829dfbea37e0a3a943314ef92135e5f0c2"
+    },
+    {
+      "name": "database75mers.kmer_distrib",
+      "size_bytes": 4481805,
+      "mtime_epoch": 1670372308,
+      "sha256_if_small": "91fc2a4b42318fce9bf5aa67e009eb7b743ffbca7a06da2664704c084c947bbd"
+    },
+    {
+      "name": "hash.k2d",
+      "size_bytes": 16000000032,
+      "mtime_epoch": 1670352200,
+      "sha256_if_small": "NOT_HASHED_SIZE_LIMIT"
+    },
+    {
+      "name": "inspect.txt",
+      "size_bytes": 2661796,
+      "mtime_epoch": 1670657400,
+      "sha256_if_small": "e957d8277cf12dd3e649a57f1aaae3ee7468a5d6d30353185f71018198ca03e8"
+    },
+    {
+      "name": "opts.k2d",
+      "size_bytes": 64,
+      "mtime_epoch": 1670352200,
+      "sha256_if_small": "80279333ae8d2e88f7bab5946ac843692d1662577d4a5f69a742c252f3f1d28b"
+    },
+    {
+      "name": "seqid2taxid.map",
+      "size_bytes": 46168860,
+      "mtime_epoch": 1670326387,
+      "sha256_if_small": "8c9e857f0899e41d745b921acd92b241894b1d816ffe43e6160788c52968494e"
+    },
+    {
+      "name": "taxo.k2d",
+      "size_bytes": 3173169,
+      "mtime_epoch": 1670334215,
+      "sha256_if_small": "4cf75aa017ec1a78edeb4a058ba2b7ab3117c0b8fb03213859b39ac2cfbded85"
+    }
+  ],
+  "bracken_redistributions": [
+    {
+      "file": "database100mers.kmer_distrib",
+      "read_length_nt": 100,
+      "size_bytes": 4527123,
+      "mtime_epoch": 1670384493
+    },
+    {
+      "file": "database150mers.kmer_distrib",
+      "read_length_nt": 150,
+      "size_bytes": 4414680,
+      "mtime_epoch": 1670399006
+    },
+    {
+      "file": "database200mers.kmer_distrib",
+      "read_length_nt": 200,
+      "size_bytes": 4218078,
+      "mtime_epoch": 1670415798
+    },
+    {
+      "file": "database250mers.kmer_distrib",
+      "read_length_nt": 250,
+      "size_bytes": 3985555,
+      "mtime_epoch": 1670435699
+    },
+    {
+      "file": "database300mers.kmer_distrib",
+      "read_length_nt": 300,
+      "size_bytes": 3736366,
+      "mtime_epoch": 1670457398
+    },
+    {
+      "file": "database50mers.kmer_distrib",
+      "read_length_nt": 50,
+      "size_bytes": 4309456,
+      "mtime_epoch": 1670362055
+    },
+    {
+      "file": "database75mers.kmer_distrib",
+      "read_length_nt": 75,
+      "size_bytes": 4481805,
+      "mtime_epoch": 1670372308
+    }
+  ],
+  "has_40nt_redistribution": false
+}
