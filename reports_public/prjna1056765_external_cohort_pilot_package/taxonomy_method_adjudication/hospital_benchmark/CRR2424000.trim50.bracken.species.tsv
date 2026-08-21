@@ -1,0 +1,6 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Prevotella melaninogenica	28132	S	795	283	1078	0.89908
+Prevotella nigrescens	28133	S	29	14	43	0.03586
+Veillonella rogosae	423477	S	13	21	34	0.02836
+Cutibacterium acnes	1747	S	16	3	19	0.01585
+Arabidopsis thaliana	3702	S	23	0	23	0.01918

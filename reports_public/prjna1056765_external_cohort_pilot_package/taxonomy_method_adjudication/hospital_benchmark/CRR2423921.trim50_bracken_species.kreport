@@ -1,0 +1,14 @@
+100.00	625	0	R	1	root
+100.00	625	0	R1	131567	  cellular organisms
+100.00	625	0	D	2	    Bacteria
+100.00	625	0	P	1224	      Proteobacteria
+100.00	625	0	C	1236	        Gammaproteobacteria
+93.44	583	0	O	135625	          Pasteurellales
+93.44	583	0	F	712	            Pasteurellaceae
+93.44	583	0	G	724	              Haemophilus
+93.44	583	583	S	727	                Haemophilus influenzae
+6.56	41	0	O	72274	          Pseudomonadales
+6.56	41	0	F	135621	            Pseudomonadaceae
+6.56	41	0	G	286	              Pseudomonas
+6.56	41	0	G1	136843	                Pseudomonas fluorescens group
+6.56	41	41	S	29442	                  Pseudomonas tolaasii

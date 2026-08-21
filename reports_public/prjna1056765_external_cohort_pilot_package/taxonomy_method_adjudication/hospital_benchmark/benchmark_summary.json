@@ -1,0 +1,167 @@
+{
+  "benchmark_type": "ZERO_DOWNLOAD_TAXONOMY_METHOD_DISCRIMINATION",
+  "generated_at": "2026-08-21T18:18:56+00:00",
+  "final_status": "stopped",
+  "stop_event": "CRR2424010: Bracken trim50 failed: {'returncode': 1, 'seconds': 1.006, 'peak_rss_kib': 276, 'peak_vmem_kib': 4616, 'stop_reason': ''}",
+  "new_downloaded_bytes": 0,
+  "wall_time_seconds": 162.279,
+  "peak_ram_kib": 15701168,
+  "final_workspace_bytes": 5564393,
+  "database_manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+  "kraken2_confidence": 0.0,
+  "kraken2_minimum_hit_groups": 2,
+  "bracken_redistribution": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209/database50mers.kmer_distrib",
+  "runs": [
+    {
+      "run_accession": "CRR2423957",
+      "architecture_role": "strictly_fixed_50_identity_control",
+      "retention": {
+        "total_reads": 72456,
+        "retained_reads": 72456,
+        "retained_read_fraction": 1.0,
+        "total_bases": 3622800,
+        "retained_input_bases": 3622800,
+        "retained_base_fraction": 1.0,
+        "trimmed_output_bases": 3622800,
+        "logical_input_sha256": "702b00f0dcd537025a12de0b4903661ffa64b0e39b69fca9d351c5e20f2651aa",
+        "logical_output_sha256": "702b00f0dcd537025a12de0b4903661ffa64b0e39b69fca9d351c5e20f2651aa"
+      },
+      "input_bytes": 2539990,
+      "input_sha256": "e36bb4ce63da9be85510ae6e484619e1f7d2c052a10be2406833ca25fab7c745",
+      "native_classified_fraction": 0.001324942033786022,
+      "trim50_classified_fraction": 0.001324942033786022,
+      "commands": {
+        "native": {
+          "returncode": 0,
+          "seconds": 32.026,
+          "peak_rss_kib": 15536396,
+          "peak_vmem_kib": 16872584,
+          "stop_reason": ""
+        },
+        "trim50": {
+          "returncode": 0,
+          "seconds": 21.021,
+          "peak_rss_kib": 15233904,
+          "peak_vmem_kib": 17347508,
+          "stop_reason": ""
+        }
+      },
+      "bracken": {
+        "returncode": 0,
+        "seconds": 1.007,
+        "peak_rss_kib": 292,
+        "peak_vmem_kib": 4616,
+        "stop_reason": ""
+      },
+      "status": "done",
+      "error": ""
+    },
+    {
+      "run_accession": "CRR2424000",
+      "architecture_role": "near_modal_50",
+      "retention": {
+        "total_reads": 56086,
+        "retained_reads": 55336,
+        "retained_read_fraction": 0.986627678921656,
+        "total_bases": 2787047,
+        "retained_input_bases": 2766800,
+        "retained_base_fraction": 0.9927353216504781,
+        "trimmed_output_bases": 2766800,
+        "logical_input_sha256": "ece8f6a13378ff033a65f06340e090f90ebf62999a78727c2fa547ca91daaeef",
+        "logical_output_sha256": "dca804c6085e55767aacafef6f21ffda0b5b5ab90cc268e73e5f110197867dde"
+      },
+      "input_bytes": 2000450,
+      "input_sha256": "56acf0da5c831bc5012d0fba8da64752ff2d0980ed377c75a4a8db01ce3a63a9",
+      "native_classified_fraction": 0.02569268623185822,
+      "trim50_classified_fraction": 0.026040913690906463,
+      "commands": {
+        "native": {
+          "returncode": 0,
+          "seconds": 16.017,
+          "peak_rss_kib": 15143704,
+          "peak_vmem_kib": 17183668,
+          "stop_reason": ""
+        },
+        "trim50": {
+          "returncode": 0,
+          "seconds": 16.018,
+          "peak_rss_kib": 15140620,
+          "peak_vmem_kib": 17445812,
+          "stop_reason": ""
+        }
+      },
+      "bracken": {
+        "returncode": 0,
+        "seconds": 1.007,
+        "peak_rss_kib": 588,
+        "peak_vmem_kib": 4628,
+        "stop_reason": ""
+      },
+      "status": "done",
+      "error": ""
+    },
+    {
+      "run_accession": "CRR2423921",
+      "architecture_role": "near_modal_75",
+      "retention": {
+        "total_reads": 22851,
+        "retained_reads": 22478,
+        "retained_read_fraction": 0.9836768631569734,
+        "total_bases": 1694607,
+        "retained_input_bases": 1685006,
+        "retained_base_fraction": 0.9943343795936167,
+        "trimmed_output_bases": 1123900,
+        "logical_input_sha256": "1ec5e4888872ff9284cfcf5406fde3dc72eac32c2cd1800a10951e04dc8292f2",
+        "logical_output_sha256": "bc8ad63a8b086826d5c104ebe6973919371749c61d1e76f8791af4b0c075ea0e"
+      },
+      "input_bytes": 956156,
+      "input_sha256": "c5fea80145a09ed57ed563e52919f28eac2abc1e41833972717ae5e4e072e6d9",
+      "native_classified_fraction": 0.09736991816550698,
+      "trim50_classified_fraction": 0.02856125989856749,
+      "commands": {
+        "native": {
+          "returncode": 0,
+          "seconds": 16.02,
+          "peak_rss_kib": 15109392,
+          "peak_vmem_kib": 17435572,
+          "stop_reason": ""
+        },
+        "trim50": {
+          "returncode": 0,
+          "seconds": 16.043,
+          "peak_rss_kib": 15114296,
+          "peak_vmem_kib": 17159092,
+          "stop_reason": ""
+        }
+      },
+      "bracken": {
+        "returncode": 0,
+        "seconds": 1.006,
+        "peak_rss_kib": 264,
+        "peak_vmem_kib": 4616,
+        "stop_reason": ""
+      },
+      "status": "done",
+      "error": ""
+    },
+    {
+      "run_accession": "CRR2424010",
+      "architecture_role": "strongly_mixed_75",
+      "retention": {
+        "total_reads": 38122,
+        "retained_reads": 10358,
+        "retained_read_fraction": 0.27170662609516816,
+        "total_bases": 1577698,
+        "retained_input_bases": 749572,
+        "retained_base_fraction": 0.4751048679785358,
+        "trimmed_output_bases": 517900,
+        "logical_input_sha256": "bed8db5d5d2be97f3a502ddd8a35e2652fffefca85d6c0042c83769670c412d9",
+        "logical_output_sha256": "0e05b96b36d069ee95307ed804ef9b1ac7977d4748bde22394b6ef2dcba7bbe9"
+      },
+      "status": "stopped",
+      "error": "Bracken trim50 failed: {'returncode': 1, 'seconds': 1.006, 'peak_rss_kib': 276, 'peak_vmem_kib': 4616, 'stop_reason': ''}"
+    }
+  ],
+  "host_filtering_performed": false,
+  "biological_inference": "PROHIBITED"
+}
