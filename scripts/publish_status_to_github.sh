@@ -24,6 +24,27 @@ if [ "$ENABLE_PRODUCTION_PLANNING" = "1" ] && [ -f "$PRJNA1056765_RUNINFO" ]; th
     --max-size-mb 1000
 fi
 
+READ_LENGTH_AUDIT_JOB="20260821T150000Z-prjca046985-read-length-audit"
+READ_LENGTH_AUDIT_RESULT="results/$READ_LENGTH_AUDIT_JOB"
+READ_LENGTH_AUDIT_PUBLIC="$PUBLIC_STATUS_DIR/prjna1056765_external_cohort_pilot_package/hospital_read_length_audit"
+if [ -f "$READ_LENGTH_AUDIT_RESULT/read_length_audit_summary.json" ]; then
+  mkdir -p "$READ_LENGTH_AUDIT_PUBLIC"
+  cp "$READ_LENGTH_AUDIT_RESULT/read_length_audit_summary.json" "$READ_LENGTH_AUDIT_PUBLIC/read_length_audit_summary.json"
+  cp "$READ_LENGTH_AUDIT_RESULT/complete_read_length_histograms.tsv" "$READ_LENGTH_AUDIT_PUBLIC/complete_read_length_histograms.tsv"
+  {
+    echo "generated_at=$(date -Is)"
+    echo "state=complete"
+    echo "source_job=$READ_LENGTH_AUDIT_JOB"
+  } > "$READ_LENGTH_AUDIT_PUBLIC/status.txt"
+elif [ -f "jobs/$READ_LENGTH_AUDIT_JOB.json" ]; then
+  mkdir -p "$READ_LENGTH_AUDIT_PUBLIC"
+  {
+    echo "generated_at=$(date -Is)"
+    echo "state=pending"
+    echo "source_job=$READ_LENGTH_AUDIT_JOB"
+  } > "$READ_LENGTH_AUDIT_PUBLIC/status.txt"
+fi
+
 EXTERNAL_PILOT_JOB="20260821T100000Z-prjca046985-bounded-technical-pilot"
 EXTERNAL_PILOT_RESULT="results/$EXTERNAL_PILOT_JOB"
 EXTERNAL_PILOT_PUBLIC="$PUBLIC_STATUS_DIR/prjna1056765_external_cohort_pilot_package/hospital_pilot_result"

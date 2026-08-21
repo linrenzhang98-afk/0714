@@ -1,4 +1,5 @@
 import importlib.util
+import gzip
 import json
 import tempfile
 import time
@@ -78,6 +79,31 @@ class BoundedExternalPilotTests(unittest.TestCase):
                 with self.assertRaises(RuntimeError):
                     MODULE.bounded_download(url, root / "frozen.fastq.gz", 10, budget, 2, root, 1024**2, time.monotonic() + 10)
             self.assertLessEqual(budget["consumed"], 10)
+
+    def test_read_length_audit_job_is_exact_and_taxonomy_disabled(self):
+        job = json.loads((ROOT / "jobs/20260821T150000Z-prjca046985-read-length-audit.json").read_text())
+        params = job["params"]
+        expected = {
+            "CRR2423961", "CRR2424000", "CRR2423957", "CRR2423986",
+            "CRR2423912", "CRR2423921", "CRR2423991", "CRR2424010",
+        }
+        self.assertEqual(params["execute_mode"], "bounded_read_length_audit")
+        self.assertEqual({row["run_accession"] for row in params["audit_runs"]}, expected)
+        self.assertEqual(sum(row["expected_bytes"] for row in params["audit_runs"]), 12_866_805)
+        self.assertEqual(params["maximum_download_bytes"], 12_866_805)
+        self.assertFalse(params["host_filtering"])
+        self.assertFalse(params["taxonomy"])
+        self.assertFalse(params["biological_inference"])
+
+    def test_fastq_inspection_reports_complete_histogram(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "reads.fq.gz"
+            with gzip.open(path, "wt", encoding="ascii") as handle:
+                for index, length in enumerate([50, 50, 75]):
+                    handle.write(f"@r{index}\n{'A' * length}\n+\n{'I' * length}\n")
+            result = MODULE.inspect_fastq_gz(path)
+            self.assertEqual(result["read_count"], 3)
+            self.assertEqual(result["read_length_counts"], {"50": 2, "75": 1})
 
 
 if __name__ == "__main__":

@@ -194,7 +194,7 @@ def directory_size(path: Path) -> int:
     return sum(item.stat().st_size for item in path.rglob("*") if item.is_file()) if path.exists() else 0
 
 
-def validate_fastq_gz(path: Path, expected_length: int) -> dict[str, Any]:
+def inspect_fastq_gz(path: Path) -> dict[str, Any]:
     read_count = 0
     length_counts: dict[int, int] = {}
     with gzip.open(path, "rt", encoding="ascii", errors="strict") as handle:
@@ -215,9 +215,15 @@ def validate_fastq_gz(path: Path, expected_length: int) -> dict[str, Any]:
             length_counts[len(sequence)] = length_counts.get(len(sequence), 0) + 1
     if read_count == 0:
         raise RuntimeError("empty FASTQ")
+    return {"read_count": read_count, "read_length_counts": {str(k): v for k, v in sorted(length_counts.items())}}
+
+
+def validate_fastq_gz(path: Path, expected_length: int) -> dict[str, Any]:
+    result = inspect_fastq_gz(path)
+    length_counts = {int(k): v for k, v in result["read_length_counts"].items()}
     if set(length_counts) != {expected_length}:
         raise RuntimeError(f"unexpected or mixed read lengths: {length_counts}; expected only {expected_length}")
-    return {"read_count": read_count, "read_length_counts": {str(k): v for k, v in sorted(length_counts.items())}}
+    return result
 
 
 def remaining_seconds(deadline: float) -> int:
@@ -449,6 +455,126 @@ def bounded_external_pilot(out_dir: Path, params: dict[str, Any], kraken2_db: Pa
         "biological_inference": "PROHIBITED",
     }
     write_json(out_dir / "pilot_summary.json", summary)
+    return 0 if summary["final_status"] == "done" else 2
+
+
+def bounded_read_length_audit(out_dir: Path, params: dict[str, Any]) -> int:
+    started = time.monotonic()
+    deadline = started + int(params.get("maximum_wall_time_seconds", 7200))
+    manifest = params.get("audit_runs", [])
+    allowed = {
+        "CRR2423961", "CRR2424000", "CRR2423957", "CRR2423986",
+        "CRR2423912", "CRR2423921", "CRR2423991", "CRR2424010",
+    }
+    if len(manifest) != 8 or {str(row.get("run_accession")) for row in manifest} != allowed:
+        raise RuntimeError("read-length audit allowlist mismatch")
+    maximum_download = int(params.get("maximum_download_bytes", 0))
+    if maximum_download != 12_866_805:
+        raise RuntimeError("frozen cumulative download cap mismatch")
+    if sum(int(row.get("expected_bytes", 0)) for row in manifest) != maximum_download:
+        raise RuntimeError("manifest byte sum does not equal cumulative cap")
+    if params.get("host_filtering") is not False or params.get("taxonomy") is not False:
+        raise RuntimeError("host filtering and taxonomy must be explicitly disabled")
+    maximum_workspace = int(params.get("maximum_working_space_bytes", 1_000_000_000))
+    if maximum_workspace > 1_000_000_000:
+        raise RuntimeError("workspace cap exceeds frozen audit envelope")
+    if shutil.disk_usage(out_dir).free < int(params.get("minimum_free_disk_bytes", 1_000_000_000)):
+        raise RuntimeError("minimum free disk requirement not met")
+
+    budget = {"consumed": 0, "maximum": maximum_download}
+    fastq_dir = out_dir / "fastq"
+    fastq_dir.mkdir(parents=True, exist_ok=True)
+    statuses: list[dict[str, Any]] = []
+    histogram_rows: list[dict[str, Any]] = []
+    stop_event = ""
+    installed_lengths = [50, 75, 100, 150, 200, 250, 300]
+
+    for row in manifest:
+        run = str(row["run_accession"])
+        expected_bytes = int(row["expected_bytes"])
+        status: dict[str, Any] = {"run_accession": run, "expected_bytes": expected_bytes}
+        try:
+            if run not in allowed:
+                raise RuntimeError(f"unauthorized run encountered: {run}")
+            if directory_size(out_dir) > maximum_workspace:
+                raise RuntimeError("workspace cap exceeded before download")
+            fastq = fastq_dir / f"{run}.fq.gz"
+            download = bounded_download(
+                str(row["url"]), fastq, expected_bytes, budget,
+                int(params.get("maximum_retry_count", 2)), out_dir,
+                maximum_workspace, deadline,
+            )
+            status.update(download)
+            status["downloaded_bytes"] = fastq.stat().st_size
+            status["sha256"] = sha256_small_file(fastq)
+            inspection = inspect_fastq_gz(fastq)
+            counts = {int(k): int(v) for k, v in inspection["read_length_counts"].items()}
+            total = int(inspection["read_count"])
+            highest = max(counts.values())
+            modal_lengths = sorted(k for k, value in counts.items() if value == highest)
+            for length, count in sorted(counts.items()):
+                histogram_rows.append({
+                    "run_accession": run,
+                    "read_length_nt": length,
+                    "read_count": count,
+                    "fraction": f"{count / total:.12f}",
+                })
+            status.update({
+                "fastq_integrity": "PASS",
+                "total_reads": total,
+                "minimum_read_length": min(counts),
+                "maximum_read_length": max(counts),
+                "distinct_read_lengths": len(counts),
+                "modal_read_length": modal_lengths[0],
+                "all_modal_read_lengths": modal_lengths,
+                "modal_read_count": highest,
+                "modal_fraction": highest / total,
+                "fractions_at_installed_bracken_lengths": {
+                    str(length): counts.get(length, 0) / total for length in installed_lengths
+                },
+                "read_length_classification": "FIXED_LENGTH" if len(counts) == 1 else "VARIABLE_LENGTH",
+                "status": "done",
+                "error": "",
+            })
+        except Exception as exc:  # noqa: BLE001 - mandatory stop is recorded.
+            status.update({"status": "stopped", "read_length_classification": "INVALID_STOPPED", "error": str(exc)})
+            stop_event = f"{run}: {exc}"
+        statuses.append(status)
+        if stop_event:
+            break
+        if directory_size(out_dir) > maximum_workspace:
+            stop_event = "workspace cap exceeded between runs"
+            break
+        remaining_seconds(deadline)
+
+    histogram_path = out_dir / "complete_read_length_histograms.tsv"
+    with histogram_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["run_accession", "read_length_nt", "read_count", "fraction"],
+            delimiter="\t",
+            lineterminator="\n",
+        )
+        writer.writeheader()
+        writer.writerows(histogram_rows)
+    summary = {
+        "audit_type": "BOUNDED_READ_LENGTH_ONLY",
+        "generated_at": utc_now(),
+        "final_status": "done" if len(statuses) == 8 and all(row.get("status") == "done" for row in statuses) else "stopped",
+        "stop_event": stop_event,
+        "cumulative_downloaded_bytes": budget["consumed"],
+        "wall_time_seconds": round(time.monotonic() - started, 3),
+        "peak_ram_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "final_workspace_bytes": directory_size(out_dir),
+        "fixed_length_count": sum(row.get("read_length_classification") == "FIXED_LENGTH" for row in statuses),
+        "variable_length_count": sum(row.get("read_length_classification") == "VARIABLE_LENGTH" for row in statuses),
+        "failed_or_unresolved_count": sum(row.get("status") != "done" for row in statuses),
+        "runs": statuses,
+        "taxonomy_performed": False,
+        "trimming_or_filtering_performed": False,
+        "biological_inference": "PROHIBITED",
+    }
+    write_json(out_dir / "read_length_audit_summary.json", summary)
     return 0 if summary["final_status"] == "done" else 2
 
 
@@ -721,9 +847,9 @@ def main() -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
-    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory", "bounded_external_pilot"}:
+    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit"}:
         errors.append("unsupported execute_mode")
-    if execute_mode in {"readonly_inventory", "bounded_external_pilot"}:
+    if execute_mode in {"readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit"}:
         rows: list[dict[str, str]] = []
     elif not shortlist_path.exists():
         errors.append(f"shortlist_path not found: {shortlist_path}")
@@ -731,13 +857,17 @@ def main() -> int:
     else:
         selected_offset = int(params.get("selected_offset", 0))
         rows = read_tsv(shortlist_path)[selected_offset:selected_offset + selected_limit]
-    if not kraken2_db.exists():
+    if execute_mode != "bounded_read_length_audit" and not kraken2_db.exists():
         errors.append(f"kraken2_db not found: {kraken2_db}")
-    if not bracken_db.exists():
+    if execute_mode != "bounded_read_length_audit" and not bracken_db.exists():
         warnings.append(f"bracken_db not found or not checked: {bracken_db}")
 
-    required = ["kraken2", "bracken"] if execute_mode in {"readonly_inventory", "bounded_external_pilot"} else ["prefetch", "fasterq-dump", "kraken2", "bracken"]
-    optional = ["fastp", "bowtie2", "samtools"]
+    if execute_mode == "bounded_read_length_audit":
+        required, optional = [], []
+    elif execute_mode in {"readonly_inventory", "bounded_external_pilot"}:
+        required, optional = ["kraken2", "bracken"], ["fastp", "bowtie2", "samtools"]
+    else:
+        required, optional = ["prefetch", "fasterq-dump", "kraken2", "bracken"], ["fastp", "bowtie2", "samtools"]
     commands = [command_status(cmd) for cmd in required + optional]
     missing_required = [c["command"] for c in commands if c["command"] in required and not c["available"]]
     if missing_required:
@@ -747,7 +877,7 @@ def main() -> int:
         warnings.append("Optional QC/host-removal commands missing: " + ", ".join(missing_optional))
     if execute_mode == "host_removal_amr_screen" and not host_index:
         errors.append("host_index is required for execute_mode=host_removal_amr_screen.")
-    elif not host_index:
+    elif not host_index and execute_mode != "bounded_read_length_audit":
         warnings.append("host_index not configured; host-removal commands are written as commented placeholders.")
 
     validation = {
@@ -774,6 +904,10 @@ def main() -> int:
         if errors:
             return 2
         return bounded_external_pilot(out_dir, params, kraken2_db, bracken_db, threads)
+    if execute_mode == "bounded_read_length_audit":
+        if errors:
+            return 2
+        return bounded_read_length_audit(out_dir, params)
 
     plan_lines = [
         "#!/usr/bin/env bash",

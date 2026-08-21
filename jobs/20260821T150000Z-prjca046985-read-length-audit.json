@@ -1,0 +1,26 @@
+{
+  "job_id": "20260821T150000Z-prjca046985-read-length-audit",
+  "task": "metagenome_deep_review",
+  "created_at": "2026-08-21T15:00:00+00:00",
+  "params": {
+    "execute_mode": "bounded_read_length_audit",
+    "maximum_download_bytes": 12866805,
+    "maximum_working_space_bytes": 1000000000,
+    "minimum_free_disk_bytes": 1000000000,
+    "maximum_retry_count": 2,
+    "maximum_wall_time_seconds": 7200,
+    "host_filtering": false,
+    "taxonomy": false,
+    "biological_inference": false,
+    "audit_runs": [
+      {"run_accession": "CRR2423961", "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423961/CRR2423961.fq.gz", "expected_bytes": 1531191},
+      {"run_accession": "CRR2424000", "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424000/CRR2424000.fq.gz", "expected_bytes": 2000450},
+      {"run_accession": "CRR2423957", "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423957/CRR2423957.fq.gz", "expected_bytes": 2539990},
+      {"run_accession": "CRR2423986", "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423986/CRR2423986.fq.gz", "expected_bytes": 2543406},
+      {"run_accession": "CRR2423912", "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423912/CRR2423912.fq.gz", "expected_bytes": 841555},
+      {"run_accession": "CRR2423921", "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423921/CRR2423921.fq.gz", "expected_bytes": 956156},
+      {"run_accession": "CRR2423991", "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423991/CRR2423991.fq.gz", "expected_bytes": 1216398},
+      {"run_accession": "CRR2424010", "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424010/CRR2424010.fq.gz", "expected_bytes": 1237659}
+    ]
+  }
+}
