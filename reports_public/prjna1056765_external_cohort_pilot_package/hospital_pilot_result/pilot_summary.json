@@ -1,0 +1,112 @@
+{
+  "pilot_type": "BOUNDED_TECHNICAL_SMOKE_ONLY",
+  "generated_at": "2026-08-21T12:15:38+00:00",
+  "final_status": "stopped",
+  "stop_event": "CRR2423909: unexpected or mixed read lengths: {30: 2057, 75: 34865, 35: 1844, 46: 945, 54: 670, 29: 9862, 27: 5592, 63: 555, 28: 7145, 68: 425, 39: 1930, 32: 2837, 31: 2466, 40: 1122, 42: 1093, 38: 1708, 34: 3542, 23: 430, 24: 525, 41: 1091, 36: 2008, 70: 450, 65: 491, 51: 868, 21: 411, 52: 646, 33: 2805, 60: 511, 62: 474, 56: 658, 67: 514, 55: 652, 53: 655, 26: 1567, 48: 849, 64: 515, 45: 955, 49: 976, 57: 570, 44: 1110, 37: 1964, 47: 808, 59: 594, 50: 747, 66: 520, 58: 612, 43: 1043, 19: 338, 61: 555, 69: 435, 17: 75, 25: 676, 18: 85, 20: 172, 22: 244, 15: 14, 16: 29}; expected only 75",
+  "cumulative_downloaded_bytes": 10526255,
+  "wall_time_seconds": 72.205,
+  "peak_ram_kib": 15767812,
+  "final_workspace_bytes": 20267316,
+  "database_manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+  "runs": [
+    {
+      "run_accession": "CRR2423962",
+      "expected_bytes": 6450611,
+      "expected_read_length": 50,
+      "attempts": 1,
+      "cumulative_bytes": 6450611,
+      "downloaded_bytes": 6450611,
+      "sha256": "8cb864aeeb334d0f3fab29ebd98d3d67842b7b71a422dc39c06dbe910567962c",
+      "read_count": 175080,
+      "read_length_counts": {
+        "50": 175080
+      },
+      "kraken2": {
+        "returncode": 0,
+        "seconds": 68.049,
+        "peak_rss_kib": 15610672,
+        "peak_vmem_kib": 16575380,
+        "stop_reason": ""
+      },
+      "bracken": {
+        "returncode": 0,
+        "seconds": 1.007,
+        "peak_rss_kib": 280,
+        "peak_vmem_kib": 4616,
+        "stop_reason": ""
+      },
+      "status": "done",
+      "redistribution_file": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209/database50mers.kmer_distrib",
+      "error": ""
+    },
+    {
+      "run_accession": "CRR2423909",
+      "expected_bytes": 4075644,
+      "expected_read_length": 75,
+      "attempts": 1,
+      "cumulative_bytes": 10526255,
+      "downloaded_bytes": 4075644,
+      "sha256": "4fdb7e6ccaf5d3d48d3bedb44ee2b38b72aeb495e3d6a32a70c789f3dc22fcdd",
+      "status": "stopped",
+      "error": "unexpected or mixed read lengths: {30: 2057, 75: 34865, 35: 1844, 46: 945, 54: 670, 29: 9862, 27: 5592, 63: 555, 28: 7145, 68: 425, 39: 1930, 32: 2837, 31: 2466, 40: 1122, 42: 1093, 38: 1708, 34: 3542, 23: 430, 24: 525, 41: 1091, 36: 2008, 70: 450, 65: 491, 51: 868, 21: 411, 52: 646, 33: 2805, 60: 511, 62: 474, 56: 658, 67: 514, 55: 652, 53: 655, 26: 1567, 48: 849, 64: 515, 45: 955, 49: 976, 57: 570, 44: 1110, 37: 1964, 47: 808, 59: 594, 50: 747, 66: 520, 58: 612, 43: 1043, 19: 338, 61: 555, 69: 435, 17: 75, 25: 676, 18: 85, 20: 172, 22: 244, 15: 14, 16: 29}; expected only 75"
+    }
+  ],
+  "output_inventory": [
+    {
+      "path": "database_identity/bracken_redistributions.tsv",
+      "size_bytes": 403,
+      "sha256_if_small": "1f7cd5536f5909da770c932e413e5afe8f41816fda4e64f5dc2cdd336db43cb5"
+    },
+    {
+      "path": "database_identity/hospital_readonly_inventory.json",
+      "size_bytes": 5372,
+      "sha256_if_small": "eb1ad2a61da093351a7deb1b27734104715228729c136a0b1ac82b57601643f7"
+    },
+    {
+      "path": "fastq/CRR2423909.fq.gz",
+      "size_bytes": 4075644,
+      "sha256_if_small": "4fdb7e6ccaf5d3d48d3bedb44ee2b38b72aeb495e3d6a32a70c789f3dc22fcdd"
+    },
+    {
+      "path": "fastq/CRR2423962.fq.gz",
+      "size_bytes": 6450611,
+      "sha256_if_small": "8cb864aeeb334d0f3fab29ebd98d3d67842b7b71a422dc39c06dbe910567962c"
+    },
+    {
+      "path": "logs/CRR2423962.bracken.log",
+      "size_bytes": 1427,
+      "sha256_if_small": "e62d5576efb086c4032b9dd54f2d8b8fb880044371c53685097ed9ba33ccd4c4"
+    },
+    {
+      "path": "logs/CRR2423962.kraken2.log",
+      "size_bytes": 195,
+      "sha256_if_small": "1f58d8b6edf66ea47b7a82525c19e3a1d778a466013dd731457d64c6331ae00f"
+    },
+    {
+      "path": "taxonomy/CRR2423962.bracken.species.tsv",
+      "size_bytes": 186,
+      "sha256_if_small": "e5f0358a467af1b5d71f29a5deee40f7dd87bb7d1e3a9ec70827f039790564aa"
+    },
+    {
+      "path": "taxonomy/CRR2423962.kraken2.out",
+      "size_bytes": 9721254,
+      "sha256_if_small": "b6b0c2e7e8684b558bf88dd7fe7a9e7380eac5a4d21a39ba55bd409dfbd20152"
+    },
+    {
+      "path": "taxonomy/CRR2423962.kreport",
+      "size_bytes": 9598,
+      "sha256_if_small": "069d5b7c4db2a422a2d11d2511d3990163073aa36db5d64fd5ad62b2fc65944a"
+    },
+    {
+      "path": "taxonomy/CRR2423962_bracken_species.kreport",
+      "size_bytes": 1604,
+      "sha256_if_small": "28951b36f6d78d9c5a88579b79a4b1095b280c155f4b7cbeb63b047701ad4c1f"
+    },
+    {
+      "path": "validation_report.json",
+      "size_bytes": 1022,
+      "sha256_if_small": "3b82e6d66a6f9d2c373a96e0dd8368899ea107555b26dd4df3e19fc1e91b7a26"
+    }
+  ],
+  "biological_inference": "PROHIBITED"
+}
