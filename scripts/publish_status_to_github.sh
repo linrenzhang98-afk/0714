@@ -24,6 +24,32 @@ if [ "$ENABLE_PRODUCTION_PLANNING" = "1" ] && [ -f "$PRJNA1056765_RUNINFO" ]; th
     --max-size-mb 1000
 fi
 
+EXTERNAL_PILOT_JOB="20260821T100000Z-prjca046985-bounded-technical-pilot"
+EXTERNAL_PILOT_RESULT="results/$EXTERNAL_PILOT_JOB"
+EXTERNAL_PILOT_PUBLIC="$PUBLIC_STATUS_DIR/prjna1056765_external_cohort_pilot_package/hospital_pilot_result"
+if [ -f "$EXTERNAL_PILOT_RESULT/pilot_summary.json" ]; then
+  mkdir -p "$EXTERNAL_PILOT_PUBLIC"
+  cp "$EXTERNAL_PILOT_RESULT/pilot_summary.json" "$EXTERNAL_PILOT_PUBLIC/pilot_summary.json"
+  find "$EXTERNAL_PILOT_RESULT" -maxdepth 2 -type f \( -name '*.kreport' -o -name '*.bracken.species.tsv' -o -name '*.log' -o -name 'hospital_readonly_inventory.json' -o -name 'bracken_redistributions.tsv' \) -print0 \
+    | while IFS= read -r -d '' source; do
+        relative="${source#$EXTERNAL_PILOT_RESULT/}"
+        mkdir -p "$EXTERNAL_PILOT_PUBLIC/$(dirname "$relative")"
+        cp "$source" "$EXTERNAL_PILOT_PUBLIC/$relative"
+      done
+  {
+    echo "generated_at=$(date -Is)"
+    echo "state=complete"
+    echo "source_job=$EXTERNAL_PILOT_JOB"
+  } > "$EXTERNAL_PILOT_PUBLIC/status.txt"
+elif [ -f "jobs/$EXTERNAL_PILOT_JOB.json" ]; then
+  mkdir -p "$EXTERNAL_PILOT_PUBLIC"
+  {
+    echo "generated_at=$(date -Is)"
+    echo "state=pending"
+    echo "source_job=$EXTERNAL_PILOT_JOB"
+  } > "$EXTERNAL_PILOT_PUBLIC/status.txt"
+fi
+
 if [ "$ENABLE_PRODUCTION_AUTOPILOT" = "1" ] && [ -f scripts/autopilot_production_batches.sh ]; then
   MAX_BATCH=20 bash scripts/autopilot_production_batches.sh
 fi

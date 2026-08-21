@@ -1,0 +1,36 @@
+{
+  "job_id": "20260821T100000Z-prjca046985-bounded-technical-pilot",
+  "task": "metagenome_deep_review",
+  "created_at": "2026-08-21T10:00:00+00:00",
+  "params": {
+    "execute_mode": "bounded_external_pilot",
+    "kraken2_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "bracken_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "threads": 8,
+    "maximum_download_bytes": 10526255,
+    "maximum_working_space_bytes": 5000000000,
+    "minimum_free_disk_bytes": 5000000000,
+    "maximum_retry_count": 2,
+    "maximum_wall_time_seconds": 28800,
+    "memory_cap_bytes": 68719476736,
+    "per_command_timeout_seconds": 14400,
+    "host_filtering": false,
+    "biological_inference": false,
+    "pilot_runs": [
+      {
+        "run_accession": "CRR2423962",
+        "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423962/CRR2423962.fq.gz",
+        "expected_bytes": 6450611,
+        "expected_read_length": 50,
+        "host_status": "HOST_DEPLETED"
+      },
+      {
+        "run_accession": "CRR2423909",
+        "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423909/CRR2423909.fq.gz",
+        "expected_bytes": 4075644,
+        "expected_read_length": 75,
+        "host_status": "HOST_DEPLETED"
+      }
+    ]
+  }
+}

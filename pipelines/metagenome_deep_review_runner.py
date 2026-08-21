@@ -18,6 +18,9 @@ import shutil
 import socket
 import subprocess
 import sys
+import time
+import urllib.request
+import resource
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -185,6 +188,268 @@ def readonly_inventory(out_dir: Path, project_path: Path, kraken2_db: Path, brac
         writer.writeheader()
         writer.writerows(redistributions)
     return 0
+
+
+def directory_size(path: Path) -> int:
+    return sum(item.stat().st_size for item in path.rglob("*") if item.is_file()) if path.exists() else 0
+
+
+def validate_fastq_gz(path: Path, expected_length: int) -> dict[str, Any]:
+    read_count = 0
+    length_counts: dict[int, int] = {}
+    with gzip.open(path, "rt", encoding="ascii", errors="strict") as handle:
+        while True:
+            header = handle.readline()
+            if not header:
+                break
+            sequence = handle.readline().rstrip("\r\n")
+            separator = handle.readline()
+            quality = handle.readline().rstrip("\r\n")
+            if not sequence or not separator or not quality:
+                raise RuntimeError("truncated FASTQ record")
+            if not header.startswith("@") or not separator.startswith("+"):
+                raise RuntimeError("invalid FASTQ record structure")
+            if len(sequence) != len(quality):
+                raise RuntimeError("sequence/quality length mismatch")
+            read_count += 1
+            length_counts[len(sequence)] = length_counts.get(len(sequence), 0) + 1
+    if read_count == 0:
+        raise RuntimeError("empty FASTQ")
+    if set(length_counts) != {expected_length}:
+        raise RuntimeError(f"unexpected or mixed read lengths: {length_counts}; expected only {expected_length}")
+    return {"read_count": read_count, "read_length_counts": {str(k): v for k, v in sorted(length_counts.items())}}
+
+
+def remaining_seconds(deadline: float) -> int:
+    remaining = int(deadline - time.monotonic())
+    if remaining <= 0:
+        raise RuntimeError("total wall-time cap reached")
+    return remaining
+
+
+def process_memory_kib(pid: int) -> dict[str, int]:
+    values = {"VmRSS": 0, "VmPeak": 0}
+    try:
+        for line in Path(f"/proc/{pid}/status").read_text(encoding="utf-8").splitlines():
+            key = line.split(":", 1)[0]
+            if key in values:
+                values[key] = int(line.split()[1])
+    except (OSError, ValueError, IndexError):
+        pass
+    return values
+
+
+def run_bounded_command(
+    args: list[str], log_path: Path, workspace: Path, workspace_cap: int,
+    deadline: float, memory_cap_bytes: int,
+) -> dict[str, Any]:
+    def enforce_child_limit() -> None:
+        resource.setrlimit(resource.RLIMIT_AS, (memory_cap_bytes, memory_cap_bytes))
+
+    started = time.monotonic()
+    peak_rss_kib = 0
+    peak_vmem_kib = 0
+    stop_reason = ""
+    with log_path.open("w", encoding="utf-8") as log:
+        process = subprocess.Popen(args, stdout=log, stderr=subprocess.STDOUT, text=True, preexec_fn=enforce_child_limit)
+        while process.poll() is None:
+            memory = process_memory_kib(process.pid)
+            peak_rss_kib = max(peak_rss_kib, memory["VmRSS"])
+            peak_vmem_kib = max(peak_vmem_kib, memory["VmPeak"])
+            if directory_size(workspace) > workspace_cap:
+                stop_reason = "workspace cap exceeded during command"
+            elif time.monotonic() >= deadline:
+                stop_reason = "total wall-time cap reached during command"
+            elif memory["VmRSS"] * 1024 > memory_cap_bytes:
+                stop_reason = "RAM cap exceeded during command"
+            if stop_reason:
+                process.terminate()
+                try:
+                    process.wait(timeout=30)
+                except subprocess.TimeoutExpired:
+                    process.kill()
+                    process.wait()
+                break
+            time.sleep(1)
+    return {
+        "returncode": process.returncode,
+        "seconds": round(time.monotonic() - started, 3),
+        "peak_rss_kib": peak_rss_kib,
+        "peak_vmem_kib": peak_vmem_kib,
+        "stop_reason": stop_reason,
+    }
+
+
+def bounded_download(
+    url: str, destination: Path, expected_bytes: int, budget: dict[str, int], retries: int,
+    workspace: Path, workspace_cap: int, deadline: float,
+) -> dict[str, Any]:
+    attempts = 0
+    last_error = ""
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    while attempts <= retries:
+        attempts += 1
+        tmp = destination.with_suffix(destination.suffix + ".part")
+        if tmp.exists():
+            tmp.unlink()
+        try:
+            request = urllib.request.Request(url, headers={"User-Agent": "0714-bounded-external-pilot/1.0"})
+            with urllib.request.urlopen(request, timeout=min(120, remaining_seconds(deadline))) as response, tmp.open("wb") as output:
+                if response.geturl() != url:
+                    raise RuntimeError(f"unexpected redirect: {response.geturl()}")
+                content_length = response.headers.get("Content-Length")
+                if content_length and int(content_length) != expected_bytes:
+                    raise RuntimeError(f"Content-Length {content_length} != frozen {expected_bytes}")
+                while True:
+                    chunk = response.read(1024 * 1024)
+                    if not chunk:
+                        break
+                    if budget["consumed"] + len(chunk) > budget["maximum"]:
+                        raise RuntimeError("cumulative download cap would be exceeded")
+                    if directory_size(workspace) + len(chunk) > workspace_cap:
+                        raise RuntimeError("workspace cap would be exceeded during download")
+                    remaining_seconds(deadline)
+                    output.write(chunk)
+                    budget["consumed"] += len(chunk)
+            if tmp.stat().st_size != expected_bytes:
+                raise RuntimeError(f"downloaded bytes {tmp.stat().st_size} != frozen {expected_bytes}")
+            tmp.replace(destination)
+            return {"attempts": attempts, "cumulative_bytes": budget["consumed"]}
+        except Exception as exc:  # noqa: BLE001 - retry policy is explicitly bounded.
+            last_error = str(exc)
+            if tmp.exists():
+                tmp.unlink()
+            if budget["consumed"] >= budget["maximum"]:
+                break
+    raise RuntimeError(f"download failed after {attempts} attempt(s): {last_error}")
+
+
+def bounded_external_pilot(out_dir: Path, params: dict[str, Any], kraken2_db: Path, bracken_db: Path, threads: int) -> int:
+    started = time.monotonic()
+    deadline = started + int(params.get("maximum_wall_time_seconds", 28800))
+    manifest = params.get("pilot_runs", [])
+    allowed = {"CRR2423962", "CRR2423909"}
+    if len(manifest) != 2 or {str(row.get("run_accession")) for row in manifest} != allowed:
+        raise RuntimeError("pilot allowlist mismatch")
+    if threads > 8:
+        raise RuntimeError("thread cap exceeded")
+    maximum_download = int(params.get("maximum_download_bytes", 0))
+    if maximum_download != 10526255:
+        raise RuntimeError("frozen cumulative download cap mismatch")
+    maximum_workspace = int(params.get("maximum_working_space_bytes", 0))
+    if maximum_workspace > 5_000_000_000:
+        raise RuntimeError("workspace cap exceeds authorization")
+    if shutil.disk_usage(out_dir).free < int(params.get("minimum_free_disk_bytes", 5_000_000_000)):
+        raise RuntimeError("minimum free disk requirement not met")
+    memory_cap_bytes = int(params.get("memory_cap_bytes", 0))
+    if memory_cap_bytes != 64 * 1024**3:
+        raise RuntimeError("64 GiB memory cap mismatch")
+    if not os.access(kraken2_db, os.R_OK) or not os.access(bracken_db, os.R_OK):
+        raise RuntimeError("classifier database is not readable")
+
+    db_inventory = readonly_inventory(out_dir / "database_identity", Path.cwd(), kraken2_db, bracken_db)
+    if db_inventory != 0:
+        raise RuntimeError("database identity inventory failed")
+    inventory = load_json(out_dir / "database_identity" / "hospital_readonly_inventory.json")
+    installed = {int(row["read_length_nt"]): row for row in inventory["bracken_redistributions"]}
+    if params.get("host_filtering") is not False:
+        raise RuntimeError("host filtering must be explicitly disabled")
+    for row in manifest:
+        if str(row.get("host_status")) != "HOST_DEPLETED":
+            raise RuntimeError(f"host-depletion provenance is not closed for {row.get('run_accession')}")
+        expected_length = int(row["expected_read_length"])
+        redistribution = bracken_db / str(installed.get(expected_length, {}).get("file", ""))
+        if expected_length not in installed or not redistribution.is_file():
+            raise RuntimeError(f"matching Bracken redistribution missing for {expected_length} nt")
+    budget = {"consumed": 0, "maximum": maximum_download}
+    fastq_dir = out_dir / "fastq"
+    taxonomy_dir = out_dir / "taxonomy"
+    logs_dir = out_dir / "logs"
+    for directory in (fastq_dir, taxonomy_dir, logs_dir):
+        directory.mkdir(parents=True, exist_ok=True)
+    statuses: list[dict[str, Any]] = []
+    stop_event = ""
+
+    for row in manifest:
+        run = str(row["run_accession"])
+        expected_bytes = int(row["expected_bytes"])
+        expected_length = int(row["expected_read_length"])
+        status: dict[str, Any] = {"run_accession": run, "expected_bytes": expected_bytes, "expected_read_length": expected_length}
+        try:
+            if expected_length not in installed:
+                raise RuntimeError(f"matching Bracken redistribution missing for {expected_length} nt")
+            redistribution = bracken_db / str(installed[expected_length]["file"])
+            if not redistribution.is_file():
+                raise RuntimeError(f"matching Bracken redistribution missing: {redistribution}")
+            fastq = fastq_dir / f"{run}.fq.gz"
+            if directory_size(out_dir) > maximum_workspace:
+                raise RuntimeError("workspace cap exceeded before download")
+            download = bounded_download(
+                str(row["url"]), fastq, expected_bytes, budget, int(params.get("maximum_retry_count", 2)),
+                out_dir, maximum_workspace, deadline,
+            )
+            status.update(download)
+            status["downloaded_bytes"] = fastq.stat().st_size
+            status["sha256"] = sha256_small_file(fastq)
+            status.update(validate_fastq_gz(fastq, expected_length))
+
+            kreport = taxonomy_dir / f"{run}.kreport"
+            kout = taxonomy_dir / f"{run}.kraken2.out"
+            bracken_out = taxonomy_dir / f"{run}.bracken.species.tsv"
+            if directory_size(out_dir) > maximum_workspace:
+                raise RuntimeError("workspace cap exceeded before Kraken2")
+            kraken = run_bounded_command([
+                "kraken2", "--db", str(kraken2_db), "--threads", str(threads),
+                "--report", str(kreport), "--output", str(kout), str(fastq),
+            ], logs_dir / f"{run}.kraken2.log", out_dir, maximum_workspace, deadline, memory_cap_bytes)
+            status["kraken2"] = kraken
+            if kraken["returncode"] != 0 or kraken["stop_reason"] or not file_nonempty(kreport):
+                raise RuntimeError(f"Kraken2 failed: {kraken}")
+
+            if directory_size(out_dir) > maximum_workspace:
+                raise RuntimeError("workspace cap exceeded before Bracken")
+            bracken = run_bounded_command([
+                "bracken", "-d", str(bracken_db), "-i", str(kreport), "-o", str(bracken_out),
+                "-r", str(expected_length), "-l", "S",
+            ], logs_dir / f"{run}.bracken.log", out_dir, maximum_workspace, deadline, memory_cap_bytes)
+            status["bracken"] = bracken
+            if bracken["returncode"] != 0 or bracken["stop_reason"] or not file_nonempty(bracken_out):
+                raise RuntimeError(f"Bracken failed: {bracken}")
+            status.update({"status": "done", "redistribution_file": str(redistribution), "error": ""})
+        except Exception as exc:  # noqa: BLE001 - mandatory stop is recorded.
+            status.update({"status": "stopped", "error": str(exc)})
+            stop_event = f"{run}: {exc}"
+        statuses.append(status)
+        if stop_event:
+            break
+        if directory_size(out_dir) > maximum_workspace:
+            stop_event = "workspace cap exceeded"
+            break
+        if time.monotonic() >= deadline:
+            stop_event = "wall-time cap exceeded"
+            break
+
+    output_inventory = []
+    for path in sorted(out_dir.rglob("*")):
+        if path.is_file():
+            output_inventory.append({"path": str(path.relative_to(out_dir)), "size_bytes": path.stat().st_size, "sha256_if_small": sha256_small_file(path)})
+    peak_kib = max(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss)
+    summary = {
+        "pilot_type": "BOUNDED_TECHNICAL_SMOKE_ONLY",
+        "generated_at": utc_now(),
+        "final_status": "done" if len(statuses) == 2 and all(row.get("status") == "done" for row in statuses) else "stopped",
+        "stop_event": stop_event,
+        "cumulative_downloaded_bytes": budget["consumed"],
+        "wall_time_seconds": round(time.monotonic() - started, 3),
+        "peak_ram_kib": peak_kib,
+        "final_workspace_bytes": directory_size(out_dir),
+        "database_manifest_identity_sha256": inventory["database_manifest_identity_sha256"],
+        "runs": statuses,
+        "output_inventory": output_inventory,
+        "biological_inference": "PROHIBITED",
+    }
+    write_json(out_dir / "pilot_summary.json", summary)
+    return 0 if summary["final_status"] == "done" else 2
 
 
 def execute_host_removal_amr(
@@ -456,9 +721,9 @@ def main() -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
-    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory"}:
-        errors.append("execute_mode must be plan_only, readonly_inventory, or host_removal_amr_screen.")
-    if execute_mode == "readonly_inventory":
+    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory", "bounded_external_pilot"}:
+        errors.append("unsupported execute_mode")
+    if execute_mode in {"readonly_inventory", "bounded_external_pilot"}:
         rows: list[dict[str, str]] = []
     elif not shortlist_path.exists():
         errors.append(f"shortlist_path not found: {shortlist_path}")
@@ -471,7 +736,7 @@ def main() -> int:
     if not bracken_db.exists():
         warnings.append(f"bracken_db not found or not checked: {bracken_db}")
 
-    required = ["kraken2", "bracken"] if execute_mode == "readonly_inventory" else ["prefetch", "fasterq-dump", "kraken2", "bracken"]
+    required = ["kraken2", "bracken"] if execute_mode in {"readonly_inventory", "bounded_external_pilot"} else ["prefetch", "fasterq-dump", "kraken2", "bracken"]
     optional = ["fastp", "bowtie2", "samtools"]
     commands = [command_status(cmd) for cmd in required + optional]
     missing_required = [c["command"] for c in commands if c["command"] in required and not c["available"]]
@@ -505,6 +770,10 @@ def main() -> int:
             return 2
         project_path = Path(str(params.get("project_path", "/mnt/disk1/db/kraken2/0714")))
         return readonly_inventory(out_dir, project_path, kraken2_db, bracken_db)
+    if execute_mode == "bounded_external_pilot":
+        if errors:
+            return 2
+        return bounded_external_pilot(out_dir, params, kraken2_db, bracken_db, threads)
 
     plan_lines = [
         "#!/usr/bin/env bash",
