@@ -1,0 +1,38 @@
+{
+  "generated": "2026-08-20T00:00:00+08:00",
+  "scope": "metadata-only; no FASTQ downloaded",
+  "candidate_families": 13,
+  "priority_A": 1,
+  "priority_B": 2,
+  "verified_runinfo_snapshots": {
+    "PRJNA977832": {
+      "runs": 718,
+      "compressed_GB": 917.36
+    },
+    "PRJNA991321": {
+      "runs": 56,
+      "compressed_GB": 147.21
+    },
+    "PRJNA979827": {
+      "runs": 22,
+      "compressed_GB": 43.01
+    },
+    "PRJNA450137": {
+      "runs": 184,
+      "compressed_GB": 2.0
+    },
+    "PRJNA875913": {
+      "runs": 293,
+      "compressed_GB": 3.81
+    },
+    "PRJNA419524": {
+      "runs": 120,
+      "compressed_GB": 24.54
+    },
+    "PRJNA1216061": {
+      "runs": 287,
+      "compressed_GB": 31.81
+    }
+  },
+  "sources": "Primary articles, NCBI SRA RunInfo, NGDC BioProject/GSA/OMIX metadata. Unresolved fields are explicit."
+}

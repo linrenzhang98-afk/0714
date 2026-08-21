@@ -1,0 +1,3 @@
+item	cohort	why_needed	alternative_attempted	scientific_importance	can_defer	recommended_action
+NGDC GSA file-list endpoint	PRJCA046985; PRJCA039020; PRJCA028177	exact run layout, checksum and byte totals	BioProject HTML, primary papers, INSDC mirror for PRJCA039020; direct GSA pages returned empty/timeout	medium for priority ordering; high before pilot	yes	retry API/file-list during pilot manifest freeze; do not download reads
+OMIX per-file manifest	PRJCA027972	distinguish Illumina and Nanopore records	journal paper and release-level archive metadata	medium	yes	retrieve manifest before choosing pilot accessions
