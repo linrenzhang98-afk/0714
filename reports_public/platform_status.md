@@ -1,17 +1,19 @@
 # Platform Status
 
-Generated at: 2026-08-15T00:46:29+00:00
+Generated at: 2026-08-21T08:12:36+00:00
 
 ## Job Status Counts
 
-- done: 67
+- done: 68
 - failed: 11
 - rejected: 1
 
 ## Recent Event Counts
 
-- job_rejected: 40
-- scan: 40
+- job_finish: 1
+- job_rejected: 39
+- job_start: 1
+- scan: 39
 
 ## Decision Requests
 
@@ -19,7 +21,7 @@ Generated at: 2026-08-15T00:46:29+00:00
 
 ## Recent Jobs
 
-- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-15T00:46:29+00:00, error: params.dataset_path is outside allowed_data_roots
+- 2026-07-15-demo-metabolomics-001: rejected, updated 2026-08-21T08:12:35+00:00, error: params.dataset_path is outside allowed_data_roots
 - 2026-07-15-demo-report-001: done (generate_report), updated 2026-07-22T04:30:39+00:00
 - 2026-07-23-prjna1056765-safe-test: done (metagenome_adaptive), updated 2026-07-23T00:56:54+00:00
 - 2026-07-23-prjna1056765-wrapper-test: done (metagenome_adaptive), updated 2026-07-23T01:02:00+00:00
@@ -98,13 +100,10 @@ Generated at: 2026-08-15T00:46:29+00:00
 - 20260808T110000Z-prjna511633-icpp-16s-full-auto-depth10-optional-retry: done (amplicon_qiime2), updated 2026-08-08T10:02:02+00:00
 - 20260808T130000Z-prjna511633-icpp-16s-single-forward-retry: done (amplicon_qiime2), updated 2026-08-08T13:52:48+00:00
 - 20260808T143000Z-prjna511633-icpp-16s-single-reverse-retry: done (amplicon_qiime2), updated 2026-08-08T16:03:31+00:00
+- 20260821T070000Z-external-cohort-readonly-inventory: done (metagenome_deep_review), updated 2026-08-21T08:12:35+00:00
 
 ## Last Events
 
-- 2026-08-14T18:03:54+00:00 scan
-- 2026-08-14T18:03:54+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
-- 2026-08-14T18:43:59+00:00 scan
-- 2026-08-14T18:43:59+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-14T19:24:24+00:00 scan
 - 2026-08-14T19:24:24+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-14T20:45:14+00:00 scan
@@ -121,6 +120,10 @@ Generated at: 2026-08-15T00:46:29+00:00
 - 2026-08-15T00:06:24+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 - 2026-08-15T00:46:29+00:00 scan
 - 2026-08-15T00:46:29+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
+- 2026-08-21T08:12:35+00:00 scan
+- 2026-08-21T08:12:35+00:00 job_start job=20260821T070000Z-external-cohort-readonly-inventory
+- 2026-08-21T08:12:35+00:00 job_finish job=20260821T070000Z-external-cohort-readonly-inventory status=done
+- 2026-08-21T08:12:35+00:00 job_rejected job=2026-07-15-demo-metabolomics-001 error=params.dataset_path is outside allowed_data_roots
 
 ## Public Safety Note
 
