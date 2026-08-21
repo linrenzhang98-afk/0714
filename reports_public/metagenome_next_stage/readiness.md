@@ -1,6 +1,6 @@
 # Metagenome Next-Stage Readiness
 
-Generated at: 2026-08-21T08:53:11+00:00
+Generated at: 2026-08-21T09:33:25+00:00
 Deep-review samples: 30
 Recommended stage: `host_removal_and_amr_ready`
 
