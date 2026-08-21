@@ -20,11 +20,11 @@ Cross-cohort interpretation requires a matched Kraken2-only layer for PRJNA10567
 - Length-stratified Bracken lacks validated aggregation mathematics.
 - PRJCA039020 has unresolved individual CAP/severe mapping and lacks 40-nt Bracken redistribution. PRJNA977832 has unresolved mapping/provenance and a 917-GB footprint. PRJCA027972 remains a reserve with clinical-label validation pending. None is presently a clean primary replacement.
 
-## Evidence still required
+## Post-audit evidence state
 
-A small metadata-stratified raw-read length audit is necessary to learn whether `CRR2423909` is exceptional or reflects deposited preprocessing across PRJCA046985. This audit would inspect length distributions only and would not run taxonomy.
+The authorized metadata-stratified audit is complete. All eight files matched their expected byte counts and passed gzip/FASTQ integrity. One was strictly fixed at 50 nt; seven contained multiple read lengths. Variable-length files occurred in both nominal-length and both clinical-label strata. The earlier `CRR2423909` observation is therefore not an isolated anomaly.
 
-### Separate minimal read-length audit proposal
+### Completed bounded read-length audit
 
 Eight runs, selected solely by nominal metadata stratum, clinical group and smallest file size within each stratum:
 
@@ -35,6 +35,6 @@ Eight runs, selected solely by nominal metadata stratum, clinical group and smal
 | 75 nt | Drug Sensitive | CRR2423912, CRR2423921 | 1,797,711 |
 | 75 nt | Drug Resistance | CRR2423991, CRR2424010 | 2,454,057 |
 
-Exact maximum cumulative download: **12,866,805 bytes**.
+Exact cumulative download: **12,866,805 bytes**.
 
-Permitted future operations would be download identity/size checks, gzip/FASTQ integrity and complete read-length histograms. No trimming, host filtering, Kraken2, Bracken, taxonomy or biological inference would be permitted. The audit requires explicit new raw-read authorization before execution.
+No trimming, host filtering, Kraken2, Bracken, taxonomy or biological inference was performed. The result resolves the run-anomaly question but does not choose or validate a common taxonomy method. DeepSeek's post-audit verdict remains **INSUFFICIENT_EVIDENCE**. Further raw-read characterization is not needed for that narrow question; any taxonomy strategy requires a new reviewed plan and authorization.
