@@ -1,0 +1,2 @@
+candidate_status	run_accession	subject_id	clinical_group	expected_bytes	expected_fixed_read_length	matching_redistribution	reason
+NO_DEFENSIBLE_FIXED_LENGTH_REPLACEMENT	NONE	NA	NA	NA	NA	NA	Remaining 128 deposited FASTQs have nominal/average 50- or 75-nt metadata but no direct evidence of fixed deposited read length; nominal maximum/average is insufficient after the CRR2423909 discrepancy
