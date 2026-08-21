@@ -1,0 +1,28 @@
+100.00	93	0	R	1	root
+100.00	93	0	R1	131567	  cellular organisms
+100.00	93	0	D	2759	    Eukaryota
+100.00	93	0	K	33090	      Viridiplantae
+100.00	93	0	P	35493	        Streptophyta
+100.00	93	0	P1	131221	          Streptophytina
+100.00	93	0	P2	3193	            Embryophyta
+100.00	93	0	P3	58023	              Tracheophyta
+100.00	93	0	P4	78536	                Euphyllophyta
+100.00	93	0	P5	58024	                  Spermatophyta
+100.00	93	0	C	3398	                    Magnoliopsida
+100.00	93	0	C1	1437183	                      Mesangiospermae
+100.00	93	0	C2	71240	                        eudicotyledons
+100.00	93	0	C3	91827	                          Gunneridae
+100.00	93	0	C4	1437201	                            Pentapetalae
+100.00	93	0	C5	71275	                              rosids
+86.44	80	0	C6	91836	                                malvids
+86.44	80	0	O	3699	                                  Brassicales
+86.44	80	0	F	3700	                                    Brassicaceae
+86.44	80	0	F1	980083	                                      Camelineae
+86.44	80	0	G	3701	                                        Arabidopsis
+86.44	80	80	S	3702	                                          Arabidopsis thaliana
+13.56	12	0	C6	91835	                                fabids
+13.56	12	0	O	71239	                                  Cucurbitales
+13.56	12	0	F	3650	                                    Cucurbitaceae
+13.56	12	0	F1	1003877	                                      Benincaseae
+13.56	12	0	G	102210	                                        Benincasa
+13.56	12	12	S	102211	                                          Benincasa hispida

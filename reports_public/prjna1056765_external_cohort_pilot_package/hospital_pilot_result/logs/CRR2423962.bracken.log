@@ -1,0 +1,19 @@
+ >> Checking for Valid Options...
+ >> Running Bracken 
+      >> python src/est_abundance.py -i /mnt/disk1/db/kraken2/0714/results/20260821T100000Z-prjca046985-bounded-technical-pilot/taxonomy/CRR2423962.kreport -o /mnt/disk1/db/kraken2/0714/results/20260821T100000Z-prjca046985-bounded-technical-pilot/taxonomy/CRR2423962.bracken.species.tsv -k /mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209/database50mers.kmer_distrib -l S -t 10
+>> Checking report file: /mnt/disk1/db/kraken2/0714/results/20260821T100000Z-prjca046985-bounded-technical-pilot/taxonomy/CRR2423962.kreport
+PROGRAM START TIME: 08-21-2026 12:15:36
+BRACKEN SUMMARY (Kraken report: /mnt/disk1/db/kraken2/0714/results/20260821T100000Z-prjca046985-bounded-technical-pilot/taxonomy/CRR2423962.kreport)
+    >>> Threshold: 10 
+    >>> Number of species in sample: 22 
+	  >> Number of species with reads > threshold: 2 
+	  >> Number of species with reads < threshold: 20 
+    >>> Total reads in sample: 175080
+	  >> Total reads kept at species level (reads > threshold): 88
+	  >> Total reads discarded (species reads < threshold): 36
+	  >> Reads distributed: 5
+	  >> Reads not distributed (eg. no species above threshold): 293
+	  >> Unclassified reads: 174658
+BRACKEN OUTPUT PRODUCED: /mnt/disk1/db/kraken2/0714/results/20260821T100000Z-prjca046985-bounded-technical-pilot/taxonomy/CRR2423962.bracken.species.tsv
+PROGRAM END TIME: 08-21-2026 12:15:36
+  Bracken complete.
