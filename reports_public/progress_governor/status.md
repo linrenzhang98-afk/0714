@@ -1,22 +1,26 @@
 # Progress Governor Status
 
-Generated at: 2026-08-21T11:34:01+00:00
-Progress state: `public_data_submission_ready`
+Generated at: 2026-08-21T12:15:39+00:00
+Progress state: `stalled_failed_jobs`
 
 ## Reason
 
-- Compute jobs and the shotgun functional profile stage are final; the public-data-only manuscript route is selected and the submission package is available.
+- 1 failed and 0 rejected non-demo job(s) require repair.
 
 ## Required Next Action
 
-- Proceed with public-data manuscript polishing, figure/table finalization, and target-journal formatting; qPCR validation is optional follow-up, not a current blocker.
+- Codex should inspect failed job metadata and patch the minimal repository-side cause.
 
 ## Operational Counts
 
-- Job files: 80
+- Job files: 81
 - Pending/non-final jobs: 0
-- Failed jobs: 0
+- Failed jobs: 1
 - Rejected non-demo jobs: 0
 - Host-AMR complete: True
 - Host-AMR hit rows: 0
 - Functional profile state: done
+
+## Failed Jobs
+
+- 20260821T100000Z-prjca046985-bounded-technical-pilot
