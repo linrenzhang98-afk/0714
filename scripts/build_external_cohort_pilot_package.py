@@ -139,7 +139,7 @@ for row in ena39:
         "platform": row["instrument_model"], "layout": row["library_layout"],
         "read_length": str(round(int(row["base_count"]) / int(row["read_count"]))) if int(row["read_count"]) else "",
         "compressed_bytes": row["fastq_bytes"], "md5": row["fastq_md5"], "fastq_ftp": row["fastq_ftp"],
-        "host_depletion_provenance": "Specimen nuclease depletion and paper-level hg38 subtraction reported; deposited-file state unresolved",
+        "host_depletion_provenance": "QUALIFIED_RAW: paper Data Availability calls deposit raw sequence data; wet-lab Benzonase occurred before library and SNAP hg38 was downstream analysis",
         "pilot_biological_eligibility": "NO",
     })
 tsv_write(MAN / "PRJCA039020_exact_manifest.tsv", manifest39)
@@ -245,7 +245,7 @@ for study, note in [
     }], control_fields)
 
 technical = [
-    {"study": "PRJCA039020/PRJDB36521", "site": "Zengcheng Branch, Nanfang Hospital", "platform": "Illumina NextSeq 550", "library_layout": "single-end", "read_length": "40 nt", "host_depletion_status": "UNRESOLVED deposited-file state", "host_depletion_tool": "Tween/Benzonase before extraction; SNAP hg38 in paper", "host_reference": "hg38 (paper)", "technical_batch": "not public", "negative_controls": "none identified", "raw_or_host_depleted": "UNRESOLVED", "taxonomy_compatibility": "Kraken2 conditional; Bracken STOP without 40-mer redistribution"},
+    {"study": "PRJCA039020/PRJDB36521", "site": "Zengcheng Branch, Nanfang Hospital", "platform": "Illumina NextSeq 550", "library_layout": "single-end", "read_length": "40 nt", "host_depletion_status": "QUALIFIED_RAW: wet-lab depleted, computationally unfiltered deposit per paper ordering", "host_depletion_tool": "Tween/Benzonase before extraction; SNAP hg38 in paper", "host_reference": "hg38 (paper)", "technical_batch": "not public", "negative_controls": "none identified", "raw_or_host_depleted": "RAW with pre-library Benzonase", "taxonomy_compatibility": "Kraken2 conditional; Bracken compatibility unverified—execution stop"},
     {"study": "PRJCA046985/CRA034880", "site": "Xuzhou Hospital affiliated to Beijing Ditan Hospital", "platform": "DNBSEQ-G99", "library_layout": "single public FASTQ per DNA subject; pairing undeclared", "read_length": "~50/75 nt before host removal", "host_depletion_status": "public file linked to supplementary unhost_reads", "host_depletion_tool": "paper/supplement output terminology; exact tool pending", "host_reference": "UNRESOLVED", "technical_batch": "not public", "negative_controls": "none identified", "raw_or_host_depleted": "HOST-DEPLETED LIKELY; explicit file statement still desirable", "taxonomy_compatibility": "Kraken2 conditional; Bracken read-length adaptation likely required"},
     {"study": "PRJNA977832/SRP440548", "site": "paper: First Hospital of Changsha; repository submitter: Zhongnan Hospital", "platform": "Illumina NovaSeq 6000", "library_layout": "single-end", "read_length": "648 x 50 nt; 70 x 40 nt", "host_depletion_status": "UNRESOLVED at deposited-file level", "host_depletion_tool": "filename signals only, not accepted", "host_reference": "UNRESOLVED", "technical_batch": "library L1-L718; two read-length strata", "negative_controls": "none identified", "raw_or_host_depleted": "UNRESOLVED", "taxonomy_compatibility": "metadata-only; Bracken STOP at 40/50 nt unless matching redistributions exist"},
 ]
@@ -258,7 +258,7 @@ selected = min(manifest39, key=lambda r: abs(int(r["compressed_bytes"]) - target
 pilot_rows = [{
     "run_accession": selected["run_accession"], "subject_id": "UNRESOLVED", "group": "UNRESOLVED",
     "sample_role": "technical_compatibility_only", "layout": selected["layout"], "read_length": selected["read_length"],
-    "compressed_bytes": selected["compressed_bytes"], "checksum": selected["md5"],
+    "compressed_bytes": selected["compressed_bytes"], "checksum_md5": selected["md5"],
     "reason_selected": "Run closest to cohort median compressed size; selection did not use microbial composition or inferred clinical group",
 }]
 tsv_write(PILOT / "PRJCA039020_pilot_manifest.tsv", pilot_rows)
@@ -285,7 +285,7 @@ The required rule is conservative: absence of verified evidence for a matching B
 
 | Cohort | Verdict | Reason |
 |---|---|---|
-| PRJCA039020 | **STOP / adaptation required** | Kraken2 input is technically plausible, but reads are 40 nt and only a 100-mer Bracken redistribution is evidenced. Deposited-file host-depletion state and clinical grouping are unresolved. |
+| PRJCA039020 | **STOP / adaptation required** | Kraken2 input is technically plausible, but 40-nt Bracken compatibility is unverified. The deposit is qualified RAW; clinical grouping remains unresolved. |
 | PRJCA046985 | **CONDITIONAL** | Direct DR/DS mapping is complete and files are small. Public files correspond to `unhost_reads`, but layout, exact host-depletion implementation and compatible 50/75-mer Bracken redistribution require live confirmation. |
 | PRJNA977832 | **STOP** | Metadata-only by design; HIV mapping and host state are unresolved, and 40/50-nt Bracken compatibility is not evidenced. |
 
@@ -320,8 +320,8 @@ write(OUT / "pilot_authorization_brief.md", f"""
 4. **Exact download:** {pilot_bytes:,} bytes ({pilot_bytes/1e9:.6f} GB decimal).
 5. **Working-space floor:** {caps['minimum_free_disk_bytes']:,} bytes ({caps['minimum_free_disk_bytes']/1e9:.3f} GB decimal), checked again immediately before execution.
 6. **Runtime:** bounded at 24 h; expected under 2 h for this sub-GB file if network and classifier are healthy, but no live benchmark is claimed.
-7. **Compatibility:** **STOP / adaptation required** because the 40-nt Bracken redistribution is not verified; only 100-mer use is evidenced.
-8. **Host depletion:** specimen nuclease treatment and paper-level hg38 subtraction are documented, but deposited-file state is unresolved. No further host filtering may run until resolved.
+7. **Compatibility:** **STOP / adaptation required** because 40-nt Bracken compatibility is unverified; only 100-mer use is evidenced.
+8. **Host depletion:** qualified RAW. Paper Data Availability calls the deposit raw sequence data, with Benzonase before library construction and SNAP hg38 in downstream analysis.
 9. **Negative controls:** none publicly identified; the frozen technical pilot contains no negative control.
 10. **Stop conditions:** checksum mismatch; accession outside allowlist; size above manifest/cap; layout/read-length mismatch; unresolved host state at filtering stage; missing matching Bracken redistribution; insufficient disk/RAM; repeated download/tool failure; any request for biological inference.
 11. **Can establish:** download integrity, FASTQ structure, observed read length, existing-host-state compatibility, Kraken2/Bracken executable compatibility if all STOPs clear, runtime/disk use, classified fraction and output layout.

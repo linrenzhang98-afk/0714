@@ -10,7 +10,7 @@ The required rule is conservative: absence of verified evidence for a matching B
 
 | Cohort | Verdict | Reason |
 |---|---|---|
-| PRJCA039020 | **STOP / adaptation required** | Kraken2 input is technically plausible, but reads are 40 nt and only a 100-mer Bracken redistribution is evidenced. Deposited-file host-depletion state and clinical grouping are unresolved. |
+| PRJCA039020 | **STOP / adaptation required** | Kraken2 input is technically plausible, but 40-nt Bracken compatibility is unverified. The deposit is qualified RAW; clinical grouping remains unresolved. |
 | PRJCA046985 | **CONDITIONAL** | Direct DR/DS mapping is complete and files are small. Public files correspond to `unhost_reads`, but layout, exact host-depletion implementation and compatible 50/75-mer Bracken redistribution require live confirmation. |
 | PRJNA977832 | **STOP** | Metadata-only by design; HIV mapping and host state are unresolved, and 40/50-nt Bracken compatibility is not evidenced. |
 

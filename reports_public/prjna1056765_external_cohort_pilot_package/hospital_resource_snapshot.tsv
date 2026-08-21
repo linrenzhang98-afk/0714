@@ -1,0 +1,19 @@
+field	value	observed_at	evidence_status	evidence
+hostname	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	No live inventory endpoint visible
+current_user	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	No live inventory endpoint visible
+project_path	/mnt/disk1/db/kraken2/0714	2026-08-15 snapshot	HISTORICALLY_VERIFIED	Existing job/status paths
+filesystem_capacity_bytes	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Current df not exposed
+free_disk_bytes	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Current df not exposed
+cpu_model	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Current lscpu not exposed
+logical_threads	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Current lscpu not exposed
+available_memory_bytes	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Current memory status not exposed
+major_running_analysis_load	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Current process/load status not exposed
+kraken2_path	/home/suma/anaconda3/envs/mgshotgun/bin/kraken2	2026-08-15 snapshot	HISTORICALLY_VERIFIED	reports_public/metagenome_next_stage/tool_readiness.tsv
+kraken2_version	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Version absent from snapshot
+bracken_path	/home/suma/anaconda3/envs/mgshotgun/bin/bracken	2026-08-15 snapshot	HISTORICALLY_VERIFIED	reports_public/metagenome_next_stage/tool_readiness.tsv
+bracken_version	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Version absent from snapshot
+database_path	/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209	2026-08-15 snapshot	HISTORICALLY_VERIFIED	Completed job status and manifests
+database_identity_hash	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	No live file inventory/hash
+verified_redistribution_length_nt	100	2026-08-15 snapshot	HISTORICALLY_VERIFIED	Completed Bracken command
+python_runtime	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	Not exposed
+future_pilot_parent_writable	READ_ONLY_INVENTORY_UNAVAILABLE	NA	UNAVAILABLE	No directory was created or probed

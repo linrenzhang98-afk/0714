@@ -1,0 +1,2 @@
+run_accession	sample_role	clinical_group_if_verified	clinical_group_verified	layout	read_length	compressed_bytes	checksum_md5	host_status	Bracken_compatible	selection_reason
+DRR770839	technical_compatibility_only	UNRESOLVED	NO	SINGLE	40	47008516	edfe6d85083b384bcfe3e9e9aeda9080	RAW	NO	Exact median compressed-size run among 233; no clinical or microbial result used
