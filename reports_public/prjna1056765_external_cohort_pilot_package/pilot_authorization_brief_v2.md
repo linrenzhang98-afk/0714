@@ -1,5 +1,7 @@
 # Pilot authorization brief v2
 
+> Historical record superseded by `pilot_authorization_brief_v3.md` after completion of the live hospital inventory.
+
 **Current status: DO_NOT_RUN. No raw-read authorization is requested.**
 
 - Cohort: PRJCA039020 / PRJDB36521, technical-only candidate.

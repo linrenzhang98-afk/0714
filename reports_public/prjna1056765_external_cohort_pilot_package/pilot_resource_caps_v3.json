@@ -1,0 +1,29 @@
+{
+  "status": "FROZEN_AWAITING_DEEPSEEK_AND_RAW_READ_AUTHORIZATION",
+  "scope": "technical smoke test only",
+  "allowed_accessions": [
+    "CRR2423962",
+    "CRR2423909"
+  ],
+  "maximum_runs": 2,
+  "manifest_download_bytes": 10526255,
+  "maximum_download_bytes": 10526255,
+  "maximum_download_bytes_interpretation": "cumulative bytes across initial transfers and all retries",
+  "expected_bytes_by_accession": {
+    "CRR2423962": 6450611,
+    "CRR2423909": 4075644
+  },
+  "minimum_free_disk_before_start": 5000000000,
+  "maximum_working_space": 5000000000,
+  "maximum_retry_count": 2,
+  "maximum_wall_time_hours": 8,
+  "thread_cap": 8,
+  "memory_cap_gib": 64,
+  "accession_substitution_allowed": false,
+  "stop_before_host_filtering": true,
+  "database_access": "read-only",
+  "record_database_identity_before_classification": "hashes, or file sizes and modification times when hashes are unavailable",
+  "stop_before_bracken_on_read_length_mismatch": true,
+  "read_length_mismatch_definition": "any nonconforming or mixed-length read in a run",
+  "biological_comparison_prohibited": true
+}

@@ -1,5 +1,7 @@
 # Live DeepSeek technical blocker re-gate
 
+> Historical gate superseded by the v3 gate after completion of the live hospital inventory.
+
 **Verdict: DO_NOT_RUN**
 
 Model: `deepseek-v4-pro`

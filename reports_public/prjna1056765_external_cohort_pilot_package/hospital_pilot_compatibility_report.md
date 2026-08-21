@@ -1,6 +1,6 @@
 # Hospital pilot compatibility report
 
-**Package-level verdict: DO_NOT_RUN.** The cohort-specific rows below are compatibility assessments, not execution authorization.
+**Historical package verdict: DO_NOT_RUN, superseded by the live inventory and pending v3 DeepSeek gate.** The cohort-specific rows below preserve the earlier compatibility assessment.
 
 ## Read-only evidence inventory
 
