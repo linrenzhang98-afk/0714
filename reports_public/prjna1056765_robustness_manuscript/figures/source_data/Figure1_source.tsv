@@ -1,0 +1,7 @@
+stage	n	role	independent
+Published source cohort	402	Han/Tang source cohort	No
+Published ecology population	284	Han et al. training ecology	No
+Published internal test	118	Diagnostic-model test split	No
+Downloadable DNA runs	400	Current four-level omnibus	No
+Unavailable DNA records	2	No downloadable reads	No
+Pipeline-dependent sensitivity population	119	Frozen QC sensitivity	No

@@ -1,0 +1,12 @@
+{
+  "job_id": "20260821T070000Z-external-cohort-readonly-inventory",
+  "task": "metagenome_deep_review",
+  "created_at": "2026-08-21T07:00:00+00:00",
+  "params": {
+    "execute_mode": "readonly_inventory",
+    "project_path": "/mnt/disk1/db/kraken2/0714",
+    "kraken2_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "bracken_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "threads": 1
+  }
+}

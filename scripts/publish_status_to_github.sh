@@ -152,6 +152,26 @@ elif [ "${ENABLE_GENERAL_RUNNER:-1}" = "1" ]; then
   } > "$PUBLIC_STATUS_DIR/general_runner_status.txt"
 fi
 
+READONLY_INVENTORY_RESULT="results/20260821T070000Z-external-cohort-readonly-inventory"
+READONLY_INVENTORY_PUBLIC="$PUBLIC_STATUS_DIR/prjna1056765_external_cohort_pilot_package/hospital_runner_inventory"
+if [ -f "$READONLY_INVENTORY_RESULT/hospital_readonly_inventory.json" ]; then
+  mkdir -p "$READONLY_INVENTORY_PUBLIC"
+  cp "$READONLY_INVENTORY_RESULT/hospital_readonly_inventory.json" "$READONLY_INVENTORY_PUBLIC/hospital_readonly_inventory.json"
+  cp "$READONLY_INVENTORY_RESULT/bracken_redistributions.tsv" "$READONLY_INVENTORY_PUBLIC/bracken_redistributions.tsv"
+  {
+    echo "generated_at=$(date -Is)"
+    echo "state=complete"
+    echo "source_job=20260821T070000Z-external-cohort-readonly-inventory"
+  } > "$READONLY_INVENTORY_PUBLIC/status.txt"
+elif [ -f jobs/20260821T070000Z-external-cohort-readonly-inventory.json ]; then
+  mkdir -p "$READONLY_INVENTORY_PUBLIC"
+  {
+    echo "generated_at=$(date -Is)"
+    echo "state=pending"
+    echo "source_job=20260821T070000Z-external-cohort-readonly-inventory"
+  } > "$READONLY_INVENTORY_PUBLIC/status.txt"
+fi
+
 if [ -f scripts/summarize_host_amr_screen.py ] \
   && find results -maxdepth 1 -type d -name "20260807T000000Z-prjna1056765-host-amr-screen-*" | grep -q .; then
   "$PYTHON_BIN" scripts/summarize_host_amr_screen.py \

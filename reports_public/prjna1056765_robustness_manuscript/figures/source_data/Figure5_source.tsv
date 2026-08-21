@@ -1,0 +1,10 @@
+class	claim	status
+Supported within frozen pipeline	Exact replay of the 30-species Aitchison anchor	supported
+Supported within frozen pipeline	Very small conditional diagnosis variance component	supported
+Supported within frozen pipeline	Stability to two prespecified pseudocounts	supported
+Analytically dependent	Effect-size estimate depends on feature space and QC population	qualified
+Analytically dependent	Full-cohort Bray differences are dispersion-qualified	qualified
+Analytically dependent	Taxon overlap or mismatch is pipeline/statistical only	qualified
+Not supported	Stable disease fingerprint or clinical subtype	unsupported
+Not supported	Biomarker or diagnostic signal	unsupported
+Not supported	Disease-specific taxon discovery or mechanism	unsupported

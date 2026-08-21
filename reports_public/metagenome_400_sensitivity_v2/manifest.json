@@ -1,0 +1,62 @@
+{
+  "output": "reports_public/metagenome_400_sensitivity_v2/frozen_sensitivity_grid.tsv",
+  "output_sha256": "edc94c29c7542d4866dbf4bc9bc6d2785e0b8daef5db1a524affcbffc2f59e8c",
+  "rows": 18,
+  "plan_sha256": "00e71a67b6c497ff9bbdff42a144cb944aafb8278ebe0ad01d64bf11b8e618a0",
+  "script_sha256": "6b5fed89312923a308df8456e3807dc5f798c9ef3ee92d1d6049b25bd9d460e1",
+  "schema": [
+    "population",
+    "prevalence_threshold",
+    "prevalence_count",
+    "metric",
+    "pseudocount_rule",
+    "pseudocount_value",
+    "is_anchor_replay",
+    "n",
+    "retained_features",
+    "permanova_F",
+    "permanova_R2",
+    "permanova_p",
+    "permdisp_F",
+    "permdisp_R2",
+    "permdisp_p",
+    "permutations",
+    "permanova_seed",
+    "permdisp_seed",
+    "matrix_sha256",
+    "qc_sha256",
+    "clinical_sha256",
+    "plan_sha256",
+    "script_sha256"
+  ],
+  "anchor_replay_verified_exactly": true,
+  "anchor_expected": {
+    "F": 2.612771519062346,
+    "R2": 0.019409536625522597,
+    "p": 0.0001,
+    "disp_F": 0.8066530620728115,
+    "disp_R2": 0.006073890452579873,
+    "disp_p": 0.487
+  },
+  "anchor_observed": {
+    "F": 2.612771519062346,
+    "R2": 0.019409536625522597,
+    "p": 0.0001,
+    "disp_F": 0.8066530620728115,
+    "disp_R2": 0.006073890452579873,
+    "disp_p": 0.487
+  },
+  "input_hashes_expected": {
+    "matrix": "0c7ad6930c4e2db5fd3ec0a58861850274eb75dd31350ab00f4428a41a6ad20d",
+    "clinical": "3de4e218e8f0e9e32545cead271e6750c39ac0dea4c47df291123175292400be",
+    "qc": "e3e4cfbdaf412d20bd9ee6dd82e1e811d12046556b176adf0678c34c6373f790",
+    "anchor_species": "1fea6bdb0199c9ab218c1f1f098b524a4f1f9a774a93f4cdef7b11ee1a655833"
+  },
+  "input_hashes_observed": {
+    "matrix": "0c7ad6930c4e2db5fd3ec0a58861850274eb75dd31350ab00f4428a41a6ad20d",
+    "clinical": "3de4e218e8f0e9e32545cead271e6750c39ac0dea4c47df291123175292400be",
+    "qc": "e3e4cfbdaf412d20bd9ee6dd82e1e811d12046556b176adf0678c34c6373f790",
+    "anchor_species": "1fea6bdb0199c9ab218c1f1f098b524a4f1f9a774a93f4cdef7b11ee1a655833"
+  },
+  "input_hashes_verified_exactly": true
+}

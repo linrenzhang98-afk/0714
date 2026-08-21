@@ -1,0 +1,15 @@
+population	group	n
+Published source cohort	All	402
+Unavailable records	All	2
+Han ecology/training	All	284
+Han internal test	All	118
+Current primary	All	400
+Current primary	Lung cancer	122
+Current primary	Bacterial infection	114
+Current primary	Pulmonary tuberculosis	86
+Current primary	Fungal infection	78
+Pipeline-dependent sensitivity	All	119
+Pipeline-dependent sensitivity	Lung cancer	36
+Pipeline-dependent sensitivity	Bacterial infection	42
+Pipeline-dependent sensitivity	Fungal infection	19
+Pipeline-dependent sensitivity	Pulmonary tuberculosis	22

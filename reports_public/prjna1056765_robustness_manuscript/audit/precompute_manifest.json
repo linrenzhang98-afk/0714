@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "freeze_version": "v5",
+  "freeze_status": "pre-computation",
+  "base_commit": "0682185",
+  "precompute_commit": "cb2e97138790238f2247bf6e4162f5c87d2a838b",
+  "implementation_correction": {
+    "reason": "deterministic ordering within three equal-prevalence anchor ties",
+    "deepseek_decision": "ALLOW_IMPLEMENTATION_CORRECTION",
+    "scientific_parameters_changed": false
+  },
+  "plan": {
+    "path": "frozen_sensitivity_plan.md",
+    "sha256": "00e71a67b6c497ff9bbdff42a144cb944aafb8278ebe0ad01d64bf11b8e618a0"
+  },
+  "executable": {
+    "path": "scripts/run_prjna1056765_frozen_sensitivity_grid.py",
+    "sha256": "6b5fed89312923a308df8456e3807dc5f798c9ef3ee92d1d6049b25bd9d460e1"
+  },
+  "imported_analysis_module": {
+    "path": "scripts/analyze_prjna1056765_metagenome_400.py",
+    "sha256": "ec23035b7ba4fb971483c5536ccb2931f82d5ee64af2f49c057e42b2bfb3016f"
+  },
+  "inputs": [
+    {
+      "role": "species_fraction_matrix",
+      "path": "reports_public/metagenome_production/bracken_species_fraction_matrix.tsv",
+      "sha256": "0c7ad6930c4e2db5fd3ec0a58861850274eb75dd31350ab00f4428a41a6ad20d"
+    },
+    {
+      "role": "clinical_mapping",
+      "path": "reports_public/prjna1056765_clinical_groups/run_clinical_mapping.tsv",
+      "sha256": "3de4e218e8f0e9e32545cead271e6750c39ac0dea4c47df291123175292400be"
+    },
+    {
+      "role": "strict_qc_membership",
+      "path": "reports_public/metagenome_400_formal/qc/cohort_qc.tsv",
+      "sha256": "e3e4cfbdaf412d20bd9ee6dd82e1e811d12046556b176adf0678c34c6373f790"
+    },
+    {
+      "role": "anchor_species_order",
+      "path": "frozen_anchor_species.tsv",
+      "sha256": "1fea6bdb0199c9ab218c1f1f098b524a4f1f9a774a93f4cdef7b11ee1a655833"
+    }
+  ],
+  "grid_contract": {
+    "cells": 18,
+    "permutations_per_test": 9999,
+    "pairwise_contrasts": 0,
+    "post_hoc_analyses": 0
+  }
+}

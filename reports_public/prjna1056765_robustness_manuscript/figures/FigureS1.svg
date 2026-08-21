@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1450" height="950" viewBox="0 0 1450 950">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#20252b}.title{font-size:28px;font-weight:700}.panel{font-size:22px;font-weight:700}.head{font-size:18px;font-weight:700}.body{font-size:15px}.small{font-size:13px;fill:#4b5563}.tiny{font-size:11px;fill:#4b5563}</style>
+<text x="45" y="45" class="title">Supplementary Figure S1. Bray–Curtis and PERMDISP comparator</text>
+<text x="80" y="100" class="head" text-anchor="start">Full cohort n=400</text>
+<line x1="150" y1="145" x2="150" y2="625" stroke="#374151" stroke-width="1.5"/>
+<line x1="150" y1="625" x2="670" y2="625" stroke="#374151" stroke-width="1.5"/>
+<line x1="145" y1="625.0" x2="670" y2="625.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="140" y="629.0" class="small" text-anchor="end">0.00</text>
+<line x1="145" y1="465.0" x2="670" y2="465.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="140" y="469.0" class="small" text-anchor="end">0.03</text>
+<line x1="145" y1="305.0" x2="670" y2="305.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="140" y="309.0" class="small" text-anchor="end">0.06</text>
+<line x1="145" y1="145.0" x2="670" y2="145.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="140" y="149.0" class="small" text-anchor="end">0.09</text>
+<circle cx="230" cy="484.57243101337235" r="11" fill="#6b7280" stroke="#b91c1c" stroke-width="4"/>
+<text x="230" y="464.57243101337235" class="small" text-anchor="middle">R²=0.0263</text>
+<text x="230" y="516.5724310133724" class="tiny" text-anchor="middle">disp P=0.0001</text>
+<text x="230" y="660" class="body" text-anchor="middle">5%</text>
+<text x="230" y="683" class="small" text-anchor="middle">90 species</text>
+<circle cx="410" cy="543.1922333840432" r="11" fill="#6b7280" stroke="#b91c1c" stroke-width="4"/>
+<text x="410" y="523.1922333840432" class="small" text-anchor="middle">R²=0.0153</text>
+<text x="410" y="575.1922333840432" class="tiny" text-anchor="middle">disp P=0.0009</text>
+<text x="410" y="660" class="body" text-anchor="middle">10%</text>
+<text x="410" y="683" class="small" text-anchor="middle">30 species</text>
+<circle cx="590" cy="573.499112138519" r="11" fill="#6b7280" stroke="#b91c1c" stroke-width="4"/>
+<text x="590" y="553.499112138519" class="small" text-anchor="middle">R²=0.0097</text>
+<text x="590" y="605.499112138519" class="tiny" text-anchor="middle">disp P=0.0256</text>
+<text x="590" y="660" class="body" text-anchor="middle">20%</text>
+<text x="590" y="683" class="small" text-anchor="middle">2 species</text>
+<text x="760" y="100" class="head" text-anchor="start">Pipeline-dependent sensitivity population n=119</text>
+<line x1="830" y1="145" x2="830" y2="625" stroke="#374151" stroke-width="1.5"/>
+<line x1="830" y1="625" x2="1350" y2="625" stroke="#374151" stroke-width="1.5"/>
+<line x1="825" y1="625.0" x2="1350" y2="625.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="820" y="629.0" class="small" text-anchor="end">0.00</text>
+<line x1="825" y1="465.0" x2="1350" y2="465.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="820" y="469.0" class="small" text-anchor="end">0.03</text>
+<line x1="825" y1="305.0" x2="1350" y2="305.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="820" y="309.0" class="small" text-anchor="end">0.06</text>
+<line x1="825" y1="145.0" x2="1350" y2="145.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="820" y="149.0" class="small" text-anchor="end">0.09</text>
+<circle cx="910" cy="284.28808325224185" r="11" fill="#6b7280" stroke="#ffffff" stroke-width="1.5"/>
+<text x="910" y="264.28808325224185" class="small" text-anchor="middle">R²=0.0639</text>
+<text x="910" y="316.28808325224185" class="tiny" text-anchor="middle">disp P=0.1022</text>
+<text x="910" y="660" class="body" text-anchor="middle">5%</text>
+<text x="910" y="683" class="small" text-anchor="middle">90 species</text>
+<circle cx="1090" cy="301.0566929836215" r="11" fill="#6b7280" stroke="#b91c1c" stroke-width="4"/>
+<text x="1090" y="281.0566929836215" class="small" text-anchor="middle">R²=0.0607</text>
+<text x="1090" y="333.0566929836215" class="tiny" text-anchor="middle">disp P=0.0414</text>
+<text x="1090" y="660" class="body" text-anchor="middle">10%</text>
+<text x="1090" y="683" class="small" text-anchor="middle">30 species</text>
+<circle cx="1270" cy="200.40606024660104" r="11" fill="#6b7280" stroke="#b91c1c" stroke-width="4"/>
+<text x="1270" y="180.40606024660104" class="small" text-anchor="middle">R²=0.0796</text>
+<text x="1270" y="232.40606024660104" class="tiny" text-anchor="middle">disp P=0.0002</text>
+<text x="1270" y="660" class="body" text-anchor="middle">20%</text>
+<text x="1270" y="683" class="small" text-anchor="middle">2 species</text>
+<circle cx="110" cy="765" r="9" fill="#ffffff" stroke="#b91c1c" stroke-width="4"/>
+<text x="130" y="770" class="body" text-anchor="start">red outline: dispersion-qualified</text>
+<text x="80" y="825" class="small" text-anchor="start">All full-cohort Bray–Curtis cells are dispersion-qualified and support only location and/or dispersion language.</text>
+<text x="80" y="860" class="small" text-anchor="start">The two populations represent different estimands and are not linked as direct changes.</text>
+</svg>

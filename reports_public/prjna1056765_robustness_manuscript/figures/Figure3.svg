@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#20252b}.title{font-size:28px;font-weight:700}.panel{font-size:22px;font-weight:700}.head{font-size:18px;font-weight:700}.body{font-size:15px}.small{font-size:13px;fill:#4b5563}.tiny{font-size:11px;fill:#4b5563}</style>
+<text x="45" y="45" class="title">Figure 3. Prespecified Aitchison robustness in the full cohort</text>
+<text x="55" y="82" class="head" text-anchor="start">PERMANOVA R² with paired dispersion qualification</text>
+<line x1="130" y1="125" x2="130" y2="675" stroke="#374151" stroke-width="1.5"/>
+<line x1="130" y1="675" x2="1250" y2="675" stroke="#374151" stroke-width="1.5"/>
+<line x1="125" y1="675.0" x2="1250" y2="675.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="679.0" class="small" text-anchor="end">0.00</text>
+<line x1="125" y1="537.5" x2="1250" y2="537.5" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="541.5" class="small" text-anchor="end">0.02</text>
+<line x1="125" y1="400.0" x2="1250" y2="400.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="404.0" class="small" text-anchor="end">0.04</text>
+<line x1="125" y1="262.5" x2="1250" y2="262.5" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="266.5" class="small" text-anchor="end">0.06</text>
+<line x1="125" y1="125.0" x2="1250" y2="125.0" stroke="#d9dee5" stroke-width="1"/>
+<text x="120" y="129.0" class="small" text-anchor="end">0.08</text>
+<circle cx="280" cy="562.4579512547095" r="10" fill="#1f77b4" stroke="#b91c1c" stroke-width="4"/>
+<text x="280" y="544.4579512547095" class="small" text-anchor="middle">0.0164</text>
+<text x="280" y="592.4579512547095" class="tiny" text-anchor="middle">disp P=0.0145</text>
+<circle cx="670" cy="541.5594356995322" r="10" fill="#1f77b4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="670" y="523.5594356995322" class="small" text-anchor="middle">0.0194</text>
+<text x="670" y="571.5594356995322" class="tiny" text-anchor="middle">disp P=0.487</text>
+<circle cx="1060" cy="661.3906931460195" r="10" fill="#1f77b4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="1060" y="643.3906931460195" class="small" text-anchor="middle">0.0020</text>
+<text x="1060" y="691.3906931460195" class="tiny" text-anchor="middle">disp P=0.1591</text>
+<polyline points="280,562.4579512547095 670,541.5594356995322 1060,661.3906931460195" fill="none" stroke="#1f77b4" stroke-width="2"/>
+<circle cx="280" cy="566.1779493920359" r="10" fill="#d95f02" stroke="#b91c1c" stroke-width="4"/>
+<text x="280" y="548.1779493920359" class="small" text-anchor="middle">0.0158</text>
+<text x="280" y="596.1779493920359" class="tiny" text-anchor="middle">disp P=0.0187</text>
+<circle cx="670" cy="543.8618494600165" r="10" fill="#d95f02" stroke="#ffffff" stroke-width="1.5"/>
+<text x="670" y="525.8618494600165" class="small" text-anchor="middle">0.0191</text>
+<text x="670" y="573.8618494600165" class="tiny" text-anchor="middle">disp P=0.4677</text>
+<circle cx="1060" cy="662.6647370854586" r="10" fill="#d95f02" stroke="#ffffff" stroke-width="1.5"/>
+<text x="1060" y="644.6647370854586" class="small" text-anchor="middle">0.0018</text>
+<text x="1060" y="692.6647370854586" class="tiny" text-anchor="middle">disp P=0.2173</text>
+<polyline points="280,566.1779493920359 670,543.8618494600165 1060,662.6647370854586" fill="none" stroke="#d95f02" stroke-width="2"/>
+<text x="280" y="710" class="body" text-anchor="middle">5% prevalence</text>
+<text x="280" y="733" class="small" text-anchor="middle">90 species</text>
+<text x="670" y="710" class="body" text-anchor="middle">10% prevalence</text>
+<text x="670" y="733" class="small" text-anchor="middle">30 species</text>
+<text x="1060" y="710" class="body" text-anchor="middle">20% prevalence</text>
+<text x="1060" y="733" class="small" text-anchor="middle">2 species</text>
+<text x="130" y="755" class="body" text-anchor="start" style="fill:#1f77b4">Blue: P1 half-minimum</text>
+<text x="390" y="755" class="body" text-anchor="start" style="fill:#d95f02">Orange: P2 tenth-minimum</text>
+<circle cx="700" cy="750" r="9" fill="#ffffff" stroke="#b91c1c" stroke-width="4"/>
+<text x="720" y="755" class="body" text-anchor="start">red outline: PERMDISP P&lt;0.05</text>
+<text x="130" y="815" class="small" text-anchor="start">The 10% P1 point is the exact anchor replay. Feature spaces are not pooled or ranked.</text>
+</svg>

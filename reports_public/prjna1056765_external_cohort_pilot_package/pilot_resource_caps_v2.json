@@ -1,0 +1,20 @@
+{
+  "status": "FROZEN_DO_NOT_RUN",
+  "scope": "technical compatibility only",
+  "allowed_accessions": [
+    "DRR770839"
+  ],
+  "maximum_runs": 1,
+  "manifest_download_bytes": 47008516,
+  "maximum_download_bytes": 47008516,
+  "minimum_free_disk_before_start": 5000000000,
+  "maximum_working_space": 5000000000,
+  "maximum_retry_count": 2,
+  "maximum_wall_time_hours": 24,
+  "thread_cap": 8,
+  "memory_cap_gib": 64,
+  "checksum_required": true,
+  "accession_substitution_allowed": false,
+  "stop_if_live_inventory_missing": true,
+  "stop_if_matching_bracken_redistribution_missing": true
+}

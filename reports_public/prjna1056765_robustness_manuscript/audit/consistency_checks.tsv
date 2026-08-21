@@ -1,0 +1,25 @@
+check	status	evidence
+grid rows	PASS	18
+grid hash	PASS	edc94c29c7542d4866dbf4bc9bc6d2785e0b8daef5db1a524affcbffc2f59e8c
+anchor exact	PASS	{'F': 2.612771519062346, 'R2': 0.019409536625522597, 'p': 0.0001, 'disp_F': 0.8066530620728115, 'disp_R2': 0.006073890452579873, 'disp_p': 0.487}
+all full Bray dispersion-qualified	PASS	3/3
+manuscript contains 1.94%	PASS	1.94%
+manuscript contains 0.0194095	PASS	0.0194095
+manuscript contains 0.487	PASS	0.487
+manuscript contains 0.0003349	PASS	0.0003349
+manuscript contains 0.0163698	PASS	0.0163698
+manuscript contains 0.0019795	PASS	0.0019795
+manuscript contains 0.0695841	PASS	0.0695841
+manuscript contains 0.0263302	PASS	0.0263302
+manuscript contains 0.0009	PASS	0.0009
+manuscript contains n=119 pipeline-dependent sensitivity population	PASS	n=119 pipeline-dependent sensitivity population
+forbidden phrase absent: diagnosis-associated boundary	PASS	diagnosis-associated boundary
+forbidden phrase absent: validation cohort	PASS	validation cohort
+forbidden phrase absent: cleaner cohort	PASS	cleaner cohort
+forbidden phrase absent: higher-quality biological cohort	PASS	higher-quality biological cohort
+forbidden phrase absent: replication cohort	PASS	replication cohort
+forbidden phrase absent: reproducibility study	PASS	reproducibility study
+forbidden phrase absent: reproducibility audit	PASS	reproducibility audit
+Figure 3 internal note excluded from submission draft	PASS	editorial artifact absent
+Supplement full grid	PASS	Table S1
+Supplement Bray	PASS	Figure S1

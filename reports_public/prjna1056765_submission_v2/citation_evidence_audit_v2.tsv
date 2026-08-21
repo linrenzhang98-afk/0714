@@ -1,0 +1,16 @@
+claim_id	claim	evidence	location	status
+C01	source cohort n=402; 400 downloadable; two unavailable	cohort audit; Han 2025; Tang 2025	Abstract/Results/Figure 1	ALIGNED
+C02	four diagnosis counts 114/78/122/86	frozen cohort audit	Results/Figure 1	ALIGNED
+C03	Han ecology n=284 and internal test n=118	Han 2025; pipeline reconstruction	Introduction/Results/Figure 1	ALIGNED
+C04	anchor R²=0.0194095, P=0.0001, PERMDISP P=0.487	frozen v5 grid anchor row	Abstract/Results/Figure 2	ALIGNED
+C05	pseudocount absolute R² difference 0.0003349	two frozen 30-species Aitchison rows	Results/Figure 2	ALIGNED
+C06	90/30/2 retained species	frozen v5 grid	Results/Methods/Figure 2	ALIGNED
+C07	all full-cohort Bray cells dispersion-qualified	frozen v5 grid	Abstract/Results/Figure S1	ALIGNED
+C08	n=119 diagnosis counts 42/19/36/22	frozen QC table	Results/Figure 1	ALIGNED
+C09	cluster silhouette and ARI range	frozen clustering diagnostics	Results/Figure 3	ALIGNED
+C10	BALF low-biomass contamination context	Salter 2014; Drengenes 2019; Minich 2019	Introduction/Discussion	ALIGNED
+C11	CLR/Aitchison compositional geometry	Aitchison 1982; Fernandes 2014; Gloor 2017	Introduction/Methods/Discussion	ALIGNED
+C12	PERMANOVA requires dispersion qualification	Anderson 2001; Anderson 2006	Introduction/Methods/Discussion	ALIGNED
+C13	classifier/database dependence	Wood 2019; Lu 2017; McIntyre 2017; Ye 2019	Introduction/Discussion	ALIGNED
+C14	no stable cross-metric ecotype solution	frozen silhouette and ARI data	Abstract/Results/Discussion	ALIGNED
+C15	pipeline discrepancies not biological disagreement	pipeline difference matrix	Results/Discussion	ALIGNED
