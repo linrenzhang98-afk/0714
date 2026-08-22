@@ -1,64 +1,107 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
 ROOT=/mnt/disk1
 CONTROL=$ROOT/0714_control
 REPO=$CONTROL/repo
 JOB=jobs/20260822T120000Z-prjca046985-native-kraken2-pilot.json
+SCIENCE_COMMIT=03cff4d403bcb1ab0d87848a0b22b06762345070
 DB=$ROOT/db/kraken2/k2_pluspfp_16gb_20221209
 AUDIT=$ROOT/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit
 HANDOFF=$ROOT/0714_handoff/20260822T120000Z-prjca046985-native-kraken2-pilot
 PY=/home/suma/anaconda3/envs/mgshotgun/bin/python
-[[ "$(hostname)" == ETYY ]] || { echo "hostname is not ETYY" >&2; exit 2; }
-[[ "$(id -un)" == suma ]] || { echo "user is not suma" >&2; exit 2; }
-[[ -d $ROOT && -r $DB && -d $AUDIT/fastq && -w $ROOT ]] || { echo "ETYY paths unavailable" >&2; exit 2; }
-[[ -x $PY ]] || { echo "mgshotgun Python unavailable" >&2; exit 2; }
-command -v git >/dev/null; git ls-remote https://github.com/linrenzhang98-afk/0714.git HEAD >/dev/null || { echo "GitHub connectivity failed" >&2; exit 2; }
-mkdir -p "$CONTROL/state" "$CONTROL/logs" "$CONTROL/results" "$HANDOFF"
-[[ -w $HANDOFF ]] || { echo "handoff not writable" >&2; exit 2; }
-if [[ ! -d $REPO/.git ]]; then
-  git clone https://github.com/linrenzhang98-afk/0714.git "$REPO"
-else
-  git -C "$REPO" fetch origin main
-  git -C "$REPO" merge --ff-only origin/main
-fi
-[[ "$(git -C "$REPO" rev-parse HEAD)" == "$(git -C "$REPO" rev-parse origin/main)" ]] || { echo "control clone diverged" >&2; exit 2; }
-[[ -f $REPO/$JOB ]] || { echo "pilot job absent" >&2; exit 2; }
-EXECUTION_COMMIT=$(git -C "$REPO" rev-parse HEAD)
-[[ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["task"])' "$REPO/$JOB")" == metagenome_deep_review ]] || { echo "task not allowlisted" >&2; exit 2; }
-python - "$REPO/$JOB" "$AUDIT/fastq" <<'PY'
-import hashlib,json,os,sys
-j=json.load(open(sys.argv[1])); rows=j['params']['pilot_runs']; root=sys.argv[2]
-for r in rows:
- p=os.path.join(root,r['run_accession']+'.fq.gz')
- if os.path.getsize(p)!=r['expected_bytes']: raise SystemExit('FASTQ byte mismatch '+p)
- h=hashlib.sha256();
- with open(p,'rb') as f:
-  for c in iter(lambda:f.read(1<<20),b''): h.update(c)
- if h.hexdigest()!=r['sha256']: raise SystemExit('FASTQ checksum mismatch '+p)
+EXPECTED_DB=6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3
+fail(){ echo "SAFE_STOP: $*" >&2; exit 2; }
+[[ "$(hostname)" == ETYY ]] || fail "hostname is not ETYY"
+[[ "$(id -un)" == suma ]] || fail "user is not suma"
+[[ -d $ROOT && -r $DB && -d $AUDIT/fastq && -w $ROOT ]] || fail "ETYY paths unavailable"
+[[ -x $PY ]] || fail "mgshotgun Python unavailable"
+command -v git >/dev/null || fail "git unavailable"
+git ls-remote https://github.com/linrenzhang98-afk/0714.git HEAD >/dev/null || fail "GitHub connectivity failed"
+mkdir -p "$CONTROL/state" "$CONTROL/logs" "$CONTROL/results" "$CONTROL/preflight" "$HANDOFF"
+[[ -w $HANDOFF ]] || fail "handoff not writable"
+if [[ ! -d $REPO/.git ]]; then git clone https://github.com/linrenzhang98-afk/0714.git "$REPO" || fail "control clone failed"; else git -C "$REPO" fetch origin main || fail "control fetch failed"; git -C "$REPO" merge --ff-only origin/main || fail "control clone is not fast-forwardable"; fi
+git -C "$REPO" fetch origin main || fail "science commit fetch failed"
+git -C "$REPO" checkout --detach "$SCIENCE_COMMIT" || fail "science commit unavailable"
+[[ "$(git -C "$REPO" rev-parse HEAD)" == "$SCIENCE_COMMIT" ]] || fail "scientific execution revision mismatch"
+[[ -f "$REPO/$JOB" ]] || fail "pilot job absent"
+DBOUT=$CONTROL/preflight/database_identity
+mkdir -p "$DBOUT"
+"$PY" - "$REPO" "$DBOUT" "$DB" <<'PY'
+import importlib.util, pathlib, sys
+repo, out, db = map(pathlib.Path, sys.argv[1:])
+spec=importlib.util.spec_from_file_location("pilot_runner", repo/"pipelines/metagenome_deep_review_runner.py")
+m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+if m.readonly_inventory(pathlib.Path(out), pathlib.Path("/mnt/disk1/db/kraken2/0714"), pathlib.Path(db), pathlib.Path(db)) != 0: raise SystemExit(2)
 PY
-KR=$(PATH=/home/suma/anaconda3/envs/mgshotgun/bin:$PATH command -v kraken2) || { echo "Kraken2 unavailable" >&2; exit 2; }
-[[ "$(PATH=/home/suma/anaconda3/envs/mgshotgun/bin:$PATH kraken2 --version 2>&1 | head -1)" == *"2.17.1"* ]] || { echo "Kraken2 version mismatch" >&2; exit 2; }
-[[ "$(df -Pk "$ROOT" | awk 'NR==2{print $4}')" -gt 500000000 ]] || { echo "insufficient disk" >&2; exit 2; }
-[[ "$(awk '/MemAvailable/{print $2}' /proc/meminfo)" -gt 67108864 ]] || { echo "insufficient RAM" >&2; exit 2; }
-INV=$REPO/reports_public/prjna1056765_external_cohort_pilot_package/hospital_pilot_result/database_identity/hospital_readonly_inventory.json
-[[ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["database_manifest_identity_sha256"])' "$INV")" == 6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3 ]] || { echo "database identity mismatch" >&2; exit 2; }
+LIVE_DB=$("$PY" -c 'import json,sys; print(json.load(open(sys.argv[1]))["database_manifest_identity_sha256"])' "$DBOUT/hospital_readonly_inventory.json")
+[[ "$LIVE_DB" == "$EXPECTED_DB" ]] || fail "live database identity mismatch: $LIVE_DB"
+KR=$(PATH=/home/suma/anaconda3/envs/mgshotgun/bin:$PATH command -v kraken2) || fail "Kraken2 unavailable"
+KRVER=$(PATH=/home/suma/anaconda3/envs/mgshotgun/bin:$PATH kraken2 --version 2>&1 | head -1)
+[[ "$KRVER" == *"2.17.1"* ]] || fail "Kraken2 version mismatch: $KRVER"
+[[ "$(df -Pk "$ROOT" | awk 'NR==2{print $4}')" -gt 500000000 ]] || fail "insufficient disk"
+[[ "$(awk '/MemAvailable/{print $2}' /proc/meminfo)" -gt 67108864 ]] || fail "insufficient RAM"
+JOB_SHA256=$(sha256sum "$REPO/$JOB" | awk '{print $1}')
 CONFIG=$CONTROL/config.local.json
 cat > "$CONFIG" <<EOF
 {"repo_path":"$REPO","jobs_glob":"$JOB","state_path":"$CONTROL/state/runner_state.json","log_path":"$CONTROL/logs/runner.jsonl","lock_path":"$CONTROL/state/runner.lock","results_root":"$CONTROL/results","allowed_data_roots":["$ROOT"],"git_timeout_seconds":120,"default_task_timeout_seconds":28800,"tasks":{"metagenome_deep_review":{"script":"$REPO/pipelines/metagenome_deep_review_runner.py","timeout_seconds":28800}}}
 EOF
+"$PY" - "$REPO/$JOB" "$AUDIT/fastq" <<'PY'
+import hashlib,json,os,sys
+j=json.load(open(sys.argv[1])); root=sys.argv[2]
+assert j["task"] == "metagenome_deep_review" and len(j["params"]["pilot_runs"]) == 8
+for r in j["params"]["pilot_runs"]:
+ p=os.path.join(root,r["run_accession"]+".fq.gz"); assert os.path.getsize(p)==r["expected_bytes"],p
+ h=hashlib.sha256()
+ with open(p,"rb") as f:
+  for c in iter(lambda:f.read(1<<20),b""): h.update(c)
+ assert h.hexdigest()==r["sha256"],p
+PY
+STATE=$CONTROL/state/runner_state.json
+if [[ -f "$HANDOFF/STATUS.txt" ]]; then status=$(sed -n 's/^STATUS=//p' "$HANDOFF/STATUS.txt" | head -1); [[ "$status" == PILOT_COMPLETED ]] && { echo "ALREADY_COMPLETED=$HANDOFF"; exit 0; }; [[ -z "$status" ]] || fail "existing final state: $status"; fi
+[[ ! -f "$STATE" ]] || fail "existing runner state requires manual review"
+find "$CONTROL/results" -mindepth 1 -maxdepth 1 -type d -print -quit | grep -q . && fail "partial results require manual review" || true
 rm -f "$CONTROL/state/preflight_state.json" "$CONTROL/logs/preflight.jsonl"
 sed "s#runner_state.json#preflight_state.json#; s#runner.jsonl#preflight.jsonl#" "$CONFIG" > "$CONTROL/config.preflight.json"
-$PY "$REPO/runner/runner.py" --config "$CONTROL/config.preflight.json" --dry-run
-[[ "$(python -c 'import json,sys; s=json.load(open(sys.argv[1])); print(len(s.get("jobs",{})))' "$CONTROL/state/preflight_state.json")" == 1 ]] || { echo "preflight did not accept exactly one job" >&2; exit 2; }
+"$PY" "$REPO/runner/runner.py" --config "$CONTROL/config.preflight.json" --dry-run --no-pull
+[[ "$("$PY" -c 'import json,sys; s=json.load(open(sys.argv[1])); print(len(s.get("jobs",{})))' "$CONTROL/state/preflight_state.json")" == 1 ]] || fail "preflight did not accept exactly one job"
 rm -f "$CONTROL/state/preflight_state.json" "$CONTROL/logs/preflight.jsonl"
-JOB_SHA256=$(sha256sum "$REPO/$JOB" | awk '{print $1}')
-DB_IDENTITY=6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3
-echo "PREFLIGHT_OK commit=$EXECUTION_COMMIT job=$JOB kraken2_commands=0"
-$PY "$REPO/runner/runner.py" --config "$CONFIG"
-cp "$CONTROL/results/20260822T120000Z-prjca046985-native-kraken2-pilot/pilot_summary.json" "$HANDOFF/pilot_summary.json"
-cp "$CONTROL/results/20260822T120000Z-prjca046985-native-kraken2-pilot/validation_report.json" "$HANDOFF/validation_report.json"
-cp "$CONTROL/logs/runner.jsonl" "$HANDOFF/runner.jsonl"
-cp "$CONTROL/state/runner_state.json" "$HANDOFF/runner_state.json"
-printf 'STATUS=pilot_runner_completed\nCOMMIT=%s\nJOB=%s\nJOB_SHA256=%s\nDATABASE_MANIFEST_IDENTITY_SHA256=%s\n' "$EXECUTION_COMMIT" "$JOB" "$JOB_SHA256" "$DB_IDENTITY" > "$HANDOFF/STATUS.txt"
+START=$(date -Is)
+set +e; "$PY" "$REPO/runner/runner.py" --config "$CONFIG" --no-pull; RC=$?; set -e
+RESULT=$CONTROL/results/20260822T120000Z-prjca046985-native-kraken2-pilot
+set +e
+"$PY" - "$STATE" "$RESULT/pilot_summary.json" "$JOB" "$LIVE_DB" "$KR" "$KRVER" "$HANDOFF" "$START" <<'PY'
+import json,os,sys
+state,summary,job,dbid,kr,krver,handoff,start=sys.argv[1:]
+failures=[]
+def bad(x): failures.append(x)
+try: s=json.load(open(state)); row=s["jobs"]["20260822T120000Z-prjca046985-native-kraken2-pilot"]
+except Exception as e: bad(f"runner state unreadable: {e}"); row={}
+if row.get("status")!="done" or row.get("returncode")!=0: bad("runner state is not done/zero")
+try: p=json.load(open(summary))
+except Exception as e: bad(f"pilot summary unreadable: {e}"); p={}
+expected=[r["run_accession"] for r in json.load(open(job))["params"]["pilot_runs"]]
+if p.get("final_status")!="done" or p.get("stop_event")!="" or p.get("new_downloaded_bytes")!=0: bad("summary completion/download invariant")
+if [r.get("run_accession") for r in p.get("runs",[])]!=expected or len(p.get("runs",[]))!=8 or any(r.get("status")!="done" for r in p.get("runs",[])): bad("run membership/completion invariant")
+if p.get("bracken_performed") is not False or p.get("trimming_performed") is not False or p.get("biological_inference")!="PROHIBITED" or p.get("database_manifest_identity_sha256")!=dbid: bad("scope/database invariant")
+for r in p.get("runs",[]):
+ cmd=r.get("kraken2_command") or r.get("command") or []
+ text=" ".join(cmd) if isinstance(cmd,list) else str(cmd)
+ if not cmd or "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209" not in text or "--threads 4" not in text: bad("Kraken2 command invariant")
+ if "--confidence" in text or "--minimum-hit-groups" in text: bad("forbidden Kraken2 override")
+if len([r for r in p.get("runs",[]) if r.get("status")=="done"]) != 8: bad("Kraken2 command count")
+os.makedirs(handoff,exist_ok=True)
+json.dump({"bootstrap_control_commit":None,"frozen_scientific_execution_commit":"03cff4d403bcb1ab0d87848a0b22b06762345070","database_manifest_identity_sha256":dbid,"kraken2_path":kr,"kraken2_version":krver,"python_path":"/home/suma/anaconda3/envs/mgshotgun/bin/python","hostname":os.uname().nodename,"user":"suma","run_ids":expected,"execution_start":start,"execution_end":__import__("datetime").datetime.now().astimezone().isoformat()},open(os.path.join(handoff,"provenance.json"),"w"),indent=2)
+if failures:
+ open(os.path.join(handoff,"STATUS.txt"),"w").write("STATUS=SAFE_STOP\nREASON="+"; ".join(failures)+"\n"); raise SystemExit(3)
+PY
+TEST_RC=$?
+set -e
+cp "$RESULT/pilot_summary.json" "$HANDOFF/pilot_summary.json" 2>/dev/null || true
+cp "$RESULT/validation_report.json" "$HANDOFF/validation_report.json" 2>/dev/null || true
+cp "$CONTROL/logs/runner.jsonl" "$HANDOFF/runner.jsonl" 2>/dev/null || true
+cp "$STATE" "$HANDOFF/runner_state.json" 2>/dev/null || true
+[[ $RC -eq 0 && $TEST_RC -eq 0 ]] || fail "pilot validation failed; SAFE_STOP preserved"
+mkdir -p "$HANDOFF/database_identity"
+cp "$DBOUT/hospital_readonly_inventory.json" "$HANDOFF/database_identity/hospital_readonly_inventory.json"
+printf 'STATUS=PILOT_COMPLETED\nEXECUTION_COMMIT=%s\nJOB_SHA256=%s\nDATABASE_MANIFEST_IDENTITY_SHA256=%s\nKRAKEN2_COMMANDS_COMPLETED=8\nSAMPLES_COMPLETED=8\nNEW_DOWNLOADED_BYTES=0\n' "$SCIENCE_COMMIT" "$JOB_SHA256" "$LIVE_DB" > "$HANDOFF/STATUS.txt"
 echo "PILOT_HANDOFF=$HANDOFF"
