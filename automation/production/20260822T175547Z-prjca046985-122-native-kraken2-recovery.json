@@ -1,0 +1,3710 @@
+{
+  "job_id": "20260822T175547Z-prjca046985-122-native-kraken2-recovery",
+  "project": "PRJCA046985",
+  "authorized": true,
+  "authorization_record": "Recovery of the terminal zero-item PRJCA046985 production SAFE_STOP after the strict runtime identity probe confirmed Kraken2 2.17.1 and identified the empty child environment.",
+  "acquire": false,
+  "analysis_type": "native_read_kraken2_classification",
+  "frozen_plan_commit": "e91afaa8fd75fe0776bfde02f14c9ee5a885a2b4",
+  "acquisition_handoff_commit": "c9c754429f60974d576d255eddc1e1a603c4e95d",
+  "allowed_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "transfer_cap_bytes": 2069812955,
+  "allowed_executables": [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+    "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+  ],
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+  "version_command": [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "/mnt/disk1/0714_control/job_repo/scripts/etty_kraken2_identity_check.py"
+  ],
+  "version_expected": "ETYY_KRAKEN2_IDENTITY_OK",
+  "allowed_working_roots": [
+    "/mnt/disk1/0714_control/results"
+  ],
+  "allowed_environment_keys": [
+    "PATH",
+    "LANG",
+    "LC_ALL"
+  ],
+  "wall_seconds": 28800,
+  "memory_cap_bytes": 68719476736,
+  "workspace_cap_bytes": 5000000000,
+  "database_path": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+  "database_manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+  "threads": 4,
+  "confidence": 0.0,
+  "minimum_hit_groups": 2,
+  "native_reads": true,
+  "trimming": false,
+  "host_filtering": false,
+  "bracken": false,
+  "biological_inference": false,
+  "items": [
+    {
+      "id": "CRR2424037",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424037/CRR2424037.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424037.fq.gz",
+      "expected_bytes": 6740629,
+      "sha256": "ab6318c94fb87e42423dabb46859aaa67304c1c271ccecda49d9c40f8e3ba869",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424037.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424037.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424037.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424036",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424036/CRR2424036.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424036.fq.gz",
+      "expected_bytes": 98156259,
+      "sha256": "b070f297c93f8981aa3caf5857dd202a6339ae91397be13da9ce503b2a3547ce",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424036.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424036.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424036.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424035",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424035/CRR2424035.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424035.fq.gz",
+      "expected_bytes": 26468825,
+      "sha256": "c0dc04846dbbbd4b3eef45ead792aea09366f65ee8b5b5ce722f0f784d056e87",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424035.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424035.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424035.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424034",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424034/CRR2424034.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424034.fq.gz",
+      "expected_bytes": 36926490,
+      "sha256": "a193e6c38ee9d71c452d0486384b59d7ebcffb417bb91985799c3c75fb3e798c",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424034.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424034.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424034.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424033",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424033/CRR2424033.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424033.fq.gz",
+      "expected_bytes": 145931694,
+      "sha256": "f14be1441c09f5d4448824ff7a4b8e58135fa18eaaa996c3202e57354bf0e435",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424033.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424033.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424033.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424032",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424032/CRR2424032.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424032.fq.gz",
+      "expected_bytes": 6767584,
+      "sha256": "80c2d292147a9f2b0824c8cb9437e3a3d9db48397d02c46cef91deb7fdf4cba7",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424032.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424032.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424032.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424031",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424031/CRR2424031.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424031.fq.gz",
+      "expected_bytes": 2630448,
+      "sha256": "8f3edef27430b9d59ba72e8077a9f07dcafd5688d9b0c5a1e9149cd4f81f1552",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424031.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424031.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424031.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424030",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424030/CRR2424030.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424030.fq.gz",
+      "expected_bytes": 2887707,
+      "sha256": "48c27007c92cd54c17d643c64125b16427ef3c925258e2218fa5c8402c018a8a",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424030.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424030.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424030.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424029",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424029/CRR2424029.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424029.fq.gz",
+      "expected_bytes": 5787010,
+      "sha256": "3e7b5d324150e43fdf1d71d130e2f6ed01321b23ad537e30a1dff9106be55d50",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424029.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424029.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424029.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424028",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424028/CRR2424028.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424028.fq.gz",
+      "expected_bytes": 2959660,
+      "sha256": "4856a6005f4abe83182016221816640f1e042cdabd5addd67439e45664c3ff1e",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424028.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424028.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424028.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424027",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424027/CRR2424027.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424027.fq.gz",
+      "expected_bytes": 169504130,
+      "sha256": "1564f7a61bd7ef751876a6677e0e02783d55db0cc7e4ad29dc649c31aa44b617",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424027.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424027.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424027.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424026",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424026/CRR2424026.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424026.fq.gz",
+      "expected_bytes": 32620858,
+      "sha256": "f8605a6496815b9cd105d140ab0517aa246674de203e65bd8def852db3de9e6f",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424026.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424026.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424026.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424025",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424025/CRR2424025.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424025.fq.gz",
+      "expected_bytes": 2348806,
+      "sha256": "c4bdbfd121f57b80ec096c8d5c28ea77b37c8eb77feecf55d8e286db461d98d3",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424025.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424025.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424025.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424024",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424024/CRR2424024.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424024.fq.gz",
+      "expected_bytes": 1871365,
+      "sha256": "11e1585a571a56fecd0dd0efb1ba3250018d5a268fdfc50099be8cf4a3cfbac9",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424024.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424024.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424024.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424023",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424023/CRR2424023.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424023.fq.gz",
+      "expected_bytes": 10949208,
+      "sha256": "afe7691a50c53f969ff58d859de82e6946870a95a7956d6c87e4a2673f110c87",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424023.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424023.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424023.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424022",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424022/CRR2424022.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424022.fq.gz",
+      "expected_bytes": 1426712,
+      "sha256": "9aed987f74acbd8d11de1821c66e684dc6c543d825b2fa15c5a8f4262b8d1ec2",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424022.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424022.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424022.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424021",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424021/CRR2424021.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424021.fq.gz",
+      "expected_bytes": 39494405,
+      "sha256": "59436cc65bc4e919c995d28b4d7bf9ad431678712fe03b85a039a24eaa801f30",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424021.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424021.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424021.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424020",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424020/CRR2424020.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424020.fq.gz",
+      "expected_bytes": 2559117,
+      "sha256": "6aece473839533c6115ee52f3d9b9611d9b303630cb7b6f2beb35957e978cb8e",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424020.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424020.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424020.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424019",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424019/CRR2424019.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424019.fq.gz",
+      "expected_bytes": 7661807,
+      "sha256": "813afe9b3ed0d66e66495c1dcda0ffb9b6fb469a1416d780fba182cbe324741a",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424019.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424019.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424019.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424018",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424018/CRR2424018.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424018.fq.gz",
+      "expected_bytes": 36091167,
+      "sha256": "e294c484d785a444dfbd3521328a35a2cc84861fa65f8e94c45f91036f16f6e3",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424018.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424018.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424018.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424017",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424017/CRR2424017.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424017.fq.gz",
+      "expected_bytes": 3397443,
+      "sha256": "20f2bcdf797359ee7b7c98a5c95c58d8069d512082d4ecbfae8c98ceb74f7817",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424017.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424017.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424017.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424016",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424016/CRR2424016.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424016.fq.gz",
+      "expected_bytes": 17761314,
+      "sha256": "abfe02891357f3c1a95726f99793f6a833c1e0ed78415724c4933e124fcc7233",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424016.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424016.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424016.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424015",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424015/CRR2424015.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424015.fq.gz",
+      "expected_bytes": 1120876,
+      "sha256": "714c654b4a005fafc78a3c732e0c85f73bed4078f207894bb67696c50a298309",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424015.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424015.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424015.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424014",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424014/CRR2424014.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424014.fq.gz",
+      "expected_bytes": 1721443,
+      "sha256": "a7be114a90c351f031fb489b594a49627b9707f2965538e6795712b1836d130b",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424014.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424014.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424014.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424013",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424013/CRR2424013.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424013.fq.gz",
+      "expected_bytes": 3591459,
+      "sha256": "dad1cc99b629fa3e5f64d583cbc57442ed7cf2bdeed3bbc0bf24ab4702b40304",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424013.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424013.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424013.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424012",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424012/CRR2424012.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424012.fq.gz",
+      "expected_bytes": 7938921,
+      "sha256": "671e43e3878a90f26d34a15b53efa3cea0d29f71b2c0b655b9521ab8df4140a3",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424012.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424012.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424012.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424011",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424011/CRR2424011.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424011.fq.gz",
+      "expected_bytes": 2053625,
+      "sha256": "8a90e60f7ec1d76c4e1ccfe5d33ad643b84580cf40b95c7fe66b118e0e5dce4b",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424011.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424011.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424011.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424009",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424009/CRR2424009.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424009.fq.gz",
+      "expected_bytes": 5778760,
+      "sha256": "a6f2a37cbd156c2a3fa6e29fd00e27eebf8dbeca3b973cbe5d385d6e3fd20810",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424009.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424009.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424009.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424008",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424008/CRR2424008.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424008.fq.gz",
+      "expected_bytes": 3397566,
+      "sha256": "68fac0ccd7ed484f7da8f660a26fefeff9408bb1c811e92c5a1125fdccc292b9",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424008.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424008.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424008.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424007",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424007/CRR2424007.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424007.fq.gz",
+      "expected_bytes": 6883742,
+      "sha256": "2ce1d6ddf3e36fa5dd84bae95b3370add37385025d61d4c382a527dbc7d48315",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424007.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424007.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424007.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424006",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424006/CRR2424006.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424006.fq.gz",
+      "expected_bytes": 7945136,
+      "sha256": "e5e5e20cf8a0638bb6e59c89cd73097f5cb92e5cd77c2598c644b793df842fb5",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424006.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424006.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424006.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424005",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424005/CRR2424005.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424005.fq.gz",
+      "expected_bytes": 2995007,
+      "sha256": "6d2799a5c0e608e428908a036d55a417cd49f358807b2859bf4cfaa8d7a61c32",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424005.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424005.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424005.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424004",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424004/CRR2424004.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424004.fq.gz",
+      "expected_bytes": 1697443,
+      "sha256": "d4ca46113da4495e338bad1244740114a2bd87e039d2ec5cdb9ffc9c42605836",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424004.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424004.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424004.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424003",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424003/CRR2424003.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424003.fq.gz",
+      "expected_bytes": 2303578,
+      "sha256": "78785cfcb381858f4960d0c489203cd7eb5a1b5a54b41bdcd475a55fc0bab347",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424003.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424003.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424003.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424002",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424002/CRR2424002.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424002.fq.gz",
+      "expected_bytes": 6902892,
+      "sha256": "40ffe52247151938cc0e76a6f89b9fa794a7a24441e9203cabb2fb0157fd4e42",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424002.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424002.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424002.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2424001",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424001/CRR2424001.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424001.fq.gz",
+      "expected_bytes": 5378510,
+      "sha256": "f646bc40916fb22da5cbd72de3f187a0bba1e92753180873a5a764a832447184",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424001.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2424001.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424001.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423999",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423999/CRR2423999.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423999.fq.gz",
+      "expected_bytes": 2221622,
+      "sha256": "00fd70bf16f5eb60a487872aa7f7d11eecdac107576730cafa279cca0a223180",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423999.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423999.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423999.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423998",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423998/CRR2423998.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423998.fq.gz",
+      "expected_bytes": 2795132,
+      "sha256": "fbe12886147e632cc65ca4bfb84aa600d079a07da338e13e3c2a67b330587b4f",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423998.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423998.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423998.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423997",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423997/CRR2423997.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423997.fq.gz",
+      "expected_bytes": 4697173,
+      "sha256": "c316fcbcc0fe7cb1e41ac4f5361d554a2d503484e121f28d0421de2ebbbcd7ad",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423997.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423997.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423997.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423996",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423996/CRR2423996.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423996.fq.gz",
+      "expected_bytes": 15562925,
+      "sha256": "b527bdfa195750ea55f78043527320ff9eee7b10fe0e2c6d6a0f270f718006e1",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423996.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423996.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423996.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423995",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423995/CRR2423995.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423995.fq.gz",
+      "expected_bytes": 11031523,
+      "sha256": "c55b4aebfb3be954543fb89a0f917fc0e08ce6fa26f6ea69c611bd8f9803c809",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423995.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423995.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423995.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423994",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423994/CRR2423994.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423994.fq.gz",
+      "expected_bytes": 61242145,
+      "sha256": "d0a681eb533b45f0acab406ae2e2e413643d1aa0fe81a497418d39c4865b32e1",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423994.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423994.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423994.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423993",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423993/CRR2423993.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423993.fq.gz",
+      "expected_bytes": 15880923,
+      "sha256": "314b9ec9a54f48a461c9a8f90f50a2fbf31d76715460d8a6346b660bf2a5c95e",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423993.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423993.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423993.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423992",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423992/CRR2423992.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423992.fq.gz",
+      "expected_bytes": 8827021,
+      "sha256": "749e7c8824c754791fd718e7add2a441901c9de3b06fe993123f93d31534bcbb",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423992.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423992.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423992.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423990",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423990/CRR2423990.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423990.fq.gz",
+      "expected_bytes": 972161,
+      "sha256": "9ac610548a3f520a23c4ad5a45d7bb8a5a2780f7ac9ea51fa1ad169a9e5280ac",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423990.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423990.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423990.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423989",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423989/CRR2423989.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423989.fq.gz",
+      "expected_bytes": 5779644,
+      "sha256": "ef53920f0bb2a32ad94d66dd82c0aafcfe3acf7bfcadb7033f7041c4d1f65742",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423989.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423989.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423989.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423988",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423988/CRR2423988.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423988.fq.gz",
+      "expected_bytes": 5990460,
+      "sha256": "c78889c04294f3275c875db335581f2afaf0cac59229d36d4539bdee7bdf71c7",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423988.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423988.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423988.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423987",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423987/CRR2423987.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423987.fq.gz",
+      "expected_bytes": 4254564,
+      "sha256": "77c6978f7bfe950f3e29dfdea1cb411f04cb36d68efb1aa256bb2038332235d8",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423987.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423987.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423987.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423985",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423985/CRR2423985.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423985.fq.gz",
+      "expected_bytes": 5178308,
+      "sha256": "ee6c669fb1ab8348eab76efa7a80e86319f9850d881c39d1718c3f1924de02d5",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423985.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423985.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423985.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423984",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423984/CRR2423984.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423984.fq.gz",
+      "expected_bytes": 5014385,
+      "sha256": "52dcea400fa6de40c391694ee88421699d17caaccc2e9d5b092385711b3fa047",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423984.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423984.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423984.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423983",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423983/CRR2423983.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423983.fq.gz",
+      "expected_bytes": 4110006,
+      "sha256": "598df74abcbb764fca9219641f0dabc711b5482e2874c9b715b345cd24772153",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423983.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423983.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423983.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423982",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423982/CRR2423982.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423982.fq.gz",
+      "expected_bytes": 12068908,
+      "sha256": "b786565c14afc454f55eb5ef97535e9466a4f1b0f6388d696a430206c11ae7ab",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423982.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423982.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423982.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423981",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423981/CRR2423981.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423981.fq.gz",
+      "expected_bytes": 5853504,
+      "sha256": "098c7142d93aa56213f1b32f50ff44082cc5a9467105923fc2064750f4354b0e",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423981.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423981.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423981.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423980",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423980/CRR2423980.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423980.fq.gz",
+      "expected_bytes": 25354418,
+      "sha256": "d3d010f86a01653eca8b5e2f70134478973c85910e7a5249ee04d7821a5048d0",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423980.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423980.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423980.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423979",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423979/CRR2423979.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423979.fq.gz",
+      "expected_bytes": 1426075,
+      "sha256": "76c7316cdf5e8601ca8c2bee3f78f63a2faea9d106324a2bf869e6be999d146e",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423979.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423979.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423979.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423978",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423978/CRR2423978.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423978.fq.gz",
+      "expected_bytes": 3853378,
+      "sha256": "bb9bde3e9b342fcd0d5d2d8d7bf8d14d39f4e21c672e980a829fc6527294a3cf",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423978.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423978.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423978.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423977",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423977/CRR2423977.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423977.fq.gz",
+      "expected_bytes": 18349844,
+      "sha256": "5069d517f8ad2a890fa9a7278c3c9ac1721ff00c014e5a861440d37e1eb2b02a",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423977.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423977.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423977.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423976",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423976/CRR2423976.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423976.fq.gz",
+      "expected_bytes": 3759391,
+      "sha256": "acc531ebfc807cc6613ff781cbf9142247bc33d6ab8283a0af2d5a837315b2fc",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423976.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423976.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423976.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423975",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423975/CRR2423975.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423975.fq.gz",
+      "expected_bytes": 10092565,
+      "sha256": "f12bc2941520e7a375b95600a4f7a5dcaa71a65bdd6d98ac0189b6ee3b1e394d",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423975.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423975.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423975.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423974",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423974/CRR2423974.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423974.fq.gz",
+      "expected_bytes": 129793226,
+      "sha256": "c3e6c035c6bcc46477b5584a79a2e91f55765069df284e87abc4a6195a41ac83",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423974.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423974.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423974.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423973",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423973/CRR2423973.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423973.fq.gz",
+      "expected_bytes": 2318599,
+      "sha256": "6bb72e6a1dc6ac9742f2b895cc77a2fd64cca83d5e75d84192be91bdadcebe89",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423973.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423973.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423973.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423972",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423972/CRR2423972.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423972.fq.gz",
+      "expected_bytes": 7752005,
+      "sha256": "3543de4f373fa4f548dfaae7654cb8ee987d79629c599b315da8f50312e1c9fd",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423972.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423972.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423972.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423971",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423971/CRR2423971.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423971.fq.gz",
+      "expected_bytes": 49175198,
+      "sha256": "90619bbdc671900bb043d6cebdf3564efb9fd960d2d36129c12316d968261a60",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423971.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423971.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423971.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423970",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423970/CRR2423970.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423970.fq.gz",
+      "expected_bytes": 18668026,
+      "sha256": "8f0fe6de39a085f556ecfeba040ec4102552c2f5e1dd7d6438cf5233a76c6330",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423970.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423970.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423970.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423969",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423969/CRR2423969.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423969.fq.gz",
+      "expected_bytes": 6569811,
+      "sha256": "c28ebb476c5618b5c7edfb205eeebc73b6019ffb3d20300ada5383d7e683678c",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423969.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423969.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423969.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423968",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423968/CRR2423968.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423968.fq.gz",
+      "expected_bytes": 5761980,
+      "sha256": "764d14e07e7d1e317127bdf4c3a0fc86c3033761cf681f902ad1df4bbbb0a933",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423968.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423968.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423968.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423967",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423967/CRR2423967.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423967.fq.gz",
+      "expected_bytes": 12066260,
+      "sha256": "aa659fd749cb632e40840f146e0d1636e4f09a840f80f13d37e3b5b9797ec127",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423967.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423967.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423967.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423966",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423966/CRR2423966.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423966.fq.gz",
+      "expected_bytes": 5574350,
+      "sha256": "eb69b1d324da105a707803230e96a56f86fb46c342ff5c38f39c1c686932fc1c",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423966.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423966.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423966.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423965",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423965/CRR2423965.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423965.fq.gz",
+      "expected_bytes": 38662943,
+      "sha256": "67d2ca6ba141ab8cace3f0d3d638248e185a2391f4f24292159ded05093a325a",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423965.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423965.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423965.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423964",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423964/CRR2423964.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423964.fq.gz",
+      "expected_bytes": 11693228,
+      "sha256": "f813d552f52874281bc2d0046ceecd636307f5bad129c5ba2f0e55d8ae3e1bee",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423964.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423964.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423964.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423963",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423963/CRR2423963.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423963.fq.gz",
+      "expected_bytes": 36035032,
+      "sha256": "072df01ce46afdd33f910c12baa25620f024495b06634ae1ffd960ee285144b4",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423963.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423963.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423963.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423962",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423962/CRR2423962.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423962.fq.gz",
+      "expected_bytes": 6450611,
+      "sha256": "8cb864aeeb334d0f3fab29ebd98d3d67842b7b71a422dc39c06dbe910567962c",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423962.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423962.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423962.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423960",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423960/CRR2423960.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423960.fq.gz",
+      "expected_bytes": 4534177,
+      "sha256": "df32b53689b0780d57a8fad08aaf26fb55130dba179e98aa342ee5c5e5c65091",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423960.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423960.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423960.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423959",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423959/CRR2423959.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423959.fq.gz",
+      "expected_bytes": 32710876,
+      "sha256": "2b5e573bdac92217d4e2a87076ad5a516f21b2e2d4bf3b2a0f336afe1429ee38",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423959.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423959.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423959.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423958",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423958/CRR2423958.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423958.fq.gz",
+      "expected_bytes": 3891556,
+      "sha256": "c94d246a217eeb9498b4906a81720d963a4a87ee24060adce66b15619e5d4eb0",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423958.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423958.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423958.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423956",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423956/CRR2423956.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423956.fq.gz",
+      "expected_bytes": 53109381,
+      "sha256": "4694ecc56a04e21b647b08b6aab77482778ce1665944549d285abed3e2cdfb64",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423956.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423956.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423956.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423955",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423955/CRR2423955.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423955.fq.gz",
+      "expected_bytes": 2729183,
+      "sha256": "a0e6af050c029083c4c513d1f07e7cfe1b05d016ed8ee9cbb110f92e5a3a7bff",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423955.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423955.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423955.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423954",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423954/CRR2423954.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423954.fq.gz",
+      "expected_bytes": 12901367,
+      "sha256": "5b5469b3ca4b2a73809cd600b605e03e1b870bd771b81bf7beef2bef627eb787",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423954.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423954.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423954.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423953",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423953/CRR2423953.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423953.fq.gz",
+      "expected_bytes": 65079458,
+      "sha256": "450d3e6c0c18f64245fe667a24ee14327d4d2b8a162a1fbadf3301e0e2fdde7b",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423953.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423953.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423953.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423952",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423952/CRR2423952.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423952.fq.gz",
+      "expected_bytes": 3006978,
+      "sha256": "9bed0b7613e90c9d5311bacc82672775bfba0afa736fc41fcc45864038ff0a5c",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423952.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423952.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423952.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423951",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423951/CRR2423951.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423951.fq.gz",
+      "expected_bytes": 5930090,
+      "sha256": "5d881c0229b41e2e6f2d57db0b82da5f1de65ad162d333261b45006f28d6ddba",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423951.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423951.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423951.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423950",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423950/CRR2423950.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423950.fq.gz",
+      "expected_bytes": 10518917,
+      "sha256": "704ead7751ebb359576e1829f90417cc90a55429a9e074c0b213024d1805b001",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423950.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423950.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423950.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423949",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423949/CRR2423949.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423949.fq.gz",
+      "expected_bytes": 4379435,
+      "sha256": "4e0d6c4b3f4e2cb22c874e80f467d42fdc1e7605ab191561beca8ec5c0c49859",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423949.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423949.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423949.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423948",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423948/CRR2423948.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423948.fq.gz",
+      "expected_bytes": 7705808,
+      "sha256": "c33dcc7e1e027c9e9445c06905407ae4645403f3716d531ed55a8d8c222e111b",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423948.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423948.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423948.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423947",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423947/CRR2423947.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423947.fq.gz",
+      "expected_bytes": 50857230,
+      "sha256": "bb9045d44cc9c22e69a738ca3d36505a53744aeb455fb4a620eda6a0c5396dd6",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423947.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423947.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423947.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423946",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423946/CRR2423946.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423946.fq.gz",
+      "expected_bytes": 8077015,
+      "sha256": "9702e961266571ca5523491e8be4c6f2c869c6e57341865f30b2412c45f3726a",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423946.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423946.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423946.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423945",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423945/CRR2423945.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423945.fq.gz",
+      "expected_bytes": 8183292,
+      "sha256": "3dcbb7157d9c3fbaba2b04336580ce488753fec503584e8c00e2c5ecf6d71792",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423945.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423945.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423945.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423944",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423944/CRR2423944.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423944.fq.gz",
+      "expected_bytes": 3559489,
+      "sha256": "80c6a54acef2b20956e09883c552d90382ce2344ac7772bdb05f74134040f015",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423944.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423944.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423944.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423943",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423943/CRR2423943.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423943.fq.gz",
+      "expected_bytes": 4175181,
+      "sha256": "5cb6aeef5a30015c38b37bd255e61eb763375f3b66fc05703507c3d328c1f6be",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423943.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423943.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423943.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423942",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423942/CRR2423942.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423942.fq.gz",
+      "expected_bytes": 3118981,
+      "sha256": "3808bbcfde032fd15c77740b91c64b3c3d651223068cda774d8fdd536b3d21ed",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423942.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423942.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423942.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423941",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423941/CRR2423941.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423941.fq.gz",
+      "expected_bytes": 3361509,
+      "sha256": "fb118a91e8b26e7311b6b1632ce82bb56985cdad8347284a6b46a7c4d1e00efa",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423941.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423941.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423941.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423940",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423940/CRR2423940.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423940.fq.gz",
+      "expected_bytes": 11765474,
+      "sha256": "36e86eb552f89d4ffc913522a82b75ac7aaad8419401716e0d710d78b077f9cc",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423940.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423940.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423940.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423939",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423939/CRR2423939.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423939.fq.gz",
+      "expected_bytes": 4877901,
+      "sha256": "2d8f3023ec74be888d1d41c3dc58e71995976071b8e7fd79bb19c9dbed3f5d81",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423939.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423939.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423939.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423938",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423938/CRR2423938.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423938.fq.gz",
+      "expected_bytes": 3335565,
+      "sha256": "d70f731f1a033e2964eb75e0e7c3f3eb9ba653af74481317efa32269813e3e07",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423938.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423938.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423938.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423937",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423937/CRR2423937.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423937.fq.gz",
+      "expected_bytes": 6150243,
+      "sha256": "8c764df912687fb9da0e348f671e3ff83c2d22afbb06ee69a8f28473d831cd2b",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423937.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423937.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423937.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423936",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423936/CRR2423936.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423936.fq.gz",
+      "expected_bytes": 4988782,
+      "sha256": "9fcf6a2d5eeeb28c2a2222265ac477a0f1e8cf1245aedbcad8ee16d2fd37b93e",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423936.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423936.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423936.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423935",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423935/CRR2423935.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423935.fq.gz",
+      "expected_bytes": 3030038,
+      "sha256": "c5f7d84bff66c59f08598940f92334bd66b07730c8833c8400be5314f6434408",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423935.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423935.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423935.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423934",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423934/CRR2423934.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423934.fq.gz",
+      "expected_bytes": 80553658,
+      "sha256": "fd819e8a6748f5965538d510388b154ffa3b3cf14c56a60a8008bed49261fc3d",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423934.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423934.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423934.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423933",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423933/CRR2423933.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423933.fq.gz",
+      "expected_bytes": 2670593,
+      "sha256": "199e15990d040706803bd547d544368fde480257d27ac98ffc0c202ff3dc9e01",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423933.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423933.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423933.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423932",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423932/CRR2423932.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423932.fq.gz",
+      "expected_bytes": 4168572,
+      "sha256": "ceff0aa03a826b300203874b456d83df2fc32af395cb56b9353dde9ed20bcc80",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423932.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423932.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423932.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423931",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423931/CRR2423931.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423931.fq.gz",
+      "expected_bytes": 8864071,
+      "sha256": "6367201be85dee1201711b386c86565e15cd9ebd39b4705b0027fa07a1ec14c4",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423931.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423931.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423931.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423930",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423930/CRR2423930.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423930.fq.gz",
+      "expected_bytes": 16488172,
+      "sha256": "ca31848ea6a91561536be449f825905820a96ceffd937799f0b85cf4ca5cf12a",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423930.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423930.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423930.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423929",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423929/CRR2423929.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423929.fq.gz",
+      "expected_bytes": 25464468,
+      "sha256": "3dc334d6fc2576b845300d9a9a44970b557998ab8d0e65703200b3b0555aec3c",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423929.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423929.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423929.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423928",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423928/CRR2423928.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423928.fq.gz",
+      "expected_bytes": 7108991,
+      "sha256": "7474f4aff0ca32ebf623ce8af4e8cee23d9c43a67fa1d68716eff69dee44ccae",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423928.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423928.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423928.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423927",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423927/CRR2423927.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423927.fq.gz",
+      "expected_bytes": 6160521,
+      "sha256": "dcb49268fdeaa90ef54c55edc0c68aaaf4cc7847dc81dbb11598b258b8705ddc",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423927.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423927.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423927.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423926",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423926/CRR2423926.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423926.fq.gz",
+      "expected_bytes": 14603753,
+      "sha256": "7a74653bf299dd752d9de2225ba289b0760e7d4cab7fa7074fb3f7a60e7bd569",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423926.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423926.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423926.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423925",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423925/CRR2423925.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423925.fq.gz",
+      "expected_bytes": 5036573,
+      "sha256": "b5ed794556e1c44ad37ee2227903cdf204ddbaed8246b4ec55b416289e4eca66",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423925.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423925.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423925.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423924",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423924/CRR2423924.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423924.fq.gz",
+      "expected_bytes": 4327978,
+      "sha256": "d4912b1fc68c9a4822ebab58eed19726104f41843cb6ead3fb62224448c3e3f3",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423924.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423924.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423924.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423923",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423923/CRR2423923.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423923.fq.gz",
+      "expected_bytes": 7222442,
+      "sha256": "3f3efca9b2e41d2051fff0110094100b9e84ae8be0dd313ed918c8ef13c2ca8f",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423923.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423923.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423923.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423922",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423922/CRR2423922.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423922.fq.gz",
+      "expected_bytes": 43489211,
+      "sha256": "59f1e3ddf549e930b7525204c2cbd82ad6d939bceec651c8ef7ff4dd95b98472",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423922.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423922.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423922.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423920",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423920/CRR2423920.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423920.fq.gz",
+      "expected_bytes": 4527253,
+      "sha256": "6fc7ef23f6a6fa7b1574261fbec80bf13c5d61b7a3de24d5088021f1ff7fffab",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423920.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423920.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423920.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423919",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423919/CRR2423919.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423919.fq.gz",
+      "expected_bytes": 4803282,
+      "sha256": "82018d35d82784b8983ce0d1d0ea74a6013da6f690d1315fc985987ae45a96ac",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423919.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423919.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423919.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423918",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423918/CRR2423918.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423918.fq.gz",
+      "expected_bytes": 1623544,
+      "sha256": "1f645a20eb92886389d1378a8eddef2a82729de8eb0ff76105ef581aa10de6da",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423918.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423918.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423918.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423917",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423917/CRR2423917.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423917.fq.gz",
+      "expected_bytes": 64376299,
+      "sha256": "664e62047a24a693be8f703b0cd0041b9bc07b61768670625903183e977138fd",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423917.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423917.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423917.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423916",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423916/CRR2423916.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423916.fq.gz",
+      "expected_bytes": 5312425,
+      "sha256": "8e777680ed989b8b72b898729271e3526fdcf1cc6b1f502c543bd51eba93b6b6",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423916.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423916.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423916.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423915",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423915/CRR2423915.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423915.fq.gz",
+      "expected_bytes": 2137348,
+      "sha256": "cd2dfe7e75ac61847a8a545bf1e9ddce667023e7aeea811937c4999c2d7e3f35",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423915.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423915.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423915.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423914",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423914/CRR2423914.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423914.fq.gz",
+      "expected_bytes": 1369342,
+      "sha256": "affa45559df2ba64031ef41a8dbc4cb31728e68314ce1dda7fe7a40b4b8750a8",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423914.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423914.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423914.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423913",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423913/CRR2423913.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423913.fq.gz",
+      "expected_bytes": 1685739,
+      "sha256": "c28ec7ef4032ac75859f6ec049591780cda88a58fdf7fe33e3d0d741f8440cb2",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423913.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423913.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423913.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423911",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423911/CRR2423911.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423911.fq.gz",
+      "expected_bytes": 1991312,
+      "sha256": "e4192f5e3d6e7fbde8f8a2166d2ad610c303fcb8534ad8f57593f139427ee085",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423911.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423911.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423911.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423910",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423910/CRR2423910.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423910.fq.gz",
+      "expected_bytes": 1985127,
+      "sha256": "ad55386596fed946d125cdc37e047d2df6d192bf4823c3be60fd8efac7764342",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423910.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423910.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423910.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423909",
+      "clinical_group": "Drug_Resistance",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423909/CRR2423909.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423909.fq.gz",
+      "expected_bytes": 4075644,
+      "sha256": "4fdb7e6ccaf5d3d48d3bedb44ee2b38b72aeb495e3d6a32a70c789f3dc22fcdd",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423909.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423909.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423909.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    },
+    {
+      "id": "CRR2423908",
+      "clinical_group": "Drug_Sensitive",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423908/CRR2423908.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz",
+      "expected_bytes": 142299771,
+      "sha256": "6c32708cb3bdef5459e95e283445f3020762f66fa2bc4dfcd0e6f2497ef3f7f7",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--db",
+        "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+        "--threads",
+        "4",
+        "--confidence",
+        "0.0",
+        "--minimum-hit-groups",
+        "2",
+        "--report",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423908.native.kreport",
+        "--output",
+        "/mnt/disk1/0714_control/results/20260822T175547Z-prjca046985-122-native-kraken2-recovery__CRR2423908.native.kraken2.out",
+        "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results",
+      "env": {
+        "PATH": "/home/suma/anaconda3/envs/mgshotgun/bin:/usr/bin:/bin",
+        "LANG": "C",
+        "LC_ALL": "C"
+      }
+    }
+  ]
+}
