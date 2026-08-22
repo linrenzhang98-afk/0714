@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "job_id": "20260822T165601Z-prjca046985-122-native-kraken2-production",
+  "authorized": true,
+  "authorization_record": "User previously authorized the frozen PRJCA046985 native-read Kraken2 expansion after 122/122 byte and SHA256 verification; the acquisition gate is now VERIFIED.",
+  "execution_commit": "5ddacd516b1fedb6966afe5610b9d9f7a217efe5",
+  "job_definition_path": "automation/production/20260822T165601Z-prjca046985-122-native-kraken2-production.json",
+  "job_definition_sha256": "832c949a716446f9193f5748e7b36b21481fd1f111ca3d198c84b24e5d593a2e",
+  "transfer_cap_bytes": 2069812955,
+  "allowed_source_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+    "version_command": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+      "--version"
+    ],
+    "version_expected": "Kraken version 2.17.1",
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control/results"
+    ],
+    "allowed_environment_keys": [],
+    "wall_seconds": 28800,
+    "memory_cap_bytes": 68719476736,
+    "workspace_cap_bytes": 5000000000
+  },
+  "handoff_allowlist": [
+    "result.json"
+  ]
+}
