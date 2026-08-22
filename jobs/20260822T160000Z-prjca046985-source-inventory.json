@@ -3,7 +3,7 @@
   "task": "metagenome_deep_review",
   "params": {
     "execute_mode": "prjca046985_source_inventory_only",
-    "manifest": "reports_public/prjca1056765_external_cohort_pilot_package/manifests/PRJCA046985_exact_manifest.tsv",
+    "manifest": "reports_public/prjca046985_external_cohort_pilot_package/manifests/PRJCA046985_exact_manifest.tsv",
     "pilot_job": "jobs/20260822T120000Z-prjca046985-native-kraken2-pilot.json",
     "handoff_dir": "/mnt/disk1/0714_handoff/20260822T160000Z-prjca046985-source-inventory",
     "new_downloaded_bytes": 0,
