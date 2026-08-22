@@ -9,8 +9,10 @@ DB=$ROOT/db/kraken2/k2_pluspfp_16gb_20221209
 AUDIT=$ROOT/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit
 HANDOFF=$ROOT/0714_handoff/20260822T120000Z-prjca046985-native-kraken2-pilot
 PY=/home/suma/anaconda3/envs/mgshotgun/bin/python
+VALIDATOR="$(cd "$(dirname "$0")" && pwd)/validate_etty_native_kraken2_pilot.py"
 EXPECTED_DB=6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3
-fail(){ echo "SAFE_STOP: $*" >&2; exit 2; }
+mkdir -p "$HANDOFF" 2>/dev/null || true
+fail(){ local r="$*"; echo "SAFE_STOP: $r" >&2; if [[ -w "$HANDOFF" ]]; then printf 'STATUS=SAFE_STOP\nREASON=%s\n' "$r" > "$HANDOFF/STATUS.txt"; fi; exit 2; }
 [[ "$(hostname)" == ETYY ]] || fail "hostname is not ETYY"
 [[ "$(id -un)" == suma ]] || fail "user is not suma"
 [[ -d $ROOT && -r $DB && -d $AUDIT/fastq && -w $ROOT ]] || fail "ETYY paths unavailable"
@@ -26,6 +28,8 @@ else
   git -C "$REPO" checkout --detach origin/main || fail "control checkout failed"
 fi
 git -C "$REPO" fetch origin main || fail "science commit fetch failed"
+BOOTSTRAP_COMMIT=$(git -C "$REPO" rev-parse origin/main)
+export BOOTSTRAP_COMMIT
 git -C "$REPO" checkout --detach "$SCIENCE_COMMIT" || fail "science commit unavailable"
 [[ "$(git -C "$REPO" rev-parse HEAD)" == "$SCIENCE_COMMIT" ]] || fail "scientific execution revision mismatch"
 [[ -f "$REPO/$JOB" ]] || fail "pilot job absent"
@@ -40,10 +44,13 @@ if m.readonly_inventory(pathlib.Path(out), pathlib.Path("/mnt/disk1/db/kraken2/0
 PY
 LIVE_DB=$("$PY" -c 'import json,sys; print(json.load(open(sys.argv[1]))["database_manifest_identity_sha256"])' "$DBOUT/hospital_readonly_inventory.json")
 [[ "$LIVE_DB" == "$EXPECTED_DB" ]] || fail "live database identity mismatch: $LIVE_DB"
+mkdir -p "$HANDOFF/database_identity"
+cp "$DBOUT/hospital_readonly_inventory.json" "$HANDOFF/database_identity/hospital_readonly_inventory.json"
 KR=$(PATH=/home/suma/anaconda3/envs/mgshotgun/bin:$PATH command -v kraken2) || fail "Kraken2 unavailable"
 KRVER=$(PATH=/home/suma/anaconda3/envs/mgshotgun/bin:$PATH kraken2 --version 2>&1 | head -1)
 [[ "$KRVER" == *"2.17.1"* ]] || fail "Kraken2 version mismatch: $KRVER"
-[[ "$(df -Pk "$ROOT" | awk 'NR==2{print $4}')" -gt 500000000 ]] || fail "insufficient disk"
+MIN_FREE_KIB=6000000 # df -Pk reports KiB; margin above the authorized 5 GB workspace cap.
+[[ "$(df -Pk "$ROOT" | awk 'NR==2{print $4}')" -gt "$MIN_FREE_KIB" ]] || fail "insufficient disk"
 [[ "$(awk '/MemAvailable/{print $2}' /proc/meminfo)" -gt 67108864 ]] || fail "insufficient RAM"
 JOB_SHA256=$(sha256sum "$REPO/$JOB" | awk '{print $1}')
 CONFIG=$CONTROL/config.local.json
@@ -62,8 +69,15 @@ for r in j["params"]["pilot_runs"]:
  assert h.hexdigest()==r["sha256"],p
 PY
 STATE=$CONTROL/state/runner_state.json
-if [[ -f "$HANDOFF/STATUS.txt" ]]; then status=$(sed -n 's/^STATUS=//p' "$HANDOFF/STATUS.txt" | head -1); [[ "$status" == PILOT_COMPLETED ]] && { echo "ALREADY_COMPLETED=$HANDOFF"; exit 0; }; [[ -z "$status" ]] || fail "existing final state: $status"; fi
-[[ ! -f "$STATE" ]] || fail "existing runner state requires manual review"
+if [[ -f "$HANDOFF/STATUS.txt" ]]; then
+  status=$(sed -n 's/^STATUS=//p' "$HANDOFF/STATUS.txt" | head -1)
+  if [[ "$status" == PILOT_COMPLETED ]]; then
+    "$PY" "$VALIDATOR" --job "$REPO/$JOB" --state "$HANDOFF/runner_state.json" --summary "$HANDOFF/pilot_summary.json" --live-db "$LIVE_DB" || fail "existing completion failed full validation"
+    echo "ALREADY_COMPLETED=$HANDOFF"; exit 0
+  fi
+  [[ -z "$status" ]] || fail "existing final state: $status"
+fi
+if [[ -f "$STATE" ]]; then fail "existing runner state requires review: $(head -c 500 "$STATE")"; fi
 find "$CONTROL/results" -mindepth 1 -maxdepth 1 -type d -print -quit | grep -q . && fail "partial results require manual review" || true
 rm -f "$CONTROL/state/preflight_state.json" "$CONTROL/logs/preflight.jsonl"
 sed "s#runner_state.json#preflight_state.json#; s#runner.jsonl#preflight.jsonl#" "$CONFIG" > "$CONTROL/config.preflight.json"
@@ -95,12 +109,13 @@ for r in p.get("runs",[]):
  if "--confidence" in text or "--minimum-hit-groups" in text: bad("forbidden Kraken2 override")
 if len([r for r in p.get("runs",[]) if r.get("status")=="done"]) != 8: bad("Kraken2 command count")
 os.makedirs(handoff,exist_ok=True)
-json.dump({"bootstrap_control_commit":None,"frozen_scientific_execution_commit":"03cff4d403bcb1ab0d87848a0b22b06762345070","database_manifest_identity_sha256":dbid,"kraken2_path":kr,"kraken2_version":krver,"python_path":"/home/suma/anaconda3/envs/mgshotgun/bin/python","hostname":os.uname().nodename,"user":"suma","run_ids":expected,"execution_start":start,"execution_end":__import__("datetime").datetime.now().astimezone().isoformat()},open(os.path.join(handoff,"provenance.json"),"w"),indent=2)
+json.dump({"bootstrap_control_commit":os.environ.get("BOOTSTRAP_COMMIT","unknown"),"frozen_scientific_execution_commit":"03cff4d403bcb1ab0d87848a0b22b06762345070","database_manifest_identity_sha256":dbid,"kraken2_path":kr,"kraken2_version":krver,"python_path":"/home/suma/anaconda3/envs/mgshotgun/bin/python","hostname":os.uname().nodename,"user":"suma","run_ids":expected,"execution_start":start,"execution_end":__import__("datetime").datetime.now().astimezone().isoformat()},open(os.path.join(handoff,"provenance.json"),"w"),indent=2)
 if failures:
  open(os.path.join(handoff,"STATUS.txt"),"w").write("STATUS=SAFE_STOP\nREASON="+"; ".join(failures)+"\n"); raise SystemExit(3)
 PY
 TEST_RC=$?
 set -e
+"$PY" "$VALIDATOR" --job "$REPO/$JOB" --state "$STATE" --summary "$RESULT/pilot_summary.json" --live-db "$LIVE_DB" || TEST_RC=3
 cp "$RESULT/pilot_summary.json" "$HANDOFF/pilot_summary.json" 2>/dev/null || true
 cp "$RESULT/validation_report.json" "$HANDOFF/validation_report.json" 2>/dev/null || true
 cp "$CONTROL/logs/runner.jsonl" "$HANDOFF/runner.jsonl" 2>/dev/null || true
