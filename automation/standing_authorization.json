@@ -1,0 +1,14 @@
+{
+  "profile": "0714-bounded-autonomy",
+  "mode": "bounded-production",
+  "writer": "WSL/Codex sole writer to main",
+  "transport": "No WSL->ETYY SSH; ETYY uses historically verified GitHub transport",
+  "legacy_etty_checkout_is_control_state": false,
+  "dedicated_etty_control_checkout": "/mnt/disk1/0714_control/repo",
+  "immutable_scientific_anchors": true,
+  "no_broad_git_add": true,
+  "no_destructive_git": true,
+  "preserve_preexisting_paths_and_stashes": true,
+  "caps": {"threads": 16, "ram_gib": 64, "temporary_disk_gb": 100, "new_raw_download_mb": 500},
+  "prior_gate": "native-read Kraken2-only common sensitivity estimand; DeepSeek GO"
+}
