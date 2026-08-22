@@ -19,7 +19,12 @@ command -v git >/dev/null || fail "git unavailable"
 git ls-remote https://github.com/linrenzhang98-afk/0714.git HEAD >/dev/null || fail "GitHub connectivity failed"
 mkdir -p "$CONTROL/state" "$CONTROL/logs" "$CONTROL/results" "$CONTROL/preflight" "$HANDOFF"
 [[ -w $HANDOFF ]] || fail "handoff not writable"
-if [[ ! -d $REPO/.git ]]; then git clone https://github.com/linrenzhang98-afk/0714.git "$REPO" || fail "control clone failed"; else git -C "$REPO" fetch origin main || fail "control fetch failed"; git -C "$REPO" merge --ff-only origin/main || fail "control clone is not fast-forwardable"; fi
+if [[ ! -d $REPO/.git ]]; then
+  git clone https://github.com/linrenzhang98-afk/0714.git "$REPO" || fail "control clone failed"
+else
+  git -C "$REPO" fetch origin main || fail "control fetch failed"
+  git -C "$REPO" checkout --detach origin/main || fail "control checkout failed"
+fi
 git -C "$REPO" fetch origin main || fail "science commit fetch failed"
 git -C "$REPO" checkout --detach "$SCIENCE_COMMIT" || fail "science commit unavailable"
 [[ "$(git -C "$REPO" rev-parse HEAD)" == "$SCIENCE_COMMIT" ]] || fail "scientific execution revision mismatch"
