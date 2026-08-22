@@ -1,0 +1,18 @@
+{
+  "job_id": "20260822T120000Z-prjca046985-native-kraken2-pilot",
+  "checked_at": "2026-08-22T05:19:26+00:00",
+  "pipeline": "metagenome_deep_review",
+  "execute_mode": "bounded_native_kraken2_pilot",
+  "selected_count": 0,
+  "errors": [],
+  "warnings": [
+    "host_index not configured; host-removal commands are written as commented placeholders."
+  ],
+  "commands": [
+    {
+      "command": "kraken2",
+      "available": true,
+      "path": "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2"
+    }
+  ]
+}

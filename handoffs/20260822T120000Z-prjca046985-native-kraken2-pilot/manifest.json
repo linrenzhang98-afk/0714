@@ -1,0 +1,21 @@
+{
+  "job_id": "20260822T120000Z-prjca046985-native-kraken2-pilot",
+  "handoff_published_at": "2026-08-22T05:56:59.060328+00:00",
+  "ETYY_hostname": "ETYY",
+  "publisher_role": "compute-handoff-only",
+  "frozen_science_sha": "03cff4d403bcb1ab0d87848a0b22b06762345070",
+  "bootstrap_control_sha": "603a5b6281ed11d373689066077c228011987b89",
+  "source_handoff_path": "/mnt/disk1/0714_handoff/20260822T120000Z-prjca046985-native-kraken2-pilot",
+  "files": {
+    "STATUS.txt": "758a0d98ad2a9e464ed79840df7e3a134efa6cbb177f3d80ce2b467a215fb5e5",
+    "database_identity/hospital_readonly_inventory.json": "8cfb751d447c2c52b1b25f0eb4d9da8437c33647d6634a35776856669f08d5d3",
+    "pilot_summary.json": "8922d3beec789e1445535793203d2123b0e1136824c4271713fd4b212b03673e",
+    "provenance.json": "07297bf35a74548d7bf70e861c04be1ccbf4d5236a5c4ced37cb9eb35ee89d03",
+    "runner_state.json": "3606ae3239320848929701e7bba880d7cb3bf877d6bda9641dbd0c85f66f733c",
+    "validation_report.json": "12d7f252f555ddc58c17a555952eef3d3e0d7ef970b789a7740686623e21328e"
+  },
+  "total_bytes": 23540,
+  "validation_status": "validated",
+  "sensitivity_classification": "non-sensitive",
+  "target_branch": "etty-handoff"
+}

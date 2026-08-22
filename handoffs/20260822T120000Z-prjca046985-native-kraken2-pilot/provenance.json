@@ -1,0 +1,28 @@
+{
+  "bootstrap_control_commit": "603a5b6281ed11d373689066077c228011987b89",
+  "frozen_scientific_execution_commit": "03cff4d403bcb1ab0d87848a0b22b06762345070",
+  "job_sha256": "ff6fc4b72a7cd81dda88ecdafd17f716906c3cdd0da2352742e069380813419a",
+  "database_manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+  "kraken2_path": "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+  "kraken2_version": "Kraken version 2.17.1",
+  "python_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "python_version": "3.13.13",
+  "hostname": "ETYY",
+  "user": "suma",
+  "run_ids": [
+    "CRR2423961",
+    "CRR2424000",
+    "CRR2423957",
+    "CRR2423986",
+    "CRR2423912",
+    "CRR2423921",
+    "CRR2423991",
+    "CRR2424010"
+  ],
+  "host_filtering_performed": false,
+  "trimming_performed": false,
+  "bracken_performed": false,
+  "new_downloaded_bytes": 0,
+  "execution_start": "2026-08-22T13:19:26+08:00",
+  "execution_end": "2026-08-22T13:21:42.389044+08:00"
+}

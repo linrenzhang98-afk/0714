@@ -1,0 +1,13 @@
+{
+  "jobs": {
+    "20260822T120000Z-prjca046985-native-kraken2-pilot": {
+      "elapsed_seconds": 136.158,
+      "job_path": "/mnt/disk1/0714_control/repo/jobs/20260822T120000Z-prjca046985-native-kraken2-pilot.json",
+      "result_dir": "/mnt/disk1/0714_control/results/20260822T120000Z-prjca046985-native-kraken2-pilot",
+      "returncode": 0,
+      "status": "done",
+      "task": "metagenome_deep_review",
+      "updated_at": "2026-08-22T05:21:42+00:00"
+    }
+  }
+}
