@@ -21,6 +21,7 @@ command -v git >/dev/null || fail "git unavailable"
 git ls-remote https://github.com/linrenzhang98-afk/0714.git HEAD >/dev/null || fail "GitHub connectivity failed"
 mkdir -p "$CONTROL/state" "$CONTROL/logs" "$CONTROL/results" "$CONTROL/preflight" "$HANDOFF"
 [[ -w $HANDOFF ]] || fail "handoff not writable"
+trap 'rc=$?; if [[ $rc -ne 0 && -w "$HANDOFF" ]]; then printf "STATUS=SAFE_STOP\nREASON=bootstrap exited rc=%s\n" "$rc" > "$HANDOFF/STATUS.txt"; fi' ERR
 if [[ ! -d $REPO/.git ]]; then
   git clone https://github.com/linrenzhang98-afk/0714.git "$REPO" || fail "control clone failed"
 else
@@ -77,7 +78,15 @@ if [[ -f "$HANDOFF/STATUS.txt" ]]; then
   fi
   [[ -z "$status" ]] || fail "existing final state: $status"
 fi
-if [[ -f "$STATE" ]]; then fail "existing runner state requires review: $(head -c 500 "$STATE")"; fi
+if [[ -f "$STATE" ]]; then
+  STATE_STATUS=$($PY -c 'import json,sys; s=json.load(open(sys.argv[1])); print(s.get("jobs",{}).get("20260822T120000Z-prjca046985-native-kraken2-pilot",{}).get("status","missing"))' "$STATE" 2>/dev/null || echo unreadable)
+  if [[ "$STATE_STATUS" == done ]]; then
+    [[ -f "$HANDOFF/pilot_summary.json" && -f "$HANDOFF/runner_state.json" ]] || fail "runner state done but persisted handoff incomplete"
+    "$PY" "$VALIDATOR" --job "$REPO/$JOB" --state "$HANDOFF/runner_state.json" --summary "$HANDOFF/pilot_summary.json" --live-db "$LIVE_DB" || fail "existing done state failed full validation"
+    echo "ALREADY_COMPLETED=$HANDOFF"; exit 0
+  fi
+  fail "existing runner state status=$STATE_STATUS; no rerun permitted"
+fi
 find "$CONTROL/results" -mindepth 1 -maxdepth 1 -type d -print -quit | grep -q . && fail "partial results require manual review" || true
 rm -f "$CONTROL/state/preflight_state.json" "$CONTROL/logs/preflight.jsonl"
 sed "s#runner_state.json#preflight_state.json#; s#runner.jsonl#preflight.jsonl#" "$CONFIG" > "$CONTROL/config.preflight.json"
@@ -109,7 +118,7 @@ for r in p.get("runs",[]):
  if "--confidence" in text or "--minimum-hit-groups" in text: bad("forbidden Kraken2 override")
 if len([r for r in p.get("runs",[]) if r.get("status")=="done"]) != 8: bad("Kraken2 command count")
 os.makedirs(handoff,exist_ok=True)
-json.dump({"bootstrap_control_commit":os.environ.get("BOOTSTRAP_COMMIT","unknown"),"frozen_scientific_execution_commit":"03cff4d403bcb1ab0d87848a0b22b06762345070","database_manifest_identity_sha256":dbid,"kraken2_path":kr,"kraken2_version":krver,"python_path":"/home/suma/anaconda3/envs/mgshotgun/bin/python","hostname":os.uname().nodename,"user":"suma","run_ids":expected,"execution_start":start,"execution_end":__import__("datetime").datetime.now().astimezone().isoformat()},open(os.path.join(handoff,"provenance.json"),"w"),indent=2)
+json.dump({"bootstrap_control_commit":os.environ.get("BOOTSTRAP_COMMIT","unknown"),"frozen_scientific_execution_commit":"03cff4d403bcb1ab0d87848a0b22b06762345070","job_sha256":__import__("hashlib").sha256(open(job,"rb").read()).hexdigest(),"database_manifest_identity_sha256":dbid,"kraken2_path":kr,"kraken2_version":krver,"python_path":"/home/suma/anaconda3/envs/mgshotgun/bin/python","python_version":__import__("sys").version.split()[0],"hostname":os.uname().nodename,"user":"suma","run_ids":expected,"host_filtering_performed":False,"trimming_performed":False,"bracken_performed":False,"new_downloaded_bytes":0,"execution_start":start,"execution_end":__import__("datetime").datetime.now().astimezone().isoformat()},open(os.path.join(handoff,"provenance.json"),"w"),indent=2)
 if failures:
  open(os.path.join(handoff,"STATUS.txt"),"w").write("STATUS=SAFE_STOP\nREASON="+"; ".join(failures)+"\n"); raise SystemExit(3)
 PY
@@ -123,5 +132,5 @@ cp "$STATE" "$HANDOFF/runner_state.json" 2>/dev/null || true
 [[ $RC -eq 0 && $TEST_RC -eq 0 ]] || fail "pilot validation failed; SAFE_STOP preserved"
 mkdir -p "$HANDOFF/database_identity"
 cp "$DBOUT/hospital_readonly_inventory.json" "$HANDOFF/database_identity/hospital_readonly_inventory.json"
-printf 'STATUS=PILOT_COMPLETED\nEXECUTION_COMMIT=%s\nJOB_SHA256=%s\nDATABASE_MANIFEST_IDENTITY_SHA256=%s\nKRAKEN2_COMMANDS_COMPLETED=8\nSAMPLES_COMPLETED=8\nNEW_DOWNLOADED_BYTES=0\n' "$SCIENCE_COMMIT" "$JOB_SHA256" "$LIVE_DB" > "$HANDOFF/STATUS.txt"
+printf 'STATUS=PILOT_COMPLETED\nEXECUTION_COMMIT=%s\nBOOTSTRAP_CONTROL_COMMIT=%s\nJOB_SHA256=%s\nDATABASE_MANIFEST_IDENTITY_SHA256=%s\nKRAKEN2_COMMANDS_COMPLETED=8\nSAMPLES_COMPLETED=8\nNEW_DOWNLOADED_BYTES=0\n' "$SCIENCE_COMMIT" "$BOOTSTRAP_COMMIT" "$JOB_SHA256" "$LIVE_DB" > "$HANDOFF/STATUS.txt"
 echo "PILOT_HANDOFF=$HANDOFF"

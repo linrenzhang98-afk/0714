@@ -11,4 +11,9 @@ zero-command dry-run, and executes only the authorized pilot if all preflight
 checks pass. The runner runs under `mgshotgun` without `--no-pull`, so GitHub is
 the control transport. Outputs persist under `/mnt/disk1/0714_handoff/`.
 
+For this frozen pilot only, the bootstrap detaches the execution clone at
+`03cff4d403bcb1ab0d87848a0b22b06762345070` and uses `--no-pull` for both dry-run
+and execution after the revision freeze. The permanent GitHub-mediated design
+is unchanged.
+
 The old `etty_remote_job.sh` is retained only as a failing deprecation stub.

@@ -32,13 +32,14 @@ def main():
   if r.get("status")!="done": f.append(f"{acc}:status")
   if r.get("input_bytes")!=m.get("expected_bytes"): f.append(f"{acc}:input_bytes")
   if r.get("input_sha256")!=m.get("sha256"): f.append(f"{acc}:input_sha256")
-  c=r.get("kraken2_command")
+  c=r.get("command")
   if not isinstance(c,list) or not c or os.path.basename(c[0])!="kraken2": f.append(f"{acc}:command")
   else:
    if "--db" not in c or c[c.index("--db")+1]!=DB: f.append(f"{acc}:db")
    if "--threads" not in c or c[c.index("--threads")+1]!="4": f.append(f"{acc}:threads")
    if "--confidence" in c or "--minimum-hit-groups" in c: f.append(f"{acc}:forbidden_override")
-   if not any(str(x).endswith(acc+".fq.gz") for x in c): f.append(f"{acc}:input_path")
+   expected_path=f"/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/{acc}.fq.gz"
+   if expected_path not in c: f.append(f"{acc}:input_path")
   cr=r.get("command_result",{})
   if cr.get("returncode")!=0 or cr.get("stop_reason")!="": f.append(f"{acc}:command_result")
  if len([r for r in got if r.get("status")=="done"])!=8: f.append("successful_kraken2_count!=8")
