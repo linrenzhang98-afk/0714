@@ -8,6 +8,7 @@ def main():
  manifest=json.loads(subprocess.check_output(["git","-C",str(repo),"show",prefix+"/manifest.json"],text=True))
  if manifest.get("job_id")!=JOB or manifest.get("target_branch")!="etty-handoff": raise SystemExit("SAFE_STOP manifest")
  out.mkdir(parents=True,exist_ok=True)
+ (out/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
  for rel,h in manifest["files"].items():
   p=out/rel; p.parent.mkdir(parents=True,exist_ok=True); p.write_bytes(subprocess.check_output(["git","-C",str(repo),"show",prefix+"/"+rel]))
   if hashlib.sha256(p.read_bytes()).hexdigest()!=h: raise SystemExit("SAFE_STOP hash")
