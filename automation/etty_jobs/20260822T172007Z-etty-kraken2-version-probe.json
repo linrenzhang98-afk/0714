@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "job_id": "20260822T172007Z-etty-kraken2-version-probe",
+  "authorized": true,
+  "authorization_record": "Diagnostic-only capture of the exact Kraken2 --version runtime output after the verified production executable-version SAFE_STOP.",
+  "execution_commit": "8f725a4ae695c0138836baebd453e646df34ad4a",
+  "job_definition_path": "automation/production/20260822T172007Z-etty-kraken2-version-probe.json",
+  "job_definition_sha256": "c2f7559de2385ae7e10efef6647a3cb01bdf937078641ed66ac48312b87c9806",
+  "transfer_cap_bytes": 142299771,
+  "allowed_source_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control/state"
+    ],
+    "allowed_environment_keys": [],
+    "wall_seconds": 60
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "version_probe.json"
+  ]
+}
