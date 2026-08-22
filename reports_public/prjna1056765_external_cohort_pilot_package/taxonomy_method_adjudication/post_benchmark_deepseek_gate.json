@@ -1,0 +1,43 @@
+{
+  "gate_version": "1.0",
+  "review_date": "2026-08-22",
+  "overall_verdict": "GO",
+  "model": "deepseek-v4-pro",
+  "review_mode": "non-thinking",
+  "retry_used": false,
+  "judgments": {
+    "kraken2_only": "VALID",
+    "fixed_length_harmonization": "INVALID",
+    "length_stratified_bracken": "INVALID",
+    "switch_cohort": "NOT_RECOMMENDED"
+  },
+  "preferred_next_method": "Kraken2-only common sensitivity estimand",
+  "kraken2_only_acceptability": {
+    "acceptable": true,
+    "conditions": [
+      "same frozen Kraken2 version, database identity and parameters in both cohorts",
+      "separate classifier-assignment sensitivity estimand",
+      "within-cohort analysis first",
+      "no pooling",
+      "frozen PRJNA1056765 v5 primary anchor remains unchanged"
+    ]
+  },
+  "additional_raw_read_characterization_needed_for_variable_length_relevance": false,
+  "benchmark": {
+    "new_downloaded_bytes": 0,
+    "samples": ["CRR2423957", "CRR2424000", "CRR2423921", "CRR2424010"],
+    "crr2424010_bracken_status": "incomplete_after_universal_stop",
+    "crr2424010_retention_evidence": "complete"
+  },
+  "deepseek_response": {
+    "decision": "APPROVE",
+    "reason": "GO. Kraken2-only: VALID. Fixed-length harmonization: INVALID. Length-stratified Bracken: INVALID. Switch cohort: NOT_RECOMMENDED. PREFERRED_NEXT_METHOD: Kraken2-only common sensitivity estimand. The frozen four-sample zero-download benchmark completed with the fixed-50 identity control exact, all native and trimmed Kraken2 runs successful, and sensitivity metrics reported. CRR2424010 Bracken failure is honestly treated as incomplete taxonomy comparison but complete retention evidence; no new raw-read characterization is needed. Native-read Kraken2 assignments are scientifically acceptable as a separate cross-cohort sensitivity estimand under identical frozen classifier/database/parameters, within-cohort analysis, no pooling, and preservation of v5.",
+    "usage": {
+      "prompt_tokens": 7012,
+      "completion_tokens": 179,
+      "total_tokens": 7191,
+      "prompt_cache_hit_tokens": 768,
+      "prompt_cache_miss_tokens": 6244
+    }
+  }
+}
