@@ -1,0 +1,32 @@
+{
+  "authorized": true,
+  "acquire": false,
+  "allowed_hosts": [
+    "example.com"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/0714_control"
+  ],
+  "transfer_cap_bytes": 1,
+  "allowed_executables": [
+    "/usr/bin/true"
+  ],
+  "executable_path": "/usr/bin/true",
+  "allowed_working_roots": [
+    "/mnt/disk1/0714_control"
+  ],
+  "allowed_environment_keys": [],
+  "wall_seconds": 10,
+  "items": [
+    {
+      "id": "20260822T090405Z-etty-unattended-smoke-item",
+      "url": "https://example.com/synthetic",
+      "destination": "/mnt/disk1/0714_control/smoke-placeholder.bin",
+      "expected_bytes": 1,
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control"
+    }
+  ]
+}
