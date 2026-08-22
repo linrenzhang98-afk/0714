@@ -23,12 +23,13 @@ def handoff(e,repo,state):
   if not src.is_file() or src.stat().st_size>5*1024*1024: raise JobError('handoff file')
   (dest/name).write_bytes(src.read_bytes())
  subprocess.run(['git','-C',str(repo),'add','--']+['handoffs/'+e['job_id']+'/'+x for x in h],check=True)
+ subprocess.run(['git','-C',str(repo),'config','user.name','ETYY Job Agent'],check=True); subprocess.run(['git','-C',str(repo),'config','user.email','etty-job-agent@localhost'],check=True)
  subprocess.run(['git','-C',str(repo),'commit','-m','Handoff '+e['job_id']],check=False)
- subprocess.run(['git','-C',str(repo),'push','origin','etty-handoff'],check=True); return 'PUBLISHED'
-def process(e,queue,jobrepo,state):
+ subprocess.run(['git','-C',str(repo),'push','origin','HEAD:etty-handoff'],check=True); return 'PUBLISHED'
+def process(e,queue,jobrepo,handoffrepo,state):
  envelope(e); jid=e['job_id']; st=Path(state); data=json.loads(st.read_text()) if st.exists() else {}
  if jid in data:
-  if data[jid].get('execution_commit')!=e['execution_commit']: raise JobError('conflicting reused job')
+  if data[jid].get('envelope_sha256')!=hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest(): raise JobError('conflicting reused job')
   if data[jid].get('status')=='done': return 'ALREADY_COMPLETED'
  subprocess.run(['git','-C',str(queue),'fetch','origin','main'],check=True); subprocess.run(['git','-C',str(jobrepo),'fetch','origin',e['execution_commit']],check=True); subprocess.run(['git','-C',str(jobrepo),'cat-file','-e',e['execution_commit']+'^{commit}'],check=True); subprocess.run(['git','-C',str(jobrepo),'checkout','--detach',e['execution_commit']],check=True)
  d=(jobrepo/e['job_definition_path']).resolve(); root=jobrepo.resolve()
@@ -37,9 +38,9 @@ def process(e,queue,jobrepo,state):
  job=json.loads(d.read_text()); job['allowed_hosts']=e['allowed_source_hosts']; job['transfer_cap_bytes']=e['transfer_cap_bytes']; validate_manifest(job)
  st.parent.mkdir(parents=True,exist_ok=True); jobstate=st.with_name(jid+'.json');
  if job.get('acquire'): acquire(job,jobstate)
- execute(job,jobstate); hout=Path(state).parent/(jid+'-handoff'); hout.mkdir(parents=True,exist_ok=True); (hout/'result.json').write_text(json.dumps({'job_id':jid,'status':'done'})); handoff(e,jobrepo,state); data[jid]={'status':'done','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest()}; st.write_text(json.dumps(data,indent=2)+'\n'); return 'DONE'
+ execute(job,jobstate); hout=Path(state).parent/(jid+'-handoff'); hout.mkdir(parents=True,exist_ok=True); (hout/'result.json').write_text(json.dumps({'job_id':jid,'status':'done'})); handoff(e,handoffrepo,state); data[jid]={'status':'done','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest()}; st.write_text(json.dumps(data,indent=2)+'\n'); return 'DONE'
 def main():
- p=argparse.ArgumentParser(); p.add_argument('--queue-repo',type=Path,required=True); p.add_argument('--job-repo',type=Path,required=True); p.add_argument('--queue-glob',default='automation/etty_jobs/*.json'); p.add_argument('--state',type=Path,required=True); p.add_argument('--once',action='store_true'); a=p.parse_args(); lock=a.state.with_suffix('.lock'); lock.parent.mkdir(parents=True,exist_ok=True)
+ p=argparse.ArgumentParser(); p.add_argument('--queue-repo',type=Path,required=True); p.add_argument('--job-repo',type=Path,required=True); p.add_argument('--handoff-repo',type=Path,required=True); p.add_argument('--queue-glob',default='automation/etty_jobs/*.json'); p.add_argument('--state',type=Path,required=True); p.add_argument('--once',action='store_true'); a=p.parse_args(); lock=a.state.with_suffix('.lock'); lock.parent.mkdir(parents=True,exist_ok=True)
  with lock.open('w') as f:
   try: fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB)
   except OSError: raise SystemExit('BUSY')
@@ -49,7 +50,7 @@ def main():
    for n in names:
     try:
      raw=subprocess.check_output(['git','-C',str(a.queue_repo),'show','origin/main:'+n],text=True)
-     print(Path(n).name,process(json.loads(raw),a.queue_repo,a.job_repo,a.state),flush=True)
+     print(Path(n).name,process(json.loads(raw),a.queue_repo,a.job_repo,a.handoff_repo,a.state),flush=True)
     except Exception as e: print(Path(n).name,'SAFE_STOP',e,flush=True)
    if a.once:return
    time.sleep(180)
