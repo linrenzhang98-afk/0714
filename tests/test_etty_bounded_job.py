@@ -2,7 +2,7 @@ import json,tempfile,unittest
 from pathlib import Path
 from scripts.etty_bounded_job import JobError,validate_manifest
 class Generic(unittest.TestCase):
- def base(self): return {'authorized':True,'allowed_hosts':['example.test'],'transfer_cap_bytes':10,'items':[{'id':'a','url':'https://example.test/a','destination':'/tmp/a','expected_bytes':5}]}
+ def base(self): return {'authorized':True,'allowed_hosts':['example.test'],'allowed_destination_roots':['/tmp'],'transfer_cap_bytes':10,'items':[{'id':'a','url':'https://example.test/a','destination':'/tmp/a','expected_bytes':5}]}
  def test_host(self):
   m=self.base(); m['items'][0]['url']='https://evil.test/a'; self.assertRaises(JobError,validate_manifest,m)
  def test_duplicate_destination(self):

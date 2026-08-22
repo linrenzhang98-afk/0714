@@ -45,7 +45,7 @@ def process(e,queue,jobrepo,handoffrepo,state):
  d=(jobrepo/e['job_definition_path']).resolve(); root=jobrepo.resolve()
  if root not in d.parents or d.is_symlink(): raise JobError('definition escape')
  if digest(d)!=e['job_definition_sha256']: raise JobError('definition hash')
- job=json.loads(d.read_text()); job['allowed_hosts']=e['allowed_source_hosts']; job['transfer_cap_bytes']=e['transfer_cap_bytes']; validate_manifest(job)
+ job=json.loads(d.read_text()); job['allowed_hosts']=e['allowed_source_hosts']; job['allowed_destination_roots']=e['allowed_destination_roots']; job['transfer_cap_bytes']=min(job.get('transfer_cap_bytes',e['transfer_cap_bytes']),e['transfer_cap_bytes']); job['wall_seconds']=min(job.get('wall_seconds',e['resource_caps'].get('wall_seconds',3600)),e['resource_caps'].get('wall_seconds',3600)); validate_manifest(job)
  st.parent.mkdir(parents=True,exist_ok=True); jobstate=st.with_name(jid+'.json');
  if job.get('acquire'): acquire(job,jobstate)
  execute(job,jobstate); hout=Path(state).parent/(jid+'-handoff'); hout.mkdir(parents=True,exist_ok=True); (hout/'result.json').write_text(json.dumps({'job_id':jid,'status':'done'})); handoff(e,handoffrepo,state); data[jid]={'status':'done','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest()}; st.write_text(json.dumps(data,indent=2)+'\n'); return 'DONE'

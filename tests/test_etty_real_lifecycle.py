@@ -6,7 +6,7 @@ class Lifecycle(unittest.TestCase):
   with tempfile.TemporaryDirectory() as t:
    d=Path(t); bare=d/'origin.git'; subprocess.run(['git','init','--bare',str(bare)],check=True,stdout=subprocess.DEVNULL)
    seed=d/'seed'; self.sh('git','clone',str(bare),str(seed)); (seed/'scripts').mkdir(); (seed/'scripts/etty_bounded_job.py').write_text('')
-   job={'authorized':True,'items':[{'id':'x','url':'https://example.test/x','destination':str(d/'x'),'expected_bytes':1,'command':[sys.executable,'-c','open("'+str(d/'result.json')+'","w").write("ok")']}],'allowed_hosts':['example.test'],'transfer_cap_bytes':1}
+   job={'authorized':True,'items':[{'id':'x','url':'https://example.test/x','destination':str(d/'x'),'expected_bytes':1,'command':[sys.executable,'-c','open("'+str(d/'result.json')+'","w").write("ok")']}],'allowed_hosts':['example.test'],'allowed_destination_roots':[str(d)],'transfer_cap_bytes':1}
    (seed/'job.json').write_text(json.dumps(job)); self.sh('git','add','.',cwd=seed); self.sh('git','commit','-m','job',cwd=seed); self.sh('git','branch','-M','main',cwd=seed); self.sh('git','push','origin','main',cwd=seed); commit=self.sh('git','rev-parse','HEAD',cwd=seed)
    env={'schema_version':1,'job_id':'j','authorized':True,'authorization_record':'review','execution_commit':commit,'job_definition_path':'job.json','job_definition_sha256':hashlib.sha256((seed/'job.json').read_bytes()).hexdigest(),'transfer_cap_bytes':1,'allowed_source_hosts':['example.test'],'allowed_destination_roots':[str(d)],'resource_caps':{'wall_seconds':1},'handoff_allowlist':['result.json']}
    # initialize independent handoff branch
