@@ -13,7 +13,7 @@ def main():
      evidence["command_evidence"] |= ("kraken2 --db" in text or '"command_result"' in text or '"kraken2_command"' in text)
  classification="UNKNOWN"
  try:
-  s=json.load(open(state)); row=s.get("jobs",{}).get("20260822T150000Z-prjca046985-native-kraken2-pilot",s.get("jobs",{}).get("20260822T120000Z-prjca046985-native-kraken2-pilot",{}))
+  s=json.load(open(state)); row=s.get("jobs",{}).get("20260822T120000Z-prjca046985-native-kraken2-pilot",{})
   if row.get("status")=="done" and evidence["summary"]: classification="COMPLETED"
   elif row.get("status") in {"failed","rejected","stopped"} and not (evidence["kreport"] or evidence["kraken_out"] or evidence["command_evidence"]): classification="PRE_EXECUTION_FAILURE_ZERO_KRAKEN2"
   elif evidence["kreport"] or evidence["kraken_out"] or evidence["command_evidence"]: classification="PARTIAL_EXECUTION"

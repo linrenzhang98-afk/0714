@@ -83,14 +83,17 @@ CLASSIFICATION=$($PY -c 'import json,sys; print(json.load(open(sys.argv[1])).get
 if [[ "$CLASSIFICATION" == PRE_EXECUTION_FAILURE_ZERO_KRAKEN2 && ! -f "$CONTROL/recovery/retry_used" ]]; then
   REC="$CONTROL/recovery/$(date -u +%Y%m%dT%H%M%SZ)-preexecution-bootstrap-$BOOTSTRAP_COMMIT"
   mkdir -p "$REC"
-  for x in "$STATE" "$CONTROL/logs/runner.jsonl" "$CONTROL/results/20260822T120000Z-prjca046985-native-kraken2-pilot" "$HANDOFF/STATUS.txt" "$HANDOFF/provenance.json" "$HANDOFF/validation_report.json"; do [[ -e "$x" ]] && cp -a "$x" "$REC/" || true; done
+  for x in "$STATE" "$CONTROL/logs/runner.jsonl" "$CONTROL/results/20260822T120000Z-prjca046985-native-kraken2-pilot" "$HANDOFF/STATUS.txt" "$HANDOFF/provenance.json" "$HANDOFF/validation_report.json" "$HANDOFF/pilot_summary.json" "$HANDOFF/runner_state.json" "$HANDOFF/runner.jsonl"; do [[ -e "$x" ]] && cp -a "$x" "$REC/" || true; done
   "$PY" - "$REC/recovery.json" <<PY
 import json,datetime
 json.dump({"prior_bootstrap_commit":"$BOOTSTRAP_COMMIT","replacement_bootstrap_commit":"$BOOTSTRAP_COMMIT","failure_classification":"PRE_EXECUTION_FAILURE_ZERO_KRAKEN2","KRAKEN2_COMMANDS_OBSERVED":0,"recovery_timestamp":datetime.datetime.now(datetime.timezone.utc).isoformat()},open("$REC/recovery.json","w"),indent=2)
 PY
-  touch "$CONTROL/recovery/retry_used"
+  [[ -s "$REC/recovery.json" ]] || fail "recovery manifest was not written"
+  stale=("$HANDOFF/STATUS.txt" "$HANDOFF/provenance.json" "$HANDOFF/validation_report.json" "$HANDOFF/pilot_summary.json" "$HANDOFF/runner_state.json" "$HANDOFF/runner.jsonl")
+  for stale_path in "${stale[@]}"; do [[ -e "$stale_path" ]] && rm -f "$stale_path"; done
   rm -f "$STATE" "$CONTROL/logs/runner.jsonl"
-  rm -rf "$CONTROL/results/20260822T120000Z-prjca046985-native-kraken2-pilot"
+  [[ ! -e "$CONTROL/results/20260822T120000Z-prjca046985-native-kraken2-pilot" ]] || rm -rf "$CONTROL/results/20260822T120000Z-prjca046985-native-kraken2-pilot"
+  touch "$CONTROL/recovery/retry_used"
 fi
 [[ "$CLASSIFICATION" != PARTIAL_EXECUTION && "$CLASSIFICATION" != UNKNOWN ]] || fail "prior attempt classification=$CLASSIFICATION; no automatic retry"
 if [[ -f "$HANDOFF/STATUS.txt" ]]; then
