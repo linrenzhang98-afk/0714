@@ -1,0 +1,1244 @@
+{
+  "acquire": true,
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "allowed_environment_keys": [],
+  "allowed_executables": [
+    "/usr/bin/true",
+    "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+  ],
+  "allowed_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_working_roots": [
+    "/mnt/disk1/0714_control"
+  ],
+  "authorized": true,
+  "items": [
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz",
+      "expected_bytes": 142299771,
+      "id": "CRR2423908",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423908/CRR2423908.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423909.fq.gz",
+      "expected_bytes": 4075644,
+      "id": "CRR2423909",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423909/CRR2423909.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423910.fq.gz",
+      "expected_bytes": 1985127,
+      "id": "CRR2423910",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423910/CRR2423910.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423911.fq.gz",
+      "expected_bytes": 1991312,
+      "id": "CRR2423911",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423911/CRR2423911.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423913.fq.gz",
+      "expected_bytes": 1685739,
+      "id": "CRR2423913",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423913/CRR2423913.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423914.fq.gz",
+      "expected_bytes": 1369342,
+      "id": "CRR2423914",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423914/CRR2423914.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423915.fq.gz",
+      "expected_bytes": 2137348,
+      "id": "CRR2423915",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423915/CRR2423915.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423916.fq.gz",
+      "expected_bytes": 5312425,
+      "id": "CRR2423916",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423916/CRR2423916.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423917.fq.gz",
+      "expected_bytes": 64376299,
+      "id": "CRR2423917",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423917/CRR2423917.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423918.fq.gz",
+      "expected_bytes": 1623544,
+      "id": "CRR2423918",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423918/CRR2423918.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423919.fq.gz",
+      "expected_bytes": 4803282,
+      "id": "CRR2423919",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423919/CRR2423919.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423920.fq.gz",
+      "expected_bytes": 4527253,
+      "id": "CRR2423920",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423920/CRR2423920.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423922.fq.gz",
+      "expected_bytes": 43489211,
+      "id": "CRR2423922",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423922/CRR2423922.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423923.fq.gz",
+      "expected_bytes": 7222442,
+      "id": "CRR2423923",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423923/CRR2423923.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423924.fq.gz",
+      "expected_bytes": 4327978,
+      "id": "CRR2423924",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423924/CRR2423924.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423925.fq.gz",
+      "expected_bytes": 5036573,
+      "id": "CRR2423925",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423925/CRR2423925.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423926.fq.gz",
+      "expected_bytes": 14603753,
+      "id": "CRR2423926",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423926/CRR2423926.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423927.fq.gz",
+      "expected_bytes": 6160521,
+      "id": "CRR2423927",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423927/CRR2423927.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423928.fq.gz",
+      "expected_bytes": 7108991,
+      "id": "CRR2423928",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423928/CRR2423928.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423929.fq.gz",
+      "expected_bytes": 25464468,
+      "id": "CRR2423929",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423929/CRR2423929.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423930.fq.gz",
+      "expected_bytes": 16488172,
+      "id": "CRR2423930",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423930/CRR2423930.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423931.fq.gz",
+      "expected_bytes": 8864071,
+      "id": "CRR2423931",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423931/CRR2423931.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423932.fq.gz",
+      "expected_bytes": 4168572,
+      "id": "CRR2423932",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423932/CRR2423932.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423933.fq.gz",
+      "expected_bytes": 2670593,
+      "id": "CRR2423933",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423933/CRR2423933.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423934.fq.gz",
+      "expected_bytes": 80553658,
+      "id": "CRR2423934",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423934/CRR2423934.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423935.fq.gz",
+      "expected_bytes": 3030038,
+      "id": "CRR2423935",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423935/CRR2423935.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423936.fq.gz",
+      "expected_bytes": 4988782,
+      "id": "CRR2423936",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423936/CRR2423936.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423937.fq.gz",
+      "expected_bytes": 6150243,
+      "id": "CRR2423937",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423937/CRR2423937.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423938.fq.gz",
+      "expected_bytes": 3335565,
+      "id": "CRR2423938",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423938/CRR2423938.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423939.fq.gz",
+      "expected_bytes": 4877901,
+      "id": "CRR2423939",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423939/CRR2423939.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423940.fq.gz",
+      "expected_bytes": 11765474,
+      "id": "CRR2423940",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423940/CRR2423940.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423941.fq.gz",
+      "expected_bytes": 3361509,
+      "id": "CRR2423941",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423941/CRR2423941.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423942.fq.gz",
+      "expected_bytes": 3118981,
+      "id": "CRR2423942",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423942/CRR2423942.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423943.fq.gz",
+      "expected_bytes": 4175181,
+      "id": "CRR2423943",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423943/CRR2423943.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423944.fq.gz",
+      "expected_bytes": 3559489,
+      "id": "CRR2423944",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423944/CRR2423944.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423945.fq.gz",
+      "expected_bytes": 8183292,
+      "id": "CRR2423945",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423945/CRR2423945.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423946.fq.gz",
+      "expected_bytes": 8077015,
+      "id": "CRR2423946",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423946/CRR2423946.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423947.fq.gz",
+      "expected_bytes": 50857230,
+      "id": "CRR2423947",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423947/CRR2423947.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423948.fq.gz",
+      "expected_bytes": 7705808,
+      "id": "CRR2423948",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423948/CRR2423948.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423949.fq.gz",
+      "expected_bytes": 4379435,
+      "id": "CRR2423949",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423949/CRR2423949.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423950.fq.gz",
+      "expected_bytes": 10518917,
+      "id": "CRR2423950",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423950/CRR2423950.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423951.fq.gz",
+      "expected_bytes": 5930090,
+      "id": "CRR2423951",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423951/CRR2423951.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423952.fq.gz",
+      "expected_bytes": 3006978,
+      "id": "CRR2423952",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423952/CRR2423952.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423953.fq.gz",
+      "expected_bytes": 65079458,
+      "id": "CRR2423953",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423953/CRR2423953.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423954.fq.gz",
+      "expected_bytes": 12901367,
+      "id": "CRR2423954",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423954/CRR2423954.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423955.fq.gz",
+      "expected_bytes": 2729183,
+      "id": "CRR2423955",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423955/CRR2423955.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423956.fq.gz",
+      "expected_bytes": 53109381,
+      "id": "CRR2423956",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423956/CRR2423956.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423958.fq.gz",
+      "expected_bytes": 3891556,
+      "id": "CRR2423958",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423958/CRR2423958.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423959.fq.gz",
+      "expected_bytes": 32710876,
+      "id": "CRR2423959",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423959/CRR2423959.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423960.fq.gz",
+      "expected_bytes": 4534177,
+      "id": "CRR2423960",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423960/CRR2423960.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423962.fq.gz",
+      "expected_bytes": 6450611,
+      "id": "CRR2423962",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423962/CRR2423962.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423963.fq.gz",
+      "expected_bytes": 36035032,
+      "id": "CRR2423963",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423963/CRR2423963.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423964.fq.gz",
+      "expected_bytes": 11693228,
+      "id": "CRR2423964",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423964/CRR2423964.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423965.fq.gz",
+      "expected_bytes": 38662943,
+      "id": "CRR2423965",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423965/CRR2423965.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423966.fq.gz",
+      "expected_bytes": 5574350,
+      "id": "CRR2423966",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423966/CRR2423966.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423967.fq.gz",
+      "expected_bytes": 12066260,
+      "id": "CRR2423967",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423967/CRR2423967.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423968.fq.gz",
+      "expected_bytes": 5761980,
+      "id": "CRR2423968",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423968/CRR2423968.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423969.fq.gz",
+      "expected_bytes": 6569811,
+      "id": "CRR2423969",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423969/CRR2423969.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423970.fq.gz",
+      "expected_bytes": 18668026,
+      "id": "CRR2423970",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423970/CRR2423970.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423971.fq.gz",
+      "expected_bytes": 49175198,
+      "id": "CRR2423971",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423971/CRR2423971.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423972.fq.gz",
+      "expected_bytes": 7752005,
+      "id": "CRR2423972",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423972/CRR2423972.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423973.fq.gz",
+      "expected_bytes": 2318599,
+      "id": "CRR2423973",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423973/CRR2423973.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423974.fq.gz",
+      "expected_bytes": 129793226,
+      "id": "CRR2423974",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423974/CRR2423974.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423975.fq.gz",
+      "expected_bytes": 10092565,
+      "id": "CRR2423975",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423975/CRR2423975.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423976.fq.gz",
+      "expected_bytes": 3759391,
+      "id": "CRR2423976",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423976/CRR2423976.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423977.fq.gz",
+      "expected_bytes": 18349844,
+      "id": "CRR2423977",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423977/CRR2423977.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423978.fq.gz",
+      "expected_bytes": 3853378,
+      "id": "CRR2423978",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423978/CRR2423978.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423979.fq.gz",
+      "expected_bytes": 1426075,
+      "id": "CRR2423979",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423979/CRR2423979.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423980.fq.gz",
+      "expected_bytes": 25354418,
+      "id": "CRR2423980",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423980/CRR2423980.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423981.fq.gz",
+      "expected_bytes": 5853504,
+      "id": "CRR2423981",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423981/CRR2423981.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423982.fq.gz",
+      "expected_bytes": 12068908,
+      "id": "CRR2423982",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423982/CRR2423982.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423983.fq.gz",
+      "expected_bytes": 4110006,
+      "id": "CRR2423983",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423983/CRR2423983.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423984.fq.gz",
+      "expected_bytes": 5014385,
+      "id": "CRR2423984",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423984/CRR2423984.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423985.fq.gz",
+      "expected_bytes": 5178308,
+      "id": "CRR2423985",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423985/CRR2423985.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423987.fq.gz",
+      "expected_bytes": 4254564,
+      "id": "CRR2423987",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423987/CRR2423987.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423988.fq.gz",
+      "expected_bytes": 5990460,
+      "id": "CRR2423988",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423988/CRR2423988.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423989.fq.gz",
+      "expected_bytes": 5779644,
+      "id": "CRR2423989",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423989/CRR2423989.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423990.fq.gz",
+      "expected_bytes": 972161,
+      "id": "CRR2423990",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423990/CRR2423990.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423992.fq.gz",
+      "expected_bytes": 8827021,
+      "id": "CRR2423992",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423992/CRR2423992.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423993.fq.gz",
+      "expected_bytes": 15880923,
+      "id": "CRR2423993",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423993/CRR2423993.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423994.fq.gz",
+      "expected_bytes": 61242145,
+      "id": "CRR2423994",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423994/CRR2423994.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423995.fq.gz",
+      "expected_bytes": 11031523,
+      "id": "CRR2423995",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423995/CRR2423995.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423996.fq.gz",
+      "expected_bytes": 15562925,
+      "id": "CRR2423996",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423996/CRR2423996.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423997.fq.gz",
+      "expected_bytes": 4697173,
+      "id": "CRR2423997",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423997/CRR2423997.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423998.fq.gz",
+      "expected_bytes": 2795132,
+      "id": "CRR2423998",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423998/CRR2423998.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423999.fq.gz",
+      "expected_bytes": 2221622,
+      "id": "CRR2423999",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423999/CRR2423999.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424001.fq.gz",
+      "expected_bytes": 5378510,
+      "id": "CRR2424001",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424001/CRR2424001.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424002.fq.gz",
+      "expected_bytes": 6902892,
+      "id": "CRR2424002",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424002/CRR2424002.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424003.fq.gz",
+      "expected_bytes": 2303578,
+      "id": "CRR2424003",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424003/CRR2424003.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424004.fq.gz",
+      "expected_bytes": 1697443,
+      "id": "CRR2424004",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424004/CRR2424004.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424005.fq.gz",
+      "expected_bytes": 2995007,
+      "id": "CRR2424005",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424005/CRR2424005.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424006.fq.gz",
+      "expected_bytes": 7945136,
+      "id": "CRR2424006",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424006/CRR2424006.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424007.fq.gz",
+      "expected_bytes": 6883742,
+      "id": "CRR2424007",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424007/CRR2424007.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424008.fq.gz",
+      "expected_bytes": 3397566,
+      "id": "CRR2424008",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424008/CRR2424008.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424009.fq.gz",
+      "expected_bytes": 5778760,
+      "id": "CRR2424009",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424009/CRR2424009.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424011.fq.gz",
+      "expected_bytes": 2053625,
+      "id": "CRR2424011",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424011/CRR2424011.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424012.fq.gz",
+      "expected_bytes": 7938921,
+      "id": "CRR2424012",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424012/CRR2424012.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424013.fq.gz",
+      "expected_bytes": 3591459,
+      "id": "CRR2424013",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424013/CRR2424013.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424014.fq.gz",
+      "expected_bytes": 1721443,
+      "id": "CRR2424014",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424014/CRR2424014.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424015.fq.gz",
+      "expected_bytes": 1120876,
+      "id": "CRR2424015",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424015/CRR2424015.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424016.fq.gz",
+      "expected_bytes": 17761314,
+      "id": "CRR2424016",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424016/CRR2424016.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424017.fq.gz",
+      "expected_bytes": 3397443,
+      "id": "CRR2424017",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424017/CRR2424017.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424018.fq.gz",
+      "expected_bytes": 36091167,
+      "id": "CRR2424018",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424018/CRR2424018.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424019.fq.gz",
+      "expected_bytes": 7661807,
+      "id": "CRR2424019",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424019/CRR2424019.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424020.fq.gz",
+      "expected_bytes": 2559117,
+      "id": "CRR2424020",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424020/CRR2424020.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424021.fq.gz",
+      "expected_bytes": 39494405,
+      "id": "CRR2424021",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424021/CRR2424021.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424022.fq.gz",
+      "expected_bytes": 1426712,
+      "id": "CRR2424022",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424022/CRR2424022.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424023.fq.gz",
+      "expected_bytes": 10949208,
+      "id": "CRR2424023",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424023/CRR2424023.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424024.fq.gz",
+      "expected_bytes": 1871365,
+      "id": "CRR2424024",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424024/CRR2424024.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424025.fq.gz",
+      "expected_bytes": 2348806,
+      "id": "CRR2424025",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424025/CRR2424025.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424026.fq.gz",
+      "expected_bytes": 32620858,
+      "id": "CRR2424026",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424026/CRR2424026.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424027.fq.gz",
+      "expected_bytes": 169504130,
+      "id": "CRR2424027",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424027/CRR2424027.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424028.fq.gz",
+      "expected_bytes": 2959660,
+      "id": "CRR2424028",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424028/CRR2424028.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424029.fq.gz",
+      "expected_bytes": 5787010,
+      "id": "CRR2424029",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424029/CRR2424029.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424030.fq.gz",
+      "expected_bytes": 2887707,
+      "id": "CRR2424030",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424030/CRR2424030.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424031.fq.gz",
+      "expected_bytes": 2630448,
+      "id": "CRR2424031",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424031/CRR2424031.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424032.fq.gz",
+      "expected_bytes": 6767584,
+      "id": "CRR2424032",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424032/CRR2424032.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424033.fq.gz",
+      "expected_bytes": 145931694,
+      "id": "CRR2424033",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424033/CRR2424033.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424034.fq.gz",
+      "expected_bytes": 36926490,
+      "id": "CRR2424034",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424034/CRR2424034.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424035.fq.gz",
+      "expected_bytes": 26468825,
+      "id": "CRR2424035",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424035/CRR2424035.fq.gz"
+    },
+    {
+      "command": [
+        "/usr/bin/true"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424036.fq.gz",
+      "expected_bytes": 98156259,
+      "id": "CRR2424036",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424036/CRR2424036.fq.gz"
+    },
+    {
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+        "-c",
+        "import hashlib,json,sys\nfrom pathlib import Path\njob_id='20260822T092634Z-prjca046985-122-acquisition'\njob_path=Path('/mnt/disk1/0714_control/job_repo/automation/production/20260822T092634Z-prjca046985-122-acquisition.json')\nout_dir=Path('/mnt/disk1/0714_control/state/20260822T092634Z-prjca046985-122-acquisition-handoff')\ndata=json.loads(job_path.read_text())\nitems=data.get(\"items\",[])\nif len(items)!=122 or len({x.get(\"id\") for x in items})!=122: raise SystemExit(\"invalid run identity/count\")\nruns=[]\ntotal=0\nfor item in sorted(items,key=lambda x:x[\"id\"]):\n p=Path(item[\"destination\"])\n if not p.is_file() or p.is_symlink(): raise SystemExit(\"missing/nonregular: \"+item[\"id\"])\n actual=p.stat().st_size\n if actual!=item[\"expected_bytes\"]: raise SystemExit(\"byte mismatch: \"+item[\"id\"])\n h=hashlib.sha256()\n with p.open(\"rb\") as f:\n  for chunk in iter(lambda:f.read(1048576),b\"\"): h.update(chunk)\n runs.append({\"run_accession\":item[\"id\"],\"bytes\":actual,\"sha256\":h.hexdigest()})\n total+=actual\nif len(runs)!=122 or total!=2069812955: raise SystemExit(\"count/total mismatch\")\nout_dir.mkdir(parents=True,exist_ok=True)\nsummary={\"job_id\":job_id,\"status\":\"VERIFIED\",\"run_count\":122,\"expected_total_bytes\":2069812955,\"verified_total_bytes\":total,\"all_expected_bytes_match\":True,\"sha256_algorithm\":\"sha256\",\"runs\":runs}\n(out_dir/\"acquisition_summary.json\").write_text(json.dumps(summary,indent=2,sort_keys=True)+\"\\n\")\n"
+      ],
+      "cwd": "/mnt/disk1/0714_control",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424037.fq.gz",
+      "expected_bytes": 6740629,
+      "id": "CRR2424037",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424037/CRR2424037.fq.gz"
+    }
+  ],
+  "transfer_cap_bytes": 2173303603,
+  "wall_seconds": 300
+}
