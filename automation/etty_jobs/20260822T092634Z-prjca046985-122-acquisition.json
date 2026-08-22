@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "job_id": "20260822T092634Z-prjca046985-122-acquisition",
+  "authorized": true,
+  "authorization_record": "User explicitly authorized frozen PRJCA046985 122-run acquisition; exact source bytes 2069812955; hard network cap 2173303603.",
+  "execution_commit": "aa061f53e928ba0adbbac83df21ccdf92a9d5f04",
+  "job_definition_path": "automation/production/20260822T092634Z-prjca046985-122-acquisition.json",
+  "job_definition_sha256": "94f7e343e8a7010403843473aad90e217e52e00ce8b254f7e57b215d8fc7b52f",
+  "transfer_cap_bytes": 2173303603,
+  "allowed_source_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/usr/bin/true",
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+    ],
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control"
+    ],
+    "allowed_environment_keys": [],
+    "wall_seconds": 300
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "acquisition_summary.json"
+  ]
+}
