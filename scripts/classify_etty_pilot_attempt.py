@@ -7,7 +7,10 @@ def main():
   if p.exists():
    evidence["kreport"] |= any(p.rglob("*.kreport"))
    evidence["kraken_out"] |= any(p.rglob("*.kraken2.out"))
-   evidence["command_evidence"] |= any("kraken2" in x.read_text(errors="ignore").lower() for x in p.rglob("*") if x.is_file() and x.stat().st_size < 5_000_000)
+   for x in p.rglob("*"):
+    if x.is_file() and x.stat().st_size < 5_000_000:
+     text=x.read_text(errors="ignore").lower()
+     evidence["command_evidence"] |= ("kraken2 --db" in text or '"command_result"' in text or '"kraken2_command"' in text)
  classification="UNKNOWN"
  try:
   s=json.load(open(state)); row=s.get("jobs",{}).get("20260822T150000Z-prjca046985-native-kraken2-pilot",s.get("jobs",{}).get("20260822T120000Z-prjca046985-native-kraken2-pilot",{}))
