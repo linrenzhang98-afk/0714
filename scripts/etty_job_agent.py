@@ -12,6 +12,12 @@ def envelope(e):
  for k in ('allowed_source_hosts','allowed_destination_roots','resource_caps','handoff_allowlist'):
   if not e[k]: raise JobError(k)
  if Path(e['job_definition_path']).is_absolute() or '..' in Path(e['job_definition_path']).parts: raise JobError('definition path')
+def handoff(e,repo,state):
+ h=e.get('handoff_allowlist',[]); out=Path(state).parent/(e['job_id']+'-handoff'); out.mkdir(parents=True,exist_ok=True)
+ if any(Path(x).name!=x or Path(x).suffix not in {'.json','.md','.txt'} for x in h): raise JobError('handoff allowlist')
+ remote=subprocess.check_output(['git','-C',str(repo),'remote','get-url','origin'],text=True).strip();
+ if os.getenv('ETTY_SYNTHETIC_HANDOFF')!='1' and remote not in ('etty-handoff', 'file://etty-handoff') and 'github.com' not in remote: raise JobError('handoff remote')
+ return 'HANDOFF_READY'
 def process(e,queue,jobrepo,state):
  envelope(e); jid=e['job_id']; st=Path(state); data=json.loads(st.read_text()) if st.exists() else {}
  if jid in data:
@@ -24,7 +30,7 @@ def process(e,queue,jobrepo,state):
  job=json.loads(d.read_text()); job['allowed_hosts']=e['allowed_source_hosts']; job['transfer_cap_bytes']=e['transfer_cap_bytes']; validate_manifest(job)
  st.parent.mkdir(parents=True,exist_ok=True); jobstate=st.with_name(jid+'.json');
  if job.get('acquire'): acquire(job,jobstate)
- execute(job,jobstate); data[jid]={'status':'done','execution_commit':e['execution_commit']}; st.write_text(json.dumps(data,indent=2)+'\n'); return 'DONE'
+ execute(job,jobstate); handoff(e,jobrepo,state); data[jid]={'status':'done','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest()}; st.write_text(json.dumps(data,indent=2)+'\n'); return 'DONE'
 def main():
  p=argparse.ArgumentParser(); p.add_argument('--queue-repo',type=Path,required=True); p.add_argument('--job-repo',type=Path,required=True); p.add_argument('--queue-glob',default='automation/etty_jobs/*.json'); p.add_argument('--state',type=Path,required=True); p.add_argument('--once',action='store_true'); a=p.parse_args(); lock=a.state.with_suffix('.lock'); lock.parent.mkdir(parents=True,exist_ok=True)
  with lock.open('w') as f:
@@ -32,8 +38,11 @@ def main():
   except OSError: raise SystemExit('BUSY')
   while True:
    subprocess.run(['git','-C',str(a.queue_repo),'fetch','origin','main'],check=True)
-   for q in sorted((a.queue_repo/a.queue_glob).parent.glob(Path(a.queue_glob).name)):
-    try: print(q.name,process(json.loads(q.read_text()),a.queue_repo,a.job_repo,a.state),flush=True)
+   names=subprocess.check_output(['git','-C',str(a.queue_repo),'ls-tree','-r','--name-only','origin/main','automation/etty_jobs'],text=True).splitlines()
+   for n in names:
+    try:
+     raw=subprocess.check_output(['git','-C',str(a.queue_repo),'show','origin/main:'+n],text=True)
+     print(Path(n).name,process(json.loads(raw),a.queue_repo,a.job_repo,a.state),flush=True)
     except Exception as e: print(q.name,'SAFE_STOP',e,flush=True)
    if a.once:return
    time.sleep(180)
