@@ -11,4 +11,5 @@
   "preserve_preexisting_paths_and_stashes": true,
   "caps": {"threads": 16, "ram_gib": 64, "temporary_disk_gb": 100, "new_raw_download_mb": 500},
   "prior_gate": "native-read Kraken2-only common sensitivity estimand; DeepSeek GO"
+  ,"ETYY_HANDOFF_WRITER_POLICY":{"branch":"etty-handoff","main_write":false,"transport":"GitHub SSH","content":"allowlisted small non-sensitive handoff only","force_push":false,"raw_data":false,"wsl_codex_sole_main_writer":true}
 }
