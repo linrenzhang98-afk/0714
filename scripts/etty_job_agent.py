@@ -16,12 +16,19 @@ def handoff(e,repo,state):
  h=e.get('handoff_allowlist',[]); out=Path(state).parent/(e['job_id']+'-handoff'); out.mkdir(parents=True,exist_ok=True)
  if any(Path(x).name!=x or Path(x).suffix not in {'.json','.md','.txt'} for x in h): raise JobError('handoff allowlist')
  remote=subprocess.check_output(['git','-C',str(repo),'remote','get-url','origin'],text=True).strip();
- if os.getenv('ETTY_SYNTHETIC_HANDOFF')!='1' and remote not in ('etty-handoff', 'file://etty-handoff') and 'github.com' not in remote: raise JobError('handoff remote')
- dest=repo/'handoffs'/e['job_id']; dest.mkdir(parents=True,exist_ok=True)
+ if os.getenv('ETTY_SYNTHETIC_HANDOFF')!='1' and remote!='git@github.com:linrenzhang98-afk/0714.git': raise JobError('handoff remote')
+ subprocess.run(['git','-C',str(repo),'fetch','origin','etty-handoff'],check=True)
+ if subprocess.run(['git','-C',str(repo),'rev-parse','origin/etty-handoff'],capture_output=True).returncode: raise JobError('missing etty-handoff')
+ subprocess.run(['git','-C',str(repo),'checkout','-B','etty-handoff','origin/etty-handoff'],check=True)
+ subprocess.run(['git','-C',str(repo),'merge','--ff-only','origin/etty-handoff'],check=True)
+ dest=repo/'handoffs'/e['job_id']; existed=dest.exists(); dest.mkdir(parents=True,exist_ok=True)
  for name in h:
   src=out/name
   if not src.is_file() or src.stat().st_size>5*1024*1024: raise JobError('handoff file')
-  (dest/name).write_bytes(src.read_bytes())
+  target=dest/name
+  if target.exists() and target.read_bytes()!=src.read_bytes(): raise JobError('conflicting handoff')
+  if not target.exists(): target.write_bytes(src.read_bytes())
+ if existed and all((dest/name).exists() and (dest/name).read_bytes()==(out/name).read_bytes() for name in h): return 'ALREADY_PUBLISHED'
  subprocess.run(['git','-C',str(repo),'add','--']+['handoffs/'+e['job_id']+'/'+x for x in h],check=True)
  subprocess.run(['git','-C',str(repo),'config','user.name','ETYY Job Agent'],check=True); subprocess.run(['git','-C',str(repo),'config','user.email','etty-job-agent@localhost'],check=True)
  subprocess.run(['git','-C',str(repo),'commit','-m','Handoff '+e['job_id']],check=False)
