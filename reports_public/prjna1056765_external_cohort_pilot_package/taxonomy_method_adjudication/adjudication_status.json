@@ -1,9 +1,9 @@
 {
-  "status": "INSUFFICIENT_EVIDENCE_CLOSED",
-  "stage": "anchor_compatibility_gate",
+  "status": "SAFE_STOP",
+  "stage": "authorized_pilot_preflight",
   "stage_1_verdict": "CONDITIONAL_GO",
   "post_benchmark_verdict": "GO",
-  "anchor_compatibility_verdict": "INSUFFICIENT_EVIDENCE",
+  "anchor_compatibility_verdict": "GO",
   "bytes_downloaded_this_session": 0,
   "samples_touched_this_session": 0,
   "taxonomy_commands_run_this_session": 0,
@@ -22,9 +22,11 @@
     "crr2424010_bracken_incomplete": true
   },
   "anchor_rerun_needed_now": false,
-  "pilot_authorized": false,
+  "pilot_authorized": true,
+  "pilot_execution_status": "BLOCKED_INPUT_ENVIRONMENT",
+  "pilot_samples_processed": 0,
   "database_identity_sufficient_at_provenance_level": true,
   "hash_k2d_new_hash_required": false,
-  "single_smallest_closure_action": "Persist one ETYY-derived reconciliation record containing the suffix/path-classified 400-run native .kreport inventory and representative original production Kraken2 args records from command_log.jsonl.",
-  "next_action": "Generate that single reconciliation record by read-only ETYY inspection, then resubmit only the anchor compatibility gate."
+  "single_smallest_closure_action": "Restore read-only WSL access to the ETYY database/input mount or execute the already-authorized manifest on the compute environment while keeping WSL as sole Git writer.",
+  "next_action": "Re-run the frozen pilot preflight once /mnt/disk1 and kraken2 are available; do not change the manifest."
 }

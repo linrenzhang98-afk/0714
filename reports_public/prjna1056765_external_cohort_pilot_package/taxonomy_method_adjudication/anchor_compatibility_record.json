@@ -1,11 +1,11 @@
 {
-  "record_version": "1.1-recovered-etyy-provenance",
+  "record_version": "2.0-authoritative-reconciliation",
   "audit_date": "2026-08-22",
   "anchor_project": "PRJNA1056765",
   "external_project": "PRJCA046985",
   "candidate_common_layer": "native-read Kraken2-only classifier-assignment sensitivity estimand",
-  "direct_reuse_decision_before_deepseek": "INSUFFICIENT_EVIDENCE",
-  "all_method_defining_fields_sufficiently_verified": false,
+  "direct_reuse_decision_before_deepseek": "READY_FOR_DEEPSEEK",
+  "all_method_defining_fields_sufficiently_verified": true,
   "conflicting_evidence_present": false,
   "fields": [
     {
@@ -48,14 +48,14 @@
       "classification": "VERIFIED_PROVENANCE",
       "value": 0.0,
       "method_defining": true,
-      "evidence": ["The frozen runner command omits --confidence; the common specification records Kraken2's default 0.0 explicitly for future execution."]
+      "evidence": ["All 400 recovered successful historical production argv records omit --confidence. Historical behavior is therefore not explicitly overridden and follows the Kraken2 default; the flag was not explicitly supplied."]
     },
     {
       "field": "minimum_hit_groups",
       "classification": "VERIFIED_PROVENANCE",
       "value": 2,
       "method_defining": true,
-      "evidence": ["The frozen runner command omits --minimum-hit-groups; the common specification records the Kraken2 default 2 explicitly for future execution."]
+      "evidence": ["All 400 recovered successful historical production argv records omit --minimum-hit-groups. Historical behavior is therefore not explicitly overridden and follows the Kraken2 default; the flag was not explicitly supplied."]
     },
     {
       "field": "input_layout_and_handling",
@@ -129,26 +129,27 @@
     },
     {
       "field": "native_anchor_kreport_count_and_membership",
-      "classification": "MISSING",
-      "value": null,
+      "classification": "VERIFIED_EXACT",
+      "value": {"files": 400, "unique_runs": 400, "missing": [], "extra": [], "non_singleton": {}},
       "method_defining": true,
-      "evidence": ["The recovered total of 1124 cannot be used because it combines native Kraken2 *.kreport with Bracken-derived *_bracken_species.kreport. A suffix/path-classified inventory tied to the frozen 400-run anchor membership is not persisted."]
+      "evidence": ["anchor_reconciliation_v2.json: SRR\\d+ extraction and path/suffix classification reconcile exactly one native report for every frozen run; native_400_exact=true. Bracken-derived reports are counted separately as 400 files/400 runs."]
     },
     {
       "field": "actual_anchor_kraken2_invocation_from_command_ledgers",
-      "classification": "MISSING",
-      "value": null,
+      "classification": "VERIFIED_EXACT",
+      "value": {"command_logs": 20, "successful_commands": 400, "unique_runs": 400, "database": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209", "threads": 4, "confidence_explicit": false, "minimum_hit_groups_explicit": false},
       "method_defining": true,
-      "evidence": ["Command ledgers are accessible on ETYY, but no representative production-batch Kraken2 args record was available to this reconciliation session. Runner-template provenance alone is not substituted for the actual logged invocation."]
+      "evidence": ["anchor_reconciliation_v2.json classifies commands exclusively by args[0]/actual executable identity and reconciles 400 successful Kraken2 commands to the frozen 400 runs; successful_kraken2_400_exact=true."]
     }
   ],
   "report_inventory": {
     "all_kreport_files": 1124,
     "native_kraken2_kreport_definition": "*.kreport excluding *_bracken_species.kreport and any other derived-report paths",
-    "native_kraken2_kreport_count": null,
+    "native_kraken2_kreport_count": 400,
     "bracken_derived_definition": "*_bracken_species.kreport",
-    "bracken_derived_count": null,
+    "bracken_derived_count": 400,
     "warning": "1124 is the combined scan total and must never be reported as the native Kraken2 report count."
   },
-  "conclusion": "Artifact and command-ledger accessibility, software version provenance and database identity provenance are recovered. Direct anchor-layer admission remains pending one persisted, suffix/path-classified 400-run native-report inventory plus representative actual Kraken2 args records from the original production ledgers; no taxonomy rerun is indicated."
+  "authoritative_reconciliation": "reports_public/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication/anchor_reconciliation_v2.json",
+  "conclusion": "Exact 400/400 native-report membership and exact 400/400 successful historical Kraken2 command provenance are closed. Kraken2 2.17.1 and database identity remain sufficient VERIFIED_PROVENANCE. No taxonomy rerun is indicated; the corrected package is ready for independent gate review."
 }

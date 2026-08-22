@@ -1,0 +1,12 @@
+{
+  "manifest_version": "1.0-frozen",
+  "deepseek_overall": "GO",
+  "job_id": "20260822T120000Z-prjca046985-native-kraken2-pilot",
+  "samples": ["CRR2423961","CRR2424000","CRR2423957","CRR2423986","CRR2423912","CRR2423921","CRR2423991","CRR2424010"],
+  "balance": {"Drug_Sensitive":4,"Drug_Resistance":4,"nominal_50_nt":4,"nominal_75_nt":4},
+  "new_download_bytes": 0,
+  "method": "native-read Kraken2-only",
+  "historical_default_behavior": {"confidence_explicit":false,"minimum_hit_groups_explicit":false},
+  "prohibited": ["trimming","length_filtering","Bracken","pooling","biological_interpretation","bulk_production"],
+  "stops": ["identity mismatch","FASTQ integrity failure","database identity mismatch","Kraken2 nonzero exit","thread cap exceeded","64 GiB memory cap exceeded","5 GB workspace cap exceeded","8 hour wall-time exceeded","any new download request"]
+}

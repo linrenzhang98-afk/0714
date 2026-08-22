@@ -1,0 +1,31 @@
+{
+  "job_id": "20260822T120000Z-prjca046985-native-kraken2-pilot",
+  "task": "metagenome_deep_review",
+  "created_at": "2026-08-22T12:00:00+08:00",
+  "params": {
+    "execute_mode": "bounded_native_kraken2_pilot",
+    "kraken2_db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "database_manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+    "source_audit_result": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit",
+    "handoff_dir": "/mnt/disk1/0714_handoff",
+    "maximum_new_download_bytes": 0,
+    "maximum_working_space_bytes": 5000000000,
+    "maximum_wall_time_seconds": 28800,
+    "memory_cap_bytes": 68719476736,
+    "threads": 4,
+    "host_filtering": false,
+    "trimming": false,
+    "bracken": false,
+    "biological_inference": false,
+    "pilot_runs": [
+      {"run_accession":"CRR2423961","clinical_group":"Drug_Sensitive","nominal_length_nt":50,"expected_bytes":1531191,"sha256":"7aa434f86659d8cb705954354f5713290b5dd5afbad48c9496ff6c217bb49feb"},
+      {"run_accession":"CRR2424000","clinical_group":"Drug_Sensitive","nominal_length_nt":50,"expected_bytes":2000450,"sha256":"56acf0da5c831bc5012d0fba8da64752ff2d0980ed377c75a4a8db01ce3a63a9"},
+      {"run_accession":"CRR2423957","clinical_group":"Drug_Resistance","nominal_length_nt":50,"expected_bytes":2539990,"sha256":"e36bb4ce63da9be85510ae6e484619e1f7d2c052a10be2406833ca25fab7c745"},
+      {"run_accession":"CRR2423986","clinical_group":"Drug_Resistance","nominal_length_nt":50,"expected_bytes":2543406,"sha256":"8d1dec446066ccc4afb4d1cd62e2b174a05db8a897168537999c2ef5d1482403"},
+      {"run_accession":"CRR2423912","clinical_group":"Drug_Sensitive","nominal_length_nt":75,"expected_bytes":841555,"sha256":"a27c4d88fcb4c601b574627d1ee49b25c2859d349ea010608317cef299ab03d1"},
+      {"run_accession":"CRR2423921","clinical_group":"Drug_Sensitive","nominal_length_nt":75,"expected_bytes":956156,"sha256":"c5fea80145a09ed57ed563e52919f28eac2abc1e41833972717ae5e4e072e6d9"},
+      {"run_accession":"CRR2423991","clinical_group":"Drug_Resistance","nominal_length_nt":75,"expected_bytes":1216398,"sha256":"67983971382865eff53faf0ad3e769f53caeceef566fb62d8da2d9d26747c98e"},
+      {"run_accession":"CRR2424010","clinical_group":"Drug_Resistance","nominal_length_nt":75,"expected_bytes":1237659,"sha256":"94bb94d6df4fb1f6a69b57b79badbd8a154d1867eecbcadac464a1824ed72583"}
+    ]
+  }
+}

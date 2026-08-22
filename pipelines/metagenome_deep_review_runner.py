@@ -835,6 +835,72 @@ def bounded_taxonomy_method_benchmark(
     return 0 if summary["final_status"] == "done" else 2
 
 
+def bounded_native_kraken2_pilot(
+    out_dir: Path, params: dict[str, Any], kraken2_db: Path, threads: int,
+) -> int:
+    """Zero-download eight-run native-read Kraken2-only technical pilot."""
+    started = time.monotonic()
+    deadline = started + int(params.get("maximum_wall_time_seconds", 28800))
+    allowed = {"CRR2423961", "CRR2424000", "CRR2423957", "CRR2423986", "CRR2423912", "CRR2423921", "CRR2423991", "CRR2424010"}
+    manifest = params.get("pilot_runs", [])
+    if len(manifest) != 8 or {str(row.get("run_accession")) for row in manifest} != allowed:
+        raise RuntimeError("native Kraken2 pilot allowlist mismatch")
+    if int(params.get("maximum_new_download_bytes", -1)) != 0:
+        raise RuntimeError("native Kraken2 pilot must use zero new download bytes")
+    if threads > 16:
+        raise RuntimeError("thread cap exceeded")
+    workspace_cap = int(params.get("maximum_working_space_bytes", 0))
+    if not 0 < workspace_cap <= 100_000_000_000:
+        raise RuntimeError("invalid workspace cap")
+    memory_cap = int(params.get("memory_cap_bytes", 0))
+    if memory_cap != 64 * 1024**3:
+        raise RuntimeError("64 GiB memory cap mismatch")
+    expected_identity = str(params.get("database_manifest_identity_sha256", ""))
+    readonly_inventory(out_dir / "database_identity", Path.cwd(), kraken2_db, kraken2_db)
+    inventory = load_json(out_dir / "database_identity" / "hospital_readonly_inventory.json")
+    if inventory["database_manifest_identity_sha256"] != expected_identity:
+        raise RuntimeError("database manifest identity mismatch")
+
+    source_root = Path(str(params.get("source_audit_result", ""))) / "fastq"
+    taxonomy_dir, logs_dir = out_dir / "native_kraken2", out_dir / "logs"
+    taxonomy_dir.mkdir(parents=True, exist_ok=True); logs_dir.mkdir(parents=True, exist_ok=True)
+    results: list[dict[str, Any]] = []
+    stop_event = ""
+    for row in manifest:
+        run = str(row["run_accession"])
+        result: dict[str, Any] = {"run_accession": run, "clinical_group": row["clinical_group"], "nominal_length_nt": row["nominal_length_nt"]}
+        try:
+            source = source_root / f"{run}.fq.gz"
+            if not source.is_file() or source.stat().st_size != int(row["expected_bytes"]):
+                raise RuntimeError("retained audit FASTQ missing or byte count mismatch")
+            if sha256_small_file(source) != str(row["sha256"]):
+                raise RuntimeError("retained audit FASTQ checksum mismatch")
+            inspection = inspect_fastq_gz(source)
+            report = taxonomy_dir / f"{run}.native.kreport"
+            output = taxonomy_dir / f"{run}.native.kraken2.out"
+            command = ["kraken2", "--db", str(kraken2_db), "--threads", str(threads), "--report", str(report), "--output", str(output), str(source)]
+            command_result = run_bounded_command(command, logs_dir / f"{run}.kraken2.log", out_dir, workspace_cap, deadline, memory_cap)
+            if command_result["returncode"] != 0 or command_result["stop_reason"] or not file_nonempty(report):
+                raise RuntimeError(f"Kraken2 failed: {command_result}")
+            parsed = parse_kraken_report(report)
+            result.update({"status": "done", "error": "", "input_bytes": source.stat().st_size, "input_sha256": row["sha256"], "read_count": inspection["read_count"], "read_length_counts": inspection["read_length_counts"], "classified_reads": parsed["classified"], "unclassified_reads": parsed["unclassified"], "classified_fraction": parsed["classified"] / parsed["total"], "command": command, "command_result": command_result})
+        except Exception as exc:  # noqa: BLE001
+            result.update({"status": "stopped", "error": str(exc)})
+            stop_event = f"{run}: {exc}"
+        results.append(result)
+        if stop_event:
+            break
+        if directory_size(out_dir) > workspace_cap:
+            stop_event = "workspace cap exceeded between samples"; break
+        remaining_seconds(deadline)
+    summary = {"pilot_type": "ZERO_DOWNLOAD_NATIVE_KRAKEN2_ONLY", "generated_at": utc_now(), "final_status": "done" if len(results) == 8 and all(row.get("status") == "done" for row in results) else "stopped", "stop_event": stop_event, "new_downloaded_bytes": 0, "wall_time_seconds": round(time.monotonic() - started, 3), "peak_ram_kib": max(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss), "final_workspace_bytes": directory_size(out_dir), "database_manifest_identity_sha256": expected_identity, "historical_default_behavior": {"confidence_explicit": False, "minimum_hit_groups_explicit": False}, "runs": results, "bracken_performed": False, "trimming_performed": False, "biological_inference": "PROHIBITED"}
+    write_json(out_dir / "pilot_summary.json", summary)
+    handoff = Path(str(params.get("handoff_dir", "/mnt/disk1/0714_handoff"))) / str(params.get("job_id", "native_kraken2_pilot"))
+    handoff.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(out_dir / "pilot_summary.json", handoff / "pilot_summary.json")
+    return 0 if summary["final_status"] == "done" else 2
+
+
 def execute_host_removal_amr(
     rows: list[dict[str, str]],
     out_dir: Path,
@@ -1104,9 +1170,9 @@ def main() -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
-    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit", "bounded_taxonomy_method_benchmark"}:
+    if execute_mode not in {"plan_only", "host_removal_amr_screen", "readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit", "bounded_taxonomy_method_benchmark", "bounded_native_kraken2_pilot"}:
         errors.append("unsupported execute_mode")
-    if execute_mode in {"readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit", "bounded_taxonomy_method_benchmark"}:
+    if execute_mode in {"readonly_inventory", "bounded_external_pilot", "bounded_read_length_audit", "bounded_taxonomy_method_benchmark", "bounded_native_kraken2_pilot"}:
         rows: list[dict[str, str]] = []
     elif not shortlist_path.exists():
         errors.append(f"shortlist_path not found: {shortlist_path}")
@@ -1123,6 +1189,8 @@ def main() -> int:
         required, optional = [], []
     elif execute_mode in {"readonly_inventory", "bounded_external_pilot", "bounded_taxonomy_method_benchmark"}:
         required, optional = ["kraken2", "bracken"], ["fastp", "bowtie2", "samtools"]
+    elif execute_mode == "bounded_native_kraken2_pilot":
+        required, optional = ["kraken2"], []
     else:
         required, optional = ["prefetch", "fasterq-dump", "kraken2", "bracken"], ["fastp", "bowtie2", "samtools"]
     commands = [command_status(cmd) for cmd in required + optional]
@@ -1169,6 +1237,11 @@ def main() -> int:
         if errors:
             return 2
         return bounded_taxonomy_method_benchmark(out_dir, params, kraken2_db, bracken_db, threads)
+    if execute_mode == "bounded_native_kraken2_pilot":
+        if errors:
+            return 2
+        params["job_id"] = job_id
+        return bounded_native_kraken2_pilot(out_dir, params, kraken2_db, threads)
 
     plan_lines = [
         "#!/usr/bin/env bash",

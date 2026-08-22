@@ -4,7 +4,7 @@ Audit date: 2026-08-22
 
 ## Recovered ETYY provenance reconciliation
 
-The original per-run Kraken reports and multiple original `command_log.jsonl` files remain accessible on ETYY. This closes the prior artifact-existence and ledger-existence blockers at `VERIFIED_PROVENANCE`. It does not by itself prove the exact native-report membership or actual logged Kraken2 arguments because the recovery listing and representative JSONL records were not persisted into this checkout.
+The authoritative repository record `anchor_reconciliation_v2.json` closes the artifact and actual-command blockers exactly. It was generated with corrected `SRR\d+` extraction and command classification based only on `args[0]`/actual executable identity.
 
 No contradictory method evidence was found. The gap is provenance and artifact availability, not a failure of the selected native-read Kraken2 estimand.
 
@@ -19,19 +19,36 @@ No contradictory method evidence was found. The gap is provenance and artifact a
 - Database identity is `VERIFIED_PROVENANCE`: historical job files and recovered command provenance consistently name `/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209`; core files retain 2022 timestamps; `opts.k2d` SHA-256 is `80279333ae8d2e88f7bab5946ac843692d1662577d4a5f69a742c252f3f1d28b`; `taxo.k2d` SHA-256 is `4cf75aa017ec1a78edeb4a058ba2b7ab3117c0b8fb03213859b39ac2cfbded85`; and the frozen manifest identity is `6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3`.
 - `hash.k2d` is 16,000,000,032 bytes with 2022 mtime and was intentionally not newly hashed. No decision is conditioned on hashing it unless DeepSeek identifies that exact hash as the single decision-changing item.
 
-## Report-class reconciliation
+## Exact report-class reconciliation
 
-The recovery scan found **1124 total `*.kreport` files**. This is not a native Kraken2 report count.
+The V2 inventory keeps the file classes separate:
 
-- Native class: `*.kreport` excluding `*_bracken_species.kreport` and other derived-report directories.
-- Bracken-derived class: `*_bracken_species.kreport`.
-- Native count: `MISSING` from the persisted evidence.
-- Bracken-derived count: `MISSING` from the persisted evidence.
+- Native Kraken2 class: exactly 400 files representing exactly 400 frozen runs, with no missing, extra or duplicate run membership.
+- Bracken-derived `*_bracken_species.kreport` class: exactly 400 files representing exactly 400 runs; these are not native classifier reports and are excluded from the common layer.
 
-The remaining method-defining gaps are a suffix/path-classified native inventory tied to the frozen 400-run anchor membership and representative actual Kraken2 `args` records from the original production command ledgers. Ledger and artifact accessibility are no longer missing.
+The earlier combined scan count of 1124 is retired for anchor admission and is never treated as a native-report count.
+
+## Exact historical command reconciliation
+
+Twenty original production `command_log.jsonl` files contain exactly 400 actual Kraken2 command records. All 400 succeeded and reconcile one-to-one to the frozen 400-run anchor membership. Command identity is determined from `args[0]`, preventing Bracken paths containing `/kraken2/` from being misclassified.
+
+The single historical Kraken2 method signature is:
+
+- executable: `kraken2`
+- database: `/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209`
+- threads: `4`
+- `--report`, `--output` and one input FASTQ
+- `--confidence`: not explicitly passed; historical default behavior
+- `--minimum-hit-groups`: not explicitly passed; historical default behavior
+
+Kraken2 2.17.1 remains `VERIFIED_PROVENANCE`, not `VERIFIED_EXACT`. Database identity remains sufficient `VERIFIED_PROVENANCE`; `hash.k2d` is not newly hashed.
 
 No taxonomy rerun is justified. The frozen PRJNA1056765 Kraken2+Bracken v5 analysis remains unchanged.
 
 ## Compatibility rule
 
-Direct reuse is executable only when every method-defining field is `VERIFIED_EXACT` or supported by adequate immutable `VERIFIED_PROVENANCE`, no field is `CONFLICTING`, and the native Kraken2 reports pass frozen membership/format checks. The combined count of 1124 must never be substituted for the native count, and runner-template provenance must not be substituted silently for the actual logged invocation.
+Every method-defining field is now `VERIFIED_EXACT` or supported by adequate immutable `VERIFIED_PROVENANCE`, and no field is `CONFLICTING`. The corrected package is ready for DeepSeek to decide anchor admission and pilot authorization. No anchor rerun occurred or is methodologically indicated by this audit.
+
+## Cross-environment handoff rule
+
+ETYY is compute-only. WSL/Codex is the sole Git writer. Future ETYY evidence crossing environments must be written to `/mnt/disk1/0714_handoff/` and retrieved by WSL; ETYY must not create Git commits or rely on `/tmp` as the only evidence location.

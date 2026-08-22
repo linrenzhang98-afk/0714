@@ -1,18 +1,13 @@
-# Stage C DeepSeek anchor compatibility reconciliation gate
+# Stage C DeepSeek anchor compatibility V2 gate
 
-OVERALL = INSUFFICIENT_EVIDENCE
+OVERALL = GO
 
-Model: `deepseek-v4-pro`
+Model: `deepseek-v4-pro`; thinking/high reasoning; 2026-08-22.
 
-Mode: thinking / high reasoning
+1. Yes. Exact 400/400 native-report membership closes artifact compatibility; 400 Bracken-derived reports remain a separate class.
+2. Yes. The 400/400 successful original Kraken2 command records close actual-argument provenance.
+3. Yes. `VERIFIED_PROVENANCE` for Kraken2 2.17.1 is sufficient for this separately named sensitivity estimand.
+4. Yes. Anchor rerun is unnecessary and prohibited by this gate.
+5. Yes. The balanced eight-run PRJCA046985 native-read Kraken2-only pilot is authorized under the frozen manifest.
 
-Review date: 2026-08-22
-
-1. **Is anchor-side compatibility sufficiently established? No.** Artifact and ledger accessibility, software provenance and database provenance are established, but the native-report membership and representative actual invocation records are not persisted in the review package.
-2. **Are the existing native reports admissible now? No.** Their existence is `VERIFIED_PROVENANCE`, but admission requires the suffix/path-classified native inventory to match the frozen 400-run anchor membership. The combined 1124-file count is not admissible as a native count.
-3. **Is an anchor rerun unnecessary? Yes.** The original reports and ledgers remain accessible. No Kraken2 or Bracken rerun is justified.
-4. **Is database identity sufficient? Yes, at provenance level.** The stable path, historical jobs, 2022 core-file timestamps, manifest identity, `opts.k2d`/`taxo.k2d` hashes and redistribution hashes are sufficient for this bounded sensitivity decision. A new SHA-256 of the approximately 16-GB `hash.k2d` is not required.
-5. **Is the PRJCA046985 pilot authorized? No.** No pilot manifest is frozen and no pilot may launch until the remaining record is reviewed.
-6. **Exactly one remaining evidence item:** a persisted ETYY-derived reconciliation record containing both (a) the suffix/path-classified native `*.kreport` inventory tied to all 400 frozen PRJNA1056765 runs and separately counting `*_bracken_species.kreport`, and (b) representative original production Kraken2 `args` records extracted from the per-batch `command_log.jsonl` files.
-
-The one record is the smallest decision-changing item because it simultaneously proves which original artifacts are the native classifier reports and that their actual invocations match the frozen command provenance. It requires read-only inspection only. Frozen v5 remains unchanged.
+Historical production argv used the expected database and four threads and did not explicitly override confidence or minimum-hit-groups. The pilot preserves that default behavior. No `hash.k2d` hash, trimming, length filtering, Bracken, pooling or biological interpretation is required.

@@ -1,0 +1,27 @@
+{
+  "overall_verdict": "GO",
+  "model": "deepseek-v4-pro",
+  "review_mode": "thinking",
+  "review_date": "2026-08-22",
+  "answers": {
+    "exact_400_native_report_reconciliation_closes_artifact_compatibility": true,
+    "exact_original_kraken2_commands_close_actual_argument_provenance": true,
+    "kraken2_2171_verified_provenance_sufficient": true,
+    "database_identity_sufficient_at_provenance_level": true,
+    "hash_k2d_new_hash_required": false,
+    "anchor_rerun_unnecessary": true,
+    "pilot_authorized": true
+  },
+  "pilot_manifest": "native_kraken2_pilot_manifest.json",
+  "pilot_execution": {
+    "status": "BLOCKED_INPUT_ENVIRONMENT",
+    "samples_processed": 0,
+    "new_downloaded_bytes": 0,
+    "reason": "WSL preflight cannot access /mnt/disk1 database or kraken2 executable; no taxonomy command started.",
+    "safe_stop": true
+  },
+  "deepseek_response": {
+    "decision": "APPROVE",
+    "reason": "OVERALL = GO. Exact 400/400 native-report and successful-command reconciliation closes compatibility; database and Kraken2 version provenance are sufficient; no anchor rerun is needed; the frozen eight-sample native-read Kraken2-only pilot is authorized under its zero-download caps."
+  }
+}

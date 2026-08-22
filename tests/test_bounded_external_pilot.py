@@ -151,25 +151,22 @@ class BoundedExternalPilotTests(unittest.TestCase):
         self.assertEqual(result["bray_curtis"], 0.0)
         self.assertEqual(result["spearman"], 1.0)
 
-    def test_anchor_compatibility_gate_blocks_pilot_on_method_defining_gaps(self):
+    def test_anchor_compatibility_v2_authorizes_pilot_but_blocks_missing_input_mount(self):
         root = ROOT / "reports_public/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication"
         record = json.loads((root / "anchor_compatibility_record.json").read_text())
-        gate = json.loads((root / "anchor_compatibility_deepseek_gate.json").read_text())
+        gate = json.loads((root / "anchor_compatibility_v2_deepseek_gate.json").read_text())
         spec = json.loads((root / "common_kraken2_sensitivity_specification.json").read_text())
 
         missing_method_fields = {
             row["field"] for row in record["fields"]
             if row["classification"] == "MISSING" and row["method_defining"]
         }
-        self.assertEqual(missing_method_fields, {
-            "native_anchor_kreport_count_and_membership",
-            "actual_anchor_kraken2_invocation_from_command_ledgers",
-        })
-        self.assertEqual(gate["overall_verdict"], "INSUFFICIENT_EVIDENCE")
-        self.assertFalse(gate["answers"]["anchor_rerun_necessary_now"])
-        self.assertFalse(gate["answers"]["bounded_prjca046985_pilot_justified_now"])
-        self.assertTrue(gate["database_identity_sufficient_at_provenance_level"])
-        self.assertFalse(gate["hash_k2d_new_hash_required"])
+        self.assertEqual(missing_method_fields, set())
+        self.assertEqual(gate["overall_verdict"], "GO")
+        self.assertTrue(gate["answers"]["anchor_rerun_unnecessary"])
+        self.assertTrue(gate["answers"]["pilot_authorized"])
+        self.assertTrue(gate["answers"]["database_identity_sufficient_at_provenance_level"])
+        self.assertFalse(gate["answers"]["hash_k2d_new_hash_required"])
         self.assertTrue(spec["native_reads_only"])
         self.assertEqual(spec["relative_abundance_denominator"], "all input reads for the sample")
         self.assertIn("never pool samples", spec["cross_study_synthesis"])
