@@ -1,0 +1,19 @@
+{
+  "gate": "CONDITIONAL_GO",
+  "conditions": [
+    {
+      "condition": "Explicit confidence/minimum-hit-groups",
+      "status": "SATISFIED"
+    },
+    {
+      "condition": "Same Kraken2/version/DB/native processing",
+      "status": "SATISFIED"
+    },
+    {
+      "condition": "Pilot resource metrics used",
+      "status": "SATISFIED"
+    }
+  ],
+  "unresolved": "remaining source SHA/local presence inventory required before execution authorization",
+  "production_authorized": false
+}

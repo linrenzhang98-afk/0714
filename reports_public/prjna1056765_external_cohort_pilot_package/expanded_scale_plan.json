@@ -1,0 +1,893 @@
+{
+  "job": {
+    "job_id": "20260822T150000Z-prjca046985-native-kraken2-expanded-plan",
+    "project": "PRJCA046985",
+    "status": "PLANNING_ONLY_NOT_AUTHORIZED",
+    "run_allowlist": [
+      {
+        "run_accession": "CRR2424037",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424037.fq.gz",
+        "expected_bytes": 6740629,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424036",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424036.fq.gz",
+        "expected_bytes": 98156259,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424035",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424035.fq.gz",
+        "expected_bytes": 26468825,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424034",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424034.fq.gz",
+        "expected_bytes": 36926490,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424033",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424033.fq.gz",
+        "expected_bytes": 145931694,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424032",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424032.fq.gz",
+        "expected_bytes": 6767584,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424031",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424031.fq.gz",
+        "expected_bytes": 2630448,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424030",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424030.fq.gz",
+        "expected_bytes": 2887707,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424029",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424029.fq.gz",
+        "expected_bytes": 5787010,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424028",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424028.fq.gz",
+        "expected_bytes": 2959660,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424027",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424027.fq.gz",
+        "expected_bytes": 169504130,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424026",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424026.fq.gz",
+        "expected_bytes": 32620858,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424025",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424025.fq.gz",
+        "expected_bytes": 2348806,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424024",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424024.fq.gz",
+        "expected_bytes": 1871365,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424023",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424023.fq.gz",
+        "expected_bytes": 10949208,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424022",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424022.fq.gz",
+        "expected_bytes": 1426712,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424021",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424021.fq.gz",
+        "expected_bytes": 39494405,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424020",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424020.fq.gz",
+        "expected_bytes": 2559117,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424019",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424019.fq.gz",
+        "expected_bytes": 7661807,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424018",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424018.fq.gz",
+        "expected_bytes": 36091167,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424017",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424017.fq.gz",
+        "expected_bytes": 3397443,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424016",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424016.fq.gz",
+        "expected_bytes": 17761314,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424015",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424015.fq.gz",
+        "expected_bytes": 1120876,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424014",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424014.fq.gz",
+        "expected_bytes": 1721443,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424013",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424013.fq.gz",
+        "expected_bytes": 3591459,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424012",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424012.fq.gz",
+        "expected_bytes": 7938921,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424011",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424011.fq.gz",
+        "expected_bytes": 2053625,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424009",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424009.fq.gz",
+        "expected_bytes": 5778760,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424008",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424008.fq.gz",
+        "expected_bytes": 3397566,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424007",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424007.fq.gz",
+        "expected_bytes": 6883742,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424006",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424006.fq.gz",
+        "expected_bytes": 7945136,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424005",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424005.fq.gz",
+        "expected_bytes": 2995007,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424004",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424004.fq.gz",
+        "expected_bytes": 1697443,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424003",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424003.fq.gz",
+        "expected_bytes": 2303578,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424002",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424002.fq.gz",
+        "expected_bytes": 6902892,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2424001",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424001.fq.gz",
+        "expected_bytes": 5378510,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423999",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423999.fq.gz",
+        "expected_bytes": 2221622,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423998",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423998.fq.gz",
+        "expected_bytes": 2795132,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423997",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423997.fq.gz",
+        "expected_bytes": 4697173,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423996",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423996.fq.gz",
+        "expected_bytes": 15562925,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423995",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423995.fq.gz",
+        "expected_bytes": 11031523,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423994",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423994.fq.gz",
+        "expected_bytes": 61242145,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423993",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423993.fq.gz",
+        "expected_bytes": 15880923,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423992",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423992.fq.gz",
+        "expected_bytes": 8827021,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423990",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423990.fq.gz",
+        "expected_bytes": 972161,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423989",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423989.fq.gz",
+        "expected_bytes": 5779644,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423988",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423988.fq.gz",
+        "expected_bytes": 5990460,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423987",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423987.fq.gz",
+        "expected_bytes": 4254564,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423985",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423985.fq.gz",
+        "expected_bytes": 5178308,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423984",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423984.fq.gz",
+        "expected_bytes": 5014385,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423983",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423983.fq.gz",
+        "expected_bytes": 4110006,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423982",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423982.fq.gz",
+        "expected_bytes": 12068908,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423981",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423981.fq.gz",
+        "expected_bytes": 5853504,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423980",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423980.fq.gz",
+        "expected_bytes": 25354418,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423979",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423979.fq.gz",
+        "expected_bytes": 1426075,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423978",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423978.fq.gz",
+        "expected_bytes": 3853378,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423977",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423977.fq.gz",
+        "expected_bytes": 18349844,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423976",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423976.fq.gz",
+        "expected_bytes": 3759391,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423975",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423975.fq.gz",
+        "expected_bytes": 10092565,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423974",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423974.fq.gz",
+        "expected_bytes": 129793226,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423973",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423973.fq.gz",
+        "expected_bytes": 2318599,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423972",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423972.fq.gz",
+        "expected_bytes": 7752005,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423971",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423971.fq.gz",
+        "expected_bytes": 49175198,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423970",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423970.fq.gz",
+        "expected_bytes": 18668026,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423969",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423969.fq.gz",
+        "expected_bytes": 6569811,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423968",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423968.fq.gz",
+        "expected_bytes": 5761980,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423967",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423967.fq.gz",
+        "expected_bytes": 12066260,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423966",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423966.fq.gz",
+        "expected_bytes": 5574350,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423965",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423965.fq.gz",
+        "expected_bytes": 38662943,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423964",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423964.fq.gz",
+        "expected_bytes": 11693228,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423963",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423963.fq.gz",
+        "expected_bytes": 36035032,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423962",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423962.fq.gz",
+        "expected_bytes": 6450611,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423960",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423960.fq.gz",
+        "expected_bytes": 4534177,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423959",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423959.fq.gz",
+        "expected_bytes": 32710876,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423958",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423958.fq.gz",
+        "expected_bytes": 3891556,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423956",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423956.fq.gz",
+        "expected_bytes": 53109381,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423955",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423955.fq.gz",
+        "expected_bytes": 2729183,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423954",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423954.fq.gz",
+        "expected_bytes": 12901367,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423953",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423953.fq.gz",
+        "expected_bytes": 65079458,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423952",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423952.fq.gz",
+        "expected_bytes": 3006978,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423951",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423951.fq.gz",
+        "expected_bytes": 5930090,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423950",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423950.fq.gz",
+        "expected_bytes": 10518917,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423949",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423949.fq.gz",
+        "expected_bytes": 4379435,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423948",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423948.fq.gz",
+        "expected_bytes": 7705808,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423947",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423947.fq.gz",
+        "expected_bytes": 50857230,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423946",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423946.fq.gz",
+        "expected_bytes": 8077015,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423945",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423945.fq.gz",
+        "expected_bytes": 8183292,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423944",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423944.fq.gz",
+        "expected_bytes": 3559489,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423943",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423943.fq.gz",
+        "expected_bytes": 4175181,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423942",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423942.fq.gz",
+        "expected_bytes": 3118981,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423941",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423941.fq.gz",
+        "expected_bytes": 3361509,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423940",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423940.fq.gz",
+        "expected_bytes": 11765474,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423939",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423939.fq.gz",
+        "expected_bytes": 4877901,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423938",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423938.fq.gz",
+        "expected_bytes": 3335565,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423937",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423937.fq.gz",
+        "expected_bytes": 6150243,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423936",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423936.fq.gz",
+        "expected_bytes": 4988782,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423935",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423935.fq.gz",
+        "expected_bytes": 3030038,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423934",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423934.fq.gz",
+        "expected_bytes": 80553658,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423933",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423933.fq.gz",
+        "expected_bytes": 2670593,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423932",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423932.fq.gz",
+        "expected_bytes": 4168572,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423931",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423931.fq.gz",
+        "expected_bytes": 8864071,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423930",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423930.fq.gz",
+        "expected_bytes": 16488172,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423929",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423929.fq.gz",
+        "expected_bytes": 25464468,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423928",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423928.fq.gz",
+        "expected_bytes": 7108991,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423927",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423927.fq.gz",
+        "expected_bytes": 6160521,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423926",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423926.fq.gz",
+        "expected_bytes": 14603753,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423925",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423925.fq.gz",
+        "expected_bytes": 5036573,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423924",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423924.fq.gz",
+        "expected_bytes": 4327978,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423923",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423923.fq.gz",
+        "expected_bytes": 7222442,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423922",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423922.fq.gz",
+        "expected_bytes": 43489211,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423920",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423920.fq.gz",
+        "expected_bytes": 4527253,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423919",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423919.fq.gz",
+        "expected_bytes": 4803282,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423918",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423918.fq.gz",
+        "expected_bytes": 1623544,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423917",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423917.fq.gz",
+        "expected_bytes": 64376299,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423916",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423916.fq.gz",
+        "expected_bytes": 5312425,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423915",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423915.fq.gz",
+        "expected_bytes": 2137348,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423914",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423914.fq.gz",
+        "expected_bytes": 1369342,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423913",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423913.fq.gz",
+        "expected_bytes": 1685739,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423911",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423911.fq.gz",
+        "expected_bytes": 1991312,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423910",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423910.fq.gz",
+        "expected_bytes": 1985127,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423909",
+        "clinical_group": "Drug_Resistance",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423909.fq.gz",
+        "expected_bytes": 4075644,
+        "sha256": null
+      },
+      {
+        "run_accession": "CRR2423908",
+        "clinical_group": "Drug_Sensitive",
+        "source_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz",
+        "expected_bytes": 142299771,
+        "sha256": null
+      }
+    ],
+    "method": {
+      "db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+      "database_identity": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+      "kraken2_version": "2.17.1",
+      "threads": 4,
+      "confidence": 0.0,
+      "minimum_hit_groups": 2,
+      "parameter_source": "explicitly pinned to pilot/default behavior",
+      "native_reads": true,
+      "trimming": false,
+      "host_filtering": false,
+      "bracken": false,
+      "biological_inference": false
+    },
+    "caps": {
+      "new_download_bytes": 0,
+      "ram_bytes": 68719476736,
+      "workspace_bytes": 5000000000,
+      "wall_seconds": 28800
+    },
+    "handoff_dir": "/mnt/disk1/0714_handoff/20260822T150000Z-prjca046985-native-kraken2-expanded",
+    "recompute_pilot_runs": false
+  },
+  "counts": {
+    "total_frozen_eligible": 130,
+    "pilot_completed": 8,
+    "remaining_planned": 122
+  },
+  "source_sha_available_for_remaining": 0,
+  "local_presence_verified": false,
+  "download_requirement": "NOT_ESTABLISHED; no execution authorized"
+}
