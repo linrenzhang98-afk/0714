@@ -7,9 +7,11 @@
   "run_count": 8,
   "scope": {"new_downloaded_bytes": 0, "trimming": false, "bracken": false, "host_filtering": false, "biological_inference": "PROHIBITED"},
   "deepseek_model": "deepseek-v4-pro",
-  "verdict": "SAFE_STOP",
+  "verdict": "DEEPSEEK_GATE_PENDING",
+  "original_verdict": "SAFE_STOP",
+  "original_rationale": "unavailable",
   "review_type": "formal post-pilot execution/method-feasibility gate",
-  "review_record": "Supervisor returned SAFE_STOP; detailed reason was not persisted in the available audit record.",
+  "review_record": "Original supervisor response lacked persisted rationale. One structured replay was attempted; the DeepSeek endpoint did not return a usable structured response.",
   "next_stage_authorized": false,
   "production_released": false,
   "timestamp": "2026-08-22T06:06:36Z"

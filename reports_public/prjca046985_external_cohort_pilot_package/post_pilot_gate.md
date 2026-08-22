@@ -6,8 +6,9 @@
 - Database identity: `6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3`
 - Runs: 8; downloads: 0; trimming/Bracken/host filtering: false
 - DeepSeek model: `deepseek-v4-pro`
-- Formal verdict: **SAFE_STOP**
+- Original verdict: **SAFE_STOP** (rationale unavailable)
+- Current gate status: **DEEPSEEK_GATE_PENDING**
 
-The verified handoff was ingested read-only and submitted to the formal post-pilot
-review. The supervisor returned `SAFE_STOP`; the detailed reason was not persisted in
-the available audit record. No cohort-scale production is authorized or launched.
+The verified handoff was ingested read-only. The original supervisor rationale was
+not recoverable. One structured replay was attempted, but no usable structured
+DeepSeek response was returned. No cohort-scale production is authorized or launched.
