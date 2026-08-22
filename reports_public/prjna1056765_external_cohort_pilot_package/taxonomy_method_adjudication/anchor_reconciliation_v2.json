@@ -1,0 +1,34 @@
+{
+  "frozen_run_count": 400,
+  "native_kreport_unique_runs": 400,
+  "native_kreport_files": 400,
+  "native_missing": [],
+  "native_extra": [],
+  "native_non_singleton": {},
+  "bracken_derived_kreport_unique_runs": 400,
+  "bracken_derived_kreport_files": 400,
+  "bracken_report_missing": [],
+  "bracken_report_extra": [],
+  "command_log_count": 20,
+  "actual_kraken2_command_records": 400,
+  "successful_kraken2_command_records": 400,
+  "successful_kraken2_unique_runs": 400,
+  "kraken2_command_missing_runs": [],
+  "kraken2_command_extra_runs": [],
+  "kraken2_success_non_singleton_runs": {},
+  "actual_bracken_command_records": 400,
+  "successful_bracken_command_records": 400,
+  "successful_bracken_unique_runs": 400,
+  "kraken2_method_signatures": [
+    {
+      "db": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+      "threads": "4",
+      "confidence_explicit": null,
+      "minimum_hit_groups_explicit": null,
+      "successful_command_count": 400
+    }
+  ],
+  "native_400_exact": true,
+  "successful_kraken2_400_exact": true,
+  "ready_for_deepseek": true
+}
