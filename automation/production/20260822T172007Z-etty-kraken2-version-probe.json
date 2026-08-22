@@ -1,0 +1,41 @@
+{
+  "job_id": "20260822T172007Z-etty-kraken2-version-probe",
+  "authorized": true,
+  "authorization_record": "Diagnostic-only ETYY Kraken2 runtime version probe after a verified production version-preflight SAFE_STOP.",
+  "acquire": false,
+  "probe_type": "kraken2_version_runtime_probe",
+  "allowed_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "transfer_cap_bytes": 142299771,
+  "allowed_executables": [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+  ],
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "allowed_working_roots": [
+    "/mnt/disk1/0714_control/state"
+  ],
+  "allowed_environment_keys": [],
+  "wall_seconds": 60,
+  "items": [
+    {
+      "id": "CRR2423908",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423908/CRR2423908.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz",
+      "expected_bytes": 142299771,
+      "sha256": "6c32708cb3bdef5459e95e283445f3020762f66fa2bc4dfcd0e6f2497ef3f7f7",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+        "/mnt/disk1/0714_control/job_repo/scripts/etty_kraken2_version_probe.py",
+        "--executable",
+        "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+        "--output",
+        "/mnt/disk1/0714_control/state/20260822T172007Z-etty-kraken2-version-probe-handoff/version_probe.json"
+      ],
+      "cwd": "/mnt/disk1/0714_control/state"
+    }
+  ]
+}
