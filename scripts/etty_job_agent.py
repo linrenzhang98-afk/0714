@@ -5,6 +5,21 @@ from scripts.etty_bounded_job import JobError,validate_manifest,acquire,execute
 SHA=re.compile(r'^[0-9a-f]{40}$')
 REQ={'schema_version','job_id','authorized','authorization_record','execution_commit','job_definition_path','job_definition_sha256','transfer_cap_bytes','allowed_source_hosts','allowed_destination_roots','resource_caps','handoff_allowlist'}
 def digest(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def _bounded_job(job, e):
+ resource=e['resource_caps']; hosts=job.get('allowed_hosts',job.get('allowed_source_hosts',[])); roots=job.get('allowed_destination_roots',[])
+ if not set(hosts).issubset(e['allowed_source_hosts']): raise JobError('source host scope expansion')
+ if not set(roots).issubset(e['allowed_destination_roots']): raise JobError('destination scope expansion')
+ if job.get('transfer_cap_bytes',0)>e['transfer_cap_bytes']: raise JobError('transfer cap expansion')
+ for key in ('allowed_executables','allowed_working_roots','allowed_environment_keys'):
+  requested=job.get(key,[]); allowed=resource.get(key,[])
+  if not set(requested).issubset(allowed): raise JobError(key+' scope expansion')
+ for key in ('executable_path','version_command','version_expected'):
+  if key in job and job[key]!=resource.get(key): raise JobError(key+' scope expansion')
+ if job.get('wall_seconds',0)>resource.get('wall_seconds',0): raise JobError('wall-time expansion')
+ effective=dict(job); effective['allowed_hosts']=hosts; effective['allowed_destination_roots']=roots; effective['transfer_cap_bytes']=job['transfer_cap_bytes']
+ for key in ('allowed_executables','executable_path','version_command','version_expected','allowed_working_roots','allowed_environment_keys','wall_seconds'):
+  if key in resource: effective[key]=resource[key]
+ return effective
 def envelope(e):
  if not REQ.issubset(e): raise JobError('malformed envelope')
  if e['schema_version']!=1 or e['authorized'] is not True or not e['authorization_record'] or not SHA.fullmatch(e['execution_commit']): raise JobError('authorization/commit')
@@ -45,10 +60,10 @@ def process(e,queue,jobrepo,handoffrepo,state):
  d=(jobrepo/e['job_definition_path']).resolve(); root=jobrepo.resolve()
  if root not in d.parents or d.is_symlink(): raise JobError('definition escape')
  if digest(d)!=e['job_definition_sha256']: raise JobError('definition hash')
- job=json.loads(d.read_text()); job['allowed_hosts']=e['allowed_source_hosts']; job['allowed_destination_roots']=e['allowed_destination_roots']; job['transfer_cap_bytes']=min(job.get('transfer_cap_bytes',e['transfer_cap_bytes']),e['transfer_cap_bytes']); job['wall_seconds']=min(job.get('wall_seconds',e['resource_caps'].get('wall_seconds',3600)),e['resource_caps'].get('wall_seconds',3600)); validate_manifest(job)
- st.parent.mkdir(parents=True,exist_ok=True); jobstate=st.with_name(jid+'.json');
- if job.get('acquire'): acquire(job,jobstate)
- execute(job,jobstate); hout=Path(state).parent/(jid+'-handoff'); hout.mkdir(parents=True,exist_ok=True); (hout/'result.json').write_text(json.dumps({'job_id':jid,'status':'done'})); handoff(e,handoffrepo,state); data[jid]={'status':'done','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest()}; st.write_text(json.dumps(data,indent=2)+'\n'); return 'DONE'
+ job=_bounded_job(json.loads(d.read_text()),e); validate_manifest(job)
+ st.parent.mkdir(parents=True,exist_ok=True); acquisition_state=st.with_name(jid+'.acquisition.json'); execution_state=st.with_name(jid+'.execution.json')
+ if job.get('acquire'): acquire(job,acquisition_state)
+ execute(job,execution_state); hout=Path(state).parent/(jid+'-handoff'); hout.mkdir(parents=True,exist_ok=True); (hout/'result.json').write_text(json.dumps({'job_id':jid,'status':'done'})); handoff(e,handoffrepo,state); data[jid]={'status':'done','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest()}; st.write_text(json.dumps(data,indent=2)+'\n'); return 'DONE'
 def main():
  p=argparse.ArgumentParser(); p.add_argument('--queue-repo',type=Path,required=True); p.add_argument('--job-repo',type=Path,required=True); p.add_argument('--handoff-repo',type=Path,required=True); p.add_argument('--queue-glob',default='automation/etty_jobs/*.json'); p.add_argument('--state',type=Path,required=True); p.add_argument('--once',action='store_true'); a=p.parse_args(); lock=a.state.with_suffix('.lock'); lock.parent.mkdir(parents=True,exist_ok=True)
  with lock.open('w') as f:
