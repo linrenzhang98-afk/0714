@@ -1,14 +1,13 @@
 # PRJCA046985 formal post-pilot gate
 
-- Handoff: `etty-handoff` at `10c5d73752653f8f3af9d13409156f8bfead621f`
-- Job: `20260822T120000Z-prjca046985-native-kraken2-pilot`
-- Frozen science: `03cff4d403bcb1ab0d87848a0b22b06762345070`
-- Database identity: `6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3`
-- Runs: 8; downloads: 0; trimming/Bracken/host filtering: false
-- DeepSeek model: `deepseek-v4-pro`
-- Original verdict: **SAFE_STOP** (rationale unavailable)
-- Current gate status: **DEEPSEEK_GATE_PENDING**
+**Verdict: CONDITIONAL_GO**
 
-The verified handoff was ingested read-only. The original supervisor rationale was
-not recoverable. One structured replay was attempted, but no usable structured
-DeepSeek response was returned. No cohort-scale production is authorized or launched.
+The 8-run native-read Kraken2-only pilot completed successfully with all runs returning exit code 0, consistent database identity and provenance, and resource usage within available limits. Technical execution is sound. However, the pilot did not explicitly record Kraken2 confidence and minimum-hit-groups parameters, relying on defaults, which must be pinned to ensure the same common sensitivity estimand is reproducible at expanded scale. Host filtering and trimming were not performed, but this is consistent with the native-read Kraken2-only method and does not affect the assessment.
+
+## Conditions
+
+- Explicitly specify and document Kraken2 --confidence and --minimum-hit-groups parameters (or confirm that defaults are intentionally used and identical to pilot defaults) in the expanded-scale run configuration.
+- Maintain identical Kraken2 version, database manifest identity, and input read processing (native reads, no host filtering/trimming) unless a separate method validation is performed.
+- Use pilot resource metrics (136 seconds wall time for 8 samples, ~15.7 GB peak RAM per run, ~20 MB output per run) to plan compute and storage for expanded scale.
+
+Production remains blocked in this task.
