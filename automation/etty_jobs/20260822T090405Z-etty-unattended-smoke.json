@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "job_id": "20260822T090405Z-etty-unattended-smoke",
+  "authorized": true,
+  "authorization_record": "ETYY unattended smoke test approved",
+  "execution_commit": "6db651794d19f1252f096e4e2b2f688532b4e081",
+  "job_definition_path": "automation/smoke/etty_unattended_smoke_job.json",
+  "job_definition_sha256": "3f46963f4e3afc26b05595bcdcb311016bf333292d64bbc70aa0d94deff91a9b",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": [
+    "example.com"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/0714_control"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/usr/bin/true"
+    ],
+    "executable_path": "/usr/bin/true",
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control"
+    ],
+    "allowed_environment_keys": [],
+    "wall_seconds": 10
+  },
+  "handoff_allowlist": [
+    "result.json"
+  ]
+}
