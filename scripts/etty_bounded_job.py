@@ -92,38 +92,99 @@ def validate_manifest(manifest: dict[str, Any]) -> list[dict[str, Any]]:
     return items
 
 
-def acquire(manifest: dict[str, Any], state_path: Path, retries: int = 2) -> dict[str, Any]:
+def _bounded_error_detail(exc: BaseException) -> str:
+    return " ".join(str(exc).split())[:300]
+
+
+def _is_transient_network_error(exc: BaseException) -> bool:
+    if isinstance(exc, urllib.error.HTTPError):
+        return 500 <= exc.code <= 599
+    return isinstance(exc, (OSError, urllib.error.URLError, http.client.HTTPException))
+
+
+def acquire(
+    manifest: dict[str, Any],
+    state_path: Path,
+    retries_per_pass: int = 2,
+    retry_passes: int = 2,
+    backoff_seconds: tuple[float, ...] = (1.0, 2.0),
+    sleep_fn=time.sleep,
+) -> dict[str, Any]:
+    """Acquire every item with fail-soft transient isolation and a fail-closed final gate.
+
+    Integrity and policy errors stop immediately. Transient network failures are
+    durable per item, do not prevent later items from running, and receive bounded
+    later passes. The total attempt ceiling survives process restarts.
+    """
     items = validate_manifest(manifest)
+    if retries_per_pass < 1 or retry_passes < 0:
+        raise JobError("retry policy is invalid")
     state_path = Path(state_path)
     state = json.loads(state_path.read_text()) if state_path.exists() else {
         "network_bytes": 0,
         "items": {},
     }
+    if not isinstance(state.get("network_bytes"), int) or state["network_bytes"] < 0:
+        raise JobError("acquisition state network byte counter is invalid")
+    if not isinstance(state.get("items"), dict):
+        raise JobError("acquisition item state is invalid")
     cap = manifest["transfer_cap_bytes"]
+    if state["network_bytes"] > cap:
+        raise JobError("persisted cumulative transfer exceeds cap")
     allowed_hosts = manifest.get("allowed_hosts") or manifest.get("allowed_source_hosts", [])
-    for item in items:
+    max_total_attempts = retries_per_pass * (retry_passes + 1)
+    item_by_id = {item["id"]: item for item in items}
+
+    def mark_existing(item: dict[str, Any]) -> bool:
         destination = confined(item["destination"], manifest["allowed_destination_roots"])
-        if destination.exists() or destination.is_symlink():
-            confined(destination, manifest["allowed_destination_roots"])
-            if not destination.is_file() or destination.stat().st_size != item["expected_bytes"]:
-                raise JobError("conflicting existing file")
-            actual_sha = sha256(destination)
-            if item.get("sha256") and actual_sha != item["sha256"]:
-                raise JobError("conflicting existing checksum")
-            state["items"][item["id"]] = {
-                "id": item["id"], "status": "reused", "actual_bytes": destination.stat().st_size,
-                "sha256": actual_sha, "attempts": state["items"].get(item["id"], {}).get("attempts", 0),
-            }
-            atomic(state_path, state)
-            continue
+        if not (destination.exists() or destination.is_symlink()):
+            return False
+        confined(destination, manifest["allowed_destination_roots"])
+        if not destination.is_file() or destination.stat().st_size != item["expected_bytes"]:
+            raise JobError(f"conflicting existing file: {item['id']}")
+        actual_sha = sha256(destination)
+        if item.get("sha256") and actual_sha != item["sha256"]:
+            raise JobError(f"conflicting existing checksum: {item['id']}")
+        previous = state["items"].get(item["id"], {})
+        state["items"][item["id"]] = {
+            **previous,
+            "id": item["id"],
+            "status": "reused" if previous.get("status") != "done" else "done",
+            "actual_bytes": destination.stat().st_size,
+            "sha256": actual_sha,
+            "attempts": int(previous.get("attempts", 0)),
+        }
+        atomic(state_path, state)
+        return True
+
+    def attempt_item(item: dict[str, Any], pass_index: int) -> bool:
+        if mark_existing(item):
+            return True
+        destination = confined(item["destination"], manifest["allowed_destination_roots"])
         destination.parent.mkdir(parents=True, exist_ok=True)
         part = destination.with_name(destination.name + ".part")
-        prior_attempts = state["items"].get(item["id"], {}).get("attempts", 0)
-        completed = False
-        if prior_attempts >= retries:
-            raise JobError("bounded download retries exhausted")
-        for attempt in range(prior_attempts + 1, retries + 1):
-            state["items"][item["id"]] = {"id": item["id"], "status": "downloading", "attempts": attempt}
+        previous = state["items"].get(item["id"], {})
+        attempts = int(previous.get("attempts", 0))
+        if attempts >= max_total_attempts:
+            state["items"][item["id"]] = {
+                **previous,
+                "id": item["id"],
+                "status": "transient_failed",
+                "attempts": attempts,
+            }
+            atomic(state_path, state)
+            return False
+        attempts_this_pass = min(retries_per_pass, max_total_attempts - attempts)
+        for _ in range(attempts_this_pass):
+            attempts += 1
+            state["current_item"] = item["id"]
+            state["items"][item["id"]] = {
+                **state["items"].get(item["id"], {}),
+                "id": item["id"],
+                "status": "downloading",
+                "attempts": attempts,
+                "retry_pass": pass_index,
+            }
             atomic(state_path, state)
             try:
                 request = urllib.request.Request(item["url"])
@@ -146,33 +207,87 @@ def acquire(manifest: dict[str, Any], state_path: Path, retries: int = 2) -> dic
                             digest.update(chunk)
                             count += len(chunk)
                             state["network_bytes"] = projected
-                            state["items"][item["id"]].update({"network_bytes_this_attempt": count})
+                            state["items"][item["id"]]["network_bytes_this_attempt"] = count
                             atomic(state_path, state)
                         output.flush()
                         os.fsync(output.fileno())
                 if count != item["expected_bytes"]:
-                    raise JobError("downloaded byte count mismatch")
+                    raise JobError(f"downloaded byte count mismatch: {item['id']}")
                 actual_sha = digest.hexdigest()
                 if item.get("sha256") and actual_sha != item["sha256"]:
-                    raise JobError("downloaded checksum mismatch")
+                    raise JobError(f"downloaded checksum mismatch: {item['id']}")
                 part.replace(destination)
                 state["items"][item["id"]] = {
-                    "id": item["id"], "status": "done", "actual_bytes": count,
-                    "sha256": actual_sha, "attempts": attempt,
+                    **state["items"].get(item["id"], {}),
+                    "id": item["id"],
+                    "status": "done",
+                    "actual_bytes": count,
+                    "sha256": actual_sha,
+                    "attempts": attempts,
                 }
                 atomic(state_path, state)
-                completed = True
-                break
+                return True
             except JobError:
                 raise
-            except (OSError, urllib.error.URLError, http.client.HTTPException) as exc:
-                state["items"][item["id"]]["last_error"] = type(exc).__name__
+            except Exception as exc:
+                if not _is_transient_network_error(exc):
+                    raise JobError(
+                        f"non-transient acquisition error: {type(exc).__name__}: {_bounded_error_detail(exc)}"
+                    ) from exc
+                state["items"][item["id"]].update({
+                    "status": "retry_pending",
+                    "last_error_type": type(exc).__name__,
+                    "last_error_detail": _bounded_error_detail(exc),
+                })
                 atomic(state_path, state)
-                if attempt == retries:
-                    raise JobError("bounded download retries exhausted") from exc
-        if not completed:
-            raise JobError("download did not complete")
-    return state
+        state["items"][item["id"]]["status"] = (
+            "transient_failed" if attempts >= max_total_attempts else "retry_pending"
+        )
+        atomic(state_path, state)
+        return False
+
+    pending = list(items)
+    for pass_index in range(retry_passes + 1):
+        if pass_index and pending and all(
+            int(state["items"].get(item["id"], {}).get("attempts", 0)) >= max_total_attempts
+            for item in pending
+        ):
+            break
+        if pass_index and pending:
+            delay = backoff_seconds[min(pass_index - 1, len(backoff_seconds) - 1)] if backoff_seconds else 0
+            if delay > 0:
+                sleep_fn(delay)
+        next_pending: list[dict[str, Any]] = []
+        for item in pending:
+            if not attempt_item(item, pass_index):
+                next_pending.append(item)
+        pending = next_pending
+        completed = sum(
+            state["items"].get(item_id, {}).get("status") in {"done", "reused"}
+            for item_id in item_by_id
+        )
+        state.update({
+            "status": "running" if pending else "done",
+            "completed_items": completed,
+            "total_items": len(items),
+            "pending_retry_items": [item["id"] for item in pending],
+            "current_item": None,
+        })
+        atomic(state_path, state)
+        if not pending:
+            return state
+
+    failed_ids = sorted(item["id"] for item in pending)
+    state.update({
+        "status": "transient_failed",
+        "failed_items": len(failed_ids),
+        "failed_item_ids": failed_ids,
+        "current_item": None,
+    })
+    atomic(state_path, state)
+    raise JobError(
+        f"unresolved transient acquisition failures ({len(failed_ids)}): {','.join(failed_ids[:20])}"
+    )
 
 
 def _command_identity(item: dict[str, Any], manifest: dict[str, Any]) -> str:

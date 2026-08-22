@@ -7,6 +7,7 @@ import sys
 import tempfile
 import threading
 import unittest
+import urllib.error
 from pathlib import Path
 from unittest import mock
 
@@ -15,6 +16,18 @@ from scripts.etty_bounded_job import JobError, acquire, execute, validate_manife
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *_args): pass
+
+
+class Response:
+    def __init__(self, chunks, url="http://127.0.0.1/file"):
+        self.chunks=iter(chunks); self.url=url
+    def __enter__(self): return self
+    def __exit__(self, *_args): return False
+    def geturl(self): return self.url
+    def read(self, _size):
+        value=next(self.chunks,b"")
+        if isinstance(value,BaseException): raise value
+        return value
 
 
 class HardenedPrimitives(unittest.TestCase):
@@ -62,39 +75,84 @@ class HardenedPrimitives(unittest.TestCase):
     def test_transfer_cap_persists_across_restart(self):
         with tempfile.TemporaryDirectory() as raw:
             root=Path(raw); state=root/"state.json"; state.write_text(json.dumps({"network_bytes":2,"items":{}})); job=self.base(root); job["transfer_cap_bytes"]=3
-            os.environ["ETTY_SYNTHETIC_HTTP"]="1"
-            with self.assertRaises(JobError): acquire(job,state)
+            with mock.patch("urllib.request.urlopen",return_value=Response([b"abc",b""])):
+                with self.assertRaisesRegex(JobError,"transfer cap"):
+                    acquire(job,state,sleep_fn=lambda _delay:None)
             self.assertEqual(json.loads(state.read_text())["network_bytes"],2)
 
     def test_interrupted_retry_bytes_count_once_each(self):
-        class Response:
-            def __init__(self, chunks): self.chunks=iter(chunks)
-            def __enter__(self): return self
-            def __exit__(self, *_args): return False
-            def geturl(self): return "http://127.0.0.1/file"
-            def read(self, _size):
-                value=next(self.chunks,b"")
-                if isinstance(value,Exception): raise value
-                return value
         with tempfile.TemporaryDirectory() as raw:
             root=Path(raw); job=self.base(root); job["transfer_cap_bytes"]=6
             responses=[Response([b"a",OSError("interrupted")]),Response([b"abc",b""])]
             with mock.patch("urllib.request.urlopen",side_effect=responses):
-                state=acquire(job,root/"state.json")
+                state=acquire(job,root/"state.json",sleep_fn=lambda _delay:None)
             self.assertEqual(state["network_bytes"],4)
             self.assertEqual(state["items"]["x"]["attempts"],2)
 
     def test_redirect_host_rejected(self):
-        class Response:
-            def __enter__(self): return self
-            def __exit__(self, *_args): return False
-            def geturl(self): return "http://unapproved.test/file"
-            def read(self, _size): return b""
         with tempfile.TemporaryDirectory() as raw:
             root=Path(raw); job=self.base(root)
-            with mock.patch("urllib.request.urlopen", return_value=Response()):
+            with mock.patch("urllib.request.urlopen", return_value=Response([],"http://unapproved.test/file")):
                 with self.assertRaisesRegex(JobError,"redirect host"):
                     acquire(job,root/"state.json")
+
+    def test_transient_item_isolated_then_later_pass_succeeds(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root=Path(raw); job=self.base(root,b"a"); job["transfer_cap_bytes"]=10
+            job["items"]=[{**job["items"][0],"id":item_id,"url":f"http://127.0.0.1/{item_id}","destination":str(root/item_id)} for item_id in ("one","two","three")]
+            calls=[]
+            def open_url(request,timeout=30):
+                item_id=request.full_url.rsplit('/',1)[-1]; calls.append(item_id)
+                if item_id=="two" and calls.count("two")<=2: raise urllib.error.URLError("temporary")
+                return Response([b"a",b""])
+            with mock.patch("urllib.request.urlopen",side_effect=open_url):
+                state=acquire(job,root/"state.json",retries_per_pass=2,retry_passes=1,backoff_seconds=(0,),sleep_fn=lambda _delay:None)
+            self.assertLess(calls.index("three"),len(calls)-1)
+            self.assertEqual(calls[-1],"two")
+            self.assertTrue(all(state["items"][item_id]["status"]=="done" for item_id in ("one","two","three")))
+            self.assertEqual(state["network_bytes"],3)
+
+    def test_unresolved_transient_finishes_other_items_then_fails_gate(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root=Path(raw); job=self.base(root,b"a"); job["transfer_cap_bytes"]=10
+            job["items"]=[{**job["items"][0],"id":item_id,"url":f"http://127.0.0.1/{item_id}","destination":str(root/item_id)} for item_id in ("one","two","three")]
+            def open_url(request,timeout=30):
+                if request.full_url.endswith('/two'): raise urllib.error.URLError("temporary")
+                return Response([b"a",b""])
+            state_path=root/"state.json"
+            with mock.patch("urllib.request.urlopen",side_effect=open_url):
+                with self.assertRaisesRegex(JobError,"unresolved transient"):
+                    acquire(job,state_path,retries_per_pass=2,retry_passes=1,backoff_seconds=(0,),sleep_fn=lambda _delay:None)
+            state=json.loads(state_path.read_text())
+            self.assertEqual(state["completed_items"],2)
+            self.assertEqual(state["failed_item_ids"],["two"])
+            self.assertEqual(state["items"]["two"]["status"],"transient_failed")
+
+    def test_restart_reuses_success_and_retries_transient_with_cumulative_bytes(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root=Path(raw); job=self.base(root,b"a"); job["transfer_cap_bytes"]=5
+            job["items"]=[{**job["items"][0],"id":item_id,"url":f"http://127.0.0.1/{item_id}","destination":str(root/item_id)} for item_id in ("one","two")]
+            state_path=root/"state.json"; calls=[]
+            def first(request,timeout=30):
+                item_id=request.full_url.rsplit('/',1)[-1]; calls.append(item_id)
+                if item_id=="two": raise urllib.error.URLError("temporary")
+                return Response([b"a",b""])
+            with mock.patch("urllib.request.urlopen",side_effect=first):
+                with self.assertRaises(JobError): acquire(job,state_path,retries_per_pass=1,retry_passes=0,sleep_fn=lambda _delay:None)
+            self.assertEqual(json.loads(state_path.read_text())["network_bytes"],1)
+            with mock.patch("urllib.request.urlopen",return_value=Response([b"a",b""])) as opened:
+                state=acquire(job,state_path,retries_per_pass=1,retry_passes=1,backoff_seconds=(0,),sleep_fn=lambda _delay:None)
+            self.assertEqual(opened.call_count,1)
+            self.assertEqual(state["network_bytes"],2)
+            self.assertIn(state["items"]["one"]["status"],{"done","reused"})
+
+    def test_checksum_mismatch_is_immediate_fail_closed(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root=Path(raw); job=self.base(root); job["items"][0]["sha256"]="0"*64
+            with mock.patch("urllib.request.urlopen",return_value=Response([b"abc",b""])) as opened:
+                with self.assertRaisesRegex(JobError,"checksum mismatch"):
+                    acquire(job,root/"state.json",retry_passes=2,sleep_fn=lambda _delay:None)
+            self.assertEqual(opened.call_count,1)
 
     def test_execution_bounds_and_idempotency(self):
         with tempfile.TemporaryDirectory() as raw:

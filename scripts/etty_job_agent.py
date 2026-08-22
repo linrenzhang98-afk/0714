@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse,hashlib,json,os,re,subprocess,time,fcntl
 from pathlib import Path
-from scripts.etty_bounded_job import JobError,validate_manifest,acquire,execute
+from scripts.etty_bounded_job import JobError,acquire,atomic,execute,validate_manifest
 SHA=re.compile(r'^[0-9a-f]{40}$')
 REQ={'schema_version','job_id','authorized','authorization_record','execution_commit','job_definition_path','job_definition_sha256','transfer_cap_bytes','allowed_source_hosts','allowed_destination_roots','resource_caps','handoff_allowlist'}
 def digest(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -27,6 +27,14 @@ def envelope(e):
  for k in ('allowed_source_hosts','allowed_destination_roots','resource_caps','handoff_allowlist'):
   if not e[k]: raise JobError(k)
  if Path(e['job_definition_path']).is_absolute() or '..' in Path(e['job_definition_path']).parts: raise JobError('definition path')
+def queue_entries(repo):
+ names=subprocess.check_output(['git','-C',str(repo),'ls-tree','-r','--name-only','origin/main','automation/etty_jobs'],text=True).splitlines()
+ return [name for name in names if Path(name).parent==Path('automation/etty_jobs') and Path(name).suffix=='.json']
+def failure_payload(job_id, job, acquisition_state, phase, exc):
+ acquisition_data=json.loads(Path(acquisition_state).read_text()) if Path(acquisition_state).exists() else {'items':{},'network_bytes':0}
+ item_states=acquisition_data.get('items',{}); failed_ids=sorted(item_id for item_id,item_state in item_states.items() if item_state.get('status') in {'retry_pending','transient_failed'})
+ completed=sum(item_state.get('status') in {'done','reused'} for item_state in item_states.values())
+ return {'job_id':job_id,'status':'SAFE_STOP','phase':phase,'completed_items':completed,'total_items':len(job.get('items',[])),'failed_items':len(failed_ids),'failed_item_ids':failed_ids[:200],'network_bytes':acquisition_data.get('network_bytes',0),'error':' '.join(str(exc).split())[:500]}
 def handoff(e,repo,state):
  h=e.get('handoff_allowlist',[]); out=Path(state).parent/(e['job_id']+'-handoff'); out.mkdir(parents=True,exist_ok=True)
  if any(Path(x).name!=x or Path(x).suffix not in {'.json','.md','.txt'} for x in h): raise JobError('handoff allowlist')
@@ -62,8 +70,18 @@ def process(e,queue,jobrepo,handoffrepo,state):
  if digest(d)!=e['job_definition_sha256']: raise JobError('definition hash')
  job=_bounded_job(json.loads(d.read_text()),e); validate_manifest(job)
  st.parent.mkdir(parents=True,exist_ok=True); acquisition_state=st.with_name(jid+'.acquisition.json'); execution_state=st.with_name(jid+'.execution.json')
- if job.get('acquire'): acquire(job,acquisition_state)
- execute(job,execution_state); hout=Path(state).parent/(jid+'-handoff'); hout.mkdir(parents=True,exist_ok=True); (hout/'result.json').write_text(json.dumps({'job_id':jid,'status':'done'})); handoff(e,handoffrepo,state); data[jid]={'status':'done','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest()}; st.write_text(json.dumps(data,indent=2)+'\n'); return 'DONE'
+ phase='acquisition' if job.get('acquire') else 'execution'
+ try:
+  if job.get('acquire'): acquire(job,acquisition_state)
+  phase='execution'; execute(job,execution_state)
+ except JobError as exc:
+  payload=failure_payload(jid,job,acquisition_state,phase,exc)
+  hout=Path(state).parent/(jid+'-handoff'); hout.mkdir(parents=True,exist_ok=True); (hout/'result.json').write_text(json.dumps(payload,indent=2,sort_keys=True)+'\n')
+  data[jid]={'status':'safe_stop','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest(),'phase':phase,'error':payload['error']}; atomic(st,data)
+  if 'result.json' in e.get('handoff_allowlist',[]):
+   failure_envelope={**e,'handoff_allowlist':['result.json']}; handoff(failure_envelope,handoffrepo,state)
+  raise
+ hout=Path(state).parent/(jid+'-handoff'); hout.mkdir(parents=True,exist_ok=True); (hout/'result.json').write_text(json.dumps({'job_id':jid,'status':'done'})); handoff(e,handoffrepo,state); data[jid]={'status':'done','execution_commit':e['execution_commit'],'envelope_sha256':hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest()}; atomic(st,data); return 'DONE'
 def main():
  p=argparse.ArgumentParser(); p.add_argument('--queue-repo',type=Path,required=True); p.add_argument('--job-repo',type=Path,required=True); p.add_argument('--handoff-repo',type=Path,required=True); p.add_argument('--queue-glob',default='automation/etty_jobs/*.json'); p.add_argument('--state',type=Path,required=True); p.add_argument('--once',action='store_true'); a=p.parse_args(); lock=a.state.with_suffix('.lock'); lock.parent.mkdir(parents=True,exist_ok=True)
  with lock.open('w') as f:
@@ -71,8 +89,7 @@ def main():
   except OSError: raise SystemExit('BUSY')
   while True:
    subprocess.run(['git','-C',str(a.queue_repo),'fetch','origin','main'],check=True)
-   names=subprocess.check_output(['git','-C',str(a.queue_repo),'ls-tree','-r','--name-only','origin/main','automation/etty_jobs'],text=True).splitlines()
-   for n in names:
+   for n in queue_entries(a.queue_repo):
     try:
      raw=subprocess.check_output(['git','-C',str(a.queue_repo),'show','origin/main:'+n],text=True)
      print(Path(n).name,process(json.loads(raw),a.queue_repo,a.job_repo,a.handoff_repo,a.state),flush=True)

@@ -16,6 +16,11 @@ PROJECT = Path(__file__).parents[1]
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *_args):
         pass
+    def do_GET(self):
+        if self.path == "/transient.bin":
+            self.send_error(503, "synthetic transient failure")
+            return
+        super().do_GET()
 
 
 class Lifecycle(unittest.TestCase):
@@ -68,7 +73,9 @@ class Lifecycle(unittest.TestCase):
                                "sha256": hashlib.sha256(payload).hexdigest(), "command": command, "cwd": str(root)}],
                 }
                 (seed / "job.json").write_text(json.dumps(job))
-                self.git("add", "job.json", cwd=seed)
+                failure_job=json.loads(json.dumps(job)); failure_job["items"][0].update({"id":"transient","url":f"http://127.0.0.1:{server.server_port}/transient.bin","destination":str(destination_root/"transient.bin"),"expected_bytes":1,"command":[sys.executable,"-c","raise SystemExit('must not execute')"]})
+                (seed / "failure_job.json").write_text(json.dumps(failure_job))
+                self.git("add", "job.json", "failure_job.json", cwd=seed)
                 self.git("-c", "user.name=test", "-c", "user.email=test@example", "commit", "-m", "job", cwd=seed)
                 execution_commit = self.git("rev-parse", "HEAD", cwd=seed)
                 envelope = {
@@ -82,9 +89,13 @@ class Lifecycle(unittest.TestCase):
                                       "allowed_working_roots": [str(root)], "allowed_environment_keys": [], "wall_seconds": 5},
                     "handoff_allowlist": ["result.json"],
                 }
+                failure_envelope={**envelope,"job_id":"failure-job","job_definition_path":"failure_job.json","job_definition_sha256":hashlib.sha256((seed/"failure_job.json").read_bytes()).hexdigest()}
                 queue_dir = seed / "automation/etty_jobs"
                 queue_dir.mkdir(parents=True)
                 (queue_dir / "synthetic.json").write_text(json.dumps(envelope))
+                (queue_dir / "failure.json").write_text(json.dumps(failure_envelope))
+                (queue_dir / "malformed.json").write_text("not json\n")
+                (queue_dir / "README.md").write_text("must be ignored\n")
                 self.git("add", "automation", cwd=seed)
                 self.git("-c", "user.name=test", "-c", "user.email=test@example", "commit", "-m", "queue", cwd=seed)
                 self.git("push", "origin", "main", cwd=seed)
@@ -101,11 +112,18 @@ class Lifecycle(unittest.TestCase):
                             "GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1"}
                 first = subprocess.run(cli, cwd=runtime, env=test_env, text=True, capture_output=True, check=True)
                 self.assertIn("DONE", first.stdout)
+                self.assertIn("malformed.json SAFE_STOP",first.stdout)
+                self.assertNotIn("README.md",first.stdout)
                 self.assertEqual(counter.read_text(), "1")
                 self.assertEqual(self.git("rev-parse", "HEAD", cwd=job_repo), execution_commit)
                 self.assertEqual(json.loads(state.read_text())["synthetic-job"]["status"], "done")
                 remote_result = self.git("show", "origin/etty-handoff:handoffs/synthetic-job/result.json", cwd=handoff_repo)
                 self.assertEqual(json.loads(remote_result)["status"], "done")
+                failure_result=json.loads(self.git("show","origin/etty-handoff:handoffs/failure-job/result.json",cwd=handoff_repo))
+                self.assertEqual(failure_result["status"],"SAFE_STOP")
+                self.assertEqual(failure_result["phase"],"acquisition")
+                self.assertEqual(failure_result["failed_item_ids"],["transient"])
+                self.assertLessEqual(len(failure_result["error"]),500)
                 handoff_head = self.git("rev-parse", "origin/etty-handoff", cwd=handoff_repo)
                 network_bytes = json.loads((state.parent / "synthetic-job.acquisition.json").read_text())["network_bytes"]
                 self.assertEqual(network_bytes, len(payload))

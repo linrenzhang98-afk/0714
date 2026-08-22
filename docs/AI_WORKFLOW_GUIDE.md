@@ -266,6 +266,10 @@ Acquisition and scientific execution should be separate logical states.
 
 Scientific execution should begin only after the acquisition gate passes.
 
+### Durable lesson from the 2026-08-22 acquisition incident
+
+For multi-item acquisition, transient network errors must be isolated per item so later items can continue. The agent may use bounded later retry passes, must reuse already validated files, and must keep cumulative network-byte accounting across failed attempts, retries, and restarts. Scientific execution still requires every required item to pass the final acquisition gate. Integrity, authorization, path, host, checksum, and other security-policy failures remain immediate fail-closed conditions. A terminal `SAFE_STOP` should be externally observable through a small, non-sensitive handoff artifact.
+
 ---
 
 ## 10. Execution idempotency
