@@ -10,7 +10,7 @@
       "expected_bytes": 6740629,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424037/CRR2424037.fq.gz",
       "etag": "693819ae-66da95",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424037.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424037.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -18,7 +18,7 @@
       "expected_bytes": 98156259,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424036/CRR2424036.fq.gz",
       "etag": "693819ae-5d9bee3",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424036.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424036.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -26,7 +26,7 @@
       "expected_bytes": 26468825,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424035/CRR2424035.fq.gz",
       "etag": "693819ae-193e1d9",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424035.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424035.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -34,7 +34,7 @@
       "expected_bytes": 36926490,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424034/CRR2424034.fq.gz",
       "etag": "693819ad-233741a",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424034.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424034.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -42,7 +42,7 @@
       "expected_bytes": 145931694,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424033/CRR2424033.fq.gz",
       "etag": "693819ad-8b2bdae",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424033.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424033.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -50,7 +50,7 @@
       "expected_bytes": 6767584,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424032/CRR2424032.fq.gz",
       "etag": "693819ac-6743e0",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424032.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424032.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -58,7 +58,7 @@
       "expected_bytes": 2630448,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424031/CRR2424031.fq.gz",
       "etag": "693819ac-282330",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424031.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424031.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -66,7 +66,7 @@
       "expected_bytes": 2887707,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424030/CRR2424030.fq.gz",
       "etag": "693819ac-2c101b",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424030.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424030.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -74,7 +74,7 @@
       "expected_bytes": 5787010,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424029/CRR2424029.fq.gz",
       "etag": "693819ac-584d82",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424029.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424029.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -82,7 +82,7 @@
       "expected_bytes": 2959660,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424028/CRR2424028.fq.gz",
       "etag": "693819ac-2d292c",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424028.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424028.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -90,7 +90,7 @@
       "expected_bytes": 169504130,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424027/CRR2424027.fq.gz",
       "etag": "693819ab-a1a6d82",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424027.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424027.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -98,7 +98,7 @@
       "expected_bytes": 32620858,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424026/CRR2424026.fq.gz",
       "etag": "693819aa-1f1c13a",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424026.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424026.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -106,7 +106,7 @@
       "expected_bytes": 2348806,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424025/CRR2424025.fq.gz",
       "etag": "693819aa-23d706",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424025.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424025.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -114,7 +114,7 @@
       "expected_bytes": 1871365,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424024/CRR2424024.fq.gz",
       "etag": "693819aa-1c8e05",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424024.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424024.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -122,7 +122,7 @@
       "expected_bytes": 10949208,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424023/CRR2424023.fq.gz",
       "etag": "693819aa-a71258",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424023.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424023.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -130,7 +130,7 @@
       "expected_bytes": 1426712,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424022/CRR2424022.fq.gz",
       "etag": "693819aa-15c518",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424022.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424022.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -138,7 +138,7 @@
       "expected_bytes": 39494405,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424021/CRR2424021.fq.gz",
       "etag": "693819a9-25aa305",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424021.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424021.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -146,7 +146,7 @@
       "expected_bytes": 2559117,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424020/CRR2424020.fq.gz",
       "etag": "693819a9-270c8d",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424020.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424020.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -154,7 +154,7 @@
       "expected_bytes": 7661807,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424019/CRR2424019.fq.gz",
       "etag": "693819a9-74e8ef",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424019.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424019.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -162,7 +162,7 @@
       "expected_bytes": 36091167,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424018/CRR2424018.fq.gz",
       "etag": "693819a9-226b51f",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424018.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424018.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -170,7 +170,7 @@
       "expected_bytes": 3397443,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424017/CRR2424017.fq.gz",
       "etag": "693819a8-33d743",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424017.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424017.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -178,7 +178,7 @@
       "expected_bytes": 17761314,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424016/CRR2424016.fq.gz",
       "etag": "693819a8-10f0422",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424016.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424016.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -186,7 +186,7 @@
       "expected_bytes": 1120876,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424015/CRR2424015.fq.gz",
       "etag": "693819a8-111a6c",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424015.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424015.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -194,7 +194,7 @@
       "expected_bytes": 1721443,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424014/CRR2424014.fq.gz",
       "etag": "693819a8-1a4463",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424014.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424014.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -202,7 +202,7 @@
       "expected_bytes": 3591459,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424013/CRR2424013.fq.gz",
       "etag": "693819a8-36cd23",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424013.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424013.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -210,7 +210,7 @@
       "expected_bytes": 7938921,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424012/CRR2424012.fq.gz",
       "etag": "693819a8-792369",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424012.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424012.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -218,7 +218,7 @@
       "expected_bytes": 2053625,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424011/CRR2424011.fq.gz",
       "etag": "693819a7-1f55f9",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424011.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424011.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -226,7 +226,7 @@
       "expected_bytes": 5778760,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424009/CRR2424009.fq.gz",
       "etag": "693819a7-582d48",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424009.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424009.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -234,7 +234,7 @@
       "expected_bytes": 3397566,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424008/CRR2424008.fq.gz",
       "etag": "693819a7-33d7be",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424008.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424008.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -242,7 +242,7 @@
       "expected_bytes": 6883742,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424007/CRR2424007.fq.gz",
       "etag": "693819a7-69099e",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424007.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424007.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -250,7 +250,7 @@
       "expected_bytes": 7945136,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424006/CRR2424006.fq.gz",
       "etag": "693819a7-793bb0",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424006.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424006.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -258,7 +258,7 @@
       "expected_bytes": 2995007,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424005/CRR2424005.fq.gz",
       "etag": "693819a6-2db33f",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424005.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424005.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -266,7 +266,7 @@
       "expected_bytes": 1697443,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424004/CRR2424004.fq.gz",
       "etag": "693819a6-19e6a3",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424004.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424004.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -274,7 +274,7 @@
       "expected_bytes": 2303578,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424003/CRR2424003.fq.gz",
       "etag": "693819a6-23265a",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424003.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424003.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -282,7 +282,7 @@
       "expected_bytes": 6902892,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424002/CRR2424002.fq.gz",
       "etag": "693819a6-69546c",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424002.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424002.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -290,7 +290,7 @@
       "expected_bytes": 5378510,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2424001/CRR2424001.fq.gz",
       "etag": "693819a6-5211ce",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2424001.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2424001.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -298,7 +298,7 @@
       "expected_bytes": 2221622,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423999/CRR2423999.fq.gz",
       "etag": "693819a6-21e636",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423999.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423999.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -306,7 +306,7 @@
       "expected_bytes": 2795132,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423998/CRR2423998.fq.gz",
       "etag": "693819a5-2aa67c",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423998.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423998.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -314,7 +314,7 @@
       "expected_bytes": 4697173,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423997/CRR2423997.fq.gz",
       "etag": "693819a5-47ac55",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423997.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423997.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -322,7 +322,7 @@
       "expected_bytes": 15562925,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423996/CRR2423996.fq.gz",
       "etag": "693819a5-ed78ad",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423996.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423996.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -330,7 +330,7 @@
       "expected_bytes": 11031523,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423995/CRR2423995.fq.gz",
       "etag": "693819a5-a853e3",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423995.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423995.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -338,7 +338,7 @@
       "expected_bytes": 61242145,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423994/CRR2423994.fq.gz",
       "etag": "693819a5-3a67b21",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423994.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423994.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -346,7 +346,7 @@
       "expected_bytes": 15880923,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423993/CRR2423993.fq.gz",
       "etag": "693819a4-f252db",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423993.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423993.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -354,7 +354,7 @@
       "expected_bytes": 8827021,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423992/CRR2423992.fq.gz",
       "etag": "693819a4-86b08d",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423992.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423992.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -362,7 +362,7 @@
       "expected_bytes": 972161,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423990/CRR2423990.fq.gz",
       "etag": "693819a4-ed581",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423990.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423990.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -370,7 +370,7 @@
       "expected_bytes": 5779644,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423989/CRR2423989.fq.gz",
       "etag": "693819a4-5830bc",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423989.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423989.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -378,7 +378,7 @@
       "expected_bytes": 5990460,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423988/CRR2423988.fq.gz",
       "etag": "693819a3-5b683c",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423988.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423988.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -386,7 +386,7 @@
       "expected_bytes": 4254564,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423987/CRR2423987.fq.gz",
       "etag": "693819a3-40eb64",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423987.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423987.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -394,7 +394,7 @@
       "expected_bytes": 5178308,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423985/CRR2423985.fq.gz",
       "etag": "693819a3-4f03c4",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423985.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423985.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -402,7 +402,7 @@
       "expected_bytes": 5014385,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423984/CRR2423984.fq.gz",
       "etag": "693819a3-4c8371",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423984.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423984.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -410,7 +410,7 @@
       "expected_bytes": 4110006,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423983/CRR2423983.fq.gz",
       "etag": "693819a3-3eb6b6",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423983.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423983.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -418,7 +418,7 @@
       "expected_bytes": 12068908,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423982/CRR2423982.fq.gz",
       "etag": "693819a2-b8282c",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423982.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423982.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -426,7 +426,7 @@
       "expected_bytes": 5853504,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423981/CRR2423981.fq.gz",
       "etag": "693819a2-595140",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423981.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423981.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -434,7 +434,7 @@
       "expected_bytes": 25354418,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423980/CRR2423980.fq.gz",
       "etag": "693819a2-182e0b2",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423980.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423980.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -442,7 +442,7 @@
       "expected_bytes": 1426075,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423979/CRR2423979.fq.gz",
       "etag": "693819a2-15c29b",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423979.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423979.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -450,7 +450,7 @@
       "expected_bytes": 3853378,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423978/CRR2423978.fq.gz",
       "etag": "693819a2-3acc42",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423978.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423978.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -458,7 +458,7 @@
       "expected_bytes": 18349844,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423977/CRR2423977.fq.gz",
       "etag": "693819a1-117ff14",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423977.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423977.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -466,7 +466,7 @@
       "expected_bytes": 3759391,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423976/CRR2423976.fq.gz",
       "etag": "693819a1-395d1f",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423976.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423976.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -474,7 +474,7 @@
       "expected_bytes": 10092565,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423975/CRR2423975.fq.gz",
       "etag": "693819a1-9a0015",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423975.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423975.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -482,7 +482,7 @@
       "expected_bytes": 129793226,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423974/CRR2423974.fq.gz",
       "etag": "693819a1-7bc7cca",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423974.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423974.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -490,7 +490,7 @@
       "expected_bytes": 2318599,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423973/CRR2423973.fq.gz",
       "etag": "693819a0-236107",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423973.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423973.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -498,7 +498,7 @@
       "expected_bytes": 7752005,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423972/CRR2423972.fq.gz",
       "etag": "693819a0-764945",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423972.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423972.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -506,7 +506,7 @@
       "expected_bytes": 49175198,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423971/CRR2423971.fq.gz",
       "etag": "693819a0-2ee5a9e",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423971.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423971.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -514,7 +514,7 @@
       "expected_bytes": 18668026,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423970/CRR2423970.fq.gz",
       "etag": "6938199f-11cd9fa",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423970.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423970.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -522,7 +522,7 @@
       "expected_bytes": 6569811,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423969/CRR2423969.fq.gz",
       "etag": "6938199f-643f53",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423969.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423969.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -530,7 +530,7 @@
       "expected_bytes": 5761980,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423968/CRR2423968.fq.gz",
       "etag": "6938199f-57ebbc",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423968.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423968.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -538,7 +538,7 @@
       "expected_bytes": 12066260,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423967/CRR2423967.fq.gz",
       "etag": "6938199f-b81dd4",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423967.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423967.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -546,7 +546,7 @@
       "expected_bytes": 5574350,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423966/CRR2423966.fq.gz",
       "etag": "6938199f-550ece",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423966.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423966.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -554,7 +554,7 @@
       "expected_bytes": 38662943,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423965/CRR2423965.fq.gz",
       "etag": "6938199e-24df31f",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423965.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423965.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -562,7 +562,7 @@
       "expected_bytes": 11693228,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423964/CRR2423964.fq.gz",
       "etag": "6938199e-b26cac",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423964.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423964.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -570,7 +570,7 @@
       "expected_bytes": 36035032,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423963/CRR2423963.fq.gz",
       "etag": "6938199e-225d9d8",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423963.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423963.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -578,7 +578,7 @@
       "expected_bytes": 6450611,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423962/CRR2423962.fq.gz",
       "etag": "6938199e-626db3",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423962.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423962.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -586,7 +586,7 @@
       "expected_bytes": 4534177,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423960/CRR2423960.fq.gz",
       "etag": "6938199d-452fa1",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423960.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423960.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -594,7 +594,7 @@
       "expected_bytes": 32710876,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423959/CRR2423959.fq.gz",
       "etag": "6938199d-1f320dc",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423959.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423959.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -602,7 +602,7 @@
       "expected_bytes": 3891556,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423958/CRR2423958.fq.gz",
       "etag": "6938199d-3b6164",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423958.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423958.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -610,7 +610,7 @@
       "expected_bytes": 53109381,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423956/CRR2423956.fq.gz",
       "etag": "6938199c-32a6285",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423956.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423956.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -618,7 +618,7 @@
       "expected_bytes": 2729183,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423955/CRR2423955.fq.gz",
       "etag": "6938199c-29a4df",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423955.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423955.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -626,7 +626,7 @@
       "expected_bytes": 12901367,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423954/CRR2423954.fq.gz",
       "etag": "6938199c-c4dbf7",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423954.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423954.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -634,7 +634,7 @@
       "expected_bytes": 65079458,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423953/CRR2423953.fq.gz",
       "etag": "6938199c-3e108a2",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423953.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423953.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -642,7 +642,7 @@
       "expected_bytes": 3006978,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423952/CRR2423952.fq.gz",
       "etag": "6938199b-2de202",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423952.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423952.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -650,7 +650,7 @@
       "expected_bytes": 5930090,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423951/CRR2423951.fq.gz",
       "etag": "6938199b-5a7c6a",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423951.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423951.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -658,7 +658,7 @@
       "expected_bytes": 10518917,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423950/CRR2423950.fq.gz",
       "etag": "6938199b-a08185",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423950.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423950.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -666,7 +666,7 @@
       "expected_bytes": 4379435,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423949/CRR2423949.fq.gz",
       "etag": "6938199b-42d32b",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423949.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423949.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -674,7 +674,7 @@
       "expected_bytes": 7705808,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423948/CRR2423948.fq.gz",
       "etag": "6938199b-7594d0",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423948.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423948.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -682,7 +682,7 @@
       "expected_bytes": 50857230,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423947/CRR2423947.fq.gz",
       "etag": "6938199a-308050e",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423947.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423947.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -690,7 +690,7 @@
       "expected_bytes": 8077015,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423946/CRR2423946.fq.gz",
       "etag": "6938199a-7b3ed7",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423946.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423946.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -698,7 +698,7 @@
       "expected_bytes": 8183292,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423945/CRR2423945.fq.gz",
       "etag": "6938199a-7cddfc",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423945.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423945.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -706,7 +706,7 @@
       "expected_bytes": 3559489,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423944/CRR2423944.fq.gz",
       "etag": "6938199a-365041",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423944.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423944.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -714,7 +714,7 @@
       "expected_bytes": 4175181,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423943/CRR2423943.fq.gz",
       "etag": "69381999-3fb54d",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423943.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423943.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -722,7 +722,7 @@
       "expected_bytes": 3118981,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423942/CRR2423942.fq.gz",
       "etag": "69381999-2f9785",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423942.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423942.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -730,7 +730,7 @@
       "expected_bytes": 3361509,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423941/CRR2423941.fq.gz",
       "etag": "69381999-334ae5",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423941.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423941.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -738,7 +738,7 @@
       "expected_bytes": 11765474,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423940/CRR2423940.fq.gz",
       "etag": "69381999-b386e2",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423940.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423940.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -746,7 +746,7 @@
       "expected_bytes": 4877901,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423939/CRR2423939.fq.gz",
       "etag": "69381999-4a6e4d",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423939.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423939.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -754,7 +754,7 @@
       "expected_bytes": 3335565,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423938/CRR2423938.fq.gz",
       "etag": "69381999-32e58d",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423938.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423938.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -762,7 +762,7 @@
       "expected_bytes": 6150243,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423937/CRR2423937.fq.gz",
       "etag": "69381998-5dd863",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423937.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423937.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -770,7 +770,7 @@
       "expected_bytes": 4988782,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423936/CRR2423936.fq.gz",
       "etag": "69381998-4c1f6e",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423936.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423936.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -778,7 +778,7 @@
       "expected_bytes": 3030038,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423935/CRR2423935.fq.gz",
       "etag": "69381998-2e3c16",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423935.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423935.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -786,7 +786,7 @@
       "expected_bytes": 80553658,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423934/CRR2423934.fq.gz",
       "etag": "69381998-4cd26ba",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423934.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423934.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -794,7 +794,7 @@
       "expected_bytes": 2670593,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423933/CRR2423933.fq.gz",
       "etag": "69381997-28c001",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423933.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423933.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -802,7 +802,7 @@
       "expected_bytes": 4168572,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423932/CRR2423932.fq.gz",
       "etag": "69381997-3f9b7c",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423932.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423932.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -810,7 +810,7 @@
       "expected_bytes": 8864071,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423931/CRR2423931.fq.gz",
       "etag": "69381997-874147",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423931.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423931.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -818,7 +818,7 @@
       "expected_bytes": 16488172,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423930/CRR2423930.fq.gz",
       "etag": "69381997-fb96ec",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423930.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423930.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -826,7 +826,7 @@
       "expected_bytes": 25464468,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423929/CRR2423929.fq.gz",
       "etag": "69381997-1848e94",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423929.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423929.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -834,7 +834,7 @@
       "expected_bytes": 7108991,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423928/CRR2423928.fq.gz",
       "etag": "69381996-6c797f",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423928.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423928.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -842,7 +842,7 @@
       "expected_bytes": 6160521,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423927/CRR2423927.fq.gz",
       "etag": "69381996-5e0089",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423927.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423927.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -850,7 +850,7 @@
       "expected_bytes": 14603753,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423926/CRR2423926.fq.gz",
       "etag": "69381996-ded5e9",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423926.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423926.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -858,7 +858,7 @@
       "expected_bytes": 5036573,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423925/CRR2423925.fq.gz",
       "etag": "69381996-4cda1d",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423925.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423925.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -866,7 +866,7 @@
       "expected_bytes": 4327978,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423924/CRR2423924.fq.gz",
       "etag": "69381996-420a2a",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423924.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423924.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -874,7 +874,7 @@
       "expected_bytes": 7222442,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423923/CRR2423923.fq.gz",
       "etag": "69381995-6e34aa",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423923.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423923.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -882,7 +882,7 @@
       "expected_bytes": 43489211,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423922/CRR2423922.fq.gz",
       "etag": "69381995-29797bb",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423922.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423922.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -890,7 +890,7 @@
       "expected_bytes": 4527253,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423920/CRR2423920.fq.gz",
       "etag": "69381995-451495",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423920.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423920.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -898,7 +898,7 @@
       "expected_bytes": 4803282,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423919/CRR2423919.fq.gz",
       "etag": "69381995-494ad2",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423919.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423919.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -906,7 +906,7 @@
       "expected_bytes": 1623544,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423918/CRR2423918.fq.gz",
       "etag": "69381994-18c5f8",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423918.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423918.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -914,7 +914,7 @@
       "expected_bytes": 64376299,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423917/CRR2423917.fq.gz",
       "etag": "69381994-3d64deb",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423917.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423917.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -922,7 +922,7 @@
       "expected_bytes": 5312425,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423916/CRR2423916.fq.gz",
       "etag": "69381994-510fa9",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423916.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423916.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -930,7 +930,7 @@
       "expected_bytes": 2137348,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423915/CRR2423915.fq.gz",
       "etag": "69381994-209d04",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423915.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423915.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -938,7 +938,7 @@
       "expected_bytes": 1369342,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423914/CRR2423914.fq.gz",
       "etag": "69381993-14e4fe",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423914.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423914.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -946,7 +946,7 @@
       "expected_bytes": 1685739,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423913/CRR2423913.fq.gz",
       "etag": "69381993-19b8eb",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423913.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423913.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -954,7 +954,7 @@
       "expected_bytes": 1991312,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423911/CRR2423911.fq.gz",
       "etag": "69381993-1e6290",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423911.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423911.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -962,7 +962,7 @@
       "expected_bytes": 1985127,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423910/CRR2423910.fq.gz",
       "etag": "69381993-1e4a67",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423910.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423910.fq.gz",
       "clinical_group": "Drug_Sensitive"
     },
     {
@@ -970,7 +970,7 @@
       "expected_bytes": 4075644,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423909/CRR2423909.fq.gz",
       "etag": "69381993-3e307c",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423909.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423909.fq.gz",
       "clinical_group": "Drug_Resistance"
     },
     {
@@ -978,7 +978,7 @@
       "expected_bytes": 142299771,
       "public_source_url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423908/CRR2423908.fq.gz",
       "etag": "69381993-87b527b",
-      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260822T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz",
+      "destination_path": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz",
       "clinical_group": "Drug_Sensitive"
     }
   ],
