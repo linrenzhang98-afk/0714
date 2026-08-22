@@ -5,15 +5,15 @@ ROOT=${ETTY_AGENT_ROOT:-/mnt/disk1/0714_control}; REPO=${ETTY_AGENT_REPO:-$ROOT/
 [[ -d "$REPO/.git" ]] || git clone git@github.com:linrenzhang98-afk/0714.git "$REPO"
 [[ -d "$Q/.git" ]] || git clone git@github.com:linrenzhang98-afk/0714.git "$Q"
 [[ -d "$J/.git" ]] || git clone git@github.com:linrenzhang98-afk/0714.git "$J"
-git -C "$REPO" rev-parse --verify HEAD >/dev/null
-git -C "$REPO" cat-file -e "$(git -C "$REPO" rev-parse HEAD)^{commit}"
+PIN="$(git -C "${ETTY_AGENT_BOOTSTRAP:-$REPO}" rev-parse HEAD)"; git -C "$REPO" fetch origin "$PIN"; git -C "$REPO" cat-file -e "$PIN^{commit}"; git -C "$REPO" checkout --detach "$PIN"; test "$(git -C "$REPO" rev-parse HEAD)" = "$PIN"
 mkdir -p "$Q" "$J"
 mkdir -p "$HOME/.config/systemd/user"; cat > "$HOME/.config/systemd/user/etty-job-agent.service" <<EOF
 [Unit]
 Description=0714 ETYY reviewed job agent
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/env python3 $REPO/scripts/etty_job_agent.py --queue-repo $Q --job-repo $J --state $ROOT/state/jobs.json --once
+WorkingDirectory=$REPO
+ExecStart=/usr/bin/env python3 -m scripts.etty_job_agent --queue-repo $Q --job-repo $J --state $ROOT/state/jobs.json --once
 EOF
 cat > "$HOME/.config/systemd/user/etty-job-agent.timer" <<'EOF'
 [Unit]
