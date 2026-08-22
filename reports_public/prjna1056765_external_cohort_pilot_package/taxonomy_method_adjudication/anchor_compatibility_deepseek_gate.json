@@ -1,0 +1,36 @@
+{
+  "gate_version": "1.0",
+  "review_date": "2026-08-22",
+  "overall_verdict": "INSUFFICIENT_EVIDENCE",
+  "model": "deepseek-v4-pro",
+  "review_mode": "thinking",
+  "retry_used": false,
+  "answers": {
+    "existing_anchor_reports_sufficiently_documented": false,
+    "anchor_rerun_necessary_now": false,
+    "anchor_rerun_rule": "Rerun only if recovery and inspection of original .kreport files and command ledgers fails to establish method-defining compatibility.",
+    "missing_fields": {
+      "kraken2_version_at_anchor_execution": "METHOD_DEFINING",
+      "database_identity_at_anchor_execution": "METHOD_DEFINING",
+      "anchor_raw_kreport_availability_in_current_workspace": "METHOD_DEFINING",
+      "anchor_command_ledger_availability": "METHOD_DEFINING"
+    },
+    "bounded_prjca046985_pilot_justified_now": false,
+    "pilot_composition_frozen": false,
+    "pilot_stopping_rules_frozen": false
+  },
+  "single_smallest_closure_action": "Recover and inspect the original PRJNA1056765 .kreport files and per-batch command_log.jsonl from /mnt/disk1 without rerunning taxonomy.",
+  "deepseek_response": {
+    "decision": "STEER",
+    "instruction_applied": true,
+    "reason": "INSUFFICIENT_EVIDENCE: method-defining anchor provenance and raw report availability remain unrecovered, so the anchor side is not yet executable and the external pilot is not authorized.",
+    "usage": {
+      "prompt_tokens": 10233,
+      "completion_tokens": 3652,
+      "reasoning_tokens": 3296,
+      "total_tokens": 13885,
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 9337
+    }
+  }
+}

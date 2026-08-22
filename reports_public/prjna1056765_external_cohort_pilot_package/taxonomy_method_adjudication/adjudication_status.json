@@ -1,8 +1,9 @@
 {
-  "status": "METHOD_SELECTED",
-  "stage": "post_benchmark_gate",
+  "status": "INSUFFICIENT_EVIDENCE_CLOSED",
+  "stage": "anchor_compatibility_gate",
   "stage_1_verdict": "CONDITIONAL_GO",
   "post_benchmark_verdict": "GO",
+  "anchor_compatibility_verdict": "INSUFFICIENT_EVIDENCE",
   "bytes_downloaded_this_session": 0,
   "samples_touched_this_session": 0,
   "taxonomy_commands_run_this_session": 0,
@@ -20,5 +21,8 @@
     "kraken2_commands_complete": true,
     "crr2424010_bracken_incomplete": true
   },
-  "next_action": "Freeze the parameter-identical PRJNA1056765 Kraken2-only sensitivity-layer specification and verify reusable anchor report identity before designing any bounded pilot."
+  "anchor_rerun_needed_now": false,
+  "pilot_authorized": false,
+  "single_smallest_closure_action": "Recover and inspect original PRJNA1056765 .kreport files and per-batch command_log.jsonl from /mnt/disk1 without rerunning taxonomy.",
+  "next_action": "Restore read-only access to /mnt/disk1, then inspect the original anchor reports and ledgers against the frozen compatibility record."
 }

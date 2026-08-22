@@ -1,0 +1,125 @@
+{
+  "record_version": "1.0",
+  "audit_date": "2026-08-22",
+  "anchor_project": "PRJNA1056765",
+  "external_project": "PRJCA046985",
+  "candidate_common_layer": "native-read Kraken2-only classifier-assignment sensitivity estimand",
+  "direct_reuse_decision_before_deepseek": "INSUFFICIENT_EVIDENCE",
+  "all_method_defining_fields_sufficiently_verified": false,
+  "conflicting_evidence_present": false,
+  "fields": [
+    {
+      "field": "kraken2_version_at_anchor_execution",
+      "classification": "MISSING",
+      "value": null,
+      "method_defining": true,
+      "evidence": ["Later hospital inventory verifies Kraken2 2.17.1 on 2026-08-21, but does not timestamp the July production execution environment."]
+    },
+    {
+      "field": "database_path_name",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+      "method_defining": true,
+      "evidence": ["docs/prjna1056765_production_descriptive_plan.md", "scripts/make_prjna1056765_production_jobs.py", "pipelines/metagenome_sra_kraken2_runner.py"]
+    },
+    {
+      "field": "database_identity_at_anchor_execution",
+      "classification": "MISSING",
+      "value": null,
+      "method_defining": true,
+      "evidence": ["The later read-only inventory has manifest identity 6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3, but no execution-time anchor hash or immutable database manifest was persisted."]
+    },
+    {
+      "field": "kraken2_command_template",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": "kraken2 --db <database> --threads <threads> --report <run>.kreport --output <run>.kraken2.out <run>.fastq.gz",
+      "method_defining": true,
+      "evidence": ["pipelines/metagenome_sra_kraken2_runner.py lines 167-176", "pipeline introduced by commit 76582f449d03b8ff2b87699ae3c5f2e431610314"]
+    },
+    {
+      "field": "confidence",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": 0.0,
+      "method_defining": true,
+      "evidence": ["The frozen runner command omits --confidence; the common specification records Kraken2's default 0.0 explicitly for future execution."]
+    },
+    {
+      "field": "minimum_hit_groups",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": 2,
+      "method_defining": true,
+      "evidence": ["The frozen runner command omits --minimum-hit-groups; the common specification records the Kraken2 default 2 explicitly for future execution."]
+    },
+    {
+      "field": "input_layout_and_handling",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": "SINGLE; one native FASTQ positional input; no --paired",
+      "method_defining": true,
+      "evidence": ["docs/prjna1056765_production_descriptive_plan.md", "scripts/make_prjna1056765_production_jobs.py", "reports_public/production_planning/prjna1056765/candidate_dna_wgs_runs.tsv"]
+    },
+    {
+      "field": "kraken2_report_format",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": "standard Kraken2 tab-delimited report; --report-zero-counts not enabled",
+      "method_defining": true,
+      "evidence": ["pipelines/metagenome_sra_kraken2_runner.py"]
+    },
+    {
+      "field": "taxonomic_ranks_for_common_layer",
+      "classification": "VERIFIED_EXACT",
+      "value": ["S", "G"],
+      "method_defining": true,
+      "evidence": ["reports_public/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication/decision_rules.md", "reports_public/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication/hospital_benchmark/benchmark_comparisons.tsv"]
+    },
+    {
+      "field": "classified_unclassified_denominator",
+      "classification": "VERIFIED_EXACT",
+      "value": "all input reads in each sample; classified_fraction=Kraken2 classified reads/total reads and unclassified_fraction=Kraken2 unclassified reads/total reads",
+      "method_defining": true,
+      "evidence": ["scripts/summarize_metagenome_pilot.py", "reports_public/metagenome_production/run_qc_summary.tsv"]
+    },
+    {
+      "field": "rank_relative_abundance_normalization",
+      "classification": "VERIFIED_EXACT",
+      "value": "direct rank-assigned Kraken2 read count divided by all input reads; unclassified retained as a reported complementary fraction; no Bracken redistribution and no closure over classified reads",
+      "method_defining": true,
+      "evidence": ["reports_public/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication/candidate_methods.md", "reports_public/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication/post_benchmark_deepseek_gate.json"]
+    },
+    {
+      "field": "sample_exclusion_qc",
+      "classification": "VERIFIED_EXACT",
+      "value": "retain all frozen eligible samples with successful integrity and Kraken2 completion; no exclusion by classified fraction, richness, clinical result or taxon profile; report QC flags and any failed run",
+      "method_defining": true,
+      "evidence": ["reports_public/prjna1056765_robustness_manuscript/manuscript/manuscript_full_draft.md", "reports_public/metagenome_400_formal/audit/data_availability.json"]
+    },
+    {
+      "field": "host_depletion_before_anchor_kraken2",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": false,
+      "method_defining": false,
+      "evidence": ["reports_public/metagenome_final_report.md states host removal was not performed because no host index was configured; residual human assignments are present in all 400 summaries."]
+    },
+    {
+      "field": "exact_source_of_anchor_kraken2_reports",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": "/mnt/disk1/db/kraken2/0714/results/prjna1056765_production_descriptive_batch_<001-020>/kraken2/<SRR>.kreport generated by pipelines/metagenome_sra_kraken2_runner.py",
+      "method_defining": false,
+      "evidence": ["scripts/make_prjna1056765_production_jobs.py", "pipelines/metagenome_sra_kraken2_runner.py", "reports_public/metagenome_production/run_qc_summary.tsv"]
+    },
+    {
+      "field": "anchor_raw_kreport_availability_in_current_workspace",
+      "classification": "MISSING",
+      "value": null,
+      "method_defining": true,
+      "evidence": ["reports_public/metagenome_400_formal/audit/data_availability.json records per-run raw reports unavailable locally; /mnt/disk1 is not mounted after reboot."]
+    },
+    {
+      "field": "anchor_command_ledger_availability",
+      "classification": "MISSING",
+      "value": null,
+      "method_defining": true,
+      "evidence": ["The runner writes command_log.jsonl in each result directory, but no anchor command ledger is checked into the repository and /mnt/disk1 is unavailable."]
+    }
+  ],
+  "conclusion": "The existing checked-in summaries cannot directly constitute the anchor-side Kraken2-only layer. Reuse of the original raw .kreport files remains preferable to taxonomy rerun, but requires recovery of the result mount plus execution-time command/database provenance sufficient to close the method-defining MISSING fields."
+}

@@ -151,6 +151,29 @@ class BoundedExternalPilotTests(unittest.TestCase):
         self.assertEqual(result["bray_curtis"], 0.0)
         self.assertEqual(result["spearman"], 1.0)
 
+    def test_anchor_compatibility_gate_blocks_pilot_on_method_defining_gaps(self):
+        root = ROOT / "reports_public/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication"
+        record = json.loads((root / "anchor_compatibility_record.json").read_text())
+        gate = json.loads((root / "anchor_compatibility_deepseek_gate.json").read_text())
+        spec = json.loads((root / "common_kraken2_sensitivity_specification.json").read_text())
+
+        missing_method_fields = {
+            row["field"] for row in record["fields"]
+            if row["classification"] == "MISSING" and row["method_defining"]
+        }
+        self.assertEqual(missing_method_fields, {
+            "kraken2_version_at_anchor_execution",
+            "database_identity_at_anchor_execution",
+            "anchor_raw_kreport_availability_in_current_workspace",
+            "anchor_command_ledger_availability",
+        })
+        self.assertEqual(gate["overall_verdict"], "INSUFFICIENT_EVIDENCE")
+        self.assertFalse(gate["answers"]["anchor_rerun_necessary_now"])
+        self.assertFalse(gate["answers"]["bounded_prjca046985_pilot_justified_now"])
+        self.assertTrue(spec["native_reads_only"])
+        self.assertEqual(spec["relative_abundance_denominator"], "all input reads for the sample")
+        self.assertIn("never pool samples", spec["cross_study_synthesis"])
+
 
 if __name__ == "__main__":
     unittest.main()

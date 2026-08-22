@@ -1,0 +1,35 @@
+{
+  "specification_version": "1.0-frozen-prospective",
+  "estimand_name": "native-read Kraken2-only common classifier-assignment sensitivity estimand",
+  "primary_anchor_boundary": "PRJNA1056765 frozen Kraken2+Bracken v5 remains the primary anchor analysis",
+  "software": {"name": "Kraken2", "version": "2.17.1"},
+  "database": {
+    "path": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+    "manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3"
+  },
+  "command_template": ["kraken2", "--db", "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209", "--threads", "<1..16>", "--confidence", "0.0", "--minimum-hit-groups", "2", "--report", "<sample>.kreport", "--output", "<sample>.kraken2.out", "<native_single_fastq>"],
+  "allowed_input_architecture": "one repository-declared or frozen-manifest single-read FASTQ per biological sample; no paired mode, orphan synthesis, trimming, length filtering or read-length substitution",
+  "native_reads_only": true,
+  "taxonomic_ranks": ["S", "G"],
+  "raw_count_definition": "Kraken2 direct reads assigned to the requested rank/taxon in the standard report; clade counts may be retained separately but must not be substituted silently",
+  "relative_abundance_denominator": "all input reads for the sample",
+  "classified_fraction": "Kraken2 classified reads divided by all input reads",
+  "unclassified_fraction": "Kraken2 unclassified reads divided by all input reads",
+  "zero_handling": "explicit zero for a taxon absent from a valid sample report; no pseudocount for raw fractions or Bray-Curtis; missing/failed samples are not zeros",
+  "filtering_prevalence": "primary technical layer retains all rank taxa with at least one direct assigned read; cohort inference uses a prospectively frozen prevalence threshold of at least 10% within that cohort, with 5% and 20% sensitivity views reported without outcome-guided selection",
+  "sample_qc": "require manifest identity, FASTQ integrity, successful Kraken2 exit and internally consistent report totals; retain low-classified samples with flags; exclude no sample based on clinical group, richness, taxon identity or desired result",
+  "alpha_diversity_policy": "not a primary endpoint; if reported, observed richness and Shannon are descriptive sensitivity metrics on direct rank counts, rarefaction is not performed, and classified fraction/read depth accompany every value",
+  "beta_diversity_metric": "Bray-Curtis on all-input-read-denominator direct rank fractions, with no cross-cohort matrix construction",
+  "permanova": "within cohort only; prespecified clinical group as predictor; include frozen available batch/site covariates only when estimable and non-confounded; 9999 permutations; deterministic cohort-specific seed; report pseudo-F, R2 and permutation p",
+  "permdisp": "required for every PERMANOVA using the identical sample set, feature space and distance matrix; 9999 permutations with a distinct deterministic seed; dispersion-qualified interpretation mandatory",
+  "cohort_specific_analysis": "construct, filter, normalize and analyze PRJNA1056765 and PRJCA046985 independently",
+  "cross_study_synthesis": "compare direction, effect-size structure, uncertainty and robustness qualifications narratively or by prespecified non-pooled summaries; never pool samples, count tables or abundance matrices",
+  "prohibitions": [
+    "Do not modify or overwrite PRJNA1056765 frozen Kraken2+Bracken v5",
+    "Do not compare PRJNA1056765 Bracken abundance directly with PRJCA046985 Kraken2 classifier abundance as the same estimator",
+    "Do not call Kraken2 classifier fractions Bracken abundance",
+    "Do not infer clinical labels from sequences",
+    "Do not pass native mixed-length reads to Bracken using a summary length"
+  ],
+  "execution_status": "FROZEN_PENDING_ANCHOR_ARTIFACT_RECOVERY"
+}
