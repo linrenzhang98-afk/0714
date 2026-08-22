@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "job_id": "20260822T175547Z-prjca046985-122-native-kraken2-recovery",
+  "authorized": true,
+  "authorization_record": "Recovery of the terminal zero-item PRJCA046985 production SAFE_STOP under the prior explicit 122-run native-read Kraken2 authorization; the strict runtime identity probe verified the reviewed executable and identified the empty child environment.",
+  "execution_commit": "15147239a717923f513d81d1369ccd6efa7e782d",
+  "job_definition_path": "automation/production/20260822T175547Z-prjca046985-122-native-kraken2-recovery.json",
+  "job_definition_sha256": "80d2f50412af6d55b4cc554d12c5a87f93f3cefedbe22481c55035e95349ff81",
+  "transfer_cap_bytes": 2069812955,
+  "allowed_source_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+    "version_command": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+      "/mnt/disk1/0714_control/job_repo/scripts/etty_kraken2_identity_check.py"
+    ],
+    "version_expected": "ETYY_KRAKEN2_IDENTITY_OK",
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control/results"
+    ],
+    "allowed_environment_keys": [
+      "PATH",
+      "LANG",
+      "LC_ALL"
+    ],
+    "wall_seconds": 28800,
+    "memory_cap_bytes": 68719476736,
+    "workspace_cap_bytes": 5000000000
+  },
+  "handoff_allowlist": [
+    "result.json"
+  ]
+}
