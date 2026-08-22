@@ -1,0 +1,11 @@
+{
+  "completed_items": 0,
+  "error": "executable version mismatch",
+  "failed_item_ids": [],
+  "failed_items": 0,
+  "job_id": "20260822T165601Z-prjca046985-122-native-kraken2-production",
+  "network_bytes": 0,
+  "phase": "execution",
+  "status": "SAFE_STOP",
+  "total_items": 122
+}
