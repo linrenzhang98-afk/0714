@@ -1,18 +1,14 @@
-# ETYY remote-compute architecture
+# ETYY GitHub-mediated compute architecture
 
-WSL/Codex is the sole Git writer. ETYY is compute-only and must never commit,
-rebase, reset or push. WSL must not mount or copy ETYY database or FASTQ files.
+WSL/Codex is the sole Git writer. ETYY is compute-only. WSL must not SSH to
+ETYY, mount `/mnt/disk1`, or copy databases/FASTQ files. The legacy checkout at
+`/mnt/disk1/db/kraken2/0714` is never repaired or used as Git control state.
 
-`scripts/etty_remote_job.sh` requires an exact full Git commit and job JSON. It
-requires a clean WSL tree and BatchMode SSH, archives the exact commit,
-transfers only the bundle to `/mnt/disk1/0714_handoff/executions/`, executes
-under ETYY's `mgshotgun` environment, and retrieves only small handoff files.
-ETYY evidence belongs under `/mnt/disk1/0714_handoff/`, never only `/tmp`.
+Run [bootstrap_etty_control_runner.sh](../scripts/bootstrap_etty_control_runner.sh)
+once manually on ETYY. It creates the clean control clone at
+`/mnt/disk1/0714_control/repo`, configures an exact one-job glob, performs a
+zero-command dry-run, and executes only the authorized pilot if all preflight
+checks pass. The runner runs under `mgshotgun` without `--no-pull`, so GitHub is
+the control transport. Outputs persist under `/mnt/disk1/0714_handoff/`.
 
-The runner CLI is:
-
-`python pipelines/metagenome_deep_review_runner.py --job JOB_JSON --out OUT_DIR`
-
-Use `--preflight-only` before execution. The wrapper fails closed on dirty WSL
-state, SSH failure, missing database, missing handoff directory or non-ETYY
-hostname.
+The old `etty_remote_job.sh` is retained only as a failing deprecation stub.
