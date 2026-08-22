@@ -1,5 +1,5 @@
 {
-  "gate_version": "1.0",
+  "gate_version": "1.1-reconciliation",
   "review_date": "2026-08-22",
   "overall_verdict": "INSUFFICIENT_EVIDENCE",
   "model": "deepseek-v4-pro",
@@ -8,29 +8,29 @@
   "answers": {
     "existing_anchor_reports_sufficiently_documented": false,
     "anchor_rerun_necessary_now": false,
-    "anchor_rerun_rule": "Rerun only if recovery and inspection of original .kreport files and command ledgers fails to establish method-defining compatibility.",
+    "anchor_rerun_rule": "No rerun is justified because original reports and ledgers remain accessible.",
     "missing_fields": {
-      "kraken2_version_at_anchor_execution": "METHOD_DEFINING",
-      "database_identity_at_anchor_execution": "METHOD_DEFINING",
-      "anchor_raw_kreport_availability_in_current_workspace": "METHOD_DEFINING",
-      "anchor_command_ledger_availability": "METHOD_DEFINING"
+      "native_anchor_kreport_count_and_membership": "METHOD_DEFINING",
+      "actual_anchor_kraken2_invocation_from_command_ledgers": "METHOD_DEFINING"
     },
     "bounded_prjca046985_pilot_justified_now": false,
     "pilot_composition_frozen": false,
     "pilot_stopping_rules_frozen": false
   },
-  "single_smallest_closure_action": "Recover and inspect the original PRJNA1056765 .kreport files and per-batch command_log.jsonl from /mnt/disk1 without rerunning taxonomy.",
+  "database_identity_sufficient_at_provenance_level": true,
+  "hash_k2d_new_hash_required": false,
+  "single_smallest_closure_action": "Persist one ETYY-derived reconciliation record containing the suffix/path-classified 400-run native .kreport inventory and representative original production Kraken2 args records from command_log.jsonl.",
   "deepseek_response": {
     "decision": "STEER",
     "instruction_applied": true,
-    "reason": "INSUFFICIENT_EVIDENCE: method-defining anchor provenance and raw report availability remain unrecovered, so the anchor side is not yet executable and the external pilot is not authorized.",
+    "reason": "OVERALL = INSUFFICIENT_EVIDENCE. Database identity is sufficient at provenance level and no anchor rerun is needed, but native-report membership and actual logged production invocations are not yet persisted, so the pilot is not authorized.",
     "usage": {
-      "prompt_tokens": 10233,
-      "completion_tokens": 3652,
-      "reasoning_tokens": 3296,
-      "total_tokens": 13885,
+      "prompt_tokens": 10468,
+      "completion_tokens": 5265,
+      "reasoning_tokens": 5028,
+      "total_tokens": 15733,
       "prompt_cache_hit_tokens": 896,
-      "prompt_cache_miss_tokens": 9337
+      "prompt_cache_miss_tokens": 9572
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "record_version": "1.0",
+  "record_version": "1.1-recovered-etyy-provenance",
   "audit_date": "2026-08-22",
   "anchor_project": "PRJNA1056765",
   "external_project": "PRJCA046985",
@@ -10,10 +10,10 @@
   "fields": [
     {
       "field": "kraken2_version_at_anchor_execution",
-      "classification": "MISSING",
-      "value": null,
+      "classification": "VERIFIED_PROVENANCE",
+      "value": "2.17.1",
       "method_defining": true,
-      "evidence": ["Later hospital inventory verifies Kraken2 2.17.1 on 2026-08-21, but does not timestamp the July production execution environment."]
+      "evidence": ["Recovered ETYY conda metadata records kraken2 2.17.1 in both mgshotgun and clinical_meta environments; historical execution scripts select mgshotgun. No execution-time --version line was recovered, so this is not VERIFIED_EXACT."]
     },
     {
       "field": "database_path_name",
@@ -24,10 +24,17 @@
     },
     {
       "field": "database_identity_at_anchor_execution",
-      "classification": "MISSING",
-      "value": null,
+      "classification": "VERIFIED_PROVENANCE",
+      "value": {
+        "manifest_identity_sha256": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+        "opts_k2d_sha256": "80279333ae8d2e88f7bab5946ac843692d1662577d4a5f69a742c252f3f1d28b",
+        "taxo_k2d_sha256": "4cf75aa017ec1a78edeb4a058ba2b7ab3117c0b8fb03213859b39ac2cfbded85",
+        "hash_k2d_size_bytes": 16000000032,
+        "hash_k2d_mtime_epoch": 1670352200,
+        "hash_k2d_sha256": "NOT_HASHED_BY_DESIGN"
+      },
       "method_defining": true,
-      "evidence": ["The later read-only inventory has manifest identity 6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3, but no execution-time anchor hash or immutable database manifest was persisted."]
+      "evidence": ["Historical job JSON and recovered command provenance consistently name the same database path; the directory and core files retain 2022 mtimes; opts.k2d and taxo.k2d hashes plus redistribution hashes are persisted in hospital_readonly_inventory.json. hash.k2d was not newly hashed because it is approximately 16 GB."]
     },
     {
       "field": "kraken2_command_template",
@@ -107,19 +114,41 @@
       "evidence": ["scripts/make_prjna1056765_production_jobs.py", "pipelines/metagenome_sra_kraken2_runner.py", "reports_public/metagenome_production/run_qc_summary.tsv"]
     },
     {
-      "field": "anchor_raw_kreport_availability_in_current_workspace",
-      "classification": "MISSING",
-      "value": null,
+      "field": "anchor_raw_kreport_availability_on_etyy",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": true,
       "method_defining": true,
-      "evidence": ["reports_public/metagenome_400_formal/audit/data_availability.json records per-run raw reports unavailable locally; /mnt/disk1 is not mounted after reboot."]
+      "evidence": ["Recovered ETYY read-only scan found original native Kraken2 reports. The scan found 1124 total *.kreport files, but that total also includes Bracken-derived *_bracken_species.kreport files and is not a native-report count."]
     },
     {
       "field": "anchor_command_ledger_availability",
+      "classification": "VERIFIED_PROVENANCE",
+      "value": true,
+      "method_defining": true,
+      "evidence": ["Recovered ETYY scan confirms multiple original per-batch command_log.jsonl files, including early PRJNA1056765 travel batches. The ledger contents were not persisted into this checkout for independent line-level reconciliation."]
+    },
+    {
+      "field": "native_anchor_kreport_count_and_membership",
       "classification": "MISSING",
       "value": null,
       "method_defining": true,
-      "evidence": ["The runner writes command_log.jsonl in each result directory, but no anchor command ledger is checked into the repository and /mnt/disk1 is unavailable."]
+      "evidence": ["The recovered total of 1124 cannot be used because it combines native Kraken2 *.kreport with Bracken-derived *_bracken_species.kreport. A suffix/path-classified inventory tied to the frozen 400-run anchor membership is not persisted."]
+    },
+    {
+      "field": "actual_anchor_kraken2_invocation_from_command_ledgers",
+      "classification": "MISSING",
+      "value": null,
+      "method_defining": true,
+      "evidence": ["Command ledgers are accessible on ETYY, but no representative production-batch Kraken2 args record was available to this reconciliation session. Runner-template provenance alone is not substituted for the actual logged invocation."]
     }
   ],
-  "conclusion": "The existing checked-in summaries cannot directly constitute the anchor-side Kraken2-only layer. Reuse of the original raw .kreport files remains preferable to taxonomy rerun, but requires recovery of the result mount plus execution-time command/database provenance sufficient to close the method-defining MISSING fields."
+  "report_inventory": {
+    "all_kreport_files": 1124,
+    "native_kraken2_kreport_definition": "*.kreport excluding *_bracken_species.kreport and any other derived-report paths",
+    "native_kraken2_kreport_count": null,
+    "bracken_derived_definition": "*_bracken_species.kreport",
+    "bracken_derived_count": null,
+    "warning": "1124 is the combined scan total and must never be reported as the native Kraken2 report count."
+  },
+  "conclusion": "Artifact and command-ledger accessibility, software version provenance and database identity provenance are recovered. Direct anchor-layer admission remains pending one persisted, suffix/path-classified 400-run native-report inventory plus representative actual Kraken2 args records from the original production ledgers; no taxonomy rerun is indicated."
 }

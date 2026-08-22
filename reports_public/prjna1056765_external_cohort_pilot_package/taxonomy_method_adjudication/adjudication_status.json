@@ -23,6 +23,8 @@
   },
   "anchor_rerun_needed_now": false,
   "pilot_authorized": false,
-  "single_smallest_closure_action": "Recover and inspect original PRJNA1056765 .kreport files and per-batch command_log.jsonl from /mnt/disk1 without rerunning taxonomy.",
-  "next_action": "Restore read-only access to /mnt/disk1, then inspect the original anchor reports and ledgers against the frozen compatibility record."
+  "database_identity_sufficient_at_provenance_level": true,
+  "hash_k2d_new_hash_required": false,
+  "single_smallest_closure_action": "Persist one ETYY-derived reconciliation record containing the suffix/path-classified 400-run native .kreport inventory and representative original production Kraken2 args records from command_log.jsonl.",
+  "next_action": "Generate that single reconciliation record by read-only ETYY inspection, then resubmit only the anchor compatibility gate."
 }

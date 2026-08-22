@@ -162,14 +162,14 @@ class BoundedExternalPilotTests(unittest.TestCase):
             if row["classification"] == "MISSING" and row["method_defining"]
         }
         self.assertEqual(missing_method_fields, {
-            "kraken2_version_at_anchor_execution",
-            "database_identity_at_anchor_execution",
-            "anchor_raw_kreport_availability_in_current_workspace",
-            "anchor_command_ledger_availability",
+            "native_anchor_kreport_count_and_membership",
+            "actual_anchor_kraken2_invocation_from_command_ledgers",
         })
         self.assertEqual(gate["overall_verdict"], "INSUFFICIENT_EVIDENCE")
         self.assertFalse(gate["answers"]["anchor_rerun_necessary_now"])
         self.assertFalse(gate["answers"]["bounded_prjca046985_pilot_justified_now"])
+        self.assertTrue(gate["database_identity_sufficient_at_provenance_level"])
+        self.assertFalse(gate["hash_k2d_new_hash_required"])
         self.assertTrue(spec["native_reads_only"])
         self.assertEqual(spec["relative_abundance_denominator"], "all input reads for the sample")
         self.assertIn("never pool samples", spec["cross_study_synthesis"])
