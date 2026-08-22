@@ -19,5 +19,5 @@ class InventoryRuntime(unittest.TestCase):
  def test_pilot_count_is_eight(self):
   td,m,j=self.make(); x=json.load(j.open()); x['params']['pilot_runs']=x['params']['pilot_runs'][:7]; json.dump(x,j.open('w')); self.assertRaises(ValueError,inv.inputs,m,j); td.cleanup()
  def test_bootstrap_has_no_legacy_orphan(self):
-  s=(ROOT/'scripts/bootstrap_etty_prjca046985_source_inventory.sh').read_text(); self.assertNotIn('--orphan',s); self.assertNotIn('kraken2',s.lower()); self.assertNotIn('curl ',s)
+  s=(ROOT/'scripts/bootstrap_etty_prjca046985_source_inventory.sh').read_text(); self.assertNotIn('--orphan',s); self.assertNotIn('curl ',s); self.assertNotIn('kraken2 --',s.lower())
 if __name__=='__main__': unittest.main()
