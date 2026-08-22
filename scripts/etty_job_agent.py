@@ -21,17 +21,20 @@ def handoff(e,repo,state):
  if subprocess.run(['git','-C',str(repo),'rev-parse','origin/etty-handoff'],capture_output=True).returncode: raise JobError('missing etty-handoff')
  subprocess.run(['git','-C',str(repo),'checkout','-B','etty-handoff','origin/etty-handoff'],check=True)
  subprocess.run(['git','-C',str(repo),'merge','--ff-only','origin/etty-handoff'],check=True)
- dest=repo/'handoffs'/e['job_id']; existed=dest.exists(); dest.mkdir(parents=True,exist_ok=True)
+ dest=repo/'handoffs'/e['job_id']; existed=dest.exists()
  for name in h:
   src=out/name
   if not src.is_file() or src.stat().st_size>5*1024*1024: raise JobError('handoff file')
-  target=dest/name
-  if target.exists() and target.read_bytes()!=src.read_bytes(): raise JobError('conflicting handoff')
-  if not target.exists(): target.write_bytes(src.read_bytes())
- if existed and all((dest/name).exists() and (dest/name).read_bytes()==(out/name).read_bytes() for name in h): return 'ALREADY_PUBLISHED'
+ if existed:
+  if not all((dest/name).is_file() for name in h): raise JobError('partial handoff')
+  if all((dest/name).read_bytes()==(out/name).read_bytes() for name in h): return 'ALREADY_PUBLISHED'
+  raise JobError('conflicting handoff')
+ dest.mkdir(parents=True,exist_ok=True)
+ for name in h:
+  (dest/name).write_bytes((out/name).read_bytes())
  subprocess.run(['git','-C',str(repo),'add','--']+['handoffs/'+e['job_id']+'/'+x for x in h],check=True)
  subprocess.run(['git','-C',str(repo),'config','user.name','ETYY Job Agent'],check=True); subprocess.run(['git','-C',str(repo),'config','user.email','etty-job-agent@localhost'],check=True)
- subprocess.run(['git','-C',str(repo),'commit','-m','Handoff '+e['job_id']],check=False)
+ subprocess.run(['git','-C',str(repo),'commit','-m','Handoff '+e['job_id']],check=True)
  subprocess.run(['git','-C',str(repo),'push','origin','HEAD:etty-handoff'],check=True); return 'PUBLISHED'
 def process(e,queue,jobrepo,handoffrepo,state):
  envelope(e); jid=e['job_id']; st=Path(state); data=json.loads(st.read_text()) if st.exists() else {}
