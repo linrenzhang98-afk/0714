@@ -1,3 +1,4 @@
+import errno
 import hashlib
 import http.server
 import json
@@ -83,7 +84,7 @@ class HardenedPrimitives(unittest.TestCase):
     def test_interrupted_retry_bytes_count_once_each(self):
         with tempfile.TemporaryDirectory() as raw:
             root=Path(raw); job=self.base(root); job["transfer_cap_bytes"]=6
-            responses=[Response([b"a",OSError("interrupted")]),Response([b"abc",b""])]
+            responses=[Response([b"a",ConnectionResetError("interrupted")]),Response([b"abc",b""])]
             with mock.patch("urllib.request.urlopen",side_effect=responses):
                 state=acquire(job,root/"state.json",sleep_fn=lambda _delay:None)
             self.assertEqual(state["network_bytes"],4)
@@ -127,6 +128,22 @@ class HardenedPrimitives(unittest.TestCase):
             self.assertEqual(state["completed_items"],2)
             self.assertEqual(state["failed_item_ids"],["two"])
             self.assertEqual(state["items"]["two"]["status"],"transient_failed")
+
+    def test_network_reset_is_transient_but_local_os_errors_fail_closed(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root=Path(raw); job=self.base(root)
+            with mock.patch("urllib.request.urlopen",side_effect=ConnectionResetError("reset")) as opened:
+                with self.assertRaisesRegex(JobError,"unresolved transient"):
+                    acquire(job,root/"reset.json",retries_per_pass=1,retry_passes=1,backoff_seconds=(0,),sleep_fn=lambda _delay:None)
+            self.assertEqual(opened.call_count,2)
+            self.assertEqual(json.loads((root/"reset.json").read_text())["items"]["x"]["last_error_type"],"ConnectionResetError")
+            for code in (errno.ENOSPC,errno.EACCES):
+                state=root/f"local-{code}.json"
+                with mock.patch("urllib.request.urlopen",side_effect=OSError(code,"local failure")) as opened:
+                    with self.assertRaisesRegex(JobError,"non-transient acquisition error"):
+                        acquire(job,state,retry_passes=2,sleep_fn=lambda _delay:None)
+                self.assertEqual(opened.call_count,1)
+                self.assertEqual(json.loads(state.read_text())["items"]["x"]["status"],"downloading")
 
     def test_restart_reuses_success_and_retries_transient_with_cumulative_bytes(self):
         with tempfile.TemporaryDirectory() as raw:

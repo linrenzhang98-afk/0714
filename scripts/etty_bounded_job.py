@@ -2,6 +2,7 @@
 """Domain-agnostic bounded acquisition and command-execution primitives."""
 from __future__ import annotations
 
+import errno
 import hashlib
 import http.client
 import json
@@ -99,7 +100,21 @@ def _bounded_error_detail(exc: BaseException) -> str:
 def _is_transient_network_error(exc: BaseException) -> bool:
     if isinstance(exc, urllib.error.HTTPError):
         return 500 <= exc.code <= 599
-    return isinstance(exc, (OSError, urllib.error.URLError, http.client.HTTPException))
+    if isinstance(exc, (urllib.error.URLError, http.client.HTTPException)):
+        return True
+    if isinstance(exc, (TimeoutError, ConnectionResetError, ConnectionAbortedError, BrokenPipeError, ConnectionRefusedError)):
+        return True
+    return isinstance(exc, OSError) and exc.errno in {
+        errno.ENETDOWN,
+        errno.ENETUNREACH,
+        errno.ENETRESET,
+        errno.ECONNABORTED,
+        errno.ECONNRESET,
+        errno.ECONNREFUSED,
+        errno.ETIMEDOUT,
+        errno.EHOSTUNREACH,
+        errno.EPIPE,
+    }
 
 
 def acquire(

@@ -64,6 +64,7 @@ def process(e,queue,jobrepo,handoffrepo,state):
  if jid in data:
   if data[jid].get('envelope_sha256')!=hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest(): raise JobError('conflicting reused job')
   if data[jid].get('status')=='done': return 'ALREADY_COMPLETED'
+  if data[jid].get('status')=='safe_stop': return 'ALREADY_SAFE_STOP'
  subprocess.run(['git','-C',str(queue),'fetch','origin','main'],check=True); subprocess.run(['git','-C',str(jobrepo),'fetch','origin',e['execution_commit']],check=True); subprocess.run(['git','-C',str(jobrepo),'cat-file','-e',e['execution_commit']+'^{commit}'],check=True); subprocess.run(['git','-C',str(jobrepo),'checkout','--detach',e['execution_commit']],check=True)
  d=(jobrepo/e['job_definition_path']).resolve(); root=jobrepo.resolve()
  if root not in d.parents or d.is_symlink(): raise JobError('definition escape')

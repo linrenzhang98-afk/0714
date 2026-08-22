@@ -14,10 +14,13 @@ PROJECT = Path(__file__).parents[1]
 
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
+    transient_requests = 0
+
     def log_message(self, *_args):
         pass
     def do_GET(self):
         if self.path == "/transient.bin":
+            type(self).transient_requests += 1
             self.send_error(503, "synthetic transient failure")
             return
         super().do_GET()
@@ -35,6 +38,7 @@ class Lifecycle(unittest.TestCase):
             web.mkdir()
             payload = b"synthetic-payload"
             (web / "source.bin").write_bytes(payload)
+            QuietHandler.transient_requests = 0
             handler = lambda *a, **k: QuietHandler(*a, directory=web, **k)
             server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
             thread = threading.Thread(target=server.serve_forever, daemon=True)
@@ -127,10 +131,18 @@ class Lifecycle(unittest.TestCase):
                 handoff_head = self.git("rev-parse", "origin/etty-handoff", cwd=handoff_repo)
                 network_bytes = json.loads((state.parent / "synthetic-job.acquisition.json").read_text())["network_bytes"]
                 self.assertEqual(network_bytes, len(payload))
+                failure_state_path=state.parent/"failure-job.acquisition.json"
+                failure_state_before=failure_state_path.read_bytes()
+                failure_network_bytes=json.loads(failure_state_before)["network_bytes"]
+                transient_requests=QuietHandler.transient_requests
 
                 second = subprocess.run(cli, cwd=runtime, env=test_env, text=True, capture_output=True, check=True)
                 self.assertIn("ALREADY_COMPLETED", second.stdout)
+                self.assertIn("ALREADY_SAFE_STOP", second.stdout)
                 self.assertEqual(counter.read_text(), "1")
+                self.assertEqual(failure_state_path.read_bytes(),failure_state_before)
+                self.assertEqual(json.loads(failure_state_path.read_text())["network_bytes"],failure_network_bytes)
+                self.assertEqual(QuietHandler.transient_requests,transient_requests)
                 self.git("fetch", "origin", "etty-handoff", cwd=handoff_repo)
                 self.assertEqual(self.git("rev-parse", "origin/etty-handoff", cwd=handoff_repo), handoff_head)
             finally:
