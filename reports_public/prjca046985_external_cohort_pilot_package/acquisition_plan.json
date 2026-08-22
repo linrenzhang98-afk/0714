@@ -1,0 +1,76 @@
+{
+  "status": "SOURCE_ACQUISITION_REQUIRED",
+  "run_count": 122,
+  "exact_bytes": 2069812955,
+  "decimal_GB": 2.069812955,
+  "GiB": 1.9276635302230716,
+  "min_bytes": 972161,
+  "median_bytes": 5820257.0,
+  "max_bytes": 169504130,
+  "group_counts_bytes": {
+    "Drug_Sensitive": [
+      77,
+      1064726267
+    ],
+    "Drug_Resistance": [
+      45,
+      1005086688
+    ]
+  },
+  "largest_10": [
+    [
+      "CRR2424027",
+      169504130
+    ],
+    [
+      "CRR2424033",
+      145931694
+    ],
+    [
+      "CRR2423908",
+      142299771
+    ],
+    [
+      "CRR2423974",
+      129793226
+    ],
+    [
+      "CRR2424036",
+      98156259
+    ],
+    [
+      "CRR2423934",
+      80553658
+    ],
+    [
+      "CRR2423953",
+      65079458
+    ],
+    [
+      "CRR2423917",
+      64376299
+    ],
+    [
+      "CRR2423994",
+      61242145
+    ],
+    [
+      "CRR2423956",
+      53109381
+    ]
+  ],
+  "download_cap_bytes": 2173303603,
+  "download_cap_decimal_GB": 2.173303603,
+  "destination_root": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq",
+  "checksum": "not published by source; local SHA256 after download",
+  "etag": "retained where available",
+  "resource_plan": {
+    "permanent_fastq_bytes": 2069812955,
+    "workspace_cap_bytes": 5000000000,
+    "retained_output_estimate": "not measured; reserve workspace cap separately",
+    "metadata_allowance_bytes": 100000000,
+    "recommended_min_free_disk_bytes": 7273303603
+  },
+  "production_started": false,
+  "download_started": false
+}
