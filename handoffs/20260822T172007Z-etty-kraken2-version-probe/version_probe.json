@@ -1,0 +1,23 @@
+{
+  "combined_nonempty_lines": [
+    "Kraken version 2.17.1",
+    "Copyright 2013-2023, Derrick Wood (dwood@cs.jhu.edu)",
+    "Use of uninitialized value in concatenation (.) or string at /home/suma/anaconda3/envs/mgshotgun/bin/kraken2 line 26."
+  ],
+  "environment": {
+    "LANG": "",
+    "LC_ALL": "",
+    "PATH": ""
+  },
+  "executable": "/home/suma/anaconda3/envs/mgshotgun/bin/kraken2",
+  "executable_sha256": "73655abe4655e0509c167e3f2532a6c92845572520a216704c9fc91bbfe77ec3",
+  "executable_size_bytes": 8189,
+  "probe_type": "kraken2_version_runtime_probe",
+  "python_executable": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "realpath": "/home/suma/anaconda3/envs/mgshotgun/share/kraken2-2.17.1/libexec/kraken2",
+  "returncode": 0,
+  "stderr": "Use of uninitialized value in concatenation (.) or string at /home/suma/anaconda3/envs/mgshotgun/bin/kraken2 line 26.\n",
+  "stderr_stripped": "Use of uninitialized value in concatenation (.) or string at /home/suma/anaconda3/envs/mgshotgun/bin/kraken2 line 26.",
+  "stdout": "Kraken version 2.17.1\nCopyright 2013-2023, Derrick Wood (dwood@cs.jhu.edu)\n",
+  "stdout_stripped": "Kraken version 2.17.1\nCopyright 2013-2023, Derrick Wood (dwood@cs.jhu.edu)"
+}
