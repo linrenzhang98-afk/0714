@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "job_id": "20260823T100000Z-prjna1056765-prjca046985-common-kraken2-layer",
+  "authorized": true,
+  "authorization_record": "User-authorized Strategy C read-only common native Kraken2 classifier-assignment layer; no raw download, acquisition, classification rerun, Bracken, trimming, or host removal.",
+  "execution_commit": "e8c1c19e1552b0a9078ea065b42cea8e0ce0a03c",
+  "job_definition_path": "automation/production/20260823T100000Z-prjna1056765-prjca046985-common-kraken2-layer.json",
+  "job_definition_sha256": "ab1a5d8425dd78fcb41ba073c91d7304ff8cdf75929e1fe5c19e04b542bcf67c",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control/state"
+    ],
+    "allowed_environment_keys": [],
+    "wall_seconds": 28800,
+    "memory_cap_bytes": 68719476736,
+    "workspace_cap_bytes": 100000000000
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "common_layer_summary.md",
+    "matrix_validation.json"
+  ]
+}
