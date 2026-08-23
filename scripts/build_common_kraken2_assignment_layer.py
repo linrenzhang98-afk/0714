@@ -14,6 +14,7 @@ import json
 import math
 import random
 import statistics
+import traceback
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Iterable
@@ -34,6 +35,50 @@ PERMUTATIONS = 999
 
 class LayerError(RuntimeError):
     pass
+
+
+_DIAGNOSTIC_CONTEXT: dict[str, Any] = {
+    "stage": "initialization",
+    "first_failing_path_if_any": None,
+    "first_failing_run_if_any": None,
+    "expected_path": None,
+    "observed_path": None,
+    "source_gate_status": "NOT_STARTED",
+}
+
+
+def set_stage(stage: str, **context: Any) -> None:
+    _DIAGNOSTIC_CONTEXT["stage"] = stage
+    for key, value in context.items():
+        if value is not None:
+            _DIAGNOSTIC_CONTEXT[key] = str(value)
+
+
+def write_diagnostic(path: Path, exc: BaseException) -> None:
+    """Write bounded exception evidence without report/read contents."""
+    payload = {
+        "stage": _DIAGNOSTIC_CONTEXT.get("stage"),
+        "exception_type": type(exc).__name__,
+        "exception_message": clean_text(str(exc))[:2000],
+        "traceback": traceback.format_exc()[-8000:],
+        "first_failing_path_if_any": _DIAGNOSTIC_CONTEXT.get("first_failing_path_if_any"),
+        "first_failing_run_if_any": _DIAGNOSTIC_CONTEXT.get("first_failing_run_if_any"),
+        "expected_path": _DIAGNOSTIC_CONTEXT.get("expected_path"),
+        "observed_path": _DIAGNOSTIC_CONTEXT.get("observed_path"),
+        "source_gate_status": _DIAGNOSTIC_CONTEXT.get("source_gate_status"),
+    }
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        (path.with_suffix(".txt")).write_text(
+            "stage=" + str(payload["stage"]) + "\n"
+            + "exception_type=" + str(payload["exception_type"]) + "\n"
+            + "exception_message=" + str(payload["exception_message"]) + "\n",
+            encoding="utf-8",
+        )
+    except OSError:
+        # Preserve the original failure if diagnostic storage itself is unavailable.
+        return
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -281,6 +326,18 @@ def log_odds_ratio(detected: list[bool], labels: list[str]) -> tuple[float | Non
 
 
 def validate_sources(args: argparse.Namespace) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    set_stage("A_repository_control_inputs", source_gate_status="STAGE_A_RUNNING")
+    required = [
+        args.anchor_reconciliation, args.anchor_clinical, args.external_manifest,
+        args.pilot_job, args.pilot_summary, args.production_definition,
+        args.production_qc, args.recovery_result,
+    ]
+    for path in required:
+        _DIAGNOSTIC_CONTEXT["first_failing_path_if_any"] = str(path)
+        if not path.is_file() or path.is_symlink():
+            raise LayerError(f"required control input missing or non-regular: {path}")
+    _DIAGNOSTIC_CONTEXT["first_failing_path_if_any"] = None
+    _DIAGNOSTIC_CONTEXT["source_gate_status"] = "STAGE_A_PASS"
     reconciliation = read_json(args.anchor_reconciliation)
     if not (reconciliation.get("native_400_exact") is True and reconciliation.get("native_kreport_files") == ANCHOR_N and reconciliation.get("native_kreport_unique_runs") == ANCHOR_N):
         raise LayerError("anchor reconciliation gate failed")
@@ -289,6 +346,7 @@ def validate_sources(args: argparse.Namespace) -> tuple[list[dict[str, Any]], li
     if len(anchor_ids) != ANCHOR_N or len(set(anchor_ids)) != ANCHOR_N:
         raise LayerError("anchor clinical membership is not exactly 400 unique runs")
 
+    set_stage("B_membership_reconstruction", source_gate_status="STAGE_B_RUNNING")
     pilot_job = read_json(args.pilot_job)
     pilot_rows = pilot_job.get("params", {}).get("pilot_runs", [])
     pilot_ids = [row.get("run_accession", "") for row in pilot_rows]
@@ -314,22 +372,47 @@ def validate_sources(args: argparse.Namespace) -> tuple[list[dict[str, Any]], li
     expected_external = set(pilot_ids) | set(production_ids)
     if len(external_meta) != EXTERNAL_N or len(external_by_id) != EXTERNAL_N or set(external_by_id) != expected_external:
         raise LayerError("external 130-run manifest gate failed")
+    _DIAGNOSTIC_CONTEXT["source_gate_status"] = "STAGE_B_PASS"
 
+    set_stage("C_report_path_resolution", source_gate_status="STAGE_C_RUNNING")
     anchor_samples: list[dict[str, Any]] = []
     for row in sorted(anchor_meta, key=lambda value: value["run"]):
         run = row["run"]
+        _DIAGNOSTIC_CONTEXT["first_failing_run_if_any"] = run
         candidates = list(args.anchor_results_root.glob(f"prjna1056765_production_descriptive_batch_*/kraken2/{run}.kreport"))
         if len(candidates) != 1 or "bracken" in candidates[0].name.lower():
+            _DIAGNOSTIC_CONTEXT["expected_path"] = str(args.anchor_results_root)
+            _DIAGNOSTIC_CONTEXT["observed_path"] = ",".join(str(p) for p in candidates[:3])
             raise LayerError(f"anchor native report membership failure: {run} ({len(candidates)})")
-        anchor_samples.append({"run": run, "group": row.get("diagnosis", ""), "report": parse_report(candidates[0])})
+        if candidates[0].is_symlink() or not candidates[0].is_file():
+            raise LayerError(f"anchor report is not a regular file: {candidates[0]}")
+        anchor_samples.append({"run": run, "group": row.get("diagnosis", ""), "report_path": candidates[0]})
 
     external_samples: list[dict[str, Any]] = []
     for run in sorted(expected_external):
+        _DIAGNOSTIC_CONTEXT["first_failing_run_if_any"] = run
         if run in pilot_ids:
             report_path = args.external_results_root / PILOT_JOB / "native_kraken2" / f"{run}.native.kreport"
         else:
             report_path = args.external_results_root / f"{PRODUCTION_JOB}__{run}.native.kreport"
-        external_samples.append({"run": run, "group": external_by_id[run].get("group_raw", ""), "report": parse_report(report_path)})
+        if report_path.is_symlink() or not report_path.is_file():
+            _DIAGNOSTIC_CONTEXT["expected_path"] = str(report_path)
+            _DIAGNOSTIC_CONTEXT["observed_path"] = str(report_path)
+            raise LayerError(f"external native report missing or non-regular: {report_path}")
+        external_samples.append({"run": run, "group": external_by_id[run].get("group_raw", ""), "report_path": report_path})
+    _DIAGNOSTIC_CONTEXT["source_gate_status"] = "STAGE_C_PASS"
+    set_stage("D_parser_smoke", source_gate_status="STAGE_D_RUNNING")
+    # Parse one report from each cohort and each external production phase before full parsing.
+    parse_report(anchor_samples[0]["report_path"])
+    parse_report(external_samples[0]["report_path"])
+    production_sample = next((sample for sample in external_samples if sample["run"] in set(production_ids)), None)
+    if production_sample is None:
+        raise LayerError("no external production sample available for parser smoke test")
+    parse_report(production_sample["report_path"])
+    _DIAGNOSTIC_CONTEXT["source_gate_status"] = "STAGE_D_PASS"
+    set_stage("full_parse", source_gate_status="FULL_PARSE_RUNNING")
+    for sample in anchor_samples + external_samples:
+        sample["report"] = parse_report(sample.pop("report_path"))
     return anchor_samples, external_samples
 
 
@@ -528,12 +611,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--anchor-results-root", type=Path, required=True)
     parser.add_argument("--external-results-root", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--diagnostic-output", type=Path)
     return parser.parse_args()
 
 
 if __name__ == "__main__":
+    parsed_args = parse_args()
     try:
-        result = build(parse_args())
+        result = build(parsed_args)
         print(json.dumps(result, sort_keys=True))
-    except (LayerError, OSError, UnicodeError, json.JSONDecodeError, csv.Error) as exc:
+    except Exception as exc:
+        if parsed_args.diagnostic_output:
+            write_diagnostic(parsed_args.diagnostic_output, exc)
         raise SystemExit(f"SAFE_STOP: {clean_text(str(exc))}")

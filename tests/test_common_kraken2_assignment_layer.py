@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -52,6 +53,26 @@ class CommonLayerTests(unittest.TestCase):
         labels = ["A", "A", "B", "B"]
         self.assertGreater(MODULE.permanova_stat(distance, labels)[0], 0)
         self.assertGreaterEqual(MODULE.dispersion_stat(distance, labels)[0], 0)
+
+    def test_bounded_diagnostic_preserves_exception_context(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "diagnostic.json"
+            MODULE._DIAGNOSTIC_CONTEXT.update({
+                "stage": "C_report_path_resolution",
+                "first_failing_run_if_any": "RUN1",
+                "expected_path": "/approved/root",
+                "observed_path": "/missing/report.kreport",
+                "source_gate_status": "STAGE_C_RUNNING",
+            })
+            try:
+                raise MODULE.LayerError("report missing")
+            except MODULE.LayerError as exc:
+                MODULE.write_diagnostic(output, exc)
+            payload = json.loads(output.read_text())
+            self.assertEqual(payload["stage"], "C_report_path_resolution")
+            self.assertEqual(payload["exception_type"], "LayerError")
+            self.assertEqual(payload["first_failing_run_if_any"], "RUN1")
+            self.assertTrue((Path(tmp) / "diagnostic.txt").is_file())
 
 
 if __name__ == "__main__":
