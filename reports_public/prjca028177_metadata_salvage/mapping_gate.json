@@ -1,0 +1,38 @@
+{
+  "project": "PRJCA028177",
+  "gsa": "CRA017789",
+  "patients_reported": 127,
+  "public_libraries_reported": 254,
+  "public_libraries_verified": 254,
+  "dna_libraries": 127,
+  "rna_libraries": 127,
+  "dna_rna_127_pairs_confirmed": false,
+  "confirmed_dna_rna_pairs": 0,
+  "table_s1_retrieved": true,
+  "table_s1_exact_schema_extracted": true,
+  "table_s1_cases_extracted": 127,
+  "case_to_run_mapping_confirmed": false,
+  "case_to_run_mapping_status": "CASE_RUN_MAPPING_UNRESOLVED",
+  "severe_status_available_per_case": false,
+  "refractory_status_available_per_case": false,
+  "severe_refractory_overlap_resolved": false,
+  "severe_only": null,
+  "refractory_only": null,
+  "both": null,
+  "neither": null,
+  "unknown": 127,
+  "independent_primary_phenotype_available": false,
+  "candidate_secondary_phenotypes": [
+    "underlying disease (independent at Table S1 case level; 19/127; run mapping unavailable)",
+    "RMPP (11 explicit Table S1 flags; complete independently established common-MPP membership unresolved)"
+  ],
+  "pipeline_compatibility": "COMPATIBLE_BUT_NOT_IDENTICAL",
+  "recommendation": "METADATA_SALVAGE_ONLY",
+  "blocking_evidence": [
+    "CASE_RUN_MAPPING_UNRESOLVED: Table S1 contains case numbers but no sample/laboratory/mNGS identifier or collection date linking a case to a BioSample, experiment, or run.",
+    "The 254 archive records contain 127 explicit DNA and 127 explicit RNA libraries, but no explicit shared subject identifier links DNA and RNA records; adjacency/accession order/numeric suffixes are insufficient evidence.",
+    "Sex totals conflict between Table S1 (67 female, 60 male) and each archive molecule set (65 female, 62 male), so sex cannot repair the missing identity bridge.",
+    "Per-case severe and refractory status is absent from Table S1; overlap and mutually exclusive group counts cannot be resolved.",
+    "No independent phenotype can currently be attached to a DNA run because case-to-run mapping is unresolved."
+  ]
+}

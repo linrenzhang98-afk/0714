@@ -1,0 +1,6 @@
+source	url	status	retrieved_bytes	sha256	notes
+CRA017789 metadata spreadsheet	https://ngdc.cncb.ac.cn/gsa/file/exportExcelFile	RETRIEVED	74324	2bff2294170c3b5af869419329e786a416ab1d3db620958d3d11b0e8490427ae	Official GSA export; Sample, Experiment, and Run sheets.
+CRA017789 browse metadata	https://ngdc.cncb.ac.cn/gsa/browse/CRA017789	RETRIEVED	48705	c18779a06c29007528d94769b8530f30ccba132333bcad2cb5c54f8030af0a16	Public GSA overview; page reports 254 items.
+PRJCA028177 BioProject metadata	https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA028177	RETRIEVED	91772	17bb1bd801d61bf795682fd8fd5ceb2a9fb3b4e0f4f4e49823bf39484a317842	Public BioProject page; links 254 BioSamples.
+Article full text XML	https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11878053/fullTextXML	RETRIEVED	95213	40af101d435f0dd89dbe2ce86e8f49a3b2fa77cb378149fe1f2159e402aa18e2	Europe PMC open full text; used for methods and cohort definitions.
+Table S1 supplementary PDF	https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11878053/supplementaryFiles	RETRIEVED	252021	de2ea4738bc95b6d81c7636fd737f4545ea5192eaaf9d2e2a07d6c13f6794c89	The archive contained spectrum.01087-24-s0001.pdf (Table S1).
