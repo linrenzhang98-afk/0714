@@ -1,0 +1,11 @@
+{
+  "completed_items": 0,
+  "error": "command returned nonzero",
+  "failed_item_ids": [],
+  "failed_items": 0,
+  "job_id": "20260823T110000Z-prjna1056765-prjca046985-common-kraken2-layer-diagnostic",
+  "network_bytes": 0,
+  "phase": "execution",
+  "status": "SAFE_STOP",
+  "total_items": 1
+}
