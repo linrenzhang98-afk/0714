@@ -1,0 +1,98 @@
+{
+  "audit_type": "READ_ONLY_PIPELINE_HARMONIZATION",
+  "audit_date": "2026-08-23",
+  "anchor_cohort": "PRJNA1056765",
+  "external_cohort": "PRJCA046985",
+  "anchor_n": 400,
+  "external_n": 130,
+  "prjca046985_production_qc": {
+    "job_id": "20260823T043904Z-prjca046985-122-native-kraken2-production-qc",
+    "result_status": "done",
+    "qc_status": "VERIFIED",
+    "verified_production_runs": 122,
+    "completed_pilot_runs": 8,
+    "classified_fraction_interpretation": "technical method-feasibility evidence only"
+  },
+  "anchor_pipeline_reconstruction_complete": true,
+  "host_removal_comparable": "NOT_REPRODUCIBLE",
+  "kraken2_database_comparable": "IDENTICAL",
+  "kraken2_parameters_comparable": "IDENTICAL_HISTORICAL_DEFAULTS_EXPLICITLY_PINNED_EXTERNALLY",
+  "read_length_comparable": "NOT_IDENTICAL",
+  "bracken_comparable": "UNRESOLVED",
+  "current_species_matrices_directly_mergeable": false,
+  "matrix_components": {
+    "taxonomy_database_identity": "DIRECTLY_COMPARABLE",
+    "taxonomic_rank_definition": "COMPARABLE_AFTER_REPROCESSING",
+    "bracken_vs_raw_kraken2": "COHORT_SPECIFIC_ONLY",
+    "host_filtering": "COHORT_SPECIFIC_ONLY",
+    "read_length": "COHORT_SPECIFIC_ONLY",
+    "prevalence_filtering": "COMPARABLE_AFTER_REPROCESSING",
+    "relative_abundance_calculation": "COMPARABLE_AFTER_REPROCESSING",
+    "compositional_transformation": "COHORT_SPECIFIC_ONLY",
+    "zero_handling": "COMPARABLE_AFTER_REPROCESSING"
+  },
+  "strategies": {
+    "A": {
+      "decision": "NOT_RECOMMENDED",
+      "scientific_validity": "Cannot exactly reproduce the anchor Bracken estimator on native mixed-length PRJCA046985 reads; upstream host state also cannot be made identical.",
+      "reproducibility": "Anchor command path is reconstructed, but execution-time Bracken version and defensible external read-length model are unresolved.",
+      "compute_storage_time": "Moderate external-only rerun, but unjustified because it would create a questionable estimator.",
+      "batch_risk": "High from read architecture and upstream host depletion."
+    },
+    "B": {
+      "decision": "NOT_RECOMMENDED",
+      "scientific_validity": "A new common pipeline cannot restore host reads removed upstream from PRJCA046985.",
+      "reproducibility": "Technically possible only from the closest available, non-identical starting points.",
+      "compute_storage_time": "Highest: both 400-run and 130-run cohorts would be reprocessed.",
+      "batch_risk": "Remains high despite reprocessing because source preparation differs."
+    },
+    "C": {
+      "decision": "RECOMMENDED",
+      "scientific_validity": "Preserves cohort-specific estimators and supports a separately named common native-read Kraken2 classifier-assignment sensitivity layer.",
+      "reproducibility": "Can reuse existing 400 anchor and 130 external native Kraken2 reports after read-only validation and fixed parsing.",
+      "compute_storage_time": "Low; no classifier rerun or raw-read acquisition is indicated.",
+      "batch_risk": "Explicitly modeled/qualified rather than hidden by pooling."
+    },
+    "A+C": {
+      "decision": "CONSIDERED_AS_COMMON_KRAKEN2_LAYER_PLUS_COHORT_SPECIFIC_INFERENCE",
+      "scientific_validity": "Valid only if A means matching the already-frozen Kraken2 classifier layer, not forcing Bracken or host preprocessing equivalence.",
+      "reproducibility": "Already supported by the shared database identity and parameter reconstruction.",
+      "compute_storage_time": "Low through read-only report extraction.",
+      "batch_risk": "Requires explicit host/read-length qualification and no naive matrix pooling."
+    }
+  },
+  "recommended_strategy": "C",
+  "prjca046985_reprocessing_required": false,
+  "anchor_reprocessing_required": false,
+  "pilot_required_before_full_reprocessing": true,
+  "formal_meta_analysis_ready": false,
+  "common_estimand_constraint": "The anchor four-level diagnosis and external drug-resistant versus drug-sensitive TB contrasts are different; they must not be pooled as one disease effect.",
+  "blocking_evidence": [
+    "Current anchor input is a transformed Bracken species matrix; PRJCA046985 has no corresponding Bracken matrix.",
+    "PRJCA046985 deposited files are upstream host-depleted while the primary anchor Kraken2 input was locally unfiltered; the external tool/reference is unknown and removed host reads cannot be restored.",
+    "PRJCA046985 observed files contain mixed 15-50 or 15-75 nt reads; one-summary-length and ad hoc length-stratified Bracken are not validated.",
+    "The anchor primary runner omitted Bracken -r and evidence indicates the 100-nt default redistribution despite nominal ~50-nt anchor metadata.",
+    "The exact anchor execution-time Bracken version is unresolved (recovered provenance 3.1 versus current inventory 3.0.1).",
+    "The two cohorts expose different clinical contrasts, so a common disease-effect meta-analysis is not presently defined."
+  ],
+  "execution_requirements": [
+    "Freeze a read-only parser for direct S and G rank Kraken2 assigned counts and all-input-read denominators.",
+    "Validate exact membership of 400 anchor native reports and 130 external native reports before extraction.",
+    "Generate cohort-specific count/fraction matrices without rerunning Kraken2 and without calling them Bracken abundance.",
+    "Apply prevalence, zero handling, normalization, PERMANOVA and PERMDISP independently within each cohort.",
+    "Define a genuinely common clinical estimand before any formal cross-study effect synthesis; otherwise restrict the comparison to technical robustness and cohort-specific findings.",
+    "If any future biological reprocessing is proposed, first run a bounded 8-run pilot and obtain a new reviewed authorization because the current recommendation requires none."
+  ],
+  "deferred_candidate_context": {
+    "next_high_priority": "PRJCA039020 / CRA024916 / PRJDB36521 (~229)",
+    "large_deferred": "PRJNA977832 / SRP440548",
+    "metadata_reserve": {
+      "project": "PRJCA028177 / CRA017789",
+      "status": "METADATA_SALVAGE_ONLY",
+      "reason": "127 DNA plus 127 RNA libraries confirmed, but deterministic case-to-run mapping is absent."
+    }
+  },
+  "raw_data_downloaded": false,
+  "etty_accessed": false,
+  "biological_reprocessing_executed": false
+}
