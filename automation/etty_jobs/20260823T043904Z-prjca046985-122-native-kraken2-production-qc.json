@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "job_id": "20260823T043904Z-prjca046985-122-native-kraken2-production-qc",
+  "authorized": true,
+  "authorization_record": "ACTIVE authorization automation/project_authorizations/PRJCA046985.json explicitly permits this zero-download read-only technical production QC without reapproval.",
+  "execution_commit": "6817dbaf7160cdff20b9d5b5544b87bfd06f1221",
+  "job_definition_path": "automation/production/20260823T043904Z-prjca046985-122-native-kraken2-production-qc.json",
+  "job_definition_sha256": "c4ac48610fbe92f97c1472f92210ae37f8a3d14a856294f837e84228132ac5d1",
+  "transfer_cap_bytes": 142299771,
+  "allowed_source_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control/results"
+    ],
+    "allowed_environment_keys": [],
+    "wall_seconds": 3600
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "production_qc.json"
+  ]
+}
