@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "job_id": "20260823T110000Z-prjna1056765-prjca046985-common-kraken2-layer-diagnostic",
+  "authorized": true,
+  "authorization_record": "User-authorized read-only Strategy C diagnostic; capture bounded parser failure evidence before any recovery.",
+  "execution_commit": "cc36cc4b5a7cdb2f989f310c5b11f646a3790b71",
+  "job_definition_path": "automation/production/20260823T110000Z-prjna1056765-prjca046985-common-kraken2-layer-diagnostic.json",
+  "job_definition_sha256": "5f47037cb3c84ec8c7788c9c057482fa737508ad8ba9dd6f30bea37360e161df",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["download.cncb.ac.cn"],
+  "allowed_destination_roots": ["/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 28800,
+    "memory_cap_bytes": 68719476736,
+    "workspace_cap_bytes": 100000000000
+  },
+  "handoff_allowlist": ["result.json", "diagnostic.json", "diagnostic.txt", "common_layer_summary.md", "matrix_validation.json"]
+}
