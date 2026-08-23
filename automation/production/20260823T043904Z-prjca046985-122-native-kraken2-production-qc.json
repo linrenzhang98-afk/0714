@@ -1,0 +1,43 @@
+{
+  "job_id": "20260823T043904Z-prjca046985-122-native-kraken2-production-qc",
+  "authorized": true,
+  "authorization_record": "ACTIVE bounded continuation authorization in automation/project_authorizations/PRJCA046985.json permits zero-download read-only technical QC after completed production.",
+  "acquire": false,
+  "qc_type": "PRJCA046985_NATIVE_KRAKEN2_PRODUCTION_TECHNICAL_QC",
+  "allowed_hosts": [
+    "download.cncb.ac.cn"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"
+  ],
+  "transfer_cap_bytes": 142299771,
+  "allowed_executables": [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+  ],
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "allowed_working_roots": [
+    "/mnt/disk1/0714_control/results"
+  ],
+  "allowed_environment_keys": [],
+  "wall_seconds": 3600,
+  "items": [
+    {
+      "id": "CRR2423908",
+      "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423908/CRR2423908.fq.gz",
+      "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz",
+      "expected_bytes": 142299771,
+      "sha256": "6c32708cb3bdef5459e95e283445f3020762f66fa2bc4dfcd0e6f2497ef3f7f7",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+        "/mnt/disk1/0714_control/job_repo/scripts/etty_kraken2_production_qc.py",
+        "--production-definition",
+        "/mnt/disk1/0714_control/job_repo/automation/production/20260822T175547Z-prjca046985-122-native-kraken2-recovery.json",
+        "--recovery-result",
+        "/mnt/disk1/0714_control/state/20260822T175547Z-prjca046985-122-native-kraken2-recovery-handoff/result.json",
+        "--output",
+        "/mnt/disk1/0714_control/state/20260823T043904Z-prjca046985-122-native-kraken2-production-qc-handoff/production_qc.json"
+      ],
+      "cwd": "/mnt/disk1/0714_control/results"
+    }
+  ]
+}
