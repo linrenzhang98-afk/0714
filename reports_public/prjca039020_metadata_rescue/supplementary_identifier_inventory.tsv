@@ -1,0 +1,8 @@
+supplementary_file	publisher_xml_status	content_inspection_status	row_count	identifier_columns_or_bridge_fields	accession_or_group_bridge_found	evidence_status	notes
+Table_1.xlsx	VERIFIED_LISTED	UNRESOLVED	UNRESOLVED	UNRESOLVED	false	UNRESOLVED	Listed as TS1 in publisher XML; a bounded retrieval was attempted but contents were not available for inspection in this task.
+Table_2.xlsx	VERIFIED_LISTED	UNRESOLVED	UNRESOLVED	UNRESOLVED	false	UNRESOLVED	Listed as TS2 in publisher XML and described as full clinical characteristics; contents not available for inspection in this task.
+Data_Sheet_1.zip	VERIFIED_LISTED	UNRESOLVED	UNRESOLVED	UNRESOLVED	false	UNRESOLVED	Listed as DS1 in publisher XML; archive content not inspected.
+Data_Sheet_2.csv	VERIFIED_LISTED	UNRESOLVED	UNRESOLVED	UNRESOLVED	false	UNRESOLVED	Listed as DS2 in publisher XML; CSV content not available for inspection in this task.
+Data_Sheet_3.zip	VERIFIED_LISTED	UNRESOLVED	UNRESOLVED	UNRESOLVED	false	UNRESOLVED	Listed as DS3 in publisher XML; archive content not inspected.
+Data_Sheet_4.zip	VERIFIED_LISTED	UNRESOLVED	UNRESOLVED	UNRESOLVED	false	UNRESOLVED	Listed as DS4 in publisher XML; archive content not inspected.
+Data_Sheet_5.docx	VERIFIED_LISTED	UNRESOLVED	UNRESOLVED	UNRESOLVED	false	UNRESOLVED	Listed as DS5 in publisher XML; document content not available for inspection in this task.

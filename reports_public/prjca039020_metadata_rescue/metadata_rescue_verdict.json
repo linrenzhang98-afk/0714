@@ -1,0 +1,40 @@
+{
+  "audit_scope": "Public metadata and publisher material only; no raw reads, biological processing, or DeepSeek review.",
+  "source_paper": "10.3389/fmicb.2025.1538109",
+  "original_mngs_n": 243,
+  "original_CAP_n": 218,
+  "original_SP_n": 25,
+  "public_n": 233,
+  "final_analyzed_n": 229,
+  "final_CAP_n": 204,
+  "final_SP_n": 25,
+  "excluded_incomplete_CAP_n": 14,
+  "public_233_to_paper_229_status": "UNRESOLVED",
+  "direct_run_to_group_key_found": false,
+  "direct_run_to_subject_key_found": false,
+  "four_extra_public_records_resolved": false,
+  "ten_nonpublic_original_records_resolved": false,
+  "final_204_25_reconstructable": false,
+  "supplementary_files_enumerated_from_publisher_xml": [
+    "Table_1.xlsx",
+    "Table_2.xlsx",
+    "Data_Sheet_1.zip",
+    "Data_Sheet_2.csv",
+    "Data_Sheet_3.zip",
+    "Data_Sheet_4.zip",
+    "Data_Sheet_5.docx"
+  ],
+  "supplementary_content_bridge_found": false,
+  "hypothesis_233_equals_229_plus_4_excluded_CAP": "HYPOTHESIS_NOT_VERIFIED",
+  "metadata_rescue_status": "UNRESOLVED",
+  "allowed_next_stage": "AUTHOR_CONTACT_REQUIRED",
+  "scientific_boundary": {
+    "raw_data_downloaded": false,
+    "kraken2_run": false,
+    "bracken_run": false,
+    "biological_analysis_executed": false,
+    "deepseek_invoked": false,
+    "accession_order_inference_used": false,
+    "probabilistic_patient_matching_used": false
+  }
+}

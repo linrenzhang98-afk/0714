@@ -1,0 +1,10 @@
+candidate_key	present_in_public_accession_metadata	present_in_paper_or_verified_supplement_content	one_to_one_join_demonstrated	status	reason
+DRR_run_accession	YES	UNRESOLVED	NO	UNRESOLVED	No verified paper/supplement table was available showing DRR identifiers.
+DRX_experiment_accession	YES	UNRESOLVED	NO	UNRESOLVED	No verified paper/supplement table was available showing DRX identifiers.
+SAMD_or_SAMC_BioSample	YES	UNRESOLVED	NO	UNRESOLVED	No verified paper/supplement table was available showing BioSample identifiers.
+DRS_secondary_sample	YES	UNRESOLVED	NO	UNRESOLVED	No verified paper/supplement table was available showing DRS identifiers.
+BALF_submitted_sample_name	YES	UNRESOLVED	NO	UNRESOLVED	Aliases BALF_001–BALF_233 exist in public metadata, but no verified clinical-table occurrence or stated ordering bridge exists.
+paper_patient_ID	NO	UNRESOLVED	NO	UNRESOLVED	No de-identified patient ID list was found in inspected paper XML/public metadata.
+CAP_SP_group_label	NO	YES_as_aggregate	NO	UNRESOLVED	Paper reports aggregate groups; public accessions have no group attribute.
+age_sex_or_clinical_profile	NO	UNRESOLVED	NO	NOT_USED	Explicitly prohibited as identity keys; no probabilistic matching performed.
+accession_or_row_order	YES	UNRESOLVED	NO	NOT_USED	Explicitly prohibited: publication does not state any ordering equivalence.

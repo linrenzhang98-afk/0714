@@ -1,0 +1,8 @@
+registration_layer	study_or_accession	identifier_type	identifier_examples	metadata_contribution	identity_bridge_to_paper_patient_or_group	status	evidence
+NGDC BioProject	PRJCA039020	NGDC BioSample/submitted sample alias	SAMC5008463; BALF_001	Project-side BioSample and BALF aliases	No	SUPPORTED	Frozen exact manifest, derived from public cross-registration metadata
+GSA study	CRA024916	GSA study/run cross-registration	CRA024916; CRX1634052	Study identity and sequence-run registration	No	SUPPORTED	NCBI SRA cross-registration record and frozen manifest
+DDBJ BioProject	PRJDB36521	BioProject	PRJDB36521	Same study identity in INSDC	No	VERIFIED	NCBI SRA study page describes PRJCA039020/PRJDB36521 together
+DRA study	DRP014624	DRA study/run	DRP014624; DRR770614; DRX749592	Run, experiment, BioSample, and submitted-alias linkage	No	VERIFIED	public_233_inventory.tsv
+DDBJ BioSample	SAMD01673358 onward	BioSample	SAMD01673358; DRS538169	DDBJ BioSample and secondary-sample layer	No	VERIFIED	public_233_inventory.tsv
+ENA mirror	DRR770614 onward	ENA BioSample	SAMD01673358	Public mirror metadata alongside run/experiment aliases	No	SUPPORTED	public_233_inventory.tsv
+Paper/supplements	10.3389/fmicb.2025.1538109	clinical subject/group	CAP; SP; 204; 25	Aggregate clinical counts and clinical-table references	No public link observed	VERIFIED	Publisher XML; supplementary content remains uninspected

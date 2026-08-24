@@ -1,0 +1,6 @@
+record_set	count	question	status	why_unresolved	permitted_action
+original_sequenced_subjects_not_identified_in_public_inventory	10	Which original 243 cases were not publicly deposited and why?	UNRESOLVED	No participant-level original cohort list or deposit-status bridge key.	Ask authors/data curators; do not infer from accession order.
+public_records_outside_final_analysis	4	Which of the 233 public records are outside the final 229 and what are their roles?	UNRESOLVED	No inclusion/exclusion status or accession-to-paper participant/group mapping.	Ask authors/data curators; do not drop records heuristically.
+public_accession_to_final_CAP_group	204	Which public runs/BioSamples are final analyzed CAP?	UNRESOLVED	Only aggregate paper count; no direct group field on public rows.	Do not assign labels.
+public_accession_to_final_SP_group	25	Which public runs/BioSamples are final analyzed SP?	UNRESOLVED	Only aggregate paper count; no direct group field on public rows.	Do not assign labels.
+clinical_supplement_row_counts_and_identifier_columns	7_files	Do supplements contain 229/233/243 rows and stable bridge identifiers?	UNRESOLVED	All named files were enumerated from publisher XML but content was unavailable during bounded retrieval.	Reinspect public files if accessible; otherwise author contact.
