@@ -1,0 +1,70 @@
+{
+  "review_model": "deepseek-v4-pro",
+  "review_timestamp": "2026-05-09T00:00:00Z",
+  "supervisor_actual_response_timestamp": "2026-08-24T02:43:53.094Z",
+  "supervisor_usage": {
+    "prompt_tokens": 4184,
+    "completion_tokens": 6014,
+    "total_tokens": 10198,
+    "reasoning_tokens": 4343
+  },
+  "cohort_identity_status": "PARTIALLY_RESOLVED: cross-registrations PRJCA039020 / CRA024916 / PRJDB36521 are verified as one Luo et al. BALF shotgun cohort; however, public run/BioSample-to-subject-to-group identity remains unresolved.",
+  "public_233_to_paper_229_status": "UNRESOLVED",
+  "primary_estimand_validity": "CONDITIONALLY VALID as a paper-level question, but not currently operationally estimable at accession level because no public key links runs/BioSamples to paper participants or CAP/severe labels. Severe group n=25 further limits any inferential claim.",
+  "major_blockers": [
+    "No direct run/BioSample-to-subject-to-CAP/severe public or author-supplied key; all 233 public accessions have UNRESOLVED subject and published group.",
+    "Four excess public records beyond paper n=229 have no identified role or exclusion status; accession-order or count-based exclusions are not valid.",
+    "Severe pneumonia group n=25 is strongly imbalanced against CAP n=204; finite-sample inference and explicit effect-size planning are required.",
+    "Covariate timing, individual antibiotic exposure, sequencing batch, and negative controls are unresolved or absent."
+  ],
+  "major_confounders": ["Age", "Sex", "Selected pre-existing comorbidities (pre-sampling)", "Antibiotic exposure before BALF (uncertain but clinically important)", "Sequencing batch/technical variation (unresolved)"],
+  "overadjustment_risks": [
+    "PSI: likely a severity definition component; conditioning on it can erase the CAP/severe contrast being studied.",
+    "qSOFA: likely a severity definition component or acute downstream state; adjustment overcontrols and distorts the estimated effect.",
+    "Ventilation: mediator consequent to severity and/or treatment; adjustment may attenuate the contrast or introduce collider bias.",
+    "Initial treatment: mediator occurring after presentation/group assignment; adjustment likely overadjusts.",
+    "Laboratory variables: often outcome components or collateral, not baseline confounders; should not be used in maximal adjustment sets."
+  ],
+  "recommended_primary_model": "Unadjusted Aitchison beta-diversity PERMANOVA for CAP versus severe, using exact finite-sample permutations suitable for unbalanced groups; report pseudo-F, R², effect size, and uncertainty, with PERMDISP mandatory. If verified pre-exposure covariate linkage becomes available, a separate minimally adjusted sensitivity model may condition only on age and sex. Do not include PSI, qSOFA, ventilation, treatment, or laboratory variables as covariates.",
+  "recommended_sensitivity_models": [
+    "Age/sex-adjusted Aitchison PERMANOVA (maximum two covariates) after verifying overlap and missingness.",
+    "Selected pre-existing comorbidity-adjusted or stratified analysis if case counts permit; otherwise report comorbidity descriptively.",
+    "Stratified by pre-BALF antibiotic exposure timing once available.",
+    "Directly identify and remove the four extra public records only after traceable key resolution; no accession-order heuristic.",
+    "Leave-one-out or downsampled CAP comparison to assess influence of severe group outliers and severe group n=25.",
+    "Sensitivity excluding rare taxa or using alternative zero-handling after pre-registration."
+  ],
+  "permanova_recommendation": "Use Aitchison distances on CLR-transformed or robust CLR data. Apply PERMANOVA with exact or constrained permutations that respect finite sample size, unbalanced groups, and any batch or sex structure. Report pseudo-F, R², p-value, and effect-size uncertainty. Do not interpret R² as large explained variance without supporting effect sizes. If PERMDISP is significant, interpret group difference as dispersion rather than location and consider alternative transforms.",
+  "permdisp_requirement": "PERMDISP is mandatory alongside every PERMANOVA. If dispersion differs significantly, report that apparent group difference may be driven by variance/heteroscedasticity, not solely community location. Interpret accordingly and do not claim a location shift without evidence of homoscedasticity.",
+  "differential_abundance_role": "EXPLORATORY",
+  "cross_cohort_role": {
+    "A": "FALSE/NOT SUPPORTED: this cohort cannot replicate a PRJNA1056765 four-diagnosis disease signature; the clinical grouping and design differ, and mapping is unresolved.",
+    "B": "TRUE/CONDITIONAL: if a prespecified CAP/severe clinical grouping is linked via a direct key and the analysis plan is frozen, it can independently test bounded lower-airway community variation; currently blocked by unresolved mapping.",
+    "C": "TRUE/WITHIN-COHORT: it may contribute comparable ecological estimands such as alpha diversity, Aitchison beta diversity, PERMANOVA R², and PERMDISP while preserving cohort-specific contrasts.",
+    "D": "FALSE/NOT SUPPORTED: CAP/severe, DR/DS-TB, and four-level diagnosis cannot be pooled as one disease effect; they are different diseases, study designs, and clinical contrasts."
+  },
+  "manifest_freeze_verdict": "SAFE_STOP",
+  "bounded_pilot_verdict": "SAFE_STOP",
+  "conditions_before_pilot": [
+    "Direct, auditable public or author-supplied key linking each run/BioSample to participant, inclusion/exclusion status, and CAP/severe label.",
+    "Resolve identity and role of the four excess public records without using accession order or group-count arithmetic.",
+    "Provide row-level clinical covariate dictionary with timing and missingness, including pre-BALF antibiotic exposure.",
+    "Pre-register analysis plan: distance metric, zero handling, permutations, effect sizes, differential abundance as exploratory only, multiple testing control, rare-taxon rules.",
+    "Resolve or explicitly state absence of sequencing batch and negative controls.",
+    "Obtain explicit user authorization for any raw-read download or bounded pilot."
+  ],
+  "fatal_flaws_if_any": [
+    "No public run-to-subject-to-group key currently prevents any valid biological manifest, pilot, or CAP/severe contrast; all accessions have UNRESOLVED group labels.",
+    "Four excess public records are unidentifiable and unresolved, so the analyzed 229 cannot be reconstructed from public evidence."
+  ],
+  "reviewer_attack_points": [
+    "233 public accessions versus 229 paper patients: without a key, any CAP/severe contrast is non-identifiable and risk of technical replicates, controls, or excluded subjects is unresolved.",
+    "Severe group n=25 is underpowered for covariate adjustment and vulnerable to outliers; any adjusted model risks overfitting and cannot rescue unmeasured confounding.",
+    "Adjusting for PSI/qSOFA likely overcontrols because they define or are downstream of severity; ventilation and treatment are mediators and should not be conditioned on.",
+    "Antibiotic exposure is a major confounder but unavailable; observed community differences could be treatment effects, not disease severity.",
+    "PERMANOVA with unbalanced groups and unmodeled dispersion may yield false positives; PERMDISP and finite-sample permutations are essential.",
+    "Aitchison distances require careful zero handling and taxonomic resolution; rare taxa with severe n=25 are unstable, so differential abundance is exploratory only.",
+    "No negative controls or batch information means reagent contamination and technical variability cannot be separated from biological signal."
+  ],
+  "overall_verdict": "SAFE_STOP at current evidence. The cohort-specific CAP/severe community question is conditionally valid as a future ecological analysis, but manifest freeze and bounded pilot cannot proceed until mapping and protocol are fully resolved and authorized. Any future analysis should be descriptive/exploratory with stringent finite-sample inference, dispersion diagnostics, and no pooling across disease cohorts."
+}

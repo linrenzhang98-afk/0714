@@ -1,0 +1,6 @@
+entity_or_claim	count	status	evidence	mapping_or_role	decision
+public_PRJDB36521_accession_rows	233	VERIFIED	reports_public/prjna1056765_external_cohort_pilot_package/manifests/PRJCA039020_exact_manifest.tsv	Each row has a run, ENA BioSample, secondary sample, NGDC BioSample, and BALF submitted alias	Retain as the complete public accession inventory only
+paper_analyzed_patients	229	VERIFIED	reports_public/prjna1056765_external_cohort_reconnaissance/external_cohort_reconnaissance.tsv	CAP=204; severe pneumonia=25	Do not project labels onto public accessions
+public_minus_paper	4	VERIFIED_ARITHMETIC	233 public accession rows minus 229 paper patients	The identities and roles of the four records are UNRESOLVED	No heuristic exclusions
+accession_to_subject_to_group_key	0	UNRESOLVED	All rows in PRJCA039020_subject_group_map.tsv are GROUP_MAPPING_UNRESOLVED	No public metadata joins run/BioSample to a paper participant or CAP/severe label	Manifest freeze blocked pending direct key
+PUBLIC_233_TO_PAPER_229_STATUS		UNRESOLVED	PRJCA039020_exclusions.tsv; PRJCA039020_pilot_readiness.md	Controls, technical replicates, excluded subjects, duplicate registrations, and non-study samples are not distinguished by current evidence	No biological pilot

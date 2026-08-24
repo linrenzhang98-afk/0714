@@ -1,0 +1,13 @@
+variable	availability_status	candidate_role_for_review	preanalysis_rationale
+age	SUPPORTED	CONFONDER	Likely related to baseline host/community variation and severe-pneumonia classification; individual-level linkage and timing require verification.
+sex	SUPPORTED	CONFONDER	Potential baseline confounder; individual-level linkage requires verification.
+PSI	SUPPORTED	SEVERITY_DEFINITION_COMPONENT	May define or closely encode severity; routine adjustment could erase the clinical contrast. Verify exact role and measurement timing.
+qSOFA	SUPPORTED	SEVERITY_DEFINITION_COMPONENT	May be part of or downstream from acute severity; treat as overadjustment risk until definition/timing are verified.
+comorbidities	SUPPORTED	CONFONDER	Candidate baseline confounders, but the specific variables, coding, missingness, and linkage require verification.
+laboratory_variables	SUPPORTED	OUTCOME_COMPONENT	Many may be downstream of acute illness; do not use a maximal adjustment set without causal rationale and timing.
+ventilation	SUPPORTED	MEDIATOR	Likely consequent to severity and/or treatment; adjusting can condition away the clinical contrast or induce selection bias.
+initial_treatment	SUPPORTED	MEDIATOR	May occur after presentation/severity assignment; timing, treatment definition, and pre-sampling status are required before any adjustment.
+antibiotic_exposure	UNCERTAIN	CONFONDER	Clinically important if pre-BALF and pre-severity ascertainment; repository-level evidence does not establish individual timing or availability.
+site	VERIFIED	DESCRIPTIVE_ONLY	Single clinical center, so no site adjustment is estimable within this cohort.
+sequencing_batch	UNRESOLVED	UNCERTAIN	Batch metadata are incomplete; possible technical confounding cannot be assessed.
+negative_controls	UNRESOLVED	UNAVAILABLE	No public run or paper statement was identified as a negative control.
