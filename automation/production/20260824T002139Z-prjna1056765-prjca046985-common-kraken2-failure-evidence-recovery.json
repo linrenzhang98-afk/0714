@@ -1,0 +1,27 @@
+{
+  "acquire": false,
+  "allowed_destination_roots": ["/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"],
+  "allowed_environment_keys": [],
+  "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+  "allowed_hosts": ["download.cncb.ac.cn"],
+  "analysis_type": "bounded_failure_evidence_recovery",
+  "authorization_record": "User-authorized zero-download recovery of prior common Kraken2 diagnostic metadata.",
+  "authorized": true,
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "handoff_allowlist": ["result.json", "recovered_failure_evidence.json", "recovered_failure_evidence.txt"],
+  "items": [{
+    "id": "CRR2423908",
+    "url": "https://download.cncb.ac.cn/gsa5/CRA034880/CRR2423908/CRR2423908.fq.gz",
+    "destination": "/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq/CRR2423908.fq.gz",
+    "expected_bytes": 1,
+    "command": ["/home/suma/anaconda3/envs/mgshotgun/bin/python", "/mnt/disk1/0714_control/job_repo/scripts/recover_common_kraken2_failure_evidence.py", "--output-dir", "/mnt/disk1/0714_control/state/20260824T002139Z-prjna1056765-prjca046985-common-kraken2-failure-evidence-recovery-handoff"],
+    "cwd": "/mnt/disk1/0714_control/state",
+    "env": {}
+  }],
+  "job_id": "20260824T002139Z-prjna1056765-prjca046985-common-kraken2-failure-evidence-recovery",
+  "memory_cap_bytes": 1073741824,
+  "project": "PRJNA1056765_PRJCA046985",
+  "transfer_cap_bytes": 1,
+  "wall_seconds": 600,
+  "workspace_cap_bytes": 1000000000
+}
