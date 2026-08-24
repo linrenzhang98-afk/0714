@@ -1,0 +1,10 @@
+variable	paper_evidence	sample_level_linkage	preanalysis_role
+HIV status	VERIFIED paper-level; medical-record variable	No public run-level link	primary exposure only after accession bridge
+age	VERIFIED aggregate Table 1	No public run-level link	potential sensitivity covariate
+sex	VERIFIED aggregate Table 1	No public run-level link	potential sensitivity covariate
+ART status/date	VERIFIED for HIV-positive aggregate / Table S1	No public run-level link	potential HIV-positive sensitivity only
+antibiotic use within 3 months	VERIFIED aggregate Table 1	No public run-level link	potential sensitivity covariate
+immunosuppressive therapy within 3 months	VERIFIED aggregate Table 1	No public run-level link	potential sensitivity covariate
+HIV viral load	VERIFIED aggregate HIV-positive Table 1	No public run-level link	potential HIV-positive sensitivity only
+CD4 count	VERIFIED aggregate HIV-positive Table 1	No public run-level link	potential HIV-positive sensitivity only
+ICU/severity/comorbidities	UNRESOLVED	No accession-linked public table found	not prespecifiable

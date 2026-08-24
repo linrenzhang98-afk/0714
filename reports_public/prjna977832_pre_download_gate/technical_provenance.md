@@ -1,0 +1,7 @@
+# Technical read provenance
+
+Current public SRA/ENA metadata: 718 single-end records, all labelled Illumina NovaSeq 6000; 648 average 50 nt and 70 average 40 nt. ENA reports one gzip FASTQ and MD5 per run. ENA gzip FASTQ bytes total **504,633,902,336** (470.0 GiB). NCBI RunInfo `size_MB` sums to **939,373 MiB = 985,003,982,848 bytes = 917.36 GiB**; this is the SRA archive/container-size metric, not the ENA gzip-FASTQ sum. The public BioProject displays 0.99 Tbytes (rounding convention unspecified).
+
+The paper specifies computational human subtraction against hg19 using BWA after low-quality filtering; no wet-lab host-depletion step is reported. Deposited aliases include `unhost` and `nonhuman.nonspike`, consistent with upstream host depletion, but there is no per-run processing manifest. Thus deposited data are classified **NOT_NATIVE_BUT_USABLE_AS_COHORT_SPECIFIC** if future sample-level identity and technical validation pass. They are not admissible now to the common native Kraken2 layer: pre-classifier human filtering, upstream trimming, and short 40/50-nt read provenance differ from the native anchor.
+
+No FASTQ was downloaded, sampled, parsed, or otherwise read. The audit did not attempt Kraken2 or Bracken. A future bounded pilot, if separately authorized after mapping closure, would need to establish classified fraction, actual read-length distribution and short-read suitability; Bracken cannot be assumed valid without a suitable redistribution/read-length method.
