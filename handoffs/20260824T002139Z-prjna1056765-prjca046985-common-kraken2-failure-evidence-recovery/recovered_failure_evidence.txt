@@ -1,0 +1,35 @@
+source_job_id=20260823T110000Z-prjna1056765-prjca046985-common-kraken2-layer-diagnostic
+execution_state_present=True
+diagnostic_json_present=True
+diagnostic_txt_present=True
+failure_stage=C_report_path_resolution
+likely_root_cause=parser exception: anchor native report membership failure: SRR27343191 (0)
+technical_fix_possible=None
+biological_method_change_required=False
+execution.job_item_id=CRR2423908
+execution.status=failed
+execution.returncode=1
+execution.stdout_tail=
+execution.stderr_tail=SAFE_STOP: anchor native report membership failure: SRR27343191 (0)
+
+execution.started_at=1787468201.2273588
+execution.finished_at=1787468201.332902
+execution.command_hash=d27c0a84435dc516ddc38e773c541930a03b598789ff94a86d242710c560f05e
+diagnostic.stage=C_report_path_resolution
+diagnostic.exception_type=LayerError
+diagnostic.exception_message=anchor native report membership failure: SRR27343191 (0)
+diagnostic.traceback=Traceback (most recent call last):
+  File "/mnt/disk1/0714_control/job_repo/scripts/build_common_kraken2_assignment_layer.py", line 621, in <module>
+    result = build(parsed_args)
+  File "/mnt/disk1/0714_control/job_repo/scripts/build_common_kraken2_assignment_layer.py", line 463, in build
+    anchor_samples, external_samples = validate_sources(args)
+                                       ~~~~~~~~~~~~~~~~^^^^^^
+  File "/mnt/disk1/0714_control/job_repo/scripts/build_common_kraken2_assignment_layer.py", line 386, in validate_sources
+    raise LayerError(f"anchor native report membership failure: {run} ({len(candidates)})")
+LayerError: anchor native report membership failure: SRR27343191 (0)
+
+diagnostic.first_failing_path_if_any=None
+diagnostic.first_failing_run_if_any=SRR27343191
+diagnostic.expected_path=/mnt/disk1/db/kraken2/0714/results
+diagnostic.observed_path=
+diagnostic.source_gate_status=STAGE_C_RUNNING
