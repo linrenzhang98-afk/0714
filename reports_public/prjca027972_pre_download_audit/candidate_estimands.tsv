@@ -1,0 +1,6 @@
+candidate_estimand	classification	rationale
+Illumina community difference: clinically established versus excluded infection	INSUFFICIENT_METADATA	No deterministic run-to-subject/group bridge; public text does not make the adjudication information flow auditable enough to exclude incorporation of mNGS.
+Illumina community difference: culture-positive versus culture-negative	INSUFFICIENT_METADATA	Conceptually non-circular, but per-subject culture labels and a subject/run bridge are not public in the audited evidence.
+Illumina community difference: severity/ICU/ventilation	INSUFFICIENT_METADATA	No subject-level severity/ICU/ventilation metadata with a deterministic sequencing bridge was found.
+Illumina community difference: treatment response	CIRCULAR_NOT_ALLOWED	Paper evaluates treatment adjustment using detection results; this would incorporate the predictor platform.
+Illumina-versus-Nanopore pathogen-detection comparison	METHODS_ONLY	This is the published purpose, but universal pairing remains unproven in the released manifest and cannot support an ecological biological cohort role.

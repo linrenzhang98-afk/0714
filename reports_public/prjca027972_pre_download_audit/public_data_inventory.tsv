@@ -1,0 +1,11 @@
+source	archive_or_member	declared_type	count_or_bytes	observed_status	provenance_note
+OMIX006862 release page	OMIX006862-01.zip	open-access ZIP	2.9 GB (portal display)	VERIFIED	Official page reports Number/Samples=138
+OMIX006862 HTTP HEAD	OMIX006862-01.zip	application/zip	3116968192 bytes	VERIFIED	Last-Modified 2024-07-11; Accept-Ranges: bytes; ETag 6690119c-b9c92900
+ZIP central directory	all archive members	ZIP metadata	164 entries	VERIFIED	Central-directory inspection only; no biological record payload was read
+ZIP central directory	mNGS/*.nohost.fasta	host-depleted FASTA	90 files; 117453068 compressed bytes; 425509766 uncompressed bytes	VERIFIED	Not raw FASTQ; names show nohost.fasta
+ZIP central directory	ONT/*.fasta	FASTA	66 files; 2999484115 compressed bytes; 10703687715 uncompressed bytes	VERIFIED	No FASTQ files were observed in this release archive
+ZIP member metadata	mNGS/Sample.list	manifest	23153 uncompressed bytes	VERIFIED	66 unique first-column order IDs; 66 normalized specimen stems; 91 rows/90 unique library IDs
+ZIP member metadata	mNGS/Sample_Runid.list	manifest	4973 uncompressed bytes	VERIFIED	Documents mNGS library-to-run/batch strings, not a cross-platform subject ID
+ZIP member metadata	ONT/unit_ONT.tsv	manifest	5530 uncompressed bytes	VERIFIED	66 order IDs and 66 normalized specimen stems
+ZIP member metadata	ONT/Sample_Runid.list	manifest	2574 uncompressed bytes	VERIFIED	Documents ONT library-to-run/batch strings
+Audit reconciliation	portal 138 versus ZIP members	interpretation	unresolved	UNRESOLVED	Official page does not define 138; ZIP contains 156 FASTA members (90 mNGS + 66 ONT), so the figure cannot be assumed to be 138 biological subjects or exactly 66 paired platform records

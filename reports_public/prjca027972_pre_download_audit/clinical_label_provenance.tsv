@@ -1,0 +1,7 @@
+candidate_label	paper_definition_or_evidence	uses_conventional_microbiology	uses_illumina_mNGS	uses_nanopore_mNGS	uses_treatment_or_followup	status_for_independent_ecology
+established_pathogenic_infection	Chief physician in conjunction with other tests; clinical etiological diagnosis used as reference standard	YES	UNRESOLVED	UNRESOLVED	UNRESOLVED	INSUFFICIENT_METADATA
+excluded_pathogenic_infection	Clinical etiological diagnosis; 13 patients; some were mNGS-positive despite exclusion	YES	UNRESOLVED	UNRESOLVED	UNRESOLVED	INSUFFICIENT_METADATA
+pathogen_class	Determined by chief physician in conjunction with other tests	YES	UNRESOLVED	UNRESOLVED	UNRESOLVED	CIRCULAR_NOT_ALLOWED_UNTIL_PROVEN_INDEPENDENT
+culture_positive_vs_negative	Culture result is technically independent of sequencing but no subject-level culture label is released with a deterministic run bridge	YES	NO	NO	NO	INSUFFICIENT_METADATA
+treatment_change_or_guidance	Retrospective assessment of whether treatment should be adjusted based on detection results	NO	YES	YES	YES	CIRCULAR_NOT_ALLOWED
+clinical outcome	Deaths/transfers/improvement reported only as aggregate text	UNRESOLVED	UNRESOLVED	UNRESOLVED	YES	INSUFFICIENT_METADATA

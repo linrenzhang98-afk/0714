@@ -25,6 +25,14 @@
     "Sequencing batch and per-sample technical metadata are not public."
   ],
   "fatal_flaws_if_any": [],
-  "recommended_next_stage": "METADATA_RESCUE",
-  "overall_verdict": "CONDITIONAL_PARK: do not process or harmonize until a released data manifest and deterministic sample-group mapping are available."
+  "recommended_next_stage": "PARK_COHORT",
+  "status": "CONDITIONAL_PARK_DATA_NOT_PUBLIC_AND_PARENT_STUDY_CONFOUNDED",
+  "status_rationale": [
+    "Dryad remains private-for-peer-review at the current audit; no public raw-read manifest is available.",
+    "No public reusable per-sample taxonomy matrix was located.",
+    "Healthy controls are entirely MicroCOPD and ILD cases entirely MicroILD, so parent study is perfectly aligned with healthy/disease status.",
+    "Sequencing batch remains unresolved."
+  ],
+  "reactivation_condition": "Re-audit if Dryad releases a public data manifest with deterministic sample/group mapping; this is not a permanent exclusion.",
+  "overall_verdict": "CONDITIONAL_PARK_DATA_NOT_PUBLIC_AND_PARENT_STUDY_CONFOUNDED: preserve evidence; do not process or harmonize until a released data manifest and deterministic sample-group mapping are available."
 }
