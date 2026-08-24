@@ -1,0 +1,63 @@
+{
+  "audit_type": "read_only_workstation_storage_audit",
+  "roots": {
+    "control_plane": {
+      "path": "/mnt/disk1/0714_control",
+      "bytes": 3908132084,
+      "file_count": 5396
+    },
+    "legacy_results": {
+      "path": "/mnt/disk1/db/kraken2/0714",
+      "bytes": 261529493173,
+      "file_count": 80321
+    },
+    "shared_database": {
+      "path": "/mnt/disk1/db/kraken2/k2_pluspfp_16gb_20221209",
+      "bytes": 16081676984,
+      "file_count": 12
+    }
+  },
+  "categories": {
+    "prjna1056765": {
+      "bytes": 0,
+      "file_count": 0
+    },
+    "prjca046985": {
+      "bytes": 0,
+      "file_count": 0
+    },
+    "common_layer_audit_qc": {
+      "bytes": 11150,
+      "file_count": 1
+    },
+    "other_0714": {
+      "bytes": 0,
+      "file_count": 0
+    },
+    "unattributed_0714": {
+      "bytes": 261529482023,
+      "file_count": 80320
+    }
+  },
+  "project_exclusive_total_bytes": 265437625257,
+  "disk": {
+    "total_bytes": 3584346660864,
+    "used_bytes": 447410892800,
+    "available_bytes": 2954784382976,
+    "used_percent": 12.48
+  },
+  "shared_database_not_project_exclusive": true,
+  "summary": {
+    "PROJECT_EXCLUSIVE_TOTAL_BYTES": 265437625257,
+    "PRJNA1056765_BYTES": 0,
+    "PRJCA046985_BYTES": 0,
+    "CONTROL_PLANE_BYTES": 3908132084,
+    "OTHER_0714_BYTES": 0,
+    "UNATTRIBUTED_0714_BYTES": 261529482023,
+    "SHARED_KRAKEN2_DATABASE_BYTES": 16081676984,
+    "DISK_TOTAL_BYTES": 3584346660864,
+    "DISK_USED_BYTES": 447410892800,
+    "DISK_AVAILABLE_BYTES": 2954784382976,
+    "DISK_USED_PERCENT": 12.48
+  }
+}
