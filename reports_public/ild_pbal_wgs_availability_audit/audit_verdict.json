@@ -1,0 +1,30 @@
+{
+  "study": "Knudsen KS et al. Whole genome sequencing of the pulmonary microbiome in interstitial lung disease subtypes. Respiratory Research 2025;26:324. DOI:10.1186/s12931-025-03404-5; PMCID:PMC12628550",
+  "total_n": 157,
+  "healthy_n": 100,
+  "ipf_n": 12,
+  "sarcoidosis_n": 34,
+  "unclassifiable_ild_n": 11,
+  "raw_reads_public": false,
+  "processed_matrix_public": false,
+  "clinical_metadata_public": false,
+  "sample_to_group_mapping_status": "UNRESOLVED",
+  "parent_study_confounded_with_disease": true,
+  "batch_confounded_with_disease": "unresolved",
+  "collection_protocol_comparability": "partial",
+  "raw_total_bytes_if_known": "unresolved",
+  "layout": "paired-end",
+  "read_length": "150 bp",
+  "host_depletion_provenance": "No wet-lab host-depletion protocol reported. The paper reports high human contamination and computational removal of taxa under phylum Chordata before bacterial OTU identification; deposited read state is unavailable.",
+  "raw_reprocessing_feasible": false,
+  "scientific_value": "Potentially valuable cohort-specific healthy-reference lower-airway ecology study, but public data availability and parent-study confounding prevent a reproducible cross-cohort/common-Kraken2 analysis at this time.",
+  "major_blockers": [
+    "Dryad target remains explicitly private for peer review; no released dataset DOI or public file manifest was located.",
+    "No public deterministic sample/run/BioSample to clinical-group mapping.",
+    "Parent study is perfectly aligned with healthy versus disease status.",
+    "Sequencing batch and per-sample technical metadata are not public."
+  ],
+  "fatal_flaws_if_any": [],
+  "recommended_next_stage": "METADATA_RESCUE",
+  "overall_verdict": "CONDITIONAL_PARK: do not process or harmonize until a released data manifest and deterministic sample-group mapping are available."
+}

@@ -1,0 +1,7 @@
+# Harmonization and scientific-role assessment
+
+The published GAIA 2.02 OTU results are **not directly mergeable** with the programme's Kraken2 native-report matrices: classifier database, assignment algorithm, filtering, and reported objects differ. Supplementary Table 4 is a DESeq2 species result, not a per-sample taxonomic count matrix suitable for a common layer.
+
+If a released raw FASTQ manifest later provides sample-to-group mapping, a cohort-specific native Kraken2 layer could be constructed; this audit did not run it. At present `RAW_REPROCESSING_FEASIBLE=false` because the raw files and deterministic sample mapping are not public. The current availability is `NOT_USABLE` for a reproducible common classifier layer, rather than evidence that the biological cohort lacks value.
+
+Potential *future* within-cohort roles are healthy-reference ecology and descriptive alpha diversity, dominance, Aitchison beta diversity, PERMANOVA R², PERMDISP and taxon prevalence. Healthy vs all ILD is parent-study confounded; healthy vs each disease subtype must retain the same warning. IPF (n=12) and unclassifiable ILD (n=11) are small and should be exploratory, with effect sizes/uncertainty and dispersion checks. Differential abundance should be secondary/exploratory, not a default primary result. Pooling all ILD conditions into one biological effect is not justified merely by their shared parent study.

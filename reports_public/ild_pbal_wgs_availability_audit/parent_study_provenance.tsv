@@ -1,0 +1,13 @@
+attribute	controls	ILD_cases	status	evidence
+parent_study	MicroCOPD	MicroILD	VERIFIED	Official paper Study design
+n	100	57 (IPF=12; sarcoidosis=34; unclassifiable ILD=11)	VERIFIED	Official paper Methods/Table 1
+collection_years	2012-2016 (study-level; per-group dates not published)	2012-2016 (study-level; per-group dates not published)	SUPPORTED	Official paper Study design
+centre	Department of Thoracic Medicine, Haukeland University Hospital, Bergen	Department of Thoracic Medicine, Haukeland University Hospital, Bergen	VERIFIED	Official paper Study design
+investigators	Same investigators stated for all subjects	Same investigators stated for all subjects	VERIFIED	Official paper Methods
+PBAL_site	right middle lobe	right middle lobe	VERIFIED	Official paper Bronchoscopy
+PBAL_protocol	2 x 50 ml through sterile protective sheath; no suction before carina	3 x 50 ml through sterile protective sheath; no suction before carina	VERIFIED_DIFFERENT_VOLUME	Official paper Bronchoscopy
+DNA_extraction	FastPrep-24 and FastDNA Spin Kit	FastPrep-24 and FastDNA Spin Kit	VERIFIED	Official paper Whole genome sequencing
+library_preparation	Celero DNA-Seq; Qubit 2.0; Agilent 2100 QC	Celero DNA-Seq; Qubit 2.0; Agilent 2100 QC	VERIFIED	Official paper Whole genome sequencing
+sequencing_instrument	Illumina NovaSeq 6000 PE150	Illumina NovaSeq 6000 PE150	VERIFIED	Official paper Whole genome sequencing
+sequencing_centre	Not named	Not named	UNRESOLVED	Paper names Sequentia Biotech for bioinformatics support, not sequencing centre
+sequencing_batch	Not reported	Not reported	UNRESOLVED	No batch IDs/dates/lane assignments in public article/supplements

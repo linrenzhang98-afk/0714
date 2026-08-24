@@ -1,0 +1,6 @@
+scope	identifier	participant_or_specimen_identity	clinical_group	PBAL_identity	mapping_status	evidence
+published_cohort	aggregate_n_157	No individual public sequencing identifier	controls=100; IPF=12; sarcoidosis=34; unclassifiable_ILD=11	PBAL from right-middle lobe	SUPPORTED_AGGREGATE_ONLY	Official paper Methods/Table 1
+public_data_layer	NO_PUBLIC_FILE_LIST	UNAVAILABLE	UNAVAILABLE	UNAVAILABLE	UNRESOLVED	Dryad share link is labelled Private for peer review and no public released file list/metadata manifest was located
+technical_replicates	NO_PUBLIC_SAMPLE_MANIFEST	UNAVAILABLE	UNAVAILABLE	UNAVAILABLE	UNRESOLVED	Cannot audit without a public sample/run inventory
+repeat_sampling	NO_PUBLIC_SAMPLE_MANIFEST	UNAVAILABLE	UNAVAILABLE	UNAVAILABLE	UNRESOLVED	Cannot audit without a public sample/run inventory
+excluded_or_missing_subjects	NO_PUBLIC_SAMPLE_MANIFEST	UNAVAILABLE	UNAVAILABLE	UNAVAILABLE	UNRESOLVED	Paper reports final n=157 but public individual-level identity cannot be evaluated

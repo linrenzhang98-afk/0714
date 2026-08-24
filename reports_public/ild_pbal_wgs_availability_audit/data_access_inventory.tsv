@@ -1,0 +1,13 @@
+resource_type	persistent_identifier_or_url	current_public_status	filename	bytes	availability_class	evidence
+article	DOI:10.1186/s12931-025-03404-5	PUBLIC	Whole genome sequencing of the pulmonary microbiome in interstitial lung disease subtypes	NA	SUPPLEMENT_ONLY	Official Respiratory Research/PMC article
+PMC_supplement	PMC12628550	PUBLIC	12931_2025_3404_MOESM1_ESM.png	643379	SUPPLEMENT_ONLY	PMC supplementary listing
+PMC_supplement	PMC12628550	PUBLIC	12931_2025_3404_MOESM2_ESM.png	448307	SUPPLEMENT_ONLY	PMC supplementary listing
+PMC_supplement	PMC12628550	PUBLIC	12931_2025_3404_MOESM3_ESM.png	119706	SUPPLEMENT_ONLY	PMC supplementary listing
+PMC_supplement	PMC12628550	PUBLIC	12931_2025_3404_MOESM4_ESM.png	31130	SUPPLEMENT_ONLY	PMC supplementary listing
+PMC_supplement	PMC12628550	PUBLIC	12931_2025_3404_MOESM5_ESM.xlsx	10035	CLINICAL_METADATA_AGGREGATE	Supplementary Table 1; aggregate comorbidity/medication comparison
+PMC_supplement	PMC12628550	PUBLIC	12931_2025_3404_MOESM6_ESM.xlsx	10035	CLINICAL_METADATA_LIMITED	Supplementary Table 2; sarcoidosis characteristics; no published linkage audited
+PMC_supplement	PMC12628550	PUBLIC	12931_2025_3404_MOESM7_ESM.xlsx	9728	CLINICAL_METADATA_LIMITED	Supplementary Table 3; unclassifiable-ILD characteristics; no published linkage audited
+PMC_supplement	PMC12628550	PUBLIC	12931_2025_3404_MOESM8_ESM.xlsx	30106	TAXONOMY_MATRIX_LIMITED	Supplementary Table 4; DESeq2 identified species, not a per-sample native matrix
+Dryad_share	https://datadryad.org/share/tYl-Sbu18f5UqIWzFyrR8T7WzJGHJQy8va6VApsJ9HU	NOT_PUBLIC_AT_AUDIT	NO_PUBLIC_FILE_LIST	NA	NOT_PUBLIC	Article Data availability explicitly says Private for peer review; official public search yielded no released dataset DOI/file listing
+raw_WGS	NO_PUBLIC_ACCESSION_OR_FILE_LIST_IDENTIFIED	NOT_PUBLIC_AT_AUDIT	NA	NA	RAW_FASTQ_NOT_PUBLIC	No SRA/ENA/GSA accession or public Dryad file manifest stated in the article/audited official sources
+analysis_code	NO_PUBLIC_REPOSITORY_IDENTIFIED	NOT_PUBLIC_AT_AUDIT	NA	NA	NOT_PUBLIC	No code repository/link stated in official article or public Dryad result
