@@ -1,0 +1,23 @@
+{
+  "job_id": "20260824T010000Z-prjna1056765-anchor-native-kreport-path-audit",
+  "project": "PRJNA1056765",
+  "authorized": true,
+  "acquire": false,
+  "allowed_hosts": ["download.cncb.ac.cn"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "allowed_environment_keys": [],
+  "transfer_cap_bytes": 1,
+  "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+  "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "handoff_allowlist": ["result.json", "anchor_native_report_path_audit.json", "anchor_native_report_path_audit.txt"],
+  "items": [{
+    "id": "anchor-native-kreport-path-audit",
+    "url": "https://download.cncb.ac.cn/metadata-only-no-acquisition",
+    "destination": "/mnt/disk1/0714_control/state/anchor-native-kreport-path-audit.placeholder",
+    "expected_bytes": 1,
+    "command": ["/home/suma/anaconda3/envs/mgshotgun/bin/python", "/mnt/disk1/0714_control/job_repo/scripts/audit_anchor_native_kreport_paths.py", "--results-root", "/mnt/disk1/db/kraken2/0714/results", "--membership", "/mnt/disk1/0714_control/job_repo/reports_public/prjna1056765_clinical_groups/run_clinical_mapping.tsv", "--output-dir", "/mnt/disk1/0714_control/state/20260824T010000Z-prjna1056765-anchor-native-kreport-path-audit-handoff"],
+    "cwd": "/mnt/disk1/0714_control/state",
+    "env": {}
+  }]
+}
