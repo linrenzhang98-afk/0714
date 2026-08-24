@@ -1,0 +1,2 @@
+PATH_INVENTORY_STATUS=SAFE_STOP
+SRR27343191_ACTUAL_PATH=/mnt/disk1/db/kraken2/0714/results/20260724T170118Z-prjna1056765-production-descriptive-batch-015/kraken2/SRR27343191.kreport
