@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "job_id": "20260824T010000Z-prjna1056765-anchor-native-kreport-path-audit",
+  "authorized": true,
+  "authorization_record": "User-authorized bounded read-only audit of frozen PRJNA1056765 native Kraken2 report paths.",
+  "execution_commit": "62acdb1113c58db8d1f03d53730c6a168b689815",
+  "job_definition_path": "automation/production/20260824T010000Z-prjna1056765-anchor-native-kreport-path-audit.json",
+  "job_definition_sha256": "379427a12ed1f938d5b124ecf629614f1d5fce6260987720dd336ddd0c16f3d8",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["download.cncb.ac.cn"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 600,
+    "memory_cap_bytes": 1073741824,
+    "workspace_cap_bytes": 1000000000
+  },
+  "handoff_allowlist": ["result.json", "anchor_native_report_path_audit.json", "anchor_native_report_path_audit.txt"]
+}
