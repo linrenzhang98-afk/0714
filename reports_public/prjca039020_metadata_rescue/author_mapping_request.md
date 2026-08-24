@@ -10,6 +10,8 @@ Could you please provide, or point us to, a de-identified mapping table that lin
 - inclusion in the final 229-patient analysis; and
 - the published CAP or severe-pneumonia group label.
 
+We inspected all seven public supplementary files. Supplementary `Table_2.xlsx` does contain patient-level clinical sheets named `CAP-204cases` and `SP-25cases`, with sequential `NO.` rows, but it does not contain a stable participant/sample key or any DRR/DRX/DRS/SAMD/SAMC/`BALF_###` accession that joins those rows to the public deposit. A mapping keyed to those accessions (or a documented deterministic crosswalk) would therefore be sufficient; no identifiable information is needed.
+
 The public deposits contain 233 records, whereas the paper’s final analysis contains 204 CAP and 25 severe-pneumonia patients. Please also identify the role of the four additional public records (for example, excluded subject, technical replicate, control, or another reason).
 
 The paper describes 243 originally sequenced pneumonia specimens (218 CAP and 25 severe pneumonia) and exclusion of 14 CAP cases for incomplete clinical data. If the 233 public records are a subset of those 243 specimens, could you clarify why ten sequenced cases are not public and, if feasible, provide their de-identified inclusion/deposit status?

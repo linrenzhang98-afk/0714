@@ -1,0 +1,22 @@
+{
+  "supplements_expected": 7,
+  "supplements_downloaded": 7,
+  "supplements_successfully_inspected": 7,
+  "download_cap_bytes": 20971520,
+  "downloaded_bundle_bytes": 3459663,
+  "downloaded_bundle_sha256": "43f293720991103e79948ebb0276feaf54ba49ff730ebe46b7b82c1767b9f82a",
+  "patient_level_clinical_table_found": true,
+  "stable_patient_id_found": false,
+  "CAP_SP_row_level_labels_found": true,
+  "BALF_identifier_found": false,
+  "repository_accession_found": false,
+  "direct_run_to_subject_key_found": false,
+  "direct_run_to_group_key_found": false,
+  "public_233_to_paper_229_status": "UNRESOLVED",
+  "four_extra_public_records_resolved": false,
+  "ten_nonpublic_original_records_resolved": false,
+  "final_204_25_reconstructable": false,
+  "public_evidence_exhausted": true,
+  "allowed_next_stage": "AUTHOR_CONTACT_REQUIRED",
+  "source_note": "Official Frontiers XML was used to enumerate the seven files. Direct PMC supplement download was bot-gated; the inspected bundle is Europe PMC's public mirror of PMC12227010, under the strict cap."
+}
