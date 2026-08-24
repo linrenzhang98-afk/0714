@@ -1,0 +1,33 @@
+{
+  "job_id": "20260824T020000Z-0714-workstation-storage-audit",
+  "project": "0714",
+  "analysis_type": "read_only_workstation_storage_audit",
+  "authorization_record": "User-authorized metadata-only storage audit; no file mutation or biological processing.",
+  "authorized": true,
+  "acquire": false,
+  "allowed_hosts": ["download.cncb.ac.cn"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "allowed_environment_keys": [],
+  "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+  "transfer_cap_bytes": 1,
+  "wall_seconds": 1800,
+  "memory_cap_bytes": 1073741824,
+  "workspace_cap_bytes": 1000000000,
+  "handoff_allowlist": ["result.json", "workstation_storage_audit.json", "workstation_storage_audit.txt"],
+  "items": [{
+    "id": "0714-workstation-storage-audit",
+    "url": "https://download.cncb.ac.cn/metadata-only-no-acquisition",
+    "destination": "/mnt/disk1/0714_control/state/0714-workstation-storage-audit.placeholder",
+    "expected_bytes": 1,
+    "command": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+      "/mnt/disk1/0714_control/job_repo/scripts/audit_workstation_storage.py",
+      "--output-dir",
+      "/mnt/disk1/0714_control/state/20260824T020000Z-0714-workstation-storage-audit-handoff"
+    ],
+    "cwd": "/mnt/disk1/0714_control/state",
+    "env": {}
+  }]
+}
