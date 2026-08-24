@@ -74,6 +74,34 @@ class CommonLayerTests(unittest.TestCase):
             self.assertEqual(payload["first_failing_run_if_any"], "RUN1")
             self.assertTrue((Path(tmp) / "diagnostic.txt").is_file())
 
+    def test_authoritative_resolver_uses_only_approved_batches(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            runs = [f"SRR{i:08d}" for i in range(400)]
+            for number in range(1, 21):
+                directory = root / f"{MODULE.AUTHORITATIVE_BATCH_PREFIX}{number:03d}" / "kraken2"
+                directory.mkdir(parents=True)
+            for index, run in enumerate(runs):
+                directory = root / f"{MODULE.AUTHORITATIVE_BATCH_PREFIX}{index // 20 + 1:03d}" / "kraken2"
+                (directory / f"{run}.kreport").write_text(REPORT)
+            mapping, verification = MODULE.resolve_authoritative_anchor_reports(root, runs)
+            self.assertEqual(len(mapping), 400)
+            self.assertEqual(verification["status"], "VERIFIED_400_OF_400")
+            self.assertTrue(str(mapping[runs[0]]).endswith("production-descriptive-batch-001/kraken2/SRR00000000.kreport"))
+
+    def test_authoritative_resolver_rejects_duplicate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            runs = [f"SRR{i:08d}" for i in range(400)]
+            for number in range(1, 21):
+                (root / f"{MODULE.AUTHORITATIVE_BATCH_PREFIX}{number:03d}" / "kraken2").mkdir(parents=True)
+            for index, run in enumerate(runs):
+                directory = root / f"{MODULE.AUTHORITATIVE_BATCH_PREFIX}{index // 20 + 1:03d}" / "kraken2"
+                (directory / f"{run}.kreport").write_text(REPORT)
+            (root / f"{MODULE.AUTHORITATIVE_BATCH_PREFIX}019" / "kraken2" / f"{runs[-1]}.kreport").write_text(REPORT)
+            with self.assertRaises(MODULE.LayerError):
+                MODULE.resolve_authoritative_anchor_reports(root, runs)
+
 
 if __name__ == "__main__":
     unittest.main()

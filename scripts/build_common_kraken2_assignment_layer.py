@@ -31,6 +31,8 @@ QC_JOB = "20260823T043904Z-prjca046985-122-native-kraken2-production-qc"
 DB_IDENTITY = "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3"
 RANKS = ("S", "G")
 PERMUTATIONS = 999
+AUTHORITATIVE_BATCH_PREFIX = "20260724T170118Z-prjna1056765-production-descriptive-batch-"
+AUTHORITATIVE_BATCH_NUMBERS = tuple(range(1, 21))
 
 
 class LayerError(RuntimeError):
@@ -96,6 +98,61 @@ def read_tsv(path: Path) -> list[dict[str, str]]:
 
 def clean_text(value: str) -> str:
     return " ".join(value.replace("\t", " ").replace("\r", " ").replace("\n", " ").split())
+
+
+def resolve_authoritative_anchor_reports(results_root: Path, frozen_runs: Iterable[str]) -> tuple[dict[str, Path], dict[str, Any]]:
+    """Resolve frozen anchor reports only in the approved production namespace.
+
+    Historical wrapper/travel outputs remain out of scope by construction. The
+    resolver fails closed on missing, duplicate, or unexpected native-looking
+    reports and never chooses by mtime, size, or lexical order.
+    """
+    runs = sorted(frozen_runs)
+    if len(runs) != ANCHOR_N or len(set(runs)) != ANCHOR_N:
+        raise LayerError("frozen anchor membership is not exactly 400 unique runs")
+    batch_dirs = [results_root / f"{AUTHORITATIVE_BATCH_PREFIX}{number:03d}" for number in AUTHORITATIVE_BATCH_NUMBERS]
+    missing_batches = [str(path) for path in batch_dirs if not path.is_dir() or path.is_symlink()]
+    if missing_batches:
+        raise LayerError("authoritative production batch directory missing: " + ",".join(missing_batches[:3]))
+    run_set = set(runs)
+    candidates: dict[str, list[Path]] = defaultdict(list)
+    unexpected: list[str] = []
+    for batch_dir in batch_dirs:
+        kraken_dir = batch_dir / "kraken2"
+        if not kraken_dir.is_dir() or kraken_dir.is_symlink():
+            raise LayerError(f"authoritative kraken2 directory missing or invalid: {kraken_dir}")
+        for path in kraken_dir.iterdir():
+            if not path.is_file() or path.is_symlink():
+                continue
+            if not path.name.endswith(".kreport") or path.name.endswith("_bracken_species.kreport"):
+                continue
+            run = path.name[:-len(".kreport")]
+            if run in run_set:
+                candidates[run].append(path)
+            else:
+                unexpected.append(str(path))
+    missing = sorted(run for run in runs if len(candidates.get(run, [])) == 0)
+    duplicate = sorted(run for run in runs if len(candidates.get(run, [])) > 1)
+    if missing or duplicate or unexpected:
+        raise LayerError(
+            "authoritative anchor path map failed: "
+            f"missing={len(missing)} duplicate={len(duplicate)} unexpected={len(unexpected)}"
+        )
+    mapping = {run: candidates[run][0] for run in runs}
+    mapping_text = "".join(f"{run}\t{mapping[run]}\n" for run in runs)
+    verification = {
+        "frozen_run_n": len(runs),
+        "authoritative_namespace": AUTHORITATIVE_BATCH_PREFIX + "{001..020}",
+        "authoritative_batch_n": len(batch_dirs),
+        "resolved_run_n": len(mapping),
+        "missing_run_n": len(missing),
+        "duplicate_run_n": len(duplicate),
+        "unexpected_run_n": len(unexpected),
+        "srr27343191_path": str(mapping.get("SRR27343191", "")),
+        "mapping_sha256": hashlib.sha256(mapping_text.encode("utf-8")).hexdigest(),
+        "status": "VERIFIED_400_OF_400",
+    }
+    return mapping, verification
 
 
 def parse_report(path: Path) -> dict[str, Any]:
@@ -375,18 +432,26 @@ def validate_sources(args: argparse.Namespace) -> tuple[list[dict[str, Any]], li
     _DIAGNOSTIC_CONTEXT["source_gate_status"] = "STAGE_B_PASS"
 
     set_stage("C_report_path_resolution", source_gate_status="STAGE_C_RUNNING")
+    anchor_path_map, anchor_path_verification = resolve_authoritative_anchor_reports(
+        args.anchor_results_root, anchor_ids
+    )
+    verification_path = args.output_dir / "authoritative_anchor_native_path_map_verification.json"
+    verification_path.parent.mkdir(parents=True, exist_ok=True)
+    verification_path.write_text(json.dumps(anchor_path_verification, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    mapping_path = args.output_dir / "authoritative_anchor_native_path_map.tsv"
+    mapping_path.write_text(
+        "run\tauthoritative_native_kreport_path\n"
+        + "".join(f"{run}\t{anchor_path_map[run]}\n" for run in sorted(anchor_path_map)),
+        encoding="utf-8",
+    )
     anchor_samples: list[dict[str, Any]] = []
     for row in sorted(anchor_meta, key=lambda value: value["run"]):
         run = row["run"]
         _DIAGNOSTIC_CONTEXT["first_failing_run_if_any"] = run
-        candidates = list(args.anchor_results_root.glob(f"prjna1056765_production_descriptive_batch_*/kraken2/{run}.kreport"))
-        if len(candidates) != 1 or "bracken" in candidates[0].name.lower():
-            _DIAGNOSTIC_CONTEXT["expected_path"] = str(args.anchor_results_root)
-            _DIAGNOSTIC_CONTEXT["observed_path"] = ",".join(str(p) for p in candidates[:3])
-            raise LayerError(f"anchor native report membership failure: {run} ({len(candidates)})")
-        if candidates[0].is_symlink() or not candidates[0].is_file():
-            raise LayerError(f"anchor report is not a regular file: {candidates[0]}")
-        anchor_samples.append({"run": run, "group": row.get("diagnosis", ""), "report_path": candidates[0]})
+        report_path = anchor_path_map[run]
+        if report_path.is_symlink() or not report_path.is_file():
+            raise LayerError(f"anchor report is not a regular file: {report_path}")
+        anchor_samples.append({"run": run, "group": row.get("diagnosis", ""), "report_path": report_path})
 
     external_samples: list[dict[str, Any]] = []
     for run in sorted(expected_external):
