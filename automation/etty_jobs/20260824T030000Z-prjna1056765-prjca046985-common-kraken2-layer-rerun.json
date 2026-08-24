@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "job_id": "20260824T030000Z-prjna1056765-prjca046985-common-kraken2-layer-rerun",
+  "authorization_record": "User-authorized bounded rerun of the existing read-only common native Kraken2 assignment layer after strict frozen-anchor path resolution; no acquisition or scientific reprocessing.",
+  "execution_commit": "72f560f52f11e596685787794e65f1f4c514ee81",
+  "job_definition_path": "automation/production/20260824T030000Z-prjna1056765-prjca046985-common-kraken2-layer-rerun.json",
+  "job_definition_sha256": "b6e1e03c38d8ec891ffeafcd57f797effc7704ced21069375c3e3a8bced1e800",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 28800,
+    "memory_cap_bytes": 68719476736,
+    "workspace_cap_bytes": 100000000000
+  },
+  "handoff_allowlist": ["result.json", "common_layer_summary.md", "matrix_validation.json", "authoritative_anchor_native_path_map.tsv", "authoritative_anchor_native_path_map_verification.json"]
+}
