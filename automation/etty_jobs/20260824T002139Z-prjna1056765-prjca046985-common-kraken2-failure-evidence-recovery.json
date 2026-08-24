@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "job_id": "20260824T002139Z-prjna1056765-prjca046985-common-kraken2-failure-evidence-recovery",
+  "authorized": true,
+  "authorization_record": "User-authorized zero-download recovery of prior common Kraken2 diagnostic metadata.",
+  "execution_commit": "eb4b730c2a7039c4a629464626b1bc9658684f90",
+  "job_definition_path": "automation/production/20260824T002139Z-prjna1056765-prjca046985-common-kraken2-failure-evidence-recovery.json",
+  "job_definition_sha256": "35e6a18a7d38a19834140ddb233956343eb80415c5b3e3f84499d877bfa2ae30",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["download.cncb.ac.cn"],
+  "allowed_destination_roots": ["/mnt/disk1/db/kraken2/0714/results/20260821T150000Z-prjca046985-read-length-audit/fastq"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 600,
+    "memory_cap_bytes": 1073741824,
+    "workspace_cap_bytes": 1000000000
+  },
+  "handoff_allowlist": ["result.json", "recovered_failure_evidence.json", "recovered_failure_evidence.txt"]
+}
