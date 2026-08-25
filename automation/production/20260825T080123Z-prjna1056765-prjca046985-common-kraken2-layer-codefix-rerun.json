@@ -1,0 +1,48 @@
+{
+  "job_id": "20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun",
+  "project": "PRJNA1056765_PRJCA046985",
+  "authorized": true,
+  "authorization_record": "User-authorized bounded recovery of the existing read-only common native Kraken2 assignment layer after a mechanical Python scope correction; no acquisition or scientific reprocessing.",
+  "acquire": false,
+  "analysis_type": "common_native_kraken2_classifier_assignment_layer",
+  "allowed_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "transfer_cap_bytes": 1,
+  "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+  "allowed_environment_keys": [],
+  "wall_seconds": 28800,
+  "memory_cap_bytes": 68719476736,
+  "workspace_cap_bytes": 100000000000,
+  "handoff_allowlist": [
+    "result.json",
+    "common_layer_summary.md",
+    "matrix_validation.json",
+    "authoritative_anchor_native_path_map.tsv",
+    "authoritative_anchor_native_path_map_verification.json"
+  ],
+  "items": [{
+    "id": "COMMON_LAYER_EXISTING_REPORTS_ONLY",
+    "url": "https://none.invalid/NO_DOWNLOAD",
+    "destination": "/mnt/disk1/0714_control/state/NO_DOWNLOAD",
+    "expected_bytes": 1,
+    "command": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+      "/mnt/disk1/0714_control/job_repo/scripts/build_common_kraken2_assignment_layer.py",
+      "--anchor-reconciliation", "/mnt/disk1/0714_control/job_repo/reports_public/prjna1056765_external_cohort_pilot_package/taxonomy_method_adjudication/anchor_reconciliation_v2.json",
+      "--anchor-clinical", "/mnt/disk1/0714_control/job_repo/reports_public/prjna1056765_clinical_groups/run_clinical_mapping.tsv",
+      "--external-manifest", "/mnt/disk1/0714_control/job_repo/reports_public/prjca046985_external_cohort_pilot_package/manifests/PRJCA046985_exact_manifest.tsv",
+      "--pilot-job", "/mnt/disk1/0714_control/job_repo/jobs/20260822T120000Z-prjca046985-native-kraken2-pilot.json",
+      "--pilot-summary", "/mnt/disk1/0714_control/handoff_repo/handoffs/20260822T120000Z-prjca046985-native-kraken2-pilot/pilot_summary.json",
+      "--production-definition", "/mnt/disk1/0714_control/job_repo/automation/production/20260822T175547Z-prjca046985-122-native-kraken2-recovery.json",
+      "--production-qc", "/mnt/disk1/0714_control/handoff_repo/handoffs/20260823T043904Z-prjca046985-122-native-kraken2-production-qc/production_qc.json",
+      "--recovery-result", "/mnt/disk1/0714_control/handoff_repo/handoffs/20260822T175547Z-prjca046985-122-native-kraken2-recovery/result.json",
+      "--anchor-results-root", "/mnt/disk1/db/kraken2/0714/results",
+      "--external-results-root", "/mnt/disk1/0714_control/results",
+      "--output-dir", "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff"
+    ],
+    "cwd": "/mnt/disk1/0714_control/state",
+    "env": {}
+  }]
+}

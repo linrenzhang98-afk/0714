@@ -18,6 +18,10 @@ REPORT = """50.00\t10\t10\tU\t0\tunclassified
 20.00\t4\t4\tS\t11\t    Genus alpha species
 """
 
+ZERO_CLASSIFIED_REPORT = """100.00\t20\t20\tU\t0\tunclassified
+0.00\t0\t0\tR\t1\troot
+"""
+
 
 class CommonLayerTests(unittest.TestCase):
     def test_direct_and_clade_are_distinct(self):
@@ -53,6 +57,29 @@ class CommonLayerTests(unittest.TestCase):
         labels = ["A", "A", "B", "B"]
         self.assertGreater(MODULE.permanova_stat(distance, labels)[0], 0)
         self.assertGreaterEqual(MODULE.dispersion_stat(distance, labels)[0], 0)
+
+    def test_classified_fraction_matrix_iterates_taxa_and_handles_zero_denominator(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp)
+            report_path = output / "report.kreport"
+            zero_path = output / "zero.kreport"
+            report_path.write_text(REPORT)
+            zero_path.write_text(ZERO_CLASSIFIED_REPORT)
+            parsed = MODULE.parse_report(report_path)
+            zero_parsed = MODULE.parse_report(zero_path)
+            samples = [
+                {"run": "R1", "group": "A", "report": parsed},
+                {"run": "R2", "group": "A", "report": parsed},
+                {"run": "R3", "group": "B", "report": zero_parsed},
+                {"run": "R4", "group": "B", "report": zero_parsed},
+            ]
+            MODULE.write_cohort_outputs(output, "synthetic", samples)
+            matrix = output / "synthetic_species_fraction_classified_reads.tsv"
+            with matrix.open(encoding="utf-8", newline="") as handle:
+                rows = list(MODULE.csv.DictReader(handle, delimiter="\t"))
+            self.assertEqual(len(rows), 1)
+            self.assertEqual(rows[0]["taxid"], "11")
+            self.assertEqual([rows[0][run] for run in ("R1", "R2", "R3", "R4")], ["0.4", "0.4", "0", "0"])
 
     def test_bounded_diagnostic_preserves_exception_context(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -507,7 +507,7 @@ def write_cohort_outputs(out: Path, prefix: str, samples: list[dict[str, Any]]) 
         metadata = lambda taxid, name: [taxid, rank, name, prevalence_by_taxid[taxid], prevalence_by_taxid[taxid] >= 0.05, prevalence_by_taxid[taxid] >= 0.10, prevalence_by_taxid[taxid] >= 0.20]
         write_tsv(out / f"{prefix}_{label}_direct_counts.tsv", base_header, (metadata(taxid, name) + [direct_count(sample, rank, taxid) for sample in samples] for taxid, name in taxa))
         write_tsv(out / f"{prefix}_{label}_fraction_all_reads.tsv", base_header, (metadata(taxid, name) + [direct_count(sample, rank, taxid) / sample["report"]["total_input_reads"] for sample in samples] for taxid, name in taxa))
-        write_tsv(out / f"{prefix}_{label}_fraction_classified_reads.tsv", base_header, (metadata(taxid, name) + [direct_count(sample, rank, taxid) / sample["report"]["classified_reads"] if sample["report"]["classified_reads"] else 0.0 for sample in samples]))
+        write_tsv(out / f"{prefix}_{label}_fraction_classified_reads.tsv", base_header, (metadata(taxid, name) + [direct_count(sample, rank, taxid) / sample["report"]["classified_reads"] if sample["report"]["classified_reads"] else 0.0 for sample in samples] for taxid, name in taxa))
 
     species_10 = [taxid for taxid, _name in rank_taxa["S"] if prevalence_by_rank(samples, "S", taxid) >= 0.10]
     vectors = [[direct_count(sample, "S", taxid) / sample["report"]["total_input_reads"] for taxid in species_10] for sample in samples]
