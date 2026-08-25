@@ -3,7 +3,7 @@
   "job_id": "20260824T030000Z-prjna1056765-prjca046985-common-kraken2-layer-rerun",
   "authorized": true,
   "authorization_record": "User-authorized bounded rerun of the existing read-only common native Kraken2 assignment layer after strict frozen-anchor path resolution; no acquisition or scientific reprocessing.",
-  "execution_commit": "72f560f52f11e596685787794e65f1f4c514ee81",
+  "execution_commit": "7a4bda7fb439b7329aa65a1fe7d300b47f474b82",
   "job_definition_path": "automation/production/20260824T030000Z-prjna1056765-prjca046985-common-kraken2-layer-rerun.json",
   "job_definition_sha256": "b6e1e03c38d8ec891ffeafcd57f797effc7704ced21069375c3e3a8bced1e800",
   "transfer_cap_bytes": 1,
