@@ -1,0 +1,30 @@
+{
+  "anchor_n": 400,
+  "external_n": 130,
+  "total_n": 530,
+  "common_species_10pct": 166,
+  "common_genera_10pct": 45,
+  "primary_anchor_estimand": "Four-level published-diagnosis association with BALF species composition among 400 unique PRJNA1056765 patients, estimated by cohort-specific Aitchison PERMANOVA R2 and qualified by PERMDISP.",
+  "primary_external_estimand": "Drug_Resistance versus Drug_Sensitive tuberculosis association with BALF species composition among 130 unique PRJCA046985 subjects, estimated by cohort-specific Aitchison PERMANOVA R2 and qualified by PERMDISP.",
+  "naive_pooling_valid": false,
+  "formal_meta_analysis_ready": false,
+  "recommended_primary_beta_diversity": "COHORT_SPECIFIC_AITCHISON_CLR_AFTER_10PCT_WITHIN_COHORT_PREVALENCE_FILTER",
+  "recommended_primary_DA_method": "ANCOM-BC2_EXPLORATORY_COHORT_SPECIFIC_WITH_ALDEX2_SENSITIVITY",
+  "third_cohort_needed_now": "OPTIONAL",
+  "major_scientific_limitations": [
+    "The four-diagnosis anchor contrast and binary TB drug-resistance contrast are not one clinical estimand and cannot be pooled or formally meta-analyzed.",
+    "Upstream host state, read architecture and source processing differ despite a common Kraken2 database, parameter set and report grammar.",
+    "Classified fractions are low and variable; direct-assigned-read subcompositions are classifier-dependent and do not measure absolute microbial burden.",
+    "Run-linked age, sex, recent antibiotics, treatment, severity and comorbidity covariates are not available for a common adjusted design.",
+    "Technical-batch information is incomplete; the anchor spans 2021-2023 and the external deposited reads have heterogeneous nominal/observed length provenance.",
+    "PRJCA046985 has no identified public negative-control run, limiting contamination assessment for sparse taxon-level claims."
+  ],
+  "fatal_scientific_flaws_if_any": [],
+  "ready_for_formal_scientific_analysis": true,
+  "recommended_next_stage": "FORMAL_ANALYSIS_AUTHORIZATION",
+  "biological_analysis_executed": false,
+  "deepseek_invoked": false,
+  "raw_data_downloaded": false,
+  "kraken2_run": false,
+  "bracken_run": false
+}
