@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "lock_status": "OFFICIAL_CRAN_VERIFIED",
+  "official_source_host": "cran.r-project.org",
+  "target_r_version": "4.5.3",
+  "target_library": "/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3",
+  "system_library": "/home/suma/anaconda3/envs/mgshotgun/lib/R/library",
+  "target_package": "zCompositions",
+  "target_version": "1.6.2",
+  "hard_dependency_fields_used": [
+    "Depends",
+    "Imports",
+    "LinkingTo"
+  ],
+  "suggests_included": false,
+  "packages": [
+    {
+      "package": "MASS",
+      "version": null,
+      "dependency_role": "zCompositions Depends; R recommended package",
+      "reuse_required": true,
+      "install_new": false,
+      "system_library_required": true,
+      "installation_order": 0
+    },
+    {
+      "package": "survival",
+      "version": null,
+      "dependency_role": "NADA Depends; R recommended package",
+      "reuse_required": true,
+      "install_new": false,
+      "system_library_required": true,
+      "installation_order": 0
+    },
+    {
+      "package": "NADA",
+      "version": "1.6-1.2",
+      "dependency_role": "zCompositions Depends",
+      "dependency_class": "HARD_REQUIRED",
+      "source_url": "https://cran.r-project.org/src/contrib/NADA_1.6-1.2.tar.gz",
+      "source_filename": "NADA_1.6-1.2.tar.gz",
+      "official_cran": true,
+      "expected_bytes": 72167,
+      "official_md5": "ec8f3a8868ac4e55b174106702427067",
+      "expected_sha256": "837dc66bc880285985ce1c0da9897f437207fad6ec69c3f0879fbaf4a4ace2b4",
+      "install_new": true,
+      "installation_order": 1
+    },
+    {
+      "package": "truncnorm",
+      "version": "1.0-9",
+      "dependency_role": "zCompositions Depends",
+      "dependency_class": "HARD_REQUIRED",
+      "source_url": "https://cran.r-project.org/src/contrib/truncnorm_1.0-9.tar.gz",
+      "source_filename": "truncnorm_1.0-9.tar.gz",
+      "official_cran": true,
+      "expected_bytes": 11629,
+      "official_md5": "878c944c50c6eeaea3e4e6d9586216d3",
+      "expected_sha256": "5156acc4d63243bf95326d6285b0ba3cdf710697d67c233a12ae56f3d87ec708",
+      "install_new": true,
+      "installation_order": 2
+    },
+    {
+      "package": "zCompositions",
+      "version": "1.6.2",
+      "dependency_role": "target package",
+      "dependency_class": "TARGET",
+      "source_url": "https://cran.r-project.org/src/contrib/zCompositions_1.6.2.tar.gz",
+      "source_filename": "zCompositions_1.6.2.tar.gz",
+      "official_cran": true,
+      "expected_bytes": 64212,
+      "official_md5": "c2c389e09eb77e76aae234c09f4549a0",
+      "expected_sha256": "8f50ab81c4aa2ea8ff8c52678d14af456cdb0ee04b22a567a9f18722dc49d98a",
+      "install_new": true,
+      "installation_order": 3
+    }
+  ],
+  "nada_dependency_class": "HARD_REQUIRED",
+  "truncnorm_dependency_class": "HARD_REQUIRED",
+  "total_expected_download_bytes": 148008,
+  "source_verification": {
+    "cran_packages_index_url": "https://cran.r-project.org/src/contrib/PACKAGES",
+    "zCompositions_1.6.2_exists": true,
+    "zCompositions_description_depends": "R (>= 2.14.0), methods, MASS, NADA, truncnorm",
+    "zCompositions_description_imports": null,
+    "zCompositions_description_linkingto": null,
+    "nada_description_depends": "R (>= 2.10), methods, survival",
+    "truncnorm_description_depends": "R (>= 3.4.0)",
+    "truncnorm_suggests_excluded": "testthat"
+  }
+}
