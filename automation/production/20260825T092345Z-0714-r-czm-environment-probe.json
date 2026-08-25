@@ -1,0 +1,46 @@
+{
+  "acquire": false,
+  "allowed_destination_roots": [
+    "/mnt/disk1/0714_control/state"
+  ],
+  "allowed_environment_keys": [],
+  "allowed_executables": [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+  ],
+  "allowed_hosts": [
+    "none.invalid"
+  ],
+  "analysis_type": "read_only_r_czm_environment_preflight",
+  "authorization_record": "User-authorized bounded read-only R/CZM method preflight; inspect explicit R paths and run synthetic CZM only if already installed.",
+  "authorized": true,
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "handoff_allowlist": [
+    "result.json",
+    "r_czm_environment_probe.json",
+    "r_czm_environment_probe_summary.md"
+  ],
+  "items": [
+    {
+      "id": "synthetic_r_czm_environment_probe",
+      "url": "https://none.invalid/no-network-acquisition",
+      "destination": "/mnt/disk1/0714_control/state/20260825T092345Z-0714-r-czm-environment-probe.probe-marker",
+      "expected_bytes": 1,
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+        "/mnt/disk1/0714_control/job_repo/scripts/probe_r_czm_environment.py",
+        "--job-id",
+        "20260825T092345Z-0714-r-czm-environment-probe",
+        "--output-dir",
+        "/mnt/disk1/0714_control/state/20260825T092345Z-0714-r-czm-environment-probe-handoff"
+      ],
+      "cwd": "/mnt/disk1/0714_control/state",
+      "env": {}
+    }
+  ],
+  "job_id": "20260825T092345Z-0714-r-czm-environment-probe",
+  "memory_cap_bytes": 1073741824,
+  "project": "0714_METHOD_PREFLIGHT",
+  "transfer_cap_bytes": 1,
+  "wall_seconds": 600,
+  "workspace_cap_bytes": 1000000000
+}
