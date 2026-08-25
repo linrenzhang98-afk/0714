@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "freeze_status": "PREFLIGHT_STOP_CZM_NOT_REPRODUCIBLY_AVAILABLE",
+  "input": {
+    "job_id": "20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun",
+    "etty_handoff_root": "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff",
+    "anchor_direct_counts": "anchor_species_direct_counts.tsv",
+    "anchor_sample_qc": "anchor_sample_qc.tsv",
+    "external_direct_counts": "external_species_direct_counts.tsv",
+    "external_sample_qc": "external_sample_qc.tsv",
+    "counts_type": "Kraken2 species direct-assigned counts",
+    "clade_counts_allowed": false,
+    "prior_failed_partial_outputs_allowed": false
+  },
+  "cohorts": {
+    "anchor": {
+      "project": "PRJNA1056765",
+      "n": 400,
+      "groups": {
+        "Bacterial infection": 114,
+        "Fungal infection": 78,
+        "Lung cancer": 122,
+        "Pulmonary tuberculosis": 86
+      },
+      "primary_estimand": "four-level published-diagnosis association with BALF species composition",
+      "permutation_restriction": "within frozen published Training/Test strata",
+      "collection_year_sensitivity": "marginal term only if deterministic run-level mapping is complete and the design matrix is full rank"
+    },
+    "external": {
+      "project": "PRJCA046985",
+      "n": 130,
+      "groups": {
+        "Drug_Resistance": 49,
+        "Drug_Sensitive": 81
+      },
+      "primary_estimand": "Drug_Resistance versus Drug_Sensitive tuberculosis association with BALF species composition",
+      "technical_sensitivity": "frozen nominal 50/75-nt category, after verifying both resistance groups occur in both categories"
+    }
+  },
+  "total_n": 530,
+  "analysis_separation": {
+    "cohort_specific_execution": true,
+    "naive_pooling": false,
+    "formal_meta_analysis": false,
+    "pooled_clinical_coefficient": false
+  },
+  "primary_compositional_analysis": {
+    "feature_filter_within_each_cohort": {
+      "primary_prevalence": 0.1,
+      "sensitivity_prevalence": [
+        0.05,
+        0.2
+      ],
+      "detection_rule": "direct count > 0"
+    },
+    "primary_zero_handling": {
+      "method": "CZM",
+      "implementation_status": "UNVERIFIED_UNAVAILABLE",
+      "execution_allowed": false
+    },
+    "sensitivity_zero_handling": {
+      "method": "fixed pseudocount",
+      "value_direct_reads": 0.5,
+      "may_replace_primary": false
+    },
+    "closure": "divide each zero-replaced retained-taxon vector by its row sum",
+    "transformation": "CLR: log(x_j) minus the within-sample mean log abundance",
+    "distance": "Euclidean distance in CLR space (Aitchison distance)",
+    "permanova_permutations": 9999,
+    "permdisp_permutations": 9999,
+    "seed_registry_status": "NOT_FROZEN_BECAUSE_EXECUTION_PREFLIGHT_FAILED"
+  },
+  "secondary_endpoints": {
+    "authorized": [
+      "species richness",
+      "Shannon diversity",
+      "Gini-Simpson",
+      "dominance",
+      "Kraken2 classified fraction as a technical endpoint"
+    ],
+    "planned_anchor_omnibus_test": "Kruskal-Wallis",
+    "planned_anchor_omnibus_effect_size": "epsilon-squared with uncertainty",
+    "planned_anchor_pairwise_test": "two-sided Wilcoxon rank-sum after the omnibus framework",
+    "planned_anchor_pairwise_effect_size": "rank-biserial correlation with uncertainty",
+    "planned_anchor_contrasts": [
+      "Lung cancer vs Bacterial infection",
+      "Lung cancer vs Fungal infection",
+      "Lung cancer vs Pulmonary tuberculosis"
+    ],
+    "planned_anchor_multiplicity": "Holm correction across the complete prespecified 3 contrasts x 5 endpoints family",
+    "planned_external_test": "two-sided Wilcoxon rank-sum",
+    "planned_external_effect_size": "rank-biserial correlation with uncertainty",
+    "planned_external_multiplicity": "Holm correction across the 5 prespecified endpoints",
+    "execution_status": "NOT_EXECUTED"
+  },
+  "frozen_sensitivity_evidence": {
+    "bray_curtis_source": "verified common-layer output",
+    "prevalence": 0.1,
+    "permutations": 999,
+    "overwrite_allowed": false
+  },
+  "prohibited": [
+    "differential abundance",
+    "taxon-wise significance screening",
+    "new cohort acquisition",
+    "sample-matrix pooling",
+    "P-value combination",
+    "causal inference",
+    "classified fraction interpreted as bacterial burden"
+  ],
+  "execution_status": "NOT_EXECUTED_METHOD_PREFLIGHT_REQUIRED"
+}
