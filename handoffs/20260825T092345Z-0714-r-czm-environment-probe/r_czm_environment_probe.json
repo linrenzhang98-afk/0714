@@ -1,0 +1,113 @@
+{
+  "biological_analysis_executed": false,
+  "candidate_r_paths": [
+    {
+      "exists": false,
+      "is_executable": false,
+      "is_regular_file": false,
+      "path": "/usr/bin/R",
+      "resolved_path": null
+    },
+    {
+      "exists": false,
+      "is_executable": false,
+      "is_regular_file": false,
+      "path": "/usr/local/bin/R",
+      "resolved_path": null
+    },
+    {
+      "exists": false,
+      "is_executable": false,
+      "is_regular_file": false,
+      "path": "/home/suma/anaconda3/bin/R",
+      "resolved_path": null
+    },
+    {
+      "exists": true,
+      "is_executable": true,
+      "is_regular_file": true,
+      "path": "/home/suma/anaconda3/envs/mgshotgun/bin/R",
+      "resolved_path": "/home/suma/anaconda3/envs/mgshotgun/bin/R"
+    }
+  ],
+  "candidate_rscript_paths": [
+    {
+      "exists": false,
+      "is_executable": false,
+      "is_regular_file": false,
+      "path": "/usr/bin/Rscript",
+      "resolved_path": null
+    },
+    {
+      "exists": false,
+      "is_executable": false,
+      "is_regular_file": false,
+      "path": "/usr/local/bin/Rscript",
+      "resolved_path": null
+    },
+    {
+      "exists": false,
+      "is_executable": false,
+      "is_regular_file": false,
+      "path": "/home/suma/anaconda3/bin/Rscript",
+      "resolved_path": null
+    },
+    {
+      "exists": true,
+      "is_executable": true,
+      "is_regular_file": true,
+      "path": "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript",
+      "resolved_path": "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript"
+    }
+  ],
+  "czm_probe": {
+    "attempted": false,
+    "deterministic": false,
+    "error_if_any": null,
+    "finite": false,
+    "function": "zCompositions::cmultRepl",
+    "input_sha256": "bb857155dcc50be5bea2d9e0c90dcfa2f5b68acde12c0bca6875ad80fc6e36b1",
+    "input_shape": [
+      4,
+      5
+    ],
+    "method": "CZM",
+    "output_sha256": null,
+    "output_shape": null,
+    "passed": false,
+    "strictly_positive": false
+  },
+  "deepseek_invoked": false,
+  "job_id": "20260825T092345Z-0714-r-czm-environment-probe",
+  "network_acquisition_performed": false,
+  "package_installation_performed": false,
+  "package_upgrade_performed": false,
+  "packages": {
+    "NADA": {
+      "installed": false,
+      "path": null,
+      "version": null
+    },
+    "truncnorm": {
+      "installed": false,
+      "path": null,
+      "version": null
+    },
+    "zCompositions": {
+      "installed": false,
+      "path": null,
+      "version": null
+    }
+  },
+  "probe_status": "CZM_ENVIRONMENT_NOT_READY",
+  "r_found": true,
+  "r_home": "/home/suma/anaconda3/envs/mgshotgun/lib/R",
+  "r_library_paths": [
+    "/home/suma/anaconda3/envs/mgshotgun/lib/R/library"
+  ],
+  "r_path": "/home/suma/anaconda3/envs/mgshotgun/bin/R",
+  "r_version": "R version 4.5.3 (2026-03-11)",
+  "reason": "ZCOMPOSITIONS_NOT_INSTALLED",
+  "rscript_found": true,
+  "rscript_path": "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript"
+}
