@@ -1,0 +1,38 @@
+{
+  "anchor_classified_fraction_median": 0.01793237142601349,
+  "anchor_unique_runs": 400,
+  "anchor_valid_reports": 400,
+  "bracken_rerun": false,
+  "common_estimands_identified": 8,
+  "database_identity": "6feb9b3e8b52ff05d61272436bbbacc4f3408088dc6e776cd44d588169d496d3",
+  "direct_and_clade_counts_parsed_separately": true,
+  "external_classified_fraction_median": 0.02086183877794317,
+  "external_unique_runs": 130,
+  "external_valid_reports": 130,
+  "formal_meta_analysis_ready": false,
+  "fractions": [
+    "fraction_all_reads",
+    "fraction_classified_reads"
+  ],
+  "genus_taxa_anchor": 1633,
+  "genus_taxa_common_10pct": 45,
+  "genus_taxa_external": 1496,
+  "host_removal": false,
+  "kraken2_rerun": false,
+  "layer": "COMMON_NATIVE_KRAKEN2_CLASSIFIER_ASSIGNMENT_LAYER",
+  "permanova_paired_with_permdisp": true,
+  "permutations": 999,
+  "pooled_530_matrix_created": false,
+  "prevalence_computed_within_cohort": true,
+  "prevalence_thresholds": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "primary_matrix_count_field": "direct_assigned_reads",
+  "raw_data_downloaded": false,
+  "species_taxa_anchor": 5198,
+  "species_taxa_common_10pct": 166,
+  "species_taxa_external": 4888,
+  "status": "VERIFIED"
+}
