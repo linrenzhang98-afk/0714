@@ -1,0 +1,26 @@
+{
+  "fixture": "synthetic_one_dimensional_centroid_residual_projection_v1",
+  "reference_basis": "Anderson centroid PERMDISP least-squares residual permutation; explicit permutation maps evaluated independently from the vegan permutest.betadisper source equations",
+  "vegan_runtime_equivalence_claimed": false,
+  "points": [0, 2, 4, 10, 11, 12],
+  "groups": ["A", "A", "A", "B", "B", "B"],
+  "observed_distances_to_centroid": [2, 0, 2, 1, 0, 1],
+  "observed_f": 0.8,
+  "observed_eta_squared": 0.16666666666666666,
+  "permutation_maps": [
+    [0, 1, 2, 3, 4, 5],
+    [5, 4, 3, 2, 1, 0],
+    [3, 4, 5, 0, 1, 2],
+    [0, 3, 1, 4, 2, 5],
+    [1, 0, 2, 4, 3, 5],
+    [2, 4, 0, 5, 1, 3]
+  ],
+  "expected_permuted_f": [
+    0.0,
+    0.0,
+    0.0,
+    0.0909090909090909,
+    0.0,
+    0.3902439024390244
+  ]
+}

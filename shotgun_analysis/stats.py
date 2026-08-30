@@ -5,11 +5,17 @@ from __future__ import annotations
 import math
 from collections import Counter
 from dataclasses import asdict, dataclass
-from typing import Sequence
+from typing import Iterable, Sequence
 
 from .core import validate_distance_matrix
 from .errors import DegenerateDesignError, InputValidationError
 from .permutation import restricted_permutations
+
+
+PERMANOVA_ALGORITHM = "one-way distance-component label permutation"
+PERMDISP_ALGORITHM = (
+    "centroid distances; least-squares residual permutation under fixed one-way group model"
+)
 
 
 @dataclass(frozen=True)
@@ -22,6 +28,7 @@ class PermutationTest:
     df_between: int
     df_within: int
     group_counts: dict[str, int]
+    algorithm: str
 
     def to_dict(self) -> dict[str, object]:
         return asdict(self)
@@ -84,13 +91,20 @@ def permanova(
         df_between=len(counts) - 1,
         df_within=len(values) - len(counts),
         group_counts=dict(counts),
+        algorithm=PERMANOVA_ALGORITHM,
     )
 
 
-def distances_to_group_centroid(distance: Sequence[Sequence[float]], groups: Sequence[str]) -> list[float]:
+def _distances_to_group_centroid(
+    distance: Sequence[Sequence[float]],
+    groups: Sequence[str],
+    *,
+    require_euclidean: bool,
+) -> tuple[list[float], int]:
     values = validate_distance_matrix(distance)
     labels = _validate_groups(groups, len(values))
     result = [0.0] * len(values)
+    negative_squared_count = 0
     for group in dict.fromkeys(labels):
         indices = [i for i, label in enumerate(labels) if label == group]
         count = len(indices)
@@ -99,9 +113,20 @@ def distances_to_group_centroid(distance: Sequence[Sequence[float]], groups: Seq
         for i in indices:
             squared = sum(values[i][j] ** 2 for j in indices) / count - centroid_term
             if squared < -1e-8:
-                raise InputValidationError("distance is non-Euclidean; negative squared centroid distance")
+                if require_euclidean:
+                    raise InputValidationError("distance is non-Euclidean; negative squared centroid distance")
+                negative_squared_count += 1
             result[i] = math.sqrt(max(0.0, squared))
-    return result
+    return result, negative_squared_count
+
+
+def distances_to_group_centroid(
+    distance: Sequence[Sequence[float]],
+    groups: Sequence[str],
+    *,
+    require_euclidean: bool = True,
+) -> list[float]:
+    return _distances_to_group_centroid(distance, groups, require_euclidean=require_euclidean)[0]
 
 
 def _one_way_anova(values: Sequence[float], groups: Sequence[str]) -> tuple[float, float]:
@@ -122,6 +147,48 @@ def _one_way_anova(values: Sequence[float], groups: Sequence[str]) -> tuple[floa
     return statistic, between / total
 
 
+def _residual_permutation_f(residuals: Sequence[float], groups: Sequence[str], index_map: Sequence[int]) -> float:
+    """Refit the fixed one-way design to permuted model residuals.
+
+    This is the least-squares residual procedure used conceptually by
+    Anderson's centroid PERMDISP and vegan's ``permutest.betadisper``. It is
+    deliberately distinct from permuting labels and recomputing centroids.
+    """
+    if len(index_map) != len(residuals) or sorted(index_map) != list(range(len(residuals))):
+        raise InputValidationError("invalid PERMDISP residual permutation map")
+    permuted = [float(residuals[index]) for index in index_map]
+    levels = list(dict.fromkeys(groups))
+    fitted = [0.0] * len(permuted)
+    for group in levels:
+        indices = [index for index, label in enumerate(groups) if label == group]
+        mean = sum(permuted[index] for index in indices) / len(indices)
+        for index in indices:
+            fitted[index] = mean
+    grand = sum(permuted) / len(permuted)
+    model_ss = sum((value - grand) ** 2 for value in fitted)
+    residual_ss = sum((value - fit) ** 2 for value, fit in zip(permuted, fitted))
+    df_between = len(levels) - 1
+    df_within = len(permuted) - len(levels)
+    if residual_ss <= 0:
+        return math.inf if model_ss > 0 else 0.0
+    return (model_ss / df_between) / (residual_ss / df_within)
+
+
+def permdisp_reference_statistics(
+    distances: Sequence[float],
+    groups: Sequence[str],
+    permutation_maps: Iterable[Sequence[int]],
+) -> list[float]:
+    """Expose residual-permutation F values for locked synthetic validation."""
+    labels = _validate_groups(groups, len(distances))
+    group_means = {
+        group: sum(value for value, label in zip(distances, labels) if label == group) / labels.count(group)
+        for group in dict.fromkeys(labels)
+    }
+    residuals = [float(value) - group_means[label] for value, label in zip(distances, labels)]
+    return [_residual_permutation_f(residuals, labels, index_map) for index_map in permutation_maps]
+
+
 def permdisp(
     distance: Sequence[Sequence[float]],
     groups: Sequence[str],
@@ -129,16 +196,22 @@ def permdisp(
     permutations: int = 9999,
     seed: int,
     strata: Sequence[str] | None = None,
+    require_euclidean: bool = True,
 ) -> PermutationTest:
     values = validate_distance_matrix(distance)
     labels = _validate_groups(groups, len(values))
-    observed_distances = distances_to_group_centroid(values, labels)
+    observed_distances, _ = _distances_to_group_centroid(
+        values, labels, require_euclidean=require_euclidean
+    )
     observed, r_squared = _one_way_anova(observed_distances, labels)
+    group_means = {
+        group: sum(value for value, label in zip(observed_distances, labels) if label == group) / labels.count(group)
+        for group in dict.fromkeys(labels)
+    }
+    residuals = [value - group_means[label] for value, label in zip(observed_distances, labels)]
     exceedances = 0
     for index_map in restricted_permutations(len(values), permutations, seed, strata):
-        permuted_labels = [labels[index] for index in index_map]
-        candidate_distances = distances_to_group_centroid(values, permuted_labels)
-        statistic, _ = _one_way_anova(candidate_distances, permuted_labels)
+        statistic = _residual_permutation_f(residuals, labels, index_map)
         exceedances += statistic >= observed - 1e-12
     counts = Counter(labels)
     return PermutationTest(
@@ -150,7 +223,38 @@ def permdisp(
         df_between=len(counts) - 1,
         df_within=len(values) - len(counts),
         group_counts=dict(counts),
+        algorithm=PERMDISP_ALGORITHM,
     )
+
+
+def centroid_distance_summaries(
+    distance: Sequence[Sequence[float]],
+    groups: Sequence[str],
+    *,
+    require_euclidean: bool = True,
+) -> dict[str, object]:
+    values, negative_count = _distances_to_group_centroid(
+        distance, groups, require_euclidean=require_euclidean
+    )
+    labels = _validate_groups(groups, len(values))
+    summaries: dict[str, object] = {}
+    for group in dict.fromkeys(labels):
+        selected = sorted(value for value, label in zip(values, labels) if label == group)
+        midpoint = len(selected) // 2
+        median = selected[midpoint] if len(selected) % 2 else (selected[midpoint - 1] + selected[midpoint]) / 2
+        summaries[group] = {
+            "n": len(selected),
+            "mean": sum(selected) / len(selected),
+            "median": median,
+            "minimum": selected[0],
+            "maximum": selected[-1],
+        }
+    return {
+        "center": "group centroid",
+        "group_summaries": summaries,
+        "sample_distances": values,
+        "negative_squared_distances_truncated_to_zero": negative_count,
+    }
 
 
 def _average_ranks(values: Sequence[float]) -> list[float]:
@@ -234,15 +338,20 @@ def kruskal_wallis(values: Sequence[float], groups: Sequence[str]) -> dict[str, 
     }
 
 
-def mann_whitney(values: Sequence[float], groups: Sequence[str]) -> dict[str, float | int]:
+def mann_whitney(
+    values: Sequence[float],
+    groups: Sequence[str],
+    *,
+    positive_group: str,
+    negative_group: str,
+) -> dict[str, float | int | str]:
     labels = _validate_groups(groups, len(values))
-    levels = list(dict.fromkeys(labels))
-    if len(levels) != 2:
+    if set(labels) != {positive_group, negative_group} or positive_group == negative_group:
         raise DegenerateDesignError("Mann-Whitney requires exactly two groups")
     ranks = _average_ranks(values)
-    n1 = labels.count(levels[0])
-    n2 = labels.count(levels[1])
-    u1 = sum(rank for rank, label in zip(ranks, labels) if label == levels[0]) - n1 * (n1 + 1) / 2
+    n1 = labels.count(positive_group)
+    n2 = labels.count(negative_group)
+    u1 = sum(rank for rank, label in zip(ranks, labels) if label == positive_group) - n1 * (n1 + 1) / 2
     rank_biserial = 2 * u1 / (n1 * n2) - 1
     tie_counts = Counter(values)
     tie_term = sum(count ** 3 - count for count in tie_counts.values())
@@ -253,7 +362,18 @@ def mann_whitney(values: Sequence[float], groups: Sequence[str]) -> dict[str, fl
     continuity = 0.5 if u1 > n1 * n2 / 2 else (-0.5 if u1 < n1 * n2 / 2 else 0.0)
     z = (u1 - n1 * n2 / 2 - continuity) / math.sqrt(variance)
     p_value = math.erfc(abs(z) / math.sqrt(2))
-    return {"u": u1, "n1": n1, "n2": n2, "z": z, "p_value": p_value, "rank_biserial": rank_biserial}
+    return {
+        "u": u1,
+        "n1": n1,
+        "n2": n2,
+        "z": z,
+        "p_value": p_value,
+        "rank_biserial": rank_biserial,
+        "positive_group": positive_group,
+        "negative_group": negative_group,
+        "effect_sign": f"positive means larger values in {positive_group} than {negative_group}",
+        "p_value_method": "two-sided tie-corrected asymptotic normal approximation with continuity correction",
+    }
 
 
 def adjust_pvalues(p_values: Sequence[float], method: str) -> list[float]:

@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Sequence
 
 from .core import _validated_matrix
-from .errors import DependencyError, InputValidationError
+from .errors import DependencyError
 
 
 EXPECTED_ZCOMPOSITIONS_VERSION = "1.6.2"
@@ -21,6 +21,7 @@ def exact_czm(
     r_library: str | Path,
     rscript: str = "Rscript",
     runner: str | Path | None = None,
+    runtime_provenance: dict[str, object] | None = None,
 ) -> list[list[float]]:
     """Run the pinned R reference implementation; never approximate CZM."""
     values = _validated_matrix(matrix)
@@ -36,10 +37,14 @@ def exact_czm(
     with tempfile.TemporaryDirectory(prefix="shotgun-czm-") as temporary:
         input_path = Path(temporary) / "input.tsv"
         output_path = Path(temporary) / "output.tsv"
+        provenance_path = Path(temporary) / "runtime_provenance.tsv"
         with input_path.open("w", newline="", encoding="utf-8") as handle:
             writer = csv.writer(handle, delimiter="\t", lineterminator="\n")
             writer.writerows(values)
-        command = [rscript, "--vanilla", str(script), str(input_path), str(output_path), str(library)]
+        command = [
+            rscript, "--vanilla", str(script), str(input_path), str(output_path),
+            str(library), str(provenance_path),
+        ]
         try:
             completed = subprocess.run(command, check=False, capture_output=True, text=True, timeout=600)
         except (OSError, subprocess.TimeoutExpired) as exc:
@@ -52,8 +57,27 @@ def exact_czm(
                 output = [[float(value) for value in row] for row in csv.reader(handle, delimiter="\t")]
         except (OSError, ValueError) as exc:
             raise DependencyError("exact CZM produced malformed output") from exc
+        try:
+            with provenance_path.open(newline="", encoding="utf-8") as handle:
+                provenance_rows = list(csv.reader(handle, delimiter="\t"))
+            if any(len(row) != 2 or not row[0] or not row[1] for row in provenance_rows):
+                raise ValueError("malformed provenance row")
+            observed_runtime = {key: value for key, value in provenance_rows}
+        except (OSError, ValueError) as exc:
+            raise DependencyError("exact CZM did not produce complete runtime provenance") from exc
     if len(output) != len(values) or any(len(row) != len(values[0]) for row in output):
         raise DependencyError("exact CZM output dimensions differ from input")
     if any(cell <= 0 for row in output for cell in row):
         raise DependencyError("exact CZM output contains non-positive values")
+    required_runtime = {
+        "R_version", "effective_libPaths", "isolated_library",
+        "zCompositions_version", "zCompositions_path",
+        "NADA_version", "NADA_path", "truncnorm_version", "truncnorm_path",
+    }
+    missing_runtime = required_runtime - set(observed_runtime)
+    if missing_runtime:
+        raise DependencyError(f"exact CZM runtime provenance is incomplete: {sorted(missing_runtime)}")
+    if runtime_provenance is not None:
+        runtime_provenance.clear()
+        runtime_provenance.update(observed_runtime)
     return output

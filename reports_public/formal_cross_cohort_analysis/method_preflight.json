@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "generated_at": "2026-08-30",
   "status": "RUNTIME_EVIDENCE_REQUIRED_AFTER_NETWORK_RECOVERY",
   "decision": "STOP_BEFORE_BIOLOGICAL_EXECUTION",
@@ -9,6 +9,18 @@
     "package_version": "1.6.2",
     "parameters": {"label": 0, "method": "CZM", "output": "prop", "frac": 0.65, "threshold": 0.5, "adjust": true},
     "approximation_allowed": false
+  },
+  "required_runtime_provenance": {
+    "R_version": "4.5.3",
+    "zCompositions_version": "1.6.2",
+    "all_package_paths_inside_isolated_library": ["zCompositions", "NADA", "truncnorm"],
+    "record_versions": ["NADA", "truncnorm"],
+    "record_effective_libPaths": true
+  },
+  "permdisp_contract": {
+    "algorithm": "centroid distances with fixed-model least-squares residual permutations",
+    "reference_fixture": "tests/fixtures/permdisp_centroid_reference.json",
+    "vegan_runtime_equivalence_claimed": false
   },
   "isolated_installation": {
     "job_id": "20260825T140844Z-0714-zcompositions-1-6-2-isolated-install",
@@ -27,7 +39,8 @@
     "zCompositions resolves as exact version 1.6.2 from isolated target",
     "system R library package set and versions unchanged",
     "frozen synthetic CZM conformance passes twice",
-    "formal biological analysis authorization is externally visible"
+    "formal biological analysis authorization is externally visible",
+    "production contract and schema version 2.0.0 pass on synthetic fixtures"
   ],
   "biological_analysis_executed": false,
   "differential_abundance_executed": false,

@@ -6,13 +6,13 @@ explicit adapter in :mod:`shotgun_analysis.czm`.
 """
 
 from .core import (
+    additive_pseudocount,
     aitchison_distance,
     classified_fraction,
     close_composition,
     clr_transform,
     diversity_metrics,
     prevalence_filter,
-    pseudocount_replace,
 )
 from .errors import AnalysisError, DegenerateDesignError, DependencyError, InputValidationError
 
@@ -22,10 +22,10 @@ __all__ = [
     "DependencyError",
     "InputValidationError",
     "aitchison_distance",
+    "additive_pseudocount",
     "classified_fraction",
     "close_composition",
     "clr_transform",
     "diversity_metrics",
     "prevalence_filter",
-    "pseudocount_replace",
 ]

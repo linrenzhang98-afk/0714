@@ -1,37 +1,38 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/linrenzhang98-afk/0714/schemas/formal-cross-cohort-result-1.0.0.json",
+  "$id": "https://github.com/linrenzhang98-afk/0714/schemas/formal-cross-cohort-result-2.0.0.json",
   "title": "Cohort-specific formal shotgun ecology result",
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema_version",
-    "analysis_status",
-    "cohort",
-    "n",
-    "group_counts",
-    "feature_filter",
-    "zero_handling",
-    "beta_diversity",
-    "secondary_endpoints",
-    "secondary_contrasts",
-    "sample_metrics",
-    "interpretation_boundary",
-    "provenance"
+    "schema_version", "analysis_version", "execution_mode", "analysis_status", "analysis_role",
+    "cohort", "n", "qc_exclusions_before_analysis", "group_counts", "contrast_orientation",
+    "permutation_design", "feature_filter", "zero_handling", "zero_replacement_diagnostics",
+    "beta_diversity", "uncertainty_contract", "secondary_endpoints", "secondary_contrasts",
+    "sample_metrics", "interpretation_boundary", "provenance"
   ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
+    "schema_version": {"const": "2.0.0"},
+    "analysis_version": {"const": "2.0.0"},
+    "execution_mode": {"enum": ["development", "production"]},
     "analysis_status": {"enum": ["SYNTHETIC", "BIOLOGICAL"]},
+    "analysis_role": {"enum": ["SYNTHETIC_DEVELOPMENT", "PRIMARY", "FILTER_SENSITIVITY", "ZERO_METHOD_SENSITIVITY", "BRAY_CURTIS_SENSITIVITY"]},
     "cohort": {"type": "string", "minLength": 1},
     "n": {"type": "integer", "minimum": 4},
-    "group_counts": {
-      "type": "object",
-      "minProperties": 2,
-      "additionalProperties": {"type": "integer", "minimum": 2}
+    "qc_exclusions_before_analysis": {"type": "integer", "minimum": 0},
+    "group_counts": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "integer", "minimum": 2}},
+    "contrast_orientation": {"$ref": "#/$defs/orientation"},
+    "permutation_design": {
+      "type": "object", "additionalProperties": false,
+      "required": ["restriction", "block_cross_tabulation", "blocking_adjusts_split_or_batch_effect"],
+      "properties": {
+        "restriction": {"type": "string", "minLength": 1},
+        "block_cross_tabulation": {"type": ["object", "null"]},
+        "blocking_adjusts_split_or_batch_effect": {"const": false}
+      }
     },
     "feature_filter": {
-      "type": "object",
-      "additionalProperties": false,
+      "type": "object", "additionalProperties": false,
       "required": ["threshold", "input_features", "retained_features", "retained_feature_ids"],
       "properties": {
         "threshold": {"enum": [0.05, 0.1, 0.2]},
@@ -41,99 +42,141 @@
       }
     },
     "zero_handling": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["method"],
-      "properties": {"method": {"type": "string", "minLength": 1}}
+      "oneOf": [
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["zero_method", "implementation", "version", "parameters"],
+          "properties": {
+            "zero_method": {"const": "CZM"},
+            "implementation": {"const": "zCompositions::cmultRepl"},
+            "version": {"const": "1.6.2"},
+            "parameters": {
+              "type": "object", "additionalProperties": false,
+              "required": ["label", "method", "output", "frac", "threshold", "adjust"],
+              "properties": {
+                "label": {"const": 0}, "method": {"const": "CZM"},
+                "output": {"const": "prop"}, "frac": {"const": 0.65},
+                "threshold": {"const": 0.5}, "adjust": {"const": true}
+              }
+            }
+          }
+        },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["zero_method", "pseudocount", "applied_to"],
+          "properties": {
+            "zero_method": {"const": "additive_pseudocount"},
+            "pseudocount": {"const": 0.5},
+            "applied_to": {"const": "all_retained_features"}
+          }
+        },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["zero_method", "pseudocount", "applied_to"],
+          "properties": {
+            "zero_method": {"const": "none"},
+            "pseudocount": {"type": "null"},
+            "applied_to": {"const": "not_applicable"}
+          }
+        }
+      ]
+    },
+    "zero_replacement_diagnostics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["retained_taxa", "zero_cells", "zero_fraction_overall", "zero_fraction_per_sample", "zero_fraction_per_taxon", "replacement_perturbation_total_variation_per_sample", "replacement_applied", "used_for_exclusion"],
+      "properties": {
+        "retained_taxa": {"type": "integer", "minimum": 1},
+        "zero_cells": {"type": "integer", "minimum": 0},
+        "zero_fraction_overall": {"type": "number", "minimum": 0, "maximum": 1},
+        "zero_fraction_per_sample": {"type": "array", "items": {"type": "number", "minimum": 0, "maximum": 1}},
+        "zero_fraction_per_taxon": {"type": "array", "items": {"type": "object", "required": ["feature_id", "zero_fraction"], "properties": {"feature_id": {"type": "string"}, "zero_fraction": {"type": "number", "minimum": 0, "maximum": 1}}, "additionalProperties": false}},
+        "replacement_perturbation_total_variation_per_sample": {"type": "array", "items": {"type": "number", "minimum": 0, "maximum": 1}},
+        "replacement_applied": {"type": "boolean"},
+        "used_for_exclusion": {"const": false}
+      }
     },
     "beta_diversity": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["distance", "permanova", "permdisp"],
+      "type": "object", "additionalProperties": false,
+      "required": ["distance", "input_representation", "permanova", "permdisp", "centroid_distances", "ordination"],
       "properties": {
-        "distance": {"const": "Aitchison"},
+        "distance": {"enum": ["Aitchison", "Bray-Curtis"]},
+        "input_representation": {"type": "string"},
         "permanova": {"$ref": "#/$defs/permutation_test"},
-        "permdisp": {"$ref": "#/$defs/permutation_test"}
+        "permdisp": {"$ref": "#/$defs/permutation_test"},
+        "centroid_distances": {"type": "object"},
+        "ordination": {"type": ["object", "null"]}
       }
     },
+    "uncertainty_contract": {"type": "object", "required": ["permanova_effect", "permdisp_effect", "secondary_effects", "confidence_intervals_generated"], "properties": {"confidence_intervals_generated": {"const": false}}, "additionalProperties": {"type": ["string", "boolean"]}},
     "secondary_endpoints": {
-      "type": "object",
-      "required": ["richness", "shannon", "gini_simpson", "dominance", "classified_fraction"],
-      "additionalProperties": false,
-      "properties": {
-        "richness": {"$ref": "#/$defs/secondary_test"},
-        "shannon": {"$ref": "#/$defs/secondary_test"},
-        "gini_simpson": {"$ref": "#/$defs/secondary_test"},
-        "dominance": {"$ref": "#/$defs/secondary_test"},
-        "classified_fraction": {"$ref": "#/$defs/secondary_test"}
-      }
+      "type": "object", "required": ["richness", "shannon", "gini_simpson", "dominance", "classified_fraction"], "additionalProperties": false,
+      "properties": {"richness": {"$ref": "#/$defs/secondary_test"}, "shannon": {"$ref": "#/$defs/secondary_test"}, "gini_simpson": {"$ref": "#/$defs/secondary_test"}, "dominance": {"$ref": "#/$defs/secondary_test"}, "classified_fraction": {"$ref": "#/$defs/secondary_test"}}
     },
-    "secondary_contrasts": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["endpoint", "contrast", "test", "p_value", "p_adjusted_holm", "rank_biserial"],
-        "properties": {
-          "endpoint": {"type": "string"},
-          "contrast": {"type": "string"},
-          "test": {"const": "Mann-Whitney"},
-          "p_value": {"type": "number", "minimum": 0, "maximum": 1},
-          "p_adjusted_holm": {"type": "number", "minimum": 0, "maximum": 1},
-          "rank_biserial": {"type": "number", "minimum": -1, "maximum": 1}
-        },
-        "additionalProperties": {"type": ["number", "integer", "string"]}
-      }
-    },
+    "secondary_contrasts": {"type": "array", "items": {"type": "object", "required": ["endpoint", "contrast", "test", "p_value", "p_adjusted_holm", "rank_biserial", "positive_group", "negative_group", "confirmatory_interpretation_eligible"], "additionalProperties": {"type": ["number", "integer", "string", "boolean"]}}},
     "sample_metrics": {
-      "type": "array",
-      "minItems": 4,
+      "type": "array", "minItems": 4,
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["sample_id", "group", "richness", "shannon", "gini_simpson", "dominance", "classified_fraction"],
+        "type": "object", "additionalProperties": false,
+        "required": ["sample_id", "group", "richness", "shannon", "gini_simpson", "dominance", "classified_fraction", "total_input_reads", "classified_reads", "direct_species_assigned_reads", "centroid_distance", "zero_fraction_retained", "replacement_perturbation_total_variation"],
         "properties": {
-          "sample_id": {"type": "string", "minLength": 1},
-          "group": {"type": "string", "minLength": 1},
-          "richness": {"type": "integer", "minimum": 1},
-          "shannon": {"type": "number", "minimum": 0},
-          "gini_simpson": {"type": "number", "minimum": 0, "maximum": 1},
-          "dominance": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
-          "classified_fraction": {"type": "number", "minimum": 0, "maximum": 1}
+          "sample_id": {"type": "string", "minLength": 1}, "group": {"type": "string", "minLength": 1},
+          "richness": {"type": "integer", "minimum": 1}, "shannon": {"type": "number", "minimum": 0},
+          "gini_simpson": {"type": "number", "minimum": 0, "maximum": 1}, "dominance": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+          "classified_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+          "total_input_reads": {"type": "number", "exclusiveMinimum": 0},
+          "classified_reads": {"type": "number", "minimum": 0},
+          "direct_species_assigned_reads": {"type": "number", "exclusiveMinimum": 0},
+          "centroid_distance": {"type": "number", "minimum": 0},
+          "zero_fraction_retained": {"type": "number", "minimum": 0, "maximum": 1},
+          "replacement_perturbation_total_variation": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
         }
       }
     },
     "interpretation_boundary": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["classified_fraction_is_bacterial_biomass", "direct_species_is_classifier_defined_subcomposition"],
+      "type": "object", "additionalProperties": false,
+      "required": ["classified_fraction_is_bacterial_biomass", "classified_fraction_resolves_direct_species_depth_dependence", "richness_is_sequencing_effort_sensitive", "alpha_diversity_is_secondary", "direct_species_is_classifier_defined_subcomposition"],
       "properties": {
-        "classified_fraction_is_bacterial_biomass": {"const": false},
+        "classified_fraction_is_bacterial_biomass": {"const": false}, "classified_fraction_resolves_direct_species_depth_dependence": {"const": false},
+        "richness_is_sequencing_effort_sensitive": {"const": true}, "alpha_diversity_is_secondary": {"const": true},
         "direct_species_is_classifier_defined_subcomposition": {"const": true}
       }
     },
     "provenance": {"type": "object", "minProperties": 1}
   },
+  "allOf": [
+    {
+      "if": {"properties": {"execution_mode": {"const": "production"}}, "required": ["execution_mode"]},
+      "then": {
+        "properties": {
+          "analysis_status": {"const": "BIOLOGICAL"}, "qc_exclusions_before_analysis": {"const": 0},
+          "provenance": {"type": "object", "required": ["python", "manifest_sha256", "counts_sha256", "sample_qc_sha256", "czm_adapter_sha256", "implementation_commit", "method_runtime"]},
+          "beta_diversity": {"properties": {"permanova": {"properties": {"permutations": {"const": 9999}}}, "permdisp": {"properties": {"permutations": {"const": 9999}}}}}
+        },
+        "oneOf": [
+          {"properties": {"cohort": {"const": "PRJNA1056765"}, "n": {"const": 400}, "group_counts": {"const": {"Bacterial infection": 114, "Fungal infection": 78, "Lung cancer": 122, "Pulmonary tuberculosis": 86}}}},
+          {"properties": {"cohort": {"const": "PRJCA046985"}, "n": {"const": 130}, "group_counts": {"const": {"Drug_Resistance": 49, "Drug_Sensitive": 81}}}}
+        ]
+      },
+      "else": {"properties": {"analysis_status": {"const": "SYNTHETIC"}, "analysis_role": {"const": "SYNTHETIC_DEVELOPMENT"}}}
+    }
+  ],
   "$defs": {
+    "orientation": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["type", "levels", "signed_effect"], "properties": {"type": {"const": "omnibus"}, "levels": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string"}}, "signed_effect": {"const": false}}},
+        {"type": "object", "additionalProperties": false, "required": ["type", "positive_group", "negative_group", "effect_sign"], "properties": {"type": {"const": "binary"}, "positive_group": {"type": "string"}, "negative_group": {"type": "string"}, "effect_sign": {"type": "string"}}}
+      ]
+    },
     "permutation_test": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["statistic", "effect_size", "p_value", "permutations", "seed", "df_between", "df_within", "group_counts"],
+      "type": "object", "additionalProperties": false,
+      "required": ["statistic", "effect_size", "p_value", "permutations", "seed", "df_between", "df_within", "group_counts", "algorithm"],
       "properties": {
-        "statistic": {"type": "number", "minimum": 0},
-        "effect_size": {"type": "number", "minimum": 0, "maximum": 1},
-        "p_value": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
-        "permutations": {"type": "integer", "minimum": 1},
-        "seed": {"type": "integer"},
-        "df_between": {"type": "integer", "minimum": 1},
-        "df_within": {"type": "integer", "minimum": 1},
-        "group_counts": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "integer", "minimum": 2}}
+        "statistic": {"type": "number", "minimum": 0}, "effect_size": {"type": "number", "minimum": 0, "maximum": 1},
+        "p_value": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}, "permutations": {"type": "integer", "minimum": 1},
+        "seed": {"type": "integer"}, "df_between": {"type": "integer", "minimum": 1}, "df_within": {"type": "integer", "minimum": 1},
+        "group_counts": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "integer", "minimum": 2}}, "algorithm": {"type": "string", "minLength": 1}
       }
     },
-    "secondary_test": {
-      "type": "object",
-      "required": ["test"],
-      "properties": {"test": {"enum": ["Kruskal-Wallis", "Mann-Whitney"]}},
-      "additionalProperties": {"type": ["number", "integer", "string"]}
-    }
+    "secondary_test": {"type": "object", "required": ["test", "p_value", "p_adjusted_holm"], "properties": {"test": {"enum": ["Kruskal-Wallis", "Mann-Whitney"]}}, "additionalProperties": {"type": ["number", "integer", "string", "boolean"]}}
   }
 }

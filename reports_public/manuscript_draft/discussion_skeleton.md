@@ -4,11 +4,11 @@
 
 ### STRONG
 
-Both cohort-specific analyses show material, representation-robust community organization with acceptable dispersion behavior. State both effect sizes and uncertainties, name the different clinical contrasts in every synthesis sentence, and conclude only that community-level ecological organization was informative under a shared measurement grammar.
+Both cohort-specific analyses show material, representation-robust community structure with acceptable dispersion behavior. State point effect sizes and permutation evidence, name the different clinical contrasts in every synthesis sentence, and conclude only that the same measurement definition produced informative contrast-specific community results.
 
 ### MODEST
 
-At least one primary association is small but coherent across prespecified representations and secondary ecology. Lead with bounded effect magnitude and substantial within-group heterogeneity. Frame the common contribution as reproducible measurement and qualified ecological organization, not strong clinical separation.
+At least one primary association is small but coherent across prespecified representations and secondary ecology. Lead with effect magnitude and substantial within-group heterogeneity. Frame the common contribution as reproducible measurement and context-specific community structure, not strong clinical separation.
 
 ### NULL
 
@@ -24,11 +24,11 @@ Community geometry and individual taxa answer different questions. A community a
 
 ## Heterogeneous clinical contrasts
 
-The anchor compares four published pulmonary diagnoses; the external cohort compares TB drug-resistance categories. Their effects are not exchangeable. Side-by-side behavior can demonstrate that the ecological framework remains informative—or not—under distinct pulmonary contexts, but cannot establish replication, a common clinical coefficient or formal meta-analysis.
+The two-resolution design compares between-diagnosis structure in the anchor with within-TB drug-resistance structure in the external cohort. Their effects are not exchangeable. Ecological generalizability is assessed operationally: the same measurement definition must work without cohort-specific redesign; each cohort must yield interpretable contrast-labelled magnitude and dispersion estimates; representation dependence must be stable or transparent; and observability and technical limitations must be comparable. It does not establish a common direction, coefficient, taxon set, signature, mechanism or formal meta-analysis.
 
 ## Classifier-dependent subcomposition and technical provenance
 
-Direct species assignments are conditioned on the Kraken2 database, grammar and reads available to classification. The shared layer improves measurement consistency but does not harmonize extraction, host depletion, read architecture or library batch. Low and variable classified fractions further narrow inference. Because classified fraction is not bacterial biomass, any association with clinical groups must be treated as technical classifier yield and possible feature-generation confounding.
+Direct species assignments are conditioned on the Kraken2 database, report semantics and reads available to classification. The shared layer improves measurement consistency but does not harmonize extraction, host depletion, read architecture or library batch. Low and variable classified fractions further narrow inference. Because classified fraction is not bacterial biomass, any association with clinical groups must be treated as technical classifier yield and possible feature-generation confounding.
 
 ## Covariates and controls
 
@@ -40,4 +40,4 @@ A third cohort is optional rather than mandatory because the current claim conce
 
 ## Closing template
 
-[FINAL_BRANCH-SPECIFIC_SENTENCE]. Together, the findings define what can be learned from a common BALF classifier-assignment grammar while preserving the distinction between ecological generalizability and clinical replication.
+[FINAL_BRANCH-SPECIFIC_SENTENCE]. Together, the findings define what can be learned from common BALF classifier-assignment definitions while keeping ecological generalizability distinct from clinical replication.

@@ -1,6 +1,7 @@
 {
-  "schema_version": 2,
-  "freeze_status": "DOWNTIME_IMPLEMENTATION_READY_RUNTIME_EVIDENCE_PENDING",
+  "schema_version": 3,
+  "analysis_version": "2.0.0",
+  "freeze_status": "PREBIOLOGICAL_BLOCKERS_FIXED_RUNTIME_EVIDENCE_PENDING",
   "frozen_on": "2026-08-30",
   "biological_analysis_executed": false,
   "etty_accessed": false,
@@ -32,7 +33,12 @@
       "groups": {"Bacterial infection": 114, "Fungal infection": 78, "Lung cancer": 122, "Pulmonary tuberculosis": 86},
       "estimand": "four-level published-diagnosis association with BALF species composition",
       "permutation_restriction": "within frozen published Training/Test strata",
-      "secondary_contrasts": ["Lung cancer vs Bacterial infection", "Lung cancer vs Fungal infection", "Lung cancer vs Pulmonary tuberculosis"]
+      "source_population": 402,
+      "availability_exclusions": [
+        {"run": "SRR27343810", "patient_id": "20210709MCX011", "diagnosis": "Fungal infection", "reason": "size_MB=0; no reads available"},
+        {"run": "SRR27343463", "patient_id": "20211125MCX012", "diagnosis": "Lung cancer", "reason": "size_MB=0; no reads available"}
+      ],
+      "secondary_contrasts": ["Lung cancer minus Bacterial infection", "Lung cancer minus Fungal infection", "Lung cancer minus Pulmonary tuberculosis"]
     },
     "external": {
       "project": "PRJCA046985",
@@ -51,10 +57,16 @@
       "parameters": {"label": 0, "method": "CZM", "output": "prop", "frac": 0.65, "threshold": 0.5, "adjust": true},
       "approximation_allowed": false
     },
-    "sensitivity": {"method": "fixed direct-read pseudocount", "value": 0.5, "may_replace_primary": false}
+    "sensitivity": {"method": "additive_pseudocount", "value": 0.5, "applied_to": "all_retained_features", "may_replace_primary": false}
   },
   "geometry": {"closure": "row sum one", "transformation": "CLR", "distance": "Euclidean in CLR space (Aitchison)"},
-  "permutations": {"permanova": 9999, "permdisp": 9999, "deterministic": true},
+  "permutations": {
+    "permanova": 9999,
+    "permdisp": 9999,
+    "permdisp_algorithm": "observed distances to group centroids; least-squares residual permutation under the fixed one-way model",
+    "deterministic": true,
+    "streaming": true
+  },
   "seed_registry": {
     "anchor_primary_permanova": 105676510,
     "anchor_primary_permdisp": 105676511,
@@ -63,12 +75,20 @@
     "sensitivity_rule": "primary 10%-CZM uses base; other CZM filters add prevalence*10000; pseudocount cells add 100000+prevalence*10000"
   },
   "secondary_endpoints": ["richness", "Shannon", "Gini-Simpson", "dominance", "Kraken2 classified fraction"],
-  "multiplicity": {"anchor_secondary": "Holm across 3 contrasts x 5 endpoints", "external_secondary": "Holm across 5 endpoints", "future_exploratory_taxa": "Benjamini-Hochberg separately by cohort/rank/family"},
+  "contrast_orientation": {
+    "anchor_secondary": "positive=Lung cancer; negative=named infection group",
+    "external": "positive=Drug_Resistance; negative=Drug_Sensitive"
+  },
+  "post_omnibus": "all fixed contrasts calculated; endpoint-specific confirmatory interpretation only when corresponding Holm-adjusted five-endpoint omnibus P<=0.05",
+  "bray_sensitivity": "10% only; sample-wise proportions of retained direct-species counts; no zero replacement; cohort-specific PERMANOVA plus residual-permutation PERMDISP; negative signed squared centroid distances set to zero and counted",
+  "uncertainty": "point effects plus complete sensitivity grid and centroid-distance summaries; no confidence intervals",
+  "multiplicity": {"anchor_omnibus": "Holm across 5 endpoints", "anchor_secondary": "Holm across 3 contrasts x 5 endpoints", "external_secondary": "Holm across 5 endpoints", "future_exploratory_taxa": "Benjamini-Hochberg separately by cohort/rank/family"},
   "implementation": {
     "python_package": "shotgun_analysis",
     "entry_point": "scripts/run_formal_cross_cohort_analysis.py",
     "grid_entry_point": "scripts/run_formal_cross_cohort_grid.py",
     "r_czm_adapter": "shotgun_analysis/run_czm.R",
+    "expected_isolated_r_library": "/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3",
     "result_schema": "reports_public/formal_cross_cohort_analysis/result_schema.json",
     "synthetic_tests": "tests/test_shotgun_formal_analysis.py"
   },

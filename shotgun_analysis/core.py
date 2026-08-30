@@ -88,15 +88,22 @@ def prevalence_filter(
     )
 
 
-def pseudocount_replace(matrix: Sequence[Sequence[Number]], value: float = 0.5) -> list[list[float]]:
+def additive_pseudocount(matrix: Sequence[Sequence[Number]], value: float = 0.5) -> list[list[float]]:
+    """Add ``value`` to every retained component, including non-zero counts."""
     values = _validated_matrix(matrix)
     if not math.isfinite(value) or value <= 0:
         raise InputValidationError("pseudocount must be finite and positive")
-    return [[value if cell == 0 else cell for cell in row] for row in values]
+    return [[cell + value for cell in row] for row in values]
 
 
 def close_composition(matrix: Sequence[Sequence[Number]]) -> list[list[float]]:
     values = _validated_matrix(matrix, positive=True)
+    return [[cell / sum(row) for cell in row] for row in values]
+
+
+def relative_abundance(matrix: Sequence[Sequence[Number]]) -> list[list[float]]:
+    """Close non-negative counts while retaining observed zeros."""
+    values = _validated_matrix(matrix)
     return [[cell / sum(row) for cell in row] for row in values]
 
 
@@ -202,3 +209,128 @@ def validate_distance_matrix(distance: Sequence[Sequence[Number]], tolerance: fl
             if abs(values[i][j] - values[j][i]) > tolerance:
                 raise InputValidationError("distance matrix must be symmetric")
     return values
+
+
+def zero_replacement_diagnostics(
+    original: Sequence[Sequence[Number]],
+    replaced: Sequence[Sequence[Number]] | None,
+    feature_names: Sequence[str],
+) -> dict[str, object]:
+    """Describe zero burden and representation perturbation without exclusions.
+
+    Perturbation is total-variation distance between closure of the original
+    retained counts (zeros allowed) and closure of the replacement output.
+    It is a descriptive QC quantity, not an outcome or exclusion rule.
+    """
+    before = _validated_matrix(original)
+    if len(feature_names) != len(before[0]):
+        raise InputValidationError("replacement diagnostics feature names do not match matrix width")
+    n_samples = len(before)
+    n_taxa = len(before[0])
+    sample_zero_fraction = [sum(cell == 0 for cell in row) / n_taxa for row in before]
+    taxon_zero_fraction = [sum(row[j] == 0 for row in before) / n_samples for j in range(n_taxa)]
+    total_variation: list[float] = []
+    if replaced is not None:
+        after = _validated_matrix(replaced, positive=True)
+        if len(before) != len(after) or any(len(a) != len(b) for a, b in zip(before, after)):
+            raise InputValidationError("replacement diagnostics require matching matrix dimensions")
+        before_closed = relative_abundance(before)
+        after_closed = close_composition(after)
+        total_variation = [
+            0.5 * sum(abs(left - right) for left, right in zip(raw, replacement))
+            for raw, replacement in zip(before_closed, after_closed)
+        ]
+    return {
+        "retained_taxa": n_taxa,
+        "zero_cells": sum(cell == 0 for row in before for cell in row),
+        "zero_fraction_overall": sum(cell == 0 for row in before for cell in row) / (n_samples * n_taxa),
+        "zero_fraction_per_sample": sample_zero_fraction,
+        "zero_fraction_per_taxon": [
+            {"feature_id": str(feature), "zero_fraction": fraction}
+            for feature, fraction in zip(feature_names, taxon_zero_fraction)
+        ],
+        "replacement_perturbation_total_variation_per_sample": total_variation,
+        "replacement_applied": replaced is not None,
+        "used_for_exclusion": False,
+    }
+
+
+def deterministic_pca(
+    coordinates: Sequence[Sequence[Number]],
+    *,
+    axes: int = 5,
+    tolerance: float = 1e-11,
+    max_iterations: int = 2000,
+) -> dict[str, object]:
+    """Deterministic leading PCA axes for Euclidean CLR coordinates.
+
+    PCA of sample-centred CLR coordinates is equivalent to principal
+    coordinates analysis of their Euclidean (Aitchison) distances. A fixed
+    power-iteration start and sign convention make the figure coordinates
+    reproducible without a numerical-library dependency.
+    """
+    if not coordinates or not coordinates[0] or axes < 1:
+        raise InputValidationError("ordination requires non-empty coordinates and at least one axis")
+    width = len(coordinates[0])
+    values = [[float(cell) for cell in row] for row in coordinates]
+    if any(len(row) != width for row in values) or any(not math.isfinite(cell) for row in values for cell in row):
+        raise InputValidationError("ordination coordinates must be finite and rectangular")
+    n = len(values)
+    means = [sum(row[j] for row in values) / n for j in range(width)]
+    centred = [[row[j] - means[j] for j in range(width)] for row in values]
+    total_inertia = sum(cell * cell for row in centred for cell in row)
+    if total_inertia <= 0:
+        raise InputValidationError("ordination is degenerate")
+
+    def gram_multiply(vector: Sequence[float]) -> list[float]:
+        feature_projection = [sum(centred[i][j] * vector[i] for i in range(n)) for j in range(width)]
+        return [sum(centred[i][j] * feature_projection[j] for j in range(width)) for i in range(n)]
+
+    eigenvectors: list[list[float]] = []
+    eigenvalues: list[float] = []
+    for axis in range(min(axes, n - 1, width)):
+        vector = [math.sin((i + 1) * (axis + 1) * 0.731) + math.cos((i + 1) * 0.317) for i in range(n)]
+        for prior in eigenvectors:
+            projection = sum(a * b for a, b in zip(vector, prior))
+            vector = [a - projection * b for a, b in zip(vector, prior)]
+        norm = math.sqrt(sum(value * value for value in vector))
+        if norm <= tolerance:
+            continue
+        vector = [value / norm for value in vector]
+        for _ in range(max_iterations):
+            updated = gram_multiply(vector)
+            for prior in eigenvectors:
+                projection = sum(a * b for a, b in zip(updated, prior))
+                updated = [a - projection * b for a, b in zip(updated, prior)]
+            updated_norm = math.sqrt(sum(value * value for value in updated))
+            if updated_norm <= tolerance:
+                break
+            updated = [value / updated_norm for value in updated]
+            if sum(a * b for a, b in zip(updated, vector)) < 0:
+                updated = [-value for value in updated]
+            delta = math.sqrt(sum((a - b) ** 2 for a, b in zip(updated, vector)))
+            vector = updated
+            if delta <= tolerance:
+                break
+        eigenvalue = sum(a * b for a, b in zip(vector, gram_multiply(vector)))
+        if eigenvalue <= tolerance:
+            continue
+        max_index = max(range(n), key=lambda index: abs(vector[index]))
+        if vector[max_index] < 0:
+            vector = [-value for value in vector]
+        eigenvectors.append(vector)
+        eigenvalues.append(eigenvalue)
+    if not eigenvalues:
+        raise InputValidationError("ordination retained no positive axes")
+    scores = [
+        [math.sqrt(eigenvalue) * eigenvectors[axis][i] for axis, eigenvalue in enumerate(eigenvalues)]
+        for i in range(n)
+    ]
+    return {
+        "method": "PCA of sample-centred CLR coordinates (Aitchison PCoA equivalent)",
+        "axis_labels": [f"PCoA{index + 1}" for index in range(len(eigenvalues))],
+        "eigenvalues": eigenvalues,
+        "explained_fraction": [value / total_inertia for value in eigenvalues],
+        "coordinates": scores,
+        "deterministic_sign_rule": "largest-absolute sample score is positive",
+    }

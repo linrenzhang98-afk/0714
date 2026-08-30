@@ -2,7 +2,7 @@
 
 ## Direction 1 — conservative
 
-**Cohort-specific lower-airway microbial community structure under a common BALF shotgun metagenomic measurement framework**
+**Two-resolution lower-airway microbial community structure under a common BALF shotgun classifier layer**
 
 - Strength: exactly describes separate inference and shared measurement.
 - Weakness: long and method-forward.
@@ -11,20 +11,20 @@
 
 ## Direction 2 — balanced
 
-**Clinical-state-associated ecological organization in two independently analyzed BALF shotgun metagenomic cohorts**
+**Between-diagnosis and within-tuberculosis community structure in two BALF shotgun metagenomic cohorts**
 
 - Strength: gives the biological question prominence while preserving cohort separation.
-- Weakness: “clinical state” is broad and must be unpacked immediately as diagnosis versus TB resistance status.
+- Weakness: the common measurement and robustness contribution is not visible in the title.
 - Likely reviewer concern: readers may initially assume a common contrast; the abstract must state that estimands differ.
 - Journal positioning: realistic microbiome, pulmonary infection, or translational respiratory journal if effects are coherent and robust.
 
-## Direction 3 — ambitious but bounded
+## Direction 3 — ambitious
 
-**Cross-cohort ecological architecture of the lower-airway microbiome from BALF shotgun metagenomics**
+**Measurement-consistent lower-airway community ecology across distinct pulmonary clinical contrasts**
 
 - Strength: concise, integrative and figure-compatible.
-- Weakness: “architecture” can sound stronger than two cohorts warrant.
-- Likely reviewer concern: whether cross-cohort synthesis extends beyond classifier-level comparability and descriptive concordance.
+- Weakness: “across” may still imply a common effect unless the subtitle or abstract names the two resolutions.
+- Likely reviewer concern: whether synthesis extends beyond classifier-level comparability and descriptive concordance.
 - Journal positioning: broader microbial ecology or respiratory journal only with material, representation-robust community findings and a strong limitations treatment.
 
 Avoid “universal,” “biomarker,” “validation,” “replicated signature,” “causal,” and “multicenter.”

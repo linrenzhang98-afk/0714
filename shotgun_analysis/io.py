@@ -27,6 +27,11 @@ def load_tsv(path: str | Path) -> list[dict[str, str]]:
         reader = csv.DictReader(handle, delimiter="\t")
         if not reader.fieldnames or any(not name for name in reader.fieldnames):
             raise InputValidationError(f"missing or malformed header: {source}")
+        duplicate_headers = sorted(
+            name for name, count in Counter(reader.fieldnames).items() if count > 1
+        )
+        if duplicate_headers:
+            raise InputValidationError(f"duplicate TSV header columns: {duplicate_headers}")
         rows = list(reader)
     if not rows:
         raise InputValidationError(f"TSV has no data rows: {source}")
@@ -148,3 +153,33 @@ def validate_sample_alignment(manifest_ids: Sequence[str], count_ids: Sequence[s
     unexpected = sorted(counts - manifest)
     if missing or unexpected:
         raise InputValidationError(f"sample mismatch: missing={missing}, unexpected={unexpected}")
+
+
+def unique_row_index(
+    rows: Sequence[Mapping[str, str]],
+    key_column: str,
+    *,
+    record_label: str = "row",
+) -> dict[str, Mapping[str, str]]:
+    """Build a fail-closed index without last-row-wins duplicate collapse."""
+    if not rows or key_column not in rows[0]:
+        raise InputValidationError(f"{record_label} table is missing key column {key_column}")
+    values = [str(row.get(key_column, "")).strip() for row in rows]
+    if any(not value for value in values):
+        raise InputValidationError(f"blank {record_label} identifier in column {key_column}")
+    duplicates = sorted(value for value, count in Counter(values).items() if count > 1)
+    if duplicates:
+        conflicting = []
+        for duplicate in duplicates:
+            normalized = {
+                tuple(sorted((str(key), str(value)) for key, value in row.items()))
+                for row in rows
+                if str(row.get(key_column, "")).strip() == duplicate
+            }
+            if len(normalized) > 1:
+                conflicting.append(duplicate)
+        detail = f"duplicate {record_label} IDs: {duplicates}"
+        if conflicting:
+            detail += f"; conflicting metadata for: {conflicting}"
+        raise InputValidationError(detail)
+    return {value: row for value, row in zip(values, rows)}

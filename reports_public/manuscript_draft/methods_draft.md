@@ -2,11 +2,11 @@
 
 ## Study design
 
-We performed a retrospective analysis of two public bronchoalveolar lavage fluid (BALF) shotgun metagenomic cohorts. Each cohort was treated as an independent analytical population with its own clinical estimand. No pooled 530-sample clinical matrix or common coefficient was constructed.
+We performed a retrospective, two-resolution analysis of two public bronchoalveolar lavage fluid (BALF) shotgun metagenomic cohorts. The anchor addressed between-diagnosis community structure, whereas the external cohort addressed within-TB drug-resistance structure. Each remained an independent analytical population; no pooled 530-sample clinical matrix or common coefficient was constructed.
 
 ## Cohort selection
 
-PRJNA1056765 served as the anchor because a deterministic mapping connected one available DNA shotgun run to each of 400 unique patients with published diagnostic and Training/Test labels. PRJCA046985 served as an external ecological cohort because one DNA run per 130 unique subjects could be mapped to independently documented tuberculosis drug-resistance status. Other candidates remained parked because they lacked an auditable accession-to-phenotype bridge, compatible specimen/modality, adequate contrast, or bounded acquisition justification. A third cohort was not required for the prespecified two-cohort ecological question.
+PRJNA1056765 served as the anchor. The published source contained 402 mapped patients; repository availability records showed that SRR27343810 (Fungal infection) and SRR27343463 (Lung cancer) had `size_MB=0` and no available reads. The analytical population therefore comprised the 400 available DNA runs, each deterministically linked to one unique patient and published diagnostic and Training/Test labels. PRJCA046985 contributed one DNA run for each of 130 subjects with independently documented tuberculosis drug-resistance status. Other candidates remained parked because they lacked an auditable accession-to-phenotype bridge, compatible specimen or an adequate independent contrast.
 
 ## BALF shotgun data provenance and clinical grouping
 
@@ -26,21 +26,23 @@ Detection was defined as a positive species direct count. Within each cohort ind
 
 ## Compositional analysis and CZM zero handling
 
-For the primary analysis, zeros were replaced with `zCompositions::cmultRepl` version 1.6.2 using `label=0`, `method="CZM"`, `output="prop"`, `frac=0.65`, `threshold=0.5`, and `adjust=TRUE`. Runtime version and a synthetic conformance vector had to pass before biological execution. No approximation of CZM was permitted. As a fixed sensitivity, 0.5 direct read was added to every retained feature; this sensitivity could not replace a missing primary CZM analysis.
+For the primary analysis, zeros were replaced with `zCompositions::cmultRepl` version 1.6.2 using `label=0`, `method="CZM"`, `output="prop"`, `frac=0.65`, `threshold=0.5`, and `adjust=TRUE`. R 4.5.3, package versions, effective library paths and the resolved paths of zCompositions, NADA and truncnorm had to pass before biological execution. All three packages had to resolve inside the frozen isolated library at `/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3`, which had to be first in `.libPaths()`. No approximation of CZM was permitted. As a fixed sensitivity, 0.5 was added to every retained feature count, including nonzero counts, before closure and CLR. This additive sensitivity could not replace a missing primary CZM analysis.
 
 After zero replacement, every sample was closed to unit sum. We computed the centered log-ratio (CLR) as the natural logarithm of each component minus the within-sample mean log component. Euclidean distance between CLR vectors was the Aitchison distance.
 
 ## PERMANOVA and restricted permutations
 
-For PRJNA1056765, the primary model tested the four-level published diagnosis with 9,999 deterministic permutations restricted within the frozen published Training/Test strata. For PRJCA046985, the primary model tested Drug_Resistance versus Drug_Sensitive status with 9,999 deterministic permutations. Pseudo-F, R², permutation P, feature count, group sizes and seed were reported. A collection-year anchor sensitivity or nominal 50/75-nt external sensitivity was admissible only if mapping was complete, groups were represented and the model remained full-rank; marginal rather than order-dependent claims were required.
+For PRJNA1056765, the primary model tested four-level published diagnosis with 9,999 deterministic label permutations restricted within the published Training/Test blocks. Every diagnosis required at least two observations per block. Blocking defined exchangeable labels but did not adjust for split or batch effects. For PRJCA046985, the primary model tested Drug_Resistance versus Drug_Sensitive status with 9,999 unrestricted deterministic permutations. Pseudo-F, point R², permutation P, feature count, group sizes and seed were reported.
+
+The anchor collection-year sensitivity was defined as the marginal diagnosis term in `Aitchison distance ~ collection_year + diagnosis`, evaluated by reduced-model residual permutation within Training/Test blocks. The external read-length sensitivity was the marginal resistance-status term in `Aitchison distance ~ nominal_read_length + resistance_status`, also evaluated by reduced-model residual permutation. Either sensitivity was recorded as not run if its technical labels were incomplete, group representation was inadequate or the design was singular. Neither replaced the primary model.
 
 ## PERMDISP
 
-Every PERMANOVA was paired with a 9,999-permutation PERMDISP test on the identical sample set and distance matrix. Distance-to-centroid summaries, statistic, effect and P value were retained. When group dispersion differed materially, the corresponding community result was described as location and/or dispersion structure rather than an unqualified centroid shift.
+Every PERMANOVA was paired with PERMDISP on the identical samples and distances. Observed distances were calculated from each sample to its group centroid. Their one-way ANOVA supplied the observed F statistic and eta-squared. For the permutation test, least-squares residuals from this fixed one-way model were permuted 9,999 times under the cohort-specific exchangeability restriction, the same design was refitted and F was recomputed. Group labels and centroids were not recalculated during permutations. The implementation was checked against a locked synthetic explicit-permutation reference derived from the Anderson/vegan centroid residual procedure; equivalence to a particular vegan run was not asserted without matching its permutation matrix. Material dispersion differences required location-and/or-dispersion wording.
 
 ## Alpha-diversity metrics
 
-Metrics were calculated from each sample's unfiltered direct-species counts. Richness was the number of species with a positive count. Shannon entropy was `-sum(p log p)`, Gini-Simpson diversity was `1-sum(p²)`, and dominance was the largest species proportion. The anchor used Kruskal-Wallis omnibus tests with epsilon-squared effects; the three frozen post-omnibus lung-cancer contrasts used two-sided Wilcoxon rank-sum tests with rank-biserial effects. The external cohort used the corresponding two-group Wilcoxon tests.
+Metrics were calculated from each sample's unfiltered direct-species counts. Richness was the number of species with a positive count. Shannon entropy was `-sum(p log p)`, Gini-Simpson diversity was `1-sum(p²)`, and dominance was the largest species proportion. These were secondary endpoints. Richness is sequencing-effort sensitive, and classified fraction does not correct its dependence on direct-species assigned depth; all alpha-diversity findings were therefore interpreted with sample-level sequencing and classification QC. The anchor used Kruskal-Wallis omnibus tests with epsilon-squared effects. All 15 fixed lung-cancer contrasts were calculated, but confirmatory interpretation was endpoint-specific and required the corresponding omnibus Holm-adjusted P value to be at most 0.05. Rank-biserial signs represented Lung cancer minus the named infection group. External signs represented Drug_Resistance minus Drug_Sensitive.
 
 ## Technical classified-fraction endpoint
 
@@ -48,15 +50,15 @@ Classified fraction was the number of reads classified by Kraken2 divided by tot
 
 ## Bray-Curtis sensitivity layer
 
-Bray-Curtis was retained as a prespecified sensitivity because it answers a related but distinct representation question. Replayed cohort-specific tests used the same feature threshold and paired PERMANOVA/PERMDISP logic. The previously verified 999-permutation artifact was preserved; a 9,999-permutation replay could supplement it without overwriting provenance.
+Bray-Curtis was one prespecified technical sensitivity per cohort. It used the 10%-prevalence direct-species features converted to sample-wise proportions, with no zero replacement, followed by 9,999-permutation PERMANOVA and residual-permutation PERMDISP. For this non-Euclidean comparator, negative signed squared point-to-centroid distances were set to zero and counted in the output. It was not crossed with other prevalence thresholds or zero methods. The earlier 999-permutation artifact remained separate provenance.
 
 ## Cross-cohort synthesis
 
-Synthesis used contrast-labelled cohort-level estimates: PERMANOVA R², dispersion qualification, ecological endpoint effects, filter stability and prevalence-set overlap. Raw matrices, coefficients and P values were not pooled. Similar behavior was interpreted as qualified ecological generalizability under a common measurement grammar, not replication of a shared clinical effect.
+Synthesis used contrast-labelled cohort estimates: PERMANOVA R², dispersion, secondary ecological effects, representation stability and prevalence-set overlap. Ecological generalizability required use of the same measurement without cohort-specific redesign, interpretable cohort-specific effects, transparent representation dependence and comparable observability and technical limits. It did not imply a common direction, coefficient, taxon set, signature or mechanism. Raw matrices, coefficients and P values were not pooled.
 
 ## Multiplicity control
 
-Holm adjustment controlled the complete 15-test anchor family (three prespecified contrasts by five endpoints) and the five external endpoint tests. Sensitivity cells were displayed in full rather than selected by significance. If separately authorized, exploratory taxon-level analyses would apply Benjamini-Hochberg correction separately by cohort, rank and test family.
+Holm adjustment controlled the five anchor omnibus endpoint tests, the complete 15-test anchor contrast family and the five external endpoint tests as separate families. Sensitivity cells were displayed in full rather than selected by significance. If separately authorized, exploratory taxon-level analyses would apply Benjamini-Hochberg correction separately by cohort, rank and test family.
 
 ## Differential-abundance exploratory status
 
@@ -64,7 +66,7 @@ Differential abundance was not part of the primary analysis. The prospectively p
 
 ## Software and reproducibility
 
-Production orchestration was implemented in the repository's `shotgun_analysis` package and `scripts/run_formal_cross_cohort_analysis.py`. Exact CZM was delegated to a fail-closed R adapter requiring zCompositions 1.6.2. Deterministic seeds, strict manifests, machine-readable JSON, compact TSVs, input hashes and method versions were retained. During preparation, only synthetic fake sample identifiers and synthetic count matrices were used.
+Production orchestration was implemented in the repository's `shotgun_analysis` package and `scripts/run_formal_cross_cohort_analysis.py`. Exact CZM was delegated to a fail-closed R adapter requiring zCompositions 1.6.2 from the isolated library. Deterministic seeds, strict manifests, cross-field result validation, compact TSVs, input hashes and method versions were recorded. Aitchison ordination used deterministic PCA of sample-centred CLR coordinates. Zero burden and total-variation perturbation were descriptive QC and never exclusion criteria. Point effect estimates were reported without confidence intervals; no unvalidated bootstrap procedure was added. Preparation used synthetic identifiers and matrices only.
 
 ## Statistical interpretation boundaries
 

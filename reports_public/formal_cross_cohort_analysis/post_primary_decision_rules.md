@@ -4,7 +4,7 @@ Decisions use the whole prespecified evidence pattern, never `P < 0.05` alone an
 
 ## GO_TO_EXPLORATORY_DA
 
-This branch requires all of the following: inputs and method provenance pass; the 10% CZM primary shows a nontrivial, reportable cohort-specific association or a coherent ecological pattern worth localizing; PERMDISP is absent or the location/dispersion limitation is explicitly acceptable; direction/magnitude is not an isolated 10% artifact across 5% and 20%; Aitchison versus Bray-Curtis behavior is scientifically interpretable; and classified fraction does not provide a compelling technical explanation for the entire pattern. DA remains separately authorized, cohort-specific and exploratory with ANCOM-BC2 plus ALDEx2 sensitivity.
+This branch requires all of the following: inputs and method provenance pass; the 10% CZM primary yields an effect magnitude that is reported as scientifically meaningful with an explicit rationale rather than a P-value threshold alone; there is no material dispersion qualification or that limitation is explicitly accepted; the effect is not confined to one prevalence/zero cell; the single 10% Bray-Curtis comparator is interpretable; and sequencing/classification QC does not provide a compelling technical account of the pattern. Terms such as “meaningful” and “material” must be justified from effect magnitude, centroid-distance distributions and complete sensitivity output, never used to choose a favorable cell. DA remains separately authorized, cohort-specific and exploratory.
 
 ## NO_DA_NEEDED
 
