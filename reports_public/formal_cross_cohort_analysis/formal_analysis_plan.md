@@ -1,53 +1,56 @@
-# Formal cross-cohort analysis plan — method preflight stop
+# Prospective formal cross-cohort analysis plan
 
-## Decision
+## Status and immutable boundary
 
-The formal biological/statistical analysis is **not queued**. Execution stopped before reading outcome matrices because the authorized primary zero-handling method is not reproducibly available in the reviewed execution environment.
+This plan is frozen during workstation downtime. It prepares, but does not execute, biological analysis. `BIOLOGICAL_ANALYSIS_EXECUTED=false`. The previously queued isolated installation of zCompositions 1.6.2 has unknown status and is neither assumed complete nor changed here. No ETYY connection or job was used.
 
-The frozen scientific gate requires exact count-zero multiplicative replacement (CZM), with a named and version-pinned implementation. The canonical reviewed implementation is `zCompositions::cmultRepl(..., method = "CZM")`. Repository-wide inspection found only the prospective CZM recommendation, not executable CZM code. The existing ETYY inventory verifies Python and classifier executables but does not establish an R runtime or an installed `zCompositions` version. Installing software is outside this authorization. A home-grown approximation and substitution of the authorized 0.5-pseudocount sensitivity would both violate the gate.
+The analytical universe contains two separate cohorts: PRJNA1056765 (400 unique BALF patients) and PRJCA046985 (130 unique BALF subjects). The former estimates a four-level published-diagnosis association; the latter estimates a Drug_Resistance versus Drug_Sensitive TB association. They are not one clinical estimand. Matrices will never be pooled, and coefficients or P values will not be combined.
 
-The exact unresolved dependency is an ETYY-accessible, version-pinned implementation equivalent to `zCompositions` 1.6.2 `cmultRepl` with `label=0`, `method="CZM"`, `output="prop"`, `frac=0.65`, `threshold=0.5`, and `adjust=TRUE`, together with its declared R dependencies. The implementation contract is documented by the [official `cmultRepl` reference](https://search.r-project.org/CRAN/refmans/zCompositions/html/cmultRepl.html) and [CRAN package record](https://cran.r-project.org/package=zCompositions).
+## Frozen cohort contracts
 
-No production definition, queue envelope, formal-analysis job ID, or biological result was created.
+The anchor must contain exactly 114 Bacterial infection, 78 Fungal infection, 122 Lung cancer and 86 Pulmonary tuberculosis patients. Runs and sample identifiers must be unique; all 400 sample IDs must align exactly across the clinical manifest, direct-species matrix and report QC. Permutations must remain within the frozen published Training/Test strata. Collection year is a prespecified technical sensitivity only when complete and full-rank.
 
-## Frozen inputs and populations
+The external cohort must contain exactly 49 Drug_Resistance and 81 Drug_Sensitive subjects, again with unique and exactly aligned identifiers. Nominal 50/75-nt category is a technical sensitivity only after verifying that both groups are represented in both categories.
 
-The only permitted analytical source remains the successful ETYY handoff for job `20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun` at:
+Any mismatch, duplicate, nonfinite value, negative/noninteger count, all-zero sample, missing report, wrong group count or degenerate design is an `ANALYSIS_QC_FAILURE`. Partial outputs must not be promoted.
 
-`/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff`
+## Input definition
 
-When the method dependency is separately resolved, the analysis must use species direct-assigned counts, never clade counts, from:
+Only Kraken2 species-rank direct-assigned counts from the verified common classifier-assignment handoff are allowed. Clade counts and Bracken estimates are prohibited. Alpha metrics use the complete direct-species count vector before prevalence filtering. Classified fraction is `classified_reads / total_input_reads` from the paired Kraken2 report QC and is a technical endpoint, not bacterial biomass.
 
-- `anchor_species_direct_counts.tsv` and `anchor_sample_qc.tsv`
-- `external_species_direct_counts.tsv` and `external_sample_qc.tsv`
+Direct-species composition is a classifier-defined subcomposition. It describes relative organization among classifier-assigned species and cannot estimate absolute microbial load.
 
-The frozen analytical populations are:
+## Primary compositional analysis
 
-- PRJNA1056765, n=400: Bacterial infection 114; Fungal infection 78; Lung cancer 122; Pulmonary tuberculosis 86.
-- PRJCA046985, n=130: Drug_Resistance 49; Drug_Sensitive 81.
+For each cohort independently:
 
-They are separate cohorts with different clinical estimands. No pooled 530-sample model, common clinical coefficient, P-value combination, multicenter claim, or formal meta-analysis is permitted.
+1. Compute detection as direct count greater than zero.
+2. Retain a feature when its within-cohort prevalence is at least 10%, inclusive at the boundary. Remove every all-zero taxon.
+3. Apply the exact `zCompositions::cmultRepl` implementation from zCompositions 1.6.2 with `label=0`, `method="CZM"`, `output="prop"`, `frac=0.65`, `threshold=0.5`, and `adjust=TRUE`.
+4. Fail closed if the exact version or dependencies cannot be verified. No local approximation is permitted.
+5. Close every positive replaced vector to sum one, take its centered log-ratio, and calculate Euclidean distance in CLR space (Aitchison distance).
+6. Run cohort-specific PERMANOVA with 9,999 permutations and paired PERMDISP with 9,999 permutations on the identical samples and distance matrix.
 
-## Prospective primary analysis after dependency resolution
+The deterministic primary seed registry is: anchor PERMANOVA `105676510`, anchor PERMDISP `105676511`, external PERMANOVA `46985010`, and external PERMDISP `46985011`. Non-primary CZM filter cells add prevalence multiplied by 10,000; pseudocount cells add `100000` plus prevalence multiplied by 10,000. Seeds are recorded in every result.
 
-Within each cohort independently, retain species with positive direct counts in at least 10% of samples. Repeat at fixed 5% and 20% thresholds as sensitivity analyses without outcome-guided selection. Apply exact CZM within each retained sample vector, close to unit sum, transform by CLR, and compute Euclidean distance in CLR space.
+## Prespecified sensitivities
 
-The anchor primary model is the four-level published-diagnosis association. It requires 9,999 deterministic permutations restricted within the repository's frozen Training/Test strata and paired PERMDISP with 9,999 permutations on the identical sample set and distance matrix. Collection year is a marginal sensitivity term only if run-level mapping is complete and the design matrix is full rank.
+Repeat the complete cohort-specific analysis at prevalence thresholds 5% and 20%. Repeat the 5%, 10% and 20% grid after adding exactly 0.5 direct read to every retained feature instead of CZM. Pseudocount results are sensitivities and may never replace a missing CZM primary. Threshold or zero method will not be selected from observed results.
 
-The external primary model is Drug_Resistance versus Drug_Sensitive, with 9,999 deterministic permutations and matching PERMDISP. The frozen nominal 50/75-nt category is a technical sensitivity only after verifying that both resistance groups occur in both categories.
+Retain Bray-Curtis as a sensitivity representation and pair every replayed PERMANOVA with PERMDISP. The existing verified 999-permutation Bray-Curtis artifact is preserved; a later 9,999-permutation replay may supplement but not overwrite it.
 
-Every primary analysis is repeated using the fixed 0.5 direct-read pseudocount as a sensitivity, never as a replacement for CZM. The existing 999-permutation Bray-Curtis analysis remains frozen sensitivity evidence and is not overwritten.
+## Primary tests and secondary endpoints
 
-## Secondary endpoint freeze
+The anchor primary test is the four-level diagnosis omnibus. The external primary test is the binary resistance-status association. Report pseudo-F, R², permutation P, group sizes, seed, feature count and dispersion result; effect magnitude and uncertainty/robustness take precedence over a binary significance label.
 
-The five prespecified endpoints are richness, Shannon diversity, Gini-Simpson, dominance, and Kraken2 classified fraction. Classified fraction is a technical classifier-yield endpoint, not bacterial load.
+Secondary endpoints are richness, Shannon entropy, Gini-Simpson diversity, dominance and classified fraction. The anchor uses a Kruskal-Wallis omnibus with epsilon-squared. The three frozen secondary, post-omnibus contrasts are Lung cancer versus Bacterial infection, Fungal infection and Pulmonary tuberculosis, tested with two-sided Wilcoxon/Mann-Whitney tests and rank-biserial effects. No additional outcome-guided contrast is promoted. The external cohort uses two-sided Wilcoxon/Mann-Whitney tests with rank-biserial effects.
 
-For the anchor, the frozen omnibus test is Kruskal-Wallis with epsilon-squared and uncertainty. Only within the omnibus framework, the three prespecified lung-cancer contrasts use two-sided Wilcoxon rank-sum tests with rank-biserial correlations and uncertainty. Holm correction covers the complete 15-test family formed by three contrasts and five endpoints. Other pairwise comparisons remain exploratory and cannot drive the manuscript claim.
+## Multiplicity and serialization
 
-For the external cohort, the frozen test is two-sided Wilcoxon rank-sum with rank-biserial correlation and uncertainty. Holm correction covers the five endpoint tests. Tests cannot be changed after viewing significance.
+Primary PERMANOVA questions are reported as two distinct cohort-specific estimands, not a pooled family. Holm adjustment controls the 15 anchor secondary contrast tests (three contrasts by five endpoints) and the five external secondary endpoint tests. Benjamini-Hochberg is reserved for later, separately authorized taxon-level exploratory families, separately by cohort, rank and test family.
 
-## Interpretation and execution boundary
+Each cohort/cell produces schema-validated JSON plus compact TSVs for sample metrics, feature-filter counts, beta statistics, secondary tests and figure inputs. JSON rejects NaN/Inf and records software, input hashes, seed, group counts, filter, zero method, distance and interpretation flags. The checked-in schema is `result_schema.json`.
 
-A PERMANOVA finding accompanied by material PERMDISP inequality must be described as location and/or dispersion structure, not a clean centroid shift. Permitted language includes “associated with,” “community structure differed,” “dispersion-qualified,” and “ecological organization.” Causal, biomarker, diagnostic-signature, validation, and replication claims are prohibited.
+## Interpretation and execution gate
 
-Differential abundance, new cohorts, raw acquisition, Kraken2, Bracken, host filtering, trimming, DeepSeek, and all biological computation remain unexecuted. Resumption requires a separate method-runtime gate that either verifies the exact pinned CZM implementation already present on ETYY or explicitly authorizes a controlled software provision and conformance test. The present authorization does not permit either assumption.
+A PERMANOVA signal with material PERMDISP evidence is described as location and/or dispersion structure (`DISPERSION_QUALIFIED`), not a clean centroid shift. Null or very small effects remain reportable. Formal analysis begins only after ETYY recovery confirms the old installation state, exact zCompositions 1.6.2 behavior on a synthetic vector, immutable inputs and a separately visible formal-analysis authorization. Differential abundance remains exploratory and is not automatically authorized by this plan.

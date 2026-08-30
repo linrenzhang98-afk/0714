@@ -1,0 +1,15 @@
+{
+  "project_state_consistent": true,
+  "sample_counts_consistent": true,
+  "clinical_contrasts_consistent": true,
+  "no_fake_results": true,
+  "no_naive_pooling": true,
+  "no_replication_claim": true,
+  "no_multicenter_claim": true,
+  "classified_fraction_boundary_preserved": true,
+  "DA_not_executed": true,
+  "ETYY_not_used": true,
+  "biological_analysis_not_executed": true,
+  "required_files_checked": 35,
+  "audit_scope": "workstation downtime preparation package"
+}

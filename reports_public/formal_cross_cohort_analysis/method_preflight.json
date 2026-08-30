@@ -1,53 +1,35 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-08-25",
-  "status": "METHOD_PREFLIGHT_REQUIRED",
+  "schema_version": 2,
+  "generated_at": "2026-08-30",
+  "status": "RUNTIME_EVIDENCE_REQUIRED_AFTER_NETWORK_RECOVERY",
   "decision": "STOP_BEFORE_BIOLOGICAL_EXECUTION",
-  "input_job_id": "20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun",
-  "input_root": "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff",
+  "verified_workstation_runtime_before_outage": {"R_version": "4.5.3"},
   "required_method": {
-    "name": "count-zero multiplicative replacement",
-    "abbreviation": "CZM",
-    "reference_implementation": "zCompositions::cmultRepl",
-    "reference_package": "zCompositions",
-    "reference_package_version_reviewed": "1.6.2",
-    "required_call_parameters": {
-      "label": 0,
-      "method": "CZM",
-      "output": "prop",
-      "frac": 0.65,
-      "threshold": 0.5,
-      "adjust": true
-    },
-    "official_documentation": "https://search.r-project.org/CRAN/refmans/zCompositions/html/cmultRepl.html",
-    "package_record": "https://cran.r-project.org/package=zCompositions"
+    "function": "zCompositions::cmultRepl",
+    "package_version": "1.6.2",
+    "parameters": {"label": 0, "method": "CZM", "output": "prop", "frac": 0.65, "threshold": 0.5, "adjust": true},
+    "approximation_allowed": false
   },
-  "availability_evidence": {
-    "exact_repository_implementation_found": false,
-    "repository_search_hits": [
-      "reports_public/cross_cohort_scientific_gate/compositionality_recommendation.md"
-    ],
-    "repository_hit_is_executable_implementation": false,
-    "etty_r_runtime_verified": false,
-    "etty_zcompositions_installation_verified": false,
-    "etty_verified_analysis_executable": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
-    "etty_runtime_inventory_supports_exact_czm": false,
-    "local_rscript_available": false,
-    "local_python_exact_czm_implementation_found": false,
-    "package_installation_authorized": false
+  "isolated_installation": {
+    "job_id": "20260825T140844Z-0714-zcompositions-1-6-2-isolated-install",
+    "target": "/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3",
+    "status": "UNKNOWN_UNCHANGED_AFTER_NETWORK_OUTAGE",
+    "duplicate_job_allowed": false
   },
-  "preflight_failure_reason": "No checked-in exact CZM implementation and no reproducible ETYY evidence for an installed, version-pinned R zCompositions::cmultRepl(method='CZM') implementation are available. The reviewed ETYY execution scope verifies Python only, while installing a package or silently substituting an approximate Python implementation is explicitly outside this authorization.",
-  "missing_implementation_or_dependency": "A verified ETYY R runtime plus zCompositions 1.6.2 and its declared runtime dependencies, or an independently validated exact checked-in CZM implementation with fixed conformance vectors.",
-  "why_pseudocount_is_not_substituted": "The authorized fixed 0.5 pseudocount is a sensitivity analysis, not the primary CZM method.",
-  "production_definition_created": false,
-  "queue_envelope_created": false,
-  "formal_analysis_job_id": null,
+  "downtime_preparation": {
+    "exact_r_adapter_prepared": true,
+    "synthetic_python_tests_prepared": true,
+    "biological_inputs_read": false,
+    "etty_accessed": false
+  },
+  "resume_evidence_required": [
+    "preserved old job state classified READY, SAFE_STOP or NOT_SEEN",
+    "zCompositions resolves as exact version 1.6.2 from isolated target",
+    "system R library package set and versions unchanged",
+    "frozen synthetic CZM conformance passes twice",
+    "formal biological analysis authorization is externally visible"
+  ],
   "biological_analysis_executed": false,
-  "raw_data_downloaded": false,
-  "kraken2_run": false,
-  "bracken_run": false,
-  "host_filtering_run": false,
-  "trimming_run": false,
   "differential_abundance_executed": false,
   "deepseek_invoked": false
 }

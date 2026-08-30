@@ -1,112 +1,76 @@
 {
-  "schema_version": 1,
-  "freeze_status": "PREFLIGHT_STOP_CZM_NOT_REPRODUCIBLY_AVAILABLE",
-  "input": {
-    "job_id": "20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun",
-    "etty_handoff_root": "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff",
-    "anchor_direct_counts": "anchor_species_direct_counts.tsv",
-    "anchor_sample_qc": "anchor_sample_qc.tsv",
-    "external_direct_counts": "external_species_direct_counts.tsv",
-    "external_sample_qc": "external_sample_qc.tsv",
-    "counts_type": "Kraken2 species direct-assigned counts",
+  "schema_version": 2,
+  "freeze_status": "DOWNTIME_IMPLEMENTATION_READY_RUNTIME_EVIDENCE_PENDING",
+  "frozen_on": "2026-08-30",
+  "biological_analysis_executed": false,
+  "etty_accessed": false,
+  "etty_job_created": false,
+  "czm_installation_status": "UNKNOWN_UNCHANGED",
+  "verified_measurement_layer": {
+    "anchor_valid_reports": 400,
+    "external_valid_reports": 130,
+    "anchor_species_inventory": 5198,
+    "external_species_inventory": 4888,
+    "anchor_genera_inventory": 1633,
+    "external_genera_inventory": 1496,
+    "common_species_at_10pct": 166,
+    "common_genera_at_10pct": 45
+  },
+  "input_contract": {
+    "source_job_id": "20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun",
+    "counts": "Kraken2 species direct-assigned counts",
     "clade_counts_allowed": false,
-    "prior_failed_partial_outputs_allowed": false
+    "bracken_allowed": false,
+    "exact_sample_alignment_required": true,
+    "nonfinite_allowed": false,
+    "all_zero_sample_allowed": false
   },
   "cohorts": {
     "anchor": {
       "project": "PRJNA1056765",
       "n": 400,
-      "groups": {
-        "Bacterial infection": 114,
-        "Fungal infection": 78,
-        "Lung cancer": 122,
-        "Pulmonary tuberculosis": 86
-      },
-      "primary_estimand": "four-level published-diagnosis association with BALF species composition",
+      "groups": {"Bacterial infection": 114, "Fungal infection": 78, "Lung cancer": 122, "Pulmonary tuberculosis": 86},
+      "estimand": "four-level published-diagnosis association with BALF species composition",
       "permutation_restriction": "within frozen published Training/Test strata",
-      "collection_year_sensitivity": "marginal term only if deterministic run-level mapping is complete and the design matrix is full rank"
+      "secondary_contrasts": ["Lung cancer vs Bacterial infection", "Lung cancer vs Fungal infection", "Lung cancer vs Pulmonary tuberculosis"]
     },
     "external": {
       "project": "PRJCA046985",
       "n": 130,
-      "groups": {
-        "Drug_Resistance": 49,
-        "Drug_Sensitive": 81
-      },
-      "primary_estimand": "Drug_Resistance versus Drug_Sensitive tuberculosis association with BALF species composition",
-      "technical_sensitivity": "frozen nominal 50/75-nt category, after verifying both resistance groups occur in both categories"
+      "groups": {"Drug_Resistance": 49, "Drug_Sensitive": 81},
+      "estimand": "Drug_Resistance versus Drug_Sensitive TB association with BALF species composition",
+      "technical_sensitivity": "frozen nominal 50/75-nt category after representation and rank checks"
     }
   },
-  "total_n": 530,
-  "analysis_separation": {
-    "cohort_specific_execution": true,
-    "naive_pooling": false,
-    "formal_meta_analysis": false,
-    "pooled_clinical_coefficient": false
-  },
-  "primary_compositional_analysis": {
-    "feature_filter_within_each_cohort": {
-      "primary_prevalence": 0.1,
-      "sensitivity_prevalence": [
-        0.05,
-        0.2
-      ],
-      "detection_rule": "direct count > 0"
+  "total_technical_sample_universe": 530,
+  "pooling": {"matrix_created": false, "naive_pooling_valid": false, "formal_meta_analysis_ready": false},
+  "feature_filter": {"detection": "direct_count > 0", "primary": 0.1, "sensitivities": [0.05, 0.2], "boundary": "inclusive"},
+  "zero_handling": {
+    "primary": {
+      "package": "zCompositions", "version": "1.6.2", "function": "cmultRepl",
+      "parameters": {"label": 0, "method": "CZM", "output": "prop", "frac": 0.65, "threshold": 0.5, "adjust": true},
+      "approximation_allowed": false
     },
-    "primary_zero_handling": {
-      "method": "CZM",
-      "implementation_status": "UNVERIFIED_UNAVAILABLE",
-      "execution_allowed": false
-    },
-    "sensitivity_zero_handling": {
-      "method": "fixed pseudocount",
-      "value_direct_reads": 0.5,
-      "may_replace_primary": false
-    },
-    "closure": "divide each zero-replaced retained-taxon vector by its row sum",
-    "transformation": "CLR: log(x_j) minus the within-sample mean log abundance",
-    "distance": "Euclidean distance in CLR space (Aitchison distance)",
-    "permanova_permutations": 9999,
-    "permdisp_permutations": 9999,
-    "seed_registry_status": "NOT_FROZEN_BECAUSE_EXECUTION_PREFLIGHT_FAILED"
+    "sensitivity": {"method": "fixed direct-read pseudocount", "value": 0.5, "may_replace_primary": false}
   },
-  "secondary_endpoints": {
-    "authorized": [
-      "species richness",
-      "Shannon diversity",
-      "Gini-Simpson",
-      "dominance",
-      "Kraken2 classified fraction as a technical endpoint"
-    ],
-    "planned_anchor_omnibus_test": "Kruskal-Wallis",
-    "planned_anchor_omnibus_effect_size": "epsilon-squared with uncertainty",
-    "planned_anchor_pairwise_test": "two-sided Wilcoxon rank-sum after the omnibus framework",
-    "planned_anchor_pairwise_effect_size": "rank-biserial correlation with uncertainty",
-    "planned_anchor_contrasts": [
-      "Lung cancer vs Bacterial infection",
-      "Lung cancer vs Fungal infection",
-      "Lung cancer vs Pulmonary tuberculosis"
-    ],
-    "planned_anchor_multiplicity": "Holm correction across the complete prespecified 3 contrasts x 5 endpoints family",
-    "planned_external_test": "two-sided Wilcoxon rank-sum",
-    "planned_external_effect_size": "rank-biserial correlation with uncertainty",
-    "planned_external_multiplicity": "Holm correction across the 5 prespecified endpoints",
-    "execution_status": "NOT_EXECUTED"
+  "geometry": {"closure": "row sum one", "transformation": "CLR", "distance": "Euclidean in CLR space (Aitchison)"},
+  "permutations": {"permanova": 9999, "permdisp": 9999, "deterministic": true},
+  "seed_registry": {
+    "anchor_primary_permanova": 105676510,
+    "anchor_primary_permdisp": 105676511,
+    "external_primary_permanova": 46985010,
+    "external_primary_permdisp": 46985011,
+    "sensitivity_rule": "primary 10%-CZM uses base; other CZM filters add prevalence*10000; pseudocount cells add 100000+prevalence*10000"
   },
-  "frozen_sensitivity_evidence": {
-    "bray_curtis_source": "verified common-layer output",
-    "prevalence": 0.1,
-    "permutations": 999,
-    "overwrite_allowed": false
+  "secondary_endpoints": ["richness", "Shannon", "Gini-Simpson", "dominance", "Kraken2 classified fraction"],
+  "multiplicity": {"anchor_secondary": "Holm across 3 contrasts x 5 endpoints", "external_secondary": "Holm across 5 endpoints", "future_exploratory_taxa": "Benjamini-Hochberg separately by cohort/rank/family"},
+  "implementation": {
+    "python_package": "shotgun_analysis",
+    "entry_point": "scripts/run_formal_cross_cohort_analysis.py",
+    "grid_entry_point": "scripts/run_formal_cross_cohort_grid.py",
+    "r_czm_adapter": "shotgun_analysis/run_czm.R",
+    "result_schema": "reports_public/formal_cross_cohort_analysis/result_schema.json",
+    "synthetic_tests": "tests/test_shotgun_formal_analysis.py"
   },
-  "prohibited": [
-    "differential abundance",
-    "taxon-wise significance screening",
-    "new cohort acquisition",
-    "sample-matrix pooling",
-    "P-value combination",
-    "causal inference",
-    "classified fraction interpreted as bacterial burden"
-  ],
-  "execution_status": "NOT_EXECUTED_METHOD_PREFLIGHT_REQUIRED"
+  "prohibited": ["pooled 530-sample clinical model", "P-value combination", "causal inference", "replication claim", "classified fraction as biomass", "automatic differential abundance", "outcome-guided threshold selection"]
 }
