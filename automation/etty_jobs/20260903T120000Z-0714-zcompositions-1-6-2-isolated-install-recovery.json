@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "job_id": "20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery",
+  "authorized": true,
+  "authorization_record": "User-authorized version-pinned zCompositions installation and required dependencies into an isolated project R library; existing mgshotgun R library must remain unchanged; synthetic CZM validation only; no biological analysis.",
+  "execution_commit": "62ac85f99039357203f5ca9f0a74476a60ae7b56",
+  "job_definition_path": "automation/production/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery.json",
+  "job_definition_sha256": "e305a0c5cbd1be0c66fd350a7ad69c179d9ba6409a84771ee161381423e07b9e",
+  "transfer_cap_bytes": 268435456,
+  "allowed_source_hosts": [
+    "cran.r-project.org"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-work",
+    "/mnt/disk1/0714_control/state",
+    "/mnt/disk1/0714_control/r_libs"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control/state"
+    ],
+    "allowed_environment_keys": [],
+    "wall_seconds": 1800,
+    "memory_cap_bytes": 4294967296,
+    "workspace_cap_bytes": 1073741824
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "r_czm_install_validation.json",
+    "r_czm_install_summary.md"
+  ]
+}
