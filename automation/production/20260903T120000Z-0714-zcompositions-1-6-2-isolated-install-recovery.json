@@ -1,0 +1,89 @@
+{
+  "acquire": true,
+  "allowed_destination_roots": [
+    "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-work",
+    "/mnt/disk1/0714_control/state",
+    "/mnt/disk1/0714_control/r_libs"
+  ],
+  "allowed_environment_keys": [],
+  "allowed_executables": [
+    "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+  ],
+  "allowed_hosts": [
+    "cran.r-project.org"
+  ],
+  "analysis_type": "isolated_zcompositions_1_6_2_install_and_synthetic_czm_validation",
+  "authorization_record": "User-authorized version-pinned zCompositions installation and required dependencies into an isolated project R library; existing mgshotgun R library must remain unchanged; synthetic CZM validation only; no biological analysis.",
+  "authorized": true,
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "handoff_allowlist": [
+    "result.json",
+    "r_czm_install_validation.json",
+    "r_czm_install_summary.md"
+  ],
+  "items": [
+    {
+      "id": "NADA_1.6-1.2",
+      "url": "https://cran.r-project.org/src/contrib/NADA_1.6-1.2.tar.gz",
+      "destination": "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-work/tarballs/NADA_1.6-1.2.tar.gz",
+      "expected_bytes": 72167,
+      "sha256": "837dc66bc880285985ce1c0da9897f437207fad6ec69c3f0879fbaf4a4ace2b4",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+        "/mnt/disk1/0714_control/job_repo/scripts/install_r_czm_isolated.py",
+        "--mode", "noop",
+        "--job-id", "20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery",
+        "--lock", "/mnt/disk1/0714_control/job_repo/reports_public/r_czm_isolated_install/cran_dependency_lock.json",
+        "--source-dir", "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-work/tarballs",
+        "--isolated-library", "/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3",
+        "--output-dir", "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-handoff"
+      ],
+      "cwd": "/mnt/disk1/0714_control/state",
+      "env": {}
+    },
+    {
+      "id": "truncnorm_1.0-9",
+      "url": "https://cran.r-project.org/src/contrib/truncnorm_1.0-9.tar.gz",
+      "destination": "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-work/tarballs/truncnorm_1.0-9.tar.gz",
+      "expected_bytes": 11629,
+      "sha256": "5156acc4d63243bf95326d6285b0ba3cdf710697d67c233a12ae56f3d87ec708",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+        "/mnt/disk1/0714_control/job_repo/scripts/install_r_czm_isolated.py",
+        "--mode", "noop",
+        "--job-id", "20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery",
+        "--lock", "/mnt/disk1/0714_control/job_repo/reports_public/r_czm_isolated_install/cran_dependency_lock.json",
+        "--source-dir", "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-work/tarballs",
+        "--isolated-library", "/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3",
+        "--output-dir", "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-handoff"
+      ],
+      "cwd": "/mnt/disk1/0714_control/state",
+      "env": {}
+    },
+    {
+      "id": "zCompositions_1.6.2",
+      "url": "https://cran.r-project.org/src/contrib/zCompositions_1.6.2.tar.gz",
+      "destination": "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-work/tarballs/zCompositions_1.6.2.tar.gz",
+      "expected_bytes": 64212,
+      "sha256": "8f50ab81c4aa2ea8ff8c52678d14af456cdb0ee04b22a567a9f18722dc49d98a",
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+        "/mnt/disk1/0714_control/job_repo/scripts/install_r_czm_isolated.py",
+        "--mode", "install",
+        "--job-id", "20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery",
+        "--lock", "/mnt/disk1/0714_control/job_repo/reports_public/r_czm_isolated_install/cran_dependency_lock.json",
+        "--source-dir", "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-work/tarballs",
+        "--isolated-library", "/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3",
+        "--output-dir", "/mnt/disk1/0714_control/state/20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery-handoff"
+      ],
+      "cwd": "/mnt/disk1/0714_control/state",
+      "env": {}
+    }
+  ],
+  "job_id": "20260903T120000Z-0714-zcompositions-1-6-2-isolated-install-recovery",
+  "memory_cap_bytes": 4294967296,
+  "project": "0714_R_CZM_METHOD_INFRASTRUCTURE",
+  "transfer_cap_bytes": 268435456,
+  "wall_seconds": 1800,
+  "workspace_cap_bytes": 1073741824
+}

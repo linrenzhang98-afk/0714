@@ -45,10 +45,27 @@ def confined(path: Path | str, roots: list[str]) -> Path:
     if not candidate.is_absolute() or ".." in candidate.parts:
         raise JobError("path must be absolute without traversal")
     effective = candidate.resolve(strict=False)
+    existing_roots = []
     for raw_root in roots:
-        root = Path(raw_root).resolve(strict=True)
+        root_candidate = Path(raw_root)
+        if not root_candidate.is_absolute() or ".." in root_candidate.parts:
+            raise JobError("allowed root must be absolute without traversal")
+        if root_candidate.exists() or root_candidate.is_symlink():
+            existing_roots.append(root_candidate.resolve(strict=True))
+    for raw_root in roots:
+        root_candidate = Path(raw_root)
+        if root_candidate.exists() or root_candidate.is_symlink():
+            root = root_candidate.resolve(strict=True)
+        else:
+            nearest = root_candidate
+            while not (nearest.exists() or nearest.is_symlink()):
+                nearest = nearest.parent
+            ancestor = nearest.resolve(strict=True)
+            if not any(approved == ancestor or approved in ancestor.parents for approved in existing_roots):
+                continue
+            root = root_candidate.resolve(strict=False)
         if effective == root or root in effective.parents:
-            if candidate.is_symlink() and candidate.resolve(strict=False) != effective:
+            if candidate.is_symlink():
                 raise JobError("symlink escape")
             return candidate
     raise JobError("path escapes allowed roots")

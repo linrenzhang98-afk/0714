@@ -65,6 +65,48 @@ class HardenedPrimitives(unittest.TestCase):
             escaped = self.base(allowed); escaped["items"][0]["destination"] = str(link / "x")
             with self.assertRaises(JobError): validate_manifest(escaped)
 
+    def test_nonexistent_authorized_root_under_existing_root(self):
+        with tempfile.TemporaryDirectory() as raw:
+            control = Path(raw) / "control"; control.mkdir()
+            work = control / "job-work"
+            job = self.base(work)
+            job["allowed_destination_roots"].append(str(control))
+            validate_manifest(job)
+            self.assertFalse(work.exists())
+
+    def test_acquisition_creates_nested_destination_under_future_root(self):
+        with tempfile.TemporaryDirectory() as raw:
+            control = Path(raw) / "control"; control.mkdir()
+            work = control / "job-work"
+            job = self.base(work)
+            job["allowed_destination_roots"].append(str(control))
+            job["items"][0]["destination"] = str(work / "nested" / "payload")
+            with mock.patch("urllib.request.urlopen", return_value=Response([b"abc", b""])):
+                state = acquire(job, control / "state.json")
+            self.assertEqual(state["items"]["x"]["status"], "done")
+            self.assertEqual(Path(job["items"][0]["destination"]).read_bytes(), b"abc")
+
+    def test_traversal_and_unapproved_existing_ancestor_rejected(self):
+        with tempfile.TemporaryDirectory() as raw:
+            control = Path(raw) / "control"; control.mkdir()
+            outside = Path(raw) / "outside"; outside.mkdir()
+            job = self.base(control / "job-work")
+            job["items"][0]["destination"] = str(control / "job-work" / ".." / "escape")
+            with self.assertRaises(JobError): validate_manifest(job)
+            job["items"][0]["destination"] = str(outside / "future" / "payload")
+            job["allowed_destination_roots"] = [str(outside / "future"), str(control)]
+            with self.assertRaises(JobError): validate_manifest(job)
+
+    def test_future_root_symlink_escape_rejected(self):
+        with tempfile.TemporaryDirectory() as raw:
+            control = Path(raw) / "control"; control.mkdir()
+            outside = Path(raw) / "outside"; outside.mkdir()
+            link = control / "link"; link.symlink_to(outside, target_is_directory=True)
+            work = link / "job-work"
+            job = self.base(work)
+            job["allowed_destination_roots"].append(str(control))
+            with self.assertRaises(JobError): validate_manifest(job)
+
     def test_existing_reuse_and_conflict(self):
         with tempfile.TemporaryDirectory() as raw:
             root=Path(raw); job=self.base(root); target=Path(job["items"][0]["destination"]); target.write_bytes(b"abc")
