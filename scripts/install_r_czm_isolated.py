@@ -75,6 +75,57 @@ def run_r(code: str) -> subprocess.CompletedProcess[str]:
     )
 
 
+def delimiter_syntax_gate(code: str) -> tuple[bool, str]:
+    pairs = {")": "(", "]": "[", "}": "{"}
+    opening = set(pairs.values())
+    stack: list[str] = []
+    quote: str | None = None
+    escaped = False
+    for line_number, line in enumerate(code.splitlines(), 1):
+        comment = False
+        for character in line:
+            if comment:
+                break
+            if quote:
+                if escaped:
+                    escaped = False
+                elif character == "\\":
+                    escaped = True
+                elif character == quote:
+                    quote = None
+                continue
+            if character in {"'", '"', "`"}:
+                quote = character
+            elif character == "#":
+                comment = True
+            elif character in opening:
+                stack.append(character)
+            elif character in pairs:
+                if not stack or stack.pop() != pairs[character]:
+                    return False, f"unmatched {character} on line {line_number}"
+    if quote:
+        return False, "unterminated string"
+    if stack:
+        return False, f"unclosed {stack[-1]}"
+    return True, "delimiter fallback"
+
+
+def r_syntax_gate(code: str) -> tuple[bool, str]:
+    if Path(RSCRIPT_PATH).is_file():
+        completed = subprocess.run(
+            [RSCRIPT_PATH, "--vanilla", "--slave", "-e", "parse(text=paste(readLines(file('stdin')), collapse='\\n'))"],
+            input=code,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=30,
+            shell=False,
+            env=execution_environment(),
+        )
+        return completed.returncode == 0, "Rscript parse(text=...)" if completed.returncode == 0 else (completed.stderr or completed.stdout)[-1000:]
+    return delimiter_syntax_gate(code)
+
+
 def parse_protocol(text: str) -> tuple[dict[str, str], list[str]]:
     values: dict[str, str] = {}
     malformed: list[str] = []
@@ -180,7 +231,8 @@ def validation_code(isolated: Path) -> str:
 describe <- function(value, label) {{
   emit(paste0(label, "_class"), paste(class(value), collapse="|"))
   emit(paste0(label, "_typeof"), typeof(value))
-  emit(paste0(label, "_names"), paste(names(value) %||% character(), collapse="|"))
+  value_names <- names(value); if (is.null(value_names)) value_names <- character()
+  emit(paste0(label, "_names"), paste(value_names, collapse="|"))
   dims <- dim(value); emit(paste0(label, "_dim"), if (is.null(dims)) "" else paste(dims, collapse="x"))
   emit(paste0(label, "_is_matrix"), is.matrix(value))
   emit(paste0(label, "_is_data_frame"), is.data.frame(value))
@@ -211,25 +263,28 @@ for (pkg in c("MASS", "survival", "NADA", "truncnorm", "zCompositions")) {{
 }}
 x <- matrix(c(10,0,2,0,8, 0,5,1,4,0, 3,7,0,2,1, 0,2,8,0,6), nrow=4, byrow=TRUE)
 run_once <- function() zCompositions::cmultRepl(x, label=0, method="CZM", output="prop", frac=0.65, threshold=0.5, adjust=TRUE, suppress.print=TRUE)
-first <- tryCatch(run_once(), error=function(e) e)
-if (inherits(first, "error")) {{ emit("czm_error", conditionMessage(first)) }} else {{
-  describe(first, "first")
-  first_component <- tryCatch(numeric_component(first, "first"), error=function(e) e)
-  if (inherits(first_component, "error")) {{ emit("czm_error", conditionMessage(first_component)) }} else {{
-  emit("selected_component_path", first_component$path)
-  second <- tryCatch(run_once(), error=function(e) e)
-  if (inherits(second, "error")) {{ emit("czm_error", conditionMessage(second)) }} else {{
-    describe(second, "second")
-    second_component <- tryCatch(numeric_component(second, "second"), error=function(e) e)
-    if (inherits(second_component, "error")) {{ emit("czm_error", conditionMessage(second_component)) }} else {{
-    emit("czm_rows", nrow(first_component$value)); emit("czm_cols", ncol(first_component$value))
-    emit("czm_values", paste(format(as.numeric(first_component$value), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
-    emit("czm_repeat_values", paste(format(as.numeric(second_component$value), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
-    emit("czm_row_sums", paste(format(rowSums(first_component$value), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
+run_one <- function(label) {{
+  raw <- run_once()
+  describe(raw, label)
+  component <- numeric_component(raw, label)
+  list(raw=raw, component=component)
+}}
+first <- tryCatch(run_one("first"), error=function(e) e)
+if (inherits(first, "error")) {{
+  emit("czm_error", conditionMessage(first))
+}} else {{
+  second <- tryCatch(run_one("second"), error=function(e) e)
+  if (inherits(second, "error")) {{
+    emit("czm_error", conditionMessage(second))
+  }} else {{
+    first_matrix <- first$component$value
+    second_matrix <- second$component$value
+    emit("selected_component_path", first$component$path)
+    emit("czm_rows", nrow(first_matrix)); emit("czm_cols", ncol(first_matrix))
+    emit("czm_values", paste(format(as.numeric(first_matrix), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
+    emit("czm_repeat_values", paste(format(as.numeric(second_matrix), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
+    emit("czm_row_sums", paste(format(rowSums(first_matrix), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
     emit("czm_loaded_namespaces", paste(sort(loadedNamespaces()), collapse="|"))
-    }}
-  }}
-  }}
   }}
 }}
 '''
@@ -308,6 +363,7 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
         "system_library": {"path": str(SYSTEM_LIBRARY), "package_set_changed": None, "package_versions_changed": None},
         "compiler_probe": {"required": list(R_REQUIRED_EXECUTABLES), "resolved_paths": {}, "passed": False},
         "czm_probe": {"attempted": False, "passed": False, "function": "zCompositions::cmultRepl", "method": "CZM", "input_shape": [4, 5], "output_shape": None, "finite": False, "strictly_positive": False, "deterministic": False, "input_sha256": hashlib.sha256(canonical(SYNTHETIC_INPUT)).hexdigest(), "output_sha256": None, "repeat_output_sha256": None, "error_if_any": None},
+        "r_parse_gate": {"passed": False, "method": None, "error": None},
         "network_acquisition_performed": perform_install,
         "downloaded_package_count": len(lock_new_packages(lock)) if perform_install else 0,
         "downloaded_bytes": lock["total_expected_download_bytes"] if perform_install else 0,
@@ -324,6 +380,11 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
         report["dependencies"][package["package"]] = {"required": True, "reused_existing": not package.get("install_new", False), "installed_new": False, "version": package.get("version"), "path": None, "source_url_if_downloaded": package.get("source_url"), "checksum_if_downloaded": package.get("expected_sha256")}
     target_info = next(x for x in lock_new_packages(lock) if x["package"] == "zCompositions")
     report["zCompositions"].update({"source_url": target_info["source_url"], "source_checksum": target_info["expected_sha256"]})
+    parsed, parse_detail = r_syntax_gate(validation_code(isolated))
+    report["r_parse_gate"].update({"passed": parsed, "method": parse_detail if parsed else None, "error": None if parsed else parse_detail})
+    if not parsed:
+        report["reason"] = "R_VALIDATION_SYNTAX_INVALID"
+        return report
     if not confined_isolated_path(isolated):
         report["reason"] = "ISOLATED_LIBRARY_PATH_ESCAPE"
         return report

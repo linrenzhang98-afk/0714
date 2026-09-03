@@ -177,6 +177,13 @@ class IsolatedInstallTests(unittest.TestCase):
         for field in ("_class", "_typeof", "_names", "_dim", "_is_matrix", "_is_data_frame", "_is_list", "_str"):
             self.assertIn(field, code)
 
+    def test_generated_r_validation_code_passes_syntax_gate(self):
+        parsed, detail = installer.r_syntax_gate(installer.validation_code(Path("/synthetic")))
+        self.assertTrue(parsed, detail)
+
+    def test_delimiter_gate_rejects_unbalanced_r_code(self):
+        self.assertFalse(installer.delimiter_syntax_gate("if (TRUE) {\n  cat('x')\n" )[0])
+
     def test_source_contains_no_biological_paths_or_network_calls(self):
         source = Path(installer.__file__).read_text()
         for forbidden in ("urllib", "requests", "download.file", "install.packages", "kraken2", "bracken", "PRJNA1056765", "PRJCA046985", "shell=True"):
