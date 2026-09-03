@@ -22,12 +22,13 @@ def lock_fixture():
 
 class IsolatedInstallTests(unittest.TestCase):
     def test_path_prepending_exposes_compiler_wrappers(self):
-        with patch.dict("os.environ", {"PATH": "/usr/bin"}, clear=True), patch.object(installer.shutil, "which", side_effect=lambda name, path: f"{installer.MGSHOTGUN_BIN}/{name}") as which:
+        with patch.dict("os.environ", {"PATH": "/custom/bin:/usr/bin:/bin"}, clear=True), patch.object(installer.shutil, "which", side_effect=lambda name, path: f"{installer.MGSHOTGUN_BIN}/{name}") as which:
             environment = installer.execution_environment()
             resolved, missing = installer.compiler_probe()
         self.assertEqual(missing, None)
         self.assertTrue(environment["PATH"].startswith(installer.MGSHOTGUN_BIN + ":"))
-        self.assertEqual(set(resolved), set(installer.MAKECONF_COMPILERS))
+        self.assertTrue(all(entry in environment["PATH"].split(":") for entry in ("/custom/bin", "/usr/bin", "/bin")))
+        self.assertEqual(set(resolved), set(installer.R_REQUIRED_EXECUTABLES))
         self.assertEqual(which.call_args.kwargs["path"], environment["PATH"])
 
     def test_missing_compiler_fails_closed(self):
@@ -35,6 +36,13 @@ class IsolatedInstallTests(unittest.TestCase):
             resolved, missing = installer.compiler_probe()
         self.assertEqual(missing, "x86_64-conda-linux-gnu-gfortran")
         self.assertNotIn(missing, resolved)
+
+    def test_system_tools_resolve_under_exact_r_environment(self):
+        expected = {name: f"/usr/bin/{name}" for name in installer.R_REQUIRED_EXECUTABLES}
+        with patch.object(installer.shutil, "which", side_effect=lambda name, path: expected[name]):
+            resolved, missing = installer.compiler_probe()
+        self.assertIsNone(missing)
+        self.assertEqual({name: resolved[name] for name in ("sh", "uname", "make")}, {name: expected[name] for name in ("sh", "uname", "make")})
 
     def test_all_r_subprocesses_receive_execution_path(self):
         class Completed:

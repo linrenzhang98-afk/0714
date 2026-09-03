@@ -25,7 +25,8 @@ SYSTEM_LIBRARY = Path("/home/suma/anaconda3/envs/mgshotgun/lib/R/library")
 ISOLATED_PARENT = Path("/mnt/disk1/0714_control/r_libs")
 EXPECTED_R_VERSION = "4.5.3"
 MGSHOTGUN_BIN = "/home/suma/anaconda3/envs/mgshotgun/bin"
-MAKECONF_COMPILERS = ("x86_64-conda-linux-gnu-cc", "x86_64-conda-linux-gnu-c++", "x86_64-conda-linux-gnu-gfortran")
+R_REQUIRED_EXECUTABLES = ("x86_64-conda-linux-gnu-cc", "x86_64-conda-linux-gnu-c++", "x86_64-conda-linux-gnu-gfortran", "sh", "uname", "make")
+MAKECONF_COMPILERS = R_REQUIRED_EXECUTABLES[:3]
 SYNTHETIC_INPUT = [[10, 0, 2, 0, 8], [0, 5, 1, 4, 0], [3, 7, 0, 2, 1], [0, 2, 8, 0, 6]]
 
 
@@ -47,14 +48,17 @@ def q(value: str) -> str:
 
 def execution_environment() -> dict[str, str]:
     environment = os.environ.copy()
-    inherited_path = environment.get("PATH", "")
-    environment["PATH"] = MGSHOTGUN_BIN + (os.pathsep + inherited_path if inherited_path else "")
+    path_components = [MGSHOTGUN_BIN]
+    for component in (environment.get("PATH", "").split(os.pathsep) + os.defpath.split(os.pathsep)):
+        if component and component not in path_components:
+            path_components.append(component)
+    environment["PATH"] = os.pathsep.join(path_components)
     return environment
 
 
 def compiler_probe() -> tuple[dict[str, str], str | None]:
     environment = execution_environment()
-    resolved = {name: shutil.which(name, path=environment["PATH"]) for name in MAKECONF_COMPILERS}
+    resolved = {name: shutil.which(name, path=environment["PATH"]) for name in R_REQUIRED_EXECUTABLES}
     missing = next((name for name, path in resolved.items() if not path), None)
     return {name: path for name, path in resolved.items() if path}, missing
 
@@ -263,7 +267,7 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
         "zCompositions": {"requested_version": "1.6.2", "installed_version": None, "installed_path": None, "source_url": None, "source_checksum": None, "version_match": False},
         "dependencies": {},
         "system_library": {"path": str(SYSTEM_LIBRARY), "package_set_changed": None, "package_versions_changed": None},
-        "compiler_probe": {"required": list(MAKECONF_COMPILERS), "resolved_paths": {}, "passed": False},
+        "compiler_probe": {"required": list(R_REQUIRED_EXECUTABLES), "resolved_paths": {}, "passed": False},
         "czm_probe": {"attempted": False, "passed": False, "function": "zCompositions::cmultRepl", "method": "CZM", "input_shape": [4, 5], "output_shape": None, "finite": False, "strictly_positive": False, "deterministic": False, "input_sha256": hashlib.sha256(canonical(SYNTHETIC_INPUT)).hexdigest(), "output_sha256": None, "repeat_output_sha256": None, "error_if_any": None},
         "network_acquisition_performed": True,
         "downloaded_package_count": len(lock_new_packages(lock)),
