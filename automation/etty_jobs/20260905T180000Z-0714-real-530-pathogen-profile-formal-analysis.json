@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "job_id": "20260905T180000Z-0714-real-530-pathogen-profile-formal-analysis",
+  "authorized": true,
+  "authorization_record": "User-authorized first formal cohort-specific pathogen-profile analysis on the verified 400/130 BALF direct-species layer using the pre-hypothesis frozen 11-taxon panel and >=5 primary threshold with >=1/>=10 sensitivity; no compositional workflow, pooling, acquisition, or classifier rerun.",
+  "execution_commit": "74609b6003a2d88409246840cfb52c08d57f7fe0",
+  "job_definition_path": "automation/production/20260905T180000Z-0714-real-530-pathogen-profile-formal-analysis.json",
+  "job_definition_sha256": "999233ee9b7321939bc32b602134a5ee4883d1639ab08ffa6a161722cea6755a",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+      "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 3600,
+    "memory_cap_bytes": 8589934592,
+    "workspace_cap_bytes": 2147483648
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "pathogen_primary_ge5.json",
+    "pathogen_sensitivity_ge1.json",
+    "pathogen_sensitivity_ge10.json",
+    "anchor_pathogen_global_tests.json",
+    "anchor_pathogen_pairwise.json",
+    "external_pathogen_associations.json",
+    "threshold_robustness.json",
+    "core_pathogen_burden.json",
+    "full_panel_burden.json",
+    "pathogen_burden_global_tests.json",
+    "dominant_pathogen_by_group.json",
+    "pathogen_codetection_ge5.json",
+    "jaccard_suitability.json",
+    "pathogen_analysis_summary.md",
+    "pathogen_analysis_manifest.json",
+    "output_hashes.json"
+  ]
+}
