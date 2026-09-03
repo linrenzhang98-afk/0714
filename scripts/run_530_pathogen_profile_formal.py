@@ -123,6 +123,12 @@ def layer(category: str) -> str:
     return "CORE_A;FULL_PANEL" if category == CORE else "FULL_PANEL" if category == CONTEXT else "STUDY_DEFINING"
 
 
+def classify_robustness(*, primary_positive_n: int, retention: float, same_direction: bool, similar_magnitude: bool) -> str:
+    if primary_positive_n < 10 or retention < 0.5:
+        return "LOW_COUNT_UNSTABLE"
+    return "ROBUST" if same_direction and similar_magnitude else "THRESHOLD_SENSITIVE"
+
+
 def prepare_data(panel: list[dict[str, str]], count_paths: dict[str, Path], metadata_paths: dict[str, Path]):
     data = {}
     for cohort in ("anchor", "external"):
@@ -332,7 +338,8 @@ def robustness(panel: list[dict[str, str]], data: dict[str, Any], anchor: list[d
             same_direction = len(set(directions.values())) == 1 and "equal" not in directions.values()
             primary_magnitude = abs(effects[5])
             similar = primary_magnitude > 0 and all(0.5 <= abs(effects[t]) / primary_magnitude <= 2.0 for t in (1, 10))
-            classification = "LOW_COUNT_UNSTABLE" if retained < 0.5 else "ROBUST" if same_direction and similar else "THRESHOLD_SENSITIVE"
+            classification = classify_robustness(primary_positive_n=positive_counts[5], retention=retained,
+                                                 same_direction=same_direction, similar_magnitude=similar)
             rows.append({
                 "cohort": cohort, **item, "positive_n_ge1": positive_counts[1], "positive_n_ge5": positive_counts[5], "positive_n_ge10": positive_counts[10],
                 "retention_ge5_vs_ge1": retained, "direction_ge1": directions[1], "direction_ge5": directions[5], "direction_ge10": directions[10],
@@ -340,7 +347,7 @@ def robustness(panel: list[dict[str, str]], data: dict[str, Any], anchor: list[d
                 "p_ge1": test_map[(cohort, 1, item["taxid"])]["p_value"], "p_ge5": test_map[(cohort, 5, item["taxid"])]["p_value"], "p_ge10": test_map[(cohort, 10, item["taxid"])]["p_value"],
                 "q_scope_ge1": test_map[(cohort, 1, item["taxid"])]["gate_q_or_p"], "q_scope_ge5": test_map[(cohort, 5, item["taxid"])]["gate_q_or_p"], "q_scope_ge10": test_map[(cohort, 10, item["taxid"])]["gate_q_or_p"],
                 "robustness": classification,
-                "rule": "LOW_COUNT_UNSTABLE if <50% ge1 detections remain at ge5; otherwise ROBUST requires same direction and sensitivity effect magnitudes 0.5x-2x primary; else THRESHOLD_SENSITIVE",
+                "rule": "LOW_COUNT_UNSTABLE if primary ge5 positives <10 or <50% of ge1 detections remain at ge5; otherwise ROBUST requires same direction and sensitivity effect magnitudes 0.5x-2x primary; else THRESHOLD_SENSITIVE",
             })
     return rows
 

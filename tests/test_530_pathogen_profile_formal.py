@@ -33,6 +33,14 @@ class PathogenProfileFormalTests(unittest.TestCase):
         self.assertIn("/usr/bin", env["PATH"])
         self.assertIn("/bin", env["PATH"])
 
+    def test_robustness_fails_closed_for_rare_primary_positives(self):
+        self.assertEqual(formal.classify_robustness(primary_positive_n=1, retention=0.5,
+                                                    same_direction=True, similar_magnitude=True),
+                         "LOW_COUNT_UNSTABLE")
+        self.assertEqual(formal.classify_robustness(primary_positive_n=10, retention=0.5,
+                                                    same_direction=True, similar_magnitude=True),
+                         "ROBUST")
+
     def test_source_has_no_abandoned_analysis_calls(self):
         source = Path(formal.__file__).read_text()
         for token in ("cmultRepl(", "clr_transform(", "aitchison_distance(", "ANCOMBC", "ALDEx2("):
