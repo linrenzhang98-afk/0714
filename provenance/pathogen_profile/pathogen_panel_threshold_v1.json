@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "decision_status": "FROZEN_BEFORE_HYPOTHESIS_TESTING",
+  "primary_threshold_direct_assigned_reads_greater_or_equal": 5,
+  "sensitivity_thresholds_direct_assigned_reads_greater_or_equal": [1, 10],
+  "threshold_interpretation": "operational public-shotgun pathogen-detection threshold; not a clinically validated diagnostic positivity threshold",
+  "panel": [
+    {"category": "B", "taxid": "470", "scientific_name": "Acinetobacter baumannii"},
+    {"category": "B", "taxid": "5207", "scientific_name": "Cryptococcus neoformans"},
+    {"category": "B", "taxid": "562", "scientific_name": "Escherichia coli"},
+    {"category": "A", "taxid": "727", "scientific_name": "Haemophilus influenzae"},
+    {"category": "A", "taxid": "573", "scientific_name": "Klebsiella pneumoniae"},
+    {"category": "A", "taxid": "480", "scientific_name": "Moraxella catarrhalis"},
+    {"category": "S", "taxid": "1773", "scientific_name": "Mycobacterium tuberculosis"},
+    {"category": "A", "taxid": "287", "scientific_name": "Pseudomonas aeruginosa"},
+    {"category": "A", "taxid": "1280", "scientific_name": "Staphylococcus aureus"},
+    {"category": "B", "taxid": "40324", "scientific_name": "Stenotrophomonas maltophilia"},
+    {"category": "A", "taxid": "1313", "scientific_name": "Streptococcus pneumoniae"}
+  ],
+  "source_threshold_audit_job_id": "20260905T120000Z-0714-real-530-pathogen-read-threshold-audit",
+  "source_handoff_commit": "813e07199e10d4794c3c1639d5656f6f1e429284",
+  "source_threshold_summary_sha256": "073ad0050cc161efebc15e0438bb51ff8ed211aff3900c8c291d2976979d7905",
+  "source_panel_proposals_sha256": "771ba3baa1228d4b3d6d88b835840b9275d19cb5f9aac9043225956d642a79ec",
+  "source_threshold_retention_sha256": "fd7a9bf005c951a5200cbaf6905a15809f0296a7ad4e1695350f604057144fcf",
+  "selection_timing": "threshold and panel selected before formal disease-association hypothesis testing",
+  "abandoned_pathway": "CZM/CLR/Aitchison",
+  "abandoned_pathway_reason": "real BALF direct-species profiles were highly sparse and incompatible with the proposed default CZM replacement workflow",
+  "pooled_530_model": false
+}
