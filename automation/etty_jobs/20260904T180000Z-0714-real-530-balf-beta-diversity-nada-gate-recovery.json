@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "job_id": "20260904T180000Z-0714-real-530-balf-beta-diversity-nada-gate-recovery",
+  "authorized": true,
+  "authorization_record": "User-authorized technical recovery of the unchanged frozen real 530-sample species beta-diversity job after pre-inference NADA version representation SAFE_STOP; scientific scope, inputs, methods, and resource caps unchanged.",
+  "execution_commit": "00ce396ff75c0e03f5e868ec395c790e31d9a748",
+  "job_definition_path": "automation/production/20260904T180000Z-0714-real-530-balf-beta-diversity-nada-gate-recovery.json",
+  "job_definition_sha256": "ffe0164e2dc6eceb977e7b9c990c85ba38b40e83b595f50fa442a95a88f6b8aa",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 21600,
+    "memory_cap_bytes": 17179869184,
+    "workspace_cap_bytes": 21474836480
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "analysis_manifest.json",
+    "sample_manifest.json",
+    "exclusions.json",
+    "feature_filter_summary.json",
+    "czm_provenance.json",
+    "clr_provenance.json",
+    "permanova_results.json",
+    "permdisp_results.json",
+    "sensitivity_summary.json",
+    "warnings.json",
+    "session_versions.json",
+    "output_hashes.json",
+    "production_summary.md"
+  ]
+}
