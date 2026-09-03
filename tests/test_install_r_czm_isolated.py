@@ -21,6 +21,34 @@ def lock_fixture():
 
 
 class IsolatedInstallTests(unittest.TestCase):
+    def test_path_prepending_exposes_compiler_wrappers(self):
+        with patch.dict("os.environ", {"PATH": "/usr/bin"}, clear=True), patch.object(installer.shutil, "which", side_effect=lambda name, path: f"{installer.MGSHOTGUN_BIN}/{name}") as which:
+            environment = installer.execution_environment()
+            resolved, missing = installer.compiler_probe()
+        self.assertEqual(missing, None)
+        self.assertTrue(environment["PATH"].startswith(installer.MGSHOTGUN_BIN + ":"))
+        self.assertEqual(set(resolved), set(installer.MAKECONF_COMPILERS))
+        self.assertEqual(which.call_args.kwargs["path"], environment["PATH"])
+
+    def test_missing_compiler_fails_closed(self):
+        with patch.object(installer.shutil, "which", side_effect=lambda name, path: None if name.endswith("gfortran") else f"/bin/{name}"):
+            resolved, missing = installer.compiler_probe()
+        self.assertEqual(missing, "x86_64-conda-linux-gnu-gfortran")
+        self.assertNotIn(missing, resolved)
+
+    def test_all_r_subprocesses_receive_execution_path(self):
+        class Completed:
+            returncode = 0
+            stdout = ""
+            stderr = ""
+        package = {"tarball_path": "/tmp/locked.tar.gz"}
+        with patch("subprocess.run", return_value=Completed()) as run:
+            installer.run_r("cat('ok')")
+            installer.install_package(package, Path("/tmp/isolated"))
+        self.assertEqual(run.call_count, 2)
+        for call in run.call_args_list:
+            self.assertTrue(call.kwargs["env"]["PATH"].startswith(installer.MGSHOTGUN_BIN + ":"))
+
     def test_dependency_lock_order_and_suggests_exclusion(self):
         packages = installer.lock_new_packages(lock_fixture())
         self.assertEqual([p["package"] for p in packages], ["NADA", "truncnorm", "zCompositions"])
@@ -44,13 +72,41 @@ class IsolatedInstallTests(unittest.TestCase):
         self.assertEqual(installer.system_library_unchanged({"MASS": "1"}, {"MASS": "2"}), (True, False))
         self.assertEqual(installer.system_library_unchanged({"MASS": "1"}, {"MASS": "1", "survival": "1"}), (False, False))
 
-    def test_existing_nonempty_target_stops_before_r_access(self):
+    def test_exact_locked_partial_nada_state_is_resumable(self):
+        valid, unexpected, mismatched = installer.validate_isolated_inventory({"NADA": "1"}, lock_fixture())
+        self.assertTrue(valid)
+        self.assertEqual(unexpected, [])
+        self.assertEqual(mismatched, [])
+
+    def test_unexpected_package_fails_closed(self):
+        valid, unexpected, mismatched = installer.validate_isolated_inventory({"NADA": "1", "other": "1"}, lock_fixture())
+        self.assertFalse(valid)
+        self.assertEqual(unexpected, ["other"])
+        self.assertEqual(mismatched, [])
+
+    def test_wrong_nada_version_fails_closed(self):
+        valid, unexpected, mismatched = installer.validate_isolated_inventory({"NADA": "2"}, lock_fixture())
+        self.assertFalse(valid)
+        self.assertEqual(unexpected, [])
+        self.assertEqual(mismatched, ["NADA"])
+
+    def test_empty_isolated_library_is_valid(self):
+        valid, unexpected, mismatched = installer.validate_isolated_inventory({}, lock_fixture())
+        self.assertTrue(valid)
+        self.assertEqual(unexpected, [])
+        self.assertEqual(mismatched, [])
+
+    def test_matching_package_is_skipped(self):
+        missing = installer.missing_locked_packages(lock_fixture(), {"NADA": "1"})
+        self.assertEqual([package["package"] for package in missing], ["truncnorm", "zCompositions"])
+
+    def test_existing_unexpected_target_stops_before_install(self):
         with tempfile.TemporaryDirectory() as raw:
             target = Path(raw) / "zCompositions-1.6.2-R-4.5.3"
             target.mkdir(); (target / "partial").write_text("x")
-            with patch.object(installer, "ISOLATED_PARENT", Path(raw)):
+            with patch.object(installer, "ISOLATED_PARENT", Path(raw)), patch.object(installer, "compiler_probe", return_value=({name: f"/bin/{name}" for name in installer.MAKECONF_COMPILERS}, None)), patch.object(installer, "r_runtime_info", return_value=("R version 4.5.3", None)), patch.object(installer, "r_inventory", side_effect=[({"MASS": "1", "survival": "1"}, None), ({"partial": "1"}, None)]):
                 report = installer.build_report("synthetic", lock_fixture(), Path(raw), target)
-            self.assertEqual(report["reason"], "ISOLATED_LIBRARY_ALREADY_NONEMPTY")
+            self.assertEqual(report["reason"], "ISOLATED_LIBRARY_CONTENTS_INVALID")
 
     def test_malformed_r_output(self):
         values, malformed = installer.parse_protocol("KV\tx\ty\ninvalid\n")
@@ -60,7 +116,7 @@ class IsolatedInstallTests(unittest.TestCase):
     def test_version_mismatch_does_not_return_ready(self):
         with tempfile.TemporaryDirectory() as raw:
             target = Path(raw) / "zCompositions-1.6.2-R-4.5.3"
-            with patch.object(installer, "ISOLATED_PARENT", Path(raw)), patch.object(installer, "r_runtime_info", return_value=("R version 4.4.0", None)):
+            with patch.object(installer, "ISOLATED_PARENT", Path(raw)), patch.object(installer, "compiler_probe", return_value=({name: f"/bin/{name}" for name in installer.MAKECONF_COMPILERS}, None)), patch.object(installer, "r_runtime_info", return_value=("R version 4.4.0", None)):
                 report = installer.build_report("synthetic", lock_fixture(), Path(raw), target)
             self.assertEqual(report["status"], "CZM_ISOLATED_LIBRARY_NOT_READY")
             self.assertEqual(report["reason"], "R_VERSION_MISMATCH_OR_UNAVAILABLE")

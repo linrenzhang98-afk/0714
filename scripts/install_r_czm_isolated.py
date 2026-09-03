@@ -13,6 +13,7 @@ import hashlib
 import json
 import math
 import os
+import shutil
 import subprocess
 from pathlib import Path
 from typing import Any
@@ -23,6 +24,8 @@ RSCRIPT_PATH = "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript"
 SYSTEM_LIBRARY = Path("/home/suma/anaconda3/envs/mgshotgun/lib/R/library")
 ISOLATED_PARENT = Path("/mnt/disk1/0714_control/r_libs")
 EXPECTED_R_VERSION = "4.5.3"
+MGSHOTGUN_BIN = "/home/suma/anaconda3/envs/mgshotgun/bin"
+MAKECONF_COMPILERS = ("x86_64-conda-linux-gnu-cc", "x86_64-conda-linux-gnu-c++", "x86_64-conda-linux-gnu-gfortran")
 SYNTHETIC_INPUT = [[10, 0, 2, 0, 8], [0, 5, 1, 4, 0], [3, 7, 0, 2, 1], [0, 2, 8, 0, 6]]
 
 
@@ -42,6 +45,20 @@ def q(value: str) -> str:
     return json.dumps(value)
 
 
+def execution_environment() -> dict[str, str]:
+    environment = os.environ.copy()
+    inherited_path = environment.get("PATH", "")
+    environment["PATH"] = MGSHOTGUN_BIN + (os.pathsep + inherited_path if inherited_path else "")
+    return environment
+
+
+def compiler_probe() -> tuple[dict[str, str], str | None]:
+    environment = execution_environment()
+    resolved = {name: shutil.which(name, path=environment["PATH"]) for name in MAKECONF_COMPILERS}
+    missing = next((name for name, path in resolved.items() if not path), None)
+    return {name: path for name, path in resolved.items() if path}, missing
+
+
 def run_r(code: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         [RSCRIPT_PATH, "--vanilla", "--slave", "-e", code],
@@ -50,6 +67,7 @@ def run_r(code: str) -> subprocess.CompletedProcess[str]:
         text=True,
         timeout=180,
         shell=False,
+        env=execution_environment(),
     )
 
 
@@ -110,6 +128,17 @@ def lock_new_packages(lock: dict[str, Any]) -> list[dict[str, Any]]:
     return sorted(packages, key=lambda item: item["installation_order"])
 
 
+def validate_isolated_inventory(inventory: dict[str, str], lock: dict[str, Any]) -> tuple[bool, list[str], list[str]]:
+    allowed_versions = {item["package"]: item["version"] for item in lock_new_packages(lock)}
+    unexpected = sorted(set(inventory) - set(allowed_versions))
+    mismatched = sorted(package for package, version in inventory.items() if package in allowed_versions and allowed_versions[package] != version)
+    return not unexpected and not mismatched, unexpected, mismatched
+
+
+def missing_locked_packages(lock: dict[str, Any], inventory: dict[str, str]) -> list[dict[str, Any]]:
+    return [package for package in lock_new_packages(lock) if package["package"] not in inventory]
+
+
 def validate_tarballs(lock: dict[str, Any], source_dir: Path) -> tuple[list[dict[str, Any]], str | None]:
     verified: list[dict[str, Any]] = []
     for package in lock_new_packages(lock):
@@ -133,6 +162,7 @@ def install_package(package: dict[str, Any], target: Path) -> tuple[bool, str | 
         text=True,
         timeout=600,
         shell=False,
+        env=execution_environment(),
     )
     if completed.returncode:
         return False, (completed.stderr or completed.stdout)[-2000:]
@@ -233,6 +263,7 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
         "zCompositions": {"requested_version": "1.6.2", "installed_version": None, "installed_path": None, "source_url": None, "source_checksum": None, "version_match": False},
         "dependencies": {},
         "system_library": {"path": str(SYSTEM_LIBRARY), "package_set_changed": None, "package_versions_changed": None},
+        "compiler_probe": {"required": list(MAKECONF_COMPILERS), "resolved_paths": {}, "passed": False},
         "czm_probe": {"attempted": False, "passed": False, "function": "zCompositions::cmultRepl", "method": "CZM", "input_shape": [4, 5], "output_shape": None, "finite": False, "strictly_positive": False, "deterministic": False, "input_sha256": hashlib.sha256(canonical(SYNTHETIC_INPUT)).hexdigest(), "output_sha256": None, "repeat_output_sha256": None, "error_if_any": None},
         "network_acquisition_performed": True,
         "downloaded_package_count": len(lock_new_packages(lock)),
@@ -253,8 +284,10 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
     if not confined_isolated_path(isolated):
         report["reason"] = "ISOLATED_LIBRARY_PATH_ESCAPE"
         return report
-    if isolated.exists() and any(isolated.iterdir()):
-        report["reason"] = "ISOLATED_LIBRARY_ALREADY_NONEMPTY"
+    resolved_compilers, missing_compiler = compiler_probe()
+    report["compiler_probe"].update({"resolved_paths": resolved_compilers, "passed": missing_compiler is None})
+    if missing_compiler:
+        report["reason"] = f"COMPILER_UNAVAILABLE:{missing_compiler}"
         return report
     r_version, error = r_runtime_info()
     report["r_version"] = r_version
@@ -271,12 +304,26 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
     if "MASS" not in before or "survival" not in before:
         report["reason"] = "REQUIRED_SYSTEM_DEPENDENCY_MISSING"
         return report
+    isolated_inventory, inventory_error = r_inventory(isolated) if isolated.exists() else ({}, None)
+    inventory_valid, unexpected, mismatched = validate_isolated_inventory(isolated_inventory, lock)
+    if inventory_error or not inventory_valid:
+        report["isolated_inventory"] = isolated_inventory
+        report["reason"] = "ISOLATED_LIBRARY_CONTENTS_INVALID"
+        if inventory_error:
+            report["isolated_inventory_error"] = inventory_error
+        if unexpected:
+            report["unexpected_packages"] = unexpected
+        if mismatched:
+            report["version_mismatches"] = mismatched
+        return report
+    for package, version in isolated_inventory.items():
+        report["dependencies"][package].update({"reused_partial": True, "version": version, "path": str(isolated / package)})
     tarballs, error = validate_tarballs(lock, source_dir)
     if error:
         report["reason"] = error
         return report
     isolated.mkdir(parents=True, exist_ok=True)
-    for package in tarballs:
+    for package in (package for package in tarballs if package["package"] in {item["package"] for item in missing_locked_packages(lock, isolated_inventory)}):
         ok, error = install_package(package, isolated)
         if not ok:
             report["reason"] = f"PACKAGE_INSTALL_FAILED:{package['package']}"
@@ -300,7 +347,8 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
         return report
     isolated_inventory, error = r_inventory(isolated)
     allowed_new = {item["package"] for item in lock_new_packages(lock)}
-    if error or set(isolated_inventory) != allowed_new:
+    versions_match, _, _ = validate_isolated_inventory(isolated_inventory, lock)
+    if error or set(isolated_inventory) != allowed_new or not versions_match:
         report["reason"] = "ISOLATED_LIBRARY_CONTENTS_INVALID"
         report["isolated_inventory"] = isolated_inventory
         return report
