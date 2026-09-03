@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "job_id": "20260905T120000Z-0714-real-530-pathogen-read-threshold-audit",
+  "authorized": true,
+  "authorization_record": "User-authorized bounded descriptive read-threshold audit of the exact existing 11-taxon respiratory pathogen candidate panel using verified 400/130 direct-species counts; no hypothesis testing, threshold selection, panel change, acquisition, or classifier rerun.",
+  "execution_commit": "f58d3dc24ad623e7ea127dae4c75ccdbbc9fa9aa",
+  "job_definition_path": "automation/production/20260905T120000Z-0714-real-530-pathogen-read-threshold-audit.json",
+  "job_definition_sha256": "a6c338de4095c29cbe85f2e1ff13f6940d98a1202b5841a70273effd17e64ad8",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 1800,
+    "memory_cap_bytes": 4294967296,
+    "workspace_cap_bytes": 1073741824
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "pathogen_read_threshold_summary.json",
+    "pathogen_read_threshold_audit.json",
+    "pathogen_threshold_retention.json",
+    "pathogen_signal_fraction.json",
+    "pathogen_dominance_by_read_bin.json",
+    "sample_panel_burden_by_threshold.json",
+    "pathogen_threshold_stability.json",
+    "pathogen_panel_proposals.json",
+    "pathogen_panel_review_v2.md"
+  ]
+}
