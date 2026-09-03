@@ -1,0 +1,32 @@
+{
+  "anchor": {
+    "all_zero_n": 245,
+    "all_zero_proportion": 0.6125,
+    "criteria": "unique>=8; all-zero<=25%; largest identical profile<=25%; every group>=10 nonzero",
+    "largest_identical_profile_n": 245,
+    "largest_identical_profile_proportion": 0.6125,
+    "nonzero_profiles_by_group": {
+      "Bacterial infection": 67,
+      "Fungal infection": 19,
+      "Lung cancer": 50,
+      "Pulmonary tuberculosis": 19
+    },
+    "reason": "NOT_RUN_WITH_REASON: prespecified binary-profile variation criteria failed",
+    "status": "NOT_RUN",
+    "unique_profiles": 25
+  },
+  "external": {
+    "all_zero_n": 77,
+    "all_zero_proportion": 0.5923076923076923,
+    "criteria": "unique>=8; all-zero<=25%; largest identical profile<=25%; every group>=10 nonzero",
+    "largest_identical_profile_n": 77,
+    "largest_identical_profile_proportion": 0.5923076923076923,
+    "nonzero_profiles_by_group": {
+      "Drug_Resistance": 22,
+      "Drug_Sensitive": 31
+    },
+    "reason": "NOT_RUN_WITH_REASON: prespecified binary-profile variation criteria failed",
+    "status": "NOT_RUN",
+    "unique_profiles": 19
+  }
+}
