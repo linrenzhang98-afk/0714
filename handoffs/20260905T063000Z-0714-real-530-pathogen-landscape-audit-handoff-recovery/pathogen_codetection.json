@@ -1,0 +1,1374 @@
+[
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Staphylococcus aureus",
+    "pattern_type": "profile",
+    "support_n": 71
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Streptococcus pneumoniae",
+    "pattern_type": "profile",
+    "support_n": 20
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa",
+    "pattern_type": "profile",
+    "support_n": 12
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae",
+    "pattern_type": "profile",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 89
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 54
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 46
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 40
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 34
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 30
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 25
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 22
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 22
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 20
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 20
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 18
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 15
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 15
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 15
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 15
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 15
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 15
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae",
+    "pattern_type": "pair",
+    "support_n": 14
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 14
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Klebsiella pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 13
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Haemophilus influenzae",
+    "pattern_type": "pair",
+    "support_n": 12
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 12
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 12
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 11
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli",
+    "pattern_type": "pair",
+    "support_n": 10
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 10
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 10
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 10
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 10
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Moraxella catarrhalis",
+    "pattern_type": "pair",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Moraxella catarrhalis;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Moraxella catarrhalis;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 36
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 17
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Staphylococcus aureus;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 16
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 15
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 12
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Haemophilus influenzae;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Klebsiella pneumoniae;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 10
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 10
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 10
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Moraxella catarrhalis;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Haemophilus influenzae",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Klebsiella pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Haemophilus influenzae;Klebsiella pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Haemophilus influenzae;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Haemophilus influenzae;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Klebsiella pneumoniae;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Klebsiella pneumoniae;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Moraxella catarrhalis;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Haemophilus influenzae;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Klebsiella pneumoniae;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "anchor",
+    "minimum_support": 5,
+    "pathogens": "Moraxella catarrhalis;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis",
+    "pattern_type": "profile",
+    "support_n": 14
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 57
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 37
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 35
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 34
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 32
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 30
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 29
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 25
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 23
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 22
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Mycobacterium tuberculosis",
+    "pattern_type": "pair",
+    "support_n": 21
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 21
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 20
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 20
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 17
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 17
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 16
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Mycobacterium tuberculosis",
+    "pattern_type": "pair",
+    "support_n": 15
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 13
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 12
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae",
+    "pattern_type": "pair",
+    "support_n": 11
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 11
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Mycobacterium tuberculosis",
+    "pattern_type": "pair",
+    "support_n": 11
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 11
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Mycobacterium tuberculosis",
+    "pattern_type": "pair",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Staphylococcus aureus",
+    "pattern_type": "pair",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Pseudomonas aeruginosa",
+    "pattern_type": "pair",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli",
+    "pattern_type": "pair",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Streptococcus pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 7
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Stenotrophomonas maltophilia",
+    "pattern_type": "pair",
+    "support_n": 7
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae",
+    "pattern_type": "pair",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 25
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 24
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 22
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 19
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 18
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 17
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 17
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Mycobacterium tuberculosis;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 16
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 16
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 16
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 16
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Mycobacterium tuberculosis;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 15
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Mycobacterium tuberculosis;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 15
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 14
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 14
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Pseudomonas aeruginosa;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 14
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 13
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Mycobacterium tuberculosis;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 13
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Staphylococcus aureus;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 13
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 12
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Mycobacterium tuberculosis;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 12
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Mycobacterium tuberculosis;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Mycobacterium tuberculosis;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 11
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 10
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Mycobacterium tuberculosis;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 10
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 10
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Mycobacterium tuberculosis;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Mycobacterium tuberculosis;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 9
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Mycobacterium tuberculosis;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 8
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Haemophilus influenzae;Mycobacterium tuberculosis",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Mycobacterium tuberculosis;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Haemophilus influenzae;Mycobacterium tuberculosis;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 7
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Mycobacterium tuberculosis",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Escherichia coli;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Mycobacterium tuberculosis;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Staphylococcus aureus;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Mycobacterium tuberculosis;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Mycobacterium tuberculosis;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Pseudomonas aeruginosa;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 6
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae;Mycobacterium tuberculosis",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Acinetobacter baumannii;Klebsiella pneumoniae;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae;Mycobacterium tuberculosis",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae;Pseudomonas aeruginosa",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Klebsiella pneumoniae;Staphylococcus aureus",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Mycobacterium tuberculosis;Streptococcus pneumoniae",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Escherichia coli;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 5
+  },
+  {
+    "cohort": "external",
+    "minimum_support": 5,
+    "pathogens": "Klebsiella pneumoniae;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "pattern_type": "triplet",
+    "support_n": 5
+  }
+]

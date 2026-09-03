@@ -1,0 +1,1362 @@
+[
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 1.0,
+    "frequency": 400,
+    "reason_for_flag": "existing_repository_background_or_low_specificity_flag",
+    "recommended_action_for_review": "retain_for_QC_review;exclude_only_under_documented_rule",
+    "scientific_name": "Homo sapiens",
+    "taxid": "9606",
+    "typical_read_level": 1434.5
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.9975,
+    "frequency": 399,
+    "reason_for_flag": "existing_repository_background_or_low_specificity_flag",
+    "recommended_action_for_review": "retain_for_QC_review;exclude_only_under_documented_rule",
+    "scientific_name": "Arabidopsis thaliana",
+    "taxid": "3702",
+    "typical_read_level": 1162
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.9825,
+    "frequency": 393,
+    "reason_for_flag": "existing_repository_background_or_low_specificity_flag",
+    "recommended_action_for_review": "retain_for_QC_review;exclude_only_under_documented_rule",
+    "scientific_name": "Benincasa hispida",
+    "taxid": "102211",
+    "typical_read_level": 9
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.655,
+    "frequency": 262,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Cutibacterium acnes",
+    "taxid": "1747",
+    "typical_read_level": 3.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.6325,
+    "frequency": 253,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Bartonella krasnovii",
+    "taxid": "2267275",
+    "typical_read_level": 2
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.545,
+    "frequency": 218,
+    "reason_for_flag": "existing_repository_background_or_low_specificity_flag",
+    "recommended_action_for_review": "retain_for_QC_review;exclude_only_under_documented_rule",
+    "scientific_name": "Camelina sativa",
+    "taxid": "90675",
+    "typical_read_level": 2.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.54,
+    "frequency": 216,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella melaninogenica",
+    "taxid": "28132",
+    "typical_read_level": 17.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.48,
+    "frequency": 192,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Rothia mucilaginosa",
+    "taxid": "43675",
+    "typical_read_level": 16.5
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.425,
+    "frequency": 170,
+    "reason_for_flag": "median_positive_signal_is_one_direct_read;clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Juglans regia",
+    "taxid": "51240",
+    "typical_read_level": 1.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.42,
+    "frequency": 168,
+    "reason_for_flag": "median_positive_signal_is_one_direct_read;clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Capsicum annuum",
+    "taxid": "4072",
+    "typical_read_level": 1.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.42,
+    "frequency": 168,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella jejuni",
+    "taxid": "1177574",
+    "typical_read_level": 7.5
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.42,
+    "frequency": 168,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Veillonella parvula",
+    "taxid": "29466",
+    "typical_read_level": 4.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.3975,
+    "frequency": 159,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Moraxella osloensis",
+    "taxid": "34062",
+    "typical_read_level": 2
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.3975,
+    "frequency": 159,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Staphylococcus epidermidis",
+    "taxid": "1282",
+    "typical_read_level": 4
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.395,
+    "frequency": 158,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Streptococcus mitis",
+    "taxid": "28037",
+    "typical_read_level": 9.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.3875,
+    "frequency": 155,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella intermedia",
+    "taxid": "28131",
+    "typical_read_level": 6
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.3825,
+    "frequency": 153,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Malassezia restricta",
+    "taxid": "76775",
+    "typical_read_level": 2
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.375,
+    "frequency": 150,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Haemophilus parainfluenzae",
+    "taxid": "729",
+    "typical_read_level": 7.5
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.3725,
+    "frequency": 149,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Streptococcus oralis",
+    "taxid": "1303",
+    "typical_read_level": 6
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.3675,
+    "frequency": 147,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Staphylococcus hominis",
+    "taxid": "1290",
+    "typical_read_level": 3
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.355,
+    "frequency": 142,
+    "reason_for_flag": "median_positive_signal_is_one_direct_read;clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Klebsiella variicola",
+    "taxid": "244366",
+    "typical_read_level": 1.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.35,
+    "frequency": 140,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Campylobacter concisus",
+    "taxid": "199",
+    "typical_read_level": 4.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.34,
+    "frequency": 136,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Schaalia odontolytica",
+    "taxid": "1660",
+    "typical_read_level": 5.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.335,
+    "frequency": 134,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella nigrescens",
+    "taxid": "28133",
+    "typical_read_level": 6.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.325,
+    "frequency": 130,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Veillonella atypica",
+    "taxid": "39777",
+    "typical_read_level": 7.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.315,
+    "frequency": 126,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella veroralis",
+    "taxid": "28137",
+    "typical_read_level": 4.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.305,
+    "frequency": 122,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Acinetobacter johnsonii",
+    "taxid": "40214",
+    "typical_read_level": 2.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.305,
+    "frequency": 122,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Porphyromonas endodontalis",
+    "taxid": "28124",
+    "typical_read_level": 6.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.2525,
+    "frequency": 101,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Neisseria mucosa",
+    "taxid": "488",
+    "typical_read_level": 6
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.2125,
+    "frequency": 85,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Neisseria subflava",
+    "taxid": "28449",
+    "typical_read_level": 5
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.1825,
+    "frequency": 73,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Neisseria flavescens",
+    "taxid": "484",
+    "typical_read_level": 3
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.275,
+    "frequency": 110,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella histicola",
+    "taxid": "470565",
+    "typical_read_level": 5.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.2475,
+    "frequency": 99,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Streptococcus sp. Marseille-Q3533",
+    "taxid": "2759692",
+    "typical_read_level": 4
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.265,
+    "frequency": 106,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Fusobacterium pseudoperiodonticum",
+    "taxid": "2663009",
+    "typical_read_level": 7.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.1125,
+    "frequency": 45,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Cupriavidus sp. EM10",
+    "taxid": "2839983",
+    "typical_read_level": 13
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.235,
+    "frequency": 94,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Streptococcus infantis",
+    "taxid": "68892",
+    "typical_read_level": 4.5
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.02,
+    "frequency": 8,
+    "reason_for_flag": "median_positive_signal_is_one_direct_read;clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Morganella morganii",
+    "taxid": "582",
+    "typical_read_level": 1.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.275,
+    "frequency": 110,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Porphyromonas gingivalis",
+    "taxid": "837",
+    "typical_read_level": 6.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.26,
+    "frequency": 104,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Granulicatella adiacens",
+    "taxid": "46124",
+    "typical_read_level": 7.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.16,
+    "frequency": 64,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Streptococcus parasanguinis",
+    "taxid": "1318",
+    "typical_read_level": 7.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia wallacei",
+    "taxid": "480035",
+    "typical_read_level": 7739
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Legionella longbeachae",
+    "taxid": "450",
+    "typical_read_level": 815
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia terpenica",
+    "taxid": "455432",
+    "typical_read_level": 218
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia asteroides",
+    "taxid": "1824",
+    "typical_read_level": 165
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Scytonema sp. HK-05",
+    "taxid": "1137095",
+    "typical_read_level": 110
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Sulfuriferula sp. AH1",
+    "taxid": "1985873",
+    "typical_read_level": 76
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia brasiliensis",
+    "taxid": "37326",
+    "typical_read_level": 72
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudoalteromonas sp. A25",
+    "taxid": "116092",
+    "typical_read_level": 61
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia farcinica",
+    "taxid": "37329",
+    "typical_read_level": 52
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.005,
+    "frequency": 2,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Macrococcus epidermidis",
+    "taxid": "1902580",
+    "typical_read_level": 49.0
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Stenotrophomonas sp. SAU14A_NAIMI4_8",
+    "taxid": "2072409",
+    "typical_read_level": 48
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Citrobacter sp. CRE-46",
+    "taxid": "1703250",
+    "typical_read_level": 47
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia arthritidis",
+    "taxid": "228602",
+    "typical_read_level": 46
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia otitidiscaviarum",
+    "taxid": "1823",
+    "typical_read_level": 44
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Human alphaherpesvirus 3",
+    "taxid": "10335",
+    "typical_read_level": 42
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Simplicispira suum",
+    "taxid": "2109915",
+    "typical_read_level": 40
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia seriolae",
+    "taxid": "37332",
+    "typical_read_level": 38
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Citrobacter sp. MGH 55",
+    "taxid": "1439319",
+    "typical_read_level": 37
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Thermomonas sp. HDW16",
+    "taxid": "2714945",
+    "typical_read_level": 37
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia gipuzkoensis",
+    "taxid": "2749991",
+    "typical_read_level": 36
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Nocardia yamanashiensis",
+    "taxid": "209247",
+    "typical_read_level": 36
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Brevibacillus sp. BB3-R1",
+    "taxid": "2950604",
+    "typical_read_level": 33
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Thaumasiovibrio subtropicus",
+    "taxid": "1891207",
+    "typical_read_level": 33
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Paenibacillus sp. 32O-W",
+    "taxid": "1695218",
+    "typical_read_level": 31
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Polynucleobacter sp. MWH-CaK5",
+    "taxid": "2689107",
+    "typical_read_level": 31
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0125,
+    "frequency": 5,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Cupriavidus sp. USMAA2-4",
+    "taxid": "876364",
+    "typical_read_level": 30
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.0025,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Dyadobacter sandarakinus",
+    "taxid": "2747268",
+    "typical_read_level": 30
+  },
+  {
+    "cohort": "anchor",
+    "detection_prevalence": 0.005,
+    "frequency": 2,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Agrobacterium vaccinii",
+    "taxid": "2735528",
+    "typical_read_level": 29.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.9076923076923077,
+    "frequency": 118,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Cutibacterium acnes",
+    "taxid": "1747",
+    "typical_read_level": 6.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.7846153846153846,
+    "frequency": 102,
+    "reason_for_flag": "existing_repository_background_or_low_specificity_flag",
+    "recommended_action_for_review": "retain_for_QC_review;exclude_only_under_documented_rule",
+    "scientific_name": "Benincasa hispida",
+    "taxid": "102211",
+    "typical_read_level": 8.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.7307692307692307,
+    "frequency": 95,
+    "reason_for_flag": "existing_repository_background_or_low_specificity_flag",
+    "recommended_action_for_review": "retain_for_QC_review;exclude_only_under_documented_rule",
+    "scientific_name": "Homo sapiens",
+    "taxid": "9606",
+    "typical_read_level": 3
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.6538461538461539,
+    "frequency": 85,
+    "reason_for_flag": "existing_repository_background_or_low_specificity_flag",
+    "recommended_action_for_review": "retain_for_QC_review;exclude_only_under_documented_rule",
+    "scientific_name": "Arabidopsis thaliana",
+    "taxid": "3702",
+    "typical_read_level": 23
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.6153846153846154,
+    "frequency": 80,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Moraxella osloensis",
+    "taxid": "34062",
+    "typical_read_level": 4.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.6153846153846154,
+    "frequency": 80,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Staphylococcus epidermidis",
+    "taxid": "1282",
+    "typical_read_level": 5.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.6,
+    "frequency": 78,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Sphingomonas melonis",
+    "taxid": "152682",
+    "typical_read_level": 3.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.5692307692307692,
+    "frequency": 74,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Acinetobacter johnsonii",
+    "taxid": "40214",
+    "typical_read_level": 3.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.5461538461538461,
+    "frequency": 71,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Veillonella parvula",
+    "taxid": "29466",
+    "typical_read_level": 10
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.5307692307692308,
+    "frequency": 69,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Malassezia restricta",
+    "taxid": "76775",
+    "typical_read_level": 5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.5153846153846153,
+    "frequency": 67,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Rothia mucilaginosa",
+    "taxid": "43675",
+    "typical_read_level": 23
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.5153846153846153,
+    "frequency": 67,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Streptococcus oralis",
+    "taxid": "1303",
+    "typical_read_level": 9
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.5,
+    "frequency": 65,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella melaninogenica",
+    "taxid": "28132",
+    "typical_read_level": 43
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.47692307692307695,
+    "frequency": 62,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Schaalia odontolytica",
+    "taxid": "1660",
+    "typical_read_level": 12.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.46923076923076923,
+    "frequency": 61,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Bartonella krasnovii",
+    "taxid": "2267275",
+    "typical_read_level": 2
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.46923076923076923,
+    "frequency": 61,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Sphingobium sp. YG1",
+    "taxid": "2082188",
+    "typical_read_level": 8
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.46153846153846156,
+    "frequency": 60,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas putida",
+    "taxid": "303",
+    "typical_read_level": 3.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.46153846153846156,
+    "frequency": 60,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Streptococcus mitis",
+    "taxid": "28037",
+    "typical_read_level": 12.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.4230769230769231,
+    "frequency": 55,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella nigrescens",
+    "taxid": "28133",
+    "typical_read_level": 4
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.4230769230769231,
+    "frequency": 55,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Staphylococcus hominis",
+    "taxid": "1290",
+    "typical_read_level": 4
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.4230769230769231,
+    "frequency": 55,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Xanthomonas campestris",
+    "taxid": "339",
+    "typical_read_level": 2
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.4153846153846154,
+    "frequency": 54,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Sphingomonas paucimobilis",
+    "taxid": "13689",
+    "typical_read_level": 4.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.4,
+    "frequency": 52,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Corynebacterium tuberculostearicum",
+    "taxid": "38304",
+    "typical_read_level": 3.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.4,
+    "frequency": 52,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Granulicatella adiacens",
+    "taxid": "46124",
+    "typical_read_level": 7.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.3923076923076923,
+    "frequency": 51,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Acinetobacter junii",
+    "taxid": "40215",
+    "typical_read_level": 3
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.3923076923076923,
+    "frequency": 51,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Veillonella atypica",
+    "taxid": "39777",
+    "typical_read_level": 8
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.38461538461538464,
+    "frequency": 50,
+    "reason_for_flag": "existing_repository_oral_respiratory_commensal_context",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella jejuni",
+    "taxid": "1177574",
+    "typical_read_level": 13.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.2230769230769231,
+    "frequency": 29,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Corynebacterium striatum",
+    "taxid": "43770",
+    "typical_read_level": 3
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Fluoribacter dumoffii",
+    "taxid": "463",
+    "typical_read_level": 256061
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.15384615384615385,
+    "frequency": 20,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Corynebacterium propinquum",
+    "taxid": "43769",
+    "typical_read_level": 5.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.34615384615384615,
+    "frequency": 45,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Streptococcus gordonii",
+    "taxid": "1302",
+    "typical_read_level": 4
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.3,
+    "frequency": 39,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Ralstonia pickettii",
+    "taxid": "329",
+    "typical_read_level": 8
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.3769230769230769,
+    "frequency": 49,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Staphylococcus haemolyticus",
+    "taxid": "1283",
+    "typical_read_level": 3
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.12307692307692308,
+    "frequency": 16,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Propionibacterium acidifaciens",
+    "taxid": "556499",
+    "typical_read_level": 3.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.3076923076923077,
+    "frequency": 40,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Parvimonas micra",
+    "taxid": "33033",
+    "typical_read_level": 8.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.23076923076923078,
+    "frequency": 30,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Porphyromonas endodontalis",
+    "taxid": "28124",
+    "typical_read_level": 6.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.27692307692307694,
+    "frequency": 36,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella histicola",
+    "taxid": "470565",
+    "typical_read_level": 6.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.2230769230769231,
+    "frequency": 29,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Tannerella serpentiformis",
+    "taxid": "712710",
+    "typical_read_level": 6
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.3153846153846154,
+    "frequency": 41,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella veroralis",
+    "taxid": "28137",
+    "typical_read_level": 10
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.17692307692307693,
+    "frequency": 23,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Leptotrichia wadei",
+    "taxid": "157687",
+    "typical_read_level": 4
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.36153846153846153,
+    "frequency": 47,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Prevotella oris",
+    "taxid": "28135",
+    "typical_read_level": 7
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.3076923076923077,
+    "frequency": 40,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Lautropia mirabilis",
+    "taxid": "47671",
+    "typical_read_level": 3.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.2153846153846154,
+    "frequency": 28,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Capnocytophaga sp. FDAARGOS_737",
+    "taxid": "2545799",
+    "typical_read_level": 4.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Legionella longbeachae",
+    "taxid": "450",
+    "typical_read_level": 1035
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Betapolyomavirus tertihominis",
+    "taxid": "1891764",
+    "typical_read_level": 617
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Legionella sainthelensi",
+    "taxid": "28087",
+    "typical_read_level": 171
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.015384615384615385,
+    "frequency": 2,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas orientalis",
+    "taxid": "76758",
+    "typical_read_level": 83.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas lurida",
+    "taxid": "244566",
+    "typical_read_level": 54
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas yamanorum",
+    "taxid": "515393",
+    "typical_read_level": 49
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas sp. R5-89-07",
+    "taxid": "658644",
+    "typical_read_level": 44
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Legionella sp. PC997",
+    "taxid": "2755562",
+    "typical_read_level": 41
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas antarctica",
+    "taxid": "219572",
+    "typical_read_level": 35
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.023076923076923078,
+    "frequency": 3,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas tolaasii",
+    "taxid": "29442",
+    "typical_read_level": 32
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.038461538461538464,
+    "frequency": 5,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "[Candida] glabrata",
+    "taxid": "5478",
+    "typical_read_level": 31
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Elizabethkingia meningoseptica",
+    "taxid": "238",
+    "typical_read_level": 28
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas asgharzadehiana",
+    "taxid": "2842349",
+    "typical_read_level": 27
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Legionella jordanis",
+    "taxid": "456",
+    "typical_read_level": 25
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas sp. FDAARGOS_380",
+    "taxid": "2018067",
+    "typical_read_level": 25
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.015384615384615385,
+    "frequency": 2,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Staphylococcus roterodami",
+    "taxid": "2699836",
+    "typical_read_level": 24.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.015384615384615385,
+    "frequency": 2,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Lactobacillus helveticus",
+    "taxid": "1587",
+    "typical_read_level": 23.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.09230769230769231,
+    "frequency": 12,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Human alphaherpesvirus 1",
+    "taxid": "10298",
+    "typical_read_level": 22.0
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Corynebacterium choanae",
+    "taxid": "1862358",
+    "typical_read_level": 22
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Legionella anisa",
+    "taxid": "28082",
+    "typical_read_level": 22
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.015384615384615385,
+    "frequency": 2,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Lactococcus sp. LG606",
+    "taxid": "2816912",
+    "typical_read_level": 21.5
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Pseudomonas sp. BIGb0427",
+    "taxid": "2724470",
+    "typical_read_level": 21
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Torque teno virus 13",
+    "taxid": "687352",
+    "typical_read_level": 20
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Anoxybacillus gonensis",
+    "taxid": "198467",
+    "typical_read_level": 19
+  },
+  {
+    "cohort": "external",
+    "detection_prevalence": 0.007692307692307693,
+    "frequency": 1,
+    "reason_for_flag": "clinical_relevance_not_locally_curated",
+    "recommended_action_for_review": "manual_literature_or_clinical_review_before_panel_inclusion",
+    "scientific_name": "Corynebacterium timonense",
+    "taxid": "441500",
+    "typical_read_level": 19
+  }
+]

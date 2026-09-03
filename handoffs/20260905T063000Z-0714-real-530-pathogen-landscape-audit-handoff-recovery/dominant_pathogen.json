@@ -1,0 +1,4772 @@
+[
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "SRR27343191",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 137,
+    "sample_id": "SRR27343192",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 8,
+    "sample_id": "SRR27343200",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 14,
+    "sample_id": "SRR27343211",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 11,
+    "sample_id": "SRR27343222",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "SRR27343223",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343239",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343250",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 95,
+    "sample_id": "SRR27343261",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 41244,
+    "sample_id": "SRR27343266",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "SRR27343267",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343268",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "SRR27343269",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343270",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343271",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 9352,
+    "sample_id": "SRR27343272",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343273",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343274",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343275",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 2662,
+    "sample_id": "SRR27343276",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343277",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 98,
+    "sample_id": "SRR27343278",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343279",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343280",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "SRR27343281",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii;Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343282",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 434,
+    "sample_id": "SRR27343283",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 30,
+    "sample_id": "SRR27343284",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343285",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343286",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343287",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 83,
+    "sample_id": "SRR27343288",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "SRR27343289",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 77,
+    "sample_id": "SRR27343290",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 634,
+    "sample_id": "SRR27343291",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 14,
+    "sample_id": "SRR27343292",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343293",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 38,
+    "sample_id": "SRR27343294",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 19,
+    "sample_id": "SRR27343295",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "SRR27343296",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 28,
+    "sample_id": "SRR27343297",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343298",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343299",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 8,
+    "sample_id": "SRR27343300",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343301",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343302",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343303",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343304",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 242,
+    "sample_id": "SRR27343305",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343306",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343307",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343308",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343309",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 592,
+    "sample_id": "SRR27343310",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "SRR27343311",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343312",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343313",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "SRR27343314",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343315",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343316",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343317",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343318",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343319",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343320",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343321",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343322",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Moraxella catarrhalis",
+    "dominant_direct_assigned_reads": 9,
+    "sample_id": "SRR27343323",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 10,
+    "sample_id": "SRR27343324",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 489,
+    "sample_id": "SRR27343325",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343326",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343327",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343328",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343329",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 13,
+    "sample_id": "SRR27343330",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343331",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343332",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343333",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Escherichia coli",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343335",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 7,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Escherichia coli",
+    "dominant_direct_assigned_reads": 4571,
+    "sample_id": "SRR27343346",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 20,
+    "sample_id": "SRR27343357",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 7,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 387,
+    "sample_id": "SRR27343372",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 57,
+    "sample_id": "SRR27343383",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343394",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343401",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343412",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343423",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343435",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343436",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 25,
+    "sample_id": "SRR27343447",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343458",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343462",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27343464",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 34,
+    "sample_id": "SRR27343465",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343466",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343467",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343468",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 40,
+    "sample_id": "SRR27343469",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343470",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343471",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "SRR27343472",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343473",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae;Staphylococcus aureus;Stenotrophomonas maltophilia;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343474",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343475",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343476",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343477",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 41,
+    "sample_id": "SRR27343478",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 26,
+    "sample_id": "SRR27343479",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343480",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343481",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343482",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343483",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343484",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa;Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343485",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "SRR27343486",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343487",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343488",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343489",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 27062,
+    "sample_id": "SRR27343490",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343491",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343492",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343493",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 348,
+    "sample_id": "SRR27343494",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 37318,
+    "sample_id": "SRR27343495",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343496",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 30,
+    "sample_id": "SRR27343497",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343498",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 34,
+    "sample_id": "SRR27343499",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 11,
+    "sample_id": "SRR27343500",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343501",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343502",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343503",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae;Mycobacterium tuberculosis;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343504",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 46,
+    "sample_id": "SRR27343505",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343506",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343507",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 197,
+    "sample_id": "SRR27343508",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343509",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 18,
+    "sample_id": "SRR27343510",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343511",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343512",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27343513",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 13,
+    "sample_id": "SRR27343514",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343515",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343516",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343517",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 23,
+    "sample_id": "SRR27343518",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343519",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 14,
+    "sample_id": "SRR27343520",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343521",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 18,
+    "sample_id": "SRR27343522",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 7696,
+    "sample_id": "SRR27343523",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343524",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 8,
+    "sample_id": "SRR27343525",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343526",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Escherichia coli",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343527",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343528",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343529",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 1681,
+    "sample_id": "SRR27343532",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 1296,
+    "sample_id": "SRR27343543",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343554",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343555",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Escherichia coli",
+    "dominant_direct_assigned_reads": 2342,
+    "sample_id": "SRR27343566",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 282,
+    "sample_id": "SRR27343577",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343588",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 704,
+    "sample_id": "SRR27343601",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343602",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 796,
+    "sample_id": "SRR27343613",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 68,
+    "sample_id": "SRR27343624",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343636",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 362,
+    "sample_id": "SRR27343647",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343664",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 317,
+    "sample_id": "SRR27343675",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343686",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343696",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343697",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 209,
+    "sample_id": "SRR27343698",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "SRR27343699",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343700",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343701",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343702",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343703",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343704",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343705",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343706",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343707",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 100,
+    "sample_id": "SRR27343708",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343709",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343710",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343711",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 20,
+    "sample_id": "SRR27343712",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343713",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343714",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 169,
+    "sample_id": "SRR27343715",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343716",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343717",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343718",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 2842,
+    "sample_id": "SRR27343719",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343720",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 802,
+    "sample_id": "SRR27343721",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27343722",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343723",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343724",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2827,
+    "sample_id": "SRR27343725",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 19,
+    "sample_id": "SRR27343726",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 35,
+    "sample_id": "SRR27343727",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343728",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343729",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 57,
+    "sample_id": "SRR27343730",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343731",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 80,
+    "sample_id": "SRR27343732",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343733",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 539,
+    "sample_id": "SRR27343734",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27343735",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343736",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343737",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 476,
+    "sample_id": "SRR27343738",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343739",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343740",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343741",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 10,
+    "sample_id": "SRR27343742",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343743",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343744",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343745",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343746",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343747",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343748",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343749",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 13,
+    "sample_id": "SRR27343750",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343751",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 80,
+    "sample_id": "SRR27343752",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 788,
+    "sample_id": "SRR27343753",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343754",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343755",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343756",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343757",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343758",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343759",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343760",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 14,
+    "sample_id": "SRR27343761",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343762",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343763",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343764",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343765",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343766",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343767",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343768",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 311,
+    "sample_id": "SRR27343769",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343770",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343771",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343772",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343773",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343774",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343775",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 77,
+    "sample_id": "SRR27343776",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 11,
+    "sample_id": "SRR27343777",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 100,
+    "sample_id": "SRR27343778",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 20,
+    "sample_id": "SRR27343779",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 23,
+    "sample_id": "SRR27343780",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343781",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343782",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343783",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343784",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343785",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343786",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343787",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343788",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343789",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Cryptococcus neoformans",
+    "dominant_direct_assigned_reads": 11,
+    "sample_id": "SRR27343790",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 846,
+    "sample_id": "SRR27343791",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 86,
+    "sample_id": "SRR27343792",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343793",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343794",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Moraxella catarrhalis",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27343795",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 528,
+    "sample_id": "SRR27343796",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27343797",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343798",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 9,
+    "sample_id": "SRR27343799",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343800",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 26,
+    "sample_id": "SRR27343801",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 453,
+    "sample_id": "SRR27343802",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343803",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "SRR27343804",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343805",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343806",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Cryptococcus neoformans",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343807",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343808",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 923,
+    "sample_id": "SRR27343809",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343811",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27343812",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343813",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343814",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343815",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343816",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 21,
+    "sample_id": "SRR27343817",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343818",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343819",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 27,
+    "sample_id": "SRR27343820",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "SRR27343821",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343822",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343823",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343824",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Cryptococcus neoformans;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343825",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343826",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343827",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343828",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343829",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Cryptococcus neoformans",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343830",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343831",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343832",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343833",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 26,
+    "sample_id": "SRR27343834",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 692,
+    "sample_id": "SRR27343835",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343836",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343837",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae;Pseudomonas aeruginosa;Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343838",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 333,
+    "sample_id": "SRR27343839",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "SRR27343840",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343841",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343842",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343843",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343844",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343845",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343846",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 659,
+    "sample_id": "SRR27343847",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343848",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 30,
+    "sample_id": "SRR27343849",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27343850",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 68,
+    "sample_id": "SRR27343851",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343852",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 930,
+    "sample_id": "SRR27343853",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 65,
+    "sample_id": "SRR27343854",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 296,
+    "sample_id": "SRR27343855",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343856",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343857",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 9,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3309,
+    "sample_id": "SRR27343858",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 214,
+    "sample_id": "SRR27343859",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27343860",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 478,
+    "sample_id": "SRR27343861",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 33,
+    "sample_id": "SRR27343862",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 121,
+    "sample_id": "SRR27343863",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 40,
+    "sample_id": "SRR27343864",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 50,
+    "sample_id": "SRR27343865",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27343866",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 1493,
+    "sample_id": "SRR27343867",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 418,
+    "sample_id": "SRR27343868",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343869",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 237,
+    "sample_id": "SRR27343870",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 17,
+    "sample_id": "SRR27343876",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "SRR27343887",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343898",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343912",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27343923",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27343934",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 95,
+    "sample_id": "SRR27343937",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 35,
+    "sample_id": "SRR27343948",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343959",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 44,
+    "sample_id": "SRR27343971",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27343982",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1035,
+    "sample_id": "SRR27343993",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "SRR27344000",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "SRR27344009",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27344010",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 15,
+    "sample_id": "SRR27344011",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 1626,
+    "sample_id": "SRR27344012",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 8,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 25,
+    "sample_id": "SRR27344013",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 306,
+    "sample_id": "SRR27344014",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27344015",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27344016",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27344017",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27344018",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 83,
+    "sample_id": "SRR27344019",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 62,
+    "sample_id": "SRR27344020",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "SRR27344021",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27344022",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 21,
+    "sample_id": "SRR27344023",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27344024",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 7,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 516,
+    "sample_id": "SRR27344025",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27344026",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "SRR27344027",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27344028",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Cryptococcus neoformans",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27344029",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27344030",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "SRR27344031",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 109,
+    "sample_id": "SRR27344032",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 13,
+    "sample_id": "SRR27344033",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Escherichia coli",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27344034",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 1796,
+    "sample_id": "SRR27344035",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Escherichia coli",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27344036",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 74,
+    "sample_id": "SRR27344037",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 155,
+    "sample_id": "SRR27344038",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 135,
+    "sample_id": "SRR27344039",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 1201,
+    "sample_id": "SRR27344040",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 636,
+    "sample_id": "SRR27344041",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 764,
+    "sample_id": "SRR27344042",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27344043",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 121,
+    "sample_id": "SRR27344044",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 71,
+    "sample_id": "SRR27344045",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "SRR27344046",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "SRR27344047",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 83,
+    "sample_id": "SRR27344048",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 8,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 3235,
+    "sample_id": "CRR2423908",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 11,
+    "sample_id": "CRR2423909",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "CRR2423910",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423911",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "CRR2423912",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 96,
+    "sample_id": "CRR2423913",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 77,
+    "sample_id": "CRR2423914",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 133,
+    "sample_id": "CRR2423915",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 130,
+    "sample_id": "CRR2423916",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 56021,
+    "sample_id": "CRR2423917",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 13,
+    "sample_id": "CRR2423918",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 16,
+    "sample_id": "CRR2423919",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 17,
+    "sample_id": "CRR2423920",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 849,
+    "sample_id": "CRR2423921",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 517,
+    "sample_id": "CRR2423922",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 14,
+    "sample_id": "CRR2423923",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 88,
+    "sample_id": "CRR2423924",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 10,
+    "sample_id": "CRR2423925",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 33,
+    "sample_id": "CRR2423926",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423927",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Moraxella catarrhalis",
+    "dominant_direct_assigned_reads": 249,
+    "sample_id": "CRR2423928",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 26,
+    "sample_id": "CRR2423929",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 479,
+    "sample_id": "CRR2423930",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 311,
+    "sample_id": "CRR2423931",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "CRR2423932",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "CRR2423933",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 79,
+    "sample_id": "CRR2423934",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "CRR2423935",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "CRR2423936",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 78,
+    "sample_id": "CRR2423937",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 16,
+    "sample_id": "CRR2423938",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423939",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "CRR2423940",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "CRR2423941",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 8,
+    "sample_id": "CRR2423942",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 209,
+    "sample_id": "CRR2423943",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423944",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii;Mycobacterium tuberculosis;Pseudomonas aeruginosa;Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423945",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 173,
+    "sample_id": "CRR2423946",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 7,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 45,
+    "sample_id": "CRR2423947",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 8,
+    "sample_id": "CRR2423948",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 26,
+    "sample_id": "CRR2423949",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 175,
+    "sample_id": "CRR2423950",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423951",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis;Pseudomonas aeruginosa;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423952",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 12,
+    "sample_id": "CRR2423953",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423954",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423955",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2096,
+    "sample_id": "CRR2423956",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423957",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa;Staphylococcus aureus;Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423958",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 586,
+    "sample_id": "CRR2423959",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "CRR2423960",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423961",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "CRR2423962",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "CRR2423963",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 11,
+    "sample_id": "CRR2423964",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 8,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Pseudomonas aeruginosa",
+    "dominant_direct_assigned_reads": 38,
+    "sample_id": "CRR2423965",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 57,
+    "sample_id": "CRR2423966",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 5,
+    "sample_id": "CRR2423967",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423968",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423969",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 44,
+    "sample_id": "CRR2423970",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1148,
+    "sample_id": "CRR2423971",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "CRR2423972",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 16,
+    "sample_id": "CRR2423973",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 7,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2200,
+    "sample_id": "CRR2423974",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 116,
+    "sample_id": "CRR2423975",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423976",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 155,
+    "sample_id": "CRR2423977",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii;Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423978",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "CRR2423979",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 50,
+    "sample_id": "CRR2423980",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 151,
+    "sample_id": "CRR2423981",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 46,
+    "sample_id": "CRR2423982",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423983",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423984",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2423985",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "CRR2423986",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Escherichia coli",
+    "dominant_direct_assigned_reads": 28,
+    "sample_id": "CRR2423987",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 28,
+    "sample_id": "CRR2423988",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 9,
+    "sample_id": "CRR2423989",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2423990",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "CRR2423991",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "CRR2423992",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 29,
+    "sample_id": "CRR2423993",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 12742,
+    "sample_id": "CRR2423994",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 17,
+    "sample_id": "CRR2423995",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 34,
+    "sample_id": "CRR2423996",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 5,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 20,
+    "sample_id": "CRR2423997",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 8,
+    "sample_id": "CRR2423998",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "CRR2423999",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis;Staphylococcus aureus;Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2424000",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "CRR2424001",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 4,
+    "sample_id": "CRR2424002",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "CRR2424003",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Klebsiella pneumoniae",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2424004",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2424005",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 49,
+    "sample_id": "CRR2424006",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 6,
+    "sample_id": "CRR2424007",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "CRR2424008",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2424009",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 7,
+    "sample_id": "CRR2424010",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 22,
+    "sample_id": "CRR2424011",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 183,
+    "sample_id": "CRR2424012",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "CRR2424013",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Streptococcus pneumoniae",
+    "dominant_direct_assigned_reads": 2,
+    "sample_id": "CRR2424014",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis;Staphylococcus aureus",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2424015",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Haemophilus influenzae",
+    "dominant_direct_assigned_reads": 243,
+    "sample_id": "CRR2424016",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 262,
+    "sample_id": "CRR2424017",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 23,
+    "sample_id": "CRR2424018",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 261,
+    "sample_id": "CRR2424019",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 2,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 22,
+    "sample_id": "CRR2424020",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 7,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 238,
+    "sample_id": "CRR2424021",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 0,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "",
+    "dominant_direct_assigned_reads": 0,
+    "sample_id": "CRR2424022",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 1281,
+    "sample_id": "CRR2424023",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 1,
+    "sample_id": "CRR2424024",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 82,
+    "sample_id": "CRR2424025",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 7,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 28,
+    "sample_id": "CRR2424026",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 8,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 419,
+    "sample_id": "CRR2424027",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 17,
+    "sample_id": "CRR2424028",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 287,
+    "sample_id": "CRR2424029",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 1,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "CRR2424030",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis;Stenotrophomonas maltophilia",
+    "dominant_direct_assigned_reads": 3,
+    "sample_id": "CRR2424031",
+    "tie": true
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 20,
+    "sample_id": "CRR2424032",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 8,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Acinetobacter baumannii",
+    "dominant_direct_assigned_reads": 139,
+    "sample_id": "CRR2424033",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 3,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2866,
+    "sample_id": "CRR2424034",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 2254,
+    "sample_id": "CRR2424035",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 6,
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 7746,
+    "sample_id": "CRR2424036",
+    "tie": false
+  },
+  {
+    "candidate_panel_positive_count": 4,
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "dominant_candidate_pathogen": "Mycobacterium tuberculosis",
+    "dominant_direct_assigned_reads": 190,
+    "sample_id": "CRR2424037",
+    "tie": false
+  }
+]

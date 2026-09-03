@@ -1,0 +1,112 @@
+[
+  {
+    "clinical_pathogen_relevance_flag": "plausible_opportunist",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "confirmed_known_respiratory_pathogen",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "plausible_opportunist",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "confirmed_known_respiratory_pathogen",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "confirmed_known_respiratory_pathogen",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "confirmed_known_respiratory_pathogen",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "confirmed_known_respiratory_pathogen",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "confirmed_known_respiratory_pathogen",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "confirmed_known_respiratory_pathogen",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "plausible_opportunist",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  },
+  {
+    "clinical_pathogen_relevance_flag": "confirmed_known_respiratory_pathogen",
+    "curation_source": "existing_repository_target_priority_or_user_specified_candidate",
+    "observed_anchor": true,
+    "observed_external": true,
+    "panel_status": "candidate_for_scientific_review",
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "taxonomic_ambiguity": "none_observed_for_exact_taxid_name"
+  }
+]
