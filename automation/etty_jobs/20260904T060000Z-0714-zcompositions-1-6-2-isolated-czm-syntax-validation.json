@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "job_id": "20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation",
+  "authorized": true,
+  "authorization_record": "User-authorized validation-only check of the already-installed version-pinned isolated zCompositions stack; no package installation, network acquisition, system-library modification, or biological analysis.",
+  "execution_commit": "308ea6c8a5b0704e3bc19dbf9f6337f80f6edb49",
+  "job_definition_path": "automation/production/20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation.json",
+  "job_definition_sha256": "9c470aa3395049980b193e17d05706677e26daec67d6fb1490c55cf1a7db532e",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": [
+    "cran.r-project.org"
+  ],
+  "allowed_destination_roots": [
+    "/mnt/disk1/0714_control/state"
+  ],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": [
+      "/mnt/disk1/0714_control/state"
+    ],
+    "allowed_environment_keys": [],
+    "wall_seconds": 1800,
+    "memory_cap_bytes": 4294967296,
+    "workspace_cap_bytes": 1073741824
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "r_czm_install_validation.json",
+    "r_czm_install_summary.md"
+  ]
+}
