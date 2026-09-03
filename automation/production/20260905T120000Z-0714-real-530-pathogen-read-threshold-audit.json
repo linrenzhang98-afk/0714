@@ -1,0 +1,53 @@
+{
+  "job_id": "20260905T120000Z-0714-real-530-pathogen-read-threshold-audit",
+  "project": "PRJNA1056765_PRJCA046985",
+  "authorized": true,
+  "authorization_record": "User-authorized bounded descriptive read-threshold audit of the exact existing 11-taxon respiratory pathogen candidate panel using verified 400/130 direct-species counts; no hypothesis testing, threshold selection, panel change, acquisition, or classifier rerun.",
+  "acquire": false,
+  "analysis_type": "real_530_exact_11_taxon_pathogen_read_threshold_descriptive_audit",
+  "allowed_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "transfer_cap_bytes": 1,
+  "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+  "allowed_environment_keys": [],
+  "wall_seconds": 1800,
+  "memory_cap_bytes": 4294967296,
+  "workspace_cap_bytes": 1073741824,
+  "network_acquisition": false,
+  "package_installation": false,
+  "kraken2_rerun": false,
+  "bracken": false,
+  "hypothesis_testing": false,
+  "panel_changed": false,
+  "final_threshold_selected": false,
+  "handoff_allowlist": [
+    "result.json",
+    "pathogen_read_threshold_summary.json",
+    "pathogen_read_threshold_audit.json",
+    "pathogen_threshold_retention.json",
+    "pathogen_signal_fraction.json",
+    "pathogen_dominance_by_read_bin.json",
+    "sample_panel_burden_by_threshold.json",
+    "pathogen_threshold_stability.json",
+    "pathogen_panel_proposals.json",
+    "pathogen_panel_review_v2.md"
+  ],
+  "items": [{
+    "id": "REAL_530_EXACT_11_TAXON_READ_THRESHOLD_DESCRIPTIVE_AUDIT",
+    "url": "https://none.invalid/NO_DOWNLOAD",
+    "destination": "/mnt/disk1/0714_control/state/20260905T120000Z-0714-real-530-pathogen-read-threshold-audit.no-download",
+    "expected_bytes": 1,
+    "command": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+      "/mnt/disk1/0714_control/job_repo/scripts/audit_530_pathogen_read_thresholds.py",
+      "--panel", "/mnt/disk1/0714_control/state/20260905T063000Z-0714-real-530-pathogen-landscape-audit-handoff-recovery-handoff/candidate_pathogen_panel.json",
+      "--anchor-counts", "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff/anchor_species_direct_counts.tsv",
+      "--external-counts", "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff/external_species_direct_counts.tsv",
+      "--output-dir", "/mnt/disk1/0714_control/state/20260905T120000Z-0714-real-530-pathogen-read-threshold-audit-handoff"
+    ],
+    "cwd": "/mnt/disk1/0714_control/state",
+    "env": {}
+  }]
+}
