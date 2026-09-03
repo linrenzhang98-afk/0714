@@ -1,0 +1,242 @@
+[
+  {
+    "burden_category": "0",
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "group_n": 114,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.3684210526315789,
+    "sample_n": 42,
+    "threshold": 5
+  },
+  {
+    "burden_category": "1",
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "group_n": 114,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.37719298245614036,
+    "sample_n": 43,
+    "threshold": 5
+  },
+  {
+    "burden_category": "2",
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "group_n": 114,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.13157894736842105,
+    "sample_n": 15,
+    "threshold": 5
+  },
+  {
+    "burden_category": "greater_or_equal_3",
+    "clinical_group": "Bacterial infection",
+    "cohort": "anchor",
+    "group_n": 114,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.12280701754385964,
+    "sample_n": 14,
+    "threshold": 5
+  },
+  {
+    "burden_category": "0",
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "group_n": 78,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.6923076923076923,
+    "sample_n": 54,
+    "threshold": 5
+  },
+  {
+    "burden_category": "1",
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "group_n": 78,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.23076923076923078,
+    "sample_n": 18,
+    "threshold": 5
+  },
+  {
+    "burden_category": "2",
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "group_n": 78,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.07692307692307693,
+    "sample_n": 6,
+    "threshold": 5
+  },
+  {
+    "burden_category": "greater_or_equal_3",
+    "clinical_group": "Fungal infection",
+    "cohort": "anchor",
+    "group_n": 78,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.0,
+    "sample_n": 0,
+    "threshold": 5
+  },
+  {
+    "burden_category": "0",
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "group_n": 122,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.5655737704918032,
+    "sample_n": 69,
+    "threshold": 5
+  },
+  {
+    "burden_category": "1",
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "group_n": 122,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.27049180327868855,
+    "sample_n": 33,
+    "threshold": 5
+  },
+  {
+    "burden_category": "2",
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "group_n": 122,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.09016393442622951,
+    "sample_n": 11,
+    "threshold": 5
+  },
+  {
+    "burden_category": "greater_or_equal_3",
+    "clinical_group": "Lung cancer",
+    "cohort": "anchor",
+    "group_n": 122,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.07377049180327869,
+    "sample_n": 9,
+    "threshold": 5
+  },
+  {
+    "burden_category": "0",
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "group_n": 86,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.7790697674418605,
+    "sample_n": 67,
+    "threshold": 5
+  },
+  {
+    "burden_category": "1",
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "group_n": 86,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.16279069767441862,
+    "sample_n": 14,
+    "threshold": 5
+  },
+  {
+    "burden_category": "2",
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "group_n": 86,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.046511627906976744,
+    "sample_n": 4,
+    "threshold": 5
+  },
+  {
+    "burden_category": "greater_or_equal_3",
+    "clinical_group": "Pulmonary tuberculosis",
+    "cohort": "anchor",
+    "group_n": 86,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.011627906976744186,
+    "sample_n": 1,
+    "threshold": 5
+  },
+  {
+    "burden_category": "0",
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "group_n": 49,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.5306122448979592,
+    "sample_n": 26,
+    "threshold": 5
+  },
+  {
+    "burden_category": "1",
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "group_n": 49,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.1836734693877551,
+    "sample_n": 9,
+    "threshold": 5
+  },
+  {
+    "burden_category": "2",
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "group_n": 49,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.16326530612244897,
+    "sample_n": 8,
+    "threshold": 5
+  },
+  {
+    "burden_category": "greater_or_equal_3",
+    "clinical_group": "Drug_Resistance",
+    "cohort": "external",
+    "group_n": 49,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.12244897959183673,
+    "sample_n": 6,
+    "threshold": 5
+  },
+  {
+    "burden_category": "0",
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "group_n": 81,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.5802469135802469,
+    "sample_n": 47,
+    "threshold": 5
+  },
+  {
+    "burden_category": "1",
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "group_n": 81,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.2716049382716049,
+    "sample_n": 22,
+    "threshold": 5
+  },
+  {
+    "burden_category": "2",
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "group_n": 81,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.04938271604938271,
+    "sample_n": 4,
+    "threshold": 5
+  },
+  {
+    "burden_category": "greater_or_equal_3",
+    "clinical_group": "Drug_Sensitive",
+    "cohort": "external",
+    "group_n": 81,
+    "panel_layer": "FULL_PANEL",
+    "proportion": 0.09876543209876543,
+    "sample_n": 8,
+    "threshold": 5
+  }
+]

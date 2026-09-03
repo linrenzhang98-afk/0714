@@ -1,0 +1,188 @@
+{
+  "abandoned_pathway": "CZM/CLR/Aitchison",
+  "abandoned_pathway_reason": "real BALF direct-species profiles were highly sparse and incompatible with the proposed default CZM replacement workflow",
+  "analysis_manifest_and_output_hashes_exclude_themselves": true,
+  "bracken_executed": false,
+  "clr_aitchison_executed": false,
+  "completed_at": "2026-09-03T14:29:03.529384+00:00",
+  "czm_executed": false,
+  "deepseek_invoked": false,
+  "execution_commit": "9ede538e83811260173d3292e3511b5bf13ce8b3",
+  "groups": {
+    "anchor": {
+      "Bacterial infection": 114,
+      "Fungal infection": 78,
+      "Lung cancer": 122,
+      "Pulmonary tuberculosis": 86
+    },
+    "external": {
+      "Drug_Resistance": 49,
+      "Drug_Sensitive": 81
+    }
+  },
+  "input_hashes": {
+    "anchor_counts": "32a00122382a48711f5a6b8da370f4ea1f4310d1496e8dcfd2138557b666c325",
+    "anchor_metadata": "3de4e218e8f0e9e32545cead271e6750c39ac0dea4c47df291123175292400be",
+    "external_counts": "f1cb419244151c570e2f4a7e6839222a78c6cb74bc6cc1e21321fe7ce88f89c7",
+    "external_metadata": "d9195f2643bff0e8f611ff96ab0345a50c364eaf0b04658e762984e087521d58"
+  },
+  "jaccard_suitability": {
+    "anchor": {
+      "all_zero_n": 245,
+      "all_zero_proportion": 0.6125,
+      "criteria": "unique>=8; all-zero<=25%; largest identical profile<=25%; every group>=10 nonzero",
+      "largest_identical_profile_n": 245,
+      "largest_identical_profile_proportion": 0.6125,
+      "nonzero_profiles_by_group": {
+        "Bacterial infection": 67,
+        "Fungal infection": 19,
+        "Lung cancer": 50,
+        "Pulmonary tuberculosis": 19
+      },
+      "reason": "NOT_RUN_WITH_REASON: prespecified binary-profile variation criteria failed",
+      "status": "NOT_RUN",
+      "unique_profiles": 25
+    },
+    "external": {
+      "all_zero_n": 77,
+      "all_zero_proportion": 0.5923076923076923,
+      "criteria": "unique>=8; all-zero<=25%; largest identical profile<=25%; every group>=10 nonzero",
+      "largest_identical_profile_n": 77,
+      "largest_identical_profile_proportion": 0.5923076923076923,
+      "nonzero_profiles_by_group": {
+        "Drug_Resistance": 22,
+        "Drug_Sensitive": 31
+      },
+      "reason": "NOT_RUN_WITH_REASON: prespecified binary-profile variation criteria failed",
+      "status": "NOT_RUN",
+      "unique_profiles": 19
+    }
+  },
+  "job_id": "20260906T000000Z-0714-real-530-pathogen-profile-formal-analysis-robustness-recovery",
+  "kraken2_rerun": false,
+  "method_contract_path": "provenance/pathogen_profile/pathogen_panel_threshold_v1.json",
+  "method_contract_sha256": "4f1f7ba8979a49b4093ff84b72d15459e400bf3502f9abca5cc61b286803b912",
+  "multiplicity": "BH separately within CORE_A(6) and FULL_PANEL(A+B,10); anchor pairwise Holm only after scope-adjusted omnibus gate",
+  "network_acquisition_performed": false,
+  "output_hashes": {
+    "anchor_pathogen_global_tests.json": "454e0478497a141dae406e7b913491a436539e92eb6432113763cee87e379149",
+    "anchor_pathogen_pairwise.json": "6500b957ea2af89b8b75d75cdc36877bde0d75c1bb996cf3748599bdd6b75f49",
+    "core_pathogen_burden.json": "798bf6d27661e218322a80795a283fef7caec4c93b9e0b1605b64fb5328864cd",
+    "dominant_pathogen_by_group.json": "44ddef3be1a7418f92ce46b344ce7f89fe5ea6624c77592d1ad8bff760c3be83",
+    "external_pathogen_associations.json": "2622063630d5c54d298c91f04c8d6fb96998890e20bcef497d37fd9fd5a8211a",
+    "full_panel_burden.json": "5897028d53a54cfb9b0ee4ea4d62de690d3d21a67b319d346ada6287a2f6b935",
+    "jaccard_suitability.json": "56ba549080c7906e11454cd94cd1568a6c2277630842c178d122002aefbf4d46",
+    "pathogen_analysis_summary.md": "e557374f17d15b53a61a12b7ce987373fa96c803c024f9d53618a0636b241eda",
+    "pathogen_burden_global_tests.json": "c653ee86d10e98a30e63b0f1fe3d6467f3729e4fc46767aa0d9d7688072b01b4",
+    "pathogen_codetection_ge5.json": "cebda4520df65d72e6cd7d79659454ab4ebb0f834b7b03c1a5c4bd6785869bfe",
+    "pathogen_primary_ge5.json": "5d025d0f8f8e3420bd1b3f595859d1bff4bece1b1ce3ed10ef45332ccfc9097d",
+    "pathogen_sensitivity_ge1.json": "18c872c099bb41eed7ecb4d97c8cd9722760059a13f42372c6dcb01bd502e6af",
+    "pathogen_sensitivity_ge10.json": "790861ec6a6af1cdda9829364c9c48bb2ccc1a9a84b8cdf25f58fb1c59a13195",
+    "threshold_robustness.json": "653a51c823d9096c29ecc98b90d7538291acae684272ce9d243c448cfb820b09"
+  },
+  "package_installation_performed": false,
+  "panel": [
+    {
+      "category": "B",
+      "scientific_name": "Acinetobacter baumannii",
+      "taxid": "470"
+    },
+    {
+      "category": "B",
+      "scientific_name": "Cryptococcus neoformans",
+      "taxid": "5207"
+    },
+    {
+      "category": "B",
+      "scientific_name": "Escherichia coli",
+      "taxid": "562"
+    },
+    {
+      "category": "A",
+      "scientific_name": "Haemophilus influenzae",
+      "taxid": "727"
+    },
+    {
+      "category": "A",
+      "scientific_name": "Klebsiella pneumoniae",
+      "taxid": "573"
+    },
+    {
+      "category": "A",
+      "scientific_name": "Moraxella catarrhalis",
+      "taxid": "480"
+    },
+    {
+      "category": "S",
+      "scientific_name": "Mycobacterium tuberculosis",
+      "taxid": "1773"
+    },
+    {
+      "category": "A",
+      "scientific_name": "Pseudomonas aeruginosa",
+      "taxid": "287"
+    },
+    {
+      "category": "A",
+      "scientific_name": "Staphylococcus aureus",
+      "taxid": "1280"
+    },
+    {
+      "category": "B",
+      "scientific_name": "Stenotrophomonas maltophilia",
+      "taxid": "40324"
+    },
+    {
+      "category": "A",
+      "scientific_name": "Streptococcus pneumoniae",
+      "taxid": "1313"
+    }
+  ],
+  "pooled_530_model": false,
+  "primary_threshold_reads": 5,
+  "robustness_rule": "LOW_COUNT_UNSTABLE if primary ge5 positives <10 or <50% of ge1 detections remain at ge5; otherwise ROBUST requires same direction and sensitivity effect magnitudes 0.5x-2x primary; else THRESHOLD_SENSITIVE",
+  "sample_counts": {
+    "anchor": 400,
+    "external": 130
+  },
+  "selection_timing": "threshold and panel selected before formal disease-association hypothesis testing",
+  "sensitivity_thresholds": [
+    1,
+    10
+  ],
+  "significant_anchor_core_fdr": [
+    "Haemophilus influenzae",
+    "Klebsiella pneumoniae",
+    "Pseudomonas aeruginosa",
+    "Staphylococcus aureus"
+  ],
+  "significant_external_non_mtb_core_fdr": [],
+  "started_at": "2026-09-03T14:29:00.887293+00:00",
+  "threshold_interpretation": "operational public-shotgun pathogen-detection threshold; not a clinically validated diagnostic positivity threshold",
+  "threshold_robust_associations": [
+    "anchor:Haemophilus influenzae",
+    "anchor:Pseudomonas aeruginosa",
+    "external:Streptococcus pneumoniae"
+  ],
+  "threshold_sensitive_or_low_count_associations": [
+    "anchor:Acinetobacter baumannii",
+    "anchor:Cryptococcus neoformans",
+    "anchor:Escherichia coli",
+    "anchor:Klebsiella pneumoniae",
+    "anchor:Moraxella catarrhalis",
+    "anchor:Mycobacterium tuberculosis",
+    "anchor:Staphylococcus aureus",
+    "anchor:Stenotrophomonas maltophilia",
+    "anchor:Streptococcus pneumoniae",
+    "external:Acinetobacter baumannii",
+    "external:Cryptococcus neoformans",
+    "external:Escherichia coli",
+    "external:Haemophilus influenzae",
+    "external:Klebsiella pneumoniae",
+    "external:Moraxella catarrhalis",
+    "external:Mycobacterium tuberculosis",
+    "external:Pseudomonas aeruginosa",
+    "external:Staphylococcus aureus",
+    "external:Stenotrophomonas maltophilia"
+  ]
+}

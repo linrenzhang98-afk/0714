@@ -1,0 +1,50 @@
+[
+  {
+    "ci_high": null,
+    "ci_low": null,
+    "cohort": "anchor",
+    "df": null,
+    "estimate": null,
+    "method": "Fisher-Freeman-Halton Monte Carlo; B=99999",
+    "p_value": 1e-05,
+    "panel_layer": "CORE_A",
+    "statistic": null,
+    "threshold": 5
+  },
+  {
+    "ci_high": null,
+    "ci_low": null,
+    "cohort": "anchor",
+    "df": null,
+    "estimate": null,
+    "method": "Fisher-Freeman-Halton Monte Carlo; B=99999",
+    "p_value": 1e-05,
+    "panel_layer": "FULL_PANEL",
+    "statistic": null,
+    "threshold": 5
+  },
+  {
+    "ci_high": null,
+    "ci_low": null,
+    "cohort": "external",
+    "df": null,
+    "estimate": null,
+    "method": "Fisher-Freeman-Halton exact",
+    "p_value": 0.6477113920852423,
+    "panel_layer": "CORE_A",
+    "statistic": null,
+    "threshold": 5
+  },
+  {
+    "ci_high": null,
+    "ci_low": null,
+    "cohort": "external",
+    "df": null,
+    "estimate": null,
+    "method": "Fisher-Freeman-Halton exact",
+    "p_value": 0.143959663623128,
+    "panel_layer": "FULL_PANEL",
+    "statistic": null,
+    "threshold": 5
+  }
+]
