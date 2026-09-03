@@ -11,11 +11,13 @@ from typing import Sequence
 
 from .core import _validated_matrix
 from .errors import DependencyError
+from .production_package import validate_pinned_czm_gate
 
 
 EXPECTED_ZCOMPOSITIONS_VERSION = "1.6.2"
 RSCRIPT_PATH = "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript"
 MGSHOTGUN_BIN = "/home/suma/anaconda3/envs/mgshotgun/bin"
+PACKAGE_NAMES = ("zCompositions", "NADA", "truncnorm")
 
 
 def r_environment() -> dict[str, str]:
@@ -28,6 +30,23 @@ def r_environment() -> dict[str, str]:
     return environment
 
 
+def expected_package_versions() -> dict[str, str]:
+    """Read exact lock-format package versions from the immutable pinned gate."""
+    gate = validate_pinned_czm_gate()
+    return {name: str(gate["dependencies"][name]["version"]) for name in PACKAGE_NAMES}
+
+
+def validate_runtime_package_versions(observed: dict[str, str], expected: dict[str, str]) -> None:
+    """Compare raw DESCRIPTION version strings exactly; never numeric-coerce them."""
+    for package in PACKAGE_NAMES:
+        key = f"{package}_version"
+        if observed.get(key) != expected[package]:
+            raise DependencyError(
+                f"exact CZM {package} version mismatch: expected {expected[package]!r}, "
+                f"observed {observed.get(key)!r}"
+            )
+
+
 def exact_czm(
     matrix: Sequence[Sequence[int | float]],
     *,
@@ -38,6 +57,7 @@ def exact_czm(
 ) -> list[list[float]]:
     """Run the pinned R reference implementation; never approximate CZM."""
     values = _validated_matrix(matrix)
+    expected_versions = expected_package_versions()
     if all(all(cell > 0 for cell in row) for row in values):
         # The production call is still used so package/version provenance is verified.
         pass
@@ -56,7 +76,8 @@ def exact_czm(
             writer.writerows(values)
         command = [
             rscript, "--vanilla", str(script), str(input_path), str(output_path),
-            str(library), str(provenance_path),
+            str(library), str(provenance_path), expected_versions["zCompositions"],
+            expected_versions["NADA"], expected_versions["truncnorm"],
         ]
         try:
             completed = subprocess.run(command, check=False, capture_output=True, text=True, timeout=600, env=r_environment())
@@ -90,6 +111,7 @@ def exact_czm(
     missing_runtime = required_runtime - set(observed_runtime)
     if missing_runtime:
         raise DependencyError(f"exact CZM runtime provenance is incomplete: {sorted(missing_runtime)}")
+    validate_runtime_package_versions(observed_runtime, expected_versions)
     if runtime_provenance is not None:
         runtime_provenance.clear()
         runtime_provenance.update(observed_runtime)

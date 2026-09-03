@@ -23,7 +23,10 @@ from shotgun_analysis.core import (
     prevalence_filter,
     zero_replacement_diagnostics,
 )
-from shotgun_analysis.czm import MGSHOTGUN_BIN, RSCRIPT_PATH, exact_czm
+from shotgun_analysis.czm import (
+    MGSHOTGUN_BIN, RSCRIPT_PATH, exact_czm, expected_package_versions,
+    validate_runtime_package_versions,
+)
 from shotgun_analysis.errors import DegenerateDesignError, DependencyError, InputValidationError
 from shotgun_analysis.io import (
     load_common_layer_direct_species_counts, load_direct_species_counts,
@@ -557,7 +560,7 @@ class EndpointAndSerializationTests(unittest.TestCase):
                 "out.write_text('\\n'.join('\\t'.join(str(x+0.1) for x in row) for row in rows)+'\\n')\n"
                 "items={'R_version':'4.5.3','effective_libPaths':str(lib),'isolated_library':str(lib),"
                 "'zCompositions_version':'1.6.2','zCompositions_path':str(lib/'zCompositions'),"
-                "'NADA_version':'1.6-1.1','NADA_path':str(lib/'NADA'),'truncnorm_version':'1.0-9','truncnorm_path':str(lib/'truncnorm')}\n"
+                "'NADA_version':'1.6-1.2','NADA_path':str(lib/'NADA'),'truncnorm_version':'1.0-9','truncnorm_path':str(lib/'truncnorm')}\n"
                 "prov.write_text('\\n'.join(f'{k}\\t{v}' for k,v in items.items())+'\\n')\n"
             )
             fake.chmod(0o755)
@@ -565,6 +568,39 @@ class EndpointAndSerializationTests(unittest.TestCase):
             output = exact_czm([[1, 0], [0, 1]], r_library=library, rscript=str(fake), runtime_provenance=runtime)
             self.assertEqual(output, [[1.1, 0.1], [0.1, 1.1]])
             self.assertTrue(runtime["zCompositions_path"].startswith(str(library)))
+
+    def test_exact_lock_format_versions_pass_without_numeric_coercion(self):
+        expected = expected_package_versions()
+        self.assertEqual(expected, {"zCompositions": "1.6.2", "NADA": "1.6-1.2", "truncnorm": "1.0-9"})
+        validate_runtime_package_versions({
+            "zCompositions_version": "1.6.2",
+            "NADA_version": "1.6-1.2",
+            "truncnorm_version": "1.0-9",
+        }, expected)
+
+    def test_nada_canonicalized_wrong_and_whitespace_versions_fail_closed(self):
+        expected = expected_package_versions()
+        for observed in ("1.6-1.1", "1.6-1.2 ", "1.6.1.2"):
+            with self.assertRaisesRegex(DependencyError, "NADA version mismatch"):
+                validate_runtime_package_versions({
+                    "zCompositions_version": "1.6.2", "NADA_version": observed,
+                    "truncnorm_version": "1.0-9",
+                }, expected)
+
+    def test_truncnorm_and_zcompositions_mismatches_fail_closed(self):
+        expected = expected_package_versions()
+        for package, key, value in (("truncnorm", "truncnorm_version", "1.0.9"),
+                                    ("zCompositions", "zCompositions_version", "1.6.3")):
+            observed = {"zCompositions_version": "1.6.2", "NADA_version": "1.6-1.2", "truncnorm_version": "1.0-9"}
+            observed[key] = value
+            with self.assertRaisesRegex(DependencyError, package + " version mismatch"):
+                validate_runtime_package_versions(observed, expected)
+
+    def test_r_adapter_reads_raw_description_versions(self):
+        source = (ROOT / "shotgun_analysis/run_czm.R").read_text()
+        self.assertIn('packageDescription(package, lib.loc=isolated, fields="Version")', source)
+        self.assertNotIn('packageVersion("NADA")', source)
+        self.assertNotIn('packageVersion("truncnorm")', source)
 
     def test_production_czm_default_is_absolute_and_preserves_path(self):
         self.assertEqual(RSCRIPT_PATH, "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript")

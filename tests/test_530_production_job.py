@@ -8,6 +8,7 @@ from shotgun_analysis.production_package import validate_pinned_czm_gate
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFINITION = ROOT / "automation/production/20260904T120000Z-0714-real-530-balf-beta-diversity-production.json"
+RECOVERY = ROOT / "automation/production/20260904T180000Z-0714-real-530-balf-beta-diversity-nada-gate-recovery.json"
 
 
 class Real530ProductionJobTests(unittest.TestCase):
@@ -41,6 +42,20 @@ class Real530ProductionJobTests(unittest.TestCase):
         self.assertTrue(all(Path(name).suffix in {".json", ".md", ".txt"} for name in job["handoff_allowlist"]))
         self.assertIn("analysis_manifest.json", job["handoff_allowlist"])
         self.assertIn("production_summary.md", job["handoff_allowlist"])
+
+    def test_recovery_preserves_bounded_scientific_scope(self):
+        old = json.loads(DEFINITION.read_text())
+        recovery = json.loads(RECOVERY.read_text())
+        for key in ("project", "acquire", "analysis_type", "allowed_hosts", "transfer_cap_bytes",
+                    "allowed_executables", "wall_seconds", "memory_cap_bytes", "workspace_cap_bytes",
+                    "network_acquisition", "package_installation", "pooled_530_model",
+                    "differential_abundance", "handoff_allowlist"):
+            self.assertEqual(recovery[key], old[key])
+        self.assertNotEqual(recovery["job_id"], old["job_id"])
+
+    def test_failed_definition_and_queue_are_preserved(self):
+        self.assertTrue(DEFINITION.is_file())
+        self.assertTrue((ROOT / "automation/etty_jobs/20260904T120000Z-0714-real-530-balf-beta-diversity-production.json").is_file())
 
 
 if __name__ == "__main__":

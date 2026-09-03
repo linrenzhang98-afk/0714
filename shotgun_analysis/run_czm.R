@@ -1,5 +1,5 @@
 args <- commandArgs(trailingOnly = TRUE)
-if (length(args) != 4) stop("usage: run_czm.R INPUT OUTPUT R_LIBRARY PROVENANCE")
+if (length(args) != 7) stop("usage: run_czm.R INPUT OUTPUT R_LIBRARY PROVENANCE ZCOMPOSITIONS_VERSION NADA_VERSION TRUNCNORM_VERSION")
 isolated <- normalizePath(args[[3]], winslash = "/", mustWork = TRUE)
 .libPaths(c(isolated, .libPaths()))
 if (!identical(as.character(getRversion()), "4.5.3")) {
@@ -13,12 +13,16 @@ for (package in packages) {
     stop(sprintf("%s resolved outside isolated library: %s", package, package_path))
   }
 }
-observed_version <- as.character(utils::packageVersion("zCompositions"))
-if (!identical(observed_version, "1.6.2")) {
-  stop(sprintf("zCompositions version mismatch: expected 1.6.2, observed %s", observed_version))
+description_version <- function(package) {
+  as.character(utils::packageDescription(package, lib.loc=isolated, fields="Version"))
 }
-if (!identical(as.character(utils::packageVersion("NADA")), "1.6-1.2")) stop("NADA version mismatch")
-if (!identical(as.character(utils::packageVersion("truncnorm")), "1.0-9")) stop("truncnorm version mismatch")
+expected_versions <- c(zCompositions=args[[5]], NADA=args[[6]], truncnorm=args[[7]])
+observed_versions <- vapply(names(expected_versions), description_version, character(1))
+for (package in names(expected_versions)) {
+  if (!identical(observed_versions[[package]], expected_versions[[package]])) {
+    stop(sprintf("%s version mismatch: expected %s, observed %s", package, expected_versions[[package]], observed_versions[[package]]))
+  }
+}
 x <- as.matrix(utils::read.table(args[[1]], header = FALSE, sep = "\t", check.names = FALSE))
 storage.mode(x) <- "double"
 if (any(!is.finite(x)) || any(x < 0) || any(rowSums(x) <= 0)) stop("invalid CZM input")
@@ -56,11 +60,11 @@ runtime <- c(
   R_version = as.character(getRversion()),
   effective_libPaths = paste(normalizePath(.libPaths(), winslash = "/", mustWork = TRUE), collapse = ";"),
   isolated_library = isolated,
-  zCompositions_version = as.character(utils::packageVersion("zCompositions")),
+  zCompositions_version = observed_versions[["zCompositions"]],
   zCompositions_path = normalizePath(find.package("zCompositions"), winslash = "/", mustWork = TRUE),
-  NADA_version = as.character(utils::packageVersion("NADA")),
+  NADA_version = observed_versions[["NADA"]],
   NADA_path = normalizePath(find.package("NADA"), winslash = "/", mustWork = TRUE),
-  truncnorm_version = as.character(utils::packageVersion("truncnorm")),
+  truncnorm_version = observed_versions[["truncnorm"]],
   truncnorm_path = normalizePath(find.package("truncnorm"), winslash = "/", mustWork = TRUE)
   ,selected_component_path = selected$path
 )
