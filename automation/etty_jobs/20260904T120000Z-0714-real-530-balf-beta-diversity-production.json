@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "job_id": "20260904T120000Z-0714-real-530-balf-beta-diversity-production",
+  "authorized": true,
+  "authorization_record": "Explicit user authorization for the frozen real 530-sample species-level cohort-specific beta-diversity analysis: CZM/CLR/Aitchison PERMANOVA and PERMDISP with 9999 permutations plus frozen prevalence, additive-0.5, and Bray-Curtis sensitivities; no pooled model, DA, acquisition, classifier rerun, package change, or DeepSeek.",
+  "execution_commit": "1fe5d8d0b9424807e07281296351e3200da4f5aa",
+  "job_definition_path": "automation/production/20260904T120000Z-0714-real-530-balf-beta-diversity-production.json",
+  "job_definition_sha256": "21a6a27375d08f1e90b47e9a15999c84a08378e10c35cccdc8b7b0a37d0b79f0",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 21600,
+    "memory_cap_bytes": 17179869184,
+    "workspace_cap_bytes": 21474836480
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "analysis_manifest.json",
+    "sample_manifest.json",
+    "exclusions.json",
+    "feature_filter_summary.json",
+    "czm_provenance.json",
+    "clr_provenance.json",
+    "permanova_results.json",
+    "permdisp_results.json",
+    "sensitivity_summary.json",
+    "warnings.json",
+    "session_versions.json",
+    "output_hashes.json",
+    "production_summary.md"
+  ]
+}
