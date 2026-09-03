@@ -3,6 +3,7 @@ import json
 import math
 import tempfile
 import unittest
+import shutil
 from unittest.mock import patch
 from pathlib import Path
 
@@ -31,7 +32,7 @@ from shotgun_analysis.io import (
 from shotgun_analysis.permutation import restricted_permutations, validate_block_exchangeability
 from shotgun_analysis.pipeline import analyze_cohort, pseudocount_backend
 from shotgun_analysis.results import validate_result, write_json
-from shotgun_analysis.production_package import analysis_manifest, output_hashes, validate_czm_gate, REQUIRED_ARTIFACTS
+from shotgun_analysis.production_package import analysis_manifest, output_hashes, validate_czm_gate, validate_pinned_czm_gate, PINNED_GATE_ROOT, REQUIRED_ARTIFACTS
 from shotgun_analysis.stats import (
     adjust_pvalues, centroid_distance_summaries, distances_to_group_centroid, mann_whitney, permanova,
     permdisp, permdisp_reference_statistics,
@@ -579,11 +580,57 @@ class EndpointAndSerializationTests(unittest.TestCase):
             path = Path(directory) / "gate.json"
             gate = {"job_id": "wrong"}
             path.write_text(json.dumps(gate))
-            digest = __import__("hashlib").sha256(path.read_bytes()).hexdigest()
-            with self.assertRaisesRegex(InputValidationError, "job_id"):
-                validate_czm_gate(path, digest)
+            with self.assertRaisesRegex(InputValidationError, "incomplete"):
+                validate_czm_gate(Path(directory) / "missing")
+
+    def test_pinned_gate_passes_and_mutations_fail_closed(self):
+        self.assertEqual(validate_pinned_czm_gate()["job_id"], "20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation")
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "gate"
+            shutil.copytree(PINNED_GATE_ROOT, root)
+            validation = root / "r_czm_install_validation.json"
+            validation.write_bytes(validation.read_bytes()[:-1] + b" ")
+            with self.assertRaisesRegex(InputValidationError, "validation evidence SHA256"):
+                validate_czm_gate(root)
+            shutil.copytree(PINNED_GATE_ROOT, root / "summary_mutation")
+            summary = root / "summary_mutation" / "r_czm_install_summary.md"
+            summary.write_bytes(summary.read_bytes() + b" ")
+            with self.assertRaisesRegex(InputValidationError, "summary evidence SHA256"):
+                validate_czm_gate(root / "summary_mutation")
+
+    def test_pinned_gate_semantic_mutations_fail_closed(self):
+        mutations = [
+            (lambda x: x.update(job_id="wrong"), "job_id"),
+            (lambda x: x.update(status="BAD"), "status"),
+            (lambda x: x["dependencies"]["zCompositions"].update(version="9.9.9"), "zCompositions version"),
+            (lambda x: x["czm_probe"].update(passed=False), "synthetic probe"),
+            (lambda x: x["system_library"].update(package_set_changed=True), "system library"),
+        ]
+        for mutate, message in mutations:
+            with tempfile.TemporaryDirectory() as directory:
+                root = Path(directory) / "gate"
+                shutil.copytree(PINNED_GATE_ROOT, root)
+                payload = json.loads((root / "r_czm_install_validation.json").read_text())
+                mutate(payload)
+                changed = json.dumps(payload, indent=2, sort_keys=True) + "\n"
+                (root / "r_czm_install_validation.json").write_text(changed)
+                provenance = json.loads((root / "czm_gate_provenance.json").read_text())
+                provenance["source_validation_sha256"] = __import__("hashlib").sha256(changed.encode()).hexdigest()
+                (root / "czm_gate_provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
+                with self.assertRaisesRegex(InputValidationError, message):
+                    validate_czm_gate(root)
+
+    def test_pinned_gate_wrong_source_hash_and_missing_snapshot_fail_closed(self):
+        with self.assertRaisesRegex(InputValidationError, "incomplete"):
+            validate_czm_gate(ROOT / "provenance" / "czm_gate" / "missing")
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "gate"
+            shutil.copytree(PINNED_GATE_ROOT, root)
+            provenance = json.loads((root / "czm_gate_provenance.json").read_text())
+            provenance["source_validation_sha256"] = "0" * 64
+            (root / "czm_gate_provenance.json").write_text(json.dumps(provenance) + "\n")
             with self.assertRaisesRegex(InputValidationError, "SHA256"):
-                validate_czm_gate(path, "0" * 64)
+                validate_czm_gate(root)
 
     def test_output_manifest_is_deterministic_and_nonrecursive(self):
         with tempfile.TemporaryDirectory() as directory:

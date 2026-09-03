@@ -85,7 +85,7 @@
   "multiplicity": {"anchor_omnibus": "Holm across 5 endpoints", "anchor_secondary": "Holm across 3 contrasts x 5 endpoints", "external_secondary": "Holm across 5 endpoints", "future_exploratory_taxa": "Benjamini-Hochberg separately by cohort/rank/family"},
   "implementation": {
     "anchor_stratum_mapping": {"source_field": "cohort", "Training Cohort": "Training", "Test Cohort": "Test", "other_values": "fail_closed"},
-    "czm_gate": {"job_id": "20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation", "evidence_path": "/mnt/disk1/0714_control/state/20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation-handoff/r_czm_install_validation.json", "evidence_sha256": "EVIDENCE_REQUIRED_FROM_ETYY_HANDOFF"},
+    "czm_gate": {"job_id": "20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation", "source_ref": "etty-handoff", "source_commit_full_sha": "552826d5fdc7417bc35f867c0a4f63d996970733", "pinned_evidence_path": "provenance/czm_gate/r_czm_install_validation.json", "pinned_summary_path": "provenance/czm_gate/r_czm_install_summary.md", "validation_sha256": "71648dc459ab340d34ce5cf1ceffccea92c755c82684e70baee377fd44580ed3", "summary_sha256": "d8197d72afe8880fe6b6cc80e96c0cbf0156987340ec98553a88a203b16238f2"},
     "python_package": "shotgun_analysis",
     "entry_point": "scripts/run_formal_cross_cohort_analysis.py",
     "grid_entry_point": "scripts/run_formal_cross_cohort_grid.py",

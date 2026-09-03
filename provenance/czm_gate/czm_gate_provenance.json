@@ -1,0 +1,19 @@
+{
+  "authoritative_job_id": "20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation",
+  "source_ref": "etty-handoff",
+  "source_commit_full_sha": "552826d5fdc7417bc35f867c0a4f63d996970733",
+  "source_validation_path": "handoffs/20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation/r_czm_install_validation.json",
+  "source_summary_path": "handoffs/20260904T060000Z-0714-zcompositions-1-6-2-isolated-czm-syntax-validation/r_czm_install_summary.md",
+  "source_validation_sha256": "71648dc459ab340d34ce5cf1ceffccea92c755c82684e70baee377fd44580ed3",
+  "source_summary_sha256": "d8197d72afe8880fe6b6cc80e96c0cbf0156987340ec98553a88a203b16238f2",
+  "pinned_validation_path": "provenance/czm_gate/r_czm_install_validation.json",
+  "pinned_summary_path": "provenance/czm_gate/r_czm_install_summary.md",
+  "required_status": "CZM_ISOLATED_LIBRARY_READY",
+  "required_r_version": "4.5.3",
+  "required_zCompositions_version": "1.6.2",
+  "required_czm_passed": true,
+  "required_system_library_modified": false,
+  "required_network_acquisition": false,
+  "required_package_installation": false,
+  "required_biological_analysis": false
+}

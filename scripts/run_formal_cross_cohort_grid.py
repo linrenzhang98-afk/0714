@@ -24,8 +24,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--r-library", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument("--analysis-id", required=True)
-    parser.add_argument("--czm-gate-evidence", type=Path, required=True)
-    parser.add_argument("--czm-gate-sha256", required=True)
     parser.add_argument("--permutations", type=int, choices=(9999,), default=9999)
     return parser.parse_args()
 
@@ -44,7 +42,6 @@ def main() -> int:
                 "--zero-method", zero_method, "--geometry", "Aitchison",
                 "--permutations", str(args.permutations),
                 "--analysis-id", f"{args.analysis_id}:{cell.name}",
-                "--czm-gate-evidence", str(args.czm_gate_evidence), "--czm-gate-sha256", args.czm_gate_sha256,
             ]
             completed = subprocess.run(command, check=False)
             if completed.returncode != 0:
@@ -58,7 +55,6 @@ def main() -> int:
         "--zero-method", "none", "--geometry", "Bray-Curtis",
         "--permutations", str(args.permutations),
         "--analysis-id", f"{args.analysis_id}:{bray_cell.name}",
-        "--czm-gate-evidence", str(args.czm_gate_evidence), "--czm-gate-sha256", args.czm_gate_sha256,
     ]
     completed = subprocess.run(bray_command, check=False)
     if completed.returncode != 0:

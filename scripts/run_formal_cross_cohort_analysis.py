@@ -34,7 +34,7 @@ from shotgun_analysis.io import (
 )
 from shotgun_analysis.pipeline import analyze_cohort, pseudocount_backend
 from shotgun_analysis.results import write_compact_tsv, write_json
-from shotgun_analysis.production_package import analysis_manifest, output_hashes, validate_czm_gate
+from shotgun_analysis.production_package import analysis_manifest, output_hashes, validate_pinned_czm_gate
 
 
 COHORTS = {
@@ -66,8 +66,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--r-library", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--analysis-id", required=True)
-    parser.add_argument("--czm-gate-evidence", type=Path, required=True)
-    parser.add_argument("--czm-gate-sha256", required=True)
     parser.add_argument("--prevalence", type=float, choices=(0.05, 0.10, 0.20), default=0.10)
     parser.add_argument("--zero-method", choices=("czm", "additive_pseudocount", "none"), default="czm")
     parser.add_argument("--geometry", choices=("Aitchison", "Bray-Curtis"), default="Aitchison")
@@ -80,7 +78,7 @@ def main() -> int:
     started_at = datetime.now(timezone.utc).isoformat()
     # Reject an out-of-grid method combination before any input file is opened.
     analysis_role(args.prevalence, args.zero_method, args.geometry)
-    gate = validate_czm_gate(args.czm_gate_evidence, args.czm_gate_sha256)
+    gate = validate_pinned_czm_gate()
     czm_runtime: dict[str, object] = {}
     if args.zero_method == "czm":
         if args.r_library is None:
@@ -207,7 +205,7 @@ def main() -> int:
                       ["cohort", "sample_id", "run_id", "status", "clinical_group", "permutation_stratum", "input_source_sha256"])
     (partial_output / "exclusions.tsv").write_text("cohort\tsample_id\treason\n", encoding="utf-8")
     write_json(partial_output / "feature_filter_summary.json", {"cohort": args.cohort, "resolution": "species", **result["feature_filter"]})
-    write_json(partial_output / "czm_provenance.json", {"gate_job_id": gate["job_id"], "gate_evidence_sha256": args.czm_gate_sha256,
+    write_json(partial_output / "czm_provenance.json", {"gate_job_id": gate["job_id"], "gate_evidence_sha256": gate.get("source_validation_sha256"),
                "isolated_library": str(args.r_library), "transformation": result["zero_handling"],
                "runtime": czm_runtime, "warnings": []})
     write_json(partial_output / "clr_provenance.json", result["composition_provenance"])
@@ -227,7 +225,7 @@ def main() -> int:
     write_json(partial_output / "output_hashes.json", hashes)
     manifest_payload = {"analysis_id": args.analysis_id, "execution_commit": implementation_commit,
         "input_hashes": {key: result["provenance"][key] for key in ("manifest_sha256", "counts_sha256", "sample_qc_sha256")},
-        "code_version": result["analysis_version"], "czm_gate": {"job_id": gate["job_id"], "sha256": args.czm_gate_sha256},
+        "code_version": result["analysis_version"], "czm_gate": {"job_id": gate["job_id"]},
         "seeds": {name: result["beta_diversity"][name]["seed"] for name in ("permanova", "permdisp")},
         "parameters": {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()}, "warnings": [], "started_at": started_at,
         "completed_at": datetime.now(timezone.utc).isoformat(), "network_acquisition_performed": False,
