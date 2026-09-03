@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "job_id": "20260905T000000Z-0714-real-530-czm-sparsity-audit",
+  "authorized": true,
+  "authorization_record": "User-authorized bounded real-count sparsity/CZM default-compatibility audit after pre-inference production SAFE_STOP; aggregate diagnostics only, no transformation, inference, method change, acquisition, or production recovery.",
+  "execution_commit": "9b891097eb8c790edaffc914a7d1420d2535efc4",
+  "job_definition_path": "automation/production/20260905T000000Z-0714-real-530-czm-sparsity-audit.json",
+  "job_definition_sha256": "e01db6c17ded608148e8bbe2db77694059e6aa34f740bb3aec9f90e27b41e259",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 1800,
+    "memory_cap_bytes": 4294967296,
+    "workspace_cap_bytes": 1073741824
+  },
+  "handoff_allowlist": ["result.json", "sparsity_summary.json", "sparsity_audit.md"]
+}
