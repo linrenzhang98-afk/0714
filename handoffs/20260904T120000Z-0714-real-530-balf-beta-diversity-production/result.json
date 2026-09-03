@@ -1,0 +1,11 @@
+{
+  "completed_items": 0,
+  "error": "command returned nonzero",
+  "failed_item_ids": [],
+  "failed_items": 0,
+  "job_id": "20260904T120000Z-0714-real-530-balf-beta-diversity-production",
+  "network_bytes": 0,
+  "phase": "execution",
+  "status": "SAFE_STOP",
+  "total_items": 1
+}
