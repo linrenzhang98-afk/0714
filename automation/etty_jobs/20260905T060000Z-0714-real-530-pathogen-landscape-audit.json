@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "job_id": "20260905T060000Z-0714-real-530-pathogen-landscape-audit",
+  "authorized": true,
+  "authorization_record": "User-authorized bounded real-data descriptive pathogen-detection landscape audit of the verified 400/130 common native Kraken2 direct-species layer; cohorts separate; no compositional transform, distance test, DA, acquisition, classifier rerun, or package change.",
+  "execution_commit": "e48c4a3ace240676beab65f65e1057f96e42adf7",
+  "job_definition_path": "automation/production/20260905T060000Z-0714-real-530-pathogen-landscape-audit.json",
+  "job_definition_sha256": "f3200f50e132efa726922c968e5517cd768c8562445998c763fe229302192c8f",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 1800,
+    "memory_cap_bytes": 4294967296,
+    "workspace_cap_bytes": 1073741824
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "pathogen_landscape_summary.json",
+    "sample_detection_summary.tsv",
+    "top_species_prevalence.tsv",
+    "top_species_reads.tsv",
+    "top_species_median_positive.tsv",
+    "candidate_pathogen_panel.tsv",
+    "group_pathogen_detection.tsv",
+    "pathogen_codetection.tsv",
+    "dominant_pathogen.tsv",
+    "signal_feasibility.tsv",
+    "background_flag_review.tsv",
+    "manuscript_utility.md"
+  ]
+}
