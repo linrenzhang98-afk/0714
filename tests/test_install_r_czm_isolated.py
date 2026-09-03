@@ -145,6 +145,38 @@ class IsolatedInstallTests(unittest.TestCase):
         self.assertTrue(report["passed"])
         self.assertEqual(report["output_sha256"], report["repeat_output_sha256"])
 
+    def test_validation_mode_never_acquires_or_installs(self):
+        with tempfile.TemporaryDirectory() as raw:
+            target = Path(raw) / "target"
+            target.mkdir()
+            inventory = {"NADA": "1", "truncnorm": "1", "zCompositions": "1.6.2"}
+            system = {"MASS": "1", "survival": "1"}
+            with patch.object(installer, "ISOLATED_PARENT", Path(raw)), patch.object(installer, "compiler_probe", return_value=({name: f"/bin/{name}" for name in installer.R_REQUIRED_EXECUTABLES}, None)), patch.object(installer, "r_runtime_info", return_value=("R version 4.5.3", None)), patch.object(installer, "r_inventory", side_effect=[(system, None), (inventory, None), (system, None), (inventory, None)]), patch.object(installer, "validate_tarballs", side_effect=AssertionError("validation mode acquired")), patch.object(installer, "install_package", side_effect=AssertionError("validation mode installed")), patch.object(installer, "validate_czm", return_value=({"passed": True}, None)):
+                report = installer.build_report("synthetic", lock_fixture(), Path(raw), target, perform_install=False)
+            self.assertEqual(report["status"], "CZM_ISOLATED_LIBRARY_READY")
+            self.assertFalse(report["network_acquisition_performed"])
+            self.assertFalse(report["package_installation_performed"])
+
+    def test_structure_adapter_accepts_direct_matrix_and_data_frame(self):
+        code = installer.validation_code(Path("/synthetic"))
+        self.assertIn("is.matrix(candidate) || is.data.frame(candidate)", code)
+        self.assertIn("as.matrix(candidate)", code)
+
+    def test_structure_adapter_selects_one_list_component(self):
+        code = installer.validation_code(Path("/synthetic"))
+        self.assertIn("for (i in seq_along(candidate))", code)
+        self.assertIn('selected_component_path', code)
+
+    def test_structure_adapter_fails_on_zero_or_multiple_components(self):
+        code = installer.validation_code(Path("/synthetic"))
+        self.assertIn("length(candidates) != 1L", code)
+        self.assertIn("found %d", code)
+
+    def test_structure_probe_records_bounded_metadata(self):
+        code = installer.validation_code(Path("/synthetic"))
+        for field in ("_class", "_typeof", "_names", "_dim", "_is_matrix", "_is_data_frame", "_is_list", "_str"):
+            self.assertIn(field, code)
+
     def test_source_contains_no_biological_paths_or_network_calls(self):
         source = Path(installer.__file__).read_text()
         for forbidden in ("urllib", "requests", "download.file", "install.packages", "kraken2", "bracken", "PRJNA1056765", "PRJCA046985", "shell=True"):

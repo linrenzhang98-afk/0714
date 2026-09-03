@@ -177,6 +177,30 @@ def validation_code(isolated: Path) -> str:
     return f'''emit <- function(k,v) {{
   v <- gsub("[\\t\\r\\n]", " ", as.character(v)); cat("KV\\t", k, "\\t", v, "\\n", sep="")
 }}
+describe <- function(value, label) {{
+  emit(paste0(label, "_class"), paste(class(value), collapse="|"))
+  emit(paste0(label, "_typeof"), typeof(value))
+  emit(paste0(label, "_names"), paste(names(value) %||% character(), collapse="|"))
+  dims <- dim(value); emit(paste0(label, "_dim"), if (is.null(dims)) "" else paste(dims, collapse="x"))
+  emit(paste0(label, "_is_matrix"), is.matrix(value))
+  emit(paste0(label, "_is_data_frame"), is.data.frame(value))
+  emit(paste0(label, "_is_list"), is.list(value))
+  structure <- paste(capture.output(str(value, max.level=2, vec.len=6)), collapse=" ")
+  emit(paste0(label, "_str"), substr(structure, 1, 1000))
+}}
+`%||%` <- function(x, y) if (is.null(x)) y else x
+numeric_component <- function(value, path="result") {{
+  candidates <- list()
+  visit <- function(candidate, candidate_path) {{
+    dims <- dim(candidate)
+    matrix_like <- (is.matrix(candidate) || is.data.frame(candidate)) && is.numeric(as.matrix(candidate)) && !is.null(dims) && identical(as.integer(dims), c(4L, 5L))
+    if (matrix_like) candidates[[length(candidates) + 1L]] <<- list(path=candidate_path, value=as.matrix(candidate))
+    else if (is.list(candidate) && !is.data.frame(candidate)) for (i in seq_along(candidate)) visit(candidate[[i]], paste0(candidate_path, "[[", i, "]]"))
+  }}
+  visit(value, path)
+  if (length(candidates) != 1L) stop(sprintf("expected exactly one numeric 4x5 component, found %d", length(candidates)))
+  candidates[[1L]]
+}}
 .libPaths(c({q(str(isolated))}, {q(str(SYSTEM_LIBRARY))}))
 emit("r_version", R.version.string)
 emit("libpaths", paste(.libPaths(), collapse="|"))
@@ -189,13 +213,23 @@ x <- matrix(c(10,0,2,0,8, 0,5,1,4,0, 3,7,0,2,1, 0,2,8,0,6), nrow=4, byrow=TRUE)
 run_once <- function() zCompositions::cmultRepl(x, label=0, method="CZM", output="prop", frac=0.65, threshold=0.5, adjust=TRUE, suppress.print=TRUE)
 first <- tryCatch(run_once(), error=function(e) e)
 if (inherits(first, "error")) {{ emit("czm_error", conditionMessage(first)) }} else {{
+  describe(first, "first")
+  first_component <- tryCatch(numeric_component(first, "first"), error=function(e) e)
+  if (inherits(first_component, "error")) {{ emit("czm_error", conditionMessage(first_component)) }} else {{
+  emit("selected_component_path", first_component$path)
   second <- tryCatch(run_once(), error=function(e) e)
   if (inherits(second, "error")) {{ emit("czm_error", conditionMessage(second)) }} else {{
-    emit("czm_rows", nrow(first)); emit("czm_cols", ncol(first))
-    emit("czm_values", paste(format(as.numeric(first), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
-    emit("czm_repeat_values", paste(format(as.numeric(second), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
-    emit("czm_row_sums", paste(format(rowSums(first), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
+    describe(second, "second")
+    second_component <- tryCatch(numeric_component(second, "second"), error=function(e) e)
+    if (inherits(second_component, "error")) {{ emit("czm_error", conditionMessage(second_component)) }} else {{
+    emit("czm_rows", nrow(first_component$value)); emit("czm_cols", ncol(first_component$value))
+    emit("czm_values", paste(format(as.numeric(first_component$value), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
+    emit("czm_repeat_values", paste(format(as.numeric(second_component$value), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
+    emit("czm_row_sums", paste(format(rowSums(first_component$value), digits=17, scientific=FALSE, trim=TRUE), collapse=","))
     emit("czm_loaded_namespaces", paste(sort(loadedNamespaces()), collapse="|"))
+    }}
+  }}
+  }}
   }}
 }}
 '''
@@ -217,6 +251,8 @@ def validate_czm(isolated: Path) -> tuple[dict[str, Any], str | None]:
         "output_sha256": None,
         "repeat_output_sha256": None,
         "error_if_any": None,
+        "return_structure": {},
+        "selected_component_path": None,
     }
     try:
         completed = run_r(validation_code(isolated))
@@ -228,6 +264,9 @@ def validate_czm(isolated: Path) -> tuple[dict[str, Any], str | None]:
         result["error_if_any"] = (completed.stderr or "malformed R validation output")[-1000:]
         return result, "MALFORMED_R_OUTPUT"
     result["attempted"] = True
+    result["return_structure"] = {key[6:]: values[key] for key in values if key.startswith("first_")}
+    result["return_structure"]["second"] = {key[7:]: values[key] for key in values if key.startswith("second_")}
+    result["selected_component_path"] = values.get("selected_component_path")
     if "czm_error" in values:
         result["error_if_any"] = values["czm_error"]
         return result, "CZM_FUNCTIONAL_TEST_FAILED"
@@ -256,7 +295,7 @@ def validate_czm(isolated: Path) -> tuple[dict[str, Any], str | None]:
     return result, None if result["passed"] else "CZM_FUNCTIONAL_TEST_FAILED"
 
 
-def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: Path) -> dict[str, Any]:
+def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: Path, perform_install: bool = True) -> dict[str, Any]:
     report: dict[str, Any] = {
         "job_id": job_id,
         "status": "CZM_ISOLATED_LIBRARY_NOT_READY",
@@ -269,9 +308,9 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
         "system_library": {"path": str(SYSTEM_LIBRARY), "package_set_changed": None, "package_versions_changed": None},
         "compiler_probe": {"required": list(R_REQUIRED_EXECUTABLES), "resolved_paths": {}, "passed": False},
         "czm_probe": {"attempted": False, "passed": False, "function": "zCompositions::cmultRepl", "method": "CZM", "input_shape": [4, 5], "output_shape": None, "finite": False, "strictly_positive": False, "deterministic": False, "input_sha256": hashlib.sha256(canonical(SYNTHETIC_INPUT)).hexdigest(), "output_sha256": None, "repeat_output_sha256": None, "error_if_any": None},
-        "network_acquisition_performed": True,
-        "downloaded_package_count": len(lock_new_packages(lock)),
-        "downloaded_bytes": lock["total_expected_download_bytes"],
+        "network_acquisition_performed": perform_install,
+        "downloaded_package_count": len(lock_new_packages(lock)) if perform_install else 0,
+        "downloaded_bytes": lock["total_expected_download_bytes"] if perform_install else 0,
         "package_installation_performed": False,
         "package_upgrade_performed": False,
         "system_library_modified": False,
@@ -322,19 +361,20 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
         return report
     for package, version in isolated_inventory.items():
         report["dependencies"][package].update({"reused_partial": True, "version": version, "path": str(isolated / package)})
-    tarballs, error = validate_tarballs(lock, source_dir)
-    if error:
-        report["reason"] = error
-        return report
-    isolated.mkdir(parents=True, exist_ok=True)
-    for package in (package for package in tarballs if package["package"] in {item["package"] for item in missing_locked_packages(lock, isolated_inventory)}):
-        ok, error = install_package(package, isolated)
-        if not ok:
-            report["reason"] = f"PACKAGE_INSTALL_FAILED:{package['package']}"
-            report["install_error"] = error
-            break
-        report["package_installation_performed"] = True
-        report["dependencies"][package["package"]].update({"installed_new": True, "path": str(isolated / package["package"])})
+    if perform_install:
+        tarballs, error = validate_tarballs(lock, source_dir)
+        if error:
+            report["reason"] = error
+            return report
+        isolated.mkdir(parents=True, exist_ok=True)
+        for package in (package for package in tarballs if package["package"] in {item["package"] for item in missing_locked_packages(lock, isolated_inventory)}):
+            ok, error = install_package(package, isolated)
+            if not ok:
+                report["reason"] = f"PACKAGE_INSTALL_FAILED:{package['package']}"
+                report["install_error"] = error
+                break
+            report["package_installation_performed"] = True
+            report["dependencies"][package["package"]].update({"installed_new": True, "path": str(isolated / package["package"])})
     after, inventory_error = r_inventory(SYSTEM_LIBRARY)
     report["system_library"]["after"] = after
     same_set, same_versions = system_library_unchanged(before, after)
@@ -377,13 +417,14 @@ def build_report(job_id: str, lock: dict[str, Any], source_dir: Path, isolated: 
 def write_outputs(output_dir: Path, report: dict[str, Any]) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "r_czm_install_validation.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
-    lines = ["# Isolated zCompositions installation validation", "", f"- Job: `{report['job_id']}`", f"- Verdict: `{report['status']}`", f"- Reason: `{report.get('reason') or 'none'}`", f"- R: `{report.get('r_version') or 'unavailable'}`", f"- zCompositions version match: `{report['zCompositions']['version_match']}`", f"- CZM synthetic test: `{report['czm_probe']['passed']}`", f"- System library modified: `{report['system_library']['package_set_changed'] or report['system_library']['package_versions_changed']}`", "", "Only locked CRAN source tarballs and a synthetic matrix were used."]
+    source_note = "No network acquisition or package installation was performed; only the existing isolated stack and synthetic matrix were used." if not report["network_acquisition_performed"] else "Only locked CRAN source tarballs and a synthetic matrix were used."
+    lines = ["# Isolated zCompositions installation validation", "", f"- Job: `{report['job_id']}`", f"- Verdict: `{report['status']}`", f"- Reason: `{report.get('reason') or 'none'}`", f"- R: `{report.get('r_version') or 'unavailable'}`", f"- zCompositions version match: `{report['zCompositions']['version_match']}`", f"- CZM synthetic test: `{report['czm_probe']['passed']}`", f"- System library modified: `{report['system_library']['package_set_changed'] or report['system_library']['package_versions_changed']}`", "", source_note]
     (output_dir / "r_czm_install_summary.md").write_text("\n".join(lines) + "\n")
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=("noop", "install"), default="install")
+    parser.add_argument("--mode", choices=("noop", "install", "validate"), default="install")
     parser.add_argument("--job-id", required=True)
     parser.add_argument("--lock", type=Path, required=True)
     parser.add_argument("--source-dir", type=Path, required=True)
@@ -394,7 +435,7 @@ def main() -> int:
         return 0
     try:
         lock = json.loads(args.lock.read_text())
-        report = build_report(args.job_id, lock, args.source_dir, args.isolated_library)
+        report = build_report(args.job_id, lock, args.source_dir, args.isolated_library, perform_install=args.mode == "install")
     except Exception as exc:  # preserve bounded diagnostic evidence for any implementation failure
         report = {"job_id": args.job_id, "status": "CZM_ISOLATED_LIBRARY_NOT_READY", "reason": "INSTALLER_INTERNAL_ERROR", "error": f"{type(exc).__name__}: {exc}"[:1000], "biological_analysis_executed": False, "deepseek_invoked": False}
     write_outputs(args.output_dir, report)
