@@ -9,7 +9,7 @@ from scripts import audit_530_pathogen_landscape as audit
 from scripts.etty_bounded_job import validate_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFINITION = ROOT / "automation/production/20260905T060000Z-0714-real-530-pathogen-landscape-audit.json"
+DEFINITION = ROOT / "automation/production/20260905T063000Z-0714-real-530-pathogen-landscape-audit-handoff-recovery.json"
 
 
 class PathogenLandscapeAuditTests(unittest.TestCase):
@@ -68,6 +68,7 @@ class PathogenLandscapeAuditTests(unittest.TestCase):
         self.assertFalse(job["pooled_530_model"])
         self.assertEqual(job["transfer_cap_bytes"], 1)
         self.assertLessEqual(job["wall_seconds"], 1800)
+        self.assertTrue(all(Path(name).suffix in {".json", ".md", ".txt"} for name in job["handoff_allowlist"]))
 
 
 if __name__ == "__main__":

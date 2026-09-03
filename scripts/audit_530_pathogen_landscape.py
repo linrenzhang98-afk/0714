@@ -91,6 +91,10 @@ def write_tsv(path: Path, rows: list[dict[str, Any]], fields: list[str]) -> None
         writer.writerows(rows)
 
 
+def write_json_rows(path: Path, rows: list[dict[str, Any]]) -> None:
+    path.write_text(json.dumps(rows, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
 def read_matrix(path: Path, cohort: str) -> dict[str, Any]:
     with path.open(encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle, delimiter="\t")
@@ -330,23 +334,22 @@ def main() -> int:
     feasibility_rows = tables["anchor"]["feasibility"] + tables["external"]["feasibility"]
     codetection_rows = tables["anchor"]["codetection"] + tables["external"]["codetection"]
 
-    top_fields = ["cohort", "ranking", "rank", "taxid", "scientific_name", "detection_prevalence", "positive_sample_count", "total_direct_assigned_reads", "median_direct_assigned_reads_among_positive", "median_fraction_species_reads_among_positive", "clinical_pathogen_relevance_flag"]
     for label, table_key, filename in (
-        ("detection_prevalence", "top_prevalence", "top_species_prevalence.tsv"),
-        ("total_direct_assigned_reads", "top_reads", "top_species_reads.tsv"),
-        ("median_signal_among_positive", "top_median", "top_species_median_positive.tsv"),
+        ("detection_prevalence", "top_prevalence", "top_species_prevalence.json"),
+        ("total_direct_assigned_reads", "top_reads", "top_species_reads.json"),
+        ("median_signal_among_positive", "top_median", "top_species_median_positive.json"),
     ):
         rows = []
         for cohort in ("anchor", "external"):
             rows.extend({"cohort": cohort, "ranking": label, "rank": rank, **row} for rank, row in enumerate(tables[cohort][table_key], 1))
-        write_tsv(args.output_dir / filename, rows, top_fields)
+        write_json_rows(args.output_dir / filename, rows)
 
-    write_tsv(args.output_dir / "sample_detection_summary.tsv", sample_rows, list(sample_rows[0]))
-    write_tsv(args.output_dir / "candidate_pathogen_panel.tsv", panel_rows, list(panel_rows[0]))
-    write_tsv(args.output_dir / "group_pathogen_detection.tsv", group_rows, list(group_rows[0]))
-    write_tsv(args.output_dir / "pathogen_codetection.tsv", codetection_rows, ["cohort", "pattern_type", "pathogens", "support_n", "minimum_support"])
-    write_tsv(args.output_dir / "dominant_pathogen.tsv", dominant_rows, list(dominant_rows[0]))
-    write_tsv(args.output_dir / "signal_feasibility.tsv", feasibility_rows, list(feasibility_rows[0]))
+    write_json_rows(args.output_dir / "sample_detection_summary.json", sample_rows)
+    write_json_rows(args.output_dir / "candidate_pathogen_panel.json", panel_rows)
+    write_json_rows(args.output_dir / "group_pathogen_detection.json", group_rows)
+    write_json_rows(args.output_dir / "pathogen_codetection.json", codetection_rows)
+    write_json_rows(args.output_dir / "dominant_pathogen.json", dominant_rows)
+    write_json_rows(args.output_dir / "signal_feasibility.json", feasibility_rows)
 
     background_rows = []
     seen = set()
@@ -379,7 +382,7 @@ def main() -> int:
                     "typical_read_level": row["median_direct_assigned_reads_among_positive"],
                     "recommended_action_for_review": action,
                 })
-    write_tsv(args.output_dir / "background_flag_review.tsv", background_rows, ["cohort", "taxid", "scientific_name", "reason_for_flag", "frequency", "detection_prevalence", "typical_read_level", "recommended_action_for_review"])
+    write_json_rows(args.output_dir / "background_flag_review.json", background_rows)
 
     jaccard_reason = "NOT_RUN_WITH_REASON: candidate pathogen panel is provisional and requires scientific/manual review before confirmatory profile-distance testing"
     summary = {
