@@ -1,0 +1,1058 @@
+[
+  {
+    "cohort": "anchor",
+    "positive_n": 44,
+    "positive_proportion_all_samples": 0.11,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 23,
+    "positive_proportion_all_samples": 0.0575,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 15,
+    "positive_proportion_all_samples": 0.0375,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 13,
+    "positive_proportion_all_samples": 0.0325,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 11,
+    "positive_proportion_all_samples": 0.0275,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 6,
+    "positive_proportion_all_samples": 0.015,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 7,
+    "positive_proportion_all_samples": 0.0175,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 4,
+    "positive_proportion_all_samples": 0.01,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.0025,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.0025,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 26,
+    "positive_proportion_all_samples": 0.065,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 16,
+    "positive_proportion_all_samples": 0.04,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 9,
+    "positive_proportion_all_samples": 0.0225,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 5,
+    "positive_proportion_all_samples": 0.0125,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 3,
+    "positive_proportion_all_samples": 0.0075,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 2,
+    "positive_proportion_all_samples": 0.005,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 76,
+    "positive_proportion_all_samples": 0.19,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 62,
+    "positive_proportion_all_samples": 0.155,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 42,
+    "positive_proportion_all_samples": 0.105,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 35,
+    "positive_proportion_all_samples": 0.0875,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 23,
+    "positive_proportion_all_samples": 0.0575,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 19,
+    "positive_proportion_all_samples": 0.0475,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 38,
+    "positive_proportion_all_samples": 0.095,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 21,
+    "positive_proportion_all_samples": 0.0525,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 18,
+    "positive_proportion_all_samples": 0.045,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 12,
+    "positive_proportion_all_samples": 0.03,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 10,
+    "positive_proportion_all_samples": 0.025,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 5,
+    "positive_proportion_all_samples": 0.0125,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 12,
+    "positive_proportion_all_samples": 0.03,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 10,
+    "positive_proportion_all_samples": 0.025,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 9,
+    "positive_proportion_all_samples": 0.0225,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 5,
+    "positive_proportion_all_samples": 0.0125,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 3,
+    "positive_proportion_all_samples": 0.0075,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.0025,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 29,
+    "positive_proportion_all_samples": 0.0725,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 20,
+    "positive_proportion_all_samples": 0.05,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 12,
+    "positive_proportion_all_samples": 0.03,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 9,
+    "positive_proportion_all_samples": 0.0225,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 2,
+    "positive_proportion_all_samples": 0.005,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 67,
+    "positive_proportion_all_samples": 0.1675,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 41,
+    "positive_proportion_all_samples": 0.1025,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 35,
+    "positive_proportion_all_samples": 0.0875,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 30,
+    "positive_proportion_all_samples": 0.075,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 28,
+    "positive_proportion_all_samples": 0.07,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 22,
+    "positive_proportion_all_samples": 0.055,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 233,
+    "positive_proportion_all_samples": 0.5825,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 126,
+    "positive_proportion_all_samples": 0.315,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 36,
+    "positive_proportion_all_samples": 0.09,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 12,
+    "positive_proportion_all_samples": 0.03,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 10,
+    "positive_proportion_all_samples": 0.025,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 9,
+    "positive_proportion_all_samples": 0.0225,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 46,
+    "positive_proportion_all_samples": 0.115,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 31,
+    "positive_proportion_all_samples": 0.0775,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 21,
+    "positive_proportion_all_samples": 0.0525,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 19,
+    "positive_proportion_all_samples": 0.0475,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 14,
+    "positive_proportion_all_samples": 0.035,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 11,
+    "positive_proportion_all_samples": 0.0275,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 139,
+    "positive_proportion_all_samples": 0.3475,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 105,
+    "positive_proportion_all_samples": 0.2625,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 79,
+    "positive_proportion_all_samples": 0.1975,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 58,
+    "positive_proportion_all_samples": 0.145,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 46,
+    "positive_proportion_all_samples": 0.115,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "anchor",
+    "positive_n": 30,
+    "positive_proportion_all_samples": 0.075,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 29,
+    "positive_proportion_all_samples": 0.2230769230769231,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 20,
+    "positive_proportion_all_samples": 0.15384615384615385,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 11,
+    "positive_proportion_all_samples": 0.08461538461538462,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 7,
+    "positive_proportion_all_samples": 0.05384615384615385,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 5,
+    "positive_proportion_all_samples": 0.038461538461538464,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 3,
+    "positive_proportion_all_samples": 0.023076923076923078,
+    "scientific_name": "Acinetobacter baumannii",
+    "taxid": "470",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.007692307692307693,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Cryptococcus neoformans",
+    "taxid": "5207",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 13,
+    "positive_proportion_all_samples": 0.1,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 9,
+    "positive_proportion_all_samples": 0.06923076923076923,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 3,
+    "positive_proportion_all_samples": 0.023076923076923078,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 2,
+    "positive_proportion_all_samples": 0.015384615384615385,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.007692307692307693,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Escherichia coli",
+    "taxid": "562",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 23,
+    "positive_proportion_all_samples": 0.17692307692307693,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 14,
+    "positive_proportion_all_samples": 0.1076923076923077,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 9,
+    "positive_proportion_all_samples": 0.06923076923076923,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 8,
+    "positive_proportion_all_samples": 0.06153846153846154,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 6,
+    "positive_proportion_all_samples": 0.046153846153846156,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 5,
+    "positive_proportion_all_samples": 0.038461538461538464,
+    "scientific_name": "Haemophilus influenzae",
+    "taxid": "727",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 16,
+    "positive_proportion_all_samples": 0.12307692307692308,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 11,
+    "positive_proportion_all_samples": 0.08461538461538462,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 8,
+    "positive_proportion_all_samples": 0.06153846153846154,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 5,
+    "positive_proportion_all_samples": 0.038461538461538464,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 4,
+    "positive_proportion_all_samples": 0.03076923076923077,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 3,
+    "positive_proportion_all_samples": 0.023076923076923078,
+    "scientific_name": "Klebsiella pneumoniae",
+    "taxid": "573",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 2,
+    "positive_proportion_all_samples": 0.015384615384615385,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.007692307692307693,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.007692307692307693,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.007692307692307693,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.007692307692307693,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.007692307692307693,
+    "scientific_name": "Moraxella catarrhalis",
+    "taxid": "480",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 95,
+    "positive_proportion_all_samples": 0.7307692307692307,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 78,
+    "positive_proportion_all_samples": 0.6,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 57,
+    "positive_proportion_all_samples": 0.43846153846153846,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 48,
+    "positive_proportion_all_samples": 0.36923076923076925,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 37,
+    "positive_proportion_all_samples": 0.2846153846153846,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 25,
+    "positive_proportion_all_samples": 0.19230769230769232,
+    "scientific_name": "Mycobacterium tuberculosis",
+    "taxid": "1773",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 40,
+    "positive_proportion_all_samples": 0.3076923076923077,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 25,
+    "positive_proportion_all_samples": 0.19230769230769232,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 12,
+    "positive_proportion_all_samples": 0.09230769230769231,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 7,
+    "positive_proportion_all_samples": 0.05384615384615385,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 4,
+    "positive_proportion_all_samples": 0.03076923076923077,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 0,
+    "positive_proportion_all_samples": 0.0,
+    "scientific_name": "Pseudomonas aeruginosa",
+    "taxid": "287",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 75,
+    "positive_proportion_all_samples": 0.5769230769230769,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 47,
+    "positive_proportion_all_samples": 0.36153846153846153,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 20,
+    "positive_proportion_all_samples": 0.15384615384615385,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 7,
+    "positive_proportion_all_samples": 0.05384615384615385,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 6,
+    "positive_proportion_all_samples": 0.046153846153846156,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 3,
+    "positive_proportion_all_samples": 0.023076923076923078,
+    "scientific_name": "Staphylococcus aureus",
+    "taxid": "1280",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 48,
+    "positive_proportion_all_samples": 0.36923076923076925,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 31,
+    "positive_proportion_all_samples": 0.23846153846153847,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 15,
+    "positive_proportion_all_samples": 0.11538461538461539,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 7,
+    "positive_proportion_all_samples": 0.05384615384615385,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 4,
+    "positive_proportion_all_samples": 0.03076923076923077,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 1,
+    "positive_proportion_all_samples": 0.007692307692307693,
+    "scientific_name": "Stenotrophomonas maltophilia",
+    "taxid": "40324",
+    "threshold_reads_greater_or_equal": 50
+  },
+  {
+    "cohort": "external",
+    "positive_n": 54,
+    "positive_proportion_all_samples": 0.4153846153846154,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 1
+  },
+  {
+    "cohort": "external",
+    "positive_n": 39,
+    "positive_proportion_all_samples": 0.3,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 2
+  },
+  {
+    "cohort": "external",
+    "positive_n": 29,
+    "positive_proportion_all_samples": 0.2230769230769231,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 5
+  },
+  {
+    "cohort": "external",
+    "positive_n": 18,
+    "positive_proportion_all_samples": 0.13846153846153847,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 10
+  },
+  {
+    "cohort": "external",
+    "positive_n": 11,
+    "positive_proportion_all_samples": 0.08461538461538462,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 20
+  },
+  {
+    "cohort": "external",
+    "positive_n": 8,
+    "positive_proportion_all_samples": 0.06153846153846154,
+    "scientific_name": "Streptococcus pneumoniae",
+    "taxid": "1313",
+    "threshold_reads_greater_or_equal": 50
+  }
+]

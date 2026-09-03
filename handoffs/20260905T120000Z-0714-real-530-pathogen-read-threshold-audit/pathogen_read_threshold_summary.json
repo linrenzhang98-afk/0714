@@ -1,0 +1,135 @@
+{
+  "bracken_executed": false,
+  "clr_executed": false,
+  "cohorts": {
+    "anchor": 400,
+    "external": 130
+  },
+  "czm_executed": false,
+  "da_executed": false,
+  "deepseek_invoked": false,
+  "fdr_executed": false,
+  "final_positivity_threshold_selected": false,
+  "fisher_executed": false,
+  "hypothesis_testing_executed": false,
+  "jaccard_executed": false,
+  "kraken2_rerun": false,
+  "network_acquisition_performed": false,
+  "package_installation_performed": false,
+  "panel_changed": false,
+  "panel_sha256": "4e9339deadef7535620bd61901a0f61eb6c9114c83acb01df21a3a54aef3f0a2",
+  "panel_size": 11,
+  "proposals": [
+    {
+      "combined_low_read_1_to_5_proportion": 0.6712328767123288,
+      "combined_positive_n": 73,
+      "combined_top1_when_positive_proportion": 0.0136986301369863,
+      "proposed_category": "B",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Acinetobacter baumannii",
+      "special_handling": "context_dependent_or_opportunistic",
+      "taxid": "470"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.875,
+      "combined_positive_n": 8,
+      "combined_top1_when_positive_proportion": 0.0,
+      "proposed_category": "B",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Cryptococcus neoformans",
+      "special_handling": "context_dependent_or_opportunistic",
+      "taxid": "5207"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.7435897435897436,
+      "combined_positive_n": 39,
+      "combined_top1_when_positive_proportion": 0.02564102564102564,
+      "proposed_category": "B",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Escherichia coli",
+      "special_handling": "context_dependent_or_opportunistic",
+      "taxid": "562"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.5151515151515151,
+      "combined_positive_n": 99,
+      "combined_top1_when_positive_proportion": 0.04040404040404041,
+      "proposed_category": "A",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Haemophilus influenzae",
+      "special_handling": "core_clinically_interpretable_candidate",
+      "taxid": "727"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.5555555555555556,
+      "combined_positive_n": 54,
+      "combined_top1_when_positive_proportion": 0.037037037037037035,
+      "proposed_category": "A",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Klebsiella pneumoniae",
+      "special_handling": "core_clinically_interpretable_candidate",
+      "taxid": "573"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.35714285714285715,
+      "combined_positive_n": 14,
+      "combined_top1_when_positive_proportion": 0.07142857142857142,
+      "proposed_category": "A",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Moraxella catarrhalis",
+      "special_handling": "core_clinically_interpretable_candidate",
+      "taxid": "480"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.46774193548387094,
+      "combined_positive_n": 124,
+      "combined_top1_when_positive_proportion": 0.10483870967741936,
+      "proposed_category": "S",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Mycobacterium tuberculosis",
+      "special_handling": "STUDY_DEFINING_PATHOGEN_in_external_TB_cohort",
+      "taxid": "1773"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.5887850467289719,
+      "combined_positive_n": 107,
+      "combined_top1_when_positive_proportion": 0.056074766355140186,
+      "proposed_category": "A",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Pseudomonas aeruginosa",
+      "special_handling": "core_clinically_interpretable_candidate",
+      "taxid": "287"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.8733766233766234,
+      "combined_positive_n": 308,
+      "combined_top1_when_positive_proportion": 0.00974025974025974,
+      "proposed_category": "A",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Staphylococcus aureus",
+      "special_handling": "core_clinically_interpretable_candidate",
+      "taxid": "1280"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.6382978723404256,
+      "combined_positive_n": 94,
+      "combined_top1_when_positive_proportion": 0.010638297872340425,
+      "proposed_category": "B",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Stenotrophomonas maltophilia",
+      "special_handling": "context_dependent_or_opportunistic",
+      "taxid": "40324"
+    },
+    {
+      "combined_low_read_1_to_5_proportion": 0.48186528497409326,
+      "combined_positive_n": 193,
+      "combined_top1_when_positive_proportion": 0.010362694300518135,
+      "proposed_category": "A",
+      "reason": "descriptive proposal only; identity/context plus observed prevalence, low-read fraction, and deterministic top-1 behavior; no group test or threshold optimization",
+      "scientific_name": "Streptococcus pneumoniae",
+      "special_handling": "core_clinically_interpretable_candidate",
+      "taxid": "1313"
+    }
+  ],
+  "status": "PASS"
+}
