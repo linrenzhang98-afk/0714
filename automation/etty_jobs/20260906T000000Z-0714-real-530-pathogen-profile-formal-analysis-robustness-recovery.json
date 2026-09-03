@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "job_id": "20260906T000000Z-0714-real-530-pathogen-profile-formal-analysis-robustness-recovery",
+  "authorized": true,
+  "authorization_record": "Same-scope technical recovery of the authorized formal pathogen-profile analysis; fixes only fail-closed LOW_COUNT_UNSTABLE classification for pathogens with fewer than 10 primary-threshold positives. Panel, thresholds, tests, cohorts, and scientific scope are unchanged.",
+  "execution_commit": "9ede538e83811260173d3292e3511b5bf13ce8b3",
+  "job_definition_path": "automation/production/20260906T000000Z-0714-real-530-pathogen-profile-formal-analysis-robustness-recovery.json",
+  "job_definition_sha256": "ab2d3183dfde508bd53c6038a09ee98687f439f23be657bd2452c8cf9253c5d1",
+  "transfer_cap_bytes": 1,
+  "allowed_source_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "resource_caps": {
+    "allowed_executables": [
+      "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+      "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript"
+    ],
+    "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+    "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+    "allowed_environment_keys": [],
+    "wall_seconds": 3600,
+    "memory_cap_bytes": 8589934592,
+    "workspace_cap_bytes": 2147483648
+  },
+  "handoff_allowlist": [
+    "result.json",
+    "pathogen_primary_ge5.json",
+    "pathogen_sensitivity_ge1.json",
+    "pathogen_sensitivity_ge10.json",
+    "anchor_pathogen_global_tests.json",
+    "anchor_pathogen_pairwise.json",
+    "external_pathogen_associations.json",
+    "threshold_robustness.json",
+    "core_pathogen_burden.json",
+    "full_panel_burden.json",
+    "pathogen_burden_global_tests.json",
+    "dominant_pathogen_by_group.json",
+    "pathogen_codetection_ge5.json",
+    "jaccard_suitability.json",
+    "pathogen_analysis_summary.md",
+    "pathogen_analysis_manifest.json",
+    "output_hashes.json"
+  ]
+}
