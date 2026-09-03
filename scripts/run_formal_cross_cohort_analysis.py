@@ -12,6 +12,7 @@ import argparse
 import hashlib
 import json
 import platform
+from datetime import datetime, timezone
 import subprocess
 import sys
 from pathlib import Path
@@ -25,6 +26,7 @@ from shotgun_analysis.errors import InputValidationError
 from shotgun_analysis.contracts import (
     COHORT_CONTRACTS, PRODUCTION_PERMUTATIONS, analysis_role, expected_production_seeds,
     validate_expected_czm_library,
+    normalize_anchor_strata,
 )
 from shotgun_analysis.io import (
     load_common_layer_direct_species_counts, load_tsv, unique_row_index,
@@ -32,6 +34,7 @@ from shotgun_analysis.io import (
 )
 from shotgun_analysis.pipeline import analyze_cohort, pseudocount_backend
 from shotgun_analysis.results import write_compact_tsv, write_json
+from shotgun_analysis.production_package import analysis_manifest, output_hashes, validate_czm_gate
 
 
 COHORTS = {
@@ -62,6 +65,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sample-qc", type=Path, required=True)
     parser.add_argument("--r-library", type=Path)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--analysis-id", required=True)
+    parser.add_argument("--czm-gate-evidence", type=Path, required=True)
+    parser.add_argument("--czm-gate-sha256", required=True)
     parser.add_argument("--prevalence", type=float, choices=(0.05, 0.10, 0.20), default=0.10)
     parser.add_argument("--zero-method", choices=("czm", "additive_pseudocount", "none"), default="czm")
     parser.add_argument("--geometry", choices=("Aitchison", "Bray-Curtis"), default="Aitchison")
@@ -71,8 +77,10 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    started_at = datetime.now(timezone.utc).isoformat()
     # Reject an out-of-grid method combination before any input file is opened.
     analysis_role(args.prevalence, args.zero_method, args.geometry)
+    gate = validate_czm_gate(args.czm_gate_evidence, args.czm_gate_sha256)
     czm_runtime: dict[str, object] = {}
     if args.zero_method == "czm":
         if args.r_library is None:
@@ -107,6 +115,8 @@ def main() -> int:
     matrix = count_table.matrix
     groups = [row[columns["group"]] for row in manifest]
     strata = [row[columns["stratum"]] for row in manifest] if columns["stratum"] else None
+    if args.cohort == "anchor":
+        strata = normalize_anchor_strata(strata or [])
     def sha256(path: Path) -> str:
         digest = hashlib.sha256()
         with path.open("rb") as handle:
@@ -188,6 +198,41 @@ def main() -> int:
     taxon_zero_rows = result["zero_replacement_diagnostics"]["zero_fraction_per_taxon"]
     write_compact_tsv(partial_output / "taxon_zero_diagnostics.tsv", taxon_zero_rows, ["feature_id", "zero_fraction"])
     (partial_output / "execution_parameters.json").write_text(json.dumps(vars(args), default=str, indent=2) + "\n")
+    sample_rows = [{"cohort": args.cohort, "sample_id": sample_id, "run_id": sample_id,
+                    "status": "included", "clinical_group": groups[index],
+                    "permutation_stratum": strata[index] if strata else "",
+                    "input_source_sha256": result["provenance"]["counts_sha256"]}
+                   for index, sample_id in enumerate(manifest_ids)]
+    write_compact_tsv(partial_output / "sample_manifest.tsv", sample_rows,
+                      ["cohort", "sample_id", "run_id", "status", "clinical_group", "permutation_stratum", "input_source_sha256"])
+    (partial_output / "exclusions.tsv").write_text("cohort\tsample_id\treason\n", encoding="utf-8")
+    write_json(partial_output / "feature_filter_summary.json", {"cohort": args.cohort, "resolution": "species", **result["feature_filter"]})
+    write_json(partial_output / "czm_provenance.json", {"gate_job_id": gate["job_id"], "gate_evidence_sha256": args.czm_gate_sha256,
+               "isolated_library": str(args.r_library), "transformation": result["zero_handling"],
+               "runtime": czm_runtime, "warnings": []})
+    write_json(partial_output / "clr_provenance.json", result["composition_provenance"])
+    for name in ("permanova", "permdisp"):
+        write_json(partial_output / f"{name}_results.json", result["beta_diversity"][name])
+        write_compact_tsv(partial_output / f"{name}_results.tsv", [{"cohort": args.cohort, **result["beta_diversity"][name]}],
+                          ["cohort", "statistic", "effect_size", "p_value", "permutations", "seed", "df_between", "df_within", "group_counts", "algorithm"])
+    write_json(partial_output / "sensitivity_summary.json", {"cell": result["analysis_role"], "prevalence": args.prevalence,
+               "zero_method": args.zero_method, "geometry": args.geometry})
+    write_json(partial_output / "warnings.json", {"warnings": []})
+    write_json(partial_output / "session_versions.json", {"python": platform.python_version(), "R": czm_runtime.get("R_version"),
+               "packages": {key: value for key, value in czm_runtime.items() if key.endswith("_version")}})
+    hash_names = ["sample_manifest.tsv", "exclusions.tsv", "feature_filter_summary.json", "czm_provenance.json",
+                  "clr_provenance.json", "permanova_results.json", "permanova_results.tsv", "permdisp_results.json",
+                  "permdisp_results.tsv", "sensitivity_summary.json", "warnings.json", "session_versions.json"]
+    hashes = output_hashes(partial_output, hash_names)
+    write_json(partial_output / "output_hashes.json", hashes)
+    manifest_payload = {"analysis_id": args.analysis_id, "execution_commit": implementation_commit,
+        "input_hashes": {key: result["provenance"][key] for key in ("manifest_sha256", "counts_sha256", "sample_qc_sha256")},
+        "code_version": result["analysis_version"], "czm_gate": {"job_id": gate["job_id"], "sha256": args.czm_gate_sha256},
+        "seeds": {name: result["beta_diversity"][name]["seed"] for name in ("permanova", "permdisp")},
+        "parameters": {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()}, "warnings": [], "started_at": started_at,
+        "completed_at": datetime.now(timezone.utc).isoformat(), "network_acquisition_performed": False,
+        "package_installation_performed": False}
+    write_json(partial_output / "analysis_manifest.json", analysis_manifest(manifest_payload, hashes))
     write_json(partial_output / "COMPLETE.json", {
         "status": "COMPLETE", "analysis_version": result["analysis_version"],
         "cohort": result["cohort"], "result_sha256": sha256(partial_output / "result.json"),

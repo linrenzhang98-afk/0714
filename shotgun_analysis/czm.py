@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import os
 import subprocess
 import tempfile
 from pathlib import Path
@@ -13,13 +14,25 @@ from .errors import DependencyError
 
 
 EXPECTED_ZCOMPOSITIONS_VERSION = "1.6.2"
+RSCRIPT_PATH = "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript"
+MGSHOTGUN_BIN = "/home/suma/anaconda3/envs/mgshotgun/bin"
+
+
+def r_environment() -> dict[str, str]:
+    environment = os.environ.copy()
+    parts = [MGSHOTGUN_BIN]
+    for part in environment.get("PATH", "").split(os.pathsep) + os.defpath.split(os.pathsep):
+        if part and part not in parts:
+            parts.append(part)
+    environment["PATH"] = os.pathsep.join(parts)
+    return environment
 
 
 def exact_czm(
     matrix: Sequence[Sequence[int | float]],
     *,
     r_library: str | Path,
-    rscript: str = "Rscript",
+    rscript: str = RSCRIPT_PATH,
     runner: str | Path | None = None,
     runtime_provenance: dict[str, object] | None = None,
 ) -> list[list[float]]:
@@ -46,7 +59,7 @@ def exact_czm(
             str(library), str(provenance_path),
         ]
         try:
-            completed = subprocess.run(command, check=False, capture_output=True, text=True, timeout=600)
+            completed = subprocess.run(command, check=False, capture_output=True, text=True, timeout=600, env=r_environment())
         except (OSError, subprocess.TimeoutExpired) as exc:
             raise DependencyError(f"CZM adapter could not execute: {exc}") from exc
         if completed.returncode != 0:

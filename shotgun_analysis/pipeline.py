@@ -7,6 +7,8 @@ Production mode is deliberately inflexible and is validated against
 from __future__ import annotations
 
 from collections import Counter
+import hashlib
+import json
 from typing import Callable, Mapping, Sequence
 
 from .contracts import (
@@ -161,6 +163,13 @@ def analyze_cohort(
         diagnostics = zero_replacement_diagnostics(filtered.matrix, replaced, filtered.feature_names)
         closed = close_composition(replaced)
         clr = clr_transform(closed)
+        composition_provenance = {
+            "source_retained_matrix_sha256": hashlib.sha256((json.dumps(filtered.matrix, separators=(",", ":")) + "\n").encode()).hexdigest(),
+            "transformed_matrix_dimensions": [len(clr), len(clr[0])],
+            "clr_matrix_sha256": hashlib.sha256((json.dumps(clr, separators=(",", ":")) + "\n").encode()).hexdigest(),
+            "zero_replacement_strategy": zero_method,
+            "closure_rule": "row-wise closure to unit sum before CLR",
+        }
         distance = aitchison_distance(closed)
         ordination = deterministic_pca(clr, axes=5)
         require_euclidean = True
@@ -170,6 +179,8 @@ def analyze_cohort(
         diagnostics = zero_replacement_diagnostics(filtered.matrix, None, filtered.feature_names)
         distance = bray_curtis_distance(relative_abundance(filtered.matrix))
         require_euclidean = False
+        composition_provenance = {"clr_matrix_sha256": None, "transformed_matrix_dimensions": None,
+                                  "zero_replacement_strategy": "none", "closure_rule": "proportions for Bray-Curtis; no CLR"}
     else:
         raise InputValidationError(f"unsupported geometry: {geometry}")
 
@@ -279,6 +290,7 @@ def analyze_cohort(
         },
         "zero_handling": zero_handling,
         "zero_replacement_diagnostics": diagnostics,
+        "composition_provenance": composition_provenance,
         "beta_diversity": {
             "distance": geometry,
             "input_representation": (

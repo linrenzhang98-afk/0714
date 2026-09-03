@@ -3,11 +3,13 @@ import json
 import math
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from shotgun_analysis.contracts import (
     EXPECTED_ISOLATED_R_LIBRARY, analysis_role, expected_production_seeds,
     validate_expected_czm_library, validate_production_contract, validate_production_strata,
+    normalize_anchor_strata,
 )
 from shotgun_analysis.core import (
     additive_pseudocount,
@@ -20,7 +22,7 @@ from shotgun_analysis.core import (
     prevalence_filter,
     zero_replacement_diagnostics,
 )
-from shotgun_analysis.czm import exact_czm
+from shotgun_analysis.czm import MGSHOTGUN_BIN, RSCRIPT_PATH, exact_czm
 from shotgun_analysis.errors import DegenerateDesignError, DependencyError, InputValidationError
 from shotgun_analysis.io import (
     load_common_layer_direct_species_counts, load_direct_species_counts,
@@ -29,6 +31,7 @@ from shotgun_analysis.io import (
 from shotgun_analysis.permutation import restricted_permutations, validate_block_exchangeability
 from shotgun_analysis.pipeline import analyze_cohort, pseudocount_backend
 from shotgun_analysis.results import validate_result, write_json
+from shotgun_analysis.production_package import analysis_manifest, output_hashes, validate_czm_gate, REQUIRED_ARTIFACTS
 from shotgun_analysis.stats import (
     adjust_pvalues, centroid_distance_summaries, distances_to_group_centroid, mann_whitney, permanova,
     permdisp, permdisp_reference_statistics,
@@ -342,6 +345,11 @@ class InferenceTests(unittest.TestCase):
 
 
 class ProductionContractTests(unittest.TestCase):
+    def test_verified_anchor_strata_normalization(self):
+        self.assertEqual(normalize_anchor_strata(["Training Cohort", "Test Cohort"]), ["Training", "Test"])
+        for invalid in (["Training Cohort", ""], ["Training Cohort", "Training Cohort"], ["Training", "Test"]):
+            with self.assertRaises(InputValidationError):
+                normalize_anchor_strata(invalid)
     def test_allowed_method_cells(self):
         self.assertEqual(analysis_role(0.1, "czm", "Aitchison"), "PRIMARY")
         self.assertEqual(analysis_role(0.05, "czm", "Aitchison"), "FILTER_SENSITIVITY")
@@ -507,7 +515,7 @@ class EndpointAndSerializationTests(unittest.TestCase):
         result["provenance"]["method_runtime"] = {
             "R_version": "4.5.3", "effective_libPaths": isolated + ";/usr/lib/R/library",
             "isolated_library": isolated, "zCompositions_version": "1.6.2",
-            "zCompositions_path": isolated + "/zCompositions", "NADA_version": "1.6-1.1",
+            "zCompositions_path": isolated + "/zCompositions", "NADA_version": "1.6-1.2",
             "NADA_path": isolated + "/NADA", "truncnorm_version": "1.0-9",
             "truncnorm_path": isolated + "/truncnorm",
         }
@@ -551,6 +559,48 @@ class EndpointAndSerializationTests(unittest.TestCase):
             output = exact_czm([[1, 0], [0, 1]], r_library=library, rscript=str(fake), runtime_provenance=runtime)
             self.assertEqual(output, [[1.1, 0.1], [0.1, 1.1]])
             self.assertTrue(runtime["zCompositions_path"].startswith(str(library)))
+
+    def test_production_czm_default_is_absolute_and_preserves_path(self):
+        self.assertEqual(RSCRIPT_PATH, "/home/suma/anaconda3/envs/mgshotgun/bin/Rscript")
+        with patch.dict("os.environ", {"PATH": "/usr/local/bin:/usr/bin:/bin"}, clear=True):
+            from shotgun_analysis.czm import r_environment
+            path = r_environment()["PATH"].split(":")
+        self.assertEqual(path[0], MGSHOTGUN_BIN)
+        self.assertTrue({"/usr/bin", "/bin"}.issubset(path))
+
+    def test_production_r_adapter_has_robust_return_extraction(self):
+        source = (ROOT / "shotgun_analysis/run_czm.R").read_text()
+        self.assertIn("is.matrix(candidate) || is.data.frame(candidate)", source)
+        self.assertIn("length(candidates) != 1L", source)
+        self.assertIn("selected_component_path", source)
+
+    def test_gate_content_and_hash_fail_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "gate.json"
+            gate = {"job_id": "wrong"}
+            path.write_text(json.dumps(gate))
+            digest = __import__("hashlib").sha256(path.read_bytes()).hexdigest()
+            with self.assertRaisesRegex(InputValidationError, "job_id"):
+                validate_czm_gate(path, digest)
+            with self.assertRaisesRegex(InputValidationError, "SHA256"):
+                validate_czm_gate(path, "0" * 64)
+
+    def test_output_manifest_is_deterministic_and_nonrecursive(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            names = [name for name in REQUIRED_ARTIFACTS if name not in {"analysis_manifest.json", "output_hashes.json"}]
+            for name in names:
+                (root / name).write_text("x\n")
+            hashes = output_hashes(root, names)
+            first = analysis_manifest({"analysis_id": "SYNTHETIC"}, hashes)
+            self.assertEqual(first, analysis_manifest({"analysis_id": "SYNTHETIC"}, hashes))
+            self.assertNotIn("analysis_manifest.json", first["output_hashes"])
+            with self.assertRaisesRegex(InputValidationError, "recursive"):
+                analysis_manifest({}, {**hashes, "analysis_manifest.json": "0" * 64})
+
+    def test_empty_exclusions_contract_is_header_only(self):
+        header = "cohort\tsample_id\treason\n"
+        self.assertEqual(header.splitlines(), ["cohort\tsample_id\treason"])
 
 
 if __name__ == "__main__":

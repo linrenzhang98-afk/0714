@@ -197,7 +197,8 @@ def _validate_cross_field_invariants(result: Mapping[str, Any]) -> None:
             runtime = result["provenance"]["method_runtime"]
             if required_runtime - set(runtime):
                 raise InputValidationError("production CZM runtime provenance is incomplete")
-            if runtime["R_version"] != "4.5.3" or runtime["zCompositions_version"] != "1.6.2":
+            if (runtime["R_version"] != "4.5.3" or runtime["zCompositions_version"] != "1.6.2"
+                    or runtime["NADA_version"] != "1.6-1.2" or runtime["truncnorm_version"] != "1.0-9"):
                 raise InputValidationError("production R/zCompositions version mismatch")
             isolated = str(runtime["isolated_library"]).rstrip("/")
             expected_isolated = str(EXPECTED_ISOLATED_R_LIBRARY.resolve(strict=False))

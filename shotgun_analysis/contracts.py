@@ -16,6 +16,7 @@ SENSITIVITY_PREVALENCES = (0.05, 0.20)
 EXPECTED_ISOLATED_R_LIBRARY = Path(
     "/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3"
 )
+ANCHOR_STRATUM_MAP = {"Training Cohort": "Training", "Test Cohort": "Test"}
 
 COHORT_CONTRACTS = {
     "anchor": {
@@ -158,3 +159,16 @@ def validate_production_strata(cohort_key: str, strata: Sequence[str] | None) ->
             raise InputValidationError("external primary production permutations must be unrestricted")
     else:
         raise InputValidationError(f"unknown production cohort: {cohort_key}")
+
+
+def normalize_anchor_strata(values: Sequence[str]) -> list[str]:
+    """Map only the two verified published cohort labels to permutation blocks."""
+    normalized = []
+    for index, value in enumerate(values):
+        raw = str(value).strip()
+        if raw not in ANCHOR_STRATUM_MAP:
+            raise InputValidationError(f"invalid or missing anchor cohort label at row {index}: {raw!r}")
+        normalized.append(ANCHOR_STRATUM_MAP[raw])
+    if set(normalized) != {"Training", "Test"}:
+        raise InputValidationError("anchor metadata must contain both verified Training/Test cohorts")
+    return normalized

@@ -9,7 +9,7 @@
     "cohort", "n", "qc_exclusions_before_analysis", "group_counts", "contrast_orientation",
     "permutation_design", "feature_filter", "zero_handling", "zero_replacement_diagnostics",
     "beta_diversity", "uncertainty_contract", "secondary_endpoints", "secondary_contrasts",
-    "sample_metrics", "interpretation_boundary", "provenance"
+    "sample_metrics", "interpretation_boundary", "composition_provenance", "provenance"
   ],
   "properties": {
     "schema_version": {"const": "2.0.0"},
@@ -141,6 +141,7 @@
         "direct_species_is_classifier_defined_subcomposition": {"const": true}
       }
     },
+    "composition_provenance": {"type": "object", "required": ["zero_replacement_strategy", "closure_rule", "transformed_matrix_dimensions", "clr_matrix_sha256"], "additionalProperties": true},
     "provenance": {"type": "object", "minProperties": 1}
   },
   "allOf": [
