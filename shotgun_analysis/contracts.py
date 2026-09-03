@@ -22,6 +22,7 @@ COHORT_CONTRACTS = {
     "anchor": {
         "project": "PRJNA1056765",
         "n": 400,
+        "species_prefilter_features": 5198,
         "groups": {
             "Bacterial infection": 114,
             "Fungal infection": 78,
@@ -43,6 +44,7 @@ COHORT_CONTRACTS = {
     "external": {
         "project": "PRJCA046985",
         "n": 130,
+        "species_prefilter_features": 4888,
         "groups": {"Drug_Resistance": 49, "Drug_Sensitive": 81},
         "primary_orientation": {
             "type": "binary",

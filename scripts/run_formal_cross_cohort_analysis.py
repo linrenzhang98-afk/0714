@@ -100,6 +100,12 @@ def main() -> int:
     )
     manifest_ids = [row[columns["sample"]] for row in manifest]
     count_table = load_common_layer_direct_species_counts(args.counts, sorted(manifest_ids))
+    expected_features = int(COHORT_CONTRACTS[args.cohort]["species_prefilter_features"])
+    if len(count_table.feature_names) != expected_features:
+        raise InputValidationError(
+            f"production species prefilter feature count must be exactly {expected_features}; "
+            f"observed {len(count_table.feature_names)}"
+        )
     validate_sample_alignment(manifest_ids, count_table.sample_ids)
     qc_rows = load_tsv(args.sample_qc)
     missing_qc_columns = {"run", "total_input_reads", "classified_reads"} - set(qc_rows[0])

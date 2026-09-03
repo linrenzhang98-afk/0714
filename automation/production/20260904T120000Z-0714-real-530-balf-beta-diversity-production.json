@@ -1,0 +1,61 @@
+{
+  "job_id": "20260904T120000Z-0714-real-530-balf-beta-diversity-production",
+  "project": "PRJNA1056765_PRJCA046985",
+  "authorized": true,
+  "authorization_record": "Explicit user authorization for the frozen real 530-sample species-level cohort-specific beta-diversity analysis: CZM/CLR/Aitchison PERMANOVA and PERMDISP with 9999 permutations plus frozen prevalence, additive-0.5, and Bray-Curtis sensitivities; no pooled model, DA, acquisition, classifier rerun, package change, or DeepSeek.",
+  "acquire": false,
+  "analysis_type": "real_530_balf_cohort_separate_species_beta_diversity",
+  "allowed_hosts": ["none.invalid"],
+  "allowed_destination_roots": ["/mnt/disk1/0714_control/state"],
+  "transfer_cap_bytes": 1,
+  "allowed_executables": ["/home/suma/anaconda3/envs/mgshotgun/bin/python"],
+  "executable_path": "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+  "allowed_working_roots": ["/mnt/disk1/0714_control/state"],
+  "allowed_environment_keys": [],
+  "wall_seconds": 21600,
+  "memory_cap_bytes": 17179869184,
+  "workspace_cap_bytes": 21474836480,
+  "network_acquisition": false,
+  "package_installation": false,
+  "pooled_530_model": false,
+  "differential_abundance": false,
+  "handoff_allowlist": [
+    "result.json",
+    "analysis_manifest.json",
+    "sample_manifest.json",
+    "exclusions.json",
+    "feature_filter_summary.json",
+    "czm_provenance.json",
+    "clr_provenance.json",
+    "permanova_results.json",
+    "permdisp_results.json",
+    "sensitivity_summary.json",
+    "warnings.json",
+    "session_versions.json",
+    "output_hashes.json",
+    "production_summary.md"
+  ],
+  "items": [
+    {
+      "id": "REAL_530_COHORT_SEPARATE_SPECIES_BETA_DIVERSITY",
+      "url": "https://none.invalid/NO_DOWNLOAD",
+      "destination": "/mnt/disk1/0714_control/state/20260904T120000Z-0714-real-530-balf-beta-diversity-production.no-download",
+      "expected_bytes": 1,
+      "command": [
+        "/home/suma/anaconda3/envs/mgshotgun/bin/python",
+        "/mnt/disk1/0714_control/job_repo/scripts/run_530_beta_diversity_production.py",
+        "--job-id", "20260904T120000Z-0714-real-530-balf-beta-diversity-production",
+        "--anchor-manifest", "/mnt/disk1/0714_control/job_repo/reports_public/prjna1056765_clinical_groups/run_clinical_mapping.tsv",
+        "--anchor-counts", "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff/anchor_species_direct_counts.tsv",
+        "--anchor-sample-qc", "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff/anchor_sample_qc.tsv",
+        "--external-manifest", "/mnt/disk1/0714_control/job_repo/reports_public/prjca046985_external_cohort_pilot_package/manifests/PRJCA046985_exact_manifest.tsv",
+        "--external-counts", "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff/external_species_direct_counts.tsv",
+        "--external-sample-qc", "/mnt/disk1/0714_control/state/20260825T080123Z-prjna1056765-prjca046985-common-kraken2-layer-codefix-rerun-handoff/external_sample_qc.tsv",
+        "--r-library", "/mnt/disk1/0714_control/r_libs/zCompositions-1.6.2-R-4.5.3",
+        "--output-dir", "/mnt/disk1/0714_control/state/20260904T120000Z-0714-real-530-balf-beta-diversity-production-handoff"
+      ],
+      "cwd": "/mnt/disk1/0714_control/state",
+      "env": {}
+    }
+  ]
+}

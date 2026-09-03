@@ -375,6 +375,11 @@ class ProductionContractTests(unittest.TestCase):
                 geometry="Aitchison", permanova_permutations=9999, permdisp_permutations=9999,
                 permanova_seed=105676510, permdisp_seed=105676511,
             )
+
+    def test_frozen_species_prefilter_dimensions(self):
+        from shotgun_analysis.contracts import COHORT_CONTRACTS
+        self.assertEqual(COHORT_CONTRACTS["anchor"]["species_prefilter_features"], 5198)
+        self.assertEqual(COHORT_CONTRACTS["external"]["species_prefilter_features"], 4888)
         samples = [f"SYN_{i}" for i in range(400)]
         groups = ["Bacterial infection"] * 114 + ["Fungal infection"] * 78 + ["Lung cancer"] * 122 + ["Pulmonary tuberculosis"] * 86
         with self.assertRaisesRegex(InputValidationError, "exactly 9999"):
